@@ -1,0 +1,67 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+---
+
+The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+
+## Usage
+
+```tsx
+import { Button } from "@hummingbirdui/react";
+```
+
+## Examples
+
+### Default
+
+<div className="flex gap-4 p-4 border rounded-md my-4">
+  <Button>Click me</Button>
+</div>
+
+### Variants
+
+Hummingbird UI buttons support multiple variants.
+
+<div className="flex flex-wrap gap-4 p-4 border rounded-md my-4">
+  <Button variant="filled">Filled</Button>
+  <Button variant="subtle">Subtle</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="text">Text</Button>
+  <Button variant="link">Link</Button>
+</div>
+
+### Colors
+
+You can easily customize the color intention of the button.
+
+<div className="flex flex-wrap gap-4 p-4 border rounded-md my-4">
+  <Button color="primary">Primary</Button>
+  <Button color="secondary">Secondary</Button>
+  <Button color="info">Info</Button>
+  <Button color="success">Success</Button>
+  <Button color="warning">Warning</Button>
+  <Button color="danger">Danger</Button>
+  <Button color="neutral">Neutral</Button>
+  <Button color="dark">Dark</Button>
+</div>
+
+### Sizes
+
+Buttons come in three different sizes: `sm`, `md` (default), and `lg`.
+
+<div className="flex items-center gap-4 p-4 border rounded-md my-4">
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+</div>
+
+### Shapes
+
+You can change the shape of the button using the `shape` prop.
+
+<div className="flex items-center gap-4 p-4 border rounded-md my-4">
+  <Button shape="default">Default</Button>
+  <Button shape="square">SQ</Button>
+  <Button shape="circle">C</Button>
+</div>
