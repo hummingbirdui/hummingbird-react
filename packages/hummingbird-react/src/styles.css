@@ -1,0 +1,4 @@
+/* This CSS file configures Tailwind v4 for any app that imports it! */
+@import '@hummingbirdui/hummingbird';
+@source "./**/*.js";
+@source "./**/*.cjs";

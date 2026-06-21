@@ -16,5 +16,15 @@
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "@hummingbirdui/hummingbird": "^1.2.0",
+    "@tailwindcss/postcss": "^4.3.1",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.1"
   }
 }
