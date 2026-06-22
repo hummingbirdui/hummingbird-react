@@ -1,0 +1,161 @@
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-[var(--body-bg)]
+    text-[var(--body-color)]
+    text-[length:var(--body-font-size)]
+    font-[var(--body-font-weight)]
+    leading-[var(--body-line-height)];
+  }
+
+  hr {
+    @apply my-[var(--hr-margin-y)] mx-[var(--hr-margin-x)] border-t border-[var(--hr-border-color)];
+  }
+
+  h1 {
+    @apply mb-[var(--headings-margin-bottom)]
+    font-[var(--headings-font-weight)]
+    text-[length:var(--h1-font-size)]
+    leading-[var(--h1-line-height)];
+  }
+
+  h2 {
+    @apply mb-[var(--headings-margin-bottom)]
+    font-[var(--headings-font-weight)]
+    text-[length:var(--h2-font-size)]
+    leading-[var(--h2-line-height)];
+  }
+
+  h3 {
+    @apply mb-[var(--headings-margin-bottom)]
+    font-[var(--headings-font-weight)]
+    text-[length:var(--h3-font-size)]
+    leading-[var(--h3-line-height)];
+  }
+
+  h4 {
+    @apply mb-[var(--headings-margin-bottom)]
+    font-[var(--headings-font-weight)]
+    text-[length:var(--h4-font-size)]
+    leading-[var(--h4-line-height)];
+  }
+
+  h5 {
+    @apply mb-[var(--headings-margin-bottom)]
+    font-[var(--headings-font-weight)]
+    text-[length:var(--h5-font-size)]
+    leading-[var(--h5-line-height)];
+  }
+
+  h6 {
+    @apply mb-[var(--headings-margin-bottom)]
+    font-[var(--headings-font-weight)]
+    text-[length:var(--h6-font-size)]
+    leading-[var(--h6-line-height)];
+  }
+
+  p {
+    @apply mb-[var(--paragraph-margin-bottom)] mt-0;
+  }
+
+  address {
+    @apply mb-4;
+  }
+
+  /* list */
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ol,
+  ul {
+    @apply ps-8;
+  }
+
+  ol,
+  ul,
+  dl {
+    @apply mt-0 mb-4;
+  }
+
+  ol ol,
+  ul ul,
+  ol ul,
+  ul ol {
+    @apply mb-0;
+  }
+
+  dt {
+    @apply font-[var(--dt-font-weight)];
+  }
+
+  blockquote {
+    @apply mb-4;
+  }
+
+  a {
+    @apply underline text-[var(--anchor-color)] hover:text-[var(--anchor-hover-color)];
+  }
+
+  a:not([href]):not([class]) {
+    &,
+    &:hover {
+      @apply no-underline text-inherit;
+    }
+  }
+
+  code {
+    @apply text-[var(--code-color)] text-[length:var(--code-font-size)];
+    a > & {
+      @apply text-inherit;
+    }
+  }
+
+  figure {
+    @apply mb-4;
+  }
+
+  caption {
+    @apply text-left caption-bottom
+    font-[var(--caption-font-weight)]
+    px-[var(--caption-padding-x)]
+    py-[var(--caption-padding-y)];
+  }
+
+  label {
+    @apply inline-block;
+  }
+
+  button {
+    @apply cursor-pointer;
+    &:disabled {
+      @apply cursor-default;
+    }
+  }
+
+  legend {
+    @apply float-left w-full p-0
+    mb-[var(--legend-margin-bottom)]
+    font-[var(--legend-font-weight)]
+    leading-normal
+    text-[var(--legend-font-size)];
+  }
+
+  output {
+    @apply inline-block;
+  }
+
+  :root,
+  :host {
+    @variant dark {
+      color-scheme: dark;
+    }
+  }
+}

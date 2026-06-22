@@ -1,0 +1,317 @@
+@utility form-control-fill {
+  @layer base {
+    --input-bg: var(--background-color-muted);
+    --input-font-size: var(--input-btn-font-size);
+    --input-border-radius: var(--input-btn-border-radius);
+    --input-padding-x: var(--input-btn-padding-x);
+    --input-padding-y: var(--input-btn-padding-y);
+    --input-line-height: var(--input-btn-line-height);
+    --input-border-width: var(--input-btn-border-width);
+    --input-border-color: transparent;
+    --file-selector-btn-bg: var(--background-color-highlight);
+    --file-selector-btn-color: var(--text-color-default);
+    --file-selector-btn-hover-bg: var(--background-color-emphasis);
+    --file-selector-btn-disabled-bg: var(--background-color-emphasis);
+
+    @apply w-full
+    appearance-none
+    block
+    transition duration-200
+    leading-[var(--input-line-height)]
+    bg-[var(--input-bg)]
+    text-[length:var(--input-font-size)]
+    text-[var(--input-color)]
+    font-[var(--input-font-weight)]
+    rounded-[var(--input-border-radius)]
+    border-[length:var(--input-border-width)]
+    border-[var(--input-border-color)]
+    px-[var(--input-padding-x)]
+    py-[var(--input-padding-y)];
+
+    &:is(:disabled, [disabled]) {
+      @apply text-[var(--input-disabled-color)]
+      bg-[var(--input-disabled-bg)]
+      opacity-[var(--input-disabled-opacity)]
+      pointer-events-none;
+    }
+
+    @variant hover {
+      @apply bg-[var(--input-hover-bg)];
+    }
+    &:focus-within,
+    &:focus {
+      @apply outline-0
+      bg-[var(--input-focus-bg)]
+      border-[var(--input-focus-border-color)];
+    }
+    &[type='file'] {
+      overflow: hidden;
+
+      &:not(:disabled):not([readonly]) {
+        cursor: pointer;
+      }
+    }
+    &::file-selector-button {
+      @apply pointer-events-none transition-[background] duration-200
+      bg-[var(--file-selector-btn-bg)]
+      text-[var(--file-selector-btn-color)]
+      font-semibold
+      px-[var(--input-padding-x)]
+      py-[var(--input-padding-y)]
+      -mx-[var(--input-padding-x)]
+      -my-[var(--input-padding-y)]
+      me-[var(--input-padding-x)];
+    }
+    &:hover:not(:disabled):not([readonly])::file-selector-button {
+      @apply bg-(--file-selector-btn-hover-bg);
+    }
+    &:is(:disabled, [disabled])::file-selector-button {
+      @apply bg-(--file-selector-btn-disabled-bg)
+      opacity-[var(--input-disabled-opacity)]
+      pointer-events-none;
+    }
+  }
+}
+
+@utility form-control {
+  @layer base {
+    --input-font-size: var(--input-btn-font-size);
+    --input-border-radius: var(--input-btn-border-radius);
+    --input-padding-x: var(--input-btn-padding-x);
+    --input-padding-y: var(--input-btn-padding-y);
+    --input-line-height: var(--input-btn-line-height);
+    --input-border-width: var(--input-btn-border-width);
+
+    @apply w-full
+    block
+    appearance-none
+    transition duration-200
+    leading-[var(--input-line-height)]
+    text-[length:var(--input-font-size)]
+    text-[var(--input-color)]
+    font-[var(--input-btn-font-weight)]
+    rounded-[var(--input-border-radius)]
+    border-[length:var(--input-border-width)]
+    border-[var(--input-border-color)]
+    bg-[var(--input-bg)]
+    px-[var(--input-padding-x)]
+    py-[var(--input-padding-y)];
+
+    @variant hover {
+      @apply border-[var(--input-hover-border-color)];
+    }
+
+    &:focus-within,
+    &:focus {
+      @apply outline-0 border-[var(--input-focus-border-color)];
+    }
+
+    &:is(:disabled, [disabled]) {
+      @apply opacity-[var(--input-disabled-opacity)]
+      pointer-events-none;
+    }
+
+    &[type='file'] {
+      overflow: hidden;
+
+      &:not(:disabled):not([readonly]) {
+        cursor: pointer;
+      }
+    }
+    &::file-selector-button {
+      @apply pointer-events-none transition-[border] duration-200
+      font-semibold
+      px-[var(--input-padding-x)]
+      py-[var(--input-padding-y)]
+      -mx-[var(--input-padding-x)]
+      -my-[var(--input-padding-y)]
+      me-[var(--input-padding-x)]
+      border-r
+      border-[var(--input-border-color)];
+    }
+  }
+}
+
+@utility input-group-icon {
+  @layer base {
+    --input-icon-color: var(--color-active);
+    --input-icon-font-size: var(--text-xl);
+    --input-icon-padding: --spacing(11);
+    --input-icon-spacing: var(--input-btn-padding-x);
+
+    @apply relative;
+
+    &:has(> .form-control-icon-start) {
+      .form-control-fill,
+      .form-control {
+        @apply ps-[var(--input-icon-padding)];
+      }
+    }
+    &:has(> .form-control-icon-end) {
+      .form-control-fill,
+      .form-control {
+        @apply pe-[var(--input-icon-padding)];
+      }
+    }
+
+    &:has(.form-control-sm) {
+      .form-control-icon-start,
+      .form-control-icon-end {
+        --input-icon-spacing: --spacing(3);
+        --input-icon-font-size: var(--text-sm);
+      }
+    }
+    &:has(.form-control-lg) {
+      .form-control-icon-start,
+      .form-control-icon-end {
+        --input-icon-font-size: var(--text-xl);
+      }
+    }
+  }
+}
+
+@utility form-control-icon-start {
+  @layer base {
+    @apply absolute z-1 top-[50%] start-[var(--input-icon-spacing)] translate-y-[-50%]
+    text-[length:var(--input-icon-font-size)]
+    text-[var(--input-icon-color)];
+  }
+}
+@utility form-control-icon-end {
+  @layer base {
+    @apply absolute z-1 top-[50%] end-[var(--input-icon-spacing)] translate-y-[-50%]
+    text-[length:var(--input-icon-font-size)]
+    text-[var(--input-icon-color)];
+  }
+}
+
+@utility form-control-sm {
+  @layer base {
+    --input-font-size: var(--input-btn-font-size-sm);
+    --input-padding-x: var(--input-btn-padding-x-sm);
+    --input-padding-y: var(--input-btn-padding-y-sm);
+    --input-border-radius: var(--input-btn-border-radius-sm);
+    --input-line-height: var(--input-btn-line-height-sm);
+    --input-icon-padding: --spacing(8.5);
+  }
+}
+
+@utility form-control-lg {
+  @layer base {
+    --input-font-size: var(--input-btn-font-size-lg);
+    --input-padding-x: var(--input-btn-padding-x-lg);
+    --input-padding-y: var(--input-btn-padding-y-lg);
+    --input-border-radius: var(--input-btn-border-radius-lg);
+    --input-line-height: var(--input-btn-line-height-lg);
+    --input-icon-padding: --spacing(12);
+  }
+}
+
+@utility form-control-primary {
+  @layer base {
+    --file-selector-btn-bg: var(--color-primary);
+    --file-selector-btn-color: var(--color-contrast);
+    --file-selector-btn-hover-bg: var(--color-primary-dark);
+  }
+}
+@utility form-control-secondary {
+  @layer base {
+    --input-focus-bg: var(--color-secondary-lighter);
+    --input-focus-border-color: var(--color-secondary);
+    --file-selector-btn-bg: var(--color-secondary);
+    --file-selector-btn-color: var(--color-contrast);
+    --file-selector-btn-hover-bg: var(--color-secondary-dark);
+  }
+}
+@utility form-control-info {
+  @layer base {
+    --input-focus-bg: var(--color-info-lighter);
+    --input-focus-border-color: var(--color-info);
+    --file-selector-btn-bg: var(--color-info);
+    --file-selector-btn-color: var(--color-contrast);
+    --file-selector-btn-hover-bg: var(--color-info-dark);
+  }
+}
+@utility form-control-success {
+  @layer base {
+    --input-focus-bg: var(--color-success-lighter);
+    --input-focus-border-color: var(--color-success);
+    --file-selector-btn-bg: var(--color-success);
+    --file-selector-btn-color: var(--color-contrast);
+    --file-selector-btn-hover-bg: var(--color-success-dark);
+  }
+}
+@utility form-control-warning {
+  @layer base {
+    --input-focus-bg: var(--color-warning-lighter);
+    --input-focus-border-color: var(--color-warning);
+    --file-selector-btn-bg: var(--color-warning);
+    --file-selector-btn-color: var(--color-contrast);
+    --file-selector-btn-hover-bg: var(--color-warning-dark);
+  }
+}
+
+@utility form-label {
+  @layer base {
+    --input-label-color: var(--text-color-muted);
+    --input-label-font-size: var(--text-xs);
+    --input-label-font-weight: 600;
+    --input-label-bg: transparent;
+    @apply font-[var(--input-label-font-weight)]
+    text-[var(--input-label-color)]
+    text-[length:var(--input-label-font-size)]
+    bg-[var(--input-label-bg)];
+  }
+}
+
+@utility form-field {
+  @layer base {
+    @apply flex flex-col gap-1;
+    &:where(:has(.form-control-fill, .form-control, .form-select-fill, .form-select)):focus-within {
+      .form-label {
+        --input-label-color: var(--color-primary);
+      }
+    }
+    &:where(:has(.form-control-secondary, .form-select-secondary)):focus-within {
+      .form-label {
+        --input-label-color: var(--color-secondary);
+      }
+    }
+    &:where(:has(.form-control-info, .form-select-info)):focus-within {
+      .form-label {
+        --input-label-color: var(--color-info);
+      }
+    }
+    &:where(:has(.form-control-success, .form-select-success)):focus-within {
+      .form-label {
+        --input-label-color: var(--color-success);
+      }
+    }
+    &:where(:has(.form-control-warning, .form-select-warning)):focus-within {
+      .form-label {
+        --input-label-color: var(--color-warning);
+      }
+    }
+    &:has(input[disabled]) {
+      .form-label {
+        --input-label-color: var(--color-disabled-color);
+
+        @apply cursor-default;
+      }
+    }
+  }
+}
+
+@utility form-text {
+  @layer base {
+    --form-text-margin-top: --spacing(1);
+    --form-text-font-size: var(--text-xs);
+    --form-text-font-weight: 400;
+    --form-text-color: var(--text-color-muted);
+
+    @apply mt-[var(--form-text-margin-top)]
+    text-[length:var(--form-text-font-size)]
+    font-[var(--form-text-font-weight)]
+    text-[var(--form-text-color)];
+  }
+}

@@ -1,0 +1,483 @@
+.dropzone,
+.dropzone * {
+  @apply box-border;
+}
+
+.dropzone {
+  --uploader-padding: --spacing(6);
+  --uploader-bg: var(--background-color-subtle);
+  --uploader-border-color: var(--border-color-default);
+  --uploader-border-radius: var(--radius-xl);
+  --uploader-hover-border-color: var(--color-primary);
+  --uploader-hover-bg: --alpha(var(--color-primary) / 5%);
+  --uploader-avatar-overlay: --alpha(var(--color-contrast) / 70%);
+  --uploader-avatar-size: --spacing(40);
+
+  --uploader-preview-margin: --spacing(4);
+  --uploader-preview-size: --spacing(30);
+  --uploader-preview-border-radius: var(--radius-xl);
+
+  --uploader-details-padding: --spacing(8);
+  --uploader-details-font-size: var(--text-xs);
+  --uploader-details-color: var(--text-color-default);
+  --uploader-details-bg: var(--background-color-muted);
+  --uploader-details-border-radius: var(--radius-sm);
+
+  --uploader-mark-size: --spacing(12);
+  --uploader-mark-bg: --alpha(var(--color-dark) / 80%);
+  --uploader-error-mark-bg: --alpha(var(--color-danger) / 80%);
+  --uploader-success-mark-bg: --alpha(var(--color-success) / 80%);
+  --uploader-mark-border-radius: calc(infinity * 1px);
+
+  --uploader-progress-mark-height: --spacing(5);
+  --uploader-progress-mark-border-width: 3px;
+  --uploader-progress-mark-border-color: --alpha(var(--color-dark) / 80%);
+  --uploader-progress-mark-border-radius: var(--radius-xl);
+  --uploader-progress-mark-bg: --alpha(var(--color-dark) / 80%);
+  --uploader-progress-mark-upload-bg: var(--color-white);
+  --uploader-progress-mark-upload-radius: var(--radius-2xl);
+
+  --uploader-error-message-padding: --spacing(2);
+  --uploader-error-message-color: var(--color-white);
+  --uploader-error-message-font-size: var(--text-xs);
+  --uploader-error-message-width: --spacing(35);
+  --uploader-error-message-bg: var(--color-danger-dark);
+  --uploader-error-message-border-radius: var(--radius-lg);
+
+  @layer base {
+    @apply p-[var(--uploader-padding)]
+    bg-[var(--uploader-bg)]
+    border
+    border-dashed
+    border-[var(--uploader-border-color)]
+    rounded-[var(--uploader-border-radius)]
+    hover:border-[var(--uploader-hover-border-color)]
+    hover:bg-[var(--uploader-hover-bg)]
+    transition
+    duration-300;
+
+    &.dz-clickable {
+      @apply cursor-pointer;
+
+      * {
+        @apply cursor-default;
+      }
+
+      .dz-message,
+      .dz-message * {
+        @apply cursor-pointer;
+      }
+    }
+
+    &.dz-started .dz-message {
+      @apply hidden;
+    }
+
+    &.dz-drag-hover {
+      @apply opacity-50;
+    }
+
+    .dz-message {
+      @apply text-center my-3;
+
+      & > p {
+        @apply mb-0;
+      }
+
+      .dz-button {
+        @apply p-0 border-0 bg-transparent cursor-pointer outline-none;
+      }
+    }
+
+    .dz-preview {
+      @apply relative 
+      inline-block 
+      align-top 
+      m-[var(--uploader-preview-margin)]
+      size-[var(--uploader-preview-size)] 
+      rounded-[var(--uploader-preview-border-radius)];
+
+      &:hover {
+        @apply z-50;
+        .dz-details {
+          @apply opacity-100;
+        }
+      }
+
+      &.dz-file-preview {
+        .dz-image {
+          @apply bg-gradient-to-b
+          from-[var(--background-color-subtle)]
+          to-[var(--background-color-muted)];
+        }
+        .dz-details {
+          @apply opacity-100;
+        }
+      }
+
+      &.dz-image-preview {
+        @apply bg-white;
+        .dz-details {
+          @apply transition-opacity duration-200 ease-linear;
+        }
+      }
+
+      .dz-remove {
+        @apply text-sm text-center block cursor-pointer border-0;
+        &:hover {
+          @apply underline;
+        }
+      }
+
+      .dz-details {
+        @apply p-[var(--uploader-details-padding)]
+        text-[length:var(--uploader-details-font-size)]
+        text-[var(--uploader-details-color)]
+        text-center 
+        leading-[150%]
+        min-w-full 
+        max-w-full 
+        absolute
+        inset-0 
+        opacity-0 
+        z-20;
+
+        .dz-size {
+          @apply mb-4 text-base;
+        }
+
+        .dz-filename {
+          @apply whitespace-nowrap;
+          &:hover span {
+            @apply border border-subtle
+            bg-[var(--uploader-details-bg)];
+          }
+          &:not(:hover) {
+            @apply overflow-hidden text-ellipsis;
+          }
+          &:not(:hover) span {
+            @apply border border-transparent;
+          }
+        }
+
+        .dz-filename span,
+        .dz-size span {
+          @apply px-1
+          bg-[var(--uploader-details-bg)]
+          rounded-[var(--uploader-details-border-radius)];
+        }
+      }
+
+      &:hover .dz-image img {
+        @apply scale-[1.05] blur-sm;
+      }
+
+      .dz-image {
+        @apply rounded-xl overflow-hidden size-full relative block z-10;
+
+        img {
+          @apply block;
+        }
+      }
+
+      .dz-success-mark,
+      .dz-error-mark {
+        @apply block
+        absolute top-1/2 left-1/2
+        transform -translate-1/2
+        pointer-events-none opacity-0 z-50
+        bg-[var(--uploader-mark-bg)] 
+        rounded-[var(--uploader-mark-border-radius)];
+
+        svg {
+          @apply block size-[var(--uploader-mark-size)] fill-white;
+        }
+      }
+
+      &.dz-success .dz-success-mark {
+        @apply bg-[var(--uploader-success-mark-bg)] 
+        animate-[passing-through_3s_cubic-bezier(0.77,0,0.175,1)];
+      }
+
+      &.dz-error .dz-error-mark {
+        @apply opacity-100 
+        bg-[var(--uploader-error-mark-bg)] 
+        animate-[slide-in_3s_cubic-bezier(0.77,0,0.175,1)];
+      }
+
+      &.dz-processing .dz-progress {
+        @apply opacity-100 transition-all duration-200 ease-linear;
+      }
+
+      &.dz-complete .dz-progress {
+        @apply opacity-0 transition-opacity duration-400 ease-in;
+      }
+
+      &:not(.dz-processing) .dz-progress {
+        @apply animate-[pulse_6s_ease_infinite];
+      }
+
+      .dz-progress {
+        @apply -mt-2.5
+        absolute
+        top-1/2
+        left-3/20
+        right-3/20
+        h-[var(--uploader-progress-mark-height)]
+        border-[length:var(--uploader-progress-mark-border-width)]
+        border-[var(--uploader-progress-mark-border-color)]
+        rounded-[var(--uploader-progress-mark-border-radius)]
+        bg-[var(--uploader-progress-mark-bg)]
+        pointer-events-none
+        overflow-hidden
+        opacity-100
+        z-50;
+
+        .dz-upload {
+          @apply block
+          relative
+          h-full
+          w-0
+          transition-[width]
+          duration-300
+          ease-in-out
+          bg-[var(--uploader-progress-mark-upload-bg)]
+          rounded-[var(--uploader-progress-mark-upload-radius)];
+        }
+      }
+
+      &.dz-error .dz-error-message {
+        @apply block;
+      }
+
+      &.dz-error:hover .dz-error-message {
+        @apply opacity-100 pointer-events-auto;
+      }
+
+      .dz-error-message {
+        @apply p-[var(--uploader-error-message-padding)]
+        text-[length:var(--uploader-error-message-font-size)] 
+        text-[var(--uploader-error-message-color)]
+        w-[var(--uploader-error-message-width)]
+        absolute
+        top-32
+        -left-2.5
+        hidden
+        opacity-0
+        transition-opacity
+        duration-300
+        ease-in
+        rounded-[var(--uploader-error-message-border-radius)]
+        bg-[var(--uploader-error-message-bg)]
+        pointer-events-none
+        z-100;
+
+        &::after {
+          @apply content-[''] 
+          absolute 
+          -top-1.5
+          left-16 
+          border-[6px] 
+          border-t-0 
+          border-transparent 
+          border-b-[var(--uploader-error-message-bg)];
+        }
+      }
+    }
+
+    /* avatar dropzone */
+    &.dropzone-avatar {
+      @apply relative 
+      p-0 
+      size-[var(--uploader-avatar-size)] 
+      rounded-full 
+      overflow-hidden;
+
+      .dz-message {
+        @apply absolute 
+        m-0 
+        size-full 
+        flex 
+        items-center 
+        justify-center 
+        z-1000;
+      }
+
+      &.dz-started .dz-message {
+        @apply opacity-0 invisible transition duration-200;
+      }
+
+      &.dz-started:hover .dz-message {
+        @apply opacity-100 visible bg-[var(--uploader-avatar-overlay)];
+      }
+
+      .dz-preview {
+        @apply m-0 size-full pointer-events-none;
+
+        .dz-image {
+          @apply size-full;
+
+          & > img {
+            @apply size-full object-cover;
+          }
+        }
+
+        &:hover .dz-image img {
+          @apply scale-100 blur-none;
+        }
+
+        .dz-details,
+        .dz-progress,
+        .dz-error-message,
+        .dz-success-mark,
+        .dz-error-mark {
+          @apply hidden;
+        }
+      }
+    }
+  }
+}
+
+.dz-list-preview {
+  --uploader-list-padding: --spacing(2);
+  --uploader-list-font-size: var(--text-sm);
+  --uploader-list-bg: var(--background-color-subtle);
+  --uploader-list-border-radius: var(--radius-lg);
+  --uploader-list-image-size: --spacing(13);
+  --uploader-list-image-border-width: var(--border-width);
+  --uploader-list-image-border-color: var(--border-color-subtle);
+  --uploader-list-image-border-radius: var(--radius-lg);
+
+  @layer base {
+    @apply mt-4 space-y-2;
+
+    .dz-preview {
+      @apply relative 
+      p-[var(--uploader-list-padding)] 
+      flex items-center gap-3 
+      bg-[var(--uploader-list-bg)] 
+      rounded-[var(--uploader-list-border-radius)];
+
+      .dz-image {
+        @apply size-[var(--uploader-list-image-size)] 
+        border-[length:var(--uploader-list-image-border-width)]
+        border-[var(--uploader-list-image-border-color)]
+        rounded-[var(--uploader-list-image-border-radius)]
+        overflow-hidden;
+
+        & > img {
+          @apply object-cover size-full;
+        }
+      }
+
+      .dz-file-info {
+        @apply flex-1 
+        flex flex-col gap-1.5 
+        text-[var(--uploader-list-font-size)]
+        truncate;
+      }
+    }
+  }
+}
+
+.dz-thumbnail-preview {
+  --uploader-dropbox-size: --spacing(15);
+  --uploader-thumbnail-size: --spacing(14);
+  --uploader-thumbnail-border-width: var(--border-width);
+  --uploader-thumbnail-border-color: var(--border-color-subtle);
+  --uploader-thumbnail-border-radius: var(--radius-lg);
+  --uploader-thumbnail-remove-btn-size: --spacing(3);
+  --uploader-thumbnail-remove-btn-bg: var(--color-dark);
+  --uploader-thumbnail-remove-btn-color: var(--color-white);
+  --uploader-thumbnail-remove-btn-radius: calc(infinity * 1px);
+
+  @layer base {
+    @apply mt-4 flex flex-wrap items-center gap-2;
+
+    .dz-preview {
+      @apply relative;
+
+      .dz-image {
+        @apply size-[var(--uploader-thumbnail-size)] 
+        border-[length:var(--uploader-thumbnail-border-width)] 
+        border-[var(--uploader-thumbnail-border-color)] 
+        rounded-[var(--uploader-thumbnail-border-radius)] 
+        overflow-hidden;
+
+        & > img {
+          @apply object-cover size-full;
+        }
+      }
+
+      .dz-file-remove {
+        @apply absolute 
+        -top-1 
+        -right-1 
+        flex items-center justify-center 
+        size-[var(--uploader-thumbnail-remove-btn-size)]
+        text-[var(--uploader-thumbnail-remove-btn-color)]
+        bg-[var(--uploader-thumbnail-remove-btn-bg)]
+        rounded-[var(--uploader-thumbnail-remove-btn-radius)];
+      }
+    }
+
+    &.dz-dropbox-preview {
+      @apply mt-0;
+
+      .dz-image {
+        @apply size-[var(--uploader-dropbox-size)];
+      }
+
+      .dropzone {
+        @apply p-0 size-[var(--uploader-dropbox-size)] rounded-lg order-last;
+
+        .dz-message {
+          @apply m-0 size-full flex items-center justify-center;
+        }
+
+        &.dz-started .dz-message {
+          @apply flex;
+        }
+      }
+    }
+  }
+}
+
+@keyframes passing-through {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30%,
+  70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+}
