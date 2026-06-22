@@ -98,7 +98,8 @@ const buttonVariants = cva('btn', {
 });
 
 export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
+  extends
+    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
     VariantProps<typeof buttonVariants> {
   /** Render as a child element (e.g. Next.js Link). Uses Radix Slot. */
   asChild?: boolean;
@@ -106,11 +107,12 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, color, size, shape, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Slot : 'button';
+    const Comp = asChild ? Slot.Root : 'button';
 
     return (
       <Comp
         ref={ref}
+        data-slot="button"
         className={cn(buttonVariants({ variant, color, size, shape }), className)}
         {...props}
       />
