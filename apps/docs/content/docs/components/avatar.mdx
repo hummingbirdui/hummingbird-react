@@ -1,0 +1,56 @@
+---
+title: Avatar
+description: Represents a user with an image or initials, optionally showing presence.
+---
+
+### Default
+
+Use `AvatarName` to render initials inside an avatar.
+
+<div className="flex items-center gap-3 my-4">
+  <Avatar>
+    <AvatarName>HB</AvatarName>
+  </Avatar>
+</div>
+
+### Image
+
+Render the avatar as an `img` with `asChild`.
+
+<div className="flex items-center gap-3 my-4">
+  <Avatar asChild>
+    <img src="https://i.pravatar.cc/80?img=12" alt="User avatar" />
+  </Avatar>
+</div>
+
+### Sizes
+
+Avatars come in four sizes: `xs`, `sm`, `md` (default), and `lg`.
+
+<div className="flex items-center gap-3 my-4">
+  <Avatar size="xs"><AvatarName>XS</AvatarName></Avatar>
+  <Avatar size="sm"><AvatarName>SM</AvatarName></Avatar>
+  <Avatar size="md"><AvatarName>MD</AvatarName></Avatar>
+  <Avatar size="lg"><AvatarName>LG</AvatarName></Avatar>
+</div>
+
+### Status
+
+Show a presence indicator with the `status` prop.
+
+<div className="flex items-center gap-3 my-4">
+  <Avatar status="online"><AvatarName>ON</AvatarName></Avatar>
+  <Avatar status="away"><AvatarName>AW</AvatarName></Avatar>
+  <Avatar status="busy"><AvatarName>BS</AvatarName></Avatar>
+  <Avatar status="offline"><AvatarName>OF</AvatarName></Avatar>
+</div>
+
+### Group
+
+Wrap avatars in `AvatarGroup` to overlap them.
+
+<AvatarGroup className="my-4">
+  <Avatar><AvatarName>AB</AvatarName></Avatar>
+  <Avatar><AvatarName>CD</AvatarName></Avatar>
+  <Avatar><AvatarName>EF</AvatarName></Avatar>
+</AvatarGroup>

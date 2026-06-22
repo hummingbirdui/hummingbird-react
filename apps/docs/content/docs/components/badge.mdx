@@ -1,0 +1,108 @@
+---
+title: Badge
+description: A small count or status descriptor for UI elements.
+---
+
+### Default
+
+The base badge is a solid, dark pill.
+
+<div className="flex flex-wrap items-center gap-2 my-4">
+  <Badge>Default</Badge>
+</div>
+
+### Colors
+
+Pair the filled variant with a `color` to convey intent.
+
+<div className="flex flex-wrap items-center gap-2 my-4">
+  <Badge color="primary">Primary</Badge>
+  <Badge color="secondary">Secondary</Badge>
+  <Badge color="info">Info</Badge>
+  <Badge color="success">Success</Badge>
+  <Badge color="warning">Warning</Badge>
+  <Badge color="danger">Danger</Badge>
+</div>
+
+### Subtle
+
+The `subtle` variant uses a muted, low-contrast surface.
+
+<div className="flex flex-wrap items-center gap-2 my-4">
+  <Badge variant="subtle" color="primary">
+    Primary
+  </Badge>
+  <Badge variant="subtle" color="success">
+    Success
+  </Badge>
+  <Badge variant="subtle" color="warning">
+    Warning
+  </Badge>
+  <Badge variant="subtle" color="danger">
+    Danger
+  </Badge>
+</div>
+
+### Outline
+
+The `outline` variant is transparent with a colored border.
+
+<div className="flex flex-wrap items-center gap-2 my-4">
+  <Badge variant="outline" color="primary">
+    Primary
+  </Badge>
+  <Badge variant="outline" color="info">
+    Info
+  </Badge>
+  <Badge variant="outline" color="danger">
+    Danger
+  </Badge>
+</div>
+
+### Sizes
+
+Badges come in three sizes: `sm` (default), `md`, and `lg`.
+
+<div className="flex flex-wrap items-center gap-2 my-4">
+  <Badge color="primary" size="sm">
+    Small
+  </Badge>
+  <Badge color="primary" size="md">
+    Medium
+  </Badge>
+  <Badge color="primary" size="lg">
+    Large
+  </Badge>
+</div>
+
+### Link
+
+Add the `link` prop for an interactive badge, and `asChild` to render it as an anchor.
+
+<div className="flex flex-wrap items-center gap-2 my-4">
+  <Badge link asChild color="primary">
+    <a href="#link">Primary link</a>
+  </Badge>
+  <Badge link asChild variant="subtle" color="info">
+    <a href="#link">Subtle link</a>
+  </Badge>
+</div>
+
+### With action button
+
+Use `BadgeActionButton` for a dismissible badge.
+
+<div className="flex flex-wrap items-center gap-2 my-4">
+  <Badge color="primary" size="md">
+    Dismissible
+    <BadgeActionButton aria-label="Remove">
+      <span aria-hidden="true">×</span>
+    </BadgeActionButton>
+  </Badge>
+  <Badge variant="subtle" color="success" size="md">
+    Tag
+    <BadgeActionButton aria-label="Remove">
+      <span aria-hidden="true">×</span>
+    </BadgeActionButton>
+  </Badge>
+</div>

@@ -1,0 +1,64 @@
+---
+title: Alert
+description: Displays a short, important message to attract the user's attention.
+---
+
+### Default
+
+The base alert is a solid, dark surface.
+
+<Alert className="my-4 max-w-2xl">This is a default alert.</Alert>
+
+### Colors
+
+Pair the filled variant with a `color` to convey intent.
+
+<div className="flex flex-col gap-3 my-4 max-w-2xl">
+  <Alert color="primary">A primary alert with helpful information.</Alert>
+  <Alert color="success">Your changes have been saved successfully.</Alert>
+  <Alert color="warning">Your subscription is about to expire.</Alert>
+  <Alert color="danger">Something went wrong while saving.</Alert>
+</div>
+
+### With icon
+
+Place an `AlertIcon` as the first child to draw attention to the message. It picks up the alert's contrast color and aligns with the text.
+
+<div className="flex flex-col gap-3 my-4 max-w-2xl">
+  <Alert color="info">
+    <AlertIcon>ℹ️</AlertIcon>
+    A new software update is available.
+  </Alert>
+  <Alert color="success">
+    <AlertIcon>✅</AlertIcon>
+    Your changes have been saved successfully.
+  </Alert>
+  <Alert variant="subtle" color="warning">
+    <AlertIcon>⚠️</AlertIcon>
+    Your subscription is about to expire.
+  </Alert>
+  <Alert variant="outline" color="danger">
+    <AlertIcon>⛔</AlertIcon>
+    Something went wrong while saving.
+  </Alert>
+</div>
+
+### Subtle
+
+The `subtle` variant uses a muted, low-contrast surface.
+
+<div className="flex flex-col gap-3 my-4 max-w-2xl">
+  <Alert variant="subtle" color="info">A subtle info alert.</Alert>
+  <Alert variant="subtle" color="success">A subtle success alert.</Alert>
+  <Alert variant="subtle" color="danger">A subtle danger alert.</Alert>
+</div>
+
+### Outline
+
+The `outline` variant is transparent with a colored border.
+
+<div className="flex flex-col gap-3 my-4 max-w-2xl">
+  <Alert variant="outline" color="primary">An outlined primary alert.</Alert>
+  <Alert variant="outline" color="warning">An outlined warning alert.</Alert>
+  <Alert variant="outline" color="danger">An outlined danger alert.</Alert>
+</div>
