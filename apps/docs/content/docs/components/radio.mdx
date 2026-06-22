@@ -1,0 +1,67 @@
+---
+title: Radio
+description: A styled native radio button, with an optional group wrapper.
+---
+
+### Default
+
+Wrap radios in a `RadioGroup` to share a `name` and manage the selected value.
+
+<div className="my-4">
+  <RadioGroup name="plan" defaultValue="pro" className="flex flex-col gap-2">
+    <Radio value="free" label="Free" />
+    <Radio value="pro" label="Pro" />
+    <Radio value="team" label="Team" />
+  </RadioGroup>
+</div>
+
+### Colors
+
+<div className="my-4">
+  <RadioGroup
+    name="color-demo"
+    defaultValue="primary"
+    className="flex flex-col gap-2"
+  >
+    <Radio value="primary" color="primary" label="Primary" />
+    <Radio value="success" color="success" label="Success" />
+    <Radio value="danger" color="danger" label="Danger" />
+  </RadioGroup>
+</div>
+
+### Sizes
+
+<div className="my-4">
+  <RadioGroup
+    name="size-demo"
+    defaultValue="md"
+    className="flex flex-col gap-2"
+  >
+    <Radio value="sm" size="sm" label="Small" />
+    <Radio value="md" size="md" label="Medium" />
+    <Radio value="lg" size="lg" label="Large" />
+  </RadioGroup>
+</div>
+
+### Inline
+
+<div className="my-4">
+  <RadioGroup name="inline-demo" defaultValue="a" className="flex flex-wrap">
+    <Radio inline value="a" label="Option A" />
+    <Radio inline value="b" label="Option B" />
+    <Radio inline value="c" label="Option C" />
+  </RadioGroup>
+</div>
+
+### Disabled
+
+<div className="my-4">
+  <RadioGroup
+    name="disabled-demo"
+    defaultValue="on"
+    className="flex flex-col gap-2"
+  >
+    <Radio value="on" label="Enabled" />
+    <Radio value="off" label="Disabled" disabled />
+  </RadioGroup>
+</div>

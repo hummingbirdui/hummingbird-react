@@ -1,0 +1,76 @@
+---
+title: Select
+description: A styled native select for choosing one option from a list.
+---
+
+### Default
+
+`Select` renders a native `<select>`. Pass `<option>`s as children.
+
+<div className="flex flex-col gap-2 max-w-sm my-4">
+  <Select defaultValue="">
+    <option value="" disabled>
+      Choose a fruit…
+    </option>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="cherry">Cherry</option>
+  </Select>
+</div>
+
+### Variants
+
+<div className="flex flex-col gap-2 max-w-sm my-4">
+  <Select variant="outline" defaultValue="apple">
+    <option value="apple">Outline</option>
+  </Select>
+  <Select variant="fill" defaultValue="apple">
+    <option value="apple">Fill</option>
+  </Select>
+</div>
+
+### Sizes
+
+<div className="flex flex-col gap-2 max-w-sm my-4">
+  <Select size="sm" defaultValue="apple">
+    <option value="apple">Small</option>
+  </Select>
+  <Select size="md" defaultValue="apple">
+    <option value="apple">Medium</option>
+  </Select>
+  <Select size="lg" defaultValue="apple">
+    <option value="apple">Large</option>
+  </Select>
+</div>
+
+### Colors
+
+`color` sets the focus accent.
+
+<div className="flex flex-col gap-2 max-w-sm my-4">
+  <Select color="success" defaultValue="apple">
+    <option value="apple">Success</option>
+  </Select>
+  <Select color="warning" defaultValue="apple">
+    <option value="apple">Warning</option>
+  </Select>
+</div>
+
+### Validation state
+
+<div className="flex flex-col gap-2 max-w-sm my-4">
+  <Select state="invalid" defaultValue="">
+    <option value="" disabled>
+      Required…
+    </option>
+    <option value="apple">Apple</option>
+  </Select>
+</div>
+
+### Disabled
+
+<div className="flex flex-col gap-2 max-w-sm my-4">
+  <Select disabled defaultValue="apple">
+    <option value="apple">Disabled</option>
+  </Select>
+</div>

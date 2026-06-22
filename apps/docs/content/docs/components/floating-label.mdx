@@ -1,0 +1,57 @@
+---
+title: Floating Label
+description: A label that floats above the control once it is focused or filled.
+---
+
+### Default
+
+Wrap a single control as the child and pass the `label`. The label is rendered
+after the control automatically, and a blank placeholder is injected so the
+float can react to the filled state.
+
+<div className="max-w-sm my-4">
+  <FloatingLabel label="Email address" htmlFor="fl-email">
+    <FormControl id="fl-email" type="email" />
+  </FloatingLabel>
+</div>
+
+### Filled variant
+
+Floating labels work with the `fill` variant too.
+
+<div className="max-w-sm my-4">
+  <FloatingLabel label="Full name" htmlFor="fl-name">
+    <FormControl id="fl-name" variant="fill" />
+  </FloatingLabel>
+</div>
+
+### Sizes
+
+<div className="flex flex-col gap-3 max-w-sm my-4">
+  <FloatingLabel label="Small" htmlFor="fl-sm">
+    <FormControl id="fl-sm" size="sm" />
+  </FloatingLabel>
+  <FloatingLabel label="Large" htmlFor="fl-lg">
+    <FormControl id="fl-lg" size="lg" />
+  </FloatingLabel>
+</div>
+
+### With a select
+
+<div className="max-w-sm my-4">
+  <FloatingLabel label="Favorite fruit" htmlFor="fl-fruit">
+    <Select id="fl-fruit" defaultValue="apple">
+      <option value="apple">Apple</option>
+      <option value="banana">Banana</option>
+      <option value="cherry">Cherry</option>
+    </Select>
+  </FloatingLabel>
+</div>
+
+### With a textarea
+
+<div className="max-w-sm my-4">
+  <FloatingLabel label="Comments" htmlFor="fl-comments">
+    <Textarea id="fl-comments" rows={4} />
+  </FloatingLabel>
+</div>

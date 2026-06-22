@@ -1,0 +1,68 @@
+---
+title: Input Group
+description: Join controls, addons, and buttons into a single combined control.
+---
+
+### Default
+
+Wrap an `InputGroupText` addon and a `FormControl` in an `InputGroup`.
+
+<div className="max-w-sm my-4">
+  <InputGroup>
+    <InputGroupText>@</InputGroupText>
+    <FormControl placeholder="Username" />
+  </InputGroup>
+</div>
+
+### Trailing addon
+
+<div className="max-w-sm my-4">
+  <InputGroup>
+    <FormControl placeholder="Amount" />
+    <InputGroupText>.00</InputGroupText>
+  </InputGroup>
+</div>
+
+### Both sides
+
+<div className="max-w-sm my-4">
+  <InputGroup>
+    <InputGroupText>$</InputGroupText>
+    <FormControl placeholder="0" />
+    <InputGroupText>USD</InputGroupText>
+  </InputGroup>
+</div>
+
+### With a button
+
+<div className="max-w-sm my-4">
+  <InputGroup>
+    <FormControl placeholder="Search…" />
+    <Button>Go</Button>
+  </InputGroup>
+</div>
+
+### With a select
+
+<div className="max-w-sm my-4">
+  <InputGroup>
+    <InputGroupText>Sort</InputGroupText>
+    <Select defaultValue="new">
+      <option value="new">Newest</option>
+      <option value="old">Oldest</option>
+    </Select>
+  </InputGroup>
+</div>
+
+### Sizes
+
+<div className="flex flex-col gap-2 max-w-sm my-4">
+  <InputGroup size="sm">
+    <InputGroupText>@</InputGroupText>
+    <FormControl placeholder="Small" />
+  </InputGroup>
+  <InputGroup size="lg">
+    <InputGroupText>@</InputGroupText>
+    <FormControl placeholder="Large" />
+  </InputGroup>
+</div>

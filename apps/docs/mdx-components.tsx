@@ -1,19 +1,36 @@
 import type { MDXComponents } from "mdx/types";
+// Import from per-component subpaths, not the root barrel. The barrel inlines
+// `RadioGroup`'s top-level `React.createContext(...)`, which throws when this
+// (server) module imports it. The subpath files are self-contained, so the
+// server graph never pulls `createContext`.
+import { Button } from "@hummingbirdui/react/button";
+import { ButtonGroup, ButtonToolbar } from "@hummingbirdui/react/button-group";
+import { Alert, AlertIcon } from "@hummingbirdui/react/alert";
+import { Badge, BadgeActionButton } from "@hummingbirdui/react/badge";
+import { Avatar, AvatarName, AvatarGroup } from "@hummingbirdui/react/avatar";
 import {
-  Button,
-  Alert,
-  AlertIcon,
-  Badge,
-  BadgeActionButton,
-  Avatar,
-  AvatarName,
-  AvatarGroup,
   Breadcrumb,
   BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbPage,
-} from "@hummingbirdui/react";
+} from "@hummingbirdui/react/breadcrumb";
+import {
+  FormControl,
+  Textarea,
+  FormLabel,
+  FormField,
+  FormText,
+  InputIcon,
+  InputIconStart,
+  InputIconEnd,
+} from "@hummingbirdui/react/form-control";
+import { FloatingLabel } from "@hummingbirdui/react/floating-label";
+import { Select } from "@hummingbirdui/react/select";
+import { Switch } from "@hummingbirdui/react/switch";
+import { InputGroup, InputGroupText } from "@hummingbirdui/react/input-group";
+// Hook/context-using controls go through a "use client" boundary.
+import { Checkbox, Radio, RadioGroup } from "@/components/form";
 import {
   Accordion,
   AccordionItem,
@@ -30,6 +47,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Wrapping the Button component fixes the ForwardRefExoticComponent type conflict
     // that occurs between @types/react and @types/mdx
     Button: (props: any) => <Button {...props} />,
+    ButtonGroup: (props: any) => <ButtonGroup {...props} />,
+    ButtonToolbar: (props: any) => <ButtonToolbar {...props} />,
 
     // Simple display components, wrapped like Button to sidestep the same
     // ForwardRefExoticComponent type conflict.
@@ -45,6 +64,24 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     BreadcrumbItem: (props: any) => <BreadcrumbItem {...props} />,
     BreadcrumbLink: (props: any) => <BreadcrumbLink {...props} />,
     BreadcrumbPage: (props: any) => <BreadcrumbPage {...props} />,
+
+    // Form components — native HTML form elements styled by Hummingbird CSS.
+    FormControl: (props: any) => <FormControl {...props} />,
+    Textarea: (props: any) => <Textarea {...props} />,
+    FormLabel: (props: any) => <FormLabel {...props} />,
+    FormField: (props: any) => <FormField {...props} />,
+    FormText: (props: any) => <FormText {...props} />,
+    InputIcon: (props: any) => <InputIcon {...props} />,
+    InputIconStart: (props: any) => <InputIconStart {...props} />,
+    InputIconEnd: (props: any) => <InputIconEnd {...props} />,
+    FloatingLabel: (props: any) => <FloatingLabel {...props} />,
+    Select: (props: any) => <Select {...props} />,
+    Checkbox: (props: any) => <Checkbox {...props} />,
+    Radio: (props: any) => <Radio {...props} />,
+    RadioGroup: (props: any) => <RadioGroup {...props} />,
+    Switch: (props: any) => <Switch {...props} />,
+    InputGroup: (props: any) => <InputGroup {...props} />,
+    InputGroupText: (props: any) => <InputGroupText {...props} />,
 
     // Accordion primitives, exposed so MDX can compose them inline. They come
     // from a client boundary (see components/accordion.tsx) so their hooks run

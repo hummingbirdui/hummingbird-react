@@ -1,6 +1,6 @@
 import { defineConfig } from 'tsup';
 
-export default defineConfig({
+export default defineConfig((options) => ({
   entry: [
     // Root barrel — `@hummingbirdui/react`
     'src/index.ts',
@@ -20,6 +20,10 @@ export default defineConfig({
   // No code-splitting: each entry is self-contained (no chunk-*.js files).
   splitting: false,
   sourcemap: true,
-  clean: true,
+  // Wipe `dist` only for a one-shot production build. In `--watch` (dev),
+  // cleaning on every rebuild empties `dist` mid-build, so the docs app's
+  // `next dev` momentarily fails to resolve `@hummingbirdui/react/<x>` and
+  // Turbopack hard-crashes. Overwriting in place keeps each file resolvable.
+  clean: !options.watch,
   external: ['react', 'react-dom', '@hummingbirdui/hummingbird'],
-});
+}));
