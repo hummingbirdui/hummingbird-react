@@ -59,50 +59,45 @@ const badgeVariants = cva('badge', {
 });
 
 export interface BadgeProps
-  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>, VariantProps<typeof badgeVariants> {
-  /** Render as a child element (e.g. a link). Uses Radix Slot. */
+  extends Omit<React.ComponentProps<'span'>, 'color'>, VariantProps<typeof badgeVariants> {
   asChild?: boolean;
 }
 
-const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ className, variant, color, size, link, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : 'span';
+function Badge({ className, variant, color, size, link, asChild = false, ...props }: BadgeProps) {
+  const Comp = asChild ? Slot.Root : 'span';
 
-    return (
-      <Comp
-        ref={ref}
-        data-slot="badge"
-        className={cn(badgeVariants({ variant, color, size, link }), className)}
-        {...props}
-      />
-    );
-  }
-);
+  return (
+    <Comp
+      data-slot="badge"
+      className={cn(badgeVariants({ variant, color, size, link }), className)}
+      {...props}
+    />
+  );
+}
 
 Badge.displayName = 'Badge';
 
-export interface BadgeActionButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Render as a child element. Uses Radix Slot. */
+export interface BadgeActionButtonProps extends React.ComponentProps<'button'> {
   asChild?: boolean;
 }
 
-/** A small circular action (e.g. a dismiss button) rendered inside a Badge. */
-const BadgeActionButton = React.forwardRef<HTMLButtonElement, BadgeActionButtonProps>(
-  ({ className, asChild = false, type = 'button', ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : 'button';
+function BadgeActionButton({
+  className,
+  asChild = false,
+  type = 'button',
+  ...props
+}: BadgeActionButtonProps) {
+  const Comp = asChild ? Slot.Root : 'button';
 
-    return (
-      <Comp
-        ref={ref}
-        data-slot="badge-action-btn"
-        className={cn('badge-action-btn', className)}
-        {...(asChild ? {} : { type })}
-        {...props}
-      />
-    );
-  }
-);
+  return (
+    <Comp
+      data-slot="badge-action-btn"
+      className={cn('badge-action-btn', className)}
+      {...(asChild ? {} : { type })}
+      {...props}
+    />
+  );
+}
 
 BadgeActionButton.displayName = 'BadgeActionButton';
 

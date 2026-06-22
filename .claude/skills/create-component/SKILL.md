@@ -32,7 +32,9 @@ Then read the file to understand groupings (the file has comments like `/* varia
 ## Step 2 — Decide the element & whether Radix is needed
 
 - **Simple display/action element** (button, badge, alert, card, divider): render a plain element with `asChild` support via Radix `Slot`.
-- **Interactive / compound** (accordion, dropdown, dialog, tooltip, popover, tabs): import the matching namespace from `radix-ui` (`import { Accordion } from 'radix-ui'` → `Accordion.Root`, `Accordion.Item`, …) and create one styled sub-component per part, each carrying its Hummingbird class. Forward refs and spread props on every part.
+- **Interactive / compound** (accordion, dropdown, dialog, tooltip, popover, tabs): import the matching namespace from `radix-ui` (`import { Accordion } from 'radix-ui'` → `Accordion.Root`, `Accordion.Item`, …) and create one styled sub-component per part, each carrying its Hummingbird class. Spread props on every part (`ref` flows through `...props`).
+
+> **React 19+ only.** Components are plain function components — no `React.forwardRef`. The `ref` is a normal prop and reaches the DOM element automatically via `{...props}`. The peer dep is `react >=19`; do not reintroduce `forwardRef`.
 
 ## Step 3 — Write `<name>.tsx`
 
@@ -61,25 +63,22 @@ const <name>Variants = cva('<base-class>', {
 });
 
 export interface <Name>Props
-  extends Omit<React.<Element>HTMLAttributes<HTML<Element>Element>, 'color'>,
+  extends Omit<React.ComponentProps<'<element>'>, 'color'>,
     VariantProps<typeof <name>Variants> {
   /** Render as a child element (e.g. a link). Uses Radix Slot. */
   asChild?: boolean;
 }
 
-const <Name> = React.forwardRef<HTML<Element>Element, <Name>Props>(
-  ({ className, variant, color, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : '<element>';
+function <Name>({ className, variant, color, size, asChild = false, ...props }: <Name>Props) {
+  const Comp = asChild ? Slot.Root : '<element>';
 
-    return (
-      <Comp
-        ref={ref}
-        className={cn(<name>Variants({ variant, color, size }), className)}
-        {...props}
-      />
-    );
-  }
-);
+  return (
+    <Comp
+      className={cn(<name>Variants({ variant, color, size }), className)}
+      {...props}
+    />
+  );
+}
 
 <Name>.displayName = '<Name>';
 
@@ -88,8 +87,9 @@ export { <Name>, <name>Variants };
 
 Key conventions (do not deviate):
 
+- **`React.ComponentProps<'<element>'>`** for the props (it includes `ref`). For a compound Radix part use `React.ComponentProps<typeof <Primitive>.<Part>>`.
 - **`Omit<…, 'color'>`** on the props interface whenever the CVA has a `color` variant — the native HTML `color` attribute conflicts with it.
-- **`React.forwardRef`** with an explicit element type; pass `ref` through.
+- **Plain function component, no `forwardRef`.** `ref` flows to the element through `{...props}` (React 19+). Only destructure `ref` explicitly when you must merge it with an internal ref (see `accordion.tsx`'s `AccordionTrigger`).
 - **`cn(<name>Variants({...}), className)`** — variants first, consumer `className` last so it wins.
 - **`displayName`** set explicitly (required; there's a test for it).
 - Export both the component and the `<name>Variants` function (named exports, no default).
@@ -123,7 +123,7 @@ Then write tests with the `create-component-test` skill.
 - [ ] Two-axis classes modeled via `compoundVariants`, only for combos that exist
 - [ ] `defaultVariants` set to the visual defaults
 - [ ] `Omit<…, 'color'>` when a `color` variant exists
-- [ ] `forwardRef`, `cn(variants, className)`, explicit `displayName`
+- [ ] Plain function component (no `forwardRef`), `React.ComponentProps<…>`, `cn(variants, className)`, explicit `displayName`
 - [ ] Radix primitives used for interactive/compound behavior
 - [ ] `<name>/index.ts` created + one line added to `components/index.ts`
 - [ ] `tsc --noEmit` clean and `npm run build` succeeds

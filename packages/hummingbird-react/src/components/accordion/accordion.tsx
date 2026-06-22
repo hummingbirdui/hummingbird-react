@@ -4,49 +4,50 @@ import * as React from 'react';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
-const Accordion = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Root
-    ref={ref}
-    data-slot="accordion"
-    className={cn('accordion', className)}
-    {...props}
-  />
-));
+function Accordion({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+  return (
+    <AccordionPrimitive.Root
+      data-slot="accordion"
+      className={cn('accordion', className)}
+      {...props}
+    />
+  );
+}
 Accordion.displayName = 'Accordion';
 
-const AccordionItem = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item
-    ref={ref}
-    data-slot="accordion-item"
-    className={cn('accordion-item', className)}
-    {...props}
-  />
-));
+function AccordionItem({
+  className,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Item>) {
+  return (
+    <AccordionPrimitive.Item
+      data-slot="accordion-item"
+      className={cn('accordion-item', className)}
+      {...props}
+    />
+  );
+}
 AccordionItem.displayName = 'AccordionItem';
 
-const AccordionHeader = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Header>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Header>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Header
-    ref={ref}
-    data-slot="accordion-header"
-    className={cn('accordion-header', className)}
-    {...props}
-  />
-));
+function AccordionHeader({
+  className,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Header>) {
+  return (
+    <AccordionPrimitive.Header
+      data-slot="accordion-header"
+      className={cn('accordion-header', className)}
+      {...props}
+    />
+  );
+}
 AccordionHeader.displayName = 'AccordionHeader';
 
-const AccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, ...props }, forwardedRef) => {
+function AccordionTrigger({
+  className,
+  ref: forwardedRef,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
   // The Hummingbird CSS rotates the chevron via `&:not(.collapsed)`, but Radix
   // tracks open state through `data-state`. Bridge the two: add `collapsed`
   // whenever Radix reports the trigger is not open.
@@ -66,8 +67,11 @@ const AccordionTrigger = React.forwardRef<
   const ref = React.useCallback(
     (node: HTMLButtonElement | null) => {
       innerRef.current = node;
-      if (typeof forwardedRef === 'function') forwardedRef(node);
-      else if (forwardedRef) forwardedRef.current = node;
+      if (typeof forwardedRef === 'function') {
+        forwardedRef(node);
+      } else if (forwardedRef && typeof forwardedRef === 'object') {
+        (forwardedRef as React.MutableRefObject<HTMLButtonElement | null>).current = node;
+      }
     },
     [forwardedRef]
   );
@@ -80,20 +84,21 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     />
   );
-});
+}
 AccordionTrigger.displayName = 'AccordionTrigger';
 
-const AccordionContent = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Content
-    ref={ref}
-    data-slot="accordion-body"
-    className={cn('accordion-body', className)}
-    {...props}
-  />
-));
+function AccordionContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Content>) {
+  return (
+    <AccordionPrimitive.Content
+      data-slot="accordion-body"
+      className={cn('accordion-body', className)}
+      {...props}
+    />
+  );
+}
 AccordionContent.displayName = 'AccordionContent';
 
 export { Accordion, AccordionItem, AccordionHeader, AccordionTrigger, AccordionContent };

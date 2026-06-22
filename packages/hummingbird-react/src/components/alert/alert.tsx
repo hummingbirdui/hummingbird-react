@@ -50,43 +50,34 @@ const alertVariants = cva('alert', {
 });
 
 export interface AlertProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'>, VariantProps<typeof alertVariants> {
-  /** Render as a child element. Uses Radix Slot. */
+  extends Omit<React.ComponentProps<'div'>, 'color'>, VariantProps<typeof alertVariants> {
   asChild?: boolean;
 }
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ className, variant, color, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : 'div';
+function Alert({ className, variant, color, asChild = false, ...props }: AlertProps) {
+  const Comp = asChild ? Slot.Root : 'div';
 
-    return (
-      <Comp
-        ref={ref}
-        role="alert"
-        data-slot="alert"
-        className={cn(alertVariants({ variant, color }), className)}
-        {...props}
-      />
-    );
-  }
-);
+  return (
+    <Comp
+      role="alert"
+      data-slot="alert"
+      className={cn(alertVariants({ variant, color }), className)}
+      {...props}
+    />
+  );
+}
 
 Alert.displayName = 'Alert';
 
-export interface AlertIconProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Render as a child element. Uses Radix Slot. */
+export interface AlertIconProps extends React.ComponentProps<'span'> {
   asChild?: boolean;
 }
 
-const AlertIcon = React.forwardRef<HTMLSpanElement, AlertIconProps>(
-  ({ className, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : 'span';
+function AlertIcon({ className, asChild = false, ...props }: AlertIconProps) {
+  const Comp = asChild ? Slot.Root : 'span';
 
-    return (
-      <Comp ref={ref} data-slot="alert-icon" className={cn('alert-icon', className)} {...props} />
-    );
-  }
-);
+  return <Comp data-slot="alert-icon" className={cn('alert-icon', className)} {...props} />;
+}
 
 AlertIcon.displayName = 'AlertIcon';
 

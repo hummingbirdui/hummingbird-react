@@ -24,70 +24,45 @@ const avatarVariants = cva('avatar', {
 });
 
 export interface AvatarProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof avatarVariants> {
-  /** Render as a child element (e.g. an `img`). Uses Radix Slot. */
+  extends React.ComponentProps<'span'>, VariantProps<typeof avatarVariants> {
   asChild?: boolean;
 }
 
-const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
-  ({ className, size, status, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : 'span';
+function Avatar({ className, size, status, asChild = false, ...props }: AvatarProps) {
+  const Comp = asChild ? Slot.Root : 'span';
 
-    return (
-      <Comp
-        ref={ref}
-        data-slot="avatar"
-        className={cn(avatarVariants({ size, status }), className)}
-        {...props}
-      />
-    );
-  }
-);
+  return (
+    <Comp
+      data-slot="avatar"
+      className={cn(avatarVariants({ size, status }), className)}
+      {...props}
+    />
+  );
+}
 
 Avatar.displayName = 'Avatar';
 
-export interface AvatarNameProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Render as a child element. Uses Radix Slot. */
+export interface AvatarNameProps extends React.ComponentProps<'span'> {
   asChild?: boolean;
 }
 
-const AvatarName = React.forwardRef<HTMLSpanElement, AvatarNameProps>(
-  ({ className, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : 'span';
+function AvatarName({ className, asChild = false, ...props }: AvatarNameProps) {
+  const Comp = asChild ? Slot.Root : 'span';
 
-    return (
-      <Comp
-        ref={ref}
-        data-slot="avatar-name"
-        className={cn('avatar-name', className)}
-        {...props}
-      />
-    );
-  }
-);
+  return <Comp data-slot="avatar-name" className={cn('avatar-name', className)} {...props} />;
+}
 
 AvatarName.displayName = 'AvatarName';
 
-export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Render as a child element. Uses Radix Slot. */
+export interface AvatarGroupProps extends React.ComponentProps<'div'> {
   asChild?: boolean;
 }
 
-const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
-  ({ className, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : 'div';
+function AvatarGroup({ className, asChild = false, ...props }: AvatarGroupProps) {
+  const Comp = asChild ? Slot.Root : 'div';
 
-    return (
-      <Comp
-        ref={ref}
-        data-slot="avatar-group"
-        className={cn('avatar-group', className)}
-        {...props}
-      />
-    );
-  }
-);
+  return <Comp data-slot="avatar-group" className={cn('avatar-group', className)} {...props} />;
+}
 
 AvatarGroup.displayName = 'AvatarGroup';
 
