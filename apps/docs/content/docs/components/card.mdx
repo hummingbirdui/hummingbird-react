@@ -1,0 +1,135 @@
+---
+title: Card
+description: A flexible content container with header, body, and footer regions.
+---
+
+### Default
+
+Compose `Card` with `CardBody` (and optional `CardTitle` / `CardText`).
+
+<div className="max-w-sm my-4">
+  <Card>
+    <CardBody>
+      <CardTitle>Card title</CardTitle>
+      <CardText>
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </CardText>
+    </CardBody>
+  </Card>
+</div>
+
+### Header and footer
+
+<div className="max-w-sm my-4">
+  <Card>
+    <CardHeader>Featured</CardHeader>
+    <CardBody>
+      <CardTitle>Special title treatment</CardTitle>
+      <CardSubtitle>Supporting subtitle</CardSubtitle>
+      <CardText>With supporting text below as a natural lead-in.</CardText>
+    </CardBody>
+    <CardFooter>
+      <Button variant="text" size="sm">
+        SHARE
+      </Button>
+    </CardFooter>
+  </Card>
+</div>
+
+### With an image
+
+<div className="max-w-sm my-4">
+  <Card>
+    <CardImage
+      position="top"
+      src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600"
+      alt="A dog"
+    />
+    <CardBody>
+      <CardTitle>Good boy</CardTitle>
+      <CardText>An image capped to the top of the card.</CardText>
+    </CardBody>
+  </Card>
+</div>
+
+### Image overlay
+
+`CardImageOverlay` lays a `CardBody` over the image.
+
+<div className="max-w-sm my-4">
+  <Card>
+    <CardImageOverlay>
+      <CardImage
+        position="full"
+        src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600"
+        alt="A dog"
+      />
+      <CardBody>
+        <CardTitle>Overlaid text</CardTitle>
+        <CardText>Text sits directly on top of the image.</CardText>
+      </CardBody>
+    </CardImageOverlay>
+  </Card>
+</div>
+
+### Horizontal (aside)
+
+Set `aside` to lay the card out as a row.
+
+<div className="max-w-lg my-4">
+  <Card aside>
+    <CardImage
+      position="left"
+      src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=300"
+      alt="A dog"
+      className="max-w-[40%]"
+    />
+    <CardBody>
+      <CardTitle>Horizontal card</CardTitle>
+      <CardText>Image on the start, content alongside it.</CardText>
+    </CardBody>
+  </Card>
+</div>
+
+### Clickable card
+
+Set `action` (and `asChild` to render as a link) for an interactive card.
+
+<div className="max-w-sm my-4">
+  <Card action asChild>
+    <a href="#card">
+      <CardBody>
+        <CardTitle>Clickable card</CardTitle>
+        <CardText>The entire card is a link with a hover surface.</CardText>
+      </CardBody>
+    </a>
+  </Card>
+</div>
+
+### Card group
+
+`CardGroup` joins cards into an attached row.
+
+<div className="my-4">
+  <CardGroup>
+    <Card>
+      <CardBody>
+        <CardTitle>First</CardTitle>
+        <CardText>This is the first card.</CardText>
+      </CardBody>
+    </Card>
+    <Card>
+      <CardBody>
+        <CardTitle>Second</CardTitle>
+        <CardText>This is the second card.</CardText>
+      </CardBody>
+    </Card>
+    <Card>
+      <CardBody>
+        <CardTitle>Third</CardTitle>
+        <CardText>This is the third card.</CardText>
+      </CardBody>
+    </Card>
+  </CardGroup>
+</div>

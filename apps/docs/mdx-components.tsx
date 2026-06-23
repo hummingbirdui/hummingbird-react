@@ -26,6 +26,20 @@ import {
   InputIconEnd,
 } from "@hummingbirdui/react/form-control";
 import { FloatingLabel } from "@hummingbirdui/react/floating-label";
+import { FormRange } from "@hummingbirdui/react/form-range";
+import { CloseButton } from "@hummingbirdui/react/close-button";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  CardTitle,
+  CardSubtitle,
+  CardText,
+  CardImage,
+  CardImageOverlay,
+  CardGroup,
+} from "@hummingbirdui/react/card";
 import { Select } from "@hummingbirdui/react/select";
 import { Switch } from "@hummingbirdui/react/switch";
 import { InputGroup, InputGroupText } from "@hummingbirdui/react/input-group";
@@ -75,7 +89,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     InputIconStart: (props: any) => <InputIconStart {...props} />,
     InputIconEnd: (props: any) => <InputIconEnd {...props} />,
     FloatingLabel: (props: any) => <FloatingLabel {...props} />,
+    FormRange: (props: any) => <FormRange {...props} />,
     Select: (props: any) => <Select {...props} />,
+
+    // Card parts.
+    Card: (props: any) => <Card {...props} />,
+    CardHeader: (props: any) => <CardHeader {...props} />,
+    CardBody: (props: any) => <CardBody {...props} />,
+    CardFooter: (props: any) => <CardFooter {...props} />,
+    CardTitle: (props: any) => <CardTitle {...props} />,
+    CardSubtitle: (props: any) => <CardSubtitle {...props} />,
+    CardText: (props: any) => <CardText {...props} />,
+    CardImage: (props: any) => <CardImage {...props} />,
+    CardImageOverlay: (props: any) => <CardImageOverlay {...props} />,
+    CardGroup: (props: any) => <CardGroup {...props} />,
+
+    // Close button.
+    CloseButton: (props: any) => <CloseButton {...props} />,
     Checkbox: (props: any) => <Checkbox {...props} />,
     Radio: (props: any) => <Radio {...props} />,
     RadioGroup: (props: any) => <RadioGroup {...props} />,
