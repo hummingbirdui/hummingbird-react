@@ -1,0 +1,60 @@
+---
+title: Dropdown
+description: A toggleable menu of actions or links, anchored to a trigger and positioned by Radix UI.
+---
+
+### Default
+
+Compose a `DropdownMenu` from a `DropdownMenuTrigger` (rendered as a `Button`
+via `asChild`) and a `DropdownMenuContent` holding a label, items, and a
+separator. The menu opens on click and handles keyboard navigation for you.
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button>Open menu</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="min-w-48">
+    <DropdownMenuLabel>My account</DropdownMenuLabel>
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Settings</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Sign out</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+
+### Placement
+
+Position is controlled by Radix UI through the `side` (`"top" | "right" |
+"bottom" | "left"`) and `align` (`"start" | "center" | "end"`) props on
+`DropdownMenuContent` — not the Bootstrap direction classes. Here the menu is
+end-aligned and opens above the trigger.
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button color="secondary">Aligned menu</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent side="top" align="end" className="min-w-48">
+    <DropdownMenuItem>Move up</DropdownMenuItem>
+    <DropdownMenuItem>Move down</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem disabled>Archive (disabled)</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+
+### Non-interactive text
+
+Use `DropdownMenuItemText` for plain, non-actionable copy inside the menu, and
+`DropdownMenuLabel` for a section header.
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">Details</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="min-w-56">
+    <DropdownMenuLabel>Signed in as</DropdownMenuLabel>
+    <DropdownMenuItemText>sohel@onesuite.io</DropdownMenuItemText>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Account settings</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>

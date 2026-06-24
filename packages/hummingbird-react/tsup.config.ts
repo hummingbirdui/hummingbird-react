@@ -14,7 +14,11 @@ export default defineConfig((options) => ({
     'src/styles.css',
   ],
   format: ['esm'],
-  dts: true,
+  // Generating `.d.ts` runs the full TypeScript program (radix-ui + React 19
+  // types) in a worker thread for every entry. In `--watch` that worker peaks
+  // past its heap and Node kills it (ERR_WORKER_OUT_OF_MEMORY). Dev only needs
+  // the compiled JS to run; types are emitted by the one-shot production build.
+  dts: !options.watch,
   // Tree-shaking: drop unused exports in the consumer's bundle.
   treeshake: true,
   // No code-splitting: each entry is self-contained (no chunk-*.js files).

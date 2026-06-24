@@ -52,6 +52,17 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/accordion";
+import {
+  DropdownMenu,
+  DropdownMenuPortal,
+  DropdownMenuTrigger,
+  DropdownMenuGroup,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuItemText,
+} from "@/components/dropdown";
 
 // Next.js requires this file to be at the root of the app or src directory
 // to use MDX globally in the App Router.
@@ -122,6 +133,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     AccordionHeader: (props: any) => <AccordionHeader {...props} />,
     AccordionTrigger: (props: any) => <AccordionTrigger {...props} />,
     AccordionContent: (props: any) => <AccordionContent {...props} />,
+
+    // DropdownMenu primitives, exposed so MDX can compose them inline. They come
+    // from a client boundary (see components/dropdown.tsx) so their hooks run
+    // inside the server-rendered MDX page. Wrapped like Button to sidestep the
+    // ForwardRefExoticComponent type conflict between @types/react and @types/mdx.
+    DropdownMenu: (props: any) => <DropdownMenu {...props} />,
+    DropdownMenuPortal: (props: any) => <DropdownMenuPortal {...props} />,
+    DropdownMenuTrigger: (props: any) => <DropdownMenuTrigger {...props} />,
+    DropdownMenuGroup: (props: any) => <DropdownMenuGroup {...props} />,
+    DropdownMenuContent: (props: any) => <DropdownMenuContent {...props} />,
+    DropdownMenuItem: (props: any) => <DropdownMenuItem {...props} />,
+    DropdownMenuLabel: (props: any) => <DropdownMenuLabel {...props} />,
+    DropdownMenuSeparator: (props: any) => <DropdownMenuSeparator {...props} />,
+    DropdownMenuItemText: (props: any) => <DropdownMenuItemText {...props} />,
 
     // You can also add standard HTML overrides here, for example:
     // h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
