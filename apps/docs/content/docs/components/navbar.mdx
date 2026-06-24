@@ -1,0 +1,37 @@
+---
+title: Navbar
+description: A responsive navigation header with brand, links, and text.
+---
+
+### Default
+
+A `Navbar` composes a `NavbarBrand` and a `NavbarNav` of `NavLink`s. The `expand`
+prop sets the breakpoint at which the bar lays out horizontally (`sm`, `md`,
+`lg`, `xl`, `2xl`, or `always`).
+
+<Navbar expand="sm" className="my-4 rounded-lg border border-default px-4">
+  <NavbarBrand href="#">Hummingbird</NavbarBrand>
+  <NavbarNav asChild>
+    <div className="gap-2">
+      <NavLink href="#" active>
+        Home
+      </NavLink>
+      <NavLink href="#">Features</NavLink>
+      <NavLink href="#">Pricing</NavLink>
+      <NavLink href="#" disabled>
+        Disabled
+      </NavLink>
+    </div>
+  </NavbarNav>
+</Navbar>
+
+### With text
+
+Use `NavbarText` for non-link content such as a signed-in label.
+
+<Navbar expand="sm" className="my-4 rounded-lg border border-default px-4">
+  <NavbarBrand href="#">Hummingbird</NavbarBrand>
+  <NavbarText>
+    Signed in as <strong>Mark</strong>
+  </NavbarText>
+</Navbar>

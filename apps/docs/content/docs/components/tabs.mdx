@@ -1,0 +1,48 @@
+---
+title: Tabs
+description: Switch between related panels. Built on Radix UI, styled with the Nav classes.
+---
+
+### Default
+
+`Tabs` wraps a `TabsList` of `TabsTrigger`s and one `TabsContent` per panel.
+`TabsList` defaults to the bordered `tabs` look. Keyboard navigation and ARIA are
+handled by Radix UI.
+
+<Tabs defaultValue="account" className="my-4 max-w-xl">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+    <TabsTrigger value="team">Team</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account" className="py-4">
+    Manage your account details and profile information.
+  </TabsContent>
+  <TabsContent value="password" className="py-4">
+    Change your password and review active sessions.
+  </TabsContent>
+  <TabsContent value="team" className="py-4">
+    Invite teammates and manage their roles.
+  </TabsContent>
+</Tabs>
+
+### Underline
+
+Pass `variant="underline"` to `TabsList` for the underlined style.
+
+<Tabs defaultValue="overview" className="my-4 max-w-xl">
+  <TabsList variant="underline">
+    <TabsTrigger value="overview">Overview</TabsTrigger>
+    <TabsTrigger value="activity">Activity</TabsTrigger>
+    <TabsTrigger value="settings">Settings</TabsTrigger>
+  </TabsList>
+  <TabsContent value="overview" className="py-4">
+    A high-level summary of the project.
+  </TabsContent>
+  <TabsContent value="activity" className="py-4">
+    Recent activity and events.
+  </TabsContent>
+  <TabsContent value="settings" className="py-4">
+    Project configuration and preferences.
+  </TabsContent>
+</Tabs>

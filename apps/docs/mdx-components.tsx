@@ -43,8 +43,34 @@ import {
 import { Select } from "@hummingbirdui/react/select";
 import { Switch } from "@hummingbirdui/react/switch";
 import { InputGroup, InputGroupText } from "@hummingbirdui/react/input-group";
+import { ListGroup, ListGroupItem, ListText } from "@hummingbirdui/react/list-group";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarNav,
+  NavbarText,
+  NavbarCollapse,
+} from "@hummingbirdui/react/navbar";
+import { Nav, NavItem, NavLink } from "@hummingbirdui/react/nav";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from "@hummingbirdui/react/pagination";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+} from "@hummingbirdui/react/table";
 // Hook/context-using controls go through a "use client" boundary.
 import { Checkbox, Radio, RadioGroup } from "@/components/form";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/tabs";
 import {
   Accordion,
   AccordionItem,
@@ -124,6 +150,39 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     InputGroup: (props: any) => <InputGroup {...props} />,
     InputGroupText: (props: any) => <InputGroupText {...props} />,
 
+    // List group parts.
+    ListGroup: (props: any) => <ListGroup {...props} />,
+    ListGroupItem: (props: any) => <ListGroupItem {...props} />,
+    ListText: (props: any) => <ListText {...props} />,
+
+    // Navbar parts.
+    Navbar: (props: any) => <Navbar {...props} />,
+    NavbarBrand: (props: any) => <NavbarBrand {...props} />,
+    NavbarNav: (props: any) => <NavbarNav {...props} />,
+    NavbarText: (props: any) => <NavbarText {...props} />,
+    NavbarCollapse: (props: any) => <NavbarCollapse {...props} />,
+
+    // Nav parts (the static "Tab Nav").
+    Nav: (props: any) => <Nav {...props} />,
+    NavItem: (props: any) => <NavItem {...props} />,
+    NavLink: (props: any) => <NavLink {...props} />,
+
+    // Pagination parts.
+    Pagination: (props: any) => <Pagination {...props} />,
+    PaginationContent: (props: any) => <PaginationContent {...props} />,
+    PaginationItem: (props: any) => <PaginationItem {...props} />,
+    PaginationLink: (props: any) => <PaginationLink {...props} />,
+
+    // Table parts.
+    Table: (props: any) => <Table {...props} />,
+    TableHeader: (props: any) => <TableHeader {...props} />,
+    TableBody: (props: any) => <TableBody {...props} />,
+    TableFooter: (props: any) => <TableFooter {...props} />,
+    TableRow: (props: any) => <TableRow {...props} />,
+    TableHead: (props: any) => <TableHead {...props} />,
+    TableCell: (props: any) => <TableCell {...props} />,
+    TableCaption: (props: any) => <TableCaption {...props} />,
+
     // Accordion primitives, exposed so MDX can compose them inline. They come
     // from a client boundary (see components/accordion.tsx) so their hooks run
     // inside the server-rendered MDX page. Wrapped like Button to sidestep the
@@ -147,6 +206,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     DropdownMenuLabel: (props: any) => <DropdownMenuLabel {...props} />,
     DropdownMenuSeparator: (props: any) => <DropdownMenuSeparator {...props} />,
     DropdownMenuItemText: (props: any) => <DropdownMenuItemText {...props} />,
+
+    // Tabs primitives, exposed so MDX can compose them inline. They come from a
+    // client boundary (see components/tabs.tsx) so their context/state runs
+    // inside the server-rendered MDX page.
+    Tabs: (props: any) => <Tabs {...props} />,
+    TabsList: (props: any) => <TabsList {...props} />,
+    TabsTrigger: (props: any) => <TabsTrigger {...props} />,
+    TabsContent: (props: any) => <TabsContent {...props} />,
 
     // You can also add standard HTML overrides here, for example:
     // h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
