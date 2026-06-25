@@ -89,6 +89,19 @@ import {
   DropdownMenuSeparator,
   DropdownMenuItemText,
 } from "@/components/dropdown";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogPortal,
+  DialogClose,
+  DialogOverlay,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogBody,
+  DialogFooter,
+} from "@/components/dialog";
 
 // Next.js requires this file to be at the root of the app or src directory
 // to use MDX globally in the App Router.
@@ -206,6 +219,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     DropdownMenuLabel: (props: any) => <DropdownMenuLabel {...props} />,
     DropdownMenuSeparator: (props: any) => <DropdownMenuSeparator {...props} />,
     DropdownMenuItemText: (props: any) => <DropdownMenuItemText {...props} />,
+
+    // Dialog (modal) primitives, exposed so MDX can compose them inline. They
+    // come from a client boundary (see components/dialog.tsx) so their
+    // context/state runs inside the server-rendered MDX page. Wrapped like
+    // Button to sidestep the ForwardRefExoticComponent type conflict between
+    // @types/react and @types/mdx.
+    Dialog: (props: any) => <Dialog {...props} />,
+    DialogTrigger: (props: any) => <DialogTrigger {...props} />,
+    DialogPortal: (props: any) => <DialogPortal {...props} />,
+    DialogClose: (props: any) => <DialogClose {...props} />,
+    DialogOverlay: (props: any) => <DialogOverlay {...props} />,
+    DialogContent: (props: any) => <DialogContent {...props} />,
+    DialogHeader: (props: any) => <DialogHeader {...props} />,
+    DialogTitle: (props: any) => <DialogTitle {...props} />,
+    DialogDescription: (props: any) => <DialogDescription {...props} />,
+    DialogBody: (props: any) => <DialogBody {...props} />,
+    DialogFooter: (props: any) => <DialogFooter {...props} />,
 
     // Tabs primitives, exposed so MDX can compose them inline. They come from a
     // client boundary (see components/tabs.tsx) so their context/state runs

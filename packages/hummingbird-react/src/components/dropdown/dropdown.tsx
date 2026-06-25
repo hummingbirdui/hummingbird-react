@@ -4,7 +4,17 @@ import * as React from 'react';
 import { DropdownMenu as DropdownMenuPrimitive } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
-function DropdownMenu({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
+export type DropdownMenuProps = React.ComponentProps<typeof DropdownMenuPrimitive.Root>;
+
+/**
+ * Dropdown menu root. A thin pass-through over Radix `DropdownMenu.Root` —
+ * Radix owns all open-state behavior (controlled via `open`/`onOpenChange`,
+ * uncontrolled via `defaultOpen`) and keeps the menu mounted across the exit
+ * animation via its own `Presence`. The fade/scale transition lives entirely on
+ * the content as `data-[state]` animation utilities, so no React state,
+ * context, or effects are needed here.
+ */
+function DropdownMenu({ ...props }: DropdownMenuProps) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 DropdownMenu.displayName = 'DropdownMenu';
@@ -28,18 +38,26 @@ function DropdownMenuContent({
   sideOffset = 4,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
-  // `.dropdown-menu` is `hidden` by default and `.show` flips it to `block`.
-  // Radix only mounts `Content` while the menu is open, so `show` is always
-  // applied. Placement is handled by Radix's `side`/`align`/`sideOffset` props
-  // — the Bootstrap direction utilities (`dropup`, `dropend`, `dropdown-menu-end`,
-  // …) are intentionally omitted because they only take effect under the
-  // `[data-bs-popper]` attribute that Radix never sets.
+  // `.dropdown-menu` is `hidden` by default and the `.show` *class* flips it to
+  // `block`; we keep it applied so the menu stays visible (Radix only mounts the
+  // content while open anyway). The fade/scale transition is driven entirely by
+  // Radix's `data-[state=open|closed]` attribute via tw-animate-css keyframes,
+  // which Radix's `Presence` awaits before unmounting — scaling from the
+  // Radix-computed popper origin. Placement is handled by Radix's
+  // `side`/`align`/`sideOffset` props; the Bootstrap direction utilities
+  // (`dropup`, `dropend`, `dropdown-menu-end`, …) are omitted because they only
+  // apply under the `[data-bs-popper]` attribute Radix never sets.
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
         data-slot="dropdown-menu-content"
         sideOffset={sideOffset}
-        className={cn('dropdown-menu show', className)}
+        className={cn(
+          'dropdown-menu show origin-[var(--radix-popper-transform-origin)]',
+          'duration-150 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+          'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+          className
+        )}
         {...props}
       />
     </DropdownMenuPrimitive.Portal>

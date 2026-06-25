@@ -45,42 +45,25 @@ AccordionHeader.displayName = 'AccordionHeader';
 
 function AccordionTrigger({
   className,
-  ref: forwardedRef,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
-  // The Hummingbird CSS rotates the chevron via `&:not(.collapsed)`, but Radix
-  // tracks open state through `data-state`. Bridge the two: add `collapsed`
-  // whenever Radix reports the trigger is not open.
-  const innerRef = React.useRef<HTMLButtonElement | null>(null);
-  const [collapsed, setCollapsed] = React.useState(true);
-
-  React.useEffect(() => {
-    const node = innerRef.current;
-    if (!node) return;
-    const sync = () => setCollapsed(node.getAttribute('data-state') !== 'open');
-    sync();
-    const observer = new MutationObserver(sync);
-    observer.observe(node, { attributes: true, attributeFilter: ['data-state'] });
-    return () => observer.disconnect();
-  }, []);
-
-  const ref = React.useCallback(
-    (node: HTMLButtonElement | null) => {
-      innerRef.current = node;
-      if (typeof forwardedRef === 'function') {
-        forwardedRef(node);
-      } else if (forwardedRef && typeof forwardedRef === 'object') {
-        (forwardedRef as React.MutableRefObject<HTMLButtonElement | null>).current = node;
-      }
-    },
-    [forwardedRef]
-  );
-
+  // Hummingbird rotates the `::after` chevron via `&:not(.collapsed)::after`,
+  // which is ALWAYS true here — we never add `.collapsed` (Radix tracks state
+  // through `data-state`), so the base rule would pin the chevron rotated. Drive
+  // the rotation off `data-state` instead so it actually toggles: flat when
+  // closed, rotated (reusing the CSS's own `--accordion-btn-icon-transform`)
+  // when open. Both rules win over the base (same specificity, emitted later in
+  // the utilities layer); the `::after`'s existing transform transition animates
+  // the flip.
   return (
     <AccordionPrimitive.Trigger
-      ref={ref}
       data-slot="accordion-button"
-      className={cn('accordion-button', collapsed && 'collapsed', className)}
+      className={cn(
+        'accordion-button',
+        'data-[state=closed]:[&::after]:[transform:none]',
+        'data-[state=open]:[&::after]:[transform:var(--accordion-btn-icon-transform)]',
+        className
+      )}
       {...props}
     />
   );
@@ -89,14 +72,25 @@ AccordionTrigger.displayName = 'AccordionTrigger';
 
 function AccordionContent({
   className,
+  children,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
+  // Collapse animation with zero JS: tw-animate-css's `accordion-down`/`-up`
+  // keyframes animate `height` 0 ⇄ `var(--radix-accordion-content-height)` (the
+  // height Radix measures and exposes). Radix's `Presence` awaits the CSS
+  // *animation*, so it plays the close before unmounting and removes the closed
+  // panel from the DOM (and the a11y tree) on its own — no `forceMount`/`inert`
+  // needed. `overflow-hidden` clips the body while the height animates.
   return (
     <AccordionPrimitive.Content
-      data-slot="accordion-body"
-      className={cn('accordion-body', className)}
+      data-slot="accordion-content"
+      className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up"
       {...props}
-    />
+    >
+      <div data-slot="accordion-body" className={cn('accordion-body', className)}>
+        {children}
+      </div>
+    </AccordionPrimitive.Content>
   );
 }
 AccordionContent.displayName = 'AccordionContent';

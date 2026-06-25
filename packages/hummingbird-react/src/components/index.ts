@@ -11,6 +11,7 @@ export * from './button-group';
 export * from './card';
 export * from './checkbox';
 export * from './close-button';
+export * from './dialog';
 export * from './dropdown';
 export * from './floating-label';
 export * from './form-control';
