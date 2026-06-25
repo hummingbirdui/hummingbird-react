@@ -59,7 +59,8 @@
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "radix-ui": "^1.6.0"
+    "radix-ui": "^1.6.0",
+    "vaul": "^1.1.2"
   },
   "peerDependencies": {
     "@hummingbirdui/hummingbird": ">=1.0",

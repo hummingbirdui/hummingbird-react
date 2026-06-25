@@ -102,6 +102,18 @@ import {
   DialogBody,
   DialogFooter,
 } from "@/components/dialog";
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerPortal,
+  DrawerClose,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerBody,
+} from "@/components/drawer";
 
 // Next.js requires this file to be at the root of the app or src directory
 // to use MDX globally in the App Router.
@@ -236,6 +248,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     DialogDescription: (props: any) => <DialogDescription {...props} />,
     DialogBody: (props: any) => <DialogBody {...props} />,
     DialogFooter: (props: any) => <DialogFooter {...props} />,
+
+    // Drawer primitives (built on Vaul), exposed so MDX can compose them inline.
+    // They come from a client boundary (see components/drawer.tsx). Wrapped like
+    // Button to sidestep the ForwardRefExoticComponent type conflict between
+    // @types/react and @types/mdx.
+    Drawer: (props: any) => <Drawer {...props} />,
+    DrawerTrigger: (props: any) => <DrawerTrigger {...props} />,
+    DrawerPortal: (props: any) => <DrawerPortal {...props} />,
+    DrawerClose: (props: any) => <DrawerClose {...props} />,
+    DrawerOverlay: (props: any) => <DrawerOverlay {...props} />,
+    DrawerContent: (props: any) => <DrawerContent {...props} />,
+    DrawerHeader: (props: any) => <DrawerHeader {...props} />,
+    DrawerTitle: (props: any) => <DrawerTitle {...props} />,
+    DrawerDescription: (props: any) => <DrawerDescription {...props} />,
+    DrawerBody: (props: any) => <DrawerBody {...props} />,
 
     // Tabs primitives, exposed so MDX can compose them inline. They come from a
     // client boundary (see components/tabs.tsx) so their context/state runs
