@@ -114,6 +114,21 @@ import {
   DrawerDescription,
   DrawerBody,
 } from "@/components/drawer";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverAnchor,
+  PopoverClose,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+} from "@/components/popover";
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/tooltip";
 
 // Next.js requires this file to be at the root of the app or src directory
 // to use MDX globally in the App Router.
@@ -271,6 +286,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     TabsList: (props: any) => <TabsList {...props} />,
     TabsTrigger: (props: any) => <TabsTrigger {...props} />,
     TabsContent: (props: any) => <TabsContent {...props} />,
+
+    // Popover primitives (built on Radix), exposed so MDX can compose them
+    // inline. They come from a client boundary (see components/popover.tsx).
+    // Wrapped like Button to sidestep the ForwardRefExoticComponent type
+    // conflict between @types/react and @types/mdx.
+    Popover: (props: any) => <Popover {...props} />,
+    PopoverTrigger: (props: any) => <PopoverTrigger {...props} />,
+    PopoverAnchor: (props: any) => <PopoverAnchor {...props} />,
+    PopoverClose: (props: any) => <PopoverClose {...props} />,
+    PopoverContent: (props: any) => <PopoverContent {...props} />,
+    PopoverHeader: (props: any) => <PopoverHeader {...props} />,
+    PopoverBody: (props: any) => <PopoverBody {...props} />,
+
+    // Tooltip primitives (built on Radix), exposed so MDX can compose them
+    // inline. They come from a client boundary (see components/tooltip.tsx).
+    // Wrapped like Button to sidestep the ForwardRefExoticComponent type
+    // conflict between @types/react and @types/mdx.
+    Tooltip: (props: any) => <Tooltip {...props} />,
+    TooltipProvider: (props: any) => <TooltipProvider {...props} />,
+    TooltipTrigger: (props: any) => <TooltipTrigger {...props} />,
+    TooltipContent: (props: any) => <TooltipContent {...props} />,
 
     // You can also add standard HTML overrides here, for example:
     // h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (

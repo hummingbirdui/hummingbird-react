@@ -23,3 +23,14 @@ if (typeof Element !== 'undefined' && !Element.prototype.setPointerCapture) {
   Element.prototype.releasePointerCapture = () => {};
   Element.prototype.hasPointerCapture = () => false;
 }
+
+// jsdom doesn't implement ResizeObserver; Radix's popper `Arrow` (used by
+// Tooltip/Popover) measures itself with it. Provide a no-op stub so the arrow
+// renders without throwing.
+if (typeof globalThis !== 'undefined' && !('ResizeObserver' in globalThis)) {
+  globalThis.ResizeObserver = class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+}
