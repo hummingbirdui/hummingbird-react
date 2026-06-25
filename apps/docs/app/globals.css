@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@import "@hummingbirdui/react/styles.css";
+@import "tw-animate-css";
+@import "@hummingbirdui/hummingbird";
+@source "../node_modules/@hummingbirdui/react";
 
 @theme {
   --container-8xl: 95rem;
