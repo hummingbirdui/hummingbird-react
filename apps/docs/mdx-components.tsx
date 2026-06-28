@@ -79,6 +79,11 @@ import {
   AccordionContent,
 } from "@/components/accordion";
 import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/components/collapsible";
+import {
   DropdownMenu,
   DropdownMenuPortal,
   DropdownMenuTrigger,
@@ -232,6 +237,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     AccordionHeader: (props: any) => <AccordionHeader {...props} />,
     AccordionTrigger: (props: any) => <AccordionTrigger {...props} />,
     AccordionContent: (props: any) => <AccordionContent {...props} />,
+
+    // Collapsible primitives, exposed so MDX can compose them inline. They come
+    // from a client boundary (see components/collapsible.tsx) so their state runs
+    // inside the server-rendered MDX page. Wrapped like Button to sidestep the
+    // ForwardRefExoticComponent type conflict between @types/react and @types/mdx.
+    Collapsible: (props: any) => <Collapsible {...props} />,
+    CollapsibleTrigger: (props: any) => <CollapsibleTrigger {...props} />,
+    CollapsibleContent: (props: any) => <CollapsibleContent {...props} />,
 
     // DropdownMenu primitives, exposed so MDX can compose them inline. They come
     // from a client boundary (see components/dropdown.tsx) so their hooks run
