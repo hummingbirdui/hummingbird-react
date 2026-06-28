@@ -44,13 +44,18 @@ import { Select } from "@hummingbirdui/react/select";
 import { Switch } from "@hummingbirdui/react/switch";
 import { InputGroup, InputGroupText } from "@hummingbirdui/react/input-group";
 import { ListGroup, ListGroupItem, ListText } from "@hummingbirdui/react/list-group";
+// Navbar wraps a Radix Collapsible + React context, so it comes through a
+// "use client" boundary (see components/navbar.tsx) like the other interactive
+// components rather than the server-importable subpath.
 import {
   Navbar,
   NavbarBrand,
   NavbarNav,
   NavbarText,
   NavbarCollapse,
-} from "@hummingbirdui/react/navbar";
+  NavbarToggle,
+  NavbarTogglerIcon,
+} from "@/components/navbar";
 import { Nav, NavItem, NavLink } from "@hummingbirdui/react/nav";
 import {
   Pagination,
@@ -206,6 +211,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     NavbarNav: (props: any) => <NavbarNav {...props} />,
     NavbarText: (props: any) => <NavbarText {...props} />,
     NavbarCollapse: (props: any) => <NavbarCollapse {...props} />,
+    NavbarToggle: (props: any) => <NavbarToggle {...props} />,
+    NavbarTogglerIcon: (props: any) => <NavbarTogglerIcon {...props} />,
 
     // Nav parts (the static "Tab Nav").
     Nav: (props: any) => <Nav {...props} />,

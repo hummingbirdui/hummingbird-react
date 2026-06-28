@@ -1,6 +1,6 @@
 ---
 title: Navbar
-description: A responsive navigation header with brand, links, and text.
+description: A responsive navigation header with brand, links, text, and a collapsible menu.
 ---
 
 ### Default
@@ -23,6 +23,59 @@ prop sets the breakpoint at which the bar lays out horizontally (`sm`, `md`,
       </NavLink>
     </div>
   </NavbarNav>
+</Navbar>
+
+### Responsive collapse
+
+Wrap the menu in a `NavbarCollapse` and add a `NavbarToggle`. Below the `expand`
+breakpoint the toggle appears and the menu collapses behind it; at or above the
+breakpoint the toggle hides and the menu is always shown laid out horizontally.
+
+The toggle is built on the same [Collapsible](/docs/components/collapsible)
+primitive — it owns the open state and the `aria-expanded`/`aria-controls`
+wiring, while the open/close height animation is pure CSS. **Resize your window
+below the `lg` breakpoint** to see the toggle appear.
+
+<Navbar expand="lg" className="my-4 rounded-lg border border-default px-4">
+  <NavbarBrand href="#">Hummingbird</NavbarBrand>
+  <NavbarToggle />
+  <NavbarCollapse>
+    <NavbarNav asChild>
+      <div className="gap-2">
+        <NavLink href="#" active>
+          Home
+        </NavLink>
+        <NavLink href="#">Features</NavLink>
+        <NavLink href="#">Pricing</NavLink>
+        <NavLink href="#" disabled>
+          Disabled
+        </NavLink>
+      </div>
+    </NavbarNav>
+  </NavbarCollapse>
+</Navbar>
+
+### Always collapsed
+
+Omit `expand` to keep the menu behind the toggle at every width — useful for a
+permanent "hamburger" menu. Click the toggle below to expand and collapse it.
+Set `duration` (milliseconds) on `NavbarCollapse` to tune the open/close speed —
+this one uses `duration={500}`.
+
+<Navbar className="my-4 rounded-lg border border-default px-4">
+  <NavbarBrand href="#">Hummingbird</NavbarBrand>
+  <NavbarToggle />
+  <NavbarCollapse>
+    <NavbarNav asChild>
+      <div className="gap-2">
+        <NavLink href="#" active>
+          Home
+        </NavLink>
+        <NavLink href="#">Features</NavLink>
+        <NavLink href="#">Pricing</NavLink>
+      </div>
+    </NavbarNav>
+  </NavbarCollapse>
 </Navbar>
 
 ### With text
