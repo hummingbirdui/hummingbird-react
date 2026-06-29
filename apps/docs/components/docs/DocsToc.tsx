@@ -46,7 +46,7 @@ export function DocsToc({ toc }: { toc: TocItem[] }) {
   const minDepth = Math.min(...toc.map((item) => item.depth));
 
   return (
-    <div className="ps-6 py-10 sticky top-0 h-max hidden xl:block">
+    <div className="ps-6 py-10 sticky top-(--navbar-height) h-max hidden xl:block">
       <p className="font-bold ps-4 mb-2 text-default">On this page</p>
       <ul className="list-none ps-4 m-0">
         {toc.map((item) => {

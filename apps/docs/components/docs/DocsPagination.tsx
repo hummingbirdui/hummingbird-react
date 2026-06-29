@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@hummingbirdui/react/button";
-import { ChevronLeft, ChevronRight } from "./Icons";
 
 interface PaginationItem {
   name: ReactNode;
@@ -30,7 +30,7 @@ export function DocsPagination({
         >
           <Link href={prev.url}>
             <span className="flex items-center -ml-1 text-muted">
-              <ChevronLeft />
+              <ChevronLeft className="size-5" />
               <span className="text-xs">Previous</span>
             </span>
             <span className="text-base font-semibold">{prev.name}</span>
@@ -50,7 +50,7 @@ export function DocsPagination({
           <Link href={next.url}>
             <span className="flex items-center text-muted">
               <span className="text-xs">Next</span>
-              <ChevronRight />
+              <ChevronRight className="size-5" />
             </span>
             <span className="text-base font-semibold">{next.name}</span>
           </Link>

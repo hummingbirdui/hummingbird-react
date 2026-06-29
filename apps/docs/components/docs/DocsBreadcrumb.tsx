@@ -6,10 +6,9 @@ import {
   Drawer,
   DrawerTrigger,
   DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
   DrawerBody,
-} from "@/components/drawer";
+  DrawerOverlay,
+} from "@hummingbirdui/react/drawer";
 import { Button } from "@hummingbirdui/react/button";
 import {
   Breadcrumb,
@@ -19,8 +18,8 @@ import {
 } from "@hummingbirdui/react/breadcrumb";
 import { cn } from "@hummingbirdui/react/utils";
 import type { SidebarGroup } from "@/lib/docs-tree";
+import { Menu } from "lucide-react";
 import { SidebarNav } from "./SidebarNav";
-import { Menu } from "./Icons";
 
 function titleCase(segment: string): string {
   return segment
@@ -29,16 +28,10 @@ function titleCase(segment: string): string {
     .join(" ");
 }
 
-/**
- * Mobile-only top bar: a menu button that opens the sidebar in a left Drawer,
- * plus a breadcrumb trail derived from the current path. Hidden from `lg` up,
- * where the persistent sidebar takes over.
- */
 export function DocsBreadcrumb({ groups }: { groups: SidebarGroup[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Close the drawer after a client-side navigation (Vaul keeps its own state).
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
@@ -46,7 +39,7 @@ export function DocsBreadcrumb({ groups }: { groups: SidebarGroup[] }) {
   const segments = pathname.split("/").filter(Boolean).slice(1); // drop "docs"
 
   return (
-    <nav className="sticky top-0 z-30 flex items-center gap-4 py-3 border-b border-subtle bg-default lg:hidden">
+    <nav className="sticky top-(--navbar-height) pointer-events-auto! z-30 flex items-center gap-4 py-2 px-6 sm:px-10 border-b border-subtle bg-default lg:hidden">
       <Drawer direction="left" open={open} onOpenChange={setOpen}>
         <DrawerTrigger asChild>
           <Button
@@ -56,13 +49,14 @@ export function DocsBreadcrumb({ groups }: { groups: SidebarGroup[] }) {
             className="shrink-0"
             aria-label="Open navigation"
           >
-            <Menu />
+            <Menu className="size-5" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="w-72 max-w-[80vw]">
-          <DrawerHeader>
-            <DrawerTitle>Documentation</DrawerTitle>
-          </DrawerHeader>
+        <DrawerOverlay className="top-[calc(var(--navbar-height)+54px)]!" />
+        <DrawerContent
+          overlay={false}
+          className="w-60 top-[calc(var(--navbar-height)+54px)] lg:top-(--navbar-height) lg:max-h-[calc(100dvh-var(--navbar-height))]"
+        >
           <DrawerBody className="overflow-y-auto">
             <SidebarNav groups={groups} />
           </DrawerBody>
@@ -80,7 +74,7 @@ export function DocsBreadcrumb({ groups }: { groups: SidebarGroup[] }) {
                   className={cn(
                     "font-medium",
                     !isLast && "text-muted",
-                    isLast && "truncate"
+                    isLast && "truncate",
                   )}
                 >
                   {isLast ? (

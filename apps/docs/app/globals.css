@@ -3,6 +3,12 @@
 @import "@hummingbirdui/hummingbird";
 @source "../node_modules/@hummingbirdui/react";
 
+/* Drive dark mode from a `.dark` class on <html> (toggled by ThemeScript /
+   ThemeToggle) instead of `prefers-color-scheme`. Hummingbird's theme files
+   flip their CSS variables inside `@variant dark`, so this makes the whole
+   palette — and our own `dark:` utilities — class-based. */
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+
 @theme {
   --container-8xl: 95rem;
   --navbar-height: --spacing(20.5);
