@@ -140,6 +140,7 @@ import {
   TooltipContent,
 } from "@/components/tooltip";
 import { ComponentPreview } from "@/components/docs/ComponentPreview";
+import { MdxCodeBlock } from "@/components/docs/MdxCodeBlock";
 
 // Next.js requires this file to be at the root of the app or src directory
 // to use MDX globally in the App Router.
@@ -329,10 +330,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     TooltipTrigger: (props: any) => <TooltipTrigger {...props} />,
     TooltipContent: (props: any) => <TooltipContent {...props} />,
 
-    // Renders a live example next to its source code in Preview / Code tabs.
-    // `ComponentPreview` is an async Server Component that reads the example
-    // file from `registry/` at build time — see components/docs/ComponentPreview.tsx.
+    // Renders a live example above its source code — see ComponentPreview.tsx.
     ComponentPreview: (props: any) => <ComponentPreview {...props} />,
+
+    // Styles standalone fenced code blocks (```tsx ...```) to match the
+    // ComponentPreview code panel, adding a copy button — see MdxCodeBlock.tsx.
+    pre: (props: any) => <MdxCodeBlock {...props} />,
 
     // You can also add standard HTML overrides here, for example:
     // h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (

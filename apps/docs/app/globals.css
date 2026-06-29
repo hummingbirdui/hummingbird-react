@@ -112,13 +112,16 @@
   .shiki {
     @apply bg-transparent!;
   }
-}
+  span {
+    color: var(--shiki-light);
+    font-weight: var(--shiki-light-font-weight);
+    font-style: var(--shiki-light-font-style);
+    text-decoration: var(--shiki-light-text-decoration);
 
-.dark {
-  .hb-code,
-  .hb-code span {
-    @apply text-(--shiki-dark)! font-(--shiki-dark-font-weight)!;
-    font-style: var(--shiki-dark-font-style) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
+    @variant dark {
+      @apply text-(--shiki-dark)! font-(--shiki-dark-font-weight)!;
+      font-style: var(--shiki-dark-font-style) !important;
+      text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
   }
 }
