@@ -111,7 +111,7 @@ export function SiteNavbar() {
           <NavbarNav className="hidden lg:flex">
             <NavLinks pathname={pathname} />
           </NavbarNav>
-          <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex lg:hidden xl:flex"></div>
+          <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex"></div>
           <ThemeToggle />
           <Button
             asChild

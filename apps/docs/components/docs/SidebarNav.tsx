@@ -6,14 +6,8 @@ import { ListGroup, ListGroupItem } from "@hummingbirdui/react/list-group";
 import { cn } from "@hummingbirdui/react/utils";
 import type { SidebarGroup } from "@/lib/docs-tree";
 
-/**
- * The grouped documentation navigation. Pure presentation driven by the page
- * tree; the active item is derived from the current pathname so the same list
- * works in both the desktop sidebar and the mobile drawer.
- */
 export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
   const pathname = usePathname();
-
   return (
     <nav className="w-full">
       {groups.map((group, index) => (
@@ -22,7 +16,7 @@ export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
             <h2
               className={cn(
                 "text-xs mb-2 text-subtle uppercase",
-                index !== 0 && "mt-6"
+                index !== 0 && "mt-6",
               )}
             >
               {group.subHeader}
@@ -39,7 +33,9 @@ export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
                   asChild
                   className={cn(
                     "rounded-lg text-sm py-2",
-                    active ? "text-primary-dark bg-primary-lighter" : "text-default"
+                    active
+                      ? "text-primary-dark bg-primary-lighter"
+                      : "text-default",
                   )}
                 >
                   <Link href={item.url}>{item.name}</Link>

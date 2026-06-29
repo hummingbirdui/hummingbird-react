@@ -10,6 +10,7 @@
 @custom-variant dark (&:where(.dark, .dark *), .dark);
 
 @theme {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --container-8xl: 95rem;
   --navbar-height: --spacing(20.5);
   --anchor-header-offset: 7.5rem;

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 export default function Home() {
@@ -12,7 +10,7 @@ export default function Home() {
       </p>
       <div className="mt-6">
         <Link
-          href="/docs/getting-started"
+          href="/docs/getting-started/installation"
           className="text-blue-500 hover:underline"
         >
           Get Started
