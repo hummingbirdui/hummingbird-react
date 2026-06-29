@@ -1,8 +1,4 @@
 import type { MDXComponents } from "mdx/types";
-// Import from per-component subpaths, not the root barrel. The barrel inlines
-// `RadioGroup`'s top-level `React.createContext(...)`, which throws when this
-// (server) module imports it. The subpath files are self-contained, so the
-// server graph never pulls `createContext`.
 import { Button } from "@hummingbirdui/react/button";
 import { ButtonGroup, ButtonToolbar } from "@hummingbirdui/react/button-group";
 import { Alert, AlertIcon } from "@hummingbirdui/react/alert";
@@ -43,7 +39,11 @@ import {
 import { Select } from "@hummingbirdui/react/select";
 import { Switch } from "@hummingbirdui/react/switch";
 import { InputGroup, InputGroupText } from "@hummingbirdui/react/input-group";
-import { ListGroup, ListGroupItem, ListText } from "@hummingbirdui/react/list-group";
+import {
+  ListGroup,
+  ListGroupItem,
+  ListText,
+} from "@hummingbirdui/react/list-group";
 // Navbar wraps a Radix Collapsible + React context, so it comes through a
 // "use client" boundary (see components/navbar.tsx) like the other interactive
 // components rather than the server-importable subpath.
@@ -139,6 +139,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/tooltip";
+import { ComponentPreview } from "@/components/docs/ComponentPreview";
 
 // Next.js requires this file to be at the root of the app or src directory
 // to use MDX globally in the App Router.
@@ -327,6 +328,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     TooltipProvider: (props: any) => <TooltipProvider {...props} />,
     TooltipTrigger: (props: any) => <TooltipTrigger {...props} />,
     TooltipContent: (props: any) => <TooltipContent {...props} />,
+
+    // Renders a live example next to its source code in Preview / Code tabs.
+    // `ComponentPreview` is an async Server Component that reads the example
+    // file from `registry/` at build time — see components/docs/ComponentPreview.tsx.
+    ComponentPreview: (props: any) => <ComponentPreview {...props} />,
 
     // You can also add standard HTML overrides here, for example:
     // h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
