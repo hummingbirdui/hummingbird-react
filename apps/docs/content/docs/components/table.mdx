@@ -1,0 +1,117 @@
+---
+title: Table
+description: A styled table for displaying rows of data.
+---
+
+### Default
+
+Compose `Table` with `TableHeader`, `TableBody`, `TableRow`, `TableHead`, and
+`TableCell`.
+
+<Table className="my-4">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Email</TableHead>
+      <TableHead>Role</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Jane Cooper</TableCell>
+      <TableCell>jane@example.com</TableCell>
+      <TableCell>Admin</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Cody Fisher</TableCell>
+      <TableCell>cody@example.com</TableCell>
+      <TableCell>Member</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Esther Howard</TableCell>
+      <TableCell>esther@example.com</TableCell>
+      <TableCell>Member</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+### Striped & hoverable
+
+Toggle the `striped` and `hover` props for zebra rows and a hover highlight.
+
+<Table striped hover className="my-4">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Email</TableHead>
+      <TableHead>Role</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Jane Cooper</TableCell>
+      <TableCell>jane@example.com</TableCell>
+      <TableCell>Admin</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Cody Fisher</TableCell>
+      <TableCell>cody@example.com</TableCell>
+      <TableCell>Member</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Esther Howard</TableCell>
+      <TableCell>esther@example.com</TableCell>
+      <TableCell>Member</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+### Bordered & small
+
+`bordered` adds cell borders; `size="sm"` tightens the row padding.
+
+<Table bordered size="sm" className="my-4">
+  <TableHeader>
+    <TableRow>
+      <TableHead>#</TableHead>
+      <TableHead>Item</TableHead>
+      <TableHead>Qty</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>1</TableCell>
+      <TableCell>Widget</TableCell>
+      <TableCell>12</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>2</TableCell>
+      <TableCell>Gadget</TableCell>
+      <TableCell>4</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+### Colors
+
+Tint the whole table with a `color`, or highlight a single row with the `active`
+prop.
+
+<Table color="primary" className="my-4">
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Jane Cooper</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow active>
+      <TableCell>Cody Fisher</TableCell>
+      <TableCell>Highlighted row</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

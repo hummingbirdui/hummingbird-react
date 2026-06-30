@@ -1,0 +1,142 @@
+---
+title: Pagination
+description: Navigation for splitting content across multiple pages.
+---
+
+### Default
+
+`Pagination` is an accessible `<nav>`; `PaginationContent` is the styled list of
+`PaginationItem`s. Mark the current page with `active` and use `disabled` to mute
+a control.
+
+<Pagination className="my-4">
+  <PaginationContent>
+    <PaginationItem disabled>
+      <PaginationLink href="#pagination">Prev</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#pagination">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem active>
+      <PaginationLink active href="#pagination">
+        2
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#pagination">3</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#pagination">Next</PaginationLink>
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+
+### Sizes
+
+`PaginationContent` takes a `size` of `sm`, `md` (default), or `lg`.
+
+<div className="flex flex-col gap-3 my-4">
+  <Pagination>
+    <PaginationContent size="sm">
+      <PaginationItem>
+        <PaginationLink href="#pagination">1</PaginationLink>
+      </PaginationItem>
+      <PaginationItem active>
+        <PaginationLink active href="#pagination">
+          2
+        </PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#pagination">3</PaginationLink>
+      </PaginationItem>
+    </PaginationContent>
+  </Pagination>
+  <Pagination>
+    <PaginationContent size="lg">
+      <PaginationItem>
+        <PaginationLink href="#pagination">1</PaginationLink>
+      </PaginationItem>
+      <PaginationItem active>
+        <PaginationLink active href="#pagination">
+          2
+        </PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#pagination">3</PaginationLink>
+      </PaginationItem>
+    </PaginationContent>
+  </Pagination>
+</div>
+
+### Circle
+
+Use `shape="circle"` for rounded page links.
+
+<Pagination className="my-4">
+  <PaginationContent shape="circle">
+    <PaginationItem>
+      <PaginationLink href="#pagination">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem active>
+      <PaginationLink active href="#pagination">
+        2
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#pagination">3</PaginationLink>
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+
+### Variants & colors
+
+The active-page treatment is set by `variant` (`filled`, `subtle`, `outlined`)
+paired with a `color`.
+
+<div className="flex flex-col gap-3 my-4">
+  <Pagination>
+    <PaginationContent variant="filled" color="success">
+      <PaginationItem>
+        <PaginationLink href="#pagination">1</PaginationLink>
+      </PaginationItem>
+      <PaginationItem active>
+        <PaginationLink active href="#pagination">
+          2
+        </PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#pagination">3</PaginationLink>
+      </PaginationItem>
+    </PaginationContent>
+  </Pagination>
+  <Pagination>
+    <PaginationContent variant="subtle" color="primary">
+      <PaginationItem>
+        <PaginationLink href="#pagination">1</PaginationLink>
+      </PaginationItem>
+      <PaginationItem active>
+        <PaginationLink active href="#pagination">
+          2
+        </PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#pagination">3</PaginationLink>
+      </PaginationItem>
+    </PaginationContent>
+  </Pagination>
+  <Pagination>
+    <PaginationContent variant="outlined" color="danger">
+      <PaginationItem>
+        <PaginationLink href="#pagination">1</PaginationLink>
+      </PaginationItem>
+      <PaginationItem active>
+        <PaginationLink active href="#pagination">
+          2
+        </PaginationLink>
+      </PaginationItem>
+      <PaginationItem>
+        <PaginationLink href="#pagination">3</PaginationLink>
+      </PaginationItem>
+    </PaginationContent>
+  </Pagination>
+</div>

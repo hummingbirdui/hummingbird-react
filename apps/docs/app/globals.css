@@ -1,7 +1,11 @@
 @import "tailwindcss";
-@import "@hummingbirdui/react/styles.css";
+@import "tw-animate-css";
+@import "@hummingbirdui/hummingbird";
+@source "../node_modules/@hummingbirdui/react";
+@custom-variant dark (&:where(.dark, .dark *), .dark);
 
 @theme {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --container-8xl: 95rem;
   --navbar-height: --spacing(20.5);
   --anchor-header-offset: 7.5rem;
@@ -19,9 +23,105 @@
   --text-4xl--line-height: 1.1;
 }
 
-article p {
-  @apply mb-0;
+:root[data-os="windows"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-article > p {
-  @apply mb-4;
+:root[data-os="windows"] ::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+:root[data-os="windows"] ::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-400);
+  border-radius: 9999px;
+}
+
+:root[data-os="windows"].dark ::-webkit-scrollbar-track {
+  background: var(--color-gray-800);
+}
+:root[data-os="windows"].dark ::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-600);
+}
+
+:root[data-os="windows"] ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.astro-code::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.docs-sidebar {
+  ~ .offcanvas-backdrop {
+    @apply z-8;
+  }
+}
+.docs-content {
+  :where(h2, h3, h4, h5, h6)[id] {
+    @apply scroll-mt-(--anchor-header-offset) font-medium;
+  }
+  > h2 {
+    @apply text-2xl;
+  }
+  > h2:not(:first-child) {
+    @apply mt-12;
+  }
+  > h2 {
+    &:has(+ :not(p)) {
+      @apply mb-4;
+    }
+  }
+  > h3 {
+    @apply mt-8 text-xl;
+    &:has(+ :not(p)) {
+      @apply mb-4;
+    }
+  }
+  > h4 {
+    @apply mt-7 text-lg;
+    &:has(+ :not(p)) {
+      @apply mb-4;
+    }
+  }
+  > ol,
+  > ul {
+    @apply ps-4;
+  }
+
+  .heading-anchor {
+    @apply opacity-0 transition-opacity duration-200;
+
+    &::after {
+      content: "";
+      @apply relative content-['']
+      top-1 left-1 inline-block size-5
+      bg-primary mask-contain mask-no-repeat mask-center;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m9.172 14.829 5.657-5.657M7.05 11.293l-1.414 1.414a4 4 0 1 0 5.657 5.657l1.412-1.414m-1.413-9.9l1.414-1.414a4 4 0 1 1 5.657 5.657l-1.414 1.414'/%3E%3C/svg%3E");
+    }
+
+    &:focus,
+    &:hover,
+    :hover > &,
+    :target > & {
+      @apply opacity-100;
+    }
+  }
+}
+
+.hb-code {
+  @apply overflow-auto bg-muted! text-sm p-4 rounded-lg;
+  .shiki {
+    @apply bg-transparent!;
+  }
+  span {
+    color: var(--shiki-light);
+    font-weight: var(--shiki-light-font-weight);
+    font-style: var(--shiki-light-font-style);
+    text-decoration: var(--shiki-light-text-decoration);
+
+    @variant dark {
+      @apply text-(--shiki-dark)! font-(--shiki-dark-font-weight)!;
+      font-style: var(--shiki-dark-font-style) !important;
+      text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+  }
 }

@@ -1,0 +1,76 @@
+---
+title: List Group
+description: A flexible container for displaying a series of related content.
+---
+
+### Default
+
+A `ListGroup` renders a list of `ListGroupItem`s.
+
+<ListGroup className="my-4 max-w-md">
+  <ListGroupItem>An item</ListGroupItem>
+  <ListGroupItem>A second item</ListGroupItem>
+  <ListGroupItem>A third item</ListGroupItem>
+</ListGroup>
+
+### Active & disabled
+
+Use the `active` prop to mark the current item and `disabled` to mute it.
+
+<ListGroup className="my-4 max-w-md">
+  <ListGroupItem active>Active item</ListGroupItem>
+  <ListGroupItem>Default item</ListGroupItem>
+  <ListGroupItem disabled>Disabled item</ListGroupItem>
+</ListGroup>
+
+### Actionable
+
+Add the `action` prop for interactive items, and `asChild` to render them as
+links or buttons. Use a `div`-based list so the anchors are valid children.
+
+<ListGroup asChild className="my-4 max-w-md">
+  <div>
+    <ListGroupItem action asChild>
+      <a href="#list-group">First action</a>
+    </ListGroupItem>
+    <ListGroupItem action active asChild>
+      <a href="#list-group">Active action</a>
+    </ListGroupItem>
+    <ListGroupItem action asChild>
+      <a href="#list-group">Third action</a>
+    </ListGroupItem>
+  </div>
+</ListGroup>
+
+### Numbered
+
+The `numbered` prop prefixes each item with an incrementing counter.
+
+<ListGroup numbered className="my-4 max-w-md">
+  <ListGroupItem>First item</ListGroupItem>
+  <ListGroupItem>Second item</ListGroupItem>
+  <ListGroupItem>Third item</ListGroupItem>
+</ListGroup>
+
+### Custom content
+
+Compose `ListText` (title / subtitle) and any markup inside an item.
+
+<ListGroup className="my-4 max-w-md">
+  <ListGroupItem>
+    <div className="flex w-full items-center justify-between">
+      <ListText>List group item heading</ListText>
+      <small className="text-muted">3 days ago</small>
+    </div>
+    <ListText variant="secondary">
+      Some supporting, secondary copy for this list item.
+    </ListText>
+  </ListGroupItem>
+  <ListGroupItem>
+    <div className="flex w-full items-center justify-between">
+      <ListText>Another heading</ListText>
+      <small className="text-muted">1 week ago</small>
+    </div>
+    <ListText variant="secondary">More supporting text.</ListText>
+  </ListGroupItem>
+</ListGroup>

@@ -1,0 +1,87 @@
+---
+title: Popover
+description: A floating panel anchored to a trigger — built on Radix Popover with Bootstrap's popover styling.
+---
+
+### Default
+
+Compose a `Popover` from a `PopoverTrigger` (rendered as a `Button` via
+`asChild`) and a `PopoverContent`. The content holds a `PopoverHeader` and a
+`PopoverBody`. Radix handles focus management, positioning, and
+`Esc`/outside-click dismissal; the panel fades and scales from the trigger.
+
+<Popover>
+  <PopoverTrigger asChild>
+    <Button>Open popover</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverHeader>Popover title</PopoverHeader>
+    <PopoverBody>
+      And here's some amazing content. It's very engaging. Right?
+    </PopoverBody>
+  </PopoverContent>
+</Popover>
+
+### Placement
+
+Pass `side` (`"top" | "right" | "bottom" | "left"`) and `align`
+(`"start" | "center" | "end"`) to `PopoverContent` to choose where the panel
+opens relative to the trigger.
+
+<div className="flex flex-wrap gap-2">
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button variant="outline">Top</Button>
+    </PopoverTrigger>
+    <PopoverContent side="top">
+      <PopoverBody>Opens above the trigger.</PopoverBody>
+    </PopoverContent>
+  </Popover>
+
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button variant="outline">Right</Button>
+    </PopoverTrigger>
+    <PopoverContent side="right">
+      <PopoverBody>Opens to the right.</PopoverBody>
+    </PopoverContent>
+  </Popover>
+
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button variant="outline">Bottom</Button>
+    </PopoverTrigger>
+    <PopoverContent side="bottom">
+      <PopoverBody>Opens below the trigger.</PopoverBody>
+    </PopoverContent>
+  </Popover>
+
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button variant="outline">Left</Button>
+    </PopoverTrigger>
+    <PopoverContent side="left">
+      <PopoverBody>Opens to the left.</PopoverBody>
+    </PopoverContent>
+  </Popover>
+</div>
+
+### With a close button
+
+Use `PopoverClose` (rendered as a `CloseButton` via `asChild`) inside the
+content to dismiss the popover from within.
+
+<Popover>
+  <PopoverTrigger asChild>
+    <Button color="secondary">Dismissable</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <PopoverHeader className="flex items-center justify-between">
+      Heads up
+      <PopoverClose asChild>
+        <CloseButton />
+      </PopoverClose>
+    </PopoverHeader>
+    <PopoverBody>Click the close button to dismiss this popover.</PopoverBody>
+  </PopoverContent>
+</Popover>

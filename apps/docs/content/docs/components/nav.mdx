@@ -1,0 +1,85 @@
+---
+title: Nav
+description: Styled navigation links — the static base shared with Tabs.
+---
+
+### Default
+
+A `Nav` holds `NavItem`s, each wrapping a `NavLink`. Mark the current link with
+`active` and mute one with `disabled`.
+
+<Nav className="my-4">
+  <NavItem>
+    <NavLink href="#" active>
+      Active
+    </NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#" disabled>
+      Disabled
+    </NavLink>
+  </NavItem>
+</Nav>
+
+### Tabs
+
+`variant="tabs"` renders the links as a bordered tab bar.
+
+<Nav variant="tabs" className="my-4">
+  <NavItem>
+    <NavLink href="#" active>
+      Active
+    </NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+</Nav>
+
+### Underline
+
+`variant="underline"` underlines the active link.
+
+<Nav variant="underline" className="my-4">
+  <NavItem>
+    <NavLink href="#" active>
+      Active
+    </NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+</Nav>
+
+### Colors
+
+Apply a `color` to theme the whole nav surface.
+
+<Nav color="primary" className="my-4 rounded-lg p-1">
+  <NavItem>
+    <NavLink href="#" active>
+      Active
+    </NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+  <NavItem>
+    <NavLink href="#">Link</NavLink>
+  </NavItem>
+</Nav>
+
+> **Need switchable panels?** Use the [Tabs](/docs/components/tabs) component,
+> which pairs this look with Radix UI behavior.

@@ -1,0 +1,59 @@
+---
+title: Collapsible
+description: An interactive component that expands and collapses a single panel of content.
+---
+
+### Default
+
+A `Collapsible` pairs a trigger with one content panel that it shows and hides.
+The panel animates its height open and closed with zero extra JavaScript — Radix
+measures the content and the animation is keyed off its `data-state`.
+
+<Collapsible className="my-4 max-w-md">
+  <div className="flex items-center justify-between gap-2">
+    <span className="font-semibold">@hummingbird/react starred 3 repositories</span>
+    <CollapsibleTrigger asChild>
+      <Button variant="outline" color="secondary" size="sm">Toggle</Button>
+    </CollapsibleTrigger>
+  </div>
+  <div className="mt-2 rounded border p-3 font-mono text-sm">@radix-ui/primitives</div>
+  <CollapsibleContent>
+    <div className="mt-2 rounded border p-3 font-mono text-sm">@stitches/react</div>
+    <div className="mt-2 rounded border p-3 font-mono text-sm">@hummingbird/react</div>
+  </CollapsibleContent>
+</Collapsible>
+
+### Open by default
+
+Use `defaultOpen` to render the panel expanded on first paint (uncontrolled), or
+pass `open` with `onOpenChange` to control it yourself.
+
+<Collapsible defaultOpen className="my-4 max-w-md">
+  <CollapsibleTrigger asChild>
+    <Button variant="outline" color="primary" size="sm">Show details</Button>
+  </CollapsibleTrigger>
+  <CollapsibleContent>
+    <Card className="mt-2">
+      <CardBody>
+        <CardText>
+          Collapsible is built on Radix UI's headless primitive, so keyboard
+          interaction and ARIA wiring (the trigger's `aria-expanded` and
+          `aria-controls`) are handled for you.
+        </CardText>
+      </CardBody>
+    </Card>
+  </CollapsibleContent>
+</Collapsible>
+
+### Disabled
+
+Set `disabled` on the root to prevent the panel from being toggled.
+
+<Collapsible disabled className="my-4 max-w-md">
+  <CollapsibleTrigger asChild>
+    <Button variant="outline" color="secondary" size="sm" disabled>Toggle</Button>
+  </CollapsibleTrigger>
+  <CollapsibleContent>
+    <div className="mt-2 rounded border p-3">You won't be able to open this.</div>
+  </CollapsibleContent>
+</Collapsible>
