@@ -1,59 +1,113 @@
 ---
 title: Button
-description: Displays a button or a component that looks like a button.
+description: Buttons allow users to trigger an action or event with a single click. They are a core interactive element in any application interface.
 ---
 
-The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+## Default
 
-## Usage
+Default button comes with primary color and filled variant.
 
-```tsx
-import { Button } from "@hummingbirdui/react";
-```
+<ComponentPreview name="button-default" className="text-center" />
 
-## Examples
+## Variants
 
-### Default
-
-<ComponentPreview name="button-default" />
-
-### Variants
-
-Hummingbird UI buttons support multiple variants.
+Use variant prop to change the visual style of the button.
 
 <ComponentPreview name="button-variants" />
 
-### Colors
+## Colors
 
-You can easily customize the color intention of the button.
+Hummingbird buttons support multiple colors. Use color prop to change the color of the button.
 
-<div className="flex flex-wrap gap-4 p-4 border rounded-md my-4">
-  <Button color="primary">Primary</Button>
-  <Button color="secondary">Secondary</Button>
-  <Button color="info">Info</Button>
-  <Button color="success">Success</Button>
-  <Button color="warning">Warning</Button>
-  <Button color="danger">Danger</Button>
-  <Button color="neutral">Neutral</Button>
-  <Button color="dark">Dark</Button>
-</div>
+<ComponentPreview name="button-colors" />
 
-### Sizes
+## Sizes
 
 Buttons come in three different sizes: `sm`, `md` (default), and `lg`.
 
-<div className="flex items-center gap-4 p-4 border rounded-md my-4">
-  <Button size="sm">Small</Button>
-  <Button size="md">Medium</Button>
-  <Button size="lg">Large</Button>
-</div>
+<ComponentPreview name="button-sizes" />
 
-### Shapes
+## Shapes
 
 You can change the shape of the button using the `shape` prop.
 
-<div className="flex items-center gap-4 p-4 border rounded-md my-4">
-  <Button shape="default">Default</Button>
-  <Button shape="square">SQ</Button>
-  <Button shape="circle">C</Button>
-</div>
+<ComponentPreview name="button-shapes" />
+
+## Button with icon
+
+<ComponentPreview name="button-with-icon" />
+
+## Icon button
+
+<ComponentPreview name="button-icons" />
+
+## Block button
+
+<ComponentPreview name="button-full-width" />
+
+## Disabled button
+
+<ComponentPreview name="button-disabled" />
+
+## API Reference
+
+The `Button` component renders a native `<button>` element and accepts all standard button attributes (except `color`, which is reserved for styling) in addition to the props below.
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"filled" | "subtle" | "outline" | "text" | "link" | "icon"',
+      default: '"filled"',
+      description: "Visual style of the button.",
+    },
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral" | "light" | "dark"',
+      default: '"primary"',
+      description: "Color theme of the button.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size of the button.",
+    },
+    {
+      prop: "shape",
+      type: '"default" | "square" | "circle"',
+      default: '"default"',
+      description: (
+        <>
+          Shape of the button. Use <code>square</code> or <code>circle</code>{" "}
+          for icon-only buttons.
+        </>
+      ),
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: (
+        <>
+          Merge props onto the child element instead of rendering a{" "}
+          <code>&lt;button&gt;</code> (e.g. to render a link as a button).
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description:
+        "Additional classes merged with the generated button classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React button is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available button classes in the [Class overview](https://hbui.dev/docs/components/buttons/#class-overview).
+- Prefer customizing with CSS variable? Check the [CSS variables](https://hbui.dev/docs/components/buttons/#css-variables) used by the button for global or local theming.

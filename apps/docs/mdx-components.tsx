@@ -141,6 +141,7 @@ import {
 } from "@/components/tooltip";
 import { ComponentPreview } from "@/components/docs/ComponentPreview";
 import { MdxCodeBlock } from "@/components/docs/MdxCodeBlock";
+import { PropsTable } from "@/components/docs/PropsTable";
 
 // Next.js requires this file to be at the root of the app or src directory
 // to use MDX globally in the App Router.
@@ -332,6 +333,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Renders a live example above its source code — see ComponentPreview.tsx.
     ComponentPreview: (props: any) => <ComponentPreview {...props} />,
+
+    // Data-driven API reference table — see PropsTable.tsx.
+    PropsTable: (props: any) => <PropsTable {...props} />,
 
     // Styles standalone fenced code blocks (```tsx ...```) to match the
     // ComponentPreview code panel, adding a copy button — see MdxCodeBlock.tsx.

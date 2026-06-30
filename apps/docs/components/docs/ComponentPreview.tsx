@@ -35,7 +35,9 @@ export async function ComponentPreview({
     );
   }
 
-  const Example = entry.component;
+  const Example = (
+    await import(`../../registry/examples/${entry.file}`)
+  ).default;
   const source = await fs.readFile(
     path.join(EXAMPLES_DIR, entry.file),
     "utf-8",

@@ -23,15 +23,13 @@ export default async function Page(props: {
     <div
       className={cn(
         "py-10 lg:ps-10",
-        toc.length > 0 && "xl:grid xl:grid-cols-[1fr_16.75rem]"
+        toc.length > 0 && "xl:grid xl:grid-cols-[1fr_16.75rem]",
       )}
     >
       <article className="docs-content min-w-0">
         <h1 className="mb-4 text-4xl">{page.data.title}</h1>
         {page.data.description && (
-          <p className="text-xl mb-10 font-light text-muted">
-            {page.data.description}
-          </p>
+          <p className="text-xl mb-10 font-light">{page.data.description}</p>
         )}
         <MDX components={useMDXComponents({})} />
         <DocsPagination prev={previous} next={next} />
