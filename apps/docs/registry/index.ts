@@ -12,4 +12,7 @@ export const registry: Record<string, RegistryEntry> = {
   "button-icons": { file: "buttons/button-icons.tsx" },
   "button-full-width": { file: "buttons/full-width.tsx" },
   "button-disabled": { file: "buttons/button-disabled.tsx" },
+  "accordion-default": { file: "accordion/accordion-default.tsx" },
+  "accordion-multiple": { file: "accordion/accordion-multiple.tsx" },
+  "accordion-disabled": { file: "accordion/accordion-disabled.tsx" },
 };

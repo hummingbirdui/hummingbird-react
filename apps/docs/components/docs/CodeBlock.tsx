@@ -83,7 +83,7 @@ export function CodeBlock({
               variant="text"
               color="neutral"
               size="sm"
-              className="gap-1 sm:min-w-29"
+              className="gap-1 sm:w-30"
               onClick={copy}
             >
               {copied ? (
