@@ -26,6 +26,12 @@ example files that back it. Mirror the structure of an existing page —
 - **Live examples, never inline JSX.** Every demo is a registry example rendered
   through `<ComponentPreview name="…" />`, so the preview and its source code stay
   in sync. Do not hand-write component trees inside the MDX.
+- **Keep prose short and straightforward.** One sentence per section stating what the
+  prop/part does. Cut secondary clauses that restate the obvious ("Combined with
+  `asChild`, the badge renders as an anchor" → delete). Under an API-reference
+  sub-heading, put the `<PropsTable>` directly — no "Renders a `<span>`." filler line
+  (follow Radix's API-reference style, or skip the line entirely). Prop descriptions
+  are one plain phrase.
 
 ## Step 1 — Enumerate what to document
 
@@ -122,12 +128,13 @@ The rule, derived from how these wrappers work:
    For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/<name>#api-reference) documentation.
    ```
 
-3. **`className` is mentioned in prose, not tabled.** The wrapper adds `className`
-   (merged with the generated classes); call it out in a sentence if its behavior is
-   non-obvious, rather than giving it a row.
-4. **Only table genuinely new props.** When a part introduces a prop that is *not*
-   from Radix and *not* `className`, add a `<PropsTable>` for **only those props**,
-   component-wise. If a component adds nothing beyond `className`, it gets no table.
+3. **Only table genuinely new props.** When a part introduces a prop that is *not*
+   from Radix, add a `<PropsTable>` for those props, component-wise. If a part adds
+   nothing of its own, it gets no table — redirect and move on.
+4. **Whenever a table exists, include a `className` row.** Any part that gets a
+   `<PropsTable>` lists `className` as the last row (`type: "string"`, description
+   "Additional classes merged with the generated classes."). A part with no new props
+   gets no table, so `className` is not tabled there.
 
 `<PropsTable>` shape (`prop`, `type`, optional `default`, `description`; description
 may be JSX):
@@ -150,5 +157,6 @@ directly (variant, color, size, shape, asChild, className) as in `button.mdx`.
 - [ ] All prose is third person — no "you"/"your"/"we"/imperative
 - [ ] Example files: `"use client"`, default export, import from `@hummingbirdui/react`
 - [ ] Radix-backed: confirmed each documented Radix prop spreads through the wrapper; shared props redirect to Radix
-- [ ] `PropsTable` only for genuinely new props (not Radix, not `className`); none if the wrapper adds only `className`
+- [ ] `PropsTable` only for parts with genuinely new props; every table that exists ends with a `className` row
+- [ ] Prose is short — one sentence per section, no boilerplate "Renders a `<div>`." lines under API sub-headings
 - [ ] Frontmatter `title` + third-person `description`; Styling section with the two hbui.dev links
