@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
+import { Avatar as AvatarPrimitive, Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const avatarVariants = cva('avatar', {
@@ -24,15 +24,11 @@ const avatarVariants = cva('avatar', {
 });
 
 export interface AvatarProps
-  extends React.ComponentProps<'span'>, VariantProps<typeof avatarVariants> {
-  asChild?: boolean;
-}
+  extends React.ComponentProps<typeof AvatarPrimitive.Root>, VariantProps<typeof avatarVariants> {}
 
-function Avatar({ className, size, status, asChild = false, ...props }: AvatarProps) {
-  const Comp = asChild ? Slot.Root : 'span';
-
+function Avatar({ className, size, status, ...props }: AvatarProps) {
   return (
-    <Comp
+    <AvatarPrimitive.Root
       data-slot="avatar"
       className={cn(avatarVariants({ size, status }), className)}
       {...props}
@@ -42,17 +38,32 @@ function Avatar({ className, size, status, asChild = false, ...props }: AvatarPr
 
 Avatar.displayName = 'Avatar';
 
-export interface AvatarNameProps extends React.ComponentProps<'span'> {
-  asChild?: boolean;
+function AvatarImage({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+  return (
+    <AvatarPrimitive.Image
+      data-slot="avatar-image"
+      className={cn('h-full w-full object-cover rounded-full', className)}
+      {...props}
+    />
+  );
 }
 
-function AvatarName({ className, asChild = false, ...props }: AvatarNameProps) {
-  const Comp = asChild ? Slot.Root : 'span';
+AvatarImage.displayName = 'AvatarImage';
 
-  return <Comp data-slot="avatar-name" className={cn('avatar-name', className)} {...props} />;
+function AvatarFallback({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
+  return (
+    <AvatarPrimitive.Fallback
+      data-slot="avatar-fallback"
+      className={cn('avatar-name rounded-full', className)}
+      {...props}
+    />
+  );
 }
 
-AvatarName.displayName = 'AvatarName';
+AvatarFallback.displayName = 'AvatarFallback';
 
 export interface AvatarGroupProps extends React.ComponentProps<'div'> {
   asChild?: boolean;
@@ -66,4 +77,4 @@ function AvatarGroup({ className, asChild = false, ...props }: AvatarGroupProps)
 
 AvatarGroup.displayName = 'AvatarGroup';
 
-export { Avatar, AvatarName, AvatarGroup, avatarVariants };
+export { Avatar, AvatarImage, AvatarFallback, AvatarGroup, avatarVariants };

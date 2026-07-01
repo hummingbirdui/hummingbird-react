@@ -7,10 +7,11 @@ const alertVariants = cva('alert', {
   variants: {
     variant: {
       filled: '',
-      subtle: '',
-      outline: '',
+      subtle: 'alert-subtle',
+      outline: 'alert-outline',
     },
     color: {
+      neutral: '',
       primary: '',
       secondary: '',
       info: '',
@@ -46,6 +47,7 @@ const alertVariants = cva('alert', {
   ],
   defaultVariants: {
     variant: 'filled',
+    color: 'primary',
   },
 });
 
