@@ -3,78 +3,62 @@ title: Breadcrumb
 description: Displays the path to the current resource using a hierarchy of links.
 ---
 
-### Default
+## Default
 
-The base breadcrumb separates items with a `/`. Mark the final item with `active` and wrap its label in a `BreadcrumbPage`.
+The final item marks the current page with `active` and a `BreadcrumbPage`.
 
-<Breadcrumb className="my-4">
-  <BreadcrumbList>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#">Home</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#">Components</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem active>
-      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>
+<ComponentPreview name="breadcrumb-default" />
 
-### Dashed separator
+## Separators
 
-Set `separator="dashed"` on the `BreadcrumbList` to separate items with a `-`.
+The `separator` prop on `BreadcrumbList` changes the divider between items: `slash` (default), `dashed`, or `arrow`.
 
-<Breadcrumb className="my-4">
-  <BreadcrumbList separator="dashed">
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#">Home</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#">Docs</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem active>
-      <BreadcrumbPage>Current</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>
+<ComponentPreview name="breadcrumb-separators" />
 
-### Arrow separator
+## API Reference
 
-Set `separator="arrow"` to separate items with a `>`.
+### BreadcrumbList
 
-<Breadcrumb className="my-4">
-  <BreadcrumbList separator="arrow">
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#">Home</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem>
-      <BreadcrumbLink href="#">Library</BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem active>
-      <BreadcrumbPage>Data</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>
+<PropsTable
+  data={[
+    {
+      prop: "separator",
+      type: '"slash" | "dashed" | "arrow"',
+      default: '"slash"',
+      description: "Divider rendered between items.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
 
-### As a framework link
+### BreadcrumbItem
 
-Use `asChild` on `BreadcrumbLink` to render it as another element, such as a router link.
+<PropsTable
+  data={[
+    {
+      prop: "active",
+      type: "boolean",
+      default: "false",
+      description: "Marks the item as the current page.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
 
-<Breadcrumb className="my-4">
-  <BreadcrumbList>
-    <BreadcrumbItem>
-      <BreadcrumbLink asChild>
-        <a href="#">Dashboard</a>
-      </BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem>
-      <BreadcrumbLink asChild>
-        <a href="#">Settings</a>
-      </BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbItem active>
-      <BreadcrumbPage>Profile</BreadcrumbPage>
-    </BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>
+`Breadcrumb`, `BreadcrumbLink`, and `BreadcrumbPage` render a `<nav>`, `<a>`, and `<span>`. Each accepts `asChild` and `className`.
+
+## Styling
+
+Hummingbird React breadcrumb is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available breadcrumb classes in the [Class overview](https://hbui.dev/docs/components/breadcrumb/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/breadcrumb/#css-variables) documentation to explore all available variables.

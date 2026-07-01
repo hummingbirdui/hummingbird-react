@@ -1,56 +1,87 @@
 ---
 title: Avatar
-description: Represents a user with an image or initials, optionally showing presence.
+description: An image element with a text fallback for representing a user or entity.
 ---
 
-### Default
+## Default
 
-Use `AvatarName` to render initials inside an avatar.
+An avatar renders an image with a fallback for when the image is unavailable.
 
-<div className="flex items-center gap-3 my-4">
-  <Avatar>
-    <AvatarName>HB</AvatarName>
-  </Avatar>
-</div>
+<ComponentPreview name="avatar-default" />
 
-### Image
+## Sizes
 
-Render the avatar as an `img` with `asChild`.
+The `size` prop offers four sizes: `xs`, `sm`, `md` (default), and `lg`.
 
-<div className="flex items-center gap-3 my-4">
-  <Avatar asChild>
-    <img src="https://i.pravatar.cc/80?img=12" alt="User avatar" />
-  </Avatar>
-</div>
+<ComponentPreview name="avatar-sizes" />
 
-### Sizes
+## Status
 
-Avatars come in four sizes: `xs`, `sm`, `md` (default), and `lg`.
+The `status` prop adds a presence indicator: `online`, `offline`, `away`, or `busy`.
 
-<div className="flex items-center gap-3 my-4">
-  <Avatar size="xs"><AvatarName>XS</AvatarName></Avatar>
-  <Avatar size="sm"><AvatarName>SM</AvatarName></Avatar>
-  <Avatar size="md"><AvatarName>MD</AvatarName></Avatar>
-  <Avatar size="lg"><AvatarName>LG</AvatarName></Avatar>
-</div>
+<ComponentPreview name="avatar-status" />
 
-### Status
+## Fallback
 
-Show a presence indicator with the `status` prop.
+`AvatarFallback` renders when the image is unavailable — typically the user's initials.
 
-<div className="flex items-center gap-3 my-4">
-  <Avatar status="online"><AvatarName>ON</AvatarName></Avatar>
-  <Avatar status="away"><AvatarName>AW</AvatarName></Avatar>
-  <Avatar status="busy"><AvatarName>BS</AvatarName></Avatar>
-  <Avatar status="offline"><AvatarName>OF</AvatarName></Avatar>
-</div>
+<ComponentPreview name="avatar-fallback" />
 
-### Group
+## Group
 
-Wrap avatars in `AvatarGroup` to overlap them.
+`AvatarGroup` stacks several avatars into an overlapping row.
 
-<AvatarGroup className="my-4">
-  <Avatar><AvatarName>AB</AvatarName></Avatar>
-  <Avatar><AvatarName>CD</AvatarName></Avatar>
-  <Avatar><AvatarName>EF</AvatarName></Avatar>
-</AvatarGroup>
+<ComponentPreview name="avatar-group" />
+
+## API Reference
+
+`Avatar`, `AvatarImage`, and `AvatarFallback` wrap the Radix UI Avatar primitives — see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/avatar#api-reference) documentation for their props.
+
+### Avatar
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size of the avatar.",
+    },
+    {
+      prop: "status",
+      type: '"online" | "offline" | "away" | "busy"',
+      description: "Presence indicator shown in the corner.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### AvatarGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React avatar is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available avatar classes in the [Class overview](https://hbui.dev/docs/components/avatar/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/avatar/#css-variables) documentation to explore all available variables.

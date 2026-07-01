@@ -3,62 +3,84 @@ title: Alert
 description: Displays a short, important message to attract the user's attention.
 ---
 
-### Default
+## Default
 
-The base alert is a solid, dark surface.
+The default alert is filled with the primary color.
 
-<Alert className="my-4 max-w-2xl">This is a default alert.</Alert>
+<ComponentPreview name="alert-default" />
 
-### Colors
+## Variants
 
-Pair the filled variant with a `color` to convey intent.
+The `variant` prop changes the visual style: `filled` (default), `subtle`, or `outline`.
 
-<div className="flex flex-col gap-3 my-4 max-w-2xl">
-  <Alert color="primary">A primary alert with helpful information.</Alert>
-  <Alert color="success">Your changes have been saved successfully.</Alert>
-  <Alert color="warning">Your subscription is about to expire.</Alert>
-  <Alert color="danger">Something went wrong while saving.</Alert>
-</div>
+<ComponentPreview name="alert-variants" />
 
-### With icon
+## Colors
 
-Place an `AlertIcon` as the first child to draw attention to the message. It picks up the alert's contrast color and aligns with the text.
+The `color` prop conveys intent with `primary` (default), `neutral`, `secondary`, `info`, `success`, `warning`, or `danger`.
 
-<div className="flex flex-col gap-3 my-4 max-w-2xl">
-  <Alert color="info">
-    <AlertIcon>ℹ️</AlertIcon>
-    A new software update is available.
-  </Alert>
-  <Alert color="success">
-    <AlertIcon>✅</AlertIcon>
-    Your changes have been saved successfully.
-  </Alert>
-  <Alert variant="subtle" color="warning">
-    <AlertIcon>⚠️</AlertIcon>
-    Your subscription is about to expire.
-  </Alert>
-  <Alert variant="outline" color="danger">
-    <AlertIcon>⛔</AlertIcon>
-    Something went wrong while saving.
-  </Alert>
-</div>
+<ComponentPreview name="alert-colors" />
 
-### Subtle
+## With icon
 
-The `subtle` variant uses a muted, low-contrast surface.
+`AlertIcon` renders a leading icon.
 
-<div className="flex flex-col gap-3 my-4 max-w-2xl">
-  <Alert variant="subtle" color="info">A subtle info alert.</Alert>
-  <Alert variant="subtle" color="success">A subtle success alert.</Alert>
-  <Alert variant="subtle" color="danger">A subtle danger alert.</Alert>
-</div>
+<ComponentPreview name="alert-with-icon" />
 
-### Outline
+## API Reference
 
-The `outline` variant is transparent with a colored border.
+### Alert
 
-<div className="flex flex-col gap-3 my-4 max-w-2xl">
-  <Alert variant="outline" color="primary">An outlined primary alert.</Alert>
-  <Alert variant="outline" color="warning">An outlined warning alert.</Alert>
-  <Alert variant="outline" color="danger">An outlined danger alert.</Alert>
-</div>
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"filled" | "subtle" | "outline"',
+      default: '"filled"',
+      description: "Visual style of the alert.",
+    },
+    {
+      prop: "color",
+      type: '"neutral" | "primary" | "secondary" | "info" | "success" | "warning" | "danger"',
+      default: '"primary"',
+      description: "Color theme of the alert.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### AlertIcon
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React alert is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available alert classes in the [Class overview](https://hbui.dev/docs/components/alert/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/alert/#css-variables) documentation to explore all available variables.

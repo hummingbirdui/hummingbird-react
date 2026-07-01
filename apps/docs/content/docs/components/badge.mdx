@@ -3,106 +3,108 @@ title: Badge
 description: A small count or status descriptor for UI elements.
 ---
 
-### Default
+## Default
 
-The base badge is a solid, dark pill.
+The default badge is filled with the primary color.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <Badge>Default</Badge>
-</div>
+<ComponentPreview name="badge-default" />
 
-### Colors
+## Variants
 
-Pair the filled variant with a `color` to convey intent.
+The `variant` prop changes the visual style: `filled` (default), `subtle`, or `outline`.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <Badge color="primary">Primary</Badge>
-  <Badge color="secondary">Secondary</Badge>
-  <Badge color="info">Info</Badge>
-  <Badge color="success">Success</Badge>
-  <Badge color="warning">Warning</Badge>
-  <Badge color="danger">Danger</Badge>
-</div>
+<ComponentPreview name="badge-variants" />
 
-### Subtle
+## Colors
 
-The `subtle` variant uses a muted, low-contrast surface.
+The `color` prop conveys intent with `primary` (default), `neutral`, `secondary`, `info`, `success`, `warning`, or `danger`.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <Badge variant="subtle" color="primary">
-    Primary
-  </Badge>
-  <Badge variant="subtle" color="success">
-    Success
-  </Badge>
-  <Badge variant="subtle" color="warning">
-    Warning
-  </Badge>
-  <Badge variant="subtle" color="danger">
-    Danger
-  </Badge>
-</div>
+<ComponentPreview name="badge-colors" />
 
-### Outline
+## Sizes
 
-The `outline` variant is transparent with a colored border.
+The `size` prop offers three sizes: `sm` (default), `md`, and `lg`.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <Badge variant="outline" color="primary">
-    Primary
-  </Badge>
-  <Badge variant="outline" color="info">
-    Info
-  </Badge>
-  <Badge variant="outline" color="danger">
-    Danger
-  </Badge>
-</div>
+<ComponentPreview name="badge-sizes" />
 
-### Sizes
+## Link
 
-Badges come in three sizes: `sm` (default), `md`, and `lg`.
+The `link` prop styles the badge as an interactive link.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <Badge color="primary" size="sm">
-    Small
-  </Badge>
-  <Badge color="primary" size="md">
-    Medium
-  </Badge>
-  <Badge color="primary" size="lg">
-    Large
-  </Badge>
-</div>
+<ComponentPreview name="badge-link" />
 
-### Link
+## With action button
 
-Add the `link` prop for an interactive badge, and `asChild` to render it as an anchor.
+`BadgeActionButton` adds a trailing button.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <Badge link asChild color="primary">
-    <a href="#link">Primary link</a>
-  </Badge>
-  <Badge link asChild variant="subtle" color="info">
-    <a href="#link">Subtle link</a>
-  </Badge>
-</div>
+<ComponentPreview name="badge-with-action" />
 
-### With action button
+## API Reference
 
-Use `BadgeActionButton` for a dismissible badge.
+### Badge
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <Badge color="primary" size="md">
-    Dismissible
-    <BadgeActionButton aria-label="Remove">
-      <span aria-hidden="true">×</span>
-    </BadgeActionButton>
-  </Badge>
-  <Badge variant="subtle" color="success" size="md">
-    Tag
-    <BadgeActionButton aria-label="Remove">
-      <span aria-hidden="true">×</span>
-    </BadgeActionButton>
-  </Badge>
-</div>
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"filled" | "subtle" | "outline"',
+      default: '"filled"',
+      description: "Visual style of the badge.",
+    },
+    {
+      prop: "color",
+      type: '"neutral" | "primary" | "secondary" | "info" | "success" | "warning" | "danger"',
+      default: '"primary"',
+      description: "Color theme of the badge.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"sm"',
+      description: "Size of the badge.",
+    },
+    {
+      prop: "link",
+      type: "boolean",
+      default: "false",
+      description: "Style the badge as an interactive link.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### BadgeActionButton
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React badge is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available badge classes in the [Class overview](https://hbui.dev/docs/components/badge/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/badge/#css-variables) documentation to explore all available variables.
