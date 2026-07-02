@@ -7,7 +7,7 @@ description: Text inputs, textareas, labels, and helper text for building forms.
 
 `FormControl` renders a styled `<input>`.
 
-<ComponentPreview name="form-control-default" />
+<ComponentPreview name="form-control-default" className="max-w-sm mx-auto" />
 
 ## Variants
 
@@ -37,13 +37,13 @@ The `state` prop marks a control `valid` or `invalid`, and pairs with a `FormTex
 
 `Textarea` shares the same styling for multi-line input.
 
-<ComponentPreview name="form-control-textarea" />
+<ComponentPreview name="form-control-textarea" className="max-w-sm mx-auto" />
 
 ## With label
 
 `FormField` stacks a `FormLabel`, control, and `FormText`, and recolors the label to match the control on focus.
 
-<ComponentPreview name="form-control-with-label" />
+<ComponentPreview name="form-control-with-label" className="max-w-sm mx-auto" />
 
 ## With icon
 
@@ -53,7 +53,7 @@ The `state` prop marks a control `valid` or `invalid`, and pairs with a `FormTex
 
 ## Disabled
 
-<ComponentPreview name="form-control-disabled" />
+<ComponentPreview name="form-control-disabled" className="max-w-sm mx-auto" />
 
 ## API Reference
 
@@ -109,7 +109,8 @@ Accepts the same `variant`, `size`, `color`, `state`, `asChild`, and `className`
       prop: "variant",
       type: '"default" | "valid" | "invalid"',
       default: '"default"',
-      description: "Helper text style, matching the control's validation state.",
+      description:
+        "Helper text style, matching the control's validation state.",
     },
     {
       prop: "asChild",

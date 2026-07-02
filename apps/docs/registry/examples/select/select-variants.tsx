@@ -4,7 +4,7 @@ import { Select } from "@hummingbirdui/react";
 
 export default function SelectVariants() {
   return (
-    <div className="flex flex-col gap-3 max-w-sm">
+    <div className="space-y-4 max-w-sm mx-auto">
       <Select variant="outline" defaultValue="pro">
         <option value="free">Free</option>
         <option value="pro">Pro</option>

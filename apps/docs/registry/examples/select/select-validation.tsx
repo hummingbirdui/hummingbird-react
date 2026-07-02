@@ -4,7 +4,7 @@ import { FormField, Select, FormText } from "@hummingbirdui/react";
 
 export default function SelectValidation() {
   return (
-    <div className="flex flex-col gap-4 max-w-sm">
+    <div className="space-y-4 max-w-sm mx-auto">
       <FormField>
         <Select state="valid" defaultValue="pro">
           <option value="free">Free</option>

@@ -4,7 +4,7 @@ import { Select } from "@hummingbirdui/react";
 
 export default function SelectDefault() {
   return (
-    <Select defaultValue="" className="max-w-sm">
+    <Select defaultValue="">
       <option value="" disabled>
         Choose a plan
       </option>

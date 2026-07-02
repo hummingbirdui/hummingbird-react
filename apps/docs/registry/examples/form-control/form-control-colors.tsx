@@ -4,7 +4,7 @@ import { FormControl } from "@hummingbirdui/react";
 
 export default function FormControlColors() {
   return (
-    <div className="flex flex-col gap-3 max-w-sm">
+    <div className="space-y-4 max-w-sm mx-auto">
       <FormControl color="primary" placeholder="Primary" />
       <FormControl color="secondary" placeholder="Secondary" />
       <FormControl color="info" placeholder="Info" />

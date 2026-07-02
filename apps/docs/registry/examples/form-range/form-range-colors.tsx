@@ -4,7 +4,7 @@ import { FormRange } from "@hummingbirdui/react";
 
 export default function FormRangeColors() {
   return (
-    <div className="flex flex-col gap-4 max-w-sm">
+    <div className="space-y-4 max-w-sm mx-auto">
       <FormRange color="primary" defaultValue={50} />
       <FormRange color="secondary" defaultValue={50} />
       <FormRange color="info" defaultValue={50} />

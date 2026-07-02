@@ -9,7 +9,7 @@ import {
 
 export default function FormControlWithLabel() {
   return (
-    <FormField className="max-w-sm">
+    <FormField>
       <FormLabel htmlFor="email">Email address</FormLabel>
       <FormControl id="email" type="email" placeholder="you@example.com" />
       <FormText>Notifications are sent to this address.</FormText>

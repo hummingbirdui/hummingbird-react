@@ -4,7 +4,7 @@ import { InputGroup, InputGroupText, FormControl } from "@hummingbirdui/react";
 
 export default function InputGroupSizes() {
   return (
-    <div className="flex flex-col gap-3 max-w-sm">
+    <div className="space-y-4 max-w-sm mx-auto">
       <InputGroup size="sm">
         <InputGroupText>@</InputGroupText>
         <FormControl placeholder="Small" />

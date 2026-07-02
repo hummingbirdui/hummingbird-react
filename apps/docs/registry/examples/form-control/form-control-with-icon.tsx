@@ -10,7 +10,7 @@ import { Search, Check } from "lucide-react";
 
 export default function FormControlWithIcon() {
   return (
-    <div className="flex flex-col gap-3 max-w-sm">
+    <div className="space-y-4 max-w-sm mx-auto">
       <InputIcon>
         <InputIconStart>
           <Search className="size-4" />

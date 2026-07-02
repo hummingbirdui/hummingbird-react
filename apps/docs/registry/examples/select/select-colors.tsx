@@ -4,7 +4,7 @@ import { Select } from "@hummingbirdui/react";
 
 export default function SelectColors() {
   return (
-    <div className="flex flex-col gap-3 max-w-sm">
+    <div className="space-y-4 max-w-sm mx-auto">
       <Select color="secondary" defaultValue="pro">
         <option value="free">Secondary</option>
         <option value="pro">Pro</option>

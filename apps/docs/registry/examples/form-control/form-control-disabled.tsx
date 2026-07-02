@@ -8,7 +8,6 @@ export default function FormControlDisabled() {
       placeholder="Disabled"
       defaultValue="Read only value"
       disabled
-      className="max-w-sm"
     />
   );
 }

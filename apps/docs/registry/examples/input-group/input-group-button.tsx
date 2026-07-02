@@ -4,7 +4,7 @@ import { InputGroup, FormControl, Button } from "@hummingbirdui/react";
 
 export default function InputGroupButton() {
   return (
-    <InputGroup className="max-w-sm">
+    <InputGroup>
       <FormControl placeholder="Search" />
       <Button>Search</Button>
     </InputGroup>
