@@ -60,10 +60,11 @@ function Radio({
 }: RadioProps) {
   const group = React.useContext(RadioGroupContext);
 
-  // When inside a controlled RadioGroup, derive name/checked from context.
+  // Inside a RadioGroup the group state always drives checked, so the input
+  // stays controlled even before a first selection (group.value undefined).
   const resolvedName = name ?? group?.name;
   const resolvedChecked =
-    group?.value !== undefined && value !== undefined ? group.value === value : checked;
+    group && value !== undefined ? group.value === String(value) : checked;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(event);
