@@ -84,7 +84,7 @@ function Checkbox({
   if (label == null) return input;
 
   return (
-    <label className={cn('form-check', inline && 'form-check-inline')} data-slot="form-check">
+    <label className={cn(inline ? 'form-check-inline' : 'form-check')} data-slot="form-check">
       {input}
       <span className="form-check-label">{label}</span>
     </label>

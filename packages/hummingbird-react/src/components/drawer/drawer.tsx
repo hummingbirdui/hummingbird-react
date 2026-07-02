@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { Drawer as DrawerPrimitive } from 'vaul';
+import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 function Drawer({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
@@ -69,16 +70,18 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
 }
 DrawerHeader.displayName = 'DrawerHeader';
 
-function DrawerTitle({
-  className,
-  ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Content>) {
+export interface DrawerTitleProps extends React.ComponentProps<'h6'> {
+  /** Render as a child element instead of an `<h6>`. Uses Radix Slot. */
+  asChild?: boolean;
+}
+
+function DrawerTitle({ className, asChild = false, ...props }: DrawerTitleProps) {
+  const Comp = asChild ? Slot.Root : 'h6';
+
   return (
-    <DrawerPrimitive.Content
-      data-slot="drawer-title"
-      className={cn('offcanvas-title', className)}
-      {...props}
-    />
+    <DrawerPrimitive.Title asChild>
+      <Comp data-slot="drawer-title" className={cn('offcanvas-title', className)} {...props} />
+    </DrawerPrimitive.Title>
   );
 }
 DrawerTitle.displayName = 'DrawerTitle';
