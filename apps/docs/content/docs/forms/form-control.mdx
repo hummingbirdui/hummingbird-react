@@ -1,0 +1,136 @@
+---
+title: Form Control
+description: Text inputs, textareas, labels, and helper text for building forms.
+---
+
+## Default
+
+`FormControl` renders a styled `<input>`.
+
+<ComponentPreview name="form-control-default" />
+
+## Variants
+
+The `variant` prop switches between `outline` (default, bordered) and `fill` (a filled, muted surface).
+
+<ComponentPreview name="form-control-variants" />
+
+## Sizes
+
+The `size` prop offers three sizes: `sm`, `md` (default), and `lg`.
+
+<ComponentPreview name="form-control-sizes" />
+
+## Colors
+
+The `color` prop sets the focus accent: `primary`, `secondary`, `info`, `success`, or `warning`.
+
+<ComponentPreview name="form-control-colors" />
+
+## Validation state
+
+The `state` prop marks a control `valid` or `invalid`, and pairs with a `FormText` of the matching `variant`. The `invalid` state also sets `aria-invalid`.
+
+<ComponentPreview name="form-control-validation" />
+
+## Textarea
+
+`Textarea` shares the same styling for multi-line input.
+
+<ComponentPreview name="form-control-textarea" />
+
+## With label
+
+`FormField` stacks a `FormLabel`, control, and `FormText`, and recolors the label to match the control on focus.
+
+<ComponentPreview name="form-control-with-label" />
+
+## With icon
+
+`InputIcon` overlays an `InputIconStart` and/or `InputIconEnd` on a control and pads it to make room.
+
+<ComponentPreview name="form-control-with-icon" />
+
+## Disabled
+
+<ComponentPreview name="form-control-disabled" />
+
+## API Reference
+
+### FormControl
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"outline" | "fill"',
+      default: '"outline"',
+      description: "Visual style of the control.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size of the control.",
+    },
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "info" | "success" | "warning"',
+      description: "Focus accent color.",
+    },
+    {
+      prop: "state",
+      type: '"valid" | "invalid"',
+      description: "Validation state; invalid also sets aria-invalid.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Textarea
+
+Accepts the same `variant`, `size`, `color`, `state`, `asChild`, and `className` props as `FormControl`.
+
+### FormText
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "valid" | "invalid"',
+      default: '"default"',
+      description: "Helper text style, matching the control's validation state.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+`FormField`, `FormLabel`, `InputIcon`, `InputIconStart`, and `InputIconEnd` are layout wrappers. Each accepts `asChild` and `className`.
+
+## Styling
+
+Hummingbird React form control is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available form control classes in the [Class overview](https://hbui.dev/docs/forms/form-control/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/form-control/#css-variables) documentation to explore all available variables.

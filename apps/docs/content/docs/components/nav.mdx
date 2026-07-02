@@ -1,85 +1,114 @@
 ---
 title: Nav
-description: Styled navigation links — the static base shared with Tabs.
+description: A styled navigation list of links with active and disabled states.
 ---
 
-### Default
+## Default
 
-A `Nav` holds `NavItem`s, each wrapping a `NavLink`. Mark the current link with
-`active` and mute one with `disabled`.
+A `Nav` holds `NavItem`s, each wrapping a `NavLink`.
 
-<Nav className="my-4">
-  <NavItem>
-    <NavLink href="#" active>
-      Active
-    </NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#" disabled>
-      Disabled
-    </NavLink>
-  </NavItem>
-</Nav>
+<ComponentPreview name="nav-default" />
 
-### Tabs
+## Tabs
 
-`variant="tabs"` renders the links as a bordered tab bar.
+The `tabs` variant renders the links as a bordered tab bar.
 
-<Nav variant="tabs" className="my-4">
-  <NavItem>
-    <NavLink href="#" active>
-      Active
-    </NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-</Nav>
+<ComponentPreview name="nav-tabs" />
 
-### Underline
+## Underline
 
-`variant="underline"` underlines the active link.
+The `underline` variant underlines the active link.
 
-<Nav variant="underline" className="my-4">
-  <NavItem>
-    <NavLink href="#" active>
-      Active
-    </NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-</Nav>
+<ComponentPreview name="nav-underline" />
 
-### Colors
+## Colors
 
-Apply a `color` to theme the whole nav surface.
+The `color` prop themes the whole nav surface with `primary`, `secondary`, `info`, `success`, `warning`, `danger`, or `neutral`.
 
-<Nav color="primary" className="my-4 rounded-lg p-1">
-  <NavItem>
-    <NavLink href="#" active>
-      Active
-    </NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-  <NavItem>
-    <NavLink href="#">Link</NavLink>
-  </NavItem>
-</Nav>
+<ComponentPreview name="nav-colors" />
 
-> **Need switchable panels?** Use the [Tabs](/docs/components/tabs) component,
-> which pairs this look with Radix UI behavior.
+## Active
+
+The `active` prop on `NavLink` marks the current link and sets <code>aria-current="page"</code>.
+
+<ComponentPreview name="nav-active" />
+
+## Disabled
+
+The `disabled` prop on `NavLink` mutes the link and stops interaction.
+
+<ComponentPreview name="nav-disabled" />
+
+## API Reference
+
+### Nav
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "underline" | "tabs"',
+      default: '"default"',
+      description: "Line style of the nav.",
+    },
+    {
+      prop: "color",
+      type: '"default" | "primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"',
+      default: '"default"',
+      description: "Color theme of the nav surface.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### NavLink
+
+<PropsTable
+  data={[
+    {
+      prop: "active",
+      type: "boolean",
+      default: "false",
+      description: "Mark the link as the active one.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Mute the link and disable interaction.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### NavItem
+
+`NavItem` is a layout wrapper that accepts only `asChild` and `className`.
+
+## Styling
+
+Hummingbird React nav is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available nav classes in the [Class overview](https://hbui.dev/docs/components/nav/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/nav/#css-variables) documentation to explore all available variables.

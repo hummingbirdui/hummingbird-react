@@ -103,7 +103,7 @@ export function SiteNavbar() {
           </Link>
         </NavbarBrand>
 
-        <Badge className="badge-subtle shrink-0 hidden sm:inline-block">
+        <Badge variant="subtle" color="neutral">
           v0.1.0
         </Badge>
 

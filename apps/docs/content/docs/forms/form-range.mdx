@@ -1,0 +1,60 @@
+---
+title: Form Range
+description: A styled native range slider for selecting a value from a range.
+---
+
+## Default
+
+`FormRange` renders a native `<input type="range">`.
+
+<ComponentPreview name="form-range-default" />
+
+## Sizes
+
+The `size` prop offers three sizes: `sm`, `md` (default), and `lg`.
+
+<ComponentPreview name="form-range-sizes" />
+
+## Colors
+
+The `color` prop offers `primary` (default), `secondary`, `info`, `success`, `warning`, `danger`, and `neutral`.
+
+<ComponentPreview name="form-range-colors" />
+
+## Disabled
+
+<ComponentPreview name="form-range-disabled" />
+
+## API Reference
+
+### FormRange
+
+<PropsTable
+  data={[
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"',
+      default: '"primary"',
+      description: "Color theme of the slider.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size of the slider.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React form range is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available form range classes in the [Class overview](https://hbui.dev/docs/forms/form-range/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/form-range/#css-variables) documentation to explore all available variables.

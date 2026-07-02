@@ -1,60 +1,48 @@
 ---
-title: Dropdown
+title: Dropdown Menu
 description: A toggleable menu of actions or links, anchored to a trigger and positioned by Radix UI.
 ---
 
-### Default
+## Default
 
-Compose a `DropdownMenu` from a `DropdownMenuTrigger` (rendered as a `Button`
-via `asChild`) and a `DropdownMenuContent` holding a label, items, and a
-separator. The menu opens on click and handles keyboard navigation for you.
+A `DropdownMenuTrigger` rendered as a `Button` opens a `DropdownMenuContent` holding a label, items, and a separator.
 
-<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button>Open menu</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className="min-w-48">
-    <DropdownMenuLabel>My account</DropdownMenuLabel>
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Settings</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Sign out</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
+<ComponentPreview name="dropdown-default" />
 
-### Placement
+## Groups
 
-Position is controlled by Radix UI through the `side` (`"top" | "right" |
-"bottom" | "left"`) and `align` (`"start" | "center" | "end"`) props on
-`DropdownMenuContent` — not the Bootstrap direction classes. Here the menu is
-end-aligned and opens above the trigger.
+`DropdownMenuGroup` bundles related items under a `DropdownMenuLabel` section header.
 
-<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button color="secondary">Aligned menu</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent side="top" align="end" className="min-w-48">
-    <DropdownMenuItem>Move up</DropdownMenuItem>
-    <DropdownMenuItem>Move down</DropdownMenuItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem disabled>Archive (disabled)</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
+<ComponentPreview name="dropdown-groups" />
 
-### Non-interactive text
+## Placement
 
-Use `DropdownMenuItemText` for plain, non-actionable copy inside the menu, and
-`DropdownMenuLabel` for a section header.
+The `side` and `align` props on `DropdownMenuContent` control where the menu opens relative to its trigger.
 
-<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="outline">Details</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className="min-w-56">
-    <DropdownMenuLabel>Signed in as</DropdownMenuLabel>
-    <DropdownMenuItemText>sohel@onesuite.io</DropdownMenuItemText>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Account settings</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
+<ComponentPreview name="dropdown-placement" />
+
+## Disabled
+
+Adding `disabled` to a `DropdownMenuItem` prevents it from being selected.
+
+<ComponentPreview name="dropdown-disabled" />
+
+## Non-interactive text
+
+`DropdownMenuItemText` renders plain, non-actionable copy inside the menu.
+
+<ComponentPreview name="dropdown-item-text" />
+
+## API Reference
+
+For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#api-reference) documentation.
+
+`DropdownMenuItemText` renders non-interactive copy as a `<span>` and accepts a `className`.
+
+## Styling
+
+Hummingbird React dropdown is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available dropdown classes in the [Class overview](https://hbui.dev/docs/components/dropdown/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/dropdown/#css-variables) documentation to explore all available variables.

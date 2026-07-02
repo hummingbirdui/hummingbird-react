@@ -1,133 +1,68 @@
 ---
 title: Dialog
-description: A modal dialog built on Radix UI with Bootstrap's modal styling and its exact backdrop/slide transition.
+description: A modal dialog built on Radix UI that traps focus, locks scroll, and dismisses on backdrop click or Escape.
 ---
 
-### Default
+## Default
 
-Compose a `Dialog` from a `DialogTrigger` (rendered as a `Button` via `asChild`)
-and a `DialogContent`. The content holds a `DialogHeader` (with `DialogTitle`
-and a `DialogClose`), a `DialogBody`, and a `DialogFooter`. The backdrop fades in
-and the dialog slides down into place — the same transition as the reference
-modal. Focus trapping, scroll locking, and `Esc`/outside-click dismissal are
-handled by Radix UI.
+A `DialogTrigger` opens the `DialogContent`, which composes a header, body, and footer with a title, description, and close buttons.
 
-<Dialog>
-  <DialogTrigger asChild>
-    <Button>Open dialog</Button>
-  </DialogTrigger>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Modal title</DialogTitle>
-      <DialogClose asChild>
-        <CloseButton />
-      </DialogClose>
-    </DialogHeader>
-    <DialogBody>
-      <DialogDescription>
-        This is a modal dialog. Click the backdrop, press Escape, or use a close
-        button to dismiss it.
-      </DialogDescription>
-    </DialogBody>
-    <DialogFooter>
-      <DialogClose asChild>
-        <Button color="secondary" variant="subtle">Cancel</Button>
-      </DialogClose>
-      <DialogClose asChild>
-        <Button>Save changes</Button>
-      </DialogClose>
-    </DialogFooter>
-  </DialogContent>
-</Dialog>
+<ComponentPreview name="dialog-default" />
 
-### Centered
+## Centered
 
-Pass `centered` to `DialogContent` to vertically center the dialog in the
-viewport (`.modal-dialog-centered`).
+Setting `centered` on `DialogContent` vertically centers the dialog in the viewport.
 
-<Dialog>
-  <DialogTrigger asChild>
-    <Button color="secondary">Centered dialog</Button>
-  </DialogTrigger>
-  <DialogContent centered>
-    <DialogHeader>
-      <DialogTitle>Centered</DialogTitle>
-      <DialogClose asChild>
-        <CloseButton />
-      </DialogClose>
-    </DialogHeader>
-    <DialogBody>
-      <DialogDescription>This dialog is centered vertically.</DialogDescription>
-    </DialogBody>
-  </DialogContent>
-</Dialog>
+<ComponentPreview name="dialog-centered" />
 
-### Sizes
+## Sizes
 
-Use the `size` prop (`"sm" | "md" | "lg" | "xl"`) to change the dialog width.
-`md` is the default.
+The `size` prop sets the dialog width across `"sm"`, `"md"`, `"lg"`, and `"xl"`.
 
-<Dialog>
-  <DialogTrigger asChild>
-    <Button variant="outline">Large dialog</Button>
-  </DialogTrigger>
-  <DialogContent size="lg">
-    <DialogHeader>
-      <DialogTitle>Large dialog</DialogTitle>
-      <DialogClose asChild>
-        <CloseButton />
-      </DialogClose>
-    </DialogHeader>
-    <DialogBody>
-      <DialogDescription>
-        A wider dialog using <code>size="lg"</code>.
-      </DialogDescription>
-    </DialogBody>
-  </DialogContent>
-</Dialog>
+<ComponentPreview name="dialog-sizes" />
 
-### Scrollable
+## Scrollable
 
-Pass `scrollable` so a long body scrolls inside the dialog while the header and
-footer stay fixed (`.modal-dialog-scrollable`). Prefer this for any dialog whose
-content can exceed the viewport — the scroll then happens in `.modal-body`, which
-cooperates with Radix's scroll-locking.
+Setting `scrollable` keeps the header and footer fixed while a long body scrolls inside the dialog.
 
-<Dialog>
-  <DialogTrigger asChild>
-    <Button variant="outline" color="secondary">Scrollable dialog</Button>
-  </DialogTrigger>
-  <DialogContent scrollable centered>
-    <DialogHeader>
-      <DialogTitle>Terms of service</DialogTitle>
-      <DialogClose asChild>
-        <CloseButton />
-      </DialogClose>
-    </DialogHeader>
-    <DialogBody className="max-h-72">
-      <p>Scroll to read all of the content below.</p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec
-        odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
-        quis sem at nibh elementum imperdiet.
-      </p>
-      <p>
-        Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper
-        porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-      </p>
-      <p>
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-        inceptos himenaeos. Curabitur sodales ligula in libero.
-      </p>
-      <p>
-        Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean
-        quam. In scelerisque sem at dolor. Maecenas mattis.
-      </p>
-    </DialogBody>
-    <DialogFooter>
-      <DialogClose asChild>
-        <Button>Got it</Button>
-      </DialogClose>
-    </DialogFooter>
-  </DialogContent>
-</Dialog>
+<ComponentPreview name="dialog-scrollable" />
+
+## Fullscreen
+
+Setting `fullscreen` expands the dialog to fill the entire viewport.
+
+<ComponentPreview name="dialog-fullscreen" />
+
+## Controlled
+
+Passing `open` and `onOpenChange` to the `Dialog` root drives its open state externally.
+
+<ComponentPreview name="dialog-controlled" />
+
+## API Reference
+
+For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/dialog#api-reference) documentation.
+
+### DialogContent
+
+<PropsTable
+  data={[
+    { prop: "size", type: '"sm" | "md" | "lg" | "xl"', default: '"md"', description: "Dialog width." },
+    { prop: "centered", type: "boolean", default: "false", description: "Vertically centers the dialog in the viewport." },
+    { prop: "scrollable", type: "boolean", default: "false", description: "Scrolls the body while the header and footer stay fixed." },
+    { prop: "fullscreen", type: '"false" | "true" | "sm-down" | "md-down" | "lg-down" | "xl-down" | "2xl-down"', default: "false", description: "Expands the dialog to fill the viewport, optionally only below a breakpoint." },
+    { prop: "dialogClassName", type: "string", description: "Additional classes merged onto the modal-dialog wrapper." },
+    { prop: "container", type: "HTMLElement | null", description: "Portal target forwarded to the underlying Radix Portal." },
+    { prop: "portalProps", type: "object", description: "Extra props forwarded to the underlying Radix Portal." },
+    { prop: "overlayProps", type: "object", description: "Props forwarded to the modal-backdrop overlay." },
+    { prop: "className", type: "string", description: "Additional classes merged with the generated classes." },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React dialog is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available dialog classes in the [Class overview](https://hbui.dev/docs/components/dialog/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/dialog/#css-variables) documentation to explore all available variables.

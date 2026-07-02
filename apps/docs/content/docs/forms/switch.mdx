@@ -1,0 +1,77 @@
+---
+title: Switch
+description: A toggle switch built on a native checkbox with role="switch".
+---
+
+## Default
+
+A `label` renders a complete, clickable field.
+
+<ComponentPreview name="switch-default" />
+
+## Colors
+
+The `color` prop offers `primary` (default), `secondary`, `success`, `info`, `warning`, `danger`, and `neutral`.
+
+<ComponentPreview name="switch-colors" />
+
+## Sizes
+
+The `size` prop offers three sizes: `sm`, `md` (default), and `lg`.
+
+<ComponentPreview name="switch-sizes" />
+
+## Inline
+
+The `inline` prop lays fields out in a row.
+
+<ComponentPreview name="switch-inline" />
+
+## Disabled
+
+<ComponentPreview name="switch-disabled" />
+
+## API Reference
+
+### Switch
+
+<PropsTable
+  data={[
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "success" | "info" | "warning" | "danger" | "neutral"',
+      default: '"primary"',
+      description: "Color theme of the switch.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size of the switch.",
+    },
+    {
+      prop: "label",
+      type: "React.ReactNode",
+      description: "Text rendered beside the control, wrapped in a clickable label.",
+    },
+    {
+      prop: "inline",
+      type: "boolean",
+      default: "false",
+      description: "Lay the field out inline.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React switch is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available switch classes in the [Class overview](https://hbui.dev/docs/forms/switch/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/switch/#css-variables) documentation to explore all available variables.

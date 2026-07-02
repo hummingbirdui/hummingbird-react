@@ -1,0 +1,54 @@
+---
+title: Floating Label
+description: A label that floats above the control once it is focused or filled.
+---
+
+## Default
+
+`FloatingLabel` wraps a single control and floats its `label` once the control is focused or filled.
+
+<ComponentPreview name="floating-label-default" />
+
+## Textarea
+
+Floating labels work with a `Textarea`.
+
+<ComponentPreview name="floating-label-textarea" />
+
+## Select
+
+Floating labels work with a `Select`.
+
+<ComponentPreview name="floating-label-select" />
+
+## API Reference
+
+### FloatingLabel
+
+<PropsTable
+  data={[
+    {
+      prop: "label",
+      type: "React.ReactNode",
+      description: "The floating label text.",
+    },
+    {
+      prop: "htmlFor",
+      type: "string",
+      description: "Links the label to the control; should match the control's id.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React floating label is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available floating label classes in the [Class overview](https://hbui.dev/docs/forms/floating-label/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/floating-label/#css-variables) documentation to explore all available variables.

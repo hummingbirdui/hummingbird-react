@@ -1,48 +1,56 @@
 ---
 title: Tabs
-description: Switch between related panels. Built on Radix UI, styled with the Nav classes.
+description: A set of layered panels whose triggers switch which panel is shown.
 ---
 
-### Default
+## Default
 
-`Tabs` wraps a `TabsList` of `TabsTrigger`s and one `TabsContent` per panel.
-`TabsList` defaults to the bordered `tabs` look. Keyboard navigation and ARIA are
-handled by Radix UI.
+`TabsList` defaults to the bordered `tabs` line style, with `defaultValue` selecting the first active panel.
 
-<Tabs defaultValue="account" className="my-4 max-w-xl">
-  <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="password">Password</TabsTrigger>
-    <TabsTrigger value="team">Team</TabsTrigger>
-  </TabsList>
-  <TabsContent value="account" className="py-4">
-    Manage your account details and profile information.
-  </TabsContent>
-  <TabsContent value="password" className="py-4">
-    Change your password and review active sessions.
-  </TabsContent>
-  <TabsContent value="team" className="py-4">
-    Invite teammates and manage their roles.
-  </TabsContent>
-</Tabs>
+<ComponentPreview name="tabs-default" />
 
-### Underline
+## Underline
 
-Pass `variant="underline"` to `TabsList` for the underlined style.
+Pass `variant="underline"` to `TabsList` for the underlined line style.
 
-<Tabs defaultValue="overview" className="my-4 max-w-xl">
-  <TabsList variant="underline">
-    <TabsTrigger value="overview">Overview</TabsTrigger>
-    <TabsTrigger value="activity">Activity</TabsTrigger>
-    <TabsTrigger value="settings">Settings</TabsTrigger>
-  </TabsList>
-  <TabsContent value="overview" className="py-4">
-    A high-level summary of the project.
-  </TabsContent>
-  <TabsContent value="activity" className="py-4">
-    Recent activity and events.
-  </TabsContent>
-  <TabsContent value="settings" className="py-4">
-    Project configuration and preferences.
-  </TabsContent>
-</Tabs>
+<ComponentPreview name="tabs-underline" />
+
+## Plain
+
+Pass `variant="default"` to `TabsList` for a borderless list of triggers.
+
+<ComponentPreview name="tabs-plain" />
+
+## Colors
+
+The `color` prop on `TabsList` tints the active trigger.
+
+<ComponentPreview name="tabs-colors" />
+
+## Disabled
+
+Add `disabled` to a `TabsTrigger` to prevent its panel from being selected.
+
+<ComponentPreview name="tabs-disabled" />
+
+## API Reference
+
+For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/tabs#api-reference) documentation.
+
+### TabsList
+
+<PropsTable
+  data={[
+    { prop: "variant", type: '"tabs" | "underline" | "default"', default: '"tabs"', description: "Line style of the tab list." },
+    { prop: "color", type: '"default" | "primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"', default: '"default"', description: "Color applied to the active trigger." },
+    { prop: "className", type: "string", description: "Additional classes merged with the generated classes." },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React tabs is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available tabs classes in the [Class overview](https://hbui.dev/docs/components/tabs/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/tabs/#css-variables) documentation to explore all available variables.

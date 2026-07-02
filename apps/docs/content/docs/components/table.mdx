@@ -3,115 +3,206 @@ title: Table
 description: A styled table for displaying rows of data.
 ---
 
-### Default
+## Default
 
-Compose `Table` with `TableHeader`, `TableBody`, `TableRow`, `TableHead`, and
-`TableCell`.
+Compose `Table` with `TableHeader`, `TableBody`, `TableRow`, `TableHead`, and `TableCell`.
 
-<Table className="my-4">
-  <TableHeader>
-    <TableRow>
-      <TableHead>Name</TableHead>
-      <TableHead>Email</TableHead>
-      <TableHead>Role</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Jane Cooper</TableCell>
-      <TableCell>jane@example.com</TableCell>
-      <TableCell>Admin</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Cody Fisher</TableCell>
-      <TableCell>cody@example.com</TableCell>
-      <TableCell>Member</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Esther Howard</TableCell>
-      <TableCell>esther@example.com</TableCell>
-      <TableCell>Member</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+<ComponentPreview name="table-default" />
 
-### Striped & hoverable
+## Striped
 
-Toggle the `striped` and `hover` props for zebra rows and a hover highlight.
+The `striped` prop applies a zebra background to alternating rows.
 
-<Table striped hover className="my-4">
-  <TableHeader>
-    <TableRow>
-      <TableHead>Name</TableHead>
-      <TableHead>Email</TableHead>
-      <TableHead>Role</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Jane Cooper</TableCell>
-      <TableCell>jane@example.com</TableCell>
-      <TableCell>Admin</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Cody Fisher</TableCell>
-      <TableCell>cody@example.com</TableCell>
-      <TableCell>Member</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Esther Howard</TableCell>
-      <TableCell>esther@example.com</TableCell>
-      <TableCell>Member</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+<ComponentPreview name="table-striped" />
 
-### Bordered & small
+## Striped columns
 
-`bordered` adds cell borders; `size="sm"` tightens the row padding.
+The `stripedColumns` prop applies a zebra background to alternating columns.
 
-<Table bordered size="sm" className="my-4">
-  <TableHeader>
-    <TableRow>
-      <TableHead>#</TableHead>
-      <TableHead>Item</TableHead>
-      <TableHead>Qty</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>1</TableCell>
-      <TableCell>Widget</TableCell>
-      <TableCell>12</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>2</TableCell>
-      <TableCell>Gadget</TableCell>
-      <TableCell>4</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+<ComponentPreview name="table-striped-columns" />
 
-### Colors
+## Hover
 
-Tint the whole table with a `color`, or highlight a single row with the `active`
-prop.
+The `hover` prop highlights the row under the pointer.
 
-<Table color="primary" className="my-4">
-  <TableHeader>
-    <TableRow>
-      <TableHead>Name</TableHead>
-      <TableHead>Status</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Jane Cooper</TableCell>
-      <TableCell>Active</TableCell>
-    </TableRow>
-    <TableRow active>
-      <TableCell>Cody Fisher</TableCell>
-      <TableCell>Highlighted row</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+<ComponentPreview name="table-hover" />
+
+## Bordered
+
+The `bordered` prop adds borders around every cell.
+
+<ComponentPreview name="table-bordered" />
+
+## Borderless
+
+The `borderless` prop removes the default row borders.
+
+<ComponentPreview name="table-borderless" />
+
+## Sizes
+
+The `size` prop offers two densities: `md` (default) and `sm`.
+
+<ComponentPreview name="table-sizes" />
+
+## Colors
+
+The `color` prop tints the whole table with `neutral`, `primary`, `secondary`, `info`, `success`, `warning`, or `danger`.
+
+<ComponentPreview name="table-colors" />
+
+## Active
+
+The `active` prop on `TableRow` or `TableCell` highlights a single row or cell.
+
+<ComponentPreview name="table-active" />
+
+## Highlight
+
+The `highlight` prop emphasizes the table with a stronger surface treatment.
+
+<ComponentPreview name="table-highlight" />
+
+## Sticky header
+
+The `stickyHeader` prop pins the header to the top while the body scrolls.
+
+<ComponentPreview name="table-sticky-header" />
+
+## Caption
+
+`TableCaption` renders a caption above the table.
+
+<ComponentPreview name="table-caption" />
+
+## Footer
+
+`TableFooter` renders a summary row group at the bottom of the table.
+
+<ComponentPreview name="table-footer" />
+
+## API Reference
+
+### Table
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"md" | "sm"',
+      default: '"md"',
+      description: "Row density of the table.",
+    },
+    {
+      prop: "color",
+      type: '"default" | "neutral" | "primary" | "secondary" | "info" | "success" | "warning" | "danger"',
+      default: '"default"',
+      description: "Color theme of the table.",
+    },
+    {
+      prop: "striped",
+      type: "boolean",
+      default: "false",
+      description: "Apply a zebra background to alternating rows.",
+    },
+    {
+      prop: "stripedColumns",
+      type: "boolean",
+      default: "false",
+      description: "Apply a zebra background to alternating columns.",
+    },
+    {
+      prop: "bordered",
+      type: "boolean",
+      default: "false",
+      description: "Add borders around every cell.",
+    },
+    {
+      prop: "borderless",
+      type: "boolean",
+      default: "false",
+      description: "Remove the default row borders.",
+    },
+    {
+      prop: "hover",
+      type: "boolean",
+      default: "false",
+      description: "Highlight the row under the pointer.",
+    },
+    {
+      prop: "highlight",
+      type: "boolean",
+      default: "false",
+      description: "Emphasize the table with a stronger surface treatment.",
+    },
+    {
+      prop: "stickyHeader",
+      type: "boolean",
+      default: "false",
+      description: "Pin the header to the top while the body scrolls.",
+    },
+    {
+      prop: "active",
+      type: "boolean",
+      default: "false",
+      description: "Highlight the entire table.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### TableRow
+
+<PropsTable
+  data={[
+    {
+      prop: "active",
+      type: "boolean",
+      default: "false",
+      description: "Highlight the row.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### TableCell
+
+<PropsTable
+  data={[
+    {
+      prop: "active",
+      type: "boolean",
+      default: "false",
+      description: "Highlight the cell.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+`TableHeader`, `TableBody`, `TableFooter`, `TableHead`, and `TableCaption` render their native table elements and accept only `className` alongside their standard element props.
+
+## Styling
+
+Hummingbird React table is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available table classes in the [Class overview](https://hbui.dev/docs/components/table/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/table/#css-variables) documentation to explore all available variables.
