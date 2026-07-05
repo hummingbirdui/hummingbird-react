@@ -75,7 +75,7 @@ function NavLinks({
 
 const Logo = () => (
   <Image
-    src="/images/logos/hummingbird.svg"
+    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/logos/hummingbird.svg`}
     alt="Hummingbird"
     width={40}
     height={40}
