@@ -7,16 +7,26 @@ import {
   NavbarCollapse,
   NavbarNav,
   NavLink,
+  FormControl,
+  Button,
 } from "@hummingbirdui/react";
 
 export default function NavbarCollapseExample() {
   return (
-    <Navbar expand="lg" className="w-full rounded-lg border border-default px-4">
+    <Navbar expand="lg" className="bg-subtle">
       <NavbarBrand href="#">Hummingbird</NavbarBrand>
-      <NavbarToggle />
+      <div className="flex items-center lg:order-1 gap-2">
+        <Button variant="text" size="sm">
+          Signin
+        </Button>
+        <Button size="sm" className="max-sm:hidden">
+          Signup
+        </Button>
+        <NavbarToggle />
+      </div>
       <NavbarCollapse>
         <NavbarNav asChild>
-          <div className="gap-2">
+          <div className="gap-2 lg:items-center w-full">
             <NavLink href="#" active>
               Home
             </NavLink>

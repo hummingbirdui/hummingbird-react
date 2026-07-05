@@ -16,7 +16,7 @@ export default function DrawerScrollable() {
   return (
     <Drawer direction="right">
       <DrawerTrigger asChild>
-        <Button color="secondary">Open long drawer</Button>
+        <Button variant="outline">Open long drawer</Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>

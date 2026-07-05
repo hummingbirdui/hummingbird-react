@@ -12,7 +12,7 @@ export default function DropdownDisabled() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button color="secondary">Actions</Button>
+        <Button>Actions</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-48">
         <DropdownMenuItem>Edit</DropdownMenuItem>

@@ -28,9 +28,9 @@ export default function CollapsibleControlled() {
         </CollapsibleTrigger>
       </div>
       <CollapsibleContent>
-        <div className="rounded-md border px-4 py-3 text-sm">
-          The parent component owns the open state through{" "}
-          <code>open</code> and <code>onOpenChange</code>.
+        <div className="rounded-md border border-default px-4 py-3 text-sm">
+          The parent component owns the open state through <code>open</code> and{" "}
+          <code>onOpenChange</code>.
         </div>
       </CollapsibleContent>
     </Collapsible>

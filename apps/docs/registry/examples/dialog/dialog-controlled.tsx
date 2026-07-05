@@ -19,7 +19,9 @@ export default function DialogControlled() {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Open controlled dialog</Button>
+      <Button onClick={() => setOpen(true)} variant="outline">
+        Open controlled dialog
+      </Button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
           <DialogHeader>

@@ -15,7 +15,7 @@ export default function PopoverWithClose() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button color="secondary">Dismissable</Button>
+        <Button>Dismissable</Button>
       </PopoverTrigger>
       <PopoverContent>
         <PopoverHeader className="flex items-center justify-between">
@@ -24,7 +24,9 @@ export default function PopoverWithClose() {
             <CloseButton />
           </PopoverClose>
         </PopoverHeader>
-        <PopoverBody>Click the close button to dismiss this popover.</PopoverBody>
+        <PopoverBody>
+          Click the close button to dismiss this popover.
+        </PopoverBody>
       </PopoverContent>
     </Popover>
   );

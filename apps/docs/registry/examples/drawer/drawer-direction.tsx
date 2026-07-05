@@ -17,7 +17,7 @@ const directions = ["top", "right", "bottom", "left"] as const;
 
 export default function DrawerDirection() {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 justify-center">
       {directions.map((direction) => (
         <Drawer key={direction} direction={direction}>
           <DrawerTrigger asChild>
@@ -27,7 +27,9 @@ export default function DrawerDirection() {
           </DrawerTrigger>
           <DrawerContent>
             <DrawerHeader>
-              <DrawerTitle className="capitalize">{direction} drawer</DrawerTitle>
+              <DrawerTitle className="capitalize">
+                {direction} drawer
+              </DrawerTitle>
               <DrawerClose asChild>
                 <CloseButton />
               </DrawerClose>

@@ -12,7 +12,7 @@ import {
 export default function TableStickyHeader() {
   return (
     <div className="max-h-48 overflow-y-auto">
-      <Table stickyHeader>
+      <Table stickyHeader highlight>
         <TableHeader>
           <TableRow>
             <TableHead>Name</TableHead>

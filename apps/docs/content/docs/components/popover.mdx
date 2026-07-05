@@ -5,13 +5,11 @@ description: A floating panel anchored to a trigger, built on Radix Popover with
 
 ## Default
 
-A `Popover` composes a `PopoverTrigger` with a `PopoverContent` that holds a `PopoverHeader` and a `PopoverBody`.
-
-<ComponentPreview name="popover-default" />
+<ComponentPreview name="popover-default" className="text-center" />
 
 ## Placement
 
-`PopoverContent` accepts `side` and `align` to position the panel relative to the trigger.
+Use `side` and `align` to position `PopoverContent` relative to the trigger.
 
 <ComponentPreview name="popover-placement" />
 
@@ -19,11 +17,11 @@ A `Popover` composes a `PopoverTrigger` with a `PopoverContent` that holds a `Po
 
 `PopoverClose` dismisses the popover from within the content.
 
-<ComponentPreview name="popover-with-close" />
+<ComponentPreview name="popover-with-close" className="text-center" />
 
 ## Controlled
 
-Passing `open` and `onOpenChange` to the `Popover` root drives the open state from React.
+Use `open` with `onOpenChange` to control the popover state.
 
 <ComponentPreview name="popover-controlled" />
 

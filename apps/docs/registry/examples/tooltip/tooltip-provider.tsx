@@ -11,7 +11,7 @@ import {
 export default function TooltipProviderExample() {
   return (
     <TooltipProvider delayDuration={200} skipDelayDuration={300}>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap justify-center gap-2">
         <Tooltip>
           <TooltipTrigger asChild>
             <Button variant="outline">Save</Button>

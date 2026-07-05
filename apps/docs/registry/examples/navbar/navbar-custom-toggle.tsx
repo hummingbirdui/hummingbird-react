@@ -12,7 +12,7 @@ import { AlignJustify } from "lucide-react";
 
 export default function NavbarCustomToggle() {
   return (
-    <Navbar className="w-full rounded-lg border border-default px-4">
+    <Navbar className="bg-subtle">
       <NavbarBrand href="#">Hummingbird</NavbarBrand>
       <NavbarToggle className="btn btn-icon btn-sm">
         <AlignJustify className="size-5" />

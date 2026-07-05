@@ -18,7 +18,7 @@ export default function DialogDefault() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Open dialog</Button>
+        <Button variant="outline">Open dialog</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -35,7 +35,7 @@ export default function DialogDefault() {
         </DialogBody>
         <DialogFooter>
           <DialogClose asChild>
-            <Button color="secondary" variant="subtle">
+            <Button color="secondary" variant="subtle" className="me-2">
               Cancel
             </Button>
           </DialogClose>

@@ -15,7 +15,7 @@ export default function DropdownItemText() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Details</Button>
+        <Button>Details</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-56">
         <DropdownMenuLabel>Signed in as</DropdownMenuLabel>

@@ -5,15 +5,13 @@ description: A modal dialog built on Radix UI that traps focus, locks scroll, an
 
 ## Default
 
-A `DialogTrigger` opens the `DialogContent`, which composes a header, body, and footer with a title, description, and close buttons.
-
-<ComponentPreview name="dialog-default" />
+<ComponentPreview name="dialog-default" className="text-center" />
 
 ## Centered
 
 Setting `centered` on `DialogContent` vertically centers the dialog in the viewport.
 
-<ComponentPreview name="dialog-centered" />
+<ComponentPreview name="dialog-centered" className="text-center" />
 
 ## Sizes
 
@@ -25,19 +23,19 @@ The `size` prop sets the dialog width across `"sm"`, `"md"`, `"lg"`, and `"xl"`.
 
 Setting `scrollable` keeps the header and footer fixed while a long body scrolls inside the dialog.
 
-<ComponentPreview name="dialog-scrollable" />
+<ComponentPreview name="dialog-scrollable" className="text-center" />
 
 ## Fullscreen
 
 Setting `fullscreen` expands the dialog to fill the entire viewport.
 
-<ComponentPreview name="dialog-fullscreen" />
+<ComponentPreview name="dialog-fullscreen" className="text-center" />
 
 ## Controlled
 
 Passing `open` and `onOpenChange` to the `Dialog` root drives its open state externally.
 
-<ComponentPreview name="dialog-controlled" />
+<ComponentPreview name="dialog-controlled" className="text-center" />
 
 ## API Reference
 
@@ -47,15 +45,56 @@ For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primi
 
 <PropsTable
   data={[
-    { prop: "size", type: '"sm" | "md" | "lg" | "xl"', default: '"md"', description: "Dialog width." },
-    { prop: "centered", type: "boolean", default: "false", description: "Vertically centers the dialog in the viewport." },
-    { prop: "scrollable", type: "boolean", default: "false", description: "Scrolls the body while the header and footer stay fixed." },
-    { prop: "fullscreen", type: '"false" | "true" | "sm-down" | "md-down" | "lg-down" | "xl-down" | "2xl-down"', default: "false", description: "Expands the dialog to fill the viewport, optionally only below a breakpoint." },
-    { prop: "dialogClassName", type: "string", description: "Additional classes merged onto the modal-dialog wrapper." },
-    { prop: "container", type: "HTMLElement | null", description: "Portal target forwarded to the underlying Radix Portal." },
-    { prop: "portalProps", type: "object", description: "Extra props forwarded to the underlying Radix Portal." },
-    { prop: "overlayProps", type: "object", description: "Props forwarded to the modal-backdrop overlay." },
-    { prop: "className", type: "string", description: "Additional classes merged with the generated classes." },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg" | "xl"',
+      default: '"md"',
+      description: "Dialog width.",
+    },
+    {
+      prop: "centered",
+      type: "boolean",
+      default: "false",
+      description: "Vertically centers the dialog in the viewport.",
+    },
+    {
+      prop: "scrollable",
+      type: "boolean",
+      default: "false",
+      description: "Scrolls the body while the header and footer stay fixed.",
+    },
+    {
+      prop: "fullscreen",
+      type: '"false" | "true" | "sm-down" | "md-down" | "lg-down" | "xl-down" | "2xl-down"',
+      default: "false",
+      description:
+        "Expands the dialog to fill the viewport, optionally only below a breakpoint.",
+    },
+    {
+      prop: "dialogClassName",
+      type: "string",
+      description: "Additional classes merged onto the modal-dialog wrapper.",
+    },
+    {
+      prop: "container",
+      type: "HTMLElement | null",
+      description: "Portal target forwarded to the underlying Radix Portal.",
+    },
+    {
+      prop: "portalProps",
+      type: "object",
+      description: "Extra props forwarded to the underlying Radix Portal.",
+    },
+    {
+      prop: "overlayProps",
+      type: "object",
+      description: "Props forwarded to the modal-backdrop overlay.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
   ]}
 />
 

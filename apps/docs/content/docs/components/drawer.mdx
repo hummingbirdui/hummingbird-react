@@ -5,9 +5,7 @@ description: A draggable, dismissible panel that slides in from any edge of the 
 
 ## Default
 
-The drawer slides in from the bottom edge and dismisses on drag, backdrop click, or Escape.
-
-<ComponentPreview name="drawer-default" />
+<ComponentPreview name="drawer-default" className="text-center" />
 
 ## Direction
 
@@ -19,13 +17,13 @@ Passing `direction` (`"top" | "right" | "bottom" | "left"`) to `Drawer` sets the
 
 Setting `overlay={false}` on `DrawerContent` renders the panel without the backdrop.
 
-<ComponentPreview name="drawer-without-overlay" />
+<ComponentPreview name="drawer-without-overlay" className="text-center" />
 
 ## Scrollable body
 
 `DrawerBody` grows to fill the panel and scrolls its own overflow while the header stays pinned.
 
-<ComponentPreview name="drawer-scrollable" />
+<ComponentPreview name="drawer-scrollable" className="text-center" />
 
 ## API Reference
 
@@ -35,8 +33,17 @@ Drawer is built on [Vaul](https://vaul.emilkowal.ski/). For detailed usage guide
 
 <PropsTable
   data={[
-    { prop: "overlay", type: "boolean", default: "true", description: "Renders the backdrop behind the panel." },
-    { prop: "className", type: "string", description: "Additional classes merged with the generated classes." },
+    {
+      prop: "overlay",
+      type: "boolean",
+      default: "true",
+      description: "Renders the backdrop behind the panel.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
   ]}
 />
 

@@ -5,13 +5,13 @@ description: A set of layered panels whose triggers switch which panel is shown.
 
 ## Default
 
-`TabsList` defaults to the bordered `tabs` line style, with `defaultValue` selecting the first active panel.
+`TabsList` uses the bordered style by default. Set `defaultValue` to select the initial tab.
 
 <ComponentPreview name="tabs-default" />
 
 ## Underline
 
-Pass `variant="underline"` to `TabsList` for the underlined line style.
+Pass `variant="underline"` to `TabsList` for the underlined tab style.
 
 <ComponentPreview name="tabs-underline" />
 
@@ -41,9 +41,23 @@ For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primi
 
 <PropsTable
   data={[
-    { prop: "variant", type: '"tabs" | "underline" | "default"', default: '"tabs"', description: "Line style of the tab list." },
-    { prop: "color", type: '"default" | "primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"', default: '"default"', description: "Color applied to the active trigger." },
-    { prop: "className", type: "string", description: "Additional classes merged with the generated classes." },
+    {
+      prop: "variant",
+      type: '"tabs" | "underline" | "default"',
+      default: '"tabs"',
+      description: "Line style of the tab list.",
+    },
+    {
+      prop: "color",
+      type: '"default" | "primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"',
+      default: '"default"',
+      description: "Color applied to the active trigger.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
   ]}
 />
 

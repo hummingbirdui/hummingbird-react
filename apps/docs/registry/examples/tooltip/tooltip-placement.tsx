@@ -9,7 +9,7 @@ import {
 
 export default function TooltipPlacement() {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap justify-center gap-2">
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline">Top</Button>

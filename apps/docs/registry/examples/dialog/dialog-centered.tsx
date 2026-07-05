@@ -17,7 +17,7 @@ export default function DialogCentered() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button color="secondary">Centered dialog</Button>
+        <Button variant="outline">Centered dialog</Button>
       </DialogTrigger>
       <DialogContent centered>
         <DialogHeader>

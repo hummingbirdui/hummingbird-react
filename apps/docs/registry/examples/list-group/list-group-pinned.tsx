@@ -4,7 +4,7 @@ import { ListGroup, ListGroupItem } from "@hummingbirdui/react";
 
 export default function ListGroupPinned() {
   return (
-    <ListGroup className="max-h-40 max-w-md overflow-y-auto">
+    <ListGroup className="max-h-40 max-w-md overflow-y-auto py-0">
       <ListGroupItem pinned>Pinned heading</ListGroupItem>
       <ListGroupItem>An item</ListGroupItem>
       <ListGroupItem>A second item</ListGroupItem>

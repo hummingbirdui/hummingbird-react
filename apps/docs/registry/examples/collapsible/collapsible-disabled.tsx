@@ -16,7 +16,7 @@ export default function CollapsibleDisabled() {
         </Button>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div className="rounded-md border px-4 py-3 text-sm">
+        <div className="rounded-md border border-default px-4 py-3 text-sm">
           This panel cannot be opened.
         </div>
       </CollapsibleContent>

@@ -15,7 +15,7 @@ export default function DropdownGroups() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button color="secondary">Workspace</Button>
+        <Button>Workspace</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-56">
         <DropdownMenuGroup>

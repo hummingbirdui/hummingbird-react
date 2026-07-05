@@ -9,17 +9,17 @@ The default navbar composes a `NavbarBrand` and a `NavbarNav` of `NavLink`s.
 
 <ComponentPreview name="navbar-default" />
 
-## Expand
-
-The `expand` prop sets the breakpoint at which the bar lays out horizontally: `sm`, `md`, `lg`, `xl`, `2xl`, or `always`.
-
-<ComponentPreview name="navbar-expand" />
-
 ## Responsive collapse
 
 `NavbarToggle` and `NavbarCollapse` hide the menu behind a toggle below the `expand` breakpoint.
 
 <ComponentPreview name="navbar-collapse" />
+
+## Expand
+
+The `expand` prop controls when the navbar expands horizontally. Supported values are `sm`, `md`, `lg`, `xl`, `2xl`, and `always`.
+
+<ComponentPreview name="navbar-expand" />
 
 ## Always collapsed
 
@@ -66,7 +66,8 @@ The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/doc
     {
       prop: "defaultOpen",
       type: "boolean",
-      description: "Open state of the collapsible menu when initially rendered.",
+      description:
+        "Open state of the collapsible menu when initially rendered.",
     },
     {
       prop: "onOpenChange",

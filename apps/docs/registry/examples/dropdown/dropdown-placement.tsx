@@ -13,7 +13,7 @@ export default function DropdownPlacement() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Aligned menu</Button>
+        <Button>Aligned menu</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent side="top" align="end" className="min-w-48">
         <DropdownMenuItem>Move up</DropdownMenuItem>

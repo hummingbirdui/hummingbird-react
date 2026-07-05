@@ -16,9 +16,9 @@ export default function CollapsibleDefaultOpen() {
         </Button>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div className="rounded-md border px-4 py-3 text-sm">
-          Collapsible is built on Radix UI&apos;s headless primitive, so keyboard
-          interaction and ARIA wiring are handled automatically.
+        <div className="rounded-md border border-default px-4 py-3 text-sm">
+          Collapsible is built on Radix UI&apos;s headless primitive, so
+          keyboard interaction and ARIA wiring are handled automatically.
         </div>
       </CollapsibleContent>
     </Collapsible>

@@ -6,13 +6,16 @@ import {
   PaginationItem,
   PaginationLink,
 } from "@hummingbirdui/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function PaginationDefault() {
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem>
-          <PaginationLink href="#">Prev</PaginationLink>
+        <PaginationItem disabled>
+          <PaginationLink href="#">
+            <ChevronLeft className="size-4" />
+          </PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">1</PaginationLink>
@@ -26,7 +29,9 @@ export default function PaginationDefault() {
           <PaginationLink href="#">3</PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">Next</PaginationLink>
+          <PaginationLink href="#">
+            <ChevronRight className="size-4" />
+          </PaginationLink>
         </PaginationItem>
       </PaginationContent>
     </Pagination>

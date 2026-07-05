@@ -17,7 +17,7 @@ export default function DrawerDefault() {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button>Open drawer</Button>
+        <Button variant="outline">Open drawer</Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>

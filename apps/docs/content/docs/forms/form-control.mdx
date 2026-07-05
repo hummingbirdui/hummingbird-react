@@ -5,8 +5,6 @@ description: Text inputs, textareas, labels, and helper text for building forms.
 
 ## Default
 
-`FormControl` renders a styled `<input>`.
-
 <ComponentPreview name="form-control-default" className="max-w-sm mx-auto" />
 
 ## Variants
@@ -29,25 +27,25 @@ The `color` prop sets the focus accent: `primary`, `secondary`, `info`, `success
 
 ## Validation state
 
-The `state` prop marks a control `valid` or `invalid`, and pairs with a `FormText` of the matching `variant`. The `invalid` state also sets `aria-invalid`.
+Use the `state` prop to indicate the validation state of the input.
 
 <ComponentPreview name="form-control-validation" />
 
 ## Textarea
 
-`Textarea` shares the same styling for multi-line input.
+Use `Textarea` for multi-line text input.
 
 <ComponentPreview name="form-control-textarea" className="max-w-sm mx-auto" />
 
 ## With label
 
-`FormField` stacks a `FormLabel`, control, and `FormText`, and recolors the label to match the control on focus.
+Use `FormField` to combine a `FormLabel`, `FormControl`, and `FormText` into a single form field.
 
 <ComponentPreview name="form-control-with-label" className="max-w-sm mx-auto" />
 
 ## With icon
 
-`InputIcon` overlays an `InputIconStart` and/or `InputIconEnd` on a control and pads it to make room.
+`InputIcon` adds `InputIconStart` and/or `InputIconEnd` to an input while automatically adjusting the input padding.
 
 <ComponentPreview name="form-control-with-icon" />
 
@@ -125,8 +123,9 @@ Accepts the same `variant`, `size`, `color`, `state`, `asChild`, and `className`
     },
   ]}
 />
-
-`FormField`, `FormLabel`, `InputIcon`, `InputIconStart`, and `InputIconEnd` are layout wrappers. Each accepts `asChild` and `className`.
+<br />
+`FormField`, `FormLabel`, `InputIcon`, `InputIconStart`, and `InputIconEnd` are
+layout wrappers. Each accepts `asChild` and `className`.
 
 ## Styling
 

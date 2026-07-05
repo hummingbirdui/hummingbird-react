@@ -17,9 +17,7 @@ export default function DialogScrollable() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" color="secondary">
-          Scrollable dialog
-        </Button>
+        <Button variant="outline">Scrollable dialog</Button>
       </DialogTrigger>
       <DialogContent scrollable centered>
         <DialogHeader>

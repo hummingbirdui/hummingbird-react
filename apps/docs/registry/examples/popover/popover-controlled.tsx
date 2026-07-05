@@ -14,7 +14,7 @@ export default function PopoverControlled() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center justify-center gap-3">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button>Toggle popover</Button>
@@ -27,9 +27,7 @@ export default function PopoverControlled() {
           </PopoverBody>
         </PopoverContent>
       </Popover>
-      <span className="text-sm">
-        State: {open ? "open" : "closed"}
-      </span>
+      <span className="text-sm">State: {open ? "open" : "closed"}</span>
     </div>
   );
 }

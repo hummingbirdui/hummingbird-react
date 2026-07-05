@@ -11,10 +11,10 @@ import {
 
 export default function NavbarAlwaysCollapsed() {
   return (
-    <Navbar className="w-full rounded-lg border border-default px-4">
+    <Navbar className="bg-subtle">
       <NavbarBrand href="#">Hummingbird</NavbarBrand>
       <NavbarToggle />
-      <NavbarCollapse duration={500}>
+      <NavbarCollapse>
         <NavbarNav asChild>
           <div className="gap-2">
             <NavLink href="#" active>
