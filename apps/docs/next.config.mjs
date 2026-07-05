@@ -1,9 +1,10 @@
 import { createMDX } from "fumadocs-mdx/next";
 
-// Set GITHUB_PAGES=true when building for the project page at
-// https://hummingbirdui.github.io/hummingbird-react/
-const isGithubPages = process.env.GITHUB_PAGES === "true";
-const basePath = isGithubPages ? "/hummingbird-react" : "";
+// Served from the custom domain react.hbui.dev (public/CNAME) at the
+// domain root — no basePath needed. If the custom domain is ever removed,
+// GitHub Pages serves the site under /hummingbird-react/ again and this
+// must be set back to "/hummingbird-react" for deploys.
+const basePath = "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
