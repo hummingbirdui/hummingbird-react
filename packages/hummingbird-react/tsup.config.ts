@@ -1,33 +1,16 @@
 import { defineConfig } from 'tsup';
 
-export default defineConfig((options) => ({
-  entry: [
-    // Root barrel — `@hummingbirdui/react`
-    'src/index.ts',
-    // Components barrel — `@hummingbirdui/react/components`
-    'src/components/index.ts',
-    // Per-component entries — `@hummingbirdui/react/<component>`
-    'src/components/*/index.ts',
-    // Utils barrel — `@hummingbirdui/react/utils`
-    'src/utils/index.ts',
-    // Stylesheet
-    'src/styles.css',
-  ],
-  format: ['esm'],
-  // Generating `.d.ts` runs the full TypeScript program (radix-ui + React 19
-  // types) in a worker thread for every entry. In `--watch` that worker peaks
-  // past its heap and Node kills it (ERR_WORKER_OUT_OF_MEMORY). Dev only needs
-  // the compiled JS to run; types are emitted by the one-shot production build.
-  dts: !options.watch,
-  // Tree-shaking: drop unused exports in the consumer's bundle.
-  treeshake: true,
-  // No code-splitting: each entry is self-contained (no chunk-*.js files).
-  splitting: false,
-  sourcemap: true,
-  // Wipe `dist` only for a one-shot production build. In `--watch` (dev),
-  // cleaning on every rebuild empties `dist` mid-build, so the docs app's
-  // `next dev` momentarily fails to resolve `@hummingbirdui/react/<x>` and
-  // Turbopack hard-crashes. Overwriting in place keeps each file resolvable.
-  clean: !options.watch,
-  external: ['react', 'react-dom', '@hummingbirdui/hummingbird'],
-}));
+export default defineConfig((options) => [
+  {
+    entry: ['src/**/*.{ts,tsx}', '!src/**/*.test.*', '!src/test-setup.ts'],
+    format: ['esm'],
+    bundle: false,
+    dts: false,
+    clean: !options.watch,
+  },
+  {
+    entry: ['src/styles.css'],
+    format: ['esm'],
+    clean: false,
+  },
+]);
