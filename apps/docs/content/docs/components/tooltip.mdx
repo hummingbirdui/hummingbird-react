@@ -1,79 +1,38 @@
 ---
 title: Tooltip
-description: A small label that appears on hover or focus — built on Radix Tooltip with Bootstrap's tooltip styling.
+description: A small label that appears on hover or keyboard focus to describe the element beneath the pointer.
 ---
 
-### Default
+## Default
 
-Compose a `Tooltip` from a `TooltipTrigger` (rendered as a `Button` via
-`asChild`) and a `TooltipContent`. The tooltip opens on hover or keyboard focus
-and dismisses on blur or `Esc`. The label is wrapped in the dark
-`.tooltip-inner` bubble automatically.
+<ComponentPreview name="tooltip-default" className="text-center" />
 
-<Tooltip>
-  <TooltipTrigger asChild>
-    <Button>Hover me</Button>
-  </TooltipTrigger>
-  <TooltipContent>Tooltip on hover</TooltipContent>
-</Tooltip>
+## Placement
 
-### Placement
+Pass `side` (`"top" | "right" | "bottom" | "left"`) to `TooltipContent` to choose which edge of the trigger the tooltip points from.
 
-Pass `side` (`"top" | "right" | "bottom" | "left"`) to `TooltipContent` to
-choose which edge of the trigger the tooltip points from.
+<ComponentPreview name="tooltip-placement" />
 
-<div className="flex flex-wrap gap-2">
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <Button variant="outline">Top</Button>
-    </TooltipTrigger>
-    <TooltipContent side="top">On top</TooltipContent>
-  </Tooltip>
+## Delay
 
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <Button variant="outline">Right</Button>
-    </TooltipTrigger>
-    <TooltipContent side="right">On the right</TooltipContent>
-  </Tooltip>
+Each `Tooltip` wraps its own provider, so `delayDuration` on the `Tooltip` tunes how long the pointer must rest before it opens.
 
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <Button variant="outline">Bottom</Button>
-    </TooltipTrigger>
-    <TooltipContent side="bottom">On the bottom</TooltipContent>
-  </Tooltip>
+<ComponentPreview name="tooltip-delay" />
 
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <Button variant="outline">Left</Button>
-    </TooltipTrigger>
-    <TooltipContent side="left">On the left</TooltipContent>
-  </Tooltip>
-</div>
+## Provider
 
-### Delay
+Mounting a single `TooltipProvider` shares one `delayDuration` and the skip-delay behavior across every tooltip beneath it.
 
-Each `Tooltip` works on its own (it wraps itself in a provider), so pass
-`delayDuration` straight to the `Tooltip` to tune how long the pointer must rest
-before it opens — `0` opens instantly.
+<ComponentPreview name="tooltip-provider" />
 
-<div className="flex flex-wrap gap-2">
-  <Tooltip delayDuration={0}>
-    <TooltipTrigger asChild>
-      <Button variant="outline">Instant</Button>
-    </TooltipTrigger>
-    <TooltipContent>Opens immediately</TooltipContent>
-  </Tooltip>
+## API Reference
 
-  <Tooltip delayDuration={700}>
-    <TooltipTrigger asChild>
-      <Button variant="outline">Delayed</Button>
-    </TooltipTrigger>
-    <TooltipContent>Waits before opening</TooltipContent>
-  </Tooltip>
-</div>
+For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/tooltip#api-reference) documentation.
 
-To share one delay (and the skip-delay behaviour where neighbours open
-instantly) across many tooltips, mount a single `TooltipProvider` at your app
-root instead of relying on the per-`Tooltip` provider.
+## Styling
+
+Hummingbird React tooltip is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available tooltip classes in the [Class overview](https://hbui.dev/docs/components/tooltip/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/tooltip/#css-variables) documentation to explore all available variables.

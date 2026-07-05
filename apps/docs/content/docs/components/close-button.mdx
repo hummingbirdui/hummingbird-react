@@ -3,32 +3,64 @@ title: Close Button
 description: An icon-only button for dismissing content.
 ---
 
-### Default
+## Default
 
-`CloseButton` renders an × icon button. It defaults to `type="button"` and
-`aria-label="Close"`.
+<ComponentPreview name="close-button-default" />
 
-<div className="flex items-center gap-3 my-4">
-  <CloseButton />
-</div>
+## Variants
 
-### Circle
+The `variant` prop switches to `white`, keeping the icon visible on dark surfaces.
 
-<div className="flex items-center gap-3 my-4">
-  <CloseButton shape="circle" />
-</div>
+<ComponentPreview name="close-button-variants" />
 
-### On a dark surface
+## Shapes
 
-Use `variant="white"` so the icon stays visible on dark backgrounds.
+The `shape` prop offers `default` (square) and `circle`.
 
-<div className="flex items-center gap-3 my-4 p-4 rounded-md bg-neutral-900">
-  <CloseButton variant="white" />
-  <CloseButton variant="white" shape="circle" />
-</div>
+<ComponentPreview name="close-button-shapes" />
 
-### Disabled
+## Disabled
 
-<div className="flex items-center gap-3 my-4">
-  <CloseButton disabled />
-</div>
+The `disabled` prop dims the button and prevents interaction.
+
+<ComponentPreview name="close-button-disabled" />
+
+## API Reference
+
+### CloseButton
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "white"',
+      default: '"default"',
+      description: "Visual style of the close button.",
+    },
+    {
+      prop: "shape",
+      type: '"default" | "circle"',
+      default: '"default"',
+      description: "Shape of the close button.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React close button is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available close button classes in the [Class overview](https://hbui.dev/docs/components/close-button/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/close-button/#css-variables) documentation to explore all available variables.

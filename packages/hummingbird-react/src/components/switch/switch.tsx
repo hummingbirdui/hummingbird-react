@@ -51,7 +51,7 @@ function Switch({ className, color, size, label, inline = false, ...props }: Swi
   if (label == null) {
     return (
       <span
-        className={cn('form-check form-switch', inline && 'form-check-inline')}
+        className={cn('form-switch', inline ? 'form-check-inline' : 'form-check')}
         data-slot="form-check"
       >
         {input}
@@ -61,7 +61,7 @@ function Switch({ className, color, size, label, inline = false, ...props }: Swi
 
   return (
     <label
-      className={cn('form-check form-switch', inline && 'form-check-inline')}
+      className={cn('form-switch', inline ? 'form-check-inline' : 'form-check')}
       data-slot="form-check"
     >
       {input}

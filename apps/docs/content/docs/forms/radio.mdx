@@ -1,0 +1,110 @@
+---
+title: Radio
+description: A styled native radio button, with an optional group wrapper.
+---
+
+## Default
+
+`RadioGroup` groups related radio buttons and manages the selected value.
+
+<ComponentPreview name="radio-default" />
+
+## Colors
+
+The `color` prop offers `primary` (default), `secondary`, `success`, `info`, `warning`, `danger`, and `neutral`.
+
+<ComponentPreview name="radio-colors" />
+
+## Sizes
+
+The `size` prop offers three sizes: `sm` (default), `md`, and `lg`.
+
+<ComponentPreview name="radio-sizes" />
+
+## Inline
+
+The `inline` prop lays fields out in a row.
+
+<ComponentPreview name="radio-inline" />
+
+## Disabled
+
+<ComponentPreview name="radio-disabled" />
+
+## API Reference
+
+### Radio
+
+<PropsTable
+  data={[
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "success" | "info" | "warning" | "danger" | "neutral"',
+      default: '"primary"',
+      description: "Color theme of the radio.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"sm"',
+      description: "Size of the radio.",
+    },
+    {
+      prop: "label",
+      type: "React.ReactNode",
+      description:
+        "Text rendered beside the control, wrapped in a clickable label.",
+    },
+    {
+      prop: "inline",
+      type: "boolean",
+      default: "false",
+      description: "Lay the field out inline.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### RadioGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "name",
+      type: "string",
+      description: "Shared name applied to every radio in the group.",
+    },
+    {
+      prop: "value",
+      type: "string",
+      description: "Controlled selected value.",
+    },
+    {
+      prop: "defaultValue",
+      type: "string",
+      description: "Uncontrolled initial value.",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      description: "Fires with the newly selected value.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React radio is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available radio classes in the [Class overview](https://hbui.dev/docs/forms/radio/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/radio/#css-variables) documentation to explore all available variables.

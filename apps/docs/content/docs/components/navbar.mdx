@@ -1,90 +1,148 @@
 ---
 title: Navbar
-description: A responsive navigation header with brand, links, text, and a collapsible menu.
+description: A responsive navigation header with a brand, links, text, and a collapsible menu.
 ---
 
-### Default
+## Default
 
-A `Navbar` composes a `NavbarBrand` and a `NavbarNav` of `NavLink`s. The `expand`
-prop sets the breakpoint at which the bar lays out horizontally (`sm`, `md`,
-`lg`, `xl`, `2xl`, or `always`).
+The default navbar composes a `NavbarBrand` and a `NavbarNav` of `NavLink`s.
 
-<Navbar expand="sm" className="my-4 rounded-lg border border-default px-4">
-  <NavbarBrand href="#">Hummingbird</NavbarBrand>
-  <NavbarNav asChild>
-    <div className="gap-2">
-      <NavLink href="#" active>
-        Home
-      </NavLink>
-      <NavLink href="#">Features</NavLink>
-      <NavLink href="#">Pricing</NavLink>
-      <NavLink href="#" disabled>
-        Disabled
-      </NavLink>
-    </div>
-  </NavbarNav>
-</Navbar>
+<ComponentPreview name="navbar-default" />
 
-### Responsive collapse
+## Responsive collapse
 
-Wrap the menu in a `NavbarCollapse` and add a `NavbarToggle`. Below the `expand`
-breakpoint the toggle appears and the menu collapses behind it; at or above the
-breakpoint the toggle hides and the menu is always shown laid out horizontally.
+`NavbarToggle` and `NavbarCollapse` hide the menu behind a toggle below the `expand` breakpoint.
 
-The toggle is built on the same [Collapsible](/docs/components/collapsible)
-primitive — it owns the open state and the `aria-expanded`/`aria-controls`
-wiring, while the open/close height animation is pure CSS. **Resize your window
-below the `lg` breakpoint** to see the toggle appear.
+<ComponentPreview name="navbar-collapse" />
 
-<Navbar expand="lg" className="my-4 rounded-lg border border-default px-4">
-  <NavbarBrand href="#">Hummingbird</NavbarBrand>
-  <NavbarToggle />
-  <NavbarCollapse>
-    <NavbarNav asChild>
-      <div className="gap-2">
-        <NavLink href="#" active>
-          Home
-        </NavLink>
-        <NavLink href="#">Features</NavLink>
-        <NavLink href="#">Pricing</NavLink>
-        <NavLink href="#" disabled>
-          Disabled
-        </NavLink>
-      </div>
-    </NavbarNav>
-  </NavbarCollapse>
-</Navbar>
+## Expand
 
-### Always collapsed
+The `expand` prop controls when the navbar expands horizontally. Supported values are `sm`, `md`, `lg`, `xl`, `2xl`, and `always`.
 
-Omit `expand` to keep the menu behind the toggle at every width — useful for a
-permanent "hamburger" menu. Click the toggle below to expand and collapse it.
-Set `duration` (milliseconds) on `NavbarCollapse` to tune the open/close speed —
-this one uses `duration={500}`.
+<ComponentPreview name="navbar-expand" />
 
-<Navbar className="my-4 rounded-lg border border-default px-4">
-  <NavbarBrand href="#">Hummingbird</NavbarBrand>
-  <NavbarToggle />
-  <NavbarCollapse>
-    <NavbarNav asChild>
-      <div className="gap-2">
-        <NavLink href="#" active>
-          Home
-        </NavLink>
-        <NavLink href="#">Features</NavLink>
-        <NavLink href="#">Pricing</NavLink>
-      </div>
-    </NavbarNav>
-  </NavbarCollapse>
-</Navbar>
+## Always collapsed
 
-### With text
+Omitting `expand` keeps the menu behind the toggle at every width, and `duration` on `NavbarCollapse` tunes the open and close speed in milliseconds.
 
-Use `NavbarText` for non-link content such as a signed-in label.
+<ComponentPreview name="navbar-always-collapsed" />
 
-<Navbar expand="sm" className="my-4 rounded-lg border border-default px-4">
-  <NavbarBrand href="#">Hummingbird</NavbarBrand>
-  <NavbarText>
-    Signed in as <strong>Mark</strong>
-  </NavbarText>
-</Navbar>
+## Scrollable
+
+The `scrollable` prop on `NavbarNav` constrains the list height and scrolls its overflow.
+
+<ComponentPreview name="navbar-scrollable" />
+
+## With text
+
+`NavbarText` renders non-link content such as a signed-in label.
+
+<ComponentPreview name="navbar-text" />
+
+## Custom toggle
+
+Passing children to `NavbarToggle` overrides the default hamburger glyph.
+
+<ComponentPreview name="navbar-custom-toggle" />
+
+## API Reference
+
+### Navbar
+
+The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) primitive; `open`, `defaultOpen`, and `onOpenChange` are forwarded to its root.
+
+<PropsTable
+  data={[
+    {
+      prop: "expand",
+      type: '"sm" | "md" | "lg" | "xl" | "2xl" | "always"',
+      description: "Breakpoint at which the navbar lays out horizontally.",
+    },
+    {
+      prop: "open",
+      type: "boolean",
+      description: "Controlled open state of the collapsible menu.",
+    },
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      description:
+        "Open state of the collapsible menu when initially rendered.",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      description: "Event handler called when the open state changes.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### NavbarNav
+
+<PropsTable
+  data={[
+    {
+      prop: "scrollable",
+      type: "boolean",
+      default: "false",
+      description: "Constrain the list height and scroll its overflow.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### NavbarCollapse
+
+`NavbarCollapse` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) content; for its shared props, see the Radix UI documentation.
+
+<PropsTable
+  data={[
+    {
+      prop: "duration",
+      type: "number",
+      description: "Open and close animation duration in milliseconds.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### NavbarToggle
+
+`NavbarToggle` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) trigger. For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) documentation.
+
+### NavbarBrand and NavbarText
+
+`NavbarBrand` and `NavbarText` are layout wrappers that accept only `asChild` and `className`. `NavbarTogglerIcon` renders the default hamburger glyph and accepts standard `svg` props.
+
+## Styling
+
+Hummingbird React navbar is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available navbar classes in the [Class overview](https://hbui.dev/docs/components/navbar/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/navbar/#css-variables) documentation to explore all available variables.

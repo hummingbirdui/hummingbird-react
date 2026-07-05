@@ -1,0 +1,13 @@
+{
+  "title": "Forms",
+  "pages": [
+    "form-control",
+    "select",
+    "checkbox",
+    "radio",
+    "switch",
+    "input-group",
+    "floating-label",
+    "form-range"
+  ]
+}

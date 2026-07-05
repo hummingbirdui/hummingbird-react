@@ -1,76 +1,140 @@
 ---
 title: List Group
-description: A flexible container for displaying a series of related content.
+description: A flexible container for displaying a series of related content as a vertical list.
 ---
 
-### Default
+## Default
 
-A `ListGroup` renders a list of `ListGroupItem`s.
+A `ListGroup` renders a vertical list of `ListGroupItem` elements.
 
-<ListGroup className="my-4 max-w-md">
-  <ListGroupItem>An item</ListGroupItem>
-  <ListGroupItem>A second item</ListGroupItem>
-  <ListGroupItem>A third item</ListGroupItem>
-</ListGroup>
+<ComponentPreview name="list-group-default" />
 
-### Active & disabled
+## Active and disabled
 
-Use the `active` prop to mark the current item and `disabled` to mute it.
+The `active` prop marks the current item and `disabled` mutes it and blocks interaction.
 
-<ListGroup className="my-4 max-w-md">
-  <ListGroupItem active>Active item</ListGroupItem>
-  <ListGroupItem>Default item</ListGroupItem>
-  <ListGroupItem disabled>Disabled item</ListGroupItem>
-</ListGroup>
+<ComponentPreview name="list-group-active-disabled" />
 
-### Actionable
+## Actionable
 
-Add the `action` prop for interactive items, and `asChild` to render them as
-links or buttons. Use a `div`-based list so the anchors are valid children.
+The `action` prop styles an item as interactive, and `asChild` renders it as a link or button.
 
-<ListGroup asChild className="my-4 max-w-md">
-  <div>
-    <ListGroupItem action asChild>
-      <a href="#list-group">First action</a>
-    </ListGroupItem>
-    <ListGroupItem action active asChild>
-      <a href="#list-group">Active action</a>
-    </ListGroupItem>
-    <ListGroupItem action asChild>
-      <a href="#list-group">Third action</a>
-    </ListGroupItem>
-  </div>
-</ListGroup>
+<ComponentPreview name="list-group-action" />
 
-### Numbered
+## Numbered
 
 The `numbered` prop prefixes each item with an incrementing counter.
 
-<ListGroup numbered className="my-4 max-w-md">
-  <ListGroupItem>First item</ListGroupItem>
-  <ListGroupItem>Second item</ListGroupItem>
-  <ListGroupItem>Third item</ListGroupItem>
-</ListGroup>
+<ComponentPreview name="list-group-numbered" />
 
-### Custom content
+## Pinned
 
-Compose `ListText` (title / subtitle) and any markup inside an item.
+The `pinned` prop keeps an item stuck to the top while the list scrolls.
 
-<ListGroup className="my-4 max-w-md">
-  <ListGroupItem>
-    <div className="flex w-full items-center justify-between">
-      <ListText>List group item heading</ListText>
-      <small className="text-muted">3 days ago</small>
-    </div>
-    <ListText variant="secondary">
-      Some supporting, secondary copy for this list item.
-    </ListText>
-  </ListGroupItem>
-  <ListGroupItem>
-    <div className="flex w-full items-center justify-between">
-      <ListText>Another heading</ListText>
-      <small className="text-muted">1 week ago</small>
-    </div>
-    <ListText variant="secondary">More supporting text.</ListText>
-  </ListGroupItem>
-</ListGroup>
+<ComponentPreview name="list-group-pinned" />
+
+## Custom content
+
+`ListText` provides title and subtitle text for composing richer item layouts.
+
+<ComponentPreview name="list-group-custom-content" />
+
+## API Reference
+
+### ListGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "numbered",
+      type: "boolean",
+      default: "false",
+      description: "Prefix each item with an incrementing counter.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### ListGroupItem
+
+<PropsTable
+  data={[
+    {
+      prop: "action",
+      type: "boolean",
+      default: "false",
+      description: "Style the item as interactive with hover and focus states.",
+    },
+    {
+      prop: "pinned",
+      type: "boolean",
+      default: "false",
+      description: "Stick the item to the top of a scrolling list.",
+    },
+    {
+      prop: "active",
+      type: "boolean",
+      default: "false",
+      description: "Mark the item as the active, current one.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Mute the item and disable interaction.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### ListText
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"primary" | "secondary"',
+      default: '"primary"',
+      description: "Render as a title or a muted subtitle.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React list group is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available list group classes in the [Class overview](https://hbui.dev/docs/components/list-group/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/list-group/#css-variables) documentation to explore all available variables.

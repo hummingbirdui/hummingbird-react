@@ -1,0 +1,64 @@
+---
+title: Input Group
+description: Joins controls, addons, and buttons into a single combined control.
+---
+
+## Default
+
+Use `InputGroupText` to display text or icons inside an `InputGroup`.
+
+<ComponentPreview name="input-group-default" className="max-w-sm mx-auto" />
+
+## Sizes
+
+The `size` prop offers three sizes: `sm`, `md` (default), and `lg`.
+
+<ComponentPreview name="input-group-sizes" />
+
+## With button
+
+A `Button` can be placed alongside the form control as a trailing action.
+
+<ComponentPreview name="input-group-button" className="max-w-sm mx-auto" />
+
+## Multiple addons
+
+Input groups support multiple addons.
+
+<ComponentPreview name="input-group-multiple" className="max-w-sm mx-auto" />
+
+## API Reference
+
+### InputGroup
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size applied to the grouped controls.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+`InputGroupText` is an addon wrapper. It accepts `asChild` and `className`.
+
+## Styling
+
+Hummingbird React input group is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available input group classes in the [Class overview](https://hbui.dev/docs/forms/input-group/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/input-group/#css-variables) documentation to explore all available variables.

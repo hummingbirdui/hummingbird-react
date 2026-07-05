@@ -7,10 +7,11 @@ const badgeVariants = cva('badge', {
   variants: {
     variant: {
       filled: '',
-      subtle: '',
-      outline: '',
+      subtle: 'badge-subtle',
+      outline: 'badge-outline',
     },
     color: {
+      neutral: '',
       primary: '',
       secondary: '',
       info: '',
@@ -54,6 +55,7 @@ const badgeVariants = cva('badge', {
   ],
   defaultVariants: {
     variant: 'filled',
+    color: 'primary',
     size: 'sm',
   },
 });

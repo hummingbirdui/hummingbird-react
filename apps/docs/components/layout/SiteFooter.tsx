@@ -32,7 +32,7 @@ export function SiteFooter() {
           <div className="md:col-span-5">
             <Link href="/" className="mb-4 flex items-center gap-2 no-underline">
               <Image
-                src="/images/logos/hummingbird.svg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/logos/hummingbird.svg`}
                 alt="Hummingbird"
                 width={40}
                 height={40}

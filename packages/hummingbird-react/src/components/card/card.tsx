@@ -16,9 +16,7 @@ const cardVariants = cva('card', {
   },
 });
 
-export interface CardProps
-  extends React.ComponentProps<'div'>,
-    VariantProps<typeof cardVariants> {
+export interface CardProps extends React.ComponentProps<'div'>, VariantProps<typeof cardVariants> {
   /** Render as a child element (e.g. an `a` or `button`). Uses Radix Slot. */
   asChild?: boolean;
 }
@@ -41,9 +39,7 @@ export interface CardSlotProps extends React.ComponentProps<'div'> {
 function CardHeader({ className, asChild = false, ...props }: CardSlotProps) {
   const Comp = asChild ? Slot.Root : 'div';
 
-  return (
-    <Comp data-slot="card-header" className={cn('card-header', className)} {...props} />
-  );
+  return <Comp data-slot="card-header" className={cn('card-header', className)} {...props} />;
 }
 
 CardHeader.displayName = 'CardHeader';
@@ -59,9 +55,7 @@ CardBody.displayName = 'CardBody';
 function CardFooter({ className, asChild = false, ...props }: CardSlotProps) {
   const Comp = asChild ? Slot.Root : 'div';
 
-  return (
-    <Comp data-slot="card-footer" className={cn('card-footer', className)} {...props} />
-  );
+  return <Comp data-slot="card-footer" className={cn('card-footer', className)} {...props} />;
 }
 
 CardFooter.displayName = 'CardFooter';
@@ -69,7 +63,7 @@ CardFooter.displayName = 'CardFooter';
 function CardTitle({ className, asChild = false, ...props }: CardSlotProps) {
   const Comp = asChild ? Slot.Root : 'div';
 
-  return <Comp data-slot="card-title" className={cn('card-title', className)} {...props} />;
+  return <Comp data-slot="card-title" className={cn('card-title text-xl', className)} {...props} />;
 }
 
 CardTitle.displayName = 'CardTitle';
@@ -77,9 +71,7 @@ CardTitle.displayName = 'CardTitle';
 function CardSubtitle({ className, asChild = false, ...props }: CardSlotProps) {
   const Comp = asChild ? Slot.Root : 'div';
 
-  return (
-    <Comp data-slot="card-subtitle" className={cn('card-subtitle', className)} {...props} />
-  );
+  return <Comp data-slot="card-subtitle" className={cn('card-subtitle', className)} {...props} />;
 }
 
 CardSubtitle.displayName = 'CardSubtitle';
@@ -113,8 +105,7 @@ const cardImageVariants = cva('', {
 });
 
 export interface CardImageProps
-  extends React.ComponentProps<'img'>,
-    VariantProps<typeof cardImageVariants> {}
+  extends React.ComponentProps<'img'>, VariantProps<typeof cardImageVariants> {}
 
 /** A card image. `position` controls which corners are rounded. */
 function CardImage({ className, position, ...props }: CardImageProps) {
@@ -133,11 +124,7 @@ function CardImageOverlay({ className, asChild = false, ...props }: CardSlotProp
   const Comp = asChild ? Slot.Root : 'div';
 
   return (
-    <Comp
-      data-slot="card-image-overlay"
-      className={cn('card-img-overlay', className)}
-      {...props}
-    />
+    <Comp data-slot="card-image-overlay" className={cn('card-img-overlay', className)} {...props} />
   );
 }
 

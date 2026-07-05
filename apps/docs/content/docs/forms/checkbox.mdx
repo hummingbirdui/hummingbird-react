@@ -1,0 +1,88 @@
+---
+title: Checkbox
+description: A styled native checkbox, including the indeterminate state.
+---
+
+## Default
+
+<ComponentPreview name="checkbox-default" />
+
+## Colors
+
+The `color` prop offers `primary` (default), `secondary`, `success`, `info`, `warning`, `danger`, and `neutral`.
+
+<ComponentPreview name="checkbox-colors" />
+
+## Sizes
+
+The `size` prop offers three sizes: `sm` (default), `md`, and `lg`.
+
+<ComponentPreview name="checkbox-sizes" />
+
+## Inline
+
+The `inline` prop lays fields out in a row.
+
+<ComponentPreview name="checkbox-inline" />
+
+## Indeterminate
+
+The `indeterminate` prop renders the mixed state, such as a "select all" parent.
+
+<ComponentPreview name="checkbox-indeterminate" />
+
+## Disabled
+
+<ComponentPreview name="checkbox-disabled" />
+
+## API Reference
+
+### Checkbox
+
+<PropsTable
+  data={[
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "success" | "info" | "warning" | "danger" | "neutral"',
+      default: '"primary"',
+      description: "Color theme of the checkbox.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"sm"',
+      description: "Size of the checkbox.",
+    },
+    {
+      prop: "label",
+      type: "React.ReactNode",
+      description:
+        "Text rendered beside the control, wrapped in a clickable label.",
+    },
+    {
+      prop: "inline",
+      type: "boolean",
+      default: "false",
+      description: "Lay the field out inline.",
+    },
+    {
+      prop: "indeterminate",
+      type: "boolean",
+      default: "false",
+      description: "Render the mixed (tri-state) checkbox.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React checkbox is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available checkbox classes in the [Class overview](https://hbui.dev/docs/forms/checkbox/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/checkbox/#css-variables) documentation to explore all available variables.

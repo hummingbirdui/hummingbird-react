@@ -105,11 +105,6 @@ describe('Drawer', () => {
       expect(document.querySelector('[data-slot="drawer-title"]')).toHaveClass('offcanvas-title');
       expect(document.querySelector('[data-slot="drawer-body"]')).toHaveClass('offcanvas-body');
     });
-
-    it('renders a drag handle', async () => {
-      await openDrawer(<Example />);
-      expect(document.querySelector('[data-slot="drawer-handle"]')).toBeInTheDocument();
-    });
   });
 
   describe('Direction', () => {

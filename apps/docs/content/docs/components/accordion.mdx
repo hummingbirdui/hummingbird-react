@@ -3,61 +3,33 @@ title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content.
 ---
 
-### Default
+## Default
 
 Only one panel is open at a time. Setting `collapsible` allows the open panel to be closed again.
 
-<Accordion type="single" collapsible defaultValue="item-1" className="my-4 max-w-2xl">
-  <AccordionItem value="item-1">
-    <AccordionHeader>
-      <AccordionTrigger>What is Hummingbird UI?</AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      Hummingbird UI is a class-based design system. Components ship their looks
-      as semantic CSS classes and use Radix UI primitives for behavior.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionHeader>
-      <AccordionTrigger>Is it accessible?</AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      Yes. The Accordion is built on Radix UI's headless primitive, so keyboard
-      navigation and ARIA wiring are handled for you.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-3">
-    <AccordionHeader>
-      <AccordionTrigger>Can multiple panels stay open?</AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      Use `type="multiple"` to let several items expand at once, or
-      `type="single"` with `collapsible` to allow closing the open item.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+<ComponentPreview name="accordion-default" />
 
-### Multiple
+## Multiple
 
 Use `type="multiple"` to let any number of panels stay open at once.
 
-<Accordion type="multiple" className="my-4 max-w-2xl">
-  <AccordionItem value="item-1">
-    <AccordionHeader>
-      <AccordionTrigger>What is Hummingbird UI?</AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      Hummingbird UI is a class-based design system. Components ship their looks
-      as semantic CSS classes and use Radix UI primitives for behavior.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionHeader>
-      <AccordionTrigger>Is it accessible?</AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      Yes. The Accordion is built on Radix UI's headless primitive, so keyboard
-      navigation and ARIA wiring are handled for you.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+<ComponentPreview name="accordion-multiple" />
+
+## Disabled
+
+Add `disabled` to an `AccordionItem` to prevent it from opening, or to the
+`Accordion` root to disable every item.
+
+<ComponentPreview name="accordion-disabled" />
+
+## API Reference
+
+For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/accordion#api-reference) documentation.
+
+## Styling
+
+Hummingbird React accordion is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available accordion classes in the [Class overview](https://hbui.dev/docs/components/accordion/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/accordion/#css-variables) documentation to explore all available variables.

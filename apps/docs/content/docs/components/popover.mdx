@@ -1,87 +1,40 @@
 ---
 title: Popover
-description: A floating panel anchored to a trigger — built on Radix Popover with Bootstrap's popover styling.
+description: A floating panel anchored to a trigger, built on Radix Popover with Hummingbird's popover styling.
 ---
 
-### Default
+## Default
 
-Compose a `Popover` from a `PopoverTrigger` (rendered as a `Button` via
-`asChild`) and a `PopoverContent`. The content holds a `PopoverHeader` and a
-`PopoverBody`. Radix handles focus management, positioning, and
-`Esc`/outside-click dismissal; the panel fades and scales from the trigger.
+<ComponentPreview name="popover-default" className="text-center" />
 
-<Popover>
-  <PopoverTrigger asChild>
-    <Button>Open popover</Button>
-  </PopoverTrigger>
-  <PopoverContent>
-    <PopoverHeader>Popover title</PopoverHeader>
-    <PopoverBody>
-      And here's some amazing content. It's very engaging. Right?
-    </PopoverBody>
-  </PopoverContent>
-</Popover>
+## Placement
 
-### Placement
+Use `side` and `align` to position `PopoverContent` relative to the trigger.
 
-Pass `side` (`"top" | "right" | "bottom" | "left"`) and `align`
-(`"start" | "center" | "end"`) to `PopoverContent` to choose where the panel
-opens relative to the trigger.
+<ComponentPreview name="popover-placement" />
 
-<div className="flex flex-wrap gap-2">
-  <Popover>
-    <PopoverTrigger asChild>
-      <Button variant="outline">Top</Button>
-    </PopoverTrigger>
-    <PopoverContent side="top">
-      <PopoverBody>Opens above the trigger.</PopoverBody>
-    </PopoverContent>
-  </Popover>
+## With a Close Button
 
-  <Popover>
-    <PopoverTrigger asChild>
-      <Button variant="outline">Right</Button>
-    </PopoverTrigger>
-    <PopoverContent side="right">
-      <PopoverBody>Opens to the right.</PopoverBody>
-    </PopoverContent>
-  </Popover>
+`PopoverClose` dismisses the popover from within the content.
 
-  <Popover>
-    <PopoverTrigger asChild>
-      <Button variant="outline">Bottom</Button>
-    </PopoverTrigger>
-    <PopoverContent side="bottom">
-      <PopoverBody>Opens below the trigger.</PopoverBody>
-    </PopoverContent>
-  </Popover>
+<ComponentPreview name="popover-with-close" className="text-center" />
 
-  <Popover>
-    <PopoverTrigger asChild>
-      <Button variant="outline">Left</Button>
-    </PopoverTrigger>
-    <PopoverContent side="left">
-      <PopoverBody>Opens to the left.</PopoverBody>
-    </PopoverContent>
-  </Popover>
-</div>
+## Controlled
 
-### With a close button
+Use `open` with `onOpenChange` to control the popover state.
 
-Use `PopoverClose` (rendered as a `CloseButton` via `asChild`) inside the
-content to dismiss the popover from within.
+<ComponentPreview name="popover-controlled" />
 
-<Popover>
-  <PopoverTrigger asChild>
-    <Button color="secondary">Dismissable</Button>
-  </PopoverTrigger>
-  <PopoverContent>
-    <PopoverHeader className="flex items-center justify-between">
-      Heads up
-      <PopoverClose asChild>
-        <CloseButton />
-      </PopoverClose>
-    </PopoverHeader>
-    <PopoverBody>Click the close button to dismiss this popover.</PopoverBody>
-  </PopoverContent>
-</Popover>
+## API Reference
+
+For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/popover#api-reference) documentation.
+
+`PopoverHeader` and `PopoverBody` render the popover's header and body regions. Each accepts a `className`.
+
+## Styling
+
+Hummingbird React popover is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available popover classes in the [Class overview](https://hbui.dev/docs/components/popover/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/popover/#css-variables) documentation to explore all available variables.

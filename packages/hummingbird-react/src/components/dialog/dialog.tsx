@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Dialog as DialogPrimitive } from 'radix-ui';
+import { Dialog as DialogPrimitive, Slot } from 'radix-ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
@@ -182,13 +182,16 @@ function DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
 }
 DialogHeader.displayName = 'DialogHeader';
 
-function DialogTitle({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) {
+export interface DialogTitleProps extends React.ComponentProps<'h6'> {
+  /** Render as a child element instead of an `<h6>`. Uses Radix Slot. */
+  asChild?: boolean;
+}
+function DialogTitle({ className, asChild = false, ...props }: DialogTitleProps) {
+  const Comp = asChild ? Slot.Root : 'h6';
   return (
-    <DialogPrimitive.Title
-      data-slot="dialog-title"
-      className={cn('modal-title', className)}
-      {...props}
-    />
+    <DialogPrimitive.Title asChild>
+      <Comp data-slot="dialog-title" className={cn('modal-title', className)} {...props} />
+    </DialogPrimitive.Title>
   );
 }
 DialogTitle.displayName = 'DialogTitle';

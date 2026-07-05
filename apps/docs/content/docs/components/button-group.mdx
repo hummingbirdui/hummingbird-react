@@ -1,83 +1,86 @@
 ---
 title: Button Group
-description: Group a series of buttons together on a single line or stack.
+description: Groups a series of buttons together on a single line or stack.
 ---
 
-### Default
+## Default
 
-Wrap a set of `Button`s in a `ButtonGroup` to join them into a single horizontal control.
+Wrapping a set of `Button`s in a `ButtonGroup` joins them into a single horizontal control.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <ButtonGroup>
-    <Button variant="outline">Left</Button>
-    <Button variant="outline">Middle</Button>
-    <Button variant="outline">Right</Button>
-  </ButtonGroup>
-</div>
+<ComponentPreview name="button-group-default" />
 
-### Sizes
+## Vertical
 
-Set `size` to `sm`, `md` (default), or `lg` to scale every button in the group.
+Setting `orientation="vertical"` stacks the buttons instead.
 
-<div className="flex flex-col items-start gap-3 my-4">
-  <ButtonGroup size="sm">
-    <Button variant="outline">Left</Button>
-    <Button variant="outline">Middle</Button>
-    <Button variant="outline">Right</Button>
-  </ButtonGroup>
-  <ButtonGroup size="md">
-    <Button variant="outline">Left</Button>
-    <Button variant="outline">Middle</Button>
-    <Button variant="outline">Right</Button>
-  </ButtonGroup>
-  <ButtonGroup size="lg">
-    <Button variant="outline">Left</Button>
-    <Button variant="outline">Middle</Button>
-    <Button variant="outline">Right</Button>
-  </ButtonGroup>
-</div>
+<ComponentPreview name="button-group-vertical" />
 
-### Vertical
+## Sizes
 
-Set `orientation="vertical"` to stack the buttons instead.
+The `size` prop scales every button in the group: `sm`, `md` (default), or `lg`.
 
-<div className="flex flex-wrap items-start gap-2 my-4">
-  <ButtonGroup orientation="vertical">
-    <Button variant="outline">Top</Button>
-    <Button variant="outline">Middle</Button>
-    <Button variant="outline">Bottom</Button>
-  </ButtonGroup>
-</div>
+<ComponentPreview name="button-group-sizes" />
 
-### Colors
+## Toolbar
 
-Each button keeps its own `variant` and `color`, so groups can mix intents.
+`ButtonToolbar` combines multiple groups into a single toolbar.
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <ButtonGroup>
-    <Button color="primary">Primary</Button>
-    <Button color="success">Success</Button>
-    <Button color="danger">Danger</Button>
-  </ButtonGroup>
-</div>
+<ComponentPreview name="button-group-toolbar" />
 
-### Toolbar
+## API Reference
 
-Use `ButtonToolbar` to combine multiple groups into a single toolbar.
+### ButtonGroup
 
-<div className="flex flex-wrap items-center gap-2 my-4">
-  <ButtonToolbar className="gap-2">
-    <ButtonGroup>
-      <Button variant="outline">1</Button>
-      <Button variant="outline">2</Button>
-      <Button variant="outline">3</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button variant="outline">4</Button>
-      <Button variant="outline">5</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button variant="outline">6</Button>
-    </ButtonGroup>
-  </ButtonToolbar>
-</div>
+<PropsTable
+  data={[
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      default: '"horizontal"',
+      description: "Layout direction of the buttons.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size applied to every button in the group.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### ButtonToolbar
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React button group is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available button group classes in the [Class overview](https://hbui.dev/docs/components/button-group/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/button-group/#css-variables) documentation to explore all available variables.

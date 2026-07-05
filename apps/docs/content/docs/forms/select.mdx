@@ -1,0 +1,86 @@
+---
+title: Select
+description: A styled native select for choosing one option from a list.
+---
+
+## Default
+
+<ComponentPreview name="select-default" className="max-w-sm mx-auto" />
+
+## Variants
+
+The `variant` prop switches between `outline` (default, bordered) and `fill` (a filled surface).
+
+<ComponentPreview name="select-variants" />
+
+## Sizes
+
+The `size` prop offers three sizes: `sm`, `md` (default), and `lg`.
+
+<ComponentPreview name="select-sizes" />
+
+## Colors
+
+The `color` prop sets the focus accent: `secondary`, `info`, `success`, or `warning`.
+
+<ComponentPreview name="select-colors" />
+
+## Validation state
+
+The `state` prop marks the select `valid` or `invalid`, and pairs with a `FormText` of the matching `variant`. The `invalid` state also sets `aria-invalid`.
+
+<ComponentPreview name="select-validation" />
+
+## Disabled
+
+<ComponentPreview name="select-disabled" className="max-w-sm mx-auto" />
+
+## API Reference
+
+### Select
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"outline" | "fill"',
+      default: '"outline"',
+      description: "Visual style of the select.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "Size of the select.",
+    },
+    {
+      prop: "color",
+      type: '"secondary" | "info" | "success" | "warning"',
+      description: "Focus accent color.",
+    },
+    {
+      prop: "state",
+      type: '"valid" | "invalid"',
+      description: "Validation state; invalid also sets aria-invalid.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React select is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available select classes in the [Class overview](https://hbui.dev/docs/forms/select/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/forms/select/#css-variables) documentation to explore all available variables.

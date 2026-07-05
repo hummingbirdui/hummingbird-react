@@ -3,133 +3,96 @@ title: Card
 description: A flexible content container with header, body, and footer regions.
 ---
 
-### Default
+## Default
 
-Compose `Card` with `CardBody` (and optional `CardTitle` / `CardText`).
+<ComponentPreview name="card-default" />
 
-<div className="max-w-sm my-4">
-  <Card>
-    <CardBody>
-      <CardTitle>Card title</CardTitle>
-      <CardText>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </CardText>
-    </CardBody>
-  </Card>
-</div>
+## With an image
 
-### Header and footer
+`CardImage` places an image whose `position` controls which corners are rounded.
 
-<div className="max-w-sm my-4">
-  <Card>
-    <CardHeader>Featured</CardHeader>
-    <CardBody>
-      <CardTitle>Special title treatment</CardTitle>
-      <CardSubtitle>Supporting subtitle</CardSubtitle>
-      <CardText>With supporting text below as a natural lead-in.</CardText>
-    </CardBody>
-    <CardFooter>
-      <Button variant="text" size="sm">
-        SHARE
-      </Button>
-    </CardFooter>
-  </Card>
-</div>
+<ComponentPreview name="card-image" />
 
-### With an image
+## Image overlay
 
-<div className="max-w-sm my-4">
-  <Card>
-    <CardImage
-      position="top"
-      src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600"
-      alt="A dog"
-    />
-    <CardBody>
-      <CardTitle>Good boy</CardTitle>
-      <CardText>An image capped to the top of the card.</CardText>
-    </CardBody>
-  </Card>
-</div>
+`CardImageOverlay` lays the `CardBody` over the image.
 
-### Image overlay
+<ComponentPreview name="card-image-overlay" />
 
-`CardImageOverlay` lays a `CardBody` over the image.
+## Horizontal
 
-<div className="max-w-sm my-4">
-  <Card>
-    <CardImageOverlay>
-      <CardImage
-        position="full"
-        src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600"
-        alt="A dog"
-      />
-      <CardBody>
-        <CardTitle>Overlaid text</CardTitle>
-        <CardText>Text sits directly on top of the image.</CardText>
-      </CardBody>
-    </CardImageOverlay>
-  </Card>
-</div>
+The `aside` prop lays the card out as a row.
 
-### Horizontal (aside)
+<ComponentPreview name="card-aside" />
 
-Set `aside` to lay the card out as a row.
+## Clickable
 
-<div className="max-w-lg my-4">
-  <Card aside>
-    <CardImage
-      position="left"
-      src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=300"
-      alt="A dog"
-      className="max-w-[40%]"
-    />
-    <CardBody>
-      <CardTitle>Horizontal card</CardTitle>
-      <CardText>Image on the start, content alongside it.</CardText>
-    </CardBody>
-  </Card>
-</div>
+The `action` prop makes the whole card an interactive hover surface, paired with `asChild` to render as a link.
 
-### Clickable card
+<ComponentPreview name="card-action" />
 
-Set `action` (and `asChild` to render as a link) for an interactive card.
-
-<div className="max-w-sm my-4">
-  <Card action asChild>
-    <a href="#card">
-      <CardBody>
-        <CardTitle>Clickable card</CardTitle>
-        <CardText>The entire card is a link with a hover surface.</CardText>
-      </CardBody>
-    </a>
-  </Card>
-</div>
-
-### Card group
+## Card group
 
 `CardGroup` joins cards into an attached row.
 
-<div className="my-4">
-  <CardGroup>
-    <Card>
-      <CardBody>
-        <CardTitle>First</CardTitle>
-        <CardText>This is the first card.</CardText>
-      </CardBody>
-    </Card>
-    <Card>
-      <CardBody>
-        <CardTitle>Second</CardTitle>
-        <CardText>This is the second card.</CardText>
-      </CardBody>
-    </Card>
-    <Card>
-      <CardBody>
-        <CardTitle>Third</CardTitle>
-        <CardText>This is the third card.</CardText>
-      </CardBody>
-    </Card>
-  </CardGroup>
-</div>
+<ComponentPreview name="card-group" />
+
+## API Reference
+
+### Card
+
+<PropsTable
+  data={[
+    {
+      prop: "aside",
+      type: "boolean",
+      default: "false",
+      description: "Lay the card out horizontally.",
+    },
+    {
+      prop: "action",
+      type: "boolean",
+      default: "false",
+      description: "Make the whole card an interactive hover surface.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### CardImage
+
+<PropsTable
+  data={[
+    {
+      prop: "position",
+      type: '"top" | "bottom" | "left" | "right" | "full"',
+      default: '"top"',
+      description: "Which corners of the image are rounded.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+`CardHeader`, `CardBody`, `CardFooter`, `CardTitle`, `CardSubtitle`, `CardText`, `CardImageOverlay`, and `CardGroup` are layout wrappers. Each accepts `asChild` and `className`.
+
+## Styling
+
+Hummingbird React card is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available card classes in the [Class overview](https://hbui.dev/docs/components/card/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/card/#css-variables) documentation to explore all available variables.

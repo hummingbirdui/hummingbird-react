@@ -3,7 +3,7 @@ import { Button } from "@hummingbirdui/react/button";
 import { ButtonGroup, ButtonToolbar } from "@hummingbirdui/react/button-group";
 import { Alert, AlertIcon } from "@hummingbirdui/react/alert";
 import { Badge, BadgeActionButton } from "@hummingbirdui/react/badge";
-import { Avatar, AvatarName, AvatarGroup } from "@hummingbirdui/react/avatar";
+import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from "@hummingbirdui/react/avatar";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -161,7 +161,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Badge: (props: any) => <Badge {...props} />,
     BadgeActionButton: (props: any) => <BadgeActionButton {...props} />,
     Avatar: (props: any) => <Avatar {...props} />,
-    AvatarName: (props: any) => <AvatarName {...props} />,
+    AvatarImage: (props: any) => <AvatarImage {...props} />,
+    AvatarFallback: (props: any) => <AvatarFallback {...props} />,
     AvatarGroup: (props: any) => <AvatarGroup {...props} />,
     Breadcrumb: (props: any) => <Breadcrumb {...props} />,
     BreadcrumbList: (props: any) => <BreadcrumbList {...props} />,
