@@ -1,0 +1,14 @@
+src/
+**/*.test.ts
+**/*.test.tsx
+.eslintrc.json
+.prettierrc
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+CONTRIBUTING.md
+*.md.bak
+.turbo/
+.vscode/
+.idea/
+*.log
