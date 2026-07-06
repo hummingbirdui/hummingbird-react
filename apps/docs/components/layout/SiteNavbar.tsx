@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Ellipse, Ellipsis, Menu } from "lucide-react";
+import { Ellipsis } from "lucide-react";
 import { Navbar, NavbarBrand, NavbarNav } from "@hummingbirdui/react/navbar";
 import { NavLink } from "@hummingbirdui/react/nav";
 import { Badge } from "@hummingbirdui/react/badge";
@@ -18,7 +18,7 @@ import {
   DrawerTitle,
   DrawerBody,
   DrawerClose,
-} from "@/components/drawer";
+} from "@hummingbirdui/react";
 import { ThemeToggle } from "./ThemeToggle";
 import { GithubMark } from "./BrandIcons";
 import { CloseButton } from "@hummingbirdui/react";

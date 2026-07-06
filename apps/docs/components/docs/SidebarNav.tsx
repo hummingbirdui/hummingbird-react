@@ -6,6 +6,9 @@ import { ListGroup, ListGroupItem } from "@hummingbirdui/react/list-group";
 import { cn } from "@hummingbirdui/react/utils";
 import type { SidebarGroup } from "@/lib/docs-tree";
 
+const normalize = (path: string) =>
+  path.length > 1 ? path.replace(/\/+$/, "") : path;
+
 export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
   const pathname = usePathname();
   return (
@@ -24,7 +27,7 @@ export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
           )}
           <ListGroup className="w-full bg-transparent gap-0.5">
             {group.items.map((item) => {
-              const active = pathname === item.url;
+              const active = normalize(pathname) === normalize(item.url);
               return (
                 <ListGroupItem
                   key={item.url}
