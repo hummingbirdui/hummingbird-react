@@ -22,6 +22,8 @@ import {
 import { ThemeToggle } from "./ThemeToggle";
 import { GithubMark } from "./BrandIcons";
 import { CloseButton } from "@hummingbirdui/react";
+import { SearchButton, SearchIconButton } from "../search/SearchToggle";
+import { SearchDialog } from "../search/SearchDialog";
 
 const GITHUB_URL = "https://github.com/hummingbirdui/hummingbird-react";
 
@@ -86,6 +88,7 @@ const Logo = () => (
 export function SiteNavbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     setOpen(false);
@@ -107,10 +110,19 @@ export function SiteNavbar() {
           v0.1.0
         </Badge>
 
+        <SearchButton
+          className="ms-2 hidden sm:ms-8 lg:flex"
+          onClick={() => setSearchOpen(true)}
+        />
+
         <div className="ms-auto flex items-center">
           <NavbarNav className="hidden lg:flex">
             <NavLinks pathname={pathname} />
           </NavbarNav>
+          <SearchIconButton
+            className="lg:hidden"
+            onClick={() => setSearchOpen(true)}
+          />
           <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex"></div>
           <ThemeToggle />
           <Button
@@ -168,6 +180,7 @@ export function SiteNavbar() {
           </Drawer>
         </div>
       </Navbar>
+      <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
     </header>
   );
 }
