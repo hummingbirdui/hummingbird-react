@@ -1,23 +1,23 @@
 {
   "name": "@hummingbirdui/react",
   "version": "0.1.0",
-  "description": "Hummingbird React component library using Radix UI primitives and Hummingbird CSS",
+  "description": "Modern, accessible, and customizable React components built with Radix UI and Tailwind CSS.",
   "keywords": [
+    "hummingbird",
     "react",
     "components",
-    "ui",
-    "hummingbird",
+    "modern components",
+    "react components",
     "radix-ui",
-    "accessible",
-    "headless"
+    "react ui"
   ],
-  "homepage": "https://hbui.dev",
+  "homepage": "https://react.hbui.dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/hummingbirdui/hummingbird-react.git"
   },
   "license": "MIT",
-  "author": "Hummingbird",
+  "author": "Hummingbird UI",
   "type": "module",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,26 +26,24 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js"
-    },
     "./utils": {
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.js"
     },
-    "./styles.css": "./dist/styles.css",
-    "./package.json": "./package.json",
+    "./layout/*": {
+      "types": "./dist/layout/*/index.d.ts",
+      "import": "./dist/layout/*/index.js"
+    },
     "./*": {
       "types": "./dist/components/*/index.d.ts",
       "import": "./dist/components/*/index.js"
-    }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
   },
   "sideEffects": false,
   "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+    "dist"
   ],
   "scripts": {
     "build": "tsup && tsc -p tsconfig.build.json",
@@ -83,11 +81,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.33.2",
     "jsdom": "^29.1.1",
-    "prettier": "^3.1.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tsup": "^8.0.1",
-    "typescript": "5.9.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "vitest": "^1.1.0"
   }
 }

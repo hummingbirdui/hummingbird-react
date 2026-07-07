@@ -1,159 +1,211 @@
-# Turborepo starter
+<div align="center">
+   <a href="https://react.hbui.dev/">
+      <img  width="350" src='https://raw.githubusercontent.com/hummingbirdui/hummingbird/87dc656e578d3e6fd0e4a45eabe1f5e02bdeafd1/apps/docs/public/images/logos/hummingbird-lg.svg' alt="Logo" class="w-10 h-10" />
+   </a>
 
-This Turborepo starter is maintained by the Turborepo core team.
+Modern, accessible, and customizable React components built with Radix UI and Tailwind CSS.
 
-## Using this example
+![downloads](https://img.shields.io/npm/dt/@hummingbirdui/react?style=flat-square)
+![npm](https://img.shields.io/npm/v/@hummingbirdui/react?style=flat-square)
+![license](https://img.shields.io/npm/l/@hummingbirdui/react?style=flat-square)
 
-Run the following command:
+</div>
 
-```sh
-npx create-turbo@latest
+---
+
+## Table of contents
+
+- [Documentation](#documentation)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+  - [Install Tailwind CSS](#1-install-tailwind-css)
+  - [Install Hummingbird React](#2-install-hummingbird-react)
+  - [Import CSS](#3-import-css)
+  - [Use components](#4-use-components)
+- [Per-component imports](#per-component-imports)
+- [TypeScript Support](#typescript-support)
+- [License](#license)
+- [Contribution guidelines](#contribution-guidelines)
+- [Meet the Team](#meet-the-team)
+- [Contributors](#contributors)
+
+## Documentation
+
+Comprehensive documentation is available at [react.hbui.dev](https://react.hbui.dev/).
+
+## Getting started
+
+Hummingbird React brings the Hummingbird component system to React. Components are styled by [Hummingbird CSS](https://github.com/hummingbirdui/hummingbird) and powered by [Radix UI](https://www.radix-ui.com/) primitives for behavior and accessibility. You can:
+
+- Use fully styled, accessible components out of the box
+- Import individual components from their own subpaths to keep bundles small
+- Customize any component with Tailwind utility classes via `className`
+
+## Installation
+
+### 1. Install Tailwind CSS
+
+Ensure you have a project set up with Tailwind CSS. If you haven't set up Tailwind CSS yet, follow the <a href="https://tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">official installation guide</a>.
+
+### 2. Install Hummingbird React
+
+Install Hummingbird React via your preferred package manager. The `@hummingbirdui/hummingbird` package provides the styles and is required as a peer dependency.
+
+```bash
+# Using npm
+npm install @hummingbirdui/react
+
+# Using yarn
+yarn add @hummingbirdui/react
 ```
 
-## What's inside?
+### 3. Import CSS
 
-This Turborepo includes the following packages/apps:
+Import Hummingbird styles in your main CSS file (e.g., `globals.css`), and register the package as a source so the Tailwind compiler scans it for class names.
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
+```css
+@import "tailwindcss";
+@import "@hummingbirdui/hummingbird";
+@source "../node_modules/@hummingbirdui/react";
 ```
 
-Without global `turbo`, use your package manager:
+The `@source` directive is required because Tailwind does not scan node_modules by default. Since Hummingbird generates component classes on demand, Tailwind must scan the `@hummingbirdui/react` package. Update the relative path so it points to node_modules from your CSS file.
 
-```sh
-cd my-turborepo
-npx turbo build
-pnpm dlx turbo build
-pnpm exec turbo build
+No per-component CSS imports or manual purge configuration are needed.
+
+### 4. Use components
+
+Import any component and use it in your application.
+
+```tsx
+import { Button } from "@hummingbirdui/react";
+
+export default function App() {
+  return (
+    <Button variant="filled" color="primary">
+      Click me
+    </Button>
+  );
+}
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+## Per-component imports
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+Every component is also available from its own subpath. This keeps the bundle small because only the imported components are included.
 
-```sh
-turbo build --filter=docs
+```tsx
+import { Button } from "@hummingbirdui/react/button";
+import { Alert, AlertIcon } from "@hummingbirdui/react/alert";
 ```
 
-Without global `turbo`:
+The `cn` utility for merging class names is available from the `utils` subpath.
 
-```sh
-npx turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+```tsx
+import { cn } from "@hummingbirdui/react/utils";
 ```
 
-### Develop
+## TypeScript support
 
-To develop all apps and packages, run the following command:
+Hummingbird React is written in TypeScript and includes type definitions for all components. Component props are fully typed, so no additional `@types` packages are needed.
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
+```tsx
+import { Button, type ButtonProps } from "@hummingbirdui/react/button";
 ```
 
-Without global `turbo`, use your package manager:
+## License
 
-```sh
-cd my-turborepo
-npx turbo dev
-pnpm exec turbo dev
-pnpm exec turbo dev
-```
+This project is licensed under the MIT License.
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+## Contribution guidelines
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+To contribute code:
 
-```sh
-turbo dev --filter=web
-```
+1. **Fork the repository** to your own GitHub account.
 
-Without global `turbo`:
+2. **Clone your fork** locally:
 
-```sh
-npx turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+   ```sh
+   git clone https://github.com/your-username/hummingbird-react.git
+   cd hummingbird-react
+   ```
 
-### Remote Caching
+3. **Install dependencies**:
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+   ```sh
+   pnpm install
+   ```
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+4. **Start the development server**:
+   This will start the documentation site locally, allowing you to see changes in real-time.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+   ```sh
+   pnpm dev
+   ```
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+   The site will typically be available at `http://localhost:3000` (or another port if 3000 is busy).
 
-```sh
-cd my-turborepo
-turbo login
-```
+5. **Create a new branch** for your feature or bug fix:
 
-Without global `turbo`, use your package manager:
+   ```sh
+   git checkout -b feature-or-bugfix-name
+   ```
 
-```sh
-cd my-turborepo
-npx turbo login
-pnpm exec turbo login
-pnpm exec turbo login
-```
+6. **Make your changes**:
+   - If modifying the library, work in `packages/hummingbird-react/src/`.
+   - If updating documentation, work in `apps/docs/`.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+7. **Build the project** (optional but recommended before committing):
+   To ensure everything builds correctly:
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+   ```sh
+   pnpm build
+   ```
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+8. **Commit your changes**:
 
-```sh
-turbo link
-```
+   ```sh
+   git commit -m "Your descriptive commit message"
+   ```
 
-Without global `turbo`:
+9. **Push your changes** to your fork:
 
-```sh
-npx turbo link
-pnpm exec turbo link
-pnpm exec turbo link
-```
+   ```sh
+   git push origin feature-or-bugfix-name
+   ```
 
-## Useful Links
+10. **Open a pull request** against the `main` branch.
 
-Learn more about the power of Turborepo:
+## Meet the team
 
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Meet the core team behind Hummingbird:
+
+<table>
+  <tr>
+    <td align="center" width="200">
+      <img src="https://avatars.githubusercontent.com/u/877255?v=4" width="80" height="80"/><br/>
+      <sub><b>Ashraful Prium</b></sub><br/>
+      <code>prium</code><br/>
+      Founder
+    </td>
+    <td align="center" width="200">
+      <img src="https://avatars.githubusercontent.com/u/12842959?v=4" width="80" height="80"/><br/>
+      <sub><b>Muazzem Hussen Chowdhury</b></sub><br/>
+      <code>ovi003</code><br/>
+      Engineering Manager
+    </td>
+    <td align="center" width="200">
+      <img src="https://avatars.githubusercontent.com/u/86622751?v=4" width="80" height="80"/><br/>
+      <sub><b>Khayrul Islam</b></sub><br/>
+      <code>khayrul25</code><br/>
+      Senior Frontend Developer
+    </td>
+  </tr>
+</table>
+
+## Contributors
+
+Thanks goes to these amazing people:
+
+<a href="https://github.com/hummingbirdui/hummingbird-react/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=hummingbirdui/hummingbird-react" />
+</a>
