@@ -10,7 +10,7 @@ export default function Home() {
       </p>
       <div className="mt-6">
         <Link
-          href="/docs/getting-started/installation"
+          href="/docs/getting-started/introduction"
           className="text-blue-500 hover:underline"
         >
           Get Started

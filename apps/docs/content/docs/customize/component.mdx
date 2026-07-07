@@ -1,0 +1,99 @@
+---
+title: Component Customization
+sidebarTitle: Component
+description: Hummingbird React components can be customized using props, utility classes, or CSS variables to match specific design needs.
+---
+
+## Using props
+
+Every Hummingbird React component ships with variants that are controlled through props. This is the first and simplest level of customization. For example, the button component can be adjusted with the `variant`, `color`, `size`, and `shape` props.
+
+<div className="flex flex-wrap gap-2 mb-4">
+  <Button color="primary">Primary</Button>
+  <Button variant="subtle" color="secondary">Secondary</Button>
+  <Button variant="outline" color="success">Success</Button>
+  <Button variant="text" color="info">Info</Button>
+</div>
+
+```tsx
+<Button color="primary">Primary</Button>
+<Button variant="subtle" color="secondary">Secondary</Button>
+<Button variant="outline" color="success">Success</Button>
+<Button variant="text" color="info">Info</Button>
+```
+
+The available props for each component are listed in the API Reference section of its documentation page.
+
+## Using Tailwind utility classes
+
+All components accept a `className` prop. Custom classes are merged with the component classes, so any Tailwind utility can be applied on top. For example, rounded pill buttons can be created by adding the `rounded-full` class.
+
+<div className="flex flex-wrap gap-2 mb-4">
+  <Button color="primary" className="rounded-full">Pill Button</Button>
+  <Button variant="subtle" color="secondary" className="px-12 rounded-full hover:shadow-2xs">Pill Button</Button>
+</div>
+
+```tsx
+<Button color="primary" className="rounded-full">
+  Pill Button
+</Button>
+<Button variant="subtle" color="secondary" className="px-12 rounded-full hover:shadow-2xs">
+  Pill Button
+</Button>
+```
+
+## Using the `@apply` directive
+
+Customization can also be done in a CSS file using Tailwind CSS's `@apply` directive. Because the components render Hummingbird's CSS classes (such as `btn`), overriding the class changes every instance of the component.
+
+```css
+@utility btn {
+  @apply px-12 rounded-full hover:shadow-2xs;
+}
+```
+
+## Using CSS variables
+
+Hummingbird components are styled with a set of CSS variables. These variables make it easy to customize styles either globally (across the entire project) or locally (for a specific component).
+
+For example, to update or customize the Button component, override its CSS variables:
+
+#### Option 1: Global variables
+
+Override the theme variables globally under `@theme`. This will apply the changes across all components in the project.
+
+```css
+@theme {
+  --background-color-highlight: var(--color-gray-100);
+  --text-color-default: var(--color-gray-900);
+  --color-hover: var(--color-gray-200);
+  --color-disabled: var(--color-gray-300);
+  --color-disabled-color: var(--color-gray-500);
+}
+```
+
+#### Option 2: Local variables
+
+Override the component variables locally under the component's class or a custom class. This will apply the changes only to that specific component.
+
+```css
+.btn {
+  --btn-bg: var(--background-color-highlight);
+  --btn-color: var(--text-color-default);
+  --btn-hover-bg: var(--color-hover);
+  --btn-disabled-bg: var(--color-disabled);
+  --btn-disabled-color: var(--color-disabled-color);
+}
+```
+
+To scope the change to only some buttons, pass a custom class through the `className` prop and target that class in CSS.
+
+```tsx
+<Button className="my-btn">Custom Button</Button>
+```
+
+```css
+.my-btn {
+  --btn-bg: var(--color-primary-darker);
+}
+```

@@ -1,0 +1,334 @@
+---
+title: Utilities
+description: Frequently used utilities for customizing Hummingbird React components.
+---
+
+All Tailwind utility classes can be applied to Hummingbird React components through the `className` prop. Custom classes are merged with the component classes, so utilities can adjust spacing, typography, radius, and more without writing custom CSS. This page lists the most frequently used utilities; see the <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer">official Tailwind CSS docs</a> for the complete reference.
+
+Each utility supports these value forms:
+
+- `p-4` — a number, multiplied by the `--spacing` scale (where applicable)
+- `p-px` — a fixed `1px` value
+- `p-(--my-padding)` — a custom CSS property
+- `p-[12px]` — an arbitrary value
+
+## Padding
+
+Utilities for controlling the padding of an element.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Styles</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`p-<number>`</TableCell>
+      <TableCell>`padding: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`px-<number>`</TableCell>
+      <TableCell>`padding-inline: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`py-<number>`</TableCell>
+      <TableCell>`padding-block: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`ps-<number>`</TableCell>
+      <TableCell>`padding-inline-start: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`pe-<number>`</TableCell>
+      <TableCell>`padding-inline-end: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`pt-<number>`</TableCell>
+      <TableCell>`padding-top: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`pr-<number>`</TableCell>
+      <TableCell>`padding-right: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`pb-<number>`</TableCell>
+      <TableCell>`padding-bottom: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`pl-<number>`</TableCell>
+      <TableCell>`padding-left: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Margin
+
+Utilities for controlling the margin of an element. Negative values (e.g., `-mt-4`) and `auto` (e.g., `mx-auto`) are also supported.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Styles</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`m-<number>`</TableCell>
+      <TableCell>`margin: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`mx-<number>`</TableCell>
+      <TableCell>`margin-inline: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`my-<number>`</TableCell>
+      <TableCell>`margin-block: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`ms-<number>`</TableCell>
+      <TableCell>`margin-inline-start: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`me-<number>`</TableCell>
+      <TableCell>`margin-inline-end: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`mt-<number>`</TableCell>
+      <TableCell>`margin-top: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`mr-<number>`</TableCell>
+      <TableCell>`margin-right: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`mb-<number>`</TableCell>
+      <TableCell>`margin-bottom: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`ml-<number>`</TableCell>
+      <TableCell>`margin-left: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`space-x-<number>`</TableCell>
+      <TableCell>Horizontal gap between direct children</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`space-y-<number>`</TableCell>
+      <TableCell>Vertical gap between direct children</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Font family
+
+Utilities for controlling the font family of an element.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Styles</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`font-sans`</TableCell>
+      <TableCell>`font-family: var(--font-sans);` — 'Figtree', ui-sans-serif, system-ui, sans-serif</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-serif`</TableCell>
+      <TableCell>`font-family: var(--font-serif);` — ui-serif, Georgia, Cambria, Times, serif</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-mono`</TableCell>
+      <TableCell>`font-family: var(--font-mono);` — ui-monospace, SFMono-Regular, Menlo, monospace</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Font size
+
+Utilities for controlling the font size of an element. Each size also sets a matching line height.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Styles</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`text-xs`</TableCell>
+      <TableCell>`font-size: var(--text-xs);` — 0.75rem (12px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-sm`</TableCell>
+      <TableCell>`font-size: var(--text-sm);` — 0.875rem (14px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-base`</TableCell>
+      <TableCell>`font-size: var(--text-base);` — 1rem (16px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-lg`</TableCell>
+      <TableCell>`font-size: var(--text-lg);` — 1.125rem (18px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-xl`</TableCell>
+      <TableCell>`font-size: var(--text-xl);` — 1.25rem (20px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-2xl`</TableCell>
+      <TableCell>`font-size: var(--text-2xl);` — 1.5rem (24px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-3xl`</TableCell>
+      <TableCell>`font-size: var(--text-3xl);` — 1.875rem (30px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-4xl`</TableCell>
+      <TableCell>`font-size: var(--text-4xl);` — 2.25rem (36px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`text-5xl` to `text-9xl`</TableCell>
+      <TableCell>`font-size: var(--text-5xl);` and larger — 3rem (48px) to 8rem (128px)</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Font weight
+
+Utilities for controlling the font weight of an element.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Styles</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`font-thin`</TableCell>
+      <TableCell>`font-weight: 100;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-extralight`</TableCell>
+      <TableCell>`font-weight: 200;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-light`</TableCell>
+      <TableCell>`font-weight: 300;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-normal`</TableCell>
+      <TableCell>`font-weight: 400;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-medium`</TableCell>
+      <TableCell>`font-weight: 500;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-semibold`</TableCell>
+      <TableCell>`font-weight: 600;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-bold`</TableCell>
+      <TableCell>`font-weight: 700;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-extrabold`</TableCell>
+      <TableCell>`font-weight: 800;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`font-black`</TableCell>
+      <TableCell>`font-weight: 900;`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Line height
+
+Utilities for controlling the line height of an element.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Styles</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`text-<size>/<number>`</TableCell>
+      <TableCell>`font-size: <size>; line-height: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`leading-none`</TableCell>
+      <TableCell>`line-height: 1;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`leading-<number>`</TableCell>
+      <TableCell>`line-height: calc(var(--spacing) * <number>);`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Border radius
+
+Utilities for controlling the border radius of an element. Side-specific variants (`rounded-t-*`, `rounded-s-*`, `rounded-tl-*`, etc.) are also available for every size.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Class</TableHead>
+      <TableHead>Styles</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`rounded-xs`</TableCell>
+      <TableCell>`border-radius: var(--radius-xs);` — 0.125rem (2px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-sm`</TableCell>
+      <TableCell>`border-radius: var(--radius-sm);` — 0.25rem (4px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-md`</TableCell>
+      <TableCell>`border-radius: var(--radius-md);` — 0.375rem (6px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-lg`</TableCell>
+      <TableCell>`border-radius: var(--radius-lg);` — 0.5rem (8px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-xl`</TableCell>
+      <TableCell>`border-radius: var(--radius-xl);` — 0.75rem (12px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-2xl`</TableCell>
+      <TableCell>`border-radius: var(--radius-2xl);` — 1rem (16px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-3xl`</TableCell>
+      <TableCell>`border-radius: var(--radius-3xl);` — 1.5rem (24px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-4xl`</TableCell>
+      <TableCell>`border-radius: var(--radius-4xl);` — 2rem (32px)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-none`</TableCell>
+      <TableCell>`border-radius: 0;`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`rounded-full`</TableCell>
+      <TableCell>`border-radius: calc(infinity * 1px);`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>

@@ -4,6 +4,13 @@ import { useEffect, useState } from "react";
 import { Lightbulb, LightbulbOff } from "lucide-react";
 import { Button } from "@hummingbirdui/react/button";
 
+function applyDark(dark: boolean) {
+  const html = document.documentElement;
+  html.classList.add("disable-transition");
+  html.classList.toggle("dark", dark);
+  requestAnimationFrame(() => html.classList.remove("disable-transition"));
+}
+
 export function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -15,7 +22,7 @@ export function ThemeToggle() {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const onSystemChange = () => {
       if (!localStorage.theme) {
-        document.documentElement.classList.toggle("dark", media.matches);
+        applyDark(media.matches);
         setIsDark(media.matches);
       }
     };
@@ -25,7 +32,7 @@ export function ThemeToggle() {
 
   function toggle() {
     const next = !isDark;
-    document.documentElement.classList.toggle("dark", next);
+    applyDark(next);
     localStorage.theme = next ? "dark" : "light";
     setIsDark(next);
   }

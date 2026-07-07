@@ -1,0 +1,209 @@
+---
+title: Grid
+description: The Grid is a twelve-column, flexbox-based layout system built from Container, Row, and Col components. It provides a familiar row and column structure for building responsive designs.
+---
+
+## Basic example
+
+The Grid uses the `Container`, `Row`, and `Col` components to create responsive layouts. It is built with flexbox and adapts to different screen sizes.
+
+<ComponentPreview name="grid-basic" className="example-row" />
+
+## Auto-layout columns
+
+Breakpoint props allow easy sizing of columns without setting an explicit numbered span.
+
+### Equal-width
+
+A `Col` without any props creates equal-width columns for every screen size.
+
+<ComponentPreview name="grid-equal-width" className="example-row" />
+
+### Variable width content
+
+Setting a breakpoint prop to `"auto"` sizes the column based on the natural width of its content.
+
+<ComponentPreview name="grid-variable-width" className="example-row" />
+
+## Responsive props
+
+The `xs`, `sm`, `md`, `lg`, `xl`, and `xxl` props specify different column sizes for different screen sizes. Breakpoints are defined using minimum widths, meaning each one applies from that width upward. For example, `md={4}` applies to medium devices (tablets) and above, and renders the `md:col-4` class.
+
+### All breakpoints
+
+For grids that are the same across all breakpoints, plain `Col` and the `xs` prop are enough.
+
+<ComponentPreview name="grid-all-breakpoints" className="example-row" />
+
+### Mix and match
+
+Different breakpoint props can be combined on the same column for different screen sizes.
+
+<ComponentPreview name="grid-mix-match" className="example-row" />
+
+## Row columns
+
+Instead of sizing each column, the `Row` breakpoint props set the number of columns per row. The grid automatically lays out the columns evenly, and `"auto"` sizes them based on their content.
+
+<ComponentPreview name="grid-row-cols" className="example-row-cols" />
+
+<ComponentPreview name="grid-row-cols-auto" className="example-row-cols" />
+
+<ComponentPreview name="grid-row-cols-responsive" className="example-row-cols" />
+
+## Nesting
+
+Nesting works by placing a new `Row` and set of `Col` components inside an existing `Col`. This gives more control over the layout of the content.
+
+<ComponentPreview name="grid-nesting" className="example-row" />
+
+## Columns
+
+Columns can be modified with options for alignment, ordering, and offsetting using the flexbox grid system.
+
+### Vertical alignment
+
+The `items-start`, `items-center`, and `items-end` classes on `Row` control vertical alignment of all columns.
+
+<ComponentPreview name="grid-align-vertical" className="example-row example-row-flex-cols" />
+
+The `self-start`, `self-center`, and `self-end` classes control vertical alignment of individual columns.
+
+<ComponentPreview name="grid-align-self" className="example-row example-row-flex-cols" />
+
+### Horizontal alignment
+
+The `justify-*` classes on `Row` control horizontal alignment.
+
+<ComponentPreview name="grid-align-horizontal" className="example-row" />
+
+### Order classes
+
+The `order-{number}` classes change the visual order of columns.
+
+<ComponentPreview name="grid-order" className="example-row" />
+
+### Offsetting columns
+
+The object form of a breakpoint prop moves columns to the right. For example, `md={{ span: 4, offset: 4 }}` renders the `md:col-4 md:offset-4` classes, moving the column over four columns on medium screens and larger.
+
+<ComponentPreview name="grid-offset" className="example-row" />
+
+## Gutters
+
+Gutters are the spacing between columns, used to create consistent spacing and alignment in the grid system. Hummingbird supports gutter utilities up to `g-24` (6rem), applied to `Row` through the `className` prop.
+
+### Horizontal gutters
+
+The `gx-{size}` classes set horizontal gutters between columns.
+
+<ComponentPreview name="grid-gutters-horizontal" className="example-cols" />
+
+### Vertical gutters
+
+The `gy-{size}` classes set vertical gutters between rows.
+
+<ComponentPreview name="grid-gutters-vertical" className="example-cols" />
+
+### Horizontal & vertical gutters
+
+The `g-{size}` classes set both horizontal and vertical gutters.
+
+<ComponentPreview name="grid-gutters" className="example-cols" />
+
+### Row columns gutters
+
+Gutter classes can be combined with the `Row` breakpoint props to create gutters between rows and columns.
+
+<ComponentPreview name="grid-row-cols-gutters" className="example-cols" />
+
+### No gutters
+
+The `g-0` class removes all gutters between rows and columns.
+
+<ComponentPreview name="grid-no-gutters" className="example-row" />
+
+## API Reference
+
+The grid components are available from `@hummingbirdui/react` or the `@hummingbirdui/react/layout/grid` subpath. All three render a `<div>` and accept standard div attributes.
+
+### Container
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as the child element using Radix Slot.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Row
+
+<PropsTable
+  data={[
+    {
+      prop: "xs, sm, md, lg, xl, xxl",
+      type: '1 | 2 | 3 | 4 | 5 | 6 | "auto"',
+      description:
+        "Number of equal-width columns per row from that breakpoint up. Maps to the row-cols-* classes.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as the child element using Radix Slot.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Col
+
+<PropsTable
+  data={[
+    {
+      prop: "xs, sm, md, lg, xl, xxl",
+      type: 'number (1–12) | "auto" | true | { span, offset }',
+      description:
+        "Column size from that breakpoint up. true creates an equal-width column, \"auto\" sizes to content, and the object form adds an offset (0–11).",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as the child element using Radix Slot.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## CSS variables
+
+The Grid uses CSS variables for easy customization. Override these variables in the CSS to change the grid's behavior.
+
+```css
+--grid-gutter-x: 1.5rem;
+--grid-gutter-y: 0px;
+--grid-columns: 12;
+--grid-row-columns: 6;
+```
+
+## Styling
+
+Hummingbird React grid components are styled entirely through Hummingbird's grid classes and CSS variables. See the <a href="https://hbui.dev/docs/layout/grid/" target="_blank" rel="noopener noreferrer">Hummingbird Grid documentation</a> for the full class reference.

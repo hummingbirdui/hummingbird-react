@@ -1,0 +1,333 @@
+---
+title: Colors
+description: Hummingbird provides a small set of semantic color variables, which makes it easy to apply and customize colors consistently across the project.
+---
+
+## Overview
+
+Instead of applying fixed Tailwind palette classes like:
+
+- `text-red-500`
+- `bg-green-600`
+- `border-blue-700` etc.
+
+It is recommended to rely on semantic color classes. Semantic colors are mapped to design tokens and automatically adapt when themes change.
+
+For example,
+
+- `text-primary`
+- `bg-subtle`
+- `border-subtle` etc.
+
+This approach prevents dependence on specific palette values (`blue-500`, `green-600`, etc.). Instead, components reference semantic roles (`primary`, `secondary`, `warning`), making the UI easier to maintain, brand, and theme.
+
+Behind the scenes, each semantic color class points to a CSS variable. Updating or overriding that variable updates the color everywhere it is used — including inside every Hummingbird React component.
+
+## Background colors
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Preview</TableHead>
+      <TableHead>Class</TableHead>
+      <TableHead>CSS variable</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-subtle" /></TableCell>
+      <TableCell>`bg-subtle`</TableCell>
+      <TableCell>`--background-color-subtle`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-muted" /></TableCell>
+      <TableCell>`bg-muted`</TableCell>
+      <TableCell>`--background-color-muted`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-default" /></TableCell>
+      <TableCell>`bg-default`</TableCell>
+      <TableCell>`--background-color-default`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-highlight" /></TableCell>
+      <TableCell>`bg-highlight`</TableCell>
+      <TableCell>`--background-color-highlight`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-emphasis" /></TableCell>
+      <TableCell>`bg-emphasis`</TableCell>
+      <TableCell>`--background-color-emphasis`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Text colors
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Preview</TableHead>
+      <TableHead>Class</TableHead>
+      <TableHead>CSS variable</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><span className="text-subtle">Subtle text</span></TableCell>
+      <TableCell>`text-subtle`</TableCell>
+      <TableCell>`--text-color-subtle`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><span className="text-muted">Muted text</span></TableCell>
+      <TableCell>`text-muted`</TableCell>
+      <TableCell>`--text-color-muted`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><span className="text-default">Default text</span></TableCell>
+      <TableCell>`text-default`</TableCell>
+      <TableCell>`--text-color-default`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><span className="text-highlight">Highlight text</span></TableCell>
+      <TableCell>`text-highlight`</TableCell>
+      <TableCell>`--text-color-highlight`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><span className="text-emphasis">Emphasis text</span></TableCell>
+      <TableCell>`text-emphasis`</TableCell>
+      <TableCell>`--text-color-emphasis`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Border colors
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Preview</TableHead>
+      <TableHead>Class</TableHead>
+      <TableHead>CSS variable</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle rounded bg-default" /></TableCell>
+      <TableCell>`border-subtle`</TableCell>
+      <TableCell>`--border-color-subtle`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-default rounded bg-default" /></TableCell>
+      <TableCell>`border-default`</TableCell>
+      <TableCell>`--border-color-default`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-emphasis rounded bg-default" /></TableCell>
+      <TableCell>`border-emphasis`</TableCell>
+      <TableCell>`--border-color-emphasis`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Action colors
+
+These colors generate all color-related utilities and are used by components for interactive states.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Preview</TableHead>
+      <TableHead>Color name</TableHead>
+      <TableHead>CSS variable</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-active" /></TableCell>
+      <TableCell>Active color</TableCell>
+      <TableCell>`--color-active`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-hover" /></TableCell>
+      <TableCell>Hover color</TableCell>
+      <TableCell>`--color-hover`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-selected" /></TableCell>
+      <TableCell>Selected color</TableCell>
+      <TableCell>`--color-selected`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><span className="text-disabled">Disabled text</span></TableCell>
+      <TableCell>Disabled text color</TableCell>
+      <TableCell>`--color-disabled-color`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-disabled" /></TableCell>
+      <TableCell>Disabled background</TableCell>
+      <TableCell>`--color-disabled`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-focus" /></TableCell>
+      <TableCell>Focus color</TableCell>
+      <TableCell>`--color-focus`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## Theme colors
+
+Each semantic color comes in five steps: `lighter`, `light`, the base color, `dark`, and `darker`. Every step generates all color-related utilities (`bg-*`, `text-*`, `border-*`, and more) and is available as a CSS variable.
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Preview</TableHead>
+      <TableHead>Color</TableHead>
+      <TableHead>CSS variables</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>
+        <div className="flex gap-1">
+          <div className="size-9 border border-subtle/30 rounded bg-primary-lighter" />
+          <div className="size-9 border border-subtle/30 rounded bg-primary-light" />
+          <div className="size-9 border border-subtle/30 rounded bg-primary" />
+          <div className="size-9 border border-subtle/30 rounded bg-primary-dark" />
+          <div className="size-9 border border-subtle/30 rounded bg-primary-darker" />
+        </div>
+      </TableCell>
+      <TableCell>Primary</TableCell>
+      <TableCell>`--color-primary-lighter` to `--color-primary-darker`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <div className="flex gap-1">
+          <div className="size-9 border border-subtle/30 rounded bg-secondary-lighter" />
+          <div className="size-9 border border-subtle/30 rounded bg-secondary-light" />
+          <div className="size-9 border border-subtle/30 rounded bg-secondary" />
+          <div className="size-9 border border-subtle/30 rounded bg-secondary-dark" />
+          <div className="size-9 border border-subtle/30 rounded bg-secondary-darker" />
+        </div>
+      </TableCell>
+      <TableCell>Secondary</TableCell>
+      <TableCell>`--color-secondary-lighter` to `--color-secondary-darker`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <div className="flex gap-1">
+          <div className="size-9 border border-subtle/30 rounded bg-info-lighter" />
+          <div className="size-9 border border-subtle/30 rounded bg-info-light" />
+          <div className="size-9 border border-subtle/30 rounded bg-info" />
+          <div className="size-9 border border-subtle/30 rounded bg-info-dark" />
+          <div className="size-9 border border-subtle/30 rounded bg-info-darker" />
+        </div>
+      </TableCell>
+      <TableCell>Info</TableCell>
+      <TableCell>`--color-info-lighter` to `--color-info-darker`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <div className="flex gap-1">
+          <div className="size-9 border border-subtle/30 rounded bg-success-lighter" />
+          <div className="size-9 border border-subtle/30 rounded bg-success-light" />
+          <div className="size-9 border border-subtle/30 rounded bg-success" />
+          <div className="size-9 border border-subtle/30 rounded bg-success-dark" />
+          <div className="size-9 border border-subtle/30 rounded bg-success-darker" />
+        </div>
+      </TableCell>
+      <TableCell>Success</TableCell>
+      <TableCell>`--color-success-lighter` to `--color-success-darker`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <div className="flex gap-1">
+          <div className="size-9 border border-subtle/30 rounded bg-warning-lighter" />
+          <div className="size-9 border border-subtle/30 rounded bg-warning-light" />
+          <div className="size-9 border border-subtle/30 rounded bg-warning" />
+          <div className="size-9 border border-subtle/30 rounded bg-warning-dark" />
+          <div className="size-9 border border-subtle/30 rounded bg-warning-darker" />
+        </div>
+      </TableCell>
+      <TableCell>Warning</TableCell>
+      <TableCell>`--color-warning-lighter` to `--color-warning-darker`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <div className="flex gap-1">
+          <div className="size-9 border border-subtle/30 rounded bg-danger-lighter" />
+          <div className="size-9 border border-subtle/30 rounded bg-danger-light" />
+          <div className="size-9 border border-subtle/30 rounded bg-danger" />
+          <div className="size-9 border border-subtle/30 rounded bg-danger-dark" />
+          <div className="size-9 border border-subtle/30 rounded bg-danger-darker" />
+        </div>
+      </TableCell>
+      <TableCell>Danger</TableCell>
+      <TableCell>`--color-danger-lighter` to `--color-danger-darker`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-light" /></TableCell>
+      <TableCell>Light</TableCell>
+      <TableCell>`--color-light`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell><div className="h-9 w-20 border border-subtle/30 rounded bg-dark" /></TableCell>
+      <TableCell>Dark</TableCell>
+      <TableCell>`--color-dark`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>
+        <div className="h-9 w-20 border border-subtle/30 rounded bg-dark text-contrast flex items-center justify-center dark:bg-emphasis">Contrast</div>
+      </TableCell>
+      <TableCell>Contrast</TableCell>
+      <TableCell>`--color-contrast`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+## How to use
+
+Use semantic color classes like:
+
+- `bg-primary`
+- `text-muted`
+- `border-default`
+
+These classes use the theme's color variables, so the UI stays consistent when customizing or switching themes. They can be applied to any element or passed to any component through the `className` prop.
+
+```tsx
+<button className="bg-primary text-contrast hover:bg-primary-dark">
+  Button
+</button>
+
+<p className="text-muted">Muted paragraph text</p>
+
+<div className="border border-default bg-default p-4">
+  Card with subtle border
+</div>
+```
+
+## Customize color
+
+Override any theme color or palette color by redefining its CSS variable inside a `@theme` block after importing Hummingbird:
+
+```css
+@import "tailwindcss";
+@import "@hummingbirdui/hummingbird";
+@source "../node_modules/@hummingbirdui/react";
+
+@theme {
+  --color-blue-500: oklch(65.2% 0.19 253.205);
+  --color-purple-500: oklch(62.1% 0.253 305.351);
+
+  --background-color-subtle: oklch(98% 0.02 240);
+  --color-primary: oklch(65.2% 0.19 253.205);
+  --color-secondary: oklch(62.1% 0.253 305.351);
+}
+```
+
+## Color palettes
+
+Each Hummingbird theme includes its own complete color palette, carefully designed to maintain a consistent visual tone. Use these palettes to customize existing themes or create entirely new ones. See the <a href="https://hbui.dev/docs/customize/colors#default-color-palette-reference" target="_blank" rel="noopener noreferrer">default color palette reference</a> in the Hummingbird documentation for the complete list of colors and their values.

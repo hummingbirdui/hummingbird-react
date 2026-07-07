@@ -1,0 +1,11 @@
+{
+  "title": "Customize",
+  "pages": [
+    "component",
+    "theming",
+    "colors",
+    "dark-mode",
+    "reboot",
+    "utilities"
+  ]
+}

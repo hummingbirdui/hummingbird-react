@@ -125,3 +125,19 @@
     }
   }
 }
+
+/* Grid docs demos — mirror the Hummingbird docs' example styling so columns
+   are visible inside ComponentPreview (passed via its className prop). */
+.example-row [class*='col'],
+.example-cols [class^='col'] > * {
+  @apply p-3 bg-info-lighter border border-info-light;
+}
+.example-row-cols [class^='col'] {
+  @apply p-3 bg-info-lighter border border-info-light;
+}
+.example-row .row + .row {
+  @apply mt-4;
+}
+.example-row-flex-cols .row {
+  @apply min-h-40 bg-info-lighter;
+}

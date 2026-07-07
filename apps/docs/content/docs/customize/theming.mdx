@@ -1,0 +1,379 @@
+---
+title: Theming
+description: Learn how to customize Hummingbird React with Tailwind CSS v4 theme variables, override tokens, and support multiple themes and dark mode.
+---
+
+## Overview
+
+Hummingbird React is styled by Hummingbird CSS, which is built on Tailwind CSS v4 and provides a comprehensive set of theme variables (design tokens) for colors, typography, shadows, and more. Because theming happens entirely in CSS, no React code changes are needed to restyle the components.
+
+- Offers multiple prebuilt themes like luxury, retro, arctic etc. These themes are highly customizable, allowing individual tokens to be tweaked or entirely new color palettes to be created to match specific brand aesthetics.
+
+- Use the theme variables (like `--color-primary` and `--shadow-md`) via standard Tailwind utilities (for example, `bg-primary`, `text-primary`, `shadow-md`).
+
+- Override any theme variables globally by redefining them in an `@theme { ... }` block after importing the CSS.
+
+- Reboot provides a base CSS reset with element-specific styles for consistent design across browsers.
+
+## Available themes
+
+Here is a quick overview of the available prebuilt themes:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Description</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell className="font-semibold">Default</TableCell>
+      <TableCell>The signature Hummingbird theme with balanced neutrals and vibrant blue accents.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-semibold">Luxury</TableCell>
+      <TableCell>Rich maroon and golden tones crafted for a refined, premium appearance.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-semibold">Retro</TableCell>
+      <TableCell>Warm vintage-inspired colors that bring a classic and timeless feel.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-semibold">Arctic</TableCell>
+      <TableCell>Cool blues and frosty tones inspired by modern winter landscapes.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-semibold">Nature</TableCell>
+      <TableCell>Fresh greens and earthy shades inspired by the natural world.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-semibold">Dracula</TableCell>
+      <TableCell>Deep purples and vivid pinks designed for bold, high-contrast interfaces.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-semibold">Ember</TableCell>
+      <TableCell>Warm oranges and amber tones that create an energetic, glowing aesthetic.</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell className="font-semibold">Midnight</TableCell>
+      <TableCell>Deep blues and indigos designed for calm, modern dark experiences.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+### How to use themes
+
+By default, Hummingbird includes the `default` theme. To use a different prebuilt theme, simply import the corresponding CSS file in the main CSS file (e.g., `globals.css`). Each theme has built-in [dark mode](/docs/customize/dark-mode) support, so dark mode will automatically work when the theme is imported.
+
+Only one theme should be imported at a time, as importing multiple themes will cause the last one to override the others.
+
+```css
+/* Import the desired theme */
+@import "@hummingbirdui/hummingbird/src/themes/luxury.css";
+
+/* @import "@hummingbirdui/hummingbird/src/themes/retro.css"; */
+/* @import "@hummingbirdui/hummingbird/src/themes/arctic.css"; */
+/* @import "@hummingbirdui/hummingbird/src/themes/nature.css"; */
+/* @import "@hummingbirdui/hummingbird/src/themes/dracula.css"; */
+/* @import "@hummingbirdui/hummingbird/src/themes/ember.css"; */
+/* @import "@hummingbirdui/hummingbird/src/themes/midnight.css"; */
+```
+
+## Customizing theme
+
+Redefine theme variables by declaring them in `@theme` after importing Hummingbird:
+
+```css
+@import "tailwindcss";
+@import "@hummingbirdui/hummingbird";
+@source "../node_modules/@hummingbirdui/react";
+
+@theme {
+  --color-primary: oklch(65.2% 0.19 253.205);
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+```
+
+### Spacing
+
+Customize spacing by overriding the default spacing variable or defining new ones as needed.
+
+```css
+@theme {
+  --spacing: 4px;
+
+  /* Custom spacing */
+  --spacing-lg: 16px;
+}
+```
+
+### Breakpoints
+
+Customize and add new responsive breakpoints by overriding `--breakpoint-*` variables:
+
+```css
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  /* Custom breakpoint */
+  --breakpoint-3xl: 120rem;
+}
+```
+
+## List of theme variables
+
+Hummingbird provides a small, consistent set of semantic theme variables. These variables create utilities and can be overridden later to change the look and feel without changing any component code. See dark mode variable overrides [here](/docs/customize/dark-mode#dark-mode-variable-overrides).
+
+```css
+@theme {
+  /* Background colors */
+  --background-color-subtle: var(--color-gray-50);
+  --background-color-muted: var(--color-gray-100);
+  --background-color-default: var(--color-white);
+  --background-color-highlight: var(--color-gray-200);
+  --background-color-emphasis: var(--color-gray-300);
+
+  /* Text colors */
+  --text-color-subtle: var(--color-gray-400);
+  --text-color-muted: var(--color-gray-600);
+  --text-color-default: var(--color-gray-800);
+  --text-color-highlight: var(--color-gray-900);
+  --text-color-emphasis: var(--color-gray-950);
+
+  /* Neutral */
+  --color-light: var(--color-gray-100);
+  --color-dark: var(--color-gray-950);
+  --color-contrast: var(--color-white);
+
+  /* Primary */
+  --color-primary-lighter: var(--color-blue-50);
+  --color-primary-light: var(--color-blue-400);
+  --color-primary: var(--color-blue-500);
+  --color-primary-dark: var(--color-blue-600);
+  --color-primary-darker: var(--color-blue-900);
+
+  /* Secondary */
+  --color-secondary-lighter: var(--color-purple-50);
+  --color-secondary-light: var(--color-purple-300);
+  --color-secondary: var(--color-purple-500);
+  --color-secondary-dark: var(--color-purple-700);
+  --color-secondary-darker: var(--color-purple-900);
+
+  /* Danger */
+  --color-danger-lighter: var(--color-red-50);
+  --color-danger-light: var(--color-red-300);
+  --color-danger: var(--color-red-500);
+  --color-danger-dark: var(--color-red-600);
+  --color-danger-darker: var(--color-red-900);
+
+  /* Warning */
+  --color-warning-lighter: var(--color-orange-50);
+  --color-warning-light: var(--color-orange-400);
+  --color-warning: var(--color-orange-500);
+  --color-warning-dark: var(--color-orange-700);
+  --color-warning-darker: var(--color-orange-900);
+
+  /* Success */
+  --color-success-lighter: var(--color-green-50);
+  --color-success-light: var(--color-green-400);
+  --color-success: var(--color-green-500);
+  --color-success-dark: var(--color-green-700);
+  --color-success-darker: var(--color-green-900);
+
+  /* Info */
+  --color-info-lighter: var(--color-sky-50);
+  --color-info-light: var(--color-sky-300);
+  --color-info: var(--color-sky-500);
+  --color-info-dark: var(--color-sky-700);
+  --color-info-darker: var(--color-sky-900);
+
+  /* Border */
+  --border-color-subtle: --alpha(var(--color-gray-300) / 60%);
+  --border-color-default: var(--color-gray-300);
+  --border-color-emphasis: var(--color-gray-600);
+
+  /* Actions */
+  --color-active: var(--color-gray-500);
+  --color-hover: var(--color-gray-100);
+  --color-selected: var(--color-gray-100);
+  --color-disabled-color: var(--color-gray-400);
+  --color-disabled: var(--color-gray-200);
+  --color-focus: var(--color-gray-300);
+
+  /* Font family */
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Shadows */
+  --shadow-2xs: 2px 2px 10px 0px rgba(0, 0, 0, 0.09), 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
+  --shadow-xs: 2px 9px 11px 0px rgba(0, 0, 0, 0.04), 1px 3.92px 5.79px 0px rgba(0, 0, 0, 0.04), 0px 1.36px 2.867px 0px rgba(0, 0, 0, 0.03), 0px 0.286px 1.134px 0px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 4px 0px 18px 0px rgba(0, 0, 0, 0.04), 0px 6.147px 9.475px 0px rgba(0, 0, 0, 0.03), 0px 2.258px 4.692px 0px rgba(0, 0, 0, 0.02), 0px -2.46px 3.86px 0px rgba(0, 0, 0, 0.02);
+  --shadow-md: 3px 24px 42px 0px rgba(0, 0, 0, 0.07), 1px 10.271px 9.478px 0px rgba(0, 0, 0, 0.03), 0px 5.695px 3.531px 0px rgba(0, 0, 0, 0.01), 0px -1px 3.15px 0px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 4px 38px 47px 0px rgba(0, 0, 0, 0.07), 0px 20px 17.48px 0px rgba(0, 0, 0, 0.03), 1px 10px 10px 0px rgba(0, 0, 0, 0.01), 0px -2px 6px 0px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 6px 33px 46px 0px rgba(0, 0, 0, 0.07), 1px 20px 19px 0px rgba(0, 0, 0, 0.03), 2px 10px 10px 0px rgba(0, 0, 0, 0.01), 0px -2px 6px 0px rgba(0, 0, 0, 0.03);
+  --shadow-2xl: 16px 39px 67px 0px rgba(0, 0, 0, 0.11), 1px 20px 65px 0px rgba(0, 0, 0, 0.02), 2px 10px 10px 0px rgba(0, 0, 0, 0.01), 0px -2px 6px 0px rgba(0, 0, 0, 0.03);
+}
+```
+
+## How to use multiple themes at once
+
+Hummingbird uses a small set of theme variables. By overriding these variables within a new theme scope, multiple themes can be created.
+
+1. Create a custom variant for the new themes.
+
+```css
+@custom-variant luxury (&:where(.luxury, .luxury *));
+@custom-variant retro (&:where(.retro, .retro *));
+```
+
+2. Define the theme variables within the new variant scope. To use an existing theme's colors, simply copy all the variables from the corresponding Hummingbird theme file and paste them into the new variant scope.
+
+```css
+@variant luxury {
+  --color-primary: var(--color-blue-600);
+  --color-secondary: var(--color-purple-600);
+}
+@variant retro {
+  --color-primary: var(--color-green-600);
+  --color-secondary: var(--color-yellow-600);
+}
+```
+
+## Reboot
+
+Reboot is a foundational stylesheet that resets browser defaults and applies basic element styles. It provides a clean, consistent starting point for building interfaces and ensures visual consistency across browsers.
+
+For more details, follow the [Reboot](/docs/customize/reboot) documentation.
+
+## Tailwind's helper functions
+
+Tailwind provides the following build-time functions to make working with colors and the spacing scale easier.
+
+#### `--spacing()`
+
+Use this function to generate a spacing value based on the theme:
+
+```css
+.card {
+  padding: --spacing(4);
+}
+```
+
+#### `--alpha()`
+
+Use this function to adjust the opacity of a color:
+
+```css
+.card {
+  background-color: --alpha(var(--color-primary) / 50%);
+}
+```
+
+<Alert color="warning">These functions only work at build time.</Alert>
+
+## Tailwind theme variable namespaces
+
+Tailwind theme variables are defined in namespaces, and each namespace corresponds to one or more utility classes or variant APIs.
+
+Defining new theme variables in these namespaces will make new corresponding utilities and variants available in the project:
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Namespace</TableHead>
+      <TableHead>Utility classes</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>`--color-*`</TableCell>
+      <TableCell>Color utilities like `bg-primary-light`, `text-primary-dark`, and many more</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--text-color-*`</TableCell>
+      <TableCell>Text color utilities like `text-default`, `text-subtle`, and many more</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--background-color-*`</TableCell>
+      <TableCell>Background color utilities like `bg-highlight`, `bg-emphasis`, and many more</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--border-color-*`</TableCell>
+      <TableCell>Border color utilities like `border-default`, `border-subtle`, and many more</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--font-*`</TableCell>
+      <TableCell>Font family utilities like `font-serif`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--text-*`</TableCell>
+      <TableCell>Font size utilities like `text-xl`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--font-weight-*`</TableCell>
+      <TableCell>Font weight utilities like `font-bold`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--tracking-*`</TableCell>
+      <TableCell>Letter spacing utilities like `tracking-wide`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--leading-*`</TableCell>
+      <TableCell>Line height utilities like `leading-tight`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--breakpoint-*`</TableCell>
+      <TableCell>Responsive breakpoint variants like `sm:*`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--container-*`</TableCell>
+      <TableCell>Container query variants like `@sm:*` and size utilities like `max-w-md`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--spacing-*`</TableCell>
+      <TableCell>Spacing and sizing utilities like `px-4`, `max-h-16`, and many more</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--radius-*`</TableCell>
+      <TableCell>Border radius utilities like `rounded-sm`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--shadow-*`</TableCell>
+      <TableCell>Box shadow utilities like `shadow-md`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--inset-shadow-*`</TableCell>
+      <TableCell>Inset box shadow utilities like `inset-shadow-xs`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--drop-shadow-*`</TableCell>
+      <TableCell>Drop shadow filter utilities like `drop-shadow-md`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--blur-*`</TableCell>
+      <TableCell>Blur filter utilities like `blur-md`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--perspective-*`</TableCell>
+      <TableCell>Perspective utilities like `perspective-near`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--aspect-*`</TableCell>
+      <TableCell>Aspect ratio utilities like `aspect-video`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--ease-*`</TableCell>
+      <TableCell>Transition timing function utilities like `ease-out`</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`--animate-*`</TableCell>
+      <TableCell>Animation utilities like `animate-spin`</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+Follow the <a href="https://tailwindcss.com/docs/theme" target="_blank" rel="noopener noreferrer">official Tailwind CSS docs</a> for more details.

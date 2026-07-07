@@ -1,24 +1,83 @@
 ---
 title: Installation
-description: Learn how to set up and use Hummingbird React components
+description: Install Hummingbird React and set it up in your project.
 ---
 
-Welcome to the **Hummingbird React** documentation!
+## Installation
 
-This site is powered by `fumadocs-mdx` for the data layer, and uses a fully custom layout built with Hummingbird components.
+#### 1. Install Tailwind CSS
 
-## Interactive Components
+Ensure the project is set up with Tailwind CSS. If Tailwind CSS hasn't been set up yet, follow the <a href="https://tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">official installation guide</a>.
 
-You can embed Hummingbird React components directly in your MDX files. For example, here is a custom button:
+#### 2. Install Hummingbird React
 
-<Button variant="filled" color="primary">
-  Click Me
+Install Hummingbird React via a preferred package manager. The `@hummingbirdui/hummingbird` package provides the styles and is required as a peer dependency.
+
+```bash
+npm install @hummingbirdui/react
+```
+
+#### 3. Import CSS
+
+Import Hummingbird styles in the main CSS file (e.g., `globals.css`), and register the package as a source so the Tailwind compiler scans it for class names.
+
+```css
+@import "tailwindcss";
+@import "@hummingbirdui/hummingbird";
+@source "../node_modules/@hummingbirdui/react";
+```
+
+The `@source` directive is required because Tailwind does not scan node_modules by default. Since Hummingbird generates component classes on demand, Tailwind must scan the `@hummingbirdui/react` package. Update the relative path so it points to node_modules from your CSS file.
+
+No per-component CSS imports or manual purge configuration are needed.
+
+#### 4. Use components
+
+Import any component and use it in the application.
+
+```tsx
+import { Button } from "@hummingbirdui/react";
+
+export default function App() {
+  return (
+    <Button variant="filled" color="primary">
+      Click me
+    </Button>
+  );
+}
+```
+
+## Per-component imports
+
+Every component is also available from its own subpath. This keeps the bundle small because only the imported components are included.
+
+```tsx
+import { Button } from "@hummingbirdui/react/button";
+import { Alert, AlertIcon } from "@hummingbirdui/react/alert";
+```
+
+The `cn` utility for merging class names is available from the `utils` subpath.
+
+```tsx
+import { cn } from "@hummingbirdui/react/utils";
+```
+
+## TypeScript support
+
+Hummingbird React is written in TypeScript and includes type definitions for all components. Component props are fully typed, so no additional `@types` packages are needed.
+
+```tsx
+import { Button, type ButtonProps } from "@hummingbirdui/react/button";
+```
+
+## Customization
+
+All components accept a `className` prop. Custom classes are merged with the component classes, so Tailwind utility classes can be used to adjust any component.
+
+```tsx
+<Button variant="outline" className="w-full">
+  Full width button
 </Button>
+```
 
-## Features
-
-- **Fast & Lightweight:** Optimized Next.js App Router performance.
-- **Custom UI:** Complete control over your layouts.
-- **Type-safe:** Frontmatter and routing are fully typed.
-
-Feel free to create more folders and `.mdx` files inside `content/docs` to expand this documentation!
+For theme-level changes such as colors and spacing, Hummingbird provides global and component-specific CSS variables. See the [Customize section](/docs/customize/theming) for details.

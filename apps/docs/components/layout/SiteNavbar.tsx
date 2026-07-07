@@ -111,7 +111,7 @@ export function SiteNavbar() {
         </Badge>
 
         <SearchButton
-          className="ms-2 hidden sm:ms-8 lg:flex"
+          className="ms-2 hidden sm:ms-15 lg:flex"
           onClick={() => setSearchOpen(true)}
         />
 

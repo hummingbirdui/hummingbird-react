@@ -1,0 +1,221 @@
+---
+title: Reboot
+description: Reboot is a file that includes a set of CSS with element-specific changes that gives Hummingbird a clean, consistent starting point for building websites.
+---
+
+## CSS variables
+
+CSS variables provide a powerful way to customize and theme projects. It is a feature in modern CSS that allows defining reusable values directly in stylesheets. CSS variables make customization easy: change a value in one place (like `:root`) and it updates everywhere the variable is used. Variables can be set at different levels (global, component, etc.), making them flexible.
+
+A "Reboot" stylesheet (like Hummingbird's Reboot) resets browser styles and sets up a foundation for consistent design. Using CSS variables in Reboot makes it easy to customize base styles without editing the core CSS — just override the variables.
+
+Tailwind CSS uses CSS variables for theming and customization. Hummingbird makes use of Tailwind's CSS variable feature to define colors, typography, spacing, and more. This allows projects to easily adapt the design system to specific needs. Learn more about Hummingbird's CSS variables in the [Theming section](/docs/customize/theming).
+
+Reboot is included automatically when Hummingbird CSS is imported, so JSX elements rendered by React components get these base styles with no extra setup.
+
+## Headings
+
+All the headings (`h1` to `h6`) in Hummingbird are styled with CSS variables for font size, weight, line height, and margin.
+
+```tsx
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+```
+
+## Paragraph
+
+For all paragraph (`<p>`) elements, `margin-top` was removed, and `margin-bottom: 1rem` is set.
+
+```tsx
+<p>This is an example paragraph</p>
+```
+
+## Links
+
+Links are styled with a default `color` and an `underline`. On hover, the link color changes to a darker shade.
+
+```tsx
+<a href="#">This is an example link</a>
+```
+
+## Buttons
+
+By default, buttons (`<button>`) have a `cursor-pointer` style. When a button is disabled, the cursor changes to `cursor-default`.
+
+```tsx
+<Button>This is a button</Button>
+<Button disabled>This is a disabled button</Button>
+```
+
+## Horizontal rules
+
+Default `margin-top` and `margin-bottom` for horizontal rules (`<hr>`) is set to `1rem`.
+
+```tsx
+<hr />
+<hr className="border-danger-light" />
+<hr className="border-t-3 border-primary-light" />
+```
+
+## Lists
+
+By default, unordered lists (`<ul>`) use disc bullets, and ordered lists (`<ol>`) use decimal numbers. Both types of lists have a left padding of `2rem` and a bottom margin of `1rem`. Nested lists have no bottom margin.
+
+```tsx
+<ul>
+  <li>Item 1</li>
+  <li>
+    Item 2
+    <ul>
+      <li>Subitem 1</li>
+      <li>Subitem 2</li>
+    </ul>
+  </li>
+  <li>Item 3</li>
+</ul>
+<ol>
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ol>
+```
+
+## Description lists
+
+Terms (`<dt>`) are styled with a bold font weight, while descriptions (`<dd>`) use a regular font weight. Default `margin-bottom` for `<dl>` is `1rem`.
+
+```tsx
+<dl>
+  <dt>Term 1</dt>
+  <dd>Description for term 1</dd>
+  <dt>Term 2</dt>
+  <dd>Description for term 2</dd>
+</dl>
+```
+
+## Code
+
+By default, inline code elements (`<code>`) are styled with a specific text color and font size. When a `<code>` element is nested inside an `<a>` tag, it inherits the link's text color and font size.
+
+```tsx
+<p>
+  This is an example of inline <code>code</code> in a sentence.{" "}
+  <a href="#">This is a link with <code>code</code></a>
+</p>
+```
+
+## Address
+
+The `<address>` element is styled with a bottom margin of `1rem`.
+
+```tsx
+<address>
+  John Doe<br />
+  123 Main St.<br />
+  Anytown, USA<br />
+  <a href="mailto:john.doe@example.com">john.doe@example.com</a>
+</address>
+```
+
+## Blockquote
+
+By default, blockquotes (`<blockquote>`) have a bottom margin of `1rem`.
+
+```tsx
+<blockquote>
+  This is an example blockquote. It is used to indicate the quotation of a
+  large section of text from another source.
+</blockquote>
+```
+
+## Legend
+
+The `<legend>` element is styled to be a block-level element with full width, no padding, and specific margin, font weight, and font size.
+
+```tsx
+<fieldset>
+  <legend>Personal Information</legend>
+  <FormLabel htmlFor="name">Name:</FormLabel>
+  <FormControl size="sm" type="text" id="name" name="name" />
+  <FormLabel htmlFor="email">Email:</FormLabel>
+  <FormControl size="sm" type="email" id="email" name="email" />
+</fieldset>
+```
+
+## Captions
+
+By default, table captions (`<caption>`) are aligned to the left and positioned at the bottom of the table. They also have specific font weight and padding.
+
+```tsx
+<Table>
+  <TableCaption>This is a table caption</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Header 1</TableHead>
+      <TableHead>Header 2</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Data 1</TableCell>
+      <TableCell>Data 2</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Reboot CSS variables
+
+The following CSS variables are defined in Hummingbird for reboot styles. Override these variables in the CSS to customize the base styles of the project.
+
+```css
+:root {
+  /* reboot variables */
+  --body-bg: var(--background-color-default);
+  --body-color: var(--text-color-default);
+  --body-font-size: var(--text-base);
+  --body-font-weight: var(--font-weight-normal);
+  --body-line-height: var(--text-base--line-height);
+
+  --headings-margin-bottom: --spacing(2);
+  --headings-font-weight: var(--font-weight-bold);
+  --h1-font-size: var(--text-6xl);
+  --h1-line-height: var(--text-6xl--line-height);
+  --h2-font-size: var(--text-5xl);
+  --h2-line-height: var(--text-5xl--line-height);
+  --h3-font-size: var(--text-4xl);
+  --h3-line-height: var(--text-4xl--line-height);
+  --h4-font-size: var(--text-3xl);
+  --h4-line-height: var(--text-3xl--line-height);
+  --h5-font-size: var(--text-2xl);
+  --h5-line-height: var(--text-2xl--line-height);
+  --h6-font-size: var(--text-xl);
+  --h6-line-height: var(--text-xl--line-height);
+
+  --hr-margin-y: --spacing(4);
+  --hr-margin-x: 0;
+  --hr-border-color: var(--border-color-default);
+
+  --paragraph-margin-bottom: --spacing(4);
+
+  --dt-font-weight: var(--font-weight-bold);
+
+  --anchor-color: var(--color-primary);
+  --anchor-hover-color: var(--color-primary-dark);
+
+  --code-color: var(--color-pink-600);
+  --code-font-size: var(--text-sm);
+
+  --caption-padding-y: --spacing(4);
+  --caption-padding-x: --spacing(4);
+  --caption-font-weight: var(--font-weight-medium);
+
+  --legend-margin-bottom: --spacing(2);
+  --legend-font-weight: var(--font-weight-medium);
+  --legend-font-size: var(--text-xl);
+}
+```
