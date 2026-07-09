@@ -5,8 +5,6 @@ import { cn } from '../../utils/cn';
 
 const navVariants = cva('nav', {
   variants: {
-    // Line style of the nav. `tabs` and `underline` are standalone classes;
-    // the plain `nav` has no extra class.
     variant: {
       default: '',
       underline: 'nav-underline',
@@ -30,8 +28,7 @@ const navVariants = cva('nav', {
 });
 
 export interface NavProps
-  extends Omit<React.ComponentProps<'ul'>, 'color'>,
-    VariantProps<typeof navVariants> {
+  extends Omit<React.ComponentProps<'ul'>, 'color'>, VariantProps<typeof navVariants> {
   asChild?: boolean;
 }
 
@@ -49,8 +46,6 @@ export interface NavItemProps extends React.ComponentProps<'li'> {
   asChild?: boolean;
 }
 
-// `nav-item` is not a Hummingbird utility — the CSS targets `.nav-link`
-// directly — so this is a classless `<li>` wrapper for ergonomics.
 function NavItem({ className, asChild = false, ...props }: NavItemProps) {
   const Comp = asChild ? Slot.Root : 'li';
 
@@ -60,9 +55,7 @@ function NavItem({ className, asChild = false, ...props }: NavItemProps) {
 NavItem.displayName = 'NavItem';
 
 export interface NavLinkProps extends React.ComponentProps<'a'> {
-  /** Marks the link as the active one (`.active`). */
   active?: boolean;
-  /** Mutes the link and disables interaction (`.disabled`). */
   disabled?: boolean;
   asChild?: boolean;
 }

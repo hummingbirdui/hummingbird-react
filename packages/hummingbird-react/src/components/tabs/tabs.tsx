@@ -4,15 +4,9 @@ import * as React from 'react';
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import { type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
-// Tab Nav and Tabs share the same `nav.css`, so the interactive Tabs reuses the
-// static Nav's variant map (`nav`, `nav-tabs`/`nav-underline`, color classes).
+
 import { navVariants } from '../nav/nav';
 
-// Radix drives all tab behavior; it only marks the active trigger with
-// `data-state="active"`. Hummingbird's CSS instead styles the active tab via the
-// `.nav-link.active` class, so we mirror Radix's current value through this
-// context and let each trigger add `.active` when its `value` matches. This is a
-// pure styling bridge — no behavior is reimplemented.
 const TabsActiveValueContext = React.createContext<string | undefined>(undefined);
 
 function Tabs({
@@ -49,11 +43,11 @@ function Tabs({
 Tabs.displayName = 'Tabs';
 
 export interface TabsListProps
-  extends Omit<React.ComponentProps<typeof TabsPrimitive.List>, 'color'>,
+  extends
+    Omit<React.ComponentProps<typeof TabsPrimitive.List>, 'color'>,
     VariantProps<typeof navVariants> {}
 
 function TabsList({ className, variant = 'tabs', color, ...props }: TabsListProps) {
-  // The tablist IS the nav bar, so it carries `nav` + the chosen line style.
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
@@ -69,8 +63,6 @@ function TabsTrigger({
   value,
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
-  // Add the `.active` class the Hummingbird CSS keys off, derived from the active
-  // value in context (Radix still owns the actual selection/`data-state`).
   const activeValue = React.useContext(TabsActiveValueContext);
   const active = activeValue !== undefined && activeValue === value;
 
@@ -85,9 +77,6 @@ function TabsTrigger({
 }
 TabsTrigger.displayName = 'TabsTrigger';
 
-// Radix manages panel visibility (mounts/hides Content itself), so the Bootstrap
-// `tab-pane`/`tab-content` show/hide classes are intentionally omitted — applying
-// them would fight Radix's own `hidden` handling.
 function TabsContent({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Content>) {
   return <TabsPrimitive.Content data-slot="tabs-content" className={className} {...props} />;
 }

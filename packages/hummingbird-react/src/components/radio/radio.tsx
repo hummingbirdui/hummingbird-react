@@ -39,13 +39,10 @@ export interface RadioProps
   extends
     Omit<React.ComponentProps<'input'>, 'color' | 'size' | 'type'>,
     VariantProps<typeof radioVariants> {
-  /** Text rendered beside the control. Wraps everything in a clickable label. */
   label?: React.ReactNode;
-  /** Lay the field out inline (`form-check-inline`). */
   inline?: boolean;
 }
 
-/** A styled native radio. Use inside a `RadioGroup`, or standalone with `name`. */
 function Radio({
   className,
   color,
@@ -60,11 +57,8 @@ function Radio({
 }: RadioProps) {
   const group = React.useContext(RadioGroupContext);
 
-  // Inside a RadioGroup the group state always drives checked, so the input
-  // stays controlled even before a first selection (group.value undefined).
   const resolvedName = name ?? group?.name;
-  const resolvedChecked =
-    group && value !== undefined ? group.value === String(value) : checked;
+  const resolvedChecked = group && value !== undefined ? group.value === String(value) : checked;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(event);
@@ -101,17 +95,12 @@ function Radio({
 Radio.displayName = 'Radio';
 
 export interface RadioGroupProps extends Omit<React.ComponentProps<'div'>, 'onChange'> {
-  /** Shared `name` applied to every radio in the group. */
   name?: string;
-  /** Controlled selected value. */
   value?: string;
-  /** Uncontrolled initial value. */
   defaultValue?: string;
-  /** Fires with the newly selected value. */
   onValueChange?: (value: string) => void;
 }
 
-/** Groups radios: shares a `name` and (optionally) manages the selected value. */
 function RadioGroup({
   className,
   name,

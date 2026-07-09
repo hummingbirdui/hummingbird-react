@@ -28,20 +28,14 @@ const checkboxVariants = cva('form-check-input', {
 });
 
 export interface CheckboxProps
-  // Omit native `color`/`size`/`type` — `color`/`size` collide with the CVA
-  // variants and `type` is fixed to `checkbox`.
   extends
     Omit<React.ComponentProps<'input'>, 'color' | 'size' | 'type'>,
     VariantProps<typeof checkboxVariants> {
-  /** Text rendered beside the control. Wraps everything in a clickable label. */
   label?: React.ReactNode;
-  /** Lay the field out inline (`form-check-inline`). */
   inline?: boolean;
-  /** Render the tri-state (mixed) checkbox. Set imperatively on the input. */
   indeterminate?: boolean;
 }
 
-/** A styled native checkbox. Supports the indeterminate (mixed) state. */
 function Checkbox({
   className,
   color,
@@ -52,7 +46,6 @@ function Checkbox({
   ref: forwardedRef,
   ...props
 }: CheckboxProps) {
-  // `indeterminate` is a DOM property, not an attribute, so set it via a ref.
   const innerRef = React.useRef<HTMLInputElement | null>(null);
 
   React.useEffect(() => {

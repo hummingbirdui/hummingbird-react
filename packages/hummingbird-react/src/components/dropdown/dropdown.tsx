@@ -6,14 +6,6 @@ import { cn } from '../../utils/cn';
 
 export type DropdownMenuProps = React.ComponentProps<typeof DropdownMenuPrimitive.Root>;
 
-/**
- * Dropdown menu root. A thin pass-through over Radix `DropdownMenu.Root` —
- * Radix owns all open-state behavior (controlled via `open`/`onOpenChange`,
- * uncontrolled via `defaultOpen`) and keeps the menu mounted across the exit
- * animation via its own `Presence`. The fade/scale transition lives entirely on
- * the content as `data-[state]` animation utilities, so no React state,
- * context, or effects are needed here.
- */
 function DropdownMenu({ ...props }: DropdownMenuProps) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
@@ -38,15 +30,6 @@ function DropdownMenuContent({
   sideOffset = 4,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
-  // `.dropdown-menu` is `hidden` by default and the `.show` *class* flips it to
-  // `block`; we keep it applied so the menu stays visible (Radix only mounts the
-  // content while open anyway). The fade/scale transition is driven entirely by
-  // Radix's `data-[state=open|closed]` attribute via tw-animate-css keyframes,
-  // which Radix's `Presence` awaits before unmounting — scaling from the
-  // Radix-computed popper origin. Placement is handled by Radix's
-  // `side`/`align`/`sideOffset` props; the Bootstrap direction utilities
-  // (`dropup`, `dropend`, `dropdown-menu-end`, …) are omitted because they only
-  // apply under the `[data-bs-popper]` attribute Radix never sets.
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content

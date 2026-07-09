@@ -17,14 +17,10 @@ const inputGroupVariants = cva('input-group', {
 });
 
 export interface InputGroupProps
-  // Omit native `size` — it collides with the CVA variant.
-  extends Omit<React.ComponentProps<'div'>, 'size'>,
-    VariantProps<typeof inputGroupVariants> {
-  /** Render as a child element. Uses Radix Slot. */
+  extends Omit<React.ComponentProps<'div'>, 'size'>, VariantProps<typeof inputGroupVariants> {
   asChild?: boolean;
 }
 
-/** Joins controls, buttons, and addons into a single control. */
 function InputGroup({ className, size, asChild = false, ...props }: InputGroupProps) {
   const Comp = asChild ? Slot.Root : 'div';
 
@@ -41,20 +37,14 @@ function InputGroup({ className, size, asChild = false, ...props }: InputGroupPr
 InputGroup.displayName = 'InputGroup';
 
 export interface InputGroupTextProps extends React.ComponentProps<'span'> {
-  /** Render as a child element. Uses Radix Slot. */
   asChild?: boolean;
 }
 
-/** A text or icon addon placed alongside a control in an `InputGroup`. */
 function InputGroupText({ className, asChild = false, ...props }: InputGroupTextProps) {
   const Comp = asChild ? Slot.Root : 'span';
 
   return (
-    <Comp
-      data-slot="input-group-text"
-      className={cn('input-group-text', className)}
-      {...props}
-    />
+    <Comp data-slot="input-group-text" className={cn('input-group-text', className)} {...props} />
   );
 }
 

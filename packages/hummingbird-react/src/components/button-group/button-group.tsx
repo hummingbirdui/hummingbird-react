@@ -5,8 +5,6 @@ import { cn } from '../../utils/cn';
 
 const buttonGroupVariants = cva('', {
   variants: {
-    // `btn-group` and `btn-group-vertical` are mutually exclusive base classes
-    // in the CSS, so orientation switches the base rather than adding to it.
     orientation: {
       horizontal: 'btn-group',
       vertical: 'btn-group-vertical',
@@ -24,9 +22,7 @@ const buttonGroupVariants = cva('', {
 });
 
 export interface ButtonGroupProps
-  extends React.ComponentProps<'div'>,
-    VariantProps<typeof buttonGroupVariants> {
-  /** Render as a child element. Uses Radix Slot. */
+  extends React.ComponentProps<'div'>, VariantProps<typeof buttonGroupVariants> {
   asChild?: boolean;
 }
 
@@ -52,11 +48,8 @@ function ButtonGroup({
 ButtonGroup.displayName = 'ButtonGroup';
 
 export interface ButtonToolbarProps extends React.ComponentProps<'div'> {
-  /** Render as a child element. Uses Radix Slot. */
   asChild?: boolean;
 }
-
-/** Wraps multiple button groups (and input groups) into a single toolbar. */
 function ButtonToolbar({ className, asChild = false, ...props }: ButtonToolbarProps) {
   const Comp = asChild ? Slot.Root : 'div';
 

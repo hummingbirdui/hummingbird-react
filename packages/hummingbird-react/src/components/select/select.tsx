@@ -5,8 +5,6 @@ import { cn } from '../../utils/cn';
 
 const selectVariants = cva('', {
   variants: {
-    // `form-select` (bordered) and `form-select-fill` (filled) are mutually
-    // exclusive base classes, so variant switches the base.
     variant: {
       outline: 'form-select',
       fill: 'form-select-fill',
@@ -17,6 +15,7 @@ const selectVariants = cva('', {
       lg: 'form-select-lg',
     },
     color: {
+      primary: '',
       secondary: 'form-select-secondary',
       info: 'form-select-info',
       success: 'form-select-success',
@@ -34,14 +33,12 @@ const selectVariants = cva('', {
 });
 
 export interface SelectProps
-  // Omit native `color`/`size` — they collide with the CVA variants.
-  extends Omit<React.ComponentProps<'select'>, 'color' | 'size'>,
+  extends
+    Omit<React.ComponentProps<'select'>, 'color' | 'size'>,
     VariantProps<typeof selectVariants> {
-  /** Render as a child element. Uses Radix Slot. */
   asChild?: boolean;
 }
 
-/** A styled native `<select>`. Pass `<option>`s as children. */
 function Select({
   className,
   variant,

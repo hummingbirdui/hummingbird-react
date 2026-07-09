@@ -21,13 +21,9 @@ const closeButtonVariants = cva('btn-close', {
 });
 
 export interface CloseButtonProps
-  extends React.ComponentProps<'button'>,
-    VariantProps<typeof closeButtonVariants> {
-  /** Render as a child element. Uses Radix Slot. */
+  extends React.ComponentProps<'button'>, VariantProps<typeof closeButtonVariants> {
   asChild?: boolean;
 }
-
-/** An icon-only dismiss button (×). Defaults `type="button"` and `aria-label="Close"`. */
 function CloseButton({ className, variant, shape, asChild = false, ...props }: CloseButtonProps) {
   const Comp = asChild ? Slot.Root : 'button';
 

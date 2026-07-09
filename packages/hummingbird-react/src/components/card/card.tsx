@@ -5,11 +5,9 @@ import { cn } from '../../utils/cn';
 
 const cardVariants = cva('card', {
   variants: {
-    /** Lay the card out horizontally (`card-aside`). */
     aside: {
       true: 'card-aside',
     },
-    /** Make the whole card interactive with a hover surface (`card-action`). */
     action: {
       true: 'card-action',
     },
@@ -17,7 +15,6 @@ const cardVariants = cva('card', {
 });
 
 export interface CardProps extends React.ComponentProps<'div'>, VariantProps<typeof cardVariants> {
-  /** Render as a child element (e.g. an `a` or `button`). Uses Radix Slot. */
   asChild?: boolean;
 }
 
@@ -32,7 +29,6 @@ function Card({ className, aside, action, asChild = false, ...props }: CardProps
 Card.displayName = 'Card';
 
 export interface CardSlotProps extends React.ComponentProps<'div'> {
-  /** Render as a child element. Uses Radix Slot. */
   asChild?: boolean;
 }
 
@@ -107,7 +103,6 @@ const cardImageVariants = cva('', {
 export interface CardImageProps
   extends React.ComponentProps<'img'>, VariantProps<typeof cardImageVariants> {}
 
-/** A card image. `position` controls which corners are rounded. */
 function CardImage({ className, position, ...props }: CardImageProps) {
   return (
     <img

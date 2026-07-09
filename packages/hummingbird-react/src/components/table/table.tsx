@@ -41,8 +41,7 @@ const tableVariants = cva('table', {
 });
 
 export interface TableProps
-  extends Omit<React.ComponentProps<'table'>, 'color'>,
-    VariantProps<typeof tableVariants> {
+  extends Omit<React.ComponentProps<'table'>, 'color'>, VariantProps<typeof tableVariants> {
   asChild?: boolean;
 }
 
@@ -88,9 +87,6 @@ function Table({
 
 Table.displayName = 'Table';
 
-// Structural sub-parts. The `.table` CSS styles `thead`/`tbody`/`tr`/`th`/`td`
-// via descendant selectors, so these carry no class of their own — they just
-// render the right element (with a `data-slot`) for ergonomics.
 function TableHeader({ className, ...props }: React.ComponentProps<'thead'>) {
   return <thead data-slot="table-header" className={className} {...props} />;
 }
@@ -107,17 +103,12 @@ function TableFooter({ className, ...props }: React.ComponentProps<'tfoot'>) {
 TableFooter.displayName = 'TableFooter';
 
 export interface TableRowProps extends React.ComponentProps<'tr'> {
-  /** Highlights the row (`.table-active`). */
   active?: boolean;
 }
 
 function TableRow({ className, active = false, ...props }: TableRowProps) {
   return (
-    <tr
-      data-slot="table-row"
-      className={cn(active && 'table-active', className)}
-      {...props}
-    />
+    <tr data-slot="table-row" className={cn(active && 'table-active', className)} {...props} />
   );
 }
 TableRow.displayName = 'TableRow';
@@ -128,17 +119,12 @@ function TableHead({ className, ...props }: React.ComponentProps<'th'>) {
 TableHead.displayName = 'TableHead';
 
 export interface TableCellProps extends React.ComponentProps<'td'> {
-  /** Highlights the cell (`.table-active`). */
   active?: boolean;
 }
 
 function TableCell({ className, active = false, ...props }: TableCellProps) {
   return (
-    <td
-      data-slot="table-cell"
-      className={cn(active && 'table-active', className)}
-      {...props}
-    />
+    <td data-slot="table-cell" className={cn(active && 'table-active', className)} {...props} />
   );
 }
 TableCell.displayName = 'TableCell';

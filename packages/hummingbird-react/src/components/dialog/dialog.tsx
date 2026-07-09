@@ -5,8 +5,6 @@ import { Dialog as DialogPrimitive, Slot } from 'radix-ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
-// `.modal-dialog` modifiers from reference-css/components/modal.css. These are
-// pure looks — every option maps to a real Hummingbird class.
 const dialogVariants = cva('modal-dialog', {
   variants: {
     size: {
@@ -43,14 +41,6 @@ const dialogVariants = cva('modal-dialog', {
 
 export type DialogProps = React.ComponentProps<typeof DialogPrimitive.Root>;
 
-/**
- * Modal dialog root. A thin pass-through over Radix `Dialog.Root` — Radix owns
- * all open-state behavior (controlled via `open`/`onOpenChange`, uncontrolled
- * via `defaultOpen`) and keeps the content mounted across the exit animation
- * via its own `Presence`. The fade/zoom transition is expressed entirely with
- * `data-[state]` animation utilities on the overlay and content (see below), so
- * no React state, context, or effects are needed here.
- */
 function Dialog({ ...props }: DialogProps) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
@@ -71,11 +61,6 @@ function DialogClose({ ...props }: React.ComponentProps<typeof DialogPrimitive.C
 }
 DialogClose.displayName = 'DialogClose';
 
-/**
- * The dimmed backdrop (`.modal-backdrop` supplies the look). The fade is driven
- * by Radix's `data-[state=open|closed]` attribute via tw-animate-css keyframes,
- * which Radix's `Presence` awaits before unmounting.
- */
 function DialogOverlay({
   className,
   ...props
@@ -99,38 +84,13 @@ export interface DialogContentProps
   extends
     React.ComponentProps<typeof DialogPrimitive.Content>,
     VariantProps<typeof dialogVariants> {
-  /** Class applied to the `.modal-dialog` wrapper. */
   dialogClassName?: string;
-  /**
-   * Portal target. Forwarded to the underlying Radix `Dialog.Portal`'s
-   * `container` so the dialog can render into a custom DOM node.
-   */
+
   container?: React.ComponentProps<typeof DialogPrimitive.Portal>['container'];
-  /** Extra props forwarded to the underlying Radix `Dialog.Portal`. */
   portalProps?: Omit<React.ComponentProps<typeof DialogPrimitive.Portal>, 'container' | 'children'>;
-  /**
-   * Props forwarded to the `.modal-backdrop` overlay (e.g. `className`,
-   * `onClick`). Lets you customize the backdrop without composing the parts by
-   * hand.
-   */
   overlayProps?: React.ComponentProps<typeof DialogOverlay>;
 }
 
-/**
- * The modal body. Renders the full-screen scroll container (`.modal`), the
- * `.modal-dialog` wrapper, and Radix's focus-trapped content as the
- * `.modal-content` box. `className` targets `.modal-content`; `dialogClassName`
- * targets `.modal-dialog`; `overlayProps` targets `.modal-backdrop`.
- *
- * The slide/zoom/fade transition is expressed with `data-[state]` animation
- * utilities (tw-animate-css) on `.modal-content`, mirroring the
- * `--modal-*-transform` values in modal.css. Radix's `Presence` keeps the node
- * mounted until the close animation finishes — no JS state machine required.
- *
- * Portal placement is configurable via `container`/`portalProps`. For full
- * control beyond these props (e.g. `forceMount` on the portal/overlay), compose
- * `DialogPortal`, `DialogOverlay`, and `DialogContent` directly instead.
- */
 function DialogContent({
   className,
   dialogClassName,
@@ -147,10 +107,6 @@ function DialogContent({
   return (
     <DialogPortal container={container} {...portalProps}>
       <DialogOverlay {...overlayProps} />
-      {/* `.modal` is `hidden` by default (a `base` sub-layer inside
-          `utilities`); the `block` utility — emitted directly in `utilities` —
-          overrides it while mounted, the same role Bootstrap's inline display
-          plays. */}
       <div data-slot="dialog-modal" className="modal block">
         <div
           className={cn(
@@ -183,7 +139,6 @@ function DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
 DialogHeader.displayName = 'DialogHeader';
 
 export interface DialogTitleProps extends React.ComponentProps<'h6'> {
-  /** Render as a child element instead of an `<h6>`. Uses Radix Slot. */
   asChild?: boolean;
 }
 function DialogTitle({ className, asChild = false, ...props }: DialogTitleProps) {

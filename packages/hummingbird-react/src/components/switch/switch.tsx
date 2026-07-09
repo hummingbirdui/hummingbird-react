@@ -13,7 +13,6 @@ const switchVariants = cva('form-check-input', {
       danger: 'form-check-danger',
       neutral: 'form-check-neutral',
     },
-    // The `form-switch` CSS scales the track via `form-check-sm`/`form-check-lg`.
     size: {
       sm: 'form-check-sm',
       md: '',
@@ -30,13 +29,10 @@ export interface SwitchProps
   extends
     Omit<React.ComponentProps<'input'>, 'color' | 'size' | 'type' | 'role'>,
     VariantProps<typeof switchVariants> {
-  /** Text rendered beside the control. Wraps everything in a clickable label. */
   label?: React.ReactNode;
-  /** Lay the field out inline (`form-check-inline`). */
   inline?: boolean;
 }
 
-/** A styled toggle switch built on a native checkbox with `role="switch"`. */
 function Switch({ className, color, size, label, inline = false, ...props }: SwitchProps) {
   const input = (
     <input

@@ -13,9 +13,7 @@ const listGroupVariants = cva('list-group', {
 });
 
 export interface ListGroupProps
-  extends React.ComponentProps<'ul'>,
-    VariantProps<typeof listGroupVariants> {
-  /** Render as a child element. Uses Radix Slot. */
+  extends React.ComponentProps<'ul'>, VariantProps<typeof listGroupVariants> {
   asChild?: boolean;
 }
 
@@ -45,11 +43,8 @@ const listGroupItemVariants = cva('list-group-item', {
 });
 
 export interface ListGroupItemProps
-  extends React.ComponentProps<'li'>,
-    VariantProps<typeof listGroupItemVariants> {
-  /** Marks the item as the active/current one (`.active`). */
+  extends React.ComponentProps<'li'>, VariantProps<typeof listGroupItemVariants> {
   active?: boolean;
-  /** Mutes the item and disables interaction (`.disabled`). */
   disabled?: boolean;
   asChild?: boolean;
 }
@@ -96,17 +91,19 @@ const listTextVariants = cva('', {
 });
 
 export interface ListTextProps
-  extends React.ComponentProps<'p'>,
-    VariantProps<typeof listTextVariants> {
+  extends React.ComponentProps<'p'>, VariantProps<typeof listTextVariants> {
   asChild?: boolean;
 }
 
-/** Title (`list-text-primary`) / subtitle (`list-text-secondary`) text inside a list item. */
 function ListText({ className, variant, asChild = false, ...props }: ListTextProps) {
   const Comp = asChild ? Slot.Root : 'p';
 
   return (
-    <Comp data-slot="list-text" className={cn(listTextVariants({ variant }), className)} {...props} />
+    <Comp
+      data-slot="list-text"
+      className={cn(listTextVariants({ variant }), className)}
+      {...props}
+    />
   );
 }
 

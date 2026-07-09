@@ -7,7 +7,6 @@ export interface PaginationProps extends React.ComponentProps<'nav'> {
   asChild?: boolean;
 }
 
-/** Accessible `<nav>` wrapper. The styled list is `PaginationContent`. */
 function Pagination({ className, asChild = false, ...props }: PaginationProps) {
   const Comp = asChild ? Slot.Root : 'nav';
 
@@ -28,8 +27,6 @@ const paginationVariants = cva('pagination', {
   variants: {
     size: { sm: 'pagination-sm', md: '', lg: 'pagination-lg' },
     shape: { default: '', circle: 'pagination-circle' },
-    // `variant` × `color` select the active-page treatment; the combined class
-    // is emitted via compoundVariants below (mirrors button.tsx).
     variant: { filled: '', subtle: '', outlined: '' },
     color: {
       primary: '',
@@ -76,8 +73,7 @@ const paginationVariants = cva('pagination', {
 });
 
 export interface PaginationContentProps
-  extends Omit<React.ComponentProps<'ul'>, 'color'>,
-    VariantProps<typeof paginationVariants> {
+  extends Omit<React.ComponentProps<'ul'>, 'color'>, VariantProps<typeof paginationVariants> {
   asChild?: boolean;
 }
 
@@ -104,9 +100,7 @@ function PaginationContent({
 PaginationContent.displayName = 'PaginationContent';
 
 export interface PaginationItemProps extends React.ComponentProps<'li'> {
-  /** Marks the page as the current one (`.active`). */
   active?: boolean;
-  /** Disables the page (`.disabled`). */
   disabled?: boolean;
   asChild?: boolean;
 }
@@ -132,12 +126,16 @@ function PaginationItem({
 PaginationItem.displayName = 'PaginationItem';
 
 export interface PaginationLinkProps extends React.ComponentProps<'a'> {
-  /** Marks the link as the current page for assistive tech. */
   active?: boolean;
   asChild?: boolean;
 }
 
-function PaginationLink({ className, active = false, asChild = false, ...props }: PaginationLinkProps) {
+function PaginationLink({
+  className,
+  active = false,
+  asChild = false,
+  ...props
+}: PaginationLinkProps) {
   const Comp = asChild ? Slot.Root : 'a';
 
   return (
@@ -152,10 +150,4 @@ function PaginationLink({ className, active = false, asChild = false, ...props }
 
 PaginationLink.displayName = 'PaginationLink';
 
-export {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  paginationVariants,
-};
+export { Pagination, PaginationContent, PaginationItem, PaginationLink, paginationVariants };
