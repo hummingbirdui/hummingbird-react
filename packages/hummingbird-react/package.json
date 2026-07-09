@@ -1,6 +1,6 @@
 {
   "name": "@hummingbirdui/react",
-  "version": "0.1.0",
+  "version": "0.0.0-inside.1",
   "description": "Modern, accessible, and customizable React components built with Radix UI and Tailwind CSS.",
   "keywords": [
     "hummingbird",
@@ -45,6 +45,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup && tsc -p tsconfig.build.json",
     "dev": "tsup --watch",
