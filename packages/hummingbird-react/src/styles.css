@@ -1,4 +1,7 @@
-/* This CSS file configures Tailwind v4 for any app that imports it! */
+/* Single-import Tailwind v4 entry: @import "@hummingbirdui/react"; */
+/* @import 'tailwindcss'; */
 @import '@hummingbirdui/hummingbird';
-@source "./**/*.js";
-@source "./**/*.cjs";
+@import 'tw-animate-css';
+
+@source './components';
+@source './layout';
