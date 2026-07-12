@@ -1,21 +1,27 @@
-import Link from "next/link";
+import Blocks from "@/components/sections/landing/Blocks";
+import CodeExample from "@/components/sections/landing/code-example";
+import ColorThemes from "@/components/sections/landing/color-themes";
+import CTA from "@/components/sections/landing/CTA";
+import Faqs from "@/components/sections/landing/faqs";
+import Features from "@/components/sections/landing/features";
+import Hero from "@/components/sections/landing/Hero";
+import MCP from "@/components/sections/landing/mcp";
 
-export default function Home() {
+const Landing = () => {
   return (
-    <div className="p-10">
-      <h1 className="text-4xl font-bold">Welcome to Hummingbird UI</h1>
-      <p className="mt-4 text-lg">
-        This is the documentation site for Hummingbird UI, a React component
-        library built with Tailwind CSS.
-      </p>
-      <div className="mt-6">
-        <Link
-          href="/docs/getting-started/introduction"
-          className="text-blue-500 hover:underline"
-        >
-          Get Started
-        </Link>
+    <div className="px-6 sm:px-10">
+      <div className="max-w-8xl mx-auto overflow-hidden">
+        <Hero />
+        <Features />
+        <CodeExample />
+        <ColorThemes />
+        <MCP />
+        <Blocks />
+        <Faqs />
+        <CTA />
       </div>
     </div>
   );
-}
+};
+
+export default Landing;
