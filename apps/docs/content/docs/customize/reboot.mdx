@@ -17,156 +17,73 @@ Reboot is included automatically when Hummingbird CSS is imported, so JSX elemen
 
 All the headings (`h1` to `h6`) in Hummingbird are styled with CSS variables for font size, weight, line height, and margin.
 
-```tsx
-<h1>Heading 1</h1>
-<h2>Heading 2</h2>
-<h3>Heading 3</h3>
-<h4>Heading 4</h4>
-<h5>Heading 5</h5>
-<h6>Heading 6</h6>
-```
+<ComponentPreview name="reboot-headings" />
 
 ## Paragraph
 
 For all paragraph (`<p>`) elements, `margin-top` was removed, and `margin-bottom: 1rem` is set.
 
-```tsx
-<p>This is an example paragraph</p>
-```
+<ComponentPreview name="reboot-paragraph" />
 
 ## Links
 
 Links are styled with a default `color` and an `underline`. On hover, the link color changes to a darker shade.
 
-```tsx
-<a href="#">This is an example link</a>
-```
+<ComponentPreview name="reboot-links" />
 
 ## Buttons
 
 By default, buttons (`<button>`) have a `cursor-pointer` style. When a button is disabled, the cursor changes to `cursor-default`.
 
-```tsx
-<Button>This is a button</Button>
-<Button disabled>This is a disabled button</Button>
-```
+<ComponentPreview name="reboot-buttons" />
 
 ## Horizontal rules
 
 Default `margin-top` and `margin-bottom` for horizontal rules (`<hr>`) is set to `1rem`.
 
-```tsx
-<hr />
-<hr className="border-danger-light" />
-<hr className="border-t-3 border-primary-light" />
-```
+<ComponentPreview name="reboot-horizontal-rules" />
 
 ## Lists
 
 By default, unordered lists (`<ul>`) use disc bullets, and ordered lists (`<ol>`) use decimal numbers. Both types of lists have a left padding of `2rem` and a bottom margin of `1rem`. Nested lists have no bottom margin.
 
-```tsx
-<ul>
-  <li>Item 1</li>
-  <li>
-    Item 2
-    <ul>
-      <li>Subitem 1</li>
-      <li>Subitem 2</li>
-    </ul>
-  </li>
-  <li>Item 3</li>
-</ul>
-<ol>
-  <li>First</li>
-  <li>Second</li>
-  <li>Third</li>
-</ol>
-```
+<ComponentPreview name="reboot-lists" />
 
 ## Description lists
 
 Terms (`<dt>`) are styled with a bold font weight, while descriptions (`<dd>`) use a regular font weight. Default `margin-bottom` for `<dl>` is `1rem`.
 
-```tsx
-<dl>
-  <dt>Term 1</dt>
-  <dd>Description for term 1</dd>
-  <dt>Term 2</dt>
-  <dd>Description for term 2</dd>
-</dl>
-```
+<ComponentPreview name="reboot-description-lists" />
 
 ## Code
 
 By default, inline code elements (`<code>`) are styled with a specific text color and font size. When a `<code>` element is nested inside an `<a>` tag, it inherits the link's text color and font size.
 
-```tsx
-<p>
-  This is an example of inline <code>code</code> in a sentence.{" "}
-  <a href="#">This is a link with <code>code</code></a>
-</p>
-```
+<ComponentPreview name="reboot-inline-code" />
 
 ## Address
 
 The `<address>` element is styled with a bottom margin of `1rem`.
 
-```tsx
-<address>
-  John Doe<br />
-  123 Main St.<br />
-  Anytown, USA<br />
-  <a href="mailto:john.doe@example.com">john.doe@example.com</a>
-</address>
-```
+<ComponentPreview name="reboot-address" />
 
 ## Blockquote
 
 By default, blockquotes (`<blockquote>`) have a bottom margin of `1rem`.
 
-```tsx
-<blockquote>
-  This is an example blockquote. It is used to indicate the quotation of a
-  large section of text from another source.
-</blockquote>
-```
+<ComponentPreview name="reboot-blockquote" />
 
 ## Legend
 
 The `<legend>` element is styled to be a block-level element with full width, no padding, and specific margin, font weight, and font size.
 
-```tsx
-<fieldset>
-  <legend>Personal Information</legend>
-  <FormLabel htmlFor="name">Name:</FormLabel>
-  <FormControl size="sm" type="text" id="name" name="name" />
-  <FormLabel htmlFor="email">Email:</FormLabel>
-  <FormControl size="sm" type="email" id="email" name="email" />
-</fieldset>
-```
+<ComponentPreview name="reboot-legend" />
 
 ## Captions
 
 By default, table captions (`<caption>`) are aligned to the left and positioned at the bottom of the table. They also have specific font weight and padding.
 
-```tsx
-<Table>
-  <TableCaption>This is a table caption</TableCaption>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Header 1</TableHead>
-      <TableHead>Header 2</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Data 1</TableCell>
-      <TableCell>Data 2</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
-```
+<ComponentPreview name="reboot-captions" />
 
 ## Reboot CSS variables
 
