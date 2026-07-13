@@ -32,6 +32,14 @@
       "types": "./dist/utils/index.d.ts",
       "import": "./dist/utils/index.js"
     },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./hooks/*": {
+      "types": "./dist/hooks/*/index.d.ts",
+      "import": "./dist/hooks/*/index.js"
+    },
     "./layout/*": {
       "types": "./dist/layout/*/index.d.ts",
       "import": "./dist/layout/*/index.js"
