@@ -23,8 +23,7 @@ Import Hummingbird styles in the main CSS file (e.g., `globals.css`), and regist
 
 ```css
 @import "tailwindcss";
-@import "@hummingbirdui/hummingbird";
-@source "../node_modules/@hummingbirdui/react";
+@import "@hummingbirdui/react";
 ```
 
 The `@source` directive is required because Tailwind does not scan node_modules by default. Since Hummingbird generates component classes on demand, Tailwind must scan the `@hummingbirdui/react` package. Update the relative path so it points to node_modules from your CSS file.
@@ -47,27 +46,12 @@ export default function App() {
 }
 ```
 
-## Per-component imports
-
-Every component is also available from its own subpath. This keeps the bundle small because only the imported components are included.
-
-```tsx
-import { Button } from "@hummingbirdui/react/button";
-import { Alert, AlertIcon } from "@hummingbirdui/react/alert";
-```
-
-The `cn` utility for merging class names is available from the `utils` subpath.
-
-```tsx
-import { cn } from "@hummingbirdui/react/utils";
-```
-
 ## TypeScript support
 
 Hummingbird React is written in TypeScript and includes type definitions for all components. Component props are fully typed, so no additional `@types` packages are needed.
 
 ```tsx
-import { Button, type ButtonProps } from "@hummingbirdui/react/button";
+import { Button, type ButtonProps } from "@hummingbirdui/react";
 ```
 
 ## Customization

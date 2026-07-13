@@ -40,7 +40,8 @@ Override variables after importing Hummingbird:
 }
 
 @layer theme {
-  :root, :host {
+  :root,
+  :host {
     @variant dark {
       --background-color-default: var(--color-gray-950);
       --text-color-default: var(--color-gray-100);
@@ -50,50 +51,33 @@ Override variables after importing Hummingbird:
 }
 ```
 
-## Toggling dark mode manually
+## Setting up dark mode
 
 #### 1. Custom dark mode selector
 
-Hummingbird supports class-based dark mode using predefined color variables. To enable dark mode with a custom selector (instead of `prefers-color-scheme`), add the following after importing Tailwind and Hummingbird styles:
+Enable class-based dark mode after importing Tailwind and Hummingbird styles:
 
 ```css
 @custom-variant dark (&:where(.dark, .dark *), .dark);
 ```
 
-The `.dark` class is typically added or removed on the `<html>` element.
-
 #### 2. Set the initial theme
 
-Run a small inline script before the page renders to apply the correct theme. This prevents a flash of the wrong theme and respects both the user's saved preference in `localStorage` and the system's `prefers-color-scheme` setting.
-
-In a Next.js App Router project, render the script in the root layout's `<head>`:
-
-```tsx
-// components/ThemeScript.tsx
-const script = `(function () {
-  try {
-    var theme = localStorage.theme;
-    var dark =
-      theme === "dark" ||
-      (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    document.documentElement.classList.toggle("dark", dark);
-  } catch (e) {}
-})();`;
-
-export function ThemeScript() {
-  return <script dangerouslySetInnerHTML={{ __html: script }} />;
-}
-```
+Render `ThemeModeScript` inside `<head>` to apply the saved theme before first paint — no flash of the wrong theme. Safe in React Server Components.
 
 ```tsx
 // app/layout.tsx
-import { ThemeScript } from "@/components/ThemeScript";
+import { ThemeModeScript } from "@hummingbirdui/react/theme-mode-script";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <ThemeScript />
+        <ThemeModeScript />
       </head>
       <body>{children}</body>
     </html>
@@ -101,72 +85,114 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-The `suppressHydrationWarning` attribute is needed because the script changes the `<html>` class before React hydrates.
+<PropsTable
+  data={[
+    {
+      prop: "defaultMode",
+      type: '"light" | "dark" | "system"',
+      default: '"system"',
+      description: "Mode applied when the visitor has no saved preference.",
+    },
+  ]}
+/>
 
-#### 3. Theme toggle component
+#### 3. Add a theme toggle
 
-This client component manages switching between light and dark themes. It works by:
-
-- Adding or removing the `.dark` class on the `<html>` element
-- Temporarily disabling transitions to avoid flicker when toggling
-- Storing the user's preference in `localStorage` and following the system preference until one is saved
+`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps all tabs in sync.
 
 ```tsx
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button } from "@hummingbirdui/react/button";
+import { DarkThemeToggle } from "@hummingbirdui/react/dark-theme-toggle";
 
-function applyDark(dark: boolean) {
-  const html = document.documentElement;
-  html.classList.add("disable-transition");
-  html.classList.toggle("dark", dark);
-  requestAnimationFrame(() => html.classList.remove("disable-transition"));
+export function Navbar() {
+  return <DarkThemeToggle />;
 }
+```
 
-export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
+Pass your own icons to replace the default sun/moon:
 
-  useEffect(() => {
-    setMounted(true);
-    setIsDark(document.documentElement.classList.contains("dark"));
+```tsx
+import { Lightbulb, LightbulbOff } from "lucide-react";
 
-    // Follow the system preference while no theme is saved.
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const onSystemChange = () => {
-      if (!localStorage.theme) {
-        applyDark(media.matches);
-        setIsDark(media.matches);
-      }
-    };
-    media.addEventListener("change", onSystemChange);
-    return () => media.removeEventListener("change", onSystemChange);
-  }, []);
+<DarkThemeToggle iconDark={LightbulbOff} iconLight={Lightbulb} />;
+```
 
-  function toggle() {
-    const next = !isDark;
-    applyDark(next);
-    localStorage.theme = next ? "dark" : "light";
-    setIsDark(next);
-  }
+It is built on [Button](/docs/components/button), so all `Button` props work too.
+
+<PropsTable
+  data={[
+    {
+      prop: "iconDark",
+      type: "React.FC<React.ComponentProps<'svg'>>",
+      default: "SunIcon",
+      description: "Icon shown while in dark mode.",
+    },
+    {
+      prop: "iconLight",
+      type: "React.FC<React.ComponentProps<'svg'>>",
+      default: "MoonIcon",
+      description: "Icon shown while in light mode.",
+    },
+  ]}
+/>
+
+## The useThemeMode hook
+
+For custom controls, use `useThemeMode`. It applies the `.dark` class, follows the OS preference in `"system"` mode, and stays in sync across components and browser tabs. `DarkThemeToggle` uses it internally.
+
+```tsx
+"use client";
+
+import { useThemeMode, type ThemeMode } from "@hummingbirdui/react/hooks";
+
+export function ThemeSelect() {
+  const { mode, setMode } = useThemeMode();
 
   return (
-    <Button
-      variant="subtle"
-      color="neutral"
-      shape="circle"
-      onClick={toggle}
-      aria-label="Toggle dark mode"
-      aria-pressed={mounted ? isDark : undefined}
+    <select
+      value={mode}
+      onChange={(event) => setMode(event.target.value as ThemeMode)}
     >
-      {mounted && isDark ? "🌙" : "💡"}
-    </Button>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="system">System</option>
+    </select>
   );
 }
 ```
 
-The theme toggle in this site's navbar uses the same approach — try it out.
+<PropsTable
+  data={[
+    {
+      prop: "mode",
+      type: '"light" | "dark" | "system"',
+      description: 'The saved preference; "system" when none is saved.',
+    },
+    {
+      prop: "computedMode",
+      type: '"light" | "dark"',
+      description:
+        'The applied theme, with "system" resolved against the OS preference.',
+    },
+    {
+      prop: "setMode",
+      type: "(mode: ThemeMode) => void",
+      description:
+        'Saves and applies a mode; "system" removes the saved preference.',
+    },
+    {
+      prop: "toggleMode",
+      type: "() => void",
+      description: "Switches between light and dark.",
+    },
+    {
+      prop: "clearMode",
+      type: "() => void",
+      description: 'Shorthand for setMode("system").',
+    },
+  ]}
+/>
 
 ## Dark mode variable overrides
 
@@ -253,7 +279,9 @@ A list of theme variables that are overridden when dark mode is active.
 
       /* Shadows */
       --shadow-xl:
-        0px 12px 51px 0px rgba(0, 0, 0, 0.6), 0px 3px 24px 0px rgba(0, 0, 0, 0.56), 0px 1px 16px 0px rgba(0, 0, 0, 0.1);
+        0px 12px 51px 0px rgba(0, 0, 0, 0.6),
+        0px 3px 24px 0px rgba(0, 0, 0, 0.56),
+        0px 1px 16px 0px rgba(0, 0, 0, 0.1);
     }
   }
 }

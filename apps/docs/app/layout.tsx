@@ -7,7 +7,7 @@ const figtree = Figtree({
   variable: "--font-figtree",
   display: "swap",
 });
-import { ThemeScript } from "@/components/layout/ThemeScript";
+import { ThemeModeScript } from "@hummingbirdui/react";
 import { SiteNavbar } from "@/components/layout/SiteNavbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={figtree.variable} suppressHydrationWarning>
       <head>
-        <ThemeScript />
+        <ThemeModeScript />
       </head>
       <body className="min-h-screen flex flex-col bg-default text-default">
         <SiteNavbar />

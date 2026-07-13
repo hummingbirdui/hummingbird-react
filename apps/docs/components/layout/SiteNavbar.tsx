@@ -18,8 +18,8 @@ import {
   DrawerTitle,
   DrawerBody,
   DrawerClose,
+  DarkThemeToggle,
 } from "@hummingbirdui/react";
-import { ThemeToggle } from "./ThemeToggle";
 import { GithubMark } from "./BrandIcons";
 import { CloseButton } from "@hummingbirdui/react";
 import { SearchButton, SearchIconButton } from "../search/SearchToggle";
@@ -124,7 +124,7 @@ export function SiteNavbar() {
             onClick={() => setSearchOpen(true)}
           />
           <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex"></div>
-          <ThemeToggle />
+          <DarkThemeToggle />
           <Button
             asChild
             variant="subtle"
