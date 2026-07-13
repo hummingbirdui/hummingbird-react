@@ -37,4 +37,5 @@ cd <scratchpad> && npm i playwright@<matching> && node script.mjs
 - Search dialog: open with `Meta+k`, input is `getByRole("searchbox")`, results are
   `.modal-content .list-group-item-action`. The search index is the static file
   `out/api/search` (Orama export), fetched lazily on first keystroke.
-- Dark mode: `page.evaluate(() => { localStorage.theme = "dark"; document.documentElement.classList.add("dark"); })`.
+- Dark mode: `page.evaluate(() => { localStorage.setItem("hummingbird-theme-mode", "dark"); document.documentElement.classList.add("dark"); })`
+  (key used by `useThemeMode` from `@hummingbirdui/react`; the navbar toggle is `[data-slot="dark-theme-toggle"]`).
