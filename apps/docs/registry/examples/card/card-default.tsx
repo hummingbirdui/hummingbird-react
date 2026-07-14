@@ -14,10 +14,11 @@ import {
 export default function CardDefault() {
   return (
     <Card className="max-w-sm">
-      <CardHeader>Default Card</CardHeader>
-      <CardBody>
+      <CardHeader>
         <CardTitle>Card title</CardTitle>
-        <CardSubtitle>Subtitle</CardSubtitle>
+        <CardSubtitle className="mb-0">Subtitle</CardSubtitle>
+      </CardHeader>
+      <CardBody>
         <CardText className="mb-0">
           Some quick example text to build on the card title and make up the
           bulk of the card&apos;s content.
