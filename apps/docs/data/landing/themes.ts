@@ -1,0 +1,1 @@
+export const themes = ['luxury', 'retro', 'arctic', 'default', 'nature', 'ember', 'dracula', 'midnight'];
