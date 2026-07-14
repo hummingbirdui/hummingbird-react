@@ -10,7 +10,9 @@
     "lint": "eslint --max-warnings 0",
     "check-types": "next typegen && tsc --noEmit",
     "predeploy": "next build",
-    "deploy": "gh-pages -d out -b gh-pages --dotfiles"
+    "deploy": "gh-pages -d out -b gh-pages --dotfiles",
+    "predev": "node scripts/fetch-themes.mjs",
+    "prebuild": "node scripts/fetch-themes.mjs"
   },
   "dependencies": {
     "@hummingbirdui/react": "workspace:^",

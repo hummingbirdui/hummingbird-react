@@ -37,3 +37,6 @@ next-env.d.ts
 
 # fumadocs generated source
 /.source/
+
+# docs preview themes, fetched by scripts/fetch-themes.mjs
+/app/themes/

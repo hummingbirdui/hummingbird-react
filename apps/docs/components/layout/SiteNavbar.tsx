@@ -22,6 +22,7 @@ import {
 } from "@hummingbirdui/react";
 import { GithubMark } from "./BrandIcons";
 import { CloseButton } from "@hummingbirdui/react";
+import { ThemeDropdown } from "./ThemeDropdown";
 import { SearchButton, SearchIconButton } from "../search/SearchToggle";
 import { SearchDialog } from "../search/SearchDialog";
 
@@ -125,6 +126,9 @@ export function SiteNavbar() {
           />
           <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex"></div>
           <DarkThemeToggle />
+          <div className="ms-1.5">
+            <ThemeDropdown />
+          </div>
           <Button
             asChild
             variant="subtle"

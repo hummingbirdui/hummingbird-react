@@ -8,6 +8,7 @@ const figtree = Figtree({
   display: "swap",
 });
 import { ThemeModeScript } from "@hummingbirdui/react";
+import { MainThemeScript } from "@/components/layout/MainThemeScript";
 import { SiteNavbar } from "@/components/layout/SiteNavbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en" className={figtree.variable} suppressHydrationWarning>
       <head>
         <ThemeModeScript />
+        <MainThemeScript />
       </head>
       <body className="min-h-screen flex flex-col bg-default text-default">
         <SiteNavbar />

@@ -1,6 +1,6 @@
-@import url("https://cdn.jsdelivr.net/gh/hummingbirdui/hummingbird@main/apps/docs/src/themes/themes.css");
 @import "tailwindcss";
 @import "@hummingbirdui/react";
+@import "./themes/themes.css";
 @custom-variant dark (&:where(.dark, .dark *), .dark);
 
 @theme {
