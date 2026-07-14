@@ -6,8 +6,30 @@ import { cn } from '../../utils/cn';
 
 export type DropdownMenuProps = React.ComponentProps<typeof DropdownMenuPrimitive.Root>;
 
-function DropdownMenu({ ...props }: DropdownMenuProps) {
-  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
+function DropdownMenu({ open, defaultOpen, onOpenChange, ...props }: DropdownMenuProps) {
+  const isControlled = open !== undefined;
+  const [internalOpen, setInternalOpen] = React.useState(defaultOpen ?? false);
+  const resolvedOpen = isControlled ? open : internalOpen;
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    // radix-ui >= 1.6 (@radix-ui/react-menu 2.1.18) closes the menu on any
+    // window blur — including focusing devtools or switching apps. Every
+    // user-initiated dismissal (outside click, Escape, item select) happens
+    // while the document has focus, so a close request arriving without focus
+    // can only be that blur listener; ignore it.
+    if (!nextOpen && !document.hasFocus()) return;
+    if (!isControlled) setInternalOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  };
+
+  return (
+    <DropdownMenuPrimitive.Root
+      data-slot="dropdown-menu"
+      open={resolvedOpen}
+      onOpenChange={handleOpenChange}
+      {...props}
+    />
+  );
 }
 DropdownMenu.displayName = 'DropdownMenu';
 
@@ -36,7 +58,7 @@ function DropdownMenuContent({
         data-slot="dropdown-menu-content"
         sideOffset={sideOffset}
         className={cn(
-          'dropdown-menu show origin-[var(--radix-popper-transform-origin)]',
+          'dropdown-menu show relative origin-[var(--radix-popper-transform-origin)]',
           'duration-150 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
           'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
           className
