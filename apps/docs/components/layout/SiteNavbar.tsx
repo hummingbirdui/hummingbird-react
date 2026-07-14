@@ -126,9 +126,11 @@ export function SiteNavbar() {
           />
           <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex"></div>
           <DarkThemeToggle />
-          <div className="ms-1.5">
-            <ThemeDropdown />
-          </div>
+          {pathname !== "/" && (
+            <div className="ms-1.5">
+              <ThemeDropdown />
+            </div>
+          )}
           <Button
             asChild
             variant="subtle"

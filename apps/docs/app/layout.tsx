@@ -9,6 +9,7 @@ const figtree = Figtree({
 });
 import { ThemeModeScript } from "@hummingbirdui/react";
 import { MainThemeScript } from "@/components/layout/MainThemeScript";
+import { MainThemeController } from "@/components/layout/MainThemeController";
 import { SiteNavbar } from "@/components/layout/SiteNavbar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <MainThemeScript />
       </head>
       <body className="min-h-screen flex flex-col bg-default text-default">
+        <MainThemeController />
         <SiteNavbar />
         <div className="flex-1">{children}</div>
         <SiteFooter />
