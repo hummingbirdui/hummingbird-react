@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/sections/common/SectionHeader";
+import SectionHeader from "@/components/common/SectionHeader";
 import { blocks } from "@/data/landing/blocks";
 import { Button } from "@hummingbirdui/react";
 

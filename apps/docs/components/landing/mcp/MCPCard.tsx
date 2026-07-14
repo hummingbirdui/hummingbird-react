@@ -1,4 +1,4 @@
-import GradientBorderBox from "@/components/sections/common/GradientBorderBox";
+import GradientBorderBox from "@/components/common/GradientBorderBox";
 
 interface MCPCardProps {
   borderColor: string;

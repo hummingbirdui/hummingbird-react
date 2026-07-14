@@ -1,4 +1,4 @@
-import CopyButton from "@/components/sections/common/CopyButton";
+import CopyButton from "@/components/common/CopyButton";
 
 const CodeSample = () => {
   return (

@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/sections/common/SectionHeader";
+import SectionHeader from "@/components/common/SectionHeader";
 import CodeSample from "./CodeSample";
 import CodePreview from "./CodePreview";
 

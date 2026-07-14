@@ -5,14 +5,15 @@ import { Navigation } from "swiper/modules";
 import { themes } from "@/data/landing/themes";
 import ChevronLeftIcon from "@/components/icons/ChevronLeftIcon";
 import ChevronRightIcon from "@/components/icons/ChevronRightIcon";
-
-import "./styles.css";
-
-// Import Swiper styles
-import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css";
 
-const ThemeSlider = () => {
+interface ThemeSliderProps {
+  selectedTheme: string;
+  onThemeChange: (theme: string) => void;
+}
+
+const ThemeSlider = ({ selectedTheme, onThemeChange }: ThemeSliderProps) => {
   const swiperRef = useRef<SwiperClass | null>(null);
   const [isSlideBegin, setIsSlideBegin] = useState(true);
   const [isSlideEnd, setIsSlideEnd] = useState(false);
@@ -26,18 +27,19 @@ const ThemeSlider = () => {
   const handleNext = () => {
     if (swiperRef.current) {
       swiperRef.current.slideNext();
-      console.log(isSlideEnd);
     }
   };
 
+  console.log(selectedTheme);
+
   return (
-    <div className="relative mx-auto max-w-148 sm:max-w-172 lg:max-w-205">
+    <div className="relative mx-auto max-w-148 sm:max-w-172 lg:max-w-205 mb-6">
       <Swiper
         modules={[Navigation]}
         freeMode={true}
         slidesPerView="auto"
         spaceBetween={10}
-        className="mySwiper w-full h-full"
+        className="size-full"
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
           setIsSlideBegin(swiper.isBeginning);
@@ -49,10 +51,12 @@ const ThemeSlider = () => {
         }}
       >
         {themes.map((theme) => (
-          <SwiperSlide
-            className="flex items-center justify-center w-auto!"
-          >
-            <button className="w-full flex items-center gap-3 rounded-lg border border-subtle bg-default px-2 py-1.75 transition-colors shrink-0">
+          <SwiperSlide className="flex items-center justify-center w-auto!">
+            <button
+              onClick={() => onThemeChange(theme.toLowerCase())}
+              data-theme={theme.toLowerCase()}
+              className={`flex items-center gap-3 rounded-lg border px-2 py-1.75 ${selectedTheme === theme ? "border-primary" : "border-subtle"}`}
+            >
               <div className="size-6 rounded bg-primary shrink-0" />
               <span className="text-default capitalize">{theme}</span>
             </button>
