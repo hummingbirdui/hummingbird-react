@@ -24,6 +24,7 @@ Here is a quick overview of the available prebuilt themes:
     <TableRow>
       <TableHead>Name</TableHead>
       <TableHead>Description</TableHead>
+      <TableHead>Preview</TableHead>
     </TableRow>
   </TableHeader>
   <TableBody>
@@ -33,11 +34,17 @@ Here is a quick overview of the available prebuilt themes:
         The signature Hummingbird theme with balanced neutrals and vibrant blue
         accents.
       </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="default" swatchClassName="size-7" />
+      </TableCell>
     </TableRow>
     <TableRow>
       <TableCell className="font-semibold">Luxury</TableCell>
       <TableCell>
         Rich maroon and golden tones crafted for a refined, premium appearance.
+      </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="luxury" swatchClassName="size-7" />
       </TableCell>
     </TableRow>
     <TableRow>
@@ -45,17 +52,26 @@ Here is a quick overview of the available prebuilt themes:
       <TableCell>
         Warm vintage-inspired colors that bring a classic and timeless feel.
       </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="retro" swatchClassName="size-7" />
+      </TableCell>
     </TableRow>
     <TableRow>
       <TableCell className="font-semibold">Arctic</TableCell>
       <TableCell>
         Cool blues and frosty tones inspired by modern winter landscapes.
       </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="arctic" swatchClassName="size-7" />
+      </TableCell>
     </TableRow>
     <TableRow>
       <TableCell className="font-semibold">Nature</TableCell>
       <TableCell>
         Fresh greens and earthy shades inspired by the natural world.
+      </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="nature" swatchClassName="size-7" />
       </TableCell>
     </TableRow>
     <TableRow>
@@ -64,6 +80,9 @@ Here is a quick overview of the available prebuilt themes:
         Deep purples and vivid pinks designed for bold, high-contrast
         interfaces.
       </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="dracula" swatchClassName="size-7" />
+      </TableCell>
     </TableRow>
     <TableRow>
       <TableCell className="font-semibold">Ember</TableCell>
@@ -71,11 +90,17 @@ Here is a quick overview of the available prebuilt themes:
         Warm oranges and amber tones that create an energetic, glowing
         aesthetic.
       </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="ember" swatchClassName="size-7" />
+      </TableCell>
     </TableRow>
     <TableRow>
       <TableCell className="font-semibold">Midnight</TableCell>
       <TableCell>
         Deep blues and indigos designed for calm, modern dark experiences.
+      </TableCell>
+      <TableCell>
+        <ThemeSwatches theme="midnight" swatchClassName="size-7" />
       </TableCell>
     </TableRow>
   </TableBody>
@@ -338,13 +363,6 @@ Defining new theme variables in these namespaces will make new corresponding uti
       <TableCell>
         Color utilities like `bg-primary-light`, `text-primary-dark`, and many
         more
-      </TableCell>
-      <TableCell>
-        <div class="flex gap-1" data-theme="luxury">
-          <div class="size-7 rounded border border-default bg-primary"></div>
-          <div class="size-7 rounded border border-default bg-secondary"></div>
-          <div class="size-7 rounded border border-default bg-default"></div>
-        </div>
       </TableCell>
     </TableRow>
     <TableRow>

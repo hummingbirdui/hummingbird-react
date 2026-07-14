@@ -69,6 +69,7 @@ import {
 import { ComponentPreview } from "@/components/docs/ComponentPreview";
 import { MdxCodeBlock } from "@/components/docs/MdxCodeBlock";
 import { PropsTable } from "@/components/docs/PropsTable";
+import { ThemeSwatches } from "@/components/docs/ThemeSwatches";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -153,6 +154,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ComponentPreview: (props: any) => <ComponentPreview {...props} />,
 
     PropsTable: (props: any) => <PropsTable {...props} />,
+    ThemeSwatches: (props: any) => <ThemeSwatches {...props} />,
     pre: (props: any) => <MdxCodeBlock {...props} />,
   };
 }
