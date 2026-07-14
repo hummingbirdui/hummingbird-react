@@ -40,7 +40,7 @@ const Blocks = () => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Button variant="subtle" sx={{ mx: "auto" }}>
+        <Button variant="subtle">
           View all Blocks
           <svg
             width="20"
