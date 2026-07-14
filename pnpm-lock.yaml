@@ -42,6 +42,9 @@ importers:
       '@hummingbirdui/react':
         specifier: workspace:^
         version: link:../../packages/hummingbird-react
+      '@types/react-frame-component':
+        specifier: ^4.1.6
+        version: 4.1.6
       fumadocs-core:
         specifier: ^16.10.4
         version: 16.10.7(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.4)(@types/mdast@4.0.4)(@types/react@19.2.2)(lucide-react@1.23.0(react@19.2.7))(next@16.2.10(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(zod@4.4.3)
@@ -60,9 +63,15 @@ importers:
       react-dom:
         specifier: ^19.2.7
         version: 19.2.7(react@19.2.7)
+      react-frame-component:
+        specifier: ^5.3.2
+        version: 5.3.2(prop-types@15.8.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       rehype-autolink-headings:
         specifier: ^7.1.0
         version: 7.1.0
+      swiper:
+        specifier: ^14.0.5
+        version: 14.0.5
       tw-animate-css:
         specifier: ^1.4.0
         version: 1.4.0
@@ -2161,6 +2170,9 @@ packages:
     peerDependencies:
       '@types/react': ^19.2.0
 
+  '@types/react-frame-component@4.1.6':
+    resolution: {integrity: sha512-Q99Hv1ky8sdoTIZw5YLGDbbWOcCdwRemxQ7BUU/ypLw2LZ6maov3EuztH5cyBUB4Lnd4MXF/6zwBYQhD/C+Vrg==}
+
   '@types/react@19.2.2':
     resolution: {integrity: sha512-6mDvHUFSjyT2B2yeNx2nUgMxh9LtOWvkhIU3uePn2I2oyNymUAX1NIsdgviM4CH+JSrp2D2hsMvJOkxY+0wNRA==}
 
@@ -3933,6 +3945,13 @@ packages:
     peerDependencies:
       react: ^19.2.7
 
+  react-frame-component@5.3.2:
+    resolution: {integrity: sha512-ce0/9xAnnkLDY6zxnTegP3Yjchw5z9aEaz0qKEGecrdnh3nAnQ5kehO84sNeLj3wQPB5ZM0OoVVQDQilhaE/5Q==}
+    peerDependencies:
+      prop-types: ^15.8.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react: '>= 16.8 || ^17.0.0 || ^18.0.0 || ^19.0.0'
+      react-dom: '>= 16.8 || ^17.0.0 || ^18.0.0 || ^19.0.0'
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -4268,6 +4287,10 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  swiper@14.0.5:
+    resolution: {integrity: sha512-SMSKS0sj+lPIFzngfIKb5cyBtzmAuJw7rXgXdyYiDReb+pSpJXuNljHYgT4DXa5Stnl2Ew2/Lam5ipv4PIqZ7A==}
+    engines: {node: '>= 4.7.0'}
 
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
@@ -6392,6 +6415,10 @@ snapshots:
       undici-types: 6.21.0
 
   '@types/react-dom@19.2.2(@types/react@19.2.2)':
+    dependencies:
+      '@types/react': 19.2.2
+
+  '@types/react-frame-component@4.1.6':
     dependencies:
       '@types/react': 19.2.2
 
@@ -8792,6 +8819,12 @@ snapshots:
       react: 19.2.7
       scheduler: 0.27.0
 
+  react-frame-component@5.3.2(prop-types@15.8.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+    dependencies:
+      prop-types: 15.8.1
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
+
   react-is@16.13.1: {}
 
   react-is@17.0.2: {}
@@ -9277,6 +9310,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swiper@14.0.5: {}
 
   symbol-tree@3.2.4: {}
 

@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+interface TwitterIconProps extends SVGProps<SVGSVGElement> {
+  width?: string;
+  height?: string;
+  className?: string;
+  fill?: string;
+}
+
+const TwitterIcon = ({
+  width = "20",
+  height = "20",
+  className = "",
+  fill = "currentColor",
+  ...rest
+}: TwitterIconProps) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      {...rest}
+    >
+      <path
+        d="M11.3399 8.89916L16.5761 2.8125H15.3353L10.7888 8.09761L7.15734 2.8125H2.96875L8.46 10.8044L2.96875 17.1875H4.2096L9.01085 11.606L12.8461 17.1875H17.0347L11.3393 8.89916H11.3399ZM9.64019 10.8749L9.08388 10.0791L4.65666 3.74659H6.56279L10.1356 8.8569L10.6919 9.6527L15.3358 16.2957H13.4297L9.64019 10.8749Z"
+        fill={fill}
+      ></path>
+    </svg>
+  );
+};
+
+export default TwitterIcon;
