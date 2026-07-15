@@ -130,8 +130,7 @@ Redefine theme variables by declaring them in `@theme` after importing Hummingbi
 
 ```css
 @import "tailwindcss";
-@import "@hummingbirdui/hummingbird";
-@source "../node_modules/@hummingbirdui/react";
+@import "@hummingbirdui/react";
 
 @theme {
   --color-primary: oklch(65.2% 0.19 253.205);
@@ -341,7 +340,7 @@ Use this function to adjust the opacity of a color:
 }
 ```
 
-<Alert color="warning">These functions only work at build time.</Alert>
+<HbAlert color="warning">These functions only work at build time.</HbAlert>
 
 ## Tailwind theme variable namespaces
 
