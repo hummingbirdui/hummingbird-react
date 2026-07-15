@@ -36,5 +36,11 @@
     "eslint": "^9.39.1",
     "gh-pages": "^6.3.0",
     "zod": "^4.4.3"
-  }
+  },
+  "browserslist": [
+    "chrome >= 111",
+    "edge >= 111",
+    "firefox >= 113",
+    "safari >= 16.4"
+  ]
 }

@@ -66,10 +66,13 @@ import {
   TableCell,
   TableCaption,
 } from "@hummingbirdui/react/table";
+import { ColorPalette } from "@/components/docs/ColorPalette";
 import { ComponentPreview } from "@/components/docs/ComponentPreview";
+import { CssFileCode } from "@/components/docs/CssFileCode";
 import { MdxCodeBlock } from "@/components/docs/MdxCodeBlock";
 import { PropsTable } from "@/components/docs/PropsTable";
 import { ThemeSwatches } from "@/components/docs/ThemeSwatches";
+import HbAlert from "./components/docs/HbAlert";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -154,7 +157,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ComponentPreview: (props: any) => <ComponentPreview {...props} />,
 
     PropsTable: (props: any) => <PropsTable {...props} />,
+    HbAlert: ({ color, ...rest }) => <HbAlert color={color} {...rest} />,
     ThemeSwatches: (props: any) => <ThemeSwatches {...props} />,
+    ColorPalette: (props: any) => <ColorPalette {...props} />,
+    CssFileCode: (props: any) => <CssFileCode {...props} />,
     pre: (props: any) => <MdxCodeBlock {...props} />,
   };
 }
