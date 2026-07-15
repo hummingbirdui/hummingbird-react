@@ -43,7 +43,7 @@ const FaqTabs = () => {
       </div>
 
       {faqTabs.map((item) => (
-        <TabsContent value={item.value}>
+        <TabsContent key={item.value} value={item.value}>
           <FaqAccordion />
         </TabsContent>
       ))}
