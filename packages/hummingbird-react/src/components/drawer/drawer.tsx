@@ -58,6 +58,7 @@ function DrawerContent({ className, overlay = true, children, ...props }: Drawer
         )}
         {...props}
       >
+        <div className="mx-auto mt-4 hidden h-1.5 w-12 shrink-0 rounded-full bg-highlight group-data-[vaul-drawer-direction=bottom]/drawer-content:block" />
         {children}
       </DrawerPrimitive.Content>
     </DrawerPortal>
