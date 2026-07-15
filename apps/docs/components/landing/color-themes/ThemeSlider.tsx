@@ -33,7 +33,7 @@ const ThemeSlider = ({ selectedTheme, onThemeChange }: ThemeSliderProps) => {
   console.log(selectedTheme);
 
   return (
-    <div className="relative mx-auto max-w-148 sm:max-w-172 lg:max-w-205 mb-6">
+    <div className="relative w-full sm:w-85/100 lg:w-89/100 mx-auto mb-6">
       <Swiper
         modules={[Navigation]}
         freeMode={true}

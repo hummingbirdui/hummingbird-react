@@ -19,21 +19,23 @@ const ColorThemes = () => {
   }, []);
 
   return (
-    <div className="py-20">
+    <div className="px-6 py-20">
       <SectionHeader
         title="Color themes, perfected."
         subtitle="Hummingbird offers a range of thoughtfully crafted themes with balanced colors, smooth transitions, and a consistent UI"
       />
 
-      <ThemeSlider selectedTheme={theme} onThemeChange={setTheme} />
+      <div className="mx-auto max-w-148 sm:max-w-172 lg:max-w-236">
+        <ThemeSlider selectedTheme={theme} onThemeChange={setTheme} />
 
-      <IframePreview
-        theme={theme}
-        onReady={initThemeComparison}
-        className="h-134.5 max-w-148 sm:max-w-172 lg:max-w-236 mx-auto rounded-4xl"
-      >
-        <ThemeComparison />
-      </IframePreview>
+        <IframePreview
+          theme={theme}
+          onReady={initThemeComparison}
+          className="h-120 sm:h-182.5 lg:h-134.5 w-full rounded-4xl"
+        >
+          <ThemeComparison />
+        </IframePreview>
+      </div>
     </div>
   );
 };

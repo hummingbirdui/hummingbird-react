@@ -1,4 +1,4 @@
-import Blocks from "@/components/landing/Blocks";
+import Blocks from "@/components/landing/blocks";
 import CodeExample from "@/components/landing/code-example";
 import ColorThemes from "@/components/landing/color-themes";
 import CTA from "@/components/landing/CTA";
@@ -9,18 +9,16 @@ import MCP from "@/components/landing/mcp";
 
 const Landing = () => {
   return (
-    <div className="px-6 sm:px-10">
-      <div className="max-w-8xl mx-auto overflow-hidden">
-        <Hero />
-        <Features />
-        <CodeExample />
-        <ColorThemes />
-        <MCP />
-        <Blocks />
-        <Faqs />
-        <CTA />
-      </div>
-    </div>
+    <>
+      <Hero />
+      <Features />
+      <CodeExample />
+      <ColorThemes />
+      <MCP />
+      <Blocks />
+      <Faqs />
+      <CTA />
+    </>
   );
 };
 

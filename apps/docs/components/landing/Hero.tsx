@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center py-28">
+    <div className="px-6 py-28 flex flex-col items-center">
       <a href="#!">
         <Badge variant="subtle" size="lg" className="gap-2 p-[3.5px] mb-8">
           <svg
@@ -37,15 +37,15 @@ const Hero = () => {
         </Badge>
       </a>
 
-      <h1 className="text-8xl text-center font-medium tracking-[-5px] leading-[1.05] mb-6">
-        Modern React
+      <h1 className="text-5xl lg:text-8xl text-center font-medium tracking-[-2px] lg:tracking-[-5px] leading-[1.05] mb-6">
+        Modern React{" "}
         <svg
           width="70"
           height="70"
           viewBox="0 0 70 70"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="inline-block -mt-3 ms-4 me-3"
+          className="-mt-3 ms-2 me-3 hidden md:inline-block"
         >
           <rect
             x="0.336538"
@@ -84,7 +84,10 @@ const Hero = () => {
               y2="45.9291"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="currentColor" className="text-(--background-color-muted)" />
+              <stop
+                stopColor="currentColor"
+                className="text-(--background-color-muted)"
+              />
               <stop offset="1" stopColor="#4DA7FF" />
             </linearGradient>
             <clipPath id="clip0_38349_36136">
@@ -101,11 +104,19 @@ const Hero = () => {
         for Real-World Applications
       </h1>
 
-      <p className="text-xl text-center tracking-tighter max-w-180 mb-14">Build polished interfaces faster with reusable components, production-ready templates, multiple themes, and comprehensive documentation—all powered by Hummingbird.</p>
+      <p className="text-xl text-muted text-center tracking-tighter max-w-180 mb-14">
+        Build polished interfaces faster with reusable components,
+        production-ready templates, multiple themes, and comprehensive
+        documentation—all powered by Hummingbird.
+      </p>
 
       <div className="flex items-center gap-4">
-        <Button size="lg" asChild><Link href="#!">Get started</Link></Button>
-        <Button size="lg" color="light" asChild><Link href="#!">View components</Link></Button>
+        <Button size="lg" asChild>
+          <Link href="#!">Get started</Link>
+        </Button>
+        <Button size="lg" color="light" asChild>
+          <Link href="#!">View components</Link>
+        </Button>
       </div>
     </div>
   );

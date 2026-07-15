@@ -1,42 +1,20 @@
 import SectionHeader from "@/components/common/SectionHeader";
 import { blocks } from "@/data/landing/blocks";
 import { Button } from "@hummingbirdui/react";
+import BlockCard from "./BlockCard";
 
 const Blocks = () => {
   return (
-    <div className="py-18">
+    <div className="px-6 py-18">
       <SectionHeader
         title="Production-ready Blocks, out of the box"
         subtitle="Hummingbird provides production-ready Blocks. Filter by category or use-case to find what you need."
         className="max-w-107!"
       />
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto my-10">
         {blocks.slice(0, 8).map((block) => (
-          <a
-            key={block.title}
-            href={`/blocks${block.href}`}
-            className="card card-action max-sm:max-w-70 mx-auto flex flex-col h-full w-full rounded-2xl bg-default overflow-hidden hover:border-primary"
-          >
-            <div className="grow flex items-center justify-center bg-subtle p-4 aspect-4/3">
-              <img
-                src={block?.image?.light}
-                className="dark:hidden"
-                alt={block.title}
-              />
-              <img
-                src={block?.image?.dark}
-                className="hidden dark:flex"
-                alt={block.title}
-              />
-            </div>
-            <div className="px-4 py-3">
-              <h6 className="card-title mb-0.5 text-base font-semibold">
-                {block.title}
-              </h6>
-              <p className="mb-0 text-xs text-muted">{block.count} blocks</p>
-            </div>
-          </a>
+          <BlockCard key={block.title} data={block} />
         ))}
       </div>
       <div className="flex justify-center">

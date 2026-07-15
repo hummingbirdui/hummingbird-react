@@ -1,10 +1,10 @@
-import SectionHeader from "@/components/common/SectionHeader";
 import { features } from "@/data/landing/features";
+import SectionHeader from "@/components/common/SectionHeader";
 import FeatureCard from "./FeatureCard";
 
 const Features = () => {
   return (
-    <div className="pt-16 pb-20">
+    <div className="px-6 pt-16 pb-20">
       <SectionHeader
         title="Every detail, considered."
         subtitle="We built the UI system we always wanted - one that prioritizes clean code, a minimal footprint, and a developer experience that's a joy, not a chore."
