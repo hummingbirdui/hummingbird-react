@@ -1,4 +1,4 @@
-interface Block {
+export interface Block {
   title: string;
   count: number;
   href: string;
