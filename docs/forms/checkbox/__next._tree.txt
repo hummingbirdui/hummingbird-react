@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/2y5rdw4l3xspd.css","style"]
-:HL["/_next/static/chunks/1ccl1bn81armb.css","style"]
+:HL["/_next/static/chunks/34n5_wh4tzzn6.css","style"]
 :HL["/_next/static/media/f7aa21714c1c53f8-s.p.0-95eo-012xnf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logos/themewagon.svg","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/os.png","image"]
@@ -7,4 +7,4 @@
 :HL["/images/logos/onedesk-dark.svg","image"]
 :HL["/images/logos/onedesk.svg","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/gn.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"docs","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"oc","key":"forms/checkbox","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"E6A-Zvmh_EW-MCoN2oJLZ"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"docs","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"oc","key":"forms/checkbox","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"eJRxMPUQUdCIJ-nO3Ngm2"}
