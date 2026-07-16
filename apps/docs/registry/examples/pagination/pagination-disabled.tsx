@@ -15,9 +15,7 @@ export default function PaginationDisabled() {
           <PaginationLink href="#">Prev</PaginationLink>
         </PaginationItem>
         <PaginationItem active>
-          <PaginationLink active href="#">
-            1
-          </PaginationLink>
+          <PaginationLink href="#">1</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">2</PaginationLink>

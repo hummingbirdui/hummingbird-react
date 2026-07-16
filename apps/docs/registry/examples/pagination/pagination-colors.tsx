@@ -21,15 +21,13 @@ export default function PaginationColors() {
   return (
     <div className="flex flex-col gap-3">
       {colors.map((color) => (
-        <Pagination key={color}>
-          <PaginationContent color={color}>
+        <Pagination key={color} color={color}>
+          <PaginationContent>
             <PaginationItem>
               <PaginationLink href="#">1</PaginationLink>
             </PaginationItem>
             <PaginationItem active>
-              <PaginationLink active href="#">
-                2
-              </PaginationLink>
+              <PaginationLink href="#">2</PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationLink href="#">3</PaginationLink>

@@ -21,9 +21,7 @@ export default function PaginationDefault() {
           <PaginationLink href="#">1</PaginationLink>
         </PaginationItem>
         <PaginationItem active>
-          <PaginationLink active href="#">
-            2
-          </PaginationLink>
+          <PaginationLink href="#">2</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">3</PaginationLink>

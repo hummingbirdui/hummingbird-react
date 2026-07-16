@@ -11,25 +11,25 @@ description: Navigation that splits content across a sequence of numbered pages.
 
 ## Sizes
 
-The `size` prop on `PaginationContent` offers `sm`, `md` (default), and `lg`.
+The `size` prop on `Pagination` offers `sm`, `md` (default), and `lg`.
 
 <ComponentPreview name="pagination-sizes" className="flex justify-center" />
 
 ## Circle
 
-The `shape="circle"` prop on `PaginationContent` renders rounded page links.
+The `shape="circle"` prop on `Pagination` renders rounded page links.
 
 <ComponentPreview name="pagination-circle" className="flex justify-center" />
 
 ## Variants
 
-The `variant` prop on `PaginationContent` sets the active-page treatment: `filled` (default), `subtle`, or `outlined`.
+The `variant` prop on `Pagination` sets the active-page treatment: `filled` (default), `subtle`, or `outlined`.
 
 <ComponentPreview name="pagination-variants" className="flex justify-center" />
 
 ## Colors
 
-The `color` prop on `PaginationContent` conveys intent with `primary` (default), `secondary`, `info`, `success`, `warning`, `danger`, or `neutral`.
+The `color` prop on `Pagination` conveys intent with `primary` (default), `secondary`, `info`, `success`, `warning`, `danger`, or `neutral`.
 
 <ComponentPreview name="pagination-colors" className="flex justify-center" />
 
@@ -43,25 +43,7 @@ The `disabled` prop on `PaginationItem` mutes and deactivates a control such as 
 
 ### Pagination
 
-The accessible `<nav>` wrapper accepts only `asChild` and `className`.
-
-<PropsTable
-  data={[
-    {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as a child element instead of the default.",
-    },
-    {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
-    },
-  ]}
-/>
-
-### PaginationContent
+The accessible `<nav>` wrapper. Variant props set here apply to the whole pagination.
 
 <PropsTable
   data={[
@@ -103,6 +85,26 @@ The accessible `<nav>` wrapper accepts only `asChild` and `className`.
   ]}
 />
 
+### PaginationContent
+
+The `<ul>` list of page items.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
 ### PaginationItem
 
 <PropsTable
@@ -111,7 +113,8 @@ The accessible `<nav>` wrapper accepts only `asChild` and `className`.
       prop: "active",
       type: "boolean",
       default: "false",
-      description: "Marks the item as the current page.",
+      description:
+        'Marks the item as the current page and sets aria-current="page" on its link.',
     },
     {
       prop: "disabled",
@@ -135,14 +138,11 @@ The accessible `<nav>` wrapper accepts only `asChild` and `className`.
 
 ### PaginationLink
 
+Inherits the current-page state from its parent `PaginationItem` and sets
+`aria-current="page"` automatically.
+
 <PropsTable
   data={[
-    {
-      prop: "active",
-      type: "boolean",
-      default: "false",
-      description: "Marks the link as the current page for assistive tech.",
-    },
     {
       prop: "asChild",
       type: "boolean",

@@ -10,8 +10,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function PaginationCircle() {
   return (
-    <Pagination>
-      <PaginationContent shape="circle">
+    <Pagination shape="circle">
+      <PaginationContent>
         <PaginationItem disabled>
           <PaginationLink href="#">
             <ChevronLeft className="size-4" />
@@ -21,9 +21,7 @@ export default function PaginationCircle() {
           <PaginationLink href="#">1</PaginationLink>
         </PaginationItem>
         <PaginationItem active>
-          <PaginationLink active href="#">
-            2
-          </PaginationLink>
+          <PaginationLink href="#">2</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">3</PaginationLink>

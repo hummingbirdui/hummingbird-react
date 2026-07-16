@@ -11,8 +11,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function PaginationSizes() {
   return (
     <div className="flex flex-col gap-3">
-      <Pagination>
-        <PaginationContent size="sm">
+      <Pagination size="sm">
+        <PaginationContent>
           <PaginationItem disabled>
             <PaginationLink href="#">
               <ChevronLeft className="size-4" />
@@ -22,9 +22,7 @@ export default function PaginationSizes() {
             <PaginationLink href="#">1</PaginationLink>
           </PaginationItem>
           <PaginationItem active>
-            <PaginationLink active href="#">
-              2
-            </PaginationLink>
+            <PaginationLink href="#">2</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#">3</PaginationLink>
@@ -47,9 +45,7 @@ export default function PaginationSizes() {
             <PaginationLink href="#">1</PaginationLink>
           </PaginationItem>
           <PaginationItem active>
-            <PaginationLink active href="#">
-              2
-            </PaginationLink>
+            <PaginationLink href="#">2</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#">3</PaginationLink>
@@ -61,8 +57,8 @@ export default function PaginationSizes() {
           </PaginationItem>
         </PaginationContent>
       </Pagination>
-      <Pagination>
-        <PaginationContent size="lg">
+      <Pagination size="lg">
+        <PaginationContent>
           <PaginationItem disabled>
             <PaginationLink href="#">
               <ChevronLeft className="size-4" />
@@ -72,9 +68,7 @@ export default function PaginationSizes() {
             <PaginationLink href="#">1</PaginationLink>
           </PaginationItem>
           <PaginationItem active>
-            <PaginationLink active href="#">
-              2
-            </PaginationLink>
+            <PaginationLink href="#">2</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#">3</PaginationLink>
