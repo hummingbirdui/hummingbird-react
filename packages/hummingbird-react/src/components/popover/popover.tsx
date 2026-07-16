@@ -48,12 +48,22 @@ function PopoverContent({
         {...props}
       >
         {children}
-        <PopoverPrimitive.Arrow
-          data-slot="popover-arrow"
-          width={14}
-          height={7}
-          className="fill-[var(--popover-bg)]"
-        />
+        <PopoverPrimitive.Arrow data-slot="popover-arrow" asChild>
+          <span className="relative block h-[7px] w-3.5">
+            <span
+              className={cn(
+                'absolute top-0 left-0 block size-0 border-x-[7px] border-t-[7px] border-x-transparent',
+                'border-t-[color:var(--popover-arrow-border-color)]'
+              )}
+            />
+            <span
+              className={cn(
+                'absolute left-0 top-[calc(-1*var(--popover-border-width))] block size-0 border-x-[7px] border-t-[7px] border-x-transparent',
+                'border-t-[color:var(--popover-bg)]'
+              )}
+            />
+          </span>
+        </PopoverPrimitive.Arrow>
       </PopoverPrimitive.Content>
     </PopoverPrimitive.Portal>
   );

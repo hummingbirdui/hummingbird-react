@@ -79,11 +79,13 @@ describe('Popover', () => {
       expect(content).toHaveClass('popover');
     });
 
-    it('renders an arrow filled with the popover background token', async () => {
+    it('renders a bordered arrow using the popover tokens', async () => {
       await openPopover(<Example />);
       const arrow = document.querySelector('[data-slot="popover-arrow"]') as HTMLElement;
       expect(arrow).toBeInTheDocument();
-      expect(arrow).toHaveClass('fill-[var(--popover-bg)]');
+      const [borderTriangle, bgTriangle] = Array.from(arrow.querySelectorAll('span'));
+      expect(borderTriangle).toHaveClass('border-t-[color:var(--popover-arrow-border-color)]');
+      expect(bgTriangle).toHaveClass('border-t-[color:var(--popover-bg)]');
     });
 
     it('applies the popover header/body classes', async () => {
