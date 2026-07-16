@@ -1,11 +1,11 @@
 import { Faq } from "@/data/landing/faqs";
 import {
+  Button,
   Accordion,
   AccordionItem,
   AccordionHeader,
   AccordionTrigger,
   AccordionContent,
-  Button,
 } from "@hummingbirdui/react";
 import { ChevronDown } from "lucide-react";
 
@@ -26,14 +26,9 @@ const FaqAccordion = ({ faqs }: FaqAccordionProps) => {
           <AccordionHeader>
             <AccordionTrigger className="after:hidden">
               {item.question}
-              <Button
-                size="sm"
-                shape="circle"
-                color="light"
-                className="accordion-chevron"
-              >
+              <div className="btn btn-sm btn-light btn-circle border accordion-chevron">
                 <ChevronDown className="size-4.5" />
-              </Button>
+              </div>
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionContent>{item.answer}</AccordionContent>

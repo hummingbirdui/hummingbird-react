@@ -3,6 +3,7 @@ import Members from "./components/Members";
 import EarningChart from "./components/EarningChart";
 import SemanticColors from "./components/SemanticColors";
 import MeetingExpenses from "./components/MeetingExpenses";
+import { Button } from "@hummingbirdui/react";
 
 const ThemeComparison = () => {
   return (
@@ -66,7 +67,7 @@ const ThemeComparison = () => {
         data-resize-slider
         className="absolute top-0 left-1/2 h-full w-0.75 bg-primary cursor-col-resize flex items-center justify-center"
       >
-        <button className="absolute btn btn-primary btn-icon rounded-full border border-white dark:border-primary-lighter cursor-ew-resize shadow-md">
+        <Button shape="circle" className="absolute rounded-full border-white dark:border-primary-lighter cursor-ew-resize shadow-md">
           <svg
             width="21"
             height="21"
@@ -79,7 +80,7 @@ const ThemeComparison = () => {
               fill="currentColor"
             ></path>
           </svg>
-        </button>
+        </Button>
       </div>
     </div>
   );

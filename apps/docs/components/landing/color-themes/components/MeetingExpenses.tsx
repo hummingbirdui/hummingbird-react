@@ -1,10 +1,12 @@
+import { Button } from "@hummingbirdui/react";
+
 const MeetingExpenses = () => {
   return (
     <div className="card border-subtle rounded-2xl h-full">
       <div className="card-body flex flex-col">
         <div className="flex items-center justify-between border-subtle mb-6">
           <h6 className="card-title text-base mb-0">Meeting Expenses</h6>
-          <button className="btn btn-sm btn-square btn-text-neutral">
+          <Button variant="text" size="sm" shape="square" color="neutral">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -18,7 +20,7 @@ const MeetingExpenses = () => {
                 stroke="currentColor"
               />
             </svg>
-          </button>
+          </Button>
         </div>
         <div className="flex items-center gap-2 mb-2">
           <p className="mb-0 text-base font-medium">Spent:</p>
