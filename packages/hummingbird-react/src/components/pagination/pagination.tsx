@@ -1,27 +1,9 @@
+'use client';
+
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
-
-export interface PaginationProps extends React.ComponentProps<'nav'> {
-  asChild?: boolean;
-}
-
-function Pagination({ className, asChild = false, ...props }: PaginationProps) {
-  const Comp = asChild ? Slot.Root : 'nav';
-
-  return (
-    <Comp
-      role="navigation"
-      aria-label="pagination"
-      data-slot="pagination"
-      className={className}
-      {...props}
-    />
-  );
-}
-
-Pagination.displayName = 'Pagination';
 
 const paginationVariants = cva('pagination', {
   variants: {
@@ -72,12 +54,16 @@ const paginationVariants = cva('pagination', {
   },
 });
 
-export interface PaginationContentProps
-  extends Omit<React.ComponentProps<'ul'>, 'color'>, VariantProps<typeof paginationVariants> {
+type PaginationVariants = VariantProps<typeof paginationVariants>;
+
+const PaginationVariantsContext = React.createContext<PaginationVariants>({});
+
+export interface PaginationProps
+  extends Omit<React.ComponentProps<'nav'>, 'color'>, PaginationVariants {
   asChild?: boolean;
 }
 
-function PaginationContent({
+function Pagination({
   className,
   size,
   shape,
@@ -85,19 +71,48 @@ function PaginationContent({
   color,
   asChild = false,
   ...props
-}: PaginationContentProps) {
+}: PaginationProps) {
+  const Comp = asChild ? Slot.Root : 'nav';
+  const variants = React.useMemo(
+    () => ({ size, shape, variant, color }),
+    [size, shape, variant, color]
+  );
+
+  return (
+    <PaginationVariantsContext.Provider value={variants}>
+      <Comp
+        role="navigation"
+        aria-label="pagination"
+        data-slot="pagination"
+        className={className}
+        {...props}
+      />
+    </PaginationVariantsContext.Provider>
+  );
+}
+
+Pagination.displayName = 'Pagination';
+
+export interface PaginationContentProps extends React.ComponentProps<'ul'> {
+  asChild?: boolean;
+}
+
+function PaginationContent({ className, asChild = false, ...props }: PaginationContentProps) {
   const Comp = asChild ? Slot.Root : 'ul';
+  const variants = React.useContext(PaginationVariantsContext);
 
   return (
     <Comp
       data-slot="pagination-content"
-      className={cn(paginationVariants({ size, shape, variant, color }), className)}
+      className={cn(paginationVariants(variants), className)}
       {...props}
     />
   );
 }
 
 PaginationContent.displayName = 'PaginationContent';
+
+const PaginationItemActiveContext = React.createContext(false);
 
 export interface PaginationItemProps extends React.ComponentProps<'li'> {
   active?: boolean;
@@ -115,28 +130,25 @@ function PaginationItem({
   const Comp = asChild ? Slot.Root : 'li';
 
   return (
-    <Comp
-      data-slot="pagination-item"
-      className={cn('page-item', active && 'active', disabled && 'disabled', className)}
-      {...props}
-    />
+    <PaginationItemActiveContext.Provider value={active}>
+      <Comp
+        data-slot="pagination-item"
+        className={cn('page-item', active && 'active', disabled && 'disabled', className)}
+        {...props}
+      />
+    </PaginationItemActiveContext.Provider>
   );
 }
 
 PaginationItem.displayName = 'PaginationItem';
 
 export interface PaginationLinkProps extends React.ComponentProps<'a'> {
-  active?: boolean;
   asChild?: boolean;
 }
 
-function PaginationLink({
-  className,
-  active = false,
-  asChild = false,
-  ...props
-}: PaginationLinkProps) {
+function PaginationLink({ className, asChild = false, ...props }: PaginationLinkProps) {
   const Comp = asChild ? Slot.Root : 'a';
+  const active = React.useContext(PaginationItemActiveContext);
 
   return (
     <Comp

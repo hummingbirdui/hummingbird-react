@@ -11,17 +11,18 @@ import {
 } from './pagination';
 
 // A complete pagination used across the tests.
-function Example(props: React.ComponentProps<typeof PaginationContent>) {
+function Example({
+  contentClassName,
+  ...props
+}: React.ComponentProps<typeof Pagination> & { contentClassName?: string }) {
   return (
-    <Pagination>
-      <PaginationContent {...props}>
+    <Pagination {...props}>
+      <PaginationContent className={contentClassName}>
         <PaginationItem>
           <PaginationLink href="#">Previous</PaginationLink>
         </PaginationItem>
         <PaginationItem active>
-          <PaginationLink href="#" active>
-            1
-          </PaginationLink>
+          <PaginationLink href="#">1</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">2</PaginationLink>
@@ -222,7 +223,7 @@ describe('Pagination', () => {
     });
 
     it('merges className on the content list', () => {
-      render(<Example className="custom-list" />);
+      render(<Example contentClassName="custom-list" />);
       expect(screen.getByRole('list')).toHaveClass(
         'pagination',
         'pagination-primary',
@@ -301,9 +302,11 @@ describe('Pagination', () => {
 
     it('renders PaginationLink as the supplied child with classes and aria-current', () => {
       render(
-        <PaginationLink asChild active>
-          <button type="button">1</button>
-        </PaginationLink>
+        <PaginationItem active>
+          <PaginationLink asChild>
+            <button type="button">1</button>
+          </PaginationLink>
+        </PaginationItem>
       );
       const button = screen.getByRole('button', { name: '1' });
       expect(button).toHaveClass('page-link');
