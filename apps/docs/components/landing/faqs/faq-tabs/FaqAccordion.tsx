@@ -1,48 +1,44 @@
+import { Faq } from "@/data/landing/faqs";
 import {
   Accordion,
   AccordionItem,
   AccordionHeader,
   AccordionTrigger,
   AccordionContent,
+  Button,
 } from "@hummingbirdui/react";
+import { ChevronDown } from "lucide-react";
 
-const FaqAccordion = () => {
+interface FaqAccordionProps {
+  faqs: Faq[];
+}
+
+const FaqAccordion = ({ faqs }: FaqAccordionProps) => {
   return (
     <Accordion
       type="single"
       collapsible
-      defaultValue="item-1"
+      defaultValue={faqs[0].question}
       className="mx-auto max-w-3xl"
     >
-      <AccordionItem value="item-1">
-        <AccordionHeader>
-          <AccordionTrigger>What is Hummingbird UI?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>
-          Hummingbird UI is a class-based design system. Components ship their
-          looks as semantic CSS classes and use Radix UI primitives for
-          behavior.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionHeader>
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>
-          Yes. The Accordion is built on Radix UI&apos;s headless primitive, so
-          keyboard navigation and ARIA wiring are handled for you.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionHeader>
-          <AccordionTrigger>Can multiple panels stay open?</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>
-          Use <code>type=&quot;multiple&quot;</code> to let several items expand
-          at once, or <code>type=&quot;single&quot;</code> with{" "}
-          <code>collapsible</code> to allow closing the open item.
-        </AccordionContent>
-      </AccordionItem>
+      {faqs.map((item) => (
+        <AccordionItem key={item.question} value={item.question}>
+          <AccordionHeader>
+            <AccordionTrigger className="after:hidden">
+              {item.question}
+              <Button
+                size="sm"
+                shape="circle"
+                color="light"
+                className="accordion-chevron"
+              >
+                <ChevronDown className="size-4.5" />
+              </Button>
+            </AccordionTrigger>
+          </AccordionHeader>
+          <AccordionContent>{item.answer}</AccordionContent>
+        </AccordionItem>
+      ))}
     </Accordion>
   );
 };

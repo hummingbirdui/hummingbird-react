@@ -126,19 +126,19 @@
   }
 }
 
-/* tabs */
-
-/* .nav-underline .nav-link {
-  border-bottom: 0;
-  color: var(--text-color-muted);
+/* accordion */
+.accordion-chevron {
+  transition: transform 300ms;
+  margin-left: auto;
+  border-color: var(--border-color-default);
+  background-color: transparent;
+  flex-shrink: 0;
 }
-
-.nav-underline .nav-link.active,
-.nav-underline .show > .nav-link {
-  color: var(--text-color-default);
-  background-color: var(--background-color-default);
-  border-radius: var(--radius-lg);
-} */
+.accordion-button[data-state="open"] > .accordion-chevron {
+  transform: rotate(180deg);
+  border-color: transparent;
+  background-color: var(--background-color-muted);
+}
 
 /* Grid docs demos — mirror the Hummingbird docs' example styling so columns
    are visible inside ComponentPreview (passed via its className prop). */

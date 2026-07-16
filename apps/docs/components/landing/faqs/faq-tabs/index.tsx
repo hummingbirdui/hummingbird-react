@@ -1,29 +1,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@hummingbirdui/react";
+import { faqTabs } from "@/data/landing/faqs";
 import FaqAccordion from "./FaqAccordion";
-
-interface FaqTab {
-  label: string;
-  value: string;
-}
-
-const faqTabs: FaqTab[] = [
-  {
-    label: "General",
-    value: "general",
-  },
-  {
-    label: "Features",
-    value: "features",
-  },
-  {
-    label: "Pricing",
-    value: "pricing",
-  },
-  {
-    label: "Support",
-    value: "support",
-  },
-];
 
 const FaqTabs = () => {
   return (
@@ -44,7 +21,7 @@ const FaqTabs = () => {
 
       {faqTabs.map((item) => (
         <TabsContent key={item.value} value={item.value}>
-          <FaqAccordion />
+          <FaqAccordion faqs={item.faqs} />
         </TabsContent>
       ))}
     </Tabs>

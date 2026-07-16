@@ -4,7 +4,9 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="px-6 py-28 flex flex-col items-center">
+    <div
+      className="px-6 py-28 flex flex-col items-center bg-[url('/images/backgrounds/hero-light.png')] dark:bg-[url('/images/backgrounds/hero-dark.png')] bg-cover bg-no-repeat"
+    >
       <a href="#!">
         <Badge variant="subtle" size="lg" className="gap-2 p-[3.5px] mb-8">
           <Palette />
