@@ -3,13 +3,8 @@ import { Button } from "@hummingbirdui/react";
 const CTA = () => {
   return (
     <div className="px-6 mb-18">
-      <div
-        className="pt-22.5 pb-15 rounded-3xl flex flex-col max-w-8xl mx-auto"
-        style={{
-          background: `linear-gradient(219.48deg, rgba(248, 239, 255, 0.6) 29.18%, rgba(235, 245, 255, 0.6) 71.81%)`,
-        }}
-      >
-        <h1 className="text-center tracking-tighter font-medium mb-4">
+      <div className="px-4 pt-22.5 pb-15 rounded-3xl flex flex-col max-w-8xl mx-auto bg-[url('/images/backgrounds/cta-light.png')] dark:bg-[url('/images/backgrounds/cta-dark.png')] bg-cover bg-no-repeat">
+        <h1 className="text-4xl sm:text-6xl text-center tracking-tighter sm:tracking-[-3px] font-medium mb-4">
           Ship your next project faster
         </h1>
         <p className="text-center text-muted max-w-140 mx-auto mb-8">

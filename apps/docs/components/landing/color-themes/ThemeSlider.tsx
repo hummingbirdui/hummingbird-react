@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper/types";
 import { Navigation } from "swiper/modules";
 import { themes } from "@/data/landing/themes";
+import { Button } from "@hummingbirdui/react";
 import ChevronLeftIcon from "@/components/icons/ChevronLeftIcon";
 import ChevronRightIcon from "@/components/icons/ChevronRightIcon";
 import "swiper/css/navigation";
@@ -65,23 +66,29 @@ const ThemeSlider = ({ selectedTheme, onThemeChange }: ThemeSliderProps) => {
       </Swiper>
 
       <div className="absolute -left-13 top-1/2 z-10 hidden h-full -translate-y-1/2 bg-default sm:block">
-        <button
+        <Button
           onClick={handlePrev}
-          className="btn btn-circle btn-subtle-neutral swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 disabled:cursor-not-allowed disabled:opacity-50"
+          shape="circle"
+          variant="subtle"
+          color="neutral"
+          className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 disabled:cursor-not-allowed disabled:opacity-50"
           disabled={isSlideBegin}
         >
           <ChevronLeftIcon />
-        </button>
+        </Button>
       </div>
 
       <div className="absolute -right-13 top-1/2 z-10 hidden h-full -translate-y-1/2 bg-default text-end sm:block">
-        <button
+        <Button
           onClick={handleNext}
-          className="btn btn-circle btn-subtle-neutral swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 disabled:cursor-not-allowed disabled:opacity-50"
+          shape="circle"
+          variant="subtle"
+          color="neutral"
+          className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 disabled:cursor-not-allowed disabled:opacity-50"
           disabled={isSlideEnd}
         >
           <ChevronRightIcon />
-        </button>
+        </Button>
       </div>
     </div>
   );

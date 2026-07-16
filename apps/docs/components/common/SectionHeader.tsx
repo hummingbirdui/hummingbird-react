@@ -21,7 +21,7 @@ const SectionHeader = ({
         className,
       )}
     >
-      <h1 className="mb-4 text-3xl font-medium tracking-[-2.25px] md:text-4xl lg:text-5xl">
+      <h1 className="mb-4 text-3xl font-medium tracking-tighter sm:tracking-[-2.25px] md:text-4xl lg:text-5xl">
         {title}
       </h1>
 
