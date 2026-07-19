@@ -73,7 +73,7 @@ export const dataDisplay: Component[] = [
 export const dataEntry: Component[] = [
   {
     title: 'Checkbox',
-    url: '/docs/components/checkbox',
+    url: '/docs/forms/checkbox',
     count: 6,
     image: { light: '/images/components/checkbox.svg', dark: '/images/components/checkbox-dark.svg' },
   },
@@ -155,15 +155,15 @@ export const navigation: Component[] = [
     count: 5,
     image: { light: '/images/components/breadcrumb.svg', dark: '/images/components/breadcrumb-dark.svg' },
   },
-  {
-    title: 'Carousel',
-    url: '/docs/components/carousel',
-    count: 9,
-    image: { light: '/images/components/carousel.svg', dark: '/images/components/carousel-dark.svg' },
-  },
+  // {
+  //   title: 'Carousel',
+  //   url: '/docs/components/carousel',
+  //   count: 9,
+  //   image: { light: '/images/components/carousel.svg', dark: '/images/components/carousel-dark.svg' },
+  // },
   {
     title: 'Collapse',
-    url: '/docs/components/collapse',
+    url: '/docs/components/collapsible',
     count: 3,
     image: { light: '/images/components/collapse.svg', dark: '/images/components/collapse-dark.svg' },
   },
