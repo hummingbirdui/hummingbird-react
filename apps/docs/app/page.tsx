@@ -1,11 +1,12 @@
-import Blocks from "@/components/landing/blocks";
 import CodeExample from "@/components/landing/code-example";
 import ColorThemes from "@/components/landing/color-themes";
+import Components from "@/components/landing/components";
 import CTA from "@/components/landing/CTA";
 import Faqs from "@/components/landing/faqs";
 import Features from "@/components/landing/features";
 import Hero from "@/components/landing/Hero";
-import MCP from "@/components/landing/mcp";
+// import Blocks from "@/components/landing/blocks";
+// import MCP from "@/components/landing/mcp";
 
 const Landing = () => {
   return (
@@ -14,8 +15,9 @@ const Landing = () => {
       <Features />
       <CodeExample />
       <ColorThemes />
-      <MCP />
-      <Blocks />
+      {/* <MCP /> */}
+      {/* <Blocks /> */}
+      <Components />
       <Faqs />
       <CTA />
     </>

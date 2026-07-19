@@ -169,7 +169,7 @@ export const SiteFooter = () => {
                   <li key={label} className="text-sm">
                     <a
                       // href={external ? url : getVersionedPath(url)}
-                      href={external ? url : "#!"}
+                      href={url}
                       target={external ? "_blank" : undefined}
                       className="no-underline text-default"
                     >
