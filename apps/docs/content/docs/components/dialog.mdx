@@ -156,8 +156,8 @@ A layer that covers the inert portion of the view when the dialog is open. `Dial
       description: (
         <>
           Used to force mounting when more control is needed. Useful when
-          controlling animation with React animation libraries. It inherits
-          from <code>DialogPortal</code>.
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>DialogPortal</code>.
         </>
       ),
     },
@@ -197,8 +197,8 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
       description: (
         <>
           Used to force mounting when more control is needed. Useful when
-          controlling animation with React animation libraries. It inherits
-          from <code>DialogPortal</code>.
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>DialogPortal</code>.
         </>
       ),
     },
@@ -220,8 +220,8 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
       typeSimple: "function",
       description: (
         <>
-          Event handler called when focus moves to the trigger after closing.
-          It can be prevented by calling <code>event.preventDefault</code>.
+          Event handler called when focus moves to the trigger after closing. It
+          can be prevented by calling <code>event.preventDefault</code>.
         </>
       ),
     },
@@ -242,8 +242,8 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
       typeSimple: "function",
       description: (
         <>
-          Event handler called when a pointer event occurs outside the bounds
-          of the component. It can be prevented by calling{" "}
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
           <code>event.preventDefault</code>.
         </>
       ),
@@ -361,16 +361,6 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
 
 Hummingbird-specific layout part. Renders a `div` with the `modal-header` class for the top area of the dialog.
 
-<PropsTable
-  data={[
-    {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
-    },
-  ]}
-/>
-
 ### DialogTitle
 
 An accessible title to be announced when the dialog is opened. Renders an `h6` element by default.
@@ -417,29 +407,9 @@ An optional accessible description to be announced when the dialog is opened.
 
 Hummingbird-specific layout part. Renders a `div` with the `modal-body` class for the main content of the dialog.
 
-<PropsTable
-  data={[
-    {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
-    },
-  ]}
-/>
-
 ### DialogFooter
 
 Hummingbird-specific layout part. Renders a `div` with the `modal-footer` class, typically containing action buttons.
-
-<PropsTable
-  data={[
-    {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
-    },
-  ]}
-/>
 
 ### DialogClose
 

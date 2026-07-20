@@ -49,7 +49,10 @@ Instead of sizing each column, the `Row` breakpoint props set the number of colu
 
 <ComponentPreview name="grid-row-cols-auto" className="example-row-cols" />
 
-<ComponentPreview name="grid-row-cols-responsive" className="example-row-cols" />
+<ComponentPreview
+  name="grid-row-cols-responsive"
+  className="example-row-cols"
+/>
 
 ## Nesting
 
@@ -65,11 +68,17 @@ Columns can be modified with options for alignment, ordering, and offsetting usi
 
 The `items-start`, `items-center`, and `items-end` classes on `Row` control vertical alignment of all columns.
 
-<ComponentPreview name="grid-align-vertical" className="example-row example-row-flex-cols" />
+<ComponentPreview
+  name="grid-align-vertical"
+  className="example-row example-row-flex-cols"
+/>
 
 The `self-start`, `self-center`, and `self-end` classes control vertical alignment of individual columns.
 
-<ComponentPreview name="grid-align-self" className="example-row example-row-flex-cols" />
+<ComponentPreview
+  name="grid-align-self"
+  className="example-row example-row-flex-cols"
+/>
 
 ### Horizontal alignment
 
@@ -127,24 +136,6 @@ The `g-0` class removes all gutters between rows and columns.
 
 The grid components are available from `@hummingbirdui/react` or the `@hummingbirdui/react/layout/grid` subpath. All three render a `<div>` and accept standard div attributes.
 
-### Container
-
-<PropsTable
-  data={[
-    {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as the child element using Radix Slot.",
-    },
-    {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
-    },
-  ]}
-/>
-
 ### Row
 
 <PropsTable
@@ -154,12 +145,6 @@ The grid components are available from `@hummingbirdui/react` or the `@hummingbi
       type: '1 | 2 | 3 | 4 | 5 | 6 | "auto"',
       description:
         "Number of equal-width columns per row from that breakpoint up. Maps to the row-cols-* classes.",
-    },
-    {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as the child element using Radix Slot.",
     },
     {
       prop: "className",
@@ -177,13 +162,7 @@ The grid components are available from `@hummingbirdui/react` or the `@hummingbi
       prop: "xs, sm, md, lg, xl, xxl",
       type: 'number (1–12) | "auto" | true | { span, offset }',
       description:
-        "Column size from that breakpoint up. true creates an equal-width column, \"auto\" sizes to content, and the object form adds an offset (0–11).",
-    },
-    {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as the child element using Radix Slot.",
+        'Column size from that breakpoint up. true creates an equal-width column, "auto" sizes to content, and the object form adds an offset (0–11).',
     },
     {
       prop: "className",

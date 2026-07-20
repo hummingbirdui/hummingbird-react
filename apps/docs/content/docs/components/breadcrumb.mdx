@@ -53,7 +53,27 @@ The `separator` prop on `BreadcrumbList` changes the divider between items: `sla
   ]}
 />
 
-`Breadcrumb`, `BreadcrumbLink`, and `BreadcrumbPage` render a `<nav>`, `<a>`, and `<span>`. Each accepts `asChild` and `className`.
+### BreadcrumbLink
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+<br />
+
+`Breadcrumb` and `BreadcrumbPage` render a `<nav>` and a `<span>`, and accept `className`.
 
 ## Styling
 

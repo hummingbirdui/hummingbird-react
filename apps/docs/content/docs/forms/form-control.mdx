@@ -82,12 +82,6 @@ Use `FormField` to combine a `FormLabel`, `FormControl`, and `FormText` into a s
       description: "Validation state; invalid also sets aria-invalid.",
     },
     {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as a child element instead of the default.",
-    },
-    {
       prop: "className",
       type: "string",
       description: "Additional classes merged with the generated classes.",
@@ -97,7 +91,7 @@ Use `FormField` to combine a `FormLabel`, `FormControl`, and `FormText` into a s
 
 ### Textarea
 
-Accepts the same `variant`, `size`, `color`, `state`, `asChild`, and `className` props as `FormControl`.
+Accepts the same `variant`, `size`, `color`, `state`, and `className` props as `FormControl`.
 
 ### FormText
 
@@ -111,12 +105,6 @@ Accepts the same `variant`, `size`, `color`, `state`, `asChild`, and `className`
         "Helper text style, matching the control's validation state.",
     },
     {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as a child element instead of the default.",
-    },
-    {
       prop: "className",
       type: "string",
       description: "Additional classes merged with the generated classes.",
@@ -125,7 +113,7 @@ Accepts the same `variant`, `size`, `color`, `state`, `asChild`, and `className`
 />
 <br />
 `FormField`, `FormLabel`, `InputIcon`, `InputIconStart`, and `InputIconEnd` are
-layout wrappers. Each accepts `asChild` and `className`.
+layout wrappers. Each accepts `className`.
 
 ## Styling
 

@@ -49,17 +49,10 @@ Passing children to `NavbarToggle` overrides the default hamburger glyph.
 
 ### Navbar
 
-The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) primitive; `open`, `defaultOpen`, and `onOpenChange` are forwarded to its root. The primitive's `disabled` prop is not forwarded.
+The navbar is built on the [Collapsible](/docs/components/collapsible#api-reference) primitive; `open`, `defaultOpen`, and `onOpenChange` are forwarded to its root. The primitive's `disabled` prop is not forwarded.
 
 <PropsTable
   data={[
-    {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description:
-        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
-    },
     {
       prop: "defaultOpen",
       type: "boolean",
@@ -123,7 +116,7 @@ The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/doc
 
 ### NavbarCollapse
 
-`NavbarCollapse` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) content.
+`NavbarCollapse` wraps the Radix [Collapsible](/docs/components/collapsible#api-reference) content.
 
 <PropsTable
   data={[
@@ -142,8 +135,8 @@ The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/doc
         <>
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries.{" "}
-          <code>NavbarCollapse</code> sets this to <code>true</code> so the
-          menu stays mounted for its CSS collapse animation.
+          <code>NavbarCollapse</code> sets this to <code>true</code> so the menu
+          stays mounted for its CSS collapse animation.
         </>
       ),
     },
@@ -196,7 +189,7 @@ The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/doc
 
 ### NavbarToggle
 
-`NavbarToggle` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) trigger. It renders the default hamburger `NavbarTogglerIcon` unless children are passed, and sets `aria-label="Toggle navigation"` by default.
+`NavbarToggle` wraps the Radix [Collapsible](/docs/components/collapsible#api-reference) trigger. It renders the default hamburger `NavbarTogglerIcon` unless children are passed, and sets `aria-label="Toggle navigation"` by default.
 
 <PropsTable
   data={[
@@ -224,9 +217,25 @@ The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/doc
   ]}
 />
 
-### NavbarBrand and NavbarText
+### NavbarBrand
 
-`NavbarBrand` and `NavbarText` are layout wrappers that accept only `asChild` and `className`. `NavbarTogglerIcon` renders the default hamburger glyph and accepts standard `svg` props.
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+`NavbarText` accepts `className`. `NavbarTogglerIcon` renders the default hamburger glyph and accepts standard `svg` props.
 
 ## Styling
 

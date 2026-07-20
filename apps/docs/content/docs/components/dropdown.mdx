@@ -167,8 +167,8 @@ The component that pops out when the dropdown menu is open. Hummingbird renders 
       typeSimple: "function",
       description: (
         <>
-          Event handler called when focus moves to the trigger after closing.
-          It can be prevented by calling <code>event.preventDefault</code>.
+          Event handler called when focus moves to the trigger after closing. It
+          can be prevented by calling <code>event.preventDefault</code>.
         </>
       ),
     },
@@ -189,8 +189,8 @@ The component that pops out when the dropdown menu is open. Hummingbird renders 
       typeSimple: "function",
       description: (
         <>
-          Event handler called when a pointer event occurs outside the bounds
-          of the component. It can be prevented by calling{" "}
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
           <code>event.preventDefault</code>.
         </>
       ),
@@ -225,8 +225,8 @@ The component that pops out when the dropdown menu is open. Hummingbird renders 
       description: (
         <>
           Used to force mounting when more control is needed. Useful when
-          controlling animation with React animation libraries. It inherits
-          from <code>DropdownMenuPortal</code>.
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>DropdownMenuPortal</code>.
         </>
       ),
     },
@@ -237,8 +237,8 @@ The component that pops out when the dropdown menu is open. Hummingbird renders 
       default: '"bottom"',
       description: (
         <>
-          The preferred side of the trigger to render against when open. Will
-          be reversed when collisions occur and <code>avoidCollisions</code> is
+          The preferred side of the trigger to render against when open. Will be
+          reversed when collisions occur and <code>avoidCollisions</code> is
           enabled.
         </>
       ),
@@ -529,16 +529,6 @@ Used to visually separate items in the dropdown menu.
 ### DropdownMenuItemText
 
 Renders non-interactive text inside the menu as a `<span>`. This is a Hummingbird addition with no Radix counterpart; it accepts all standard `<span>` props.
-
-<PropsTable
-  data={[
-    {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
-    },
-  ]}
-/>
 
 ## Styling
 
