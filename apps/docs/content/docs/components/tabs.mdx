@@ -35,21 +35,121 @@ Add `disabled` to a `TabsTrigger` to prevent its panel from being selected.
 
 ## API Reference
 
-For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/tabs#api-reference) documentation.
+Built on the [Radix UI Tabs](https://www.radix-ui.com/primitives/docs/components/tabs) primitive. Each part forwards all props to its Radix counterpart.
 
-### TabsList
+### Tabs
+
+Contains all the tabs component parts.
 
 <PropsTable
   data={[
     {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "defaultValue",
+      type: "string",
+      description:
+        "The value of the tab that should be active when initially rendered. Use when you do not need to control the state of the tabs.",
+    },
+    {
+      prop: "value",
+      type: "string",
+      description: (
+        <>
+          The controlled value of the tab to activate. Should be used in
+          conjunction with <code>onValueChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      default: '"horizontal"',
+      description: "The orientation of the component.",
+    },
+    {
+      prop: "dir",
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description:
+        "The reading direction of the tabs. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.",
+    },
+    {
+      prop: "activationMode",
+      type: '"automatic" | "manual"',
+      typeSimple: "enum",
+      default: '"automatic"',
+      description: (
+        <>
+          When <code>automatic</code>, tabs are activated when receiving focus.
+          When <code>manual</code>, tabs are activated when clicked.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### TabsList
+
+Contains the triggers that are aligned along the edge of the active content.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "loop",
+      type: "boolean",
+      default: "true",
+      description: (
+        <>
+          When <code>true</code>, keyboard navigation will loop from last tab
+          to first, and vice versa.
+        </>
+      ),
+    },
+    {
       prop: "variant",
       type: '"tabs" | "underline" | "default"',
+      typeSimple: "enum",
       default: '"tabs"',
       description: "Line style of the tab list.",
     },
     {
       prop: "color",
       type: '"default" | "primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"',
+      typeSimple: "enum",
       default: '"default"',
       description: "Color applied to the active trigger.",
     },
@@ -57,6 +157,110 @@ For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primi
       prop: "className",
       type: "string",
       description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### TabsTrigger
+
+The button that activates its associated content.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "value*",
+      type: "string",
+      description: "A unique value that associates the trigger with a content.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description:
+        "When true, prevents the user from interacting with the tab.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"active"', '"inactive"'],
+    },
+    {
+      attribute: "[data-disabled]",
+      values: "Present when disabled",
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### TabsContent
+
+Contains the content associated with each trigger.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "value*",
+      type: "string",
+      description: "A unique value that associates the content with a trigger.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"active"', '"inactive"'],
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
     },
   ]}
 />

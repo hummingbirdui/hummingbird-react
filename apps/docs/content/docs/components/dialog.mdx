@@ -39,17 +39,233 @@ Passing `open` and `onOpenChange` to the `Dialog` root drives its open state ext
 
 ## API Reference
 
-For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/dialog#api-reference) documentation.
+Built on the [Radix UI Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) primitive. Each part forwards all props to its Radix counterpart, except `DialogHeader`, `DialogBody`, and `DialogFooter`, which are Hummingbird-specific layout parts rendered as plain `div` elements.
 
-### DialogContent
+### Dialog
+
+Contains all the parts of a dialog.
 
 <PropsTable
   data={[
     {
+      prop: "defaultOpen",
+      type: "boolean",
+      description:
+        "The open state of the dialog when it is initially rendered. Use when you do not need to control its open state.",
+    },
+    {
+      prop: "open",
+      type: "boolean",
+      description: (
+        <>
+          The controlled open state of the dialog. Must be used in conjunction
+          with <code>onOpenChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the open state of the dialog changes.",
+    },
+    {
+      prop: "modal",
+      type: "boolean",
+      default: "true",
+      description:
+        "The modality of the dialog. When set to true, interaction with outside elements will be disabled and only dialog content will be visible to screen readers.",
+    },
+  ]}
+/>
+
+### DialogTrigger
+
+The button that opens the dialog.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+  ]}
+/>
+
+### DialogPortal
+
+When used, portals your overlay and content parts into the `body`. `DialogContent` renders this part automatically, so you rarely need to use it directly.
+
+<PropsTable
+  data={[
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description: (
+        <>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. If used on this
+          part, it will be inherited by <code>DialogOverlay</code> and{" "}
+          <code>DialogContent</code>.
+        </>
+      ),
+    },
+    {
+      prop: "container",
+      type: "HTMLElement",
+      default: "document.body",
+      description: "Specify a container element to portal the content into.",
+    },
+  ]}
+/>
+
+### DialogOverlay
+
+A layer that covers the inert portion of the view when the dialog is open. `DialogContent` renders this part automatically; use its `overlayProps` prop to customize it.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description: (
+        <>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits
+          from <code>DialogPortal</code>.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+  ]}
+/>
+
+### DialogContent
+
+Contains content to be rendered in the open dialog. Always renders its own `DialogPortal` and `DialogOverlay`, and wraps the content in the `modal` and `modal-dialog` elements.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description: (
+        <>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits
+          from <code>DialogPortal</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onOpenAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when focus moves into the component after
+          opening. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when focus moves to the trigger after closing.
+          It can be prevented by calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when a pointer event occurs outside the bounds
+          of the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onInteractOutside",
+      type: "(event: React.FocusEvent | MouseEvent | TouchEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when an interaction (pointer or focus event)
+          happens outside the bounds of the component. It can be prevented by
+          calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
       prop: "size",
       type: '"sm" | "md" | "lg" | "xl"',
+      typeSimple: "enum",
       default: '"md"',
-      description: "Dialog width.",
+      description: "The width of the dialog.",
     },
     {
       prop: "centered",
@@ -61,11 +277,17 @@ For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primi
       prop: "scrollable",
       type: "boolean",
       default: "false",
-      description: "Scrolls the body while the header and footer stay fixed.",
+      description: (
+        <>
+          Scrolls the <code>DialogBody</code> while the header and footer stay
+          fixed.
+        </>
+      ),
     },
     {
       prop: "fullscreen",
-      type: '"false" | "true" | "sm-down" | "md-down" | "lg-down" | "xl-down" | "2xl-down"',
+      type: 'boolean | "sm-down" | "md-down" | "lg-down" | "xl-down" | "2xl-down"',
+      typeSimple: "enum",
       default: "false",
       description:
         "Expands the dialog to fill the viewport, optionally only below a breakpoint.",
@@ -73,22 +295,164 @@ For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primi
     {
       prop: "dialogClassName",
       type: "string",
-      description: "Additional classes merged onto the modal-dialog wrapper.",
+      description: (
+        <>
+          Additional classes merged onto the <code>modal-dialog</code> wrapper
+          element.
+        </>
+      ),
     },
     {
       prop: "container",
-      type: "HTMLElement | null",
-      description: "Portal target forwarded to the underlying Radix Portal.",
+      type: "HTMLElement",
+      default: "document.body",
+      description: (
+        <>
+          Container element forwarded to the internally rendered{" "}
+          <code>DialogPortal</code>.
+        </>
+      ),
     },
     {
       prop: "portalProps",
-      type: "object",
-      description: "Extra props forwarded to the underlying Radix Portal.",
+      type: 'Omit<DialogPortalProps, "container" | "children">',
+      typeSimple: "object",
+      description: (
+        <>
+          Extra props forwarded to the internally rendered{" "}
+          <code>DialogPortal</code>.
+        </>
+      ),
     },
     {
       prop: "overlayProps",
-      type: "object",
-      description: "Props forwarded to the modal-backdrop overlay.",
+      type: "DialogOverlayProps",
+      typeSimple: "object",
+      description: (
+        <>
+          Props forwarded to the internally rendered <code>DialogOverlay</code>.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: (
+        <>
+          Additional classes merged with the generated classes. Applied to the
+          inner <code>modal-content</code> element rather than the{" "}
+          <code>modal-dialog</code> wrapper.
+        </>
+      ),
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+  ]}
+/>
+
+### DialogHeader
+
+Hummingbird-specific layout part. Renders a `div` with the `modal-header` class for the top area of the dialog.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### DialogTitle
+
+An accessible title to be announced when the dialog is opened. Renders an `h6` element by default.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### DialogDescription
+
+An optional accessible description to be announced when the dialog is opened.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### DialogBody
+
+Hummingbird-specific layout part. Renders a `div` with the `modal-body` class for the main content of the dialog.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### DialogFooter
+
+Hummingbird-specific layout part. Renders a `div` with the `modal-footer` class, typically containing action buttons.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### DialogClose
+
+The button that closes the dialog.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
     },
     {
       prop: "className",

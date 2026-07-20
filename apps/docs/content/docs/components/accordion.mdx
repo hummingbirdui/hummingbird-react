@@ -24,7 +24,334 @@ Add `disabled` to an `AccordionItem` to prevent it from opening, or to the
 
 ## API Reference
 
-For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/accordion#api-reference) documentation.
+Built on the [Radix UI Accordion](https://www.radix-ui.com/primitives/docs/components/accordion) primitive. Each part forwards all props to its Radix counterpart.
+
+### Accordion
+
+Contains all the parts of an accordion.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "type*",
+      type: '"single" | "multiple"',
+      typeSimple: "enum",
+      description:
+        "Determines whether one or multiple items can be opened at the same time.",
+    },
+    {
+      prop: "value",
+      type: "string",
+      description: (
+        <>
+          The controlled value of the item to expand when <code>type</code> is{" "}
+          <code>"single"</code>. Must be used in conjunction with{" "}
+          <code>onValueChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "defaultValue",
+      type: "string",
+      description: (
+        <>
+          The value of the item to expand when initially rendered and{" "}
+          <code>type</code> is <code>"single"</code>. Use when you do not need
+          to control the state of the items.
+        </>
+      ),
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when the expanded state of an item changes and{" "}
+          <code>type</code> is <code>"single"</code>.
+        </>
+      ),
+    },
+    {
+      prop: "value",
+      type: "string[]",
+      default: "[]",
+      description: (
+        <>
+          The controlled value of the items to expand when <code>type</code> is{" "}
+          <code>"multiple"</code>. Must be used in conjunction with{" "}
+          <code>onValueChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "defaultValue",
+      type: "string[]",
+      default: "[]",
+      description: (
+        <>
+          The value of the items to expand when initially rendered and{" "}
+          <code>type</code> is <code>"multiple"</code>. Use when you do not need
+          to control the state of the items.
+        </>
+      ),
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string[]) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when the expanded state of an item changes and{" "}
+          <code>type</code> is <code>"multiple"</code>.
+        </>
+      ),
+    },
+    {
+      prop: "collapsible",
+      type: "boolean",
+      default: "false",
+      description: (
+        <>
+          When <code>type</code> is <code>"single"</code>, allows closing
+          content when clicking the trigger of an open item.
+        </>
+      ),
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description:
+        "When true, prevents the user from interacting with the accordion and all its items.",
+    },
+    {
+      prop: "dir",
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      default: '"ltr"',
+      description:
+        "The reading direction of the accordion when applicable. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.",
+    },
+    {
+      prop: "orientation",
+      type: '"vertical" | "horizontal"',
+      typeSimple: "enum",
+      default: '"vertical"',
+      description: "The orientation of the accordion.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### AccordionItem
+
+Contains all the parts of a collapsible section.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description:
+        "When true, prevents the user from interacting with the item.",
+    },
+    {
+      prop: "value*",
+      type: "string",
+      description: "A unique value for the item.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-disabled]",
+      values: "Present when disabled",
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### AccordionHeader
+
+Wraps an `AccordionTrigger`. Use the `asChild` prop to update it to the appropriate heading level for your page.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-disabled]",
+      values: "Present when disabled",
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### AccordionTrigger
+
+Toggles the collapsed state of its associated item. It should be nested inside of an `AccordionHeader`.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-disabled]",
+      values: "Present when disabled",
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### AccordionContent
+
+Contains the collapsible content for an item.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: (
+        <>
+          Additional classes merged with the generated classes. Applied to the
+          inner <code>accordion-body</code> element rather than the animated
+          content wrapper.
+        </>
+      ),
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-disabled]",
+      values: "Present when disabled",
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+<br />
+<CssVariablesTable
+  data={[
+    {
+      cssVariable: "--radix-accordion-content-width",
+      description: "The width of the content when it opens/closes.",
+    },
+    {
+      cssVariable: "--radix-accordion-content-height",
+      description: "The height of the content when it opens/closes.",
+    },
+  ]}
+/>
 
 ## Styling
 

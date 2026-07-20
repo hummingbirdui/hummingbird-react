@@ -102,7 +102,7 @@ export function SiteNavbar() {
           <Link href="/" className="flex items-center gap-2">
             <Logo />
             <h5 className="text-muted font-semibold hidden sm:block mb-0">
-              hummingbird
+              Hummingbird React
             </h5>
           </Link>
         </NavbarBrand>

@@ -35,22 +35,88 @@ The `status` prop adds a presence indicator: `online`, `offline`, `away`, or `bu
 
 ## API Reference
 
-`Avatar`, `AvatarImage`, and `AvatarFallback` wrap the Radix UI Avatar primitives — see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/avatar#api-reference) documentation for their props.
+Built on the [Radix UI Avatar](https://www.radix-ui.com/primitives/docs/components/avatar) primitive. `Avatar`, `AvatarImage`, and `AvatarFallback` forward all props to their Radix counterparts; `AvatarGroup` is a Hummingbird addition.
 
 ### Avatar
+
+Contains all the parts of an avatar.
 
 <PropsTable
   data={[
     {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
       prop: "size",
       type: '"xs" | "sm" | "md" | "lg"',
+      typeSimple: "enum",
       default: '"md"',
       description: "Size of the avatar.",
     },
     {
       prop: "status",
       type: '"online" | "offline" | "away" | "busy"',
-      description: "Presence indicator shown in the corner.",
+      typeSimple: "enum",
+      description: "Presence indicator shown in the corner of the avatar.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### AvatarImage
+
+The image to render. By default it will only render when it has loaded.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "onLoadingStatusChange",
+      type: '(status: "idle" | "loading" | "loaded" | "error") => void',
+      typeSimple: "function",
+      description:
+        "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### AvatarFallback
+
+An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "delayMs",
+      type: "number",
+      description:
+        "Useful for delaying rendering so it only appears for those with slower connections.",
     },
     {
       prop: "className",
@@ -62,13 +128,16 @@ The `status` prop adds a presence indicator: `online`, `offline`, `away`, or `bu
 
 ### AvatarGroup
 
+Stacks several avatars into an overlapping row. A Hummingbird addition with no Radix counterpart.
+
 <PropsTable
   data={[
     {
       prop: "asChild",
       type: "boolean",
       default: "false",
-      description: "Render as a child element instead of the default.",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
     },
     {
       prop: "className",

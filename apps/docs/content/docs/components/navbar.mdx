@@ -49,36 +49,45 @@ Passing children to `NavbarToggle` overrides the default hamburger glyph.
 
 ### Navbar
 
-The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) primitive; `open`, `defaultOpen`, and `onOpenChange` are forwarded to its root.
+The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) primitive; `open`, `defaultOpen`, and `onOpenChange` are forwarded to its root. The primitive's `disabled` prop is not forwarded.
 
 <PropsTable
   data={[
     {
-      prop: "expand",
-      type: '"sm" | "md" | "lg" | "xl" | "2xl" | "always"',
-      description: "Breakpoint at which the navbar lays out horizontally.",
-    },
-    {
-      prop: "open",
+      prop: "asChild",
       type: "boolean",
-      description: "Controlled open state of the collapsible menu.",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
     },
     {
       prop: "defaultOpen",
       type: "boolean",
       description:
-        "Open state of the collapsible menu when initially rendered.",
+        "The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state.",
+    },
+    {
+      prop: "open",
+      type: "boolean",
+      description: (
+        <>
+          The controlled open state of the collapsible. Must be used in
+          conjunction with <code>onOpenChange</code>.
+        </>
+      ),
     },
     {
       prop: "onOpenChange",
       type: "(open: boolean) => void",
-      description: "Event handler called when the open state changes.",
+      typeSimple: "function",
+      description:
+        "Event handler called when the open state of the collapsible changes.",
     },
     {
-      prop: "asChild",
-      type: "boolean",
-      default: "false",
-      description: "Render as a child element instead of the default.",
+      prop: "expand",
+      type: '"sm" | "md" | "lg" | "xl" | "2xl" | "always"',
+      typeSimple: "enum",
+      description: "Breakpoint at which the navbar lays out horizontally.",
     },
     {
       prop: "className",
@@ -114,10 +123,30 @@ The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/doc
 
 ### NavbarCollapse
 
-`NavbarCollapse` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) content; for its shared props, see the Radix UI documentation.
+`NavbarCollapse` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) content.
 
 <PropsTable
   data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      default: "true",
+      description: (
+        <>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.{" "}
+          <code>NavbarCollapse</code> sets this to <code>true</code> so the
+          menu stays mounted for its CSS collapse animation.
+        </>
+      ),
+    },
     {
       prop: "duration",
       type: "number",
@@ -130,10 +159,70 @@ The navbar is built on the [Collapsible](https://www.radix-ui.com/primitives/doc
     },
   ]}
 />
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+  ]}
+/>
+<br />
+<CssVariablesTable
+  data={[
+    {
+      cssVariable: "--radix-collapsible-content-width",
+      description: (
+        <>
+          The width of the content when it opens/closes. Named{" "}
+          <code>collapsible</code> because it comes from the underlying
+          Collapsible primitive.
+        </>
+      ),
+    },
+    {
+      cssVariable: "--radix-collapsible-content-height",
+      description: (
+        <>
+          The height of the content when it opens/closes. Named{" "}
+          <code>collapsible</code> because it comes from the underlying
+          Collapsible primitive.
+        </>
+      ),
+    },
+  ]}
+/>
 
 ### NavbarToggle
 
-`NavbarToggle` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) trigger. For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) documentation.
+`NavbarToggle` wraps the Radix [Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference) trigger. It renders the default hamburger `NavbarTogglerIcon` unless children are passed, and sets `aria-label="Toggle navigation"` by default.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+  ]}
+/>
 
 ### NavbarBrand and NavbarText
 

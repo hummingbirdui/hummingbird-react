@@ -317,3 +317,9 @@
       );
   }
 }
+
+code:not(pre code) {
+  @layer base {
+    @apply border border-default rounded-sm py-0.5 px-1.5 text-xs text-muted leading-none;
+  }
+}
