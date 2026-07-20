@@ -162,31 +162,6 @@ describe('ButtonGroup', () => {
     });
   });
 
-  describe('asChild Prop', () => {
-    it('renders as the child element when asChild is true', () => {
-      render(
-        <ButtonGroup asChild>
-          <nav aria-label="Group nav">Content</nav>
-        </ButtonGroup>
-      );
-      const group = screen.getByRole('group', { name: /group nav/i });
-      expect(group.tagName).toBe('NAV');
-      expect(group).toHaveClass('btn-group');
-      expect(group).toHaveAttribute('data-slot', 'button-group');
-    });
-
-    it('preserves child element attributes and classes', () => {
-      render(
-        <ButtonGroup asChild size="sm">
-          <section className="custom-section">Content</section>
-        </ButtonGroup>
-      );
-      const group = screen.getByRole('group');
-      expect(group.tagName).toBe('SECTION');
-      expect(group).toHaveClass('btn-group', 'btn-group-sm', 'custom-section');
-    });
-  });
-
   describe('Display Name', () => {
     it('has correct display name', () => {
       expect(ButtonGroup.displayName).toBe('ButtonGroup');
@@ -272,20 +247,6 @@ describe('ButtonToolbar', () => {
       render(<ButtonToolbar ref={ref}>Content</ButtonToolbar>);
       expect(ref.current).toBeInstanceOf(HTMLDivElement);
       expect(ref.current?.className).toContain('btn-toolbar');
-    });
-  });
-
-  describe('asChild Prop', () => {
-    it('renders as the child element when asChild is true', () => {
-      render(
-        <ButtonToolbar asChild>
-          <section className="custom-section">Content</section>
-        </ButtonToolbar>
-      );
-      const toolbar = screen.getByRole('toolbar');
-      expect(toolbar.tagName).toBe('SECTION');
-      expect(toolbar).toHaveClass('btn-toolbar', 'custom-section');
-      expect(toolbar).toHaveAttribute('data-slot', 'button-toolbar');
     });
   });
 

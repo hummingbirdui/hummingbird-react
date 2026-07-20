@@ -288,18 +288,6 @@ describe('Pagination', () => {
   });
 
   describe('asChild Prop', () => {
-    it('renders Pagination as the supplied child with the nav wiring', () => {
-      render(
-        <Pagination asChild>
-          <div data-testid="custom-nav" />
-        </Pagination>
-      );
-      const nav = screen.getByTestId('custom-nav');
-      expect(nav).toHaveAttribute('role', 'navigation');
-      expect(nav).toHaveAttribute('aria-label', 'pagination');
-      expect(nav).toHaveAttribute('data-slot', 'pagination');
-    });
-
     it('renders PaginationLink as the supplied child with classes and aria-current', () => {
       render(
         <PaginationItem active>
@@ -311,15 +299,6 @@ describe('Pagination', () => {
       const button = screen.getByRole('button', { name: '1' });
       expect(button).toHaveClass('page-link');
       expect(button).toHaveAttribute('aria-current', 'page');
-    });
-
-    it('renders PaginationItem as the supplied child with the item classes', () => {
-      render(
-        <PaginationItem asChild active>
-          <div data-testid="custom-item">1</div>
-        </PaginationItem>
-      );
-      expect(screen.getByTestId('custom-item')).toHaveClass('page-item', 'active');
     });
   });
 
@@ -342,9 +321,7 @@ describe('Pagination', () => {
 
     it('allows overriding the aria-label', () => {
       render(<Pagination aria-label="Search results pages" />);
-      expect(
-        screen.getByRole('navigation', { name: 'Search results pages' })
-      ).toBeInTheDocument();
+      expect(screen.getByRole('navigation', { name: 'Search results pages' })).toBeInTheDocument();
     });
 
     it('marks the active link with aria-current="page"', () => {

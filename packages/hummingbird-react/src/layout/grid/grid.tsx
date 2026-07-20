@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -263,14 +262,10 @@ const ROW_COLS: Record<Breakpoint, Record<RowCols, string>> = {
 //  Container
 //  ===================================
 
-export interface ContainerProps extends React.ComponentProps<'div'> {
-  asChild?: boolean;
-}
+export interface ContainerProps extends React.ComponentProps<'div'> {}
 
-function Container({ className, asChild = false, ...props }: ContainerProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp className={cn('container', className)} {...props} />;
+function Container({ className, ...props }: ContainerProps) {
+  return <div className={cn('container', className)} {...props} />;
 }
 
 Container.displayName = 'Container';
@@ -286,11 +281,9 @@ export interface RowProps extends React.ComponentProps<'div'> {
   lg?: RowCols;
   xl?: RowCols;
   xxl?: RowCols;
-  asChild?: boolean;
 }
 
-function Row({ className, xs, sm, md, lg, xl, xxl, asChild = false, ...props }: RowProps) {
-  const Comp = asChild ? Slot.Root : 'div';
+function Row({ className, xs, sm, md, lg, xl, xxl, ...props }: RowProps) {
   const values: Record<Breakpoint, RowCols | undefined> = { xs, sm, md, lg, xl, xxl };
 
   const classes = BREAKPOINTS.map((bp) => {
@@ -298,7 +291,7 @@ function Row({ className, xs, sm, md, lg, xl, xxl, asChild = false, ...props }: 
     return value != null ? ROW_COLS[bp][value] : undefined;
   });
 
-  return <Comp className={cn('row', classes, className)} {...props} />;
+  return <div className={cn('row', classes, className)} {...props} />;
 }
 
 Row.displayName = 'Row';
@@ -314,11 +307,9 @@ export interface ColProps extends React.ComponentProps<'div'> {
   lg?: ColSize;
   xl?: ColSize;
   xxl?: ColSize;
-  asChild?: boolean;
 }
 
-function Col({ className, xs, sm, md, lg, xl, xxl, asChild = false, ...props }: ColProps) {
-  const Comp = asChild ? Slot.Root : 'div';
+function Col({ className, xs, sm, md, lg, xl, xxl, ...props }: ColProps) {
   const values: Record<Breakpoint, ColSize | undefined> = { xs, sm, md, lg, xl, xxl };
 
   const classes: string[] = [];
@@ -345,7 +336,7 @@ function Col({ className, xs, sm, md, lg, xl, xxl, asChild = false, ...props }: 
   }
 
   // No span at any breakpoint → plain equal-width column.
-  return <Comp className={cn(!hasSpan && 'col', classes, className)} {...props} />;
+  return <div className={cn(!hasSpan && 'col', classes, className)} {...props} />;
 }
 
 Col.displayName = 'Col';

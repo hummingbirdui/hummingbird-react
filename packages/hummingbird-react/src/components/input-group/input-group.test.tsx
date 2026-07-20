@@ -125,31 +125,6 @@ describe('InputGroup', () => {
     });
   });
 
-  describe('asChild Prop', () => {
-    it('renders as the child element when asChild is true', () => {
-      render(
-        <InputGroup asChild>
-          <fieldset>Content</fieldset>
-        </InputGroup>
-      );
-      const group = screen.getByRole('group');
-      expect(group.tagName).toBe('FIELDSET');
-      expect(group).toHaveClass('input-group');
-      expect(group).toHaveAttribute('data-slot', 'input-group');
-    });
-
-    it('preserves child element attributes and classes', () => {
-      render(
-        <InputGroup asChild size="sm">
-          <section className="custom-section">Content</section>
-        </InputGroup>
-      );
-      const group = screen.getByRole('group');
-      expect(group.tagName).toBe('SECTION');
-      expect(group).toHaveClass('input-group', 'input-group-sm', 'custom-section');
-    });
-  });
-
   describe('Display Name', () => {
     it('has correct display name', () => {
       expect(InputGroup.displayName).toBe('InputGroup');
@@ -221,21 +196,6 @@ describe('InputGroupText', () => {
       render(<InputGroupText ref={ref}>@</InputGroupText>);
       expect(ref.current).toBeInstanceOf(HTMLSpanElement);
       expect(ref.current?.className).toContain('input-group-text');
-    });
-  });
-
-  describe('asChild Prop', () => {
-    it('renders as the child element when asChild is true', () => {
-      render(
-        <InputGroupText asChild>
-          <label htmlFor="username-input">Username</label>
-        </InputGroupText>
-      );
-      const addon = screen.getByText('Username');
-      expect(addon.tagName).toBe('LABEL');
-      expect(addon).toHaveClass('input-group-text');
-      expect(addon).toHaveAttribute('for', 'username-input');
-      expect(addon).toHaveAttribute('data-slot', 'input-group-text');
     });
   });
 

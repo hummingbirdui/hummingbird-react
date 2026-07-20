@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const buttonGroupVariants = cva('', {
@@ -22,21 +21,11 @@ const buttonGroupVariants = cva('', {
 });
 
 export interface ButtonGroupProps
-  extends React.ComponentProps<'div'>, VariantProps<typeof buttonGroupVariants> {
-  asChild?: boolean;
-}
+  extends React.ComponentProps<'div'>, VariantProps<typeof buttonGroupVariants> {}
 
-function ButtonGroup({
-  className,
-  orientation,
-  size,
-  asChild = false,
-  ...props
-}: ButtonGroupProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
+function ButtonGroup({ className, orientation, size, ...props }: ButtonGroupProps) {
   return (
-    <Comp
+    <div
       role="group"
       data-slot="button-group"
       className={cn(buttonGroupVariants({ orientation, size }), className)}
@@ -47,14 +36,11 @@ function ButtonGroup({
 
 ButtonGroup.displayName = 'ButtonGroup';
 
-export interface ButtonToolbarProps extends React.ComponentProps<'div'> {
-  asChild?: boolean;
-}
-function ButtonToolbar({ className, asChild = false, ...props }: ButtonToolbarProps) {
-  const Comp = asChild ? Slot.Root : 'div';
+export interface ButtonToolbarProps extends React.ComponentProps<'div'> {}
 
+function ButtonToolbar({ className, ...props }: ButtonToolbarProps) {
   return (
-    <Comp
+    <div
       role="toolbar"
       data-slot="button-toolbar"
       className={cn('btn-toolbar', className)}

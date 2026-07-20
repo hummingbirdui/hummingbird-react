@@ -3,14 +3,10 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
-export interface BreadcrumbProps extends React.ComponentProps<'nav'> {
-  asChild?: boolean;
-}
+export interface BreadcrumbProps extends React.ComponentProps<'nav'> {}
 
-function Breadcrumb({ asChild = false, ...props }: BreadcrumbProps) {
-  const Comp = asChild ? Slot.Root : 'nav';
-
-  return <Comp aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
+function Breadcrumb(props: BreadcrumbProps) {
+  return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
 
 Breadcrumb.displayName = 'Breadcrumb';
@@ -29,15 +25,11 @@ const breadcrumbVariants = cva('breadcrumb', {
 });
 
 export interface BreadcrumbListProps
-  extends React.ComponentProps<'ol'>, VariantProps<typeof breadcrumbVariants> {
-  asChild?: boolean;
-}
+  extends React.ComponentProps<'ol'>, VariantProps<typeof breadcrumbVariants> {}
 
-function BreadcrumbList({ className, separator, asChild = false, ...props }: BreadcrumbListProps) {
-  const Comp = asChild ? Slot.Root : 'ol';
-
+function BreadcrumbList({ className, separator, ...props }: BreadcrumbListProps) {
   return (
-    <Comp
+    <ol
       data-slot="breadcrumb-list"
       className={cn(breadcrumbVariants({ separator }), className)}
       {...props}
@@ -49,19 +41,11 @@ BreadcrumbList.displayName = 'BreadcrumbList';
 
 export interface BreadcrumbItemProps extends React.ComponentProps<'li'> {
   active?: boolean;
-  asChild?: boolean;
 }
 
-function BreadcrumbItem({
-  className,
-  active = false,
-  asChild = false,
-  ...props
-}: BreadcrumbItemProps) {
-  const Comp = asChild ? Slot.Root : 'li';
-
+function BreadcrumbItem({ className, active = false, ...props }: BreadcrumbItemProps) {
   return (
-    <Comp
+    <li
       data-slot="breadcrumb-item"
       className={cn('breadcrumb-item', active && 'active', className)}
       {...props}
@@ -83,16 +67,12 @@ function BreadcrumbLink({ className, asChild = false, ...props }: BreadcrumbLink
 
 BreadcrumbLink.displayName = 'BreadcrumbLink';
 
-export interface BreadcrumbPageProps extends React.ComponentProps<'span'> {
-  asChild?: boolean;
-}
+export interface BreadcrumbPageProps extends React.ComponentProps<'span'> {}
 
 /** The current page in the trail. Non-interactive; sets `aria-current="page"`. */
-function BreadcrumbPage({ className, asChild = false, ...props }: BreadcrumbPageProps) {
-  const Comp = asChild ? Slot.Root : 'span';
-
+function BreadcrumbPage({ className, ...props }: BreadcrumbPageProps) {
   return (
-    <Comp
+    <span
       role="link"
       aria-disabled="true"
       aria-current="page"

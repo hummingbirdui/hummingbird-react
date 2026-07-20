@@ -99,7 +99,11 @@ describe('Alert', () => {
             {color}
           </Alert>
         );
-        expect(screen.getByRole('alert')).toHaveClass('alert', 'alert-subtle', `alert-subtle-${color}`);
+        expect(screen.getByRole('alert')).toHaveClass(
+          'alert',
+          'alert-subtle',
+          `alert-subtle-${color}`
+        );
         unmount();
       });
     });
@@ -111,7 +115,11 @@ describe('Alert', () => {
             {color}
           </Alert>
         );
-        expect(screen.getByRole('alert')).toHaveClass('alert', 'alert-outline', `alert-outline-${color}`);
+        expect(screen.getByRole('alert')).toHaveClass(
+          'alert',
+          'alert-outline',
+          `alert-outline-${color}`
+        );
         unmount();
       });
     });
@@ -175,43 +183,6 @@ describe('Alert', () => {
     });
   });
 
-  describe('asChild Prop', () => {
-    it('renders as the child element when asChild is true', () => {
-      render(
-        <Alert asChild>
-          <section>Section alert</section>
-        </Alert>
-      );
-      const alert = screen.getByRole('alert');
-      expect(alert.tagName).toBe('SECTION');
-      expect(alert).toHaveClass('alert', 'alert-primary');
-    });
-
-    it('applies variant classes to the asChild element', () => {
-      render(
-        <Alert asChild variant="outline" color="danger">
-          <article>Danger</article>
-        </Alert>
-      );
-      const alert = screen.getByRole('alert');
-      expect(alert.tagName).toBe('ARTICLE');
-      expect(alert).toHaveClass('alert', 'alert-outline', 'alert-outline-danger');
-    });
-
-    it('preserves child element attributes and classes', () => {
-      render(
-        <Alert asChild>
-          <div id="my-alert" className="custom-child">
-            Alert
-          </div>
-        </Alert>
-      );
-      const alert = screen.getByRole('alert');
-      expect(alert).toHaveAttribute('id', 'my-alert');
-      expect(alert).toHaveClass('custom-child', 'alert');
-    });
-  });
-
   describe('Display Name', () => {
     it('has correct display names', () => {
       expect(Alert.displayName).toBe('Alert');
@@ -268,29 +239,6 @@ describe('AlertIcon', () => {
       expect(ref.current?.className).toContain('alert-icon');
     });
   });
-
-  describe('asChild Prop', () => {
-    it('renders as the child element when asChild is true', () => {
-      render(
-        <AlertIcon asChild>
-          <svg data-testid="svg-icon" />
-        </AlertIcon>
-      );
-      const icon = screen.getByTestId('svg-icon');
-      expect(icon.tagName).toBe('svg');
-      expect(icon).toHaveClass('alert-icon');
-    });
-
-    it('preserves child element attributes and classes', () => {
-      render(
-        <AlertIcon asChild>
-          <i data-testid="icon" className="fa fa-info" />
-        </AlertIcon>
-      );
-      const icon = screen.getByTestId('icon');
-      expect(icon).toHaveClass('alert-icon', 'fa', 'fa-info');
-    });
-  });
 });
 
 describe('alertVariants', () => {
@@ -306,7 +254,11 @@ describe('alertVariants', () => {
       { variant: 'subtle' as const, color: 'danger' as const, expected: 'alert-subtle-danger' },
       { variant: 'outline' as const, color: 'info' as const, expected: 'alert-outline-info' },
       { variant: 'subtle' as const, color: 'warning' as const, expected: 'alert-subtle-warning' },
-      { variant: 'outline' as const, color: 'secondary' as const, expected: 'alert-outline-secondary' },
+      {
+        variant: 'outline' as const,
+        color: 'secondary' as const,
+        expected: 'alert-outline-secondary',
+      },
     ];
 
     combinations.forEach(({ variant, color, expected }) => {

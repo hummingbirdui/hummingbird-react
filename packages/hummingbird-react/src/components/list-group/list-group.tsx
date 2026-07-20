@@ -91,19 +91,11 @@ const listTextVariants = cva('', {
 });
 
 export interface ListTextProps
-  extends React.ComponentProps<'p'>, VariantProps<typeof listTextVariants> {
-  asChild?: boolean;
-}
+  extends React.ComponentProps<'p'>, VariantProps<typeof listTextVariants> {}
 
-function ListText({ className, variant, asChild = false, ...props }: ListTextProps) {
-  const Comp = asChild ? Slot.Root : 'p';
-
+function ListText({ className, variant, ...props }: ListTextProps) {
   return (
-    <Comp
-      data-slot="list-text"
-      className={cn(listTextVariants({ variant }), className)}
-      {...props}
-    />
+    <p data-slot="list-text" className={cn(listTextVariants({ variant }), className)} {...props} />
   );
 }
 

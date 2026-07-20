@@ -285,24 +285,6 @@ describe('Card', () => {
       expect(link).toHaveAttribute('href', '/test');
       expect(link).toHaveClass('card', 'custom-link');
     });
-
-    it('renders slot components as custom elements', () => {
-      render(
-        <Card>
-          <CardTitle asChild>
-            <h5>Heading title</h5>
-          </CardTitle>
-          <CardText asChild>
-            <span>Span text</span>
-          </CardText>
-        </Card>
-      );
-      const title = screen.getByRole('heading', { name: /heading title/i, level: 5 });
-      expect(title).toHaveClass('card-title');
-      const text = screen.getByText('Span text');
-      expect(text.tagName).toBe('SPAN');
-      expect(text).toHaveClass('card-text');
-    });
   });
 
   describe('Display Name', () => {

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const inputGroupVariants = cva('input-group', {
@@ -17,15 +16,11 @@ const inputGroupVariants = cva('input-group', {
 });
 
 export interface InputGroupProps
-  extends Omit<React.ComponentProps<'div'>, 'size'>, VariantProps<typeof inputGroupVariants> {
-  asChild?: boolean;
-}
+  extends Omit<React.ComponentProps<'div'>, 'size'>, VariantProps<typeof inputGroupVariants> {}
 
-function InputGroup({ className, size, asChild = false, ...props }: InputGroupProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
+function InputGroup({ className, size, ...props }: InputGroupProps) {
   return (
-    <Comp
+    <div
       role="group"
       data-slot="input-group"
       className={cn(inputGroupVariants({ size }), className)}
@@ -36,15 +31,11 @@ function InputGroup({ className, size, asChild = false, ...props }: InputGroupPr
 
 InputGroup.displayName = 'InputGroup';
 
-export interface InputGroupTextProps extends React.ComponentProps<'span'> {
-  asChild?: boolean;
-}
+export interface InputGroupTextProps extends React.ComponentProps<'span'> {}
 
-function InputGroupText({ className, asChild = false, ...props }: InputGroupTextProps) {
-  const Comp = asChild ? Slot.Root : 'span';
-
+function InputGroupText({ className, ...props }: InputGroupTextProps) {
   return (
-    <Comp data-slot="input-group-text" className={cn('input-group-text', className)} {...props} />
+    <span data-slot="input-group-text" className={cn('input-group-text', className)} {...props} />
   );
 }
 

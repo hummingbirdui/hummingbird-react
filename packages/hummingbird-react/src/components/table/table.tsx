@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const tableVariants = cva('table', {
@@ -41,9 +40,7 @@ const tableVariants = cva('table', {
 });
 
 export interface TableProps
-  extends Omit<React.ComponentProps<'table'>, 'color'>, VariantProps<typeof tableVariants> {
-  asChild?: boolean;
-}
+  extends Omit<React.ComponentProps<'table'>, 'color'>, VariantProps<typeof tableVariants> {}
 
 function Table({
   className,
@@ -57,13 +54,10 @@ function Table({
   highlight,
   stickyHeader,
   active,
-  asChild = false,
   ...props
 }: TableProps) {
-  const Comp = asChild ? Slot.Root : 'table';
-
   return (
-    <Comp
+    <table
       data-slot="table"
       className={cn(
         tableVariants({

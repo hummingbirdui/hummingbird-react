@@ -79,23 +79,14 @@ function Badge({ className, variant, color, size, link, asChild = false, ...prop
 
 Badge.displayName = 'Badge';
 
-export interface BadgeActionButtonProps extends React.ComponentProps<'button'> {
-  asChild?: boolean;
-}
+export interface BadgeActionButtonProps extends React.ComponentProps<'button'> {}
 
-function BadgeActionButton({
-  className,
-  asChild = false,
-  type = 'button',
-  ...props
-}: BadgeActionButtonProps) {
-  const Comp = asChild ? Slot.Root : 'button';
-
+function BadgeActionButton({ className, type = 'button', ...props }: BadgeActionButtonProps) {
   return (
-    <Comp
+    <button
       data-slot="badge-action-btn"
       className={cn('badge-action-btn', className)}
-      {...(asChild ? {} : { type })}
+      type={type}
       {...props}
     />
   );

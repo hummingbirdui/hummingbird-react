@@ -370,25 +370,6 @@ describe('Table', () => {
     });
   });
 
-  describe('asChild Prop', () => {
-    it('applies table classes to the child element', () => {
-      render(
-        <Table asChild striped hover>
-          <table data-testid="custom-table" className="child-class">
-            <tbody>
-              <tr>
-                <td>x</td>
-              </tr>
-            </tbody>
-          </table>
-        </Table>
-      );
-      const table = screen.getByTestId('custom-table');
-      expect(table).toHaveClass('table', 'table-striped', 'table-hover', 'child-class');
-      expect(table).toHaveAttribute('data-slot', 'table');
-    });
-  });
-
   describe('Display Name', () => {
     it.each([
       [Table, 'Table'],

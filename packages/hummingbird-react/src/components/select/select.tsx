@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const selectVariants = cva('', {
@@ -35,23 +34,11 @@ const selectVariants = cva('', {
 export interface SelectProps
   extends
     Omit<React.ComponentProps<'select'>, 'color' | 'size'>,
-    VariantProps<typeof selectVariants> {
-  asChild?: boolean;
-}
+    VariantProps<typeof selectVariants> {}
 
-function Select({
-  className,
-  variant,
-  size,
-  color,
-  state,
-  asChild = false,
-  ...props
-}: SelectProps) {
-  const Comp = asChild ? Slot.Root : 'select';
-
+function Select({ className, variant, size, color, state, ...props }: SelectProps) {
   return (
-    <Comp
+    <select
       data-slot="select"
       aria-invalid={state === 'invalid' || undefined}
       className={cn(selectVariants({ variant, size, color, state }), className)}

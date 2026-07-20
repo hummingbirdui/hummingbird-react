@@ -375,17 +375,6 @@ describe('Navbar', () => {
   });
 
   describe('asChild Prop', () => {
-    it('renders Navbar as the supplied child with navbar classes', () => {
-      render(
-        <Navbar asChild expand="lg">
-          <header data-testid="custom-navbar" />
-        </Navbar>
-      );
-      const el = screen.getByTestId('custom-navbar');
-      expect(el.tagName).toBe('HEADER');
-      expect(el).toHaveClass('navbar', 'navbar-expand-lg');
-    });
-
     it('renders NavbarBrand as the supplied child and preserves its attributes', () => {
       render(
         <Navbar>

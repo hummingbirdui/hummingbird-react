@@ -102,7 +102,11 @@ describe('Badge', () => {
             {color}
           </Badge>
         );
-        expect(screen.getByText(color)).toHaveClass('badge', 'badge-subtle', `badge-subtle-${color}`);
+        expect(screen.getByText(color)).toHaveClass(
+          'badge',
+          'badge-subtle',
+          `badge-subtle-${color}`
+        );
         unmount();
       });
     });
@@ -114,7 +118,11 @@ describe('Badge', () => {
             {color}
           </Badge>
         );
-        expect(screen.getByText(color)).toHaveClass('badge', 'badge-outline', `badge-outline-${color}`);
+        expect(screen.getByText(color)).toHaveClass(
+          'badge',
+          'badge-outline',
+          `badge-outline-${color}`
+        );
         unmount();
       });
     });
@@ -367,29 +375,6 @@ describe('BadgeActionButton', () => {
       expect(ref.current?.className).toContain('badge-action-btn');
     });
   });
-
-  describe('asChild Prop', () => {
-    it('renders as the child element when asChild is true', () => {
-      render(
-        <BadgeActionButton asChild>
-          <a href="/dismiss">Dismiss</a>
-        </BadgeActionButton>
-      );
-      const link = screen.getByRole('link', { name: /dismiss/i });
-      expect(link).toBeInstanceOf(HTMLAnchorElement);
-      expect(link).toHaveClass('badge-action-btn');
-      expect(link).toHaveAttribute('href', '/dismiss');
-    });
-
-    it('does not set type attribute on asChild element', () => {
-      render(
-        <BadgeActionButton asChild>
-          <a href="/dismiss">Dismiss</a>
-        </BadgeActionButton>
-      );
-      expect(screen.getByRole('link', { name: /dismiss/i })).not.toHaveAttribute('type');
-    });
-  });
 });
 
 describe('badgeVariants', () => {
@@ -405,7 +390,11 @@ describe('badgeVariants', () => {
       { variant: 'subtle' as const, color: 'danger' as const, expected: 'badge-subtle-danger' },
       { variant: 'outline' as const, color: 'info' as const, expected: 'badge-outline-info' },
       { variant: 'subtle' as const, color: 'warning' as const, expected: 'badge-subtle-warning' },
-      { variant: 'outline' as const, color: 'secondary' as const, expected: 'badge-outline-secondary' },
+      {
+        variant: 'outline' as const,
+        color: 'secondary' as const,
+        expected: 'badge-outline-secondary',
+      },
     ];
 
     combinations.forEach(({ variant, color, expected }) => {

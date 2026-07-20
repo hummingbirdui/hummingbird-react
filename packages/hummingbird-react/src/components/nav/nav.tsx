@@ -42,14 +42,10 @@ function Nav({ className, variant, color, asChild = false, ...props }: NavProps)
 
 Nav.displayName = 'Nav';
 
-export interface NavItemProps extends React.ComponentProps<'li'> {
-  asChild?: boolean;
-}
+export interface NavItemProps extends React.ComponentProps<'li'> {}
 
-function NavItem({ className, asChild = false, ...props }: NavItemProps) {
-  const Comp = asChild ? Slot.Root : 'li';
-
-  return <Comp data-slot="nav-item" className={className} {...props} />;
+function NavItem({ className, ...props }: NavItemProps) {
+  return <li data-slot="nav-item" className={className} {...props} />;
 }
 
 NavItem.displayName = 'NavItem';

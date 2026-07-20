@@ -157,34 +157,6 @@ describe('Avatar', () => {
     });
   });
 
-  describe('asChild Prop', () => {
-    it('renders the group as the supplied child element', () => {
-      render(
-        <AvatarGroup asChild>
-          <ul data-testid="group">
-            <li>1</li>
-          </ul>
-        </AvatarGroup>
-      );
-      const group = screen.getByTestId('group');
-      expect(group).toBeInstanceOf(HTMLUListElement);
-      expect(group).toHaveClass('avatar-group');
-      expect(group).toHaveAttribute('data-slot', 'avatar-group');
-    });
-
-    it('preserves the child element attributes and classes', () => {
-      render(
-        <AvatarGroup asChild>
-          <section className="custom-section" id="team" data-testid="group" />
-        </AvatarGroup>
-      );
-      const group = screen.getByTestId('group');
-      expect(group.tagName).toBe('SECTION');
-      expect(group).toHaveClass('avatar-group', 'custom-section');
-      expect(group).toHaveAttribute('id', 'team');
-    });
-  });
-
   describe('Display Name', () => {
     it.each([
       [Avatar, 'Avatar'],

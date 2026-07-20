@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Avatar as AvatarPrimitive, Slot } from 'radix-ui';
+import { Avatar as AvatarPrimitive } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const avatarVariants = cva('avatar', {
@@ -65,14 +65,10 @@ function AvatarFallback({
 
 AvatarFallback.displayName = 'AvatarFallback';
 
-export interface AvatarGroupProps extends React.ComponentProps<'div'> {
-  asChild?: boolean;
-}
+export interface AvatarGroupProps extends React.ComponentProps<'div'> {}
 
-function AvatarGroup({ className, asChild = false, ...props }: AvatarGroupProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="avatar-group" className={cn('avatar-group', className)} {...props} />;
+function AvatarGroup({ className, ...props }: AvatarGroupProps) {
+  return <div data-slot="avatar-group" className={cn('avatar-group', className)} {...props} />;
 }
 
 AvatarGroup.displayName = 'AvatarGroup';

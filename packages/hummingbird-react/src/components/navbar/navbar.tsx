@@ -24,22 +24,12 @@ const NavbarContext = React.createContext<{ expand?: NavbarExpand }>({});
 
 export interface NavbarProps
   extends React.ComponentProps<'nav'>, VariantProps<typeof navbarVariants> {
-  asChild?: boolean;
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
 
-function Navbar({
-  className,
-  expand,
-  asChild = false,
-  open,
-  defaultOpen,
-  onOpenChange,
-  ...props
-}: NavbarProps) {
-  const Comp = asChild ? Slot.Root : 'nav';
+function Navbar({ className, expand, open, defaultOpen, onOpenChange, ...props }: NavbarProps) {
   const ctx = React.useMemo(() => ({ expand }), [expand]);
 
   return (
@@ -50,7 +40,7 @@ function Navbar({
         onOpenChange={onOpenChange}
         asChild
       >
-        <Comp data-slot="navbar" className={cn(navbarVariants({ expand }), className)} {...props} />
+        <nav data-slot="navbar" className={cn(navbarVariants({ expand }), className)} {...props} />
       </CollapsiblePrimitive.Root>
     </NavbarContext.Provider>
   );
@@ -98,14 +88,10 @@ function NavbarNav({ className, scrollable, asChild = false, ...props }: NavbarN
 
 NavbarNav.displayName = 'NavbarNav';
 
-export interface NavbarTextProps extends React.ComponentProps<'span'> {
-  asChild?: boolean;
-}
+export interface NavbarTextProps extends React.ComponentProps<'span'> {}
 
-function NavbarText({ className, asChild = false, ...props }: NavbarTextProps) {
-  const Comp = asChild ? Slot.Root : 'span';
-
-  return <Comp data-slot="navbar-text" className={cn('navbar-text', className)} {...props} />;
+function NavbarText({ className, ...props }: NavbarTextProps) {
+  return <span data-slot="navbar-text" className={cn('navbar-text', className)} {...props} />;
 }
 
 NavbarText.displayName = 'NavbarText';

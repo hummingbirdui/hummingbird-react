@@ -28,59 +28,42 @@ function Card({ className, aside, action, asChild = false, ...props }: CardProps
 
 Card.displayName = 'Card';
 
-export interface CardSlotProps extends React.ComponentProps<'div'> {
-  asChild?: boolean;
-}
+export interface CardSlotProps extends React.ComponentProps<'div'> {}
 
-function CardHeader({ className, asChild = false, ...props }: CardSlotProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="card-header" className={cn('card-header', className)} {...props} />;
+function CardHeader({ className, ...props }: CardSlotProps) {
+  return <div data-slot="card-header" className={cn('card-header', className)} {...props} />;
 }
 
 CardHeader.displayName = 'CardHeader';
 
-function CardBody({ className, asChild = false, ...props }: CardSlotProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="card-body" className={cn('card-body', className)} {...props} />;
+function CardBody({ className, ...props }: CardSlotProps) {
+  return <div data-slot="card-body" className={cn('card-body', className)} {...props} />;
 }
 
 CardBody.displayName = 'CardBody';
 
-function CardFooter({ className, asChild = false, ...props }: CardSlotProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="card-footer" className={cn('card-footer', className)} {...props} />;
+function CardFooter({ className, ...props }: CardSlotProps) {
+  return <div data-slot="card-footer" className={cn('card-footer', className)} {...props} />;
 }
 
 CardFooter.displayName = 'CardFooter';
 
-function CardTitle({ className, asChild = false, ...props }: CardSlotProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="card-title" className={cn('card-title text-xl', className)} {...props} />;
+function CardTitle({ className, ...props }: CardSlotProps) {
+  return <div data-slot="card-title" className={cn('card-title text-xl', className)} {...props} />;
 }
 
 CardTitle.displayName = 'CardTitle';
 
-function CardSubtitle({ className, asChild = false, ...props }: CardSlotProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="card-subtitle" className={cn('card-subtitle', className)} {...props} />;
+function CardSubtitle({ className, ...props }: CardSlotProps) {
+  return <div data-slot="card-subtitle" className={cn('card-subtitle', className)} {...props} />;
 }
 
 CardSubtitle.displayName = 'CardSubtitle';
 
-export interface CardTextProps extends React.ComponentProps<'p'> {
-  /** Render as a child element. Uses Radix Slot. */
-  asChild?: boolean;
-}
+export interface CardTextProps extends React.ComponentProps<'p'> {}
 
-function CardText({ className, asChild = false, ...props }: CardTextProps) {
-  const Comp = asChild ? Slot.Root : 'p';
-
-  return <Comp data-slot="card-text" className={cn('card-text', className)} {...props} />;
+function CardText({ className, ...props }: CardTextProps) {
+  return <p data-slot="card-text" className={cn('card-text', className)} {...props} />;
 }
 
 CardText.displayName = 'CardText';
@@ -115,20 +98,16 @@ function CardImage({ className, position, ...props }: CardImageProps) {
 
 CardImage.displayName = 'CardImage';
 
-function CardImageOverlay({ className, asChild = false, ...props }: CardSlotProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
+function CardImageOverlay({ className, ...props }: CardSlotProps) {
   return (
-    <Comp data-slot="card-image-overlay" className={cn('card-img-overlay', className)} {...props} />
+    <div data-slot="card-image-overlay" className={cn('card-img-overlay', className)} {...props} />
   );
 }
 
 CardImageOverlay.displayName = 'CardImageOverlay';
 
-function CardGroup({ className, asChild = false, ...props }: CardSlotProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="card-group" className={cn('card-group', className)} {...props} />;
+function CardGroup({ className, ...props }: CardSlotProps) {
+  return <div data-slot="card-group" className={cn('card-group', className)} {...props} />;
 }
 
 CardGroup.displayName = 'CardGroup';

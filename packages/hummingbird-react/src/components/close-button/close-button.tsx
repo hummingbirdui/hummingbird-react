@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const closeButtonVariants = cva('btn-close', {
@@ -21,18 +20,15 @@ const closeButtonVariants = cva('btn-close', {
 });
 
 export interface CloseButtonProps
-  extends React.ComponentProps<'button'>, VariantProps<typeof closeButtonVariants> {
-  asChild?: boolean;
-}
-function CloseButton({ className, variant, shape, asChild = false, ...props }: CloseButtonProps) {
-  const Comp = asChild ? Slot.Root : 'button';
+  extends React.ComponentProps<'button'>, VariantProps<typeof closeButtonVariants> {}
 
+function CloseButton({ className, variant, shape, type = 'button', ...props }: CloseButtonProps) {
   return (
-    <Comp
+    <button
       data-slot="close-button"
       aria-label="Close"
       className={cn(closeButtonVariants({ variant, shape }), className)}
-      {...(asChild ? {} : { type: 'button' })}
+      type={type}
       {...props}
     />
   );

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const formControlVariants = cva('', {
@@ -35,23 +34,11 @@ const formControlVariants = cva('', {
 type FormControlVariantProps = VariantProps<typeof formControlVariants>;
 
 export interface FormControlProps
-  extends Omit<React.ComponentProps<'input'>, 'color' | 'size'>, FormControlVariantProps {
-  asChild?: boolean;
-}
+  extends Omit<React.ComponentProps<'input'>, 'color' | 'size'>, FormControlVariantProps {}
 
-function FormControl({
-  className,
-  variant,
-  size,
-  color,
-  state,
-  asChild = false,
-  ...props
-}: FormControlProps) {
-  const Comp = asChild ? Slot.Root : 'input';
-
+function FormControl({ className, variant, size, color, state, ...props }: FormControlProps) {
   return (
-    <Comp
+    <input
       data-slot="form-control"
       aria-invalid={state === 'invalid' || undefined}
       className={cn(formControlVariants({ variant, size, color, state }), className)}
@@ -63,23 +50,11 @@ function FormControl({
 FormControl.displayName = 'FormControl';
 
 export interface TextareaProps
-  extends Omit<React.ComponentProps<'textarea'>, 'color'>, FormControlVariantProps {
-  asChild?: boolean;
-}
+  extends Omit<React.ComponentProps<'textarea'>, 'color'>, FormControlVariantProps {}
 
-function Textarea({
-  className,
-  variant,
-  size,
-  color,
-  state,
-  asChild = false,
-  ...props
-}: TextareaProps) {
-  const Comp = asChild ? Slot.Root : 'textarea';
-
+function Textarea({ className, variant, size, color, state, ...props }: TextareaProps) {
   return (
-    <Comp
+    <textarea
       data-slot="textarea"
       aria-invalid={state === 'invalid' || undefined}
       className={cn(formControlVariants({ variant, size, color, state }), className)}
@@ -90,26 +65,18 @@ function Textarea({
 
 Textarea.displayName = 'Textarea';
 
-export interface FormLabelProps extends React.ComponentProps<'label'> {
-  asChild?: boolean;
-}
+export interface FormLabelProps extends React.ComponentProps<'label'> {}
 
-function FormLabel({ className, asChild = false, ...props }: FormLabelProps) {
-  const Comp = asChild ? Slot.Root : 'label';
-
-  return <Comp data-slot="form-label" className={cn('form-label', className)} {...props} />;
+function FormLabel({ className, ...props }: FormLabelProps) {
+  return <label data-slot="form-label" className={cn('form-label', className)} {...props} />;
 }
 
 FormLabel.displayName = 'FormLabel';
 
-export interface FormFieldProps extends React.ComponentProps<'div'> {
-  asChild?: boolean;
-}
+export interface FormFieldProps extends React.ComponentProps<'div'> {}
 
-function FormField({ className, asChild = false, ...props }: FormFieldProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="form-field" className={cn('form-field', className)} {...props} />;
+function FormField({ className, ...props }: FormFieldProps) {
+  return <div data-slot="form-field" className={cn('form-field', className)} {...props} />;
 }
 
 FormField.displayName = 'FormField';
@@ -128,45 +95,29 @@ const formTextVariants = cva('', {
 });
 
 export interface FormTextProps
-  extends React.ComponentProps<'p'>, VariantProps<typeof formTextVariants> {
-  asChild?: boolean;
-}
+  extends React.ComponentProps<'p'>, VariantProps<typeof formTextVariants> {}
 
-function FormText({ className, variant, asChild = false, ...props }: FormTextProps) {
-  const Comp = asChild ? Slot.Root : 'p';
-
+function FormText({ className, variant, ...props }: FormTextProps) {
   return (
-    <Comp
-      data-slot="form-text"
-      className={cn(formTextVariants({ variant }), className)}
-      {...props}
-    />
+    <p data-slot="form-text" className={cn(formTextVariants({ variant }), className)} {...props} />
   );
 }
 
 FormText.displayName = 'FormText';
 
-export interface InputIconProps extends React.ComponentProps<'div'> {
-  asChild?: boolean;
-}
+export interface InputIconProps extends React.ComponentProps<'div'> {}
 
-function InputIcon({ className, asChild = false, ...props }: InputIconProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return <Comp data-slot="input-icon" className={cn('input-group-icon', className)} {...props} />;
+function InputIcon({ className, ...props }: InputIconProps) {
+  return <div data-slot="input-icon" className={cn('input-group-icon', className)} {...props} />;
 }
 
 InputIcon.displayName = 'InputIcon';
 
-export interface InputIconSlotProps extends React.ComponentProps<'span'> {
-  asChild?: boolean;
-}
+export interface InputIconSlotProps extends React.ComponentProps<'span'> {}
 
-function InputIconStart({ className, asChild = false, ...props }: InputIconSlotProps) {
-  const Comp = asChild ? Slot.Root : 'span';
-
+function InputIconStart({ className, ...props }: InputIconSlotProps) {
   return (
-    <Comp
+    <span
       data-slot="input-icon-start"
       className={cn('form-control-icon-start', className)}
       {...props}
@@ -176,11 +127,9 @@ function InputIconStart({ className, asChild = false, ...props }: InputIconSlotP
 
 InputIconStart.displayName = 'InputIconStart';
 
-function InputIconEnd({ className, asChild = false, ...props }: InputIconSlotProps) {
-  const Comp = asChild ? Slot.Root : 'span';
-
+function InputIconEnd({ className, ...props }: InputIconSlotProps) {
   return (
-    <Comp
+    <span
       data-slot="input-icon-end"
       className={cn('form-control-icon-end', className)}
       {...props}

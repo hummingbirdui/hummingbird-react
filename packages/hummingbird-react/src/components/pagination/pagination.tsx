@@ -59,20 +59,9 @@ type PaginationVariants = VariantProps<typeof paginationVariants>;
 const PaginationVariantsContext = React.createContext<PaginationVariants>({});
 
 export interface PaginationProps
-  extends Omit<React.ComponentProps<'nav'>, 'color'>, PaginationVariants {
-  asChild?: boolean;
-}
+  extends Omit<React.ComponentProps<'nav'>, 'color'>, PaginationVariants {}
 
-function Pagination({
-  className,
-  size,
-  shape,
-  variant,
-  color,
-  asChild = false,
-  ...props
-}: PaginationProps) {
-  const Comp = asChild ? Slot.Root : 'nav';
+function Pagination({ className, size, shape, variant, color, ...props }: PaginationProps) {
   const variants = React.useMemo(
     () => ({ size, shape, variant, color }),
     [size, shape, variant, color]
@@ -80,7 +69,7 @@ function Pagination({
 
   return (
     <PaginationVariantsContext.Provider value={variants}>
-      <Comp
+      <nav
         role="navigation"
         aria-label="pagination"
         data-slot="pagination"
@@ -93,16 +82,13 @@ function Pagination({
 
 Pagination.displayName = 'Pagination';
 
-export interface PaginationContentProps extends React.ComponentProps<'ul'> {
-  asChild?: boolean;
-}
+export interface PaginationContentProps extends React.ComponentProps<'ul'> {}
 
-function PaginationContent({ className, asChild = false, ...props }: PaginationContentProps) {
-  const Comp = asChild ? Slot.Root : 'ul';
+function PaginationContent({ className, ...props }: PaginationContentProps) {
   const variants = React.useContext(PaginationVariantsContext);
 
   return (
-    <Comp
+    <ul
       data-slot="pagination-content"
       className={cn(paginationVariants(variants), className)}
       {...props}
@@ -117,21 +103,17 @@ const PaginationItemActiveContext = React.createContext(false);
 export interface PaginationItemProps extends React.ComponentProps<'li'> {
   active?: boolean;
   disabled?: boolean;
-  asChild?: boolean;
 }
 
 function PaginationItem({
   className,
   active = false,
   disabled = false,
-  asChild = false,
   ...props
 }: PaginationItemProps) {
-  const Comp = asChild ? Slot.Root : 'li';
-
   return (
     <PaginationItemActiveContext.Provider value={active}>
-      <Comp
+      <li
         data-slot="pagination-item"
         className={cn('page-item', active && 'active', disabled && 'disabled', className)}
         {...props}

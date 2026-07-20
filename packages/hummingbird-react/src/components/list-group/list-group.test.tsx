@@ -90,10 +90,7 @@ describe('ListGroup', () => {
           <ListGroupItem action>Item</ListGroupItem>
         </ListGroup>
       );
-      expect(screen.getByRole('listitem')).toHaveClass(
-        'list-group-item',
-        'list-group-item-action'
-      );
+      expect(screen.getByRole('listitem')).toHaveClass('list-group-item', 'list-group-item-action');
     });
 
     it('applies list-group-item-pinned when pinned', () => {
@@ -102,10 +99,7 @@ describe('ListGroup', () => {
           <ListGroupItem pinned>Item</ListGroupItem>
         </ListGroup>
       );
-      expect(screen.getByRole('listitem')).toHaveClass(
-        'list-group-item',
-        'list-group-item-pinned'
-      );
+      expect(screen.getByRole('listitem')).toHaveClass('list-group-item', 'list-group-item-pinned');
     });
 
     it('applies no extra classes on a plain item', () => {
@@ -347,17 +341,6 @@ describe('ListGroup', () => {
       const link = screen.getByRole('link', { name: /current/i });
       expect(link).toHaveAttribute('aria-current', 'true');
       expect(link).toHaveClass('active');
-    });
-
-    it('renders ListText as a span via asChild', () => {
-      render(
-        <ListText asChild variant="secondary">
-          <span>Span text</span>
-        </ListText>
-      );
-      const text = screen.getByText('Span text');
-      expect(text.tagName).toBe('SPAN');
-      expect(text).toHaveClass('list-text-secondary');
     });
   });
 

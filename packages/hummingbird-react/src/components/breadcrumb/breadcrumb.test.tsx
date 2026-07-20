@@ -231,33 +231,6 @@ describe('Breadcrumb', () => {
   });
 
   describe('asChild Prop', () => {
-    it('renders Breadcrumb as the supplied child while keeping the aria-label', () => {
-      render(
-        <Breadcrumb asChild>
-          <div data-testid="custom-breadcrumb">
-            <BreadcrumbList />
-          </div>
-        </Breadcrumb>
-      );
-      const el = screen.getByTestId('custom-breadcrumb');
-      expect(el.tagName).toBe('DIV');
-      expect(el).toHaveAttribute('aria-label', 'breadcrumb');
-      expect(el).toHaveAttribute('data-slot', 'breadcrumb');
-    });
-
-    it('applies list classes to an asChild list', () => {
-      render(
-        <Breadcrumb>
-          <BreadcrumbList asChild separator="dashed">
-            <ul data-testid="custom-list" />
-          </BreadcrumbList>
-        </Breadcrumb>
-      );
-      const list = screen.getByTestId('custom-list');
-      expect(list).toBeInstanceOf(HTMLUListElement);
-      expect(list).toHaveClass('breadcrumb', 'breadcrumb-separator-dashed');
-    });
-
     it('renders BreadcrumbLink as the supplied child and preserves its attributes', () => {
       render(
         <Breadcrumb>
@@ -275,24 +248,6 @@ describe('Breadcrumb', () => {
       const button = screen.getByRole('button', { name: /home/i });
       expect(button).toHaveAttribute('data-slot', 'breadcrumb-link');
       expect(button).toHaveClass('custom-link');
-    });
-
-    it('renders BreadcrumbPage as the supplied child with the page ARIA wiring', () => {
-      render(
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem active>
-              <BreadcrumbPage asChild>
-                <em>Data</em>
-              </BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      );
-      const page = screen.getByText('Data');
-      expect(page.tagName).toBe('EM');
-      expect(page).toHaveAttribute('aria-current', 'page');
-      expect(page).toHaveAttribute('aria-disabled', 'true');
     });
   });
 

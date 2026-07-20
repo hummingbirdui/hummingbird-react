@@ -297,21 +297,6 @@ describe('Select', () => {
     });
   });
 
-  describe('asChild Prop', () => {
-    it('applies the select classes to the supplied child', () => {
-      render(
-        <Select asChild variant="fill" size="sm">
-          <select aria-label="Fruit" className="custom-select">
-            {options}
-          </select>
-        </Select>
-      );
-      const select = screen.getByRole('combobox', { name: 'Fruit' });
-      expect(select).toHaveClass('form-select-fill', 'form-select-sm', 'custom-select');
-      expect(select).toHaveAttribute('data-slot', 'select');
-    });
-  });
-
   describe('Display Name', () => {
     it('has correct display name', () => {
       expect(Select.displayName).toBe('Select');

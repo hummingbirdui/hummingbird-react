@@ -155,52 +155,6 @@ describe('CloseButton', () => {
     });
   });
 
-  describe('asChild Prop', () => {
-    it('renders as anchor element when asChild is true', () => {
-      render(
-        <CloseButton asChild>
-          <a href="/dismiss">Dismiss</a>
-        </CloseButton>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toBeInstanceOf(HTMLAnchorElement);
-      expect(link).toHaveClass('btn-close');
-      expect(link).toHaveAttribute('href', '/dismiss');
-    });
-
-    it('applies variant classes to asChild element', () => {
-      render(
-        <CloseButton asChild variant="white" shape="circle">
-          <a href="#">Dismiss</a>
-        </CloseButton>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('btn-close', 'btn-close-white', 'btn-close-circle');
-    });
-
-    it('does not set type attribute on asChild element', () => {
-      render(
-        <CloseButton asChild>
-          <a href="#">Dismiss</a>
-        </CloseButton>
-      );
-      expect(screen.getByRole('link')).not.toHaveAttribute('type');
-    });
-
-    it('preserves child element attributes and classes', () => {
-      render(
-        <CloseButton asChild>
-          <a href="/test" className="custom-link">
-            Dismiss
-          </a>
-        </CloseButton>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/test');
-      expect(link).toHaveClass('custom-link', 'btn-close');
-    });
-  });
-
   describe('Display Name', () => {
     it('has correct display name', () => {
       expect(CloseButton.displayName).toBe('CloseButton');

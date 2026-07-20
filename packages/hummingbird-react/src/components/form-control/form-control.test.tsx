@@ -189,9 +189,7 @@ describe('FormControl', () => {
 
   describe('Class Merging', () => {
     it('merges custom className with variant classes', () => {
-      render(
-        <FormControl aria-label="Name" size="lg" color="success" className="custom-class" />
-      );
+      render(<FormControl aria-label="Name" size="lg" color="success" className="custom-class" />);
       const input = screen.getByRole('textbox');
       expect(input).toHaveClass(
         'form-control',
@@ -209,20 +207,6 @@ describe('FormControl', () => {
       expect(ref.current).toBeInstanceOf(HTMLInputElement);
       expect(ref.current?.value).toBe('ref value');
       expect(ref.current?.className).toContain('form-control');
-    });
-  });
-
-  describe('asChild Prop', () => {
-    it('applies form-control classes to the child element', () => {
-      render(
-        <FormControl asChild size="sm">
-          <input type="search" aria-label="Search" className="child-class" />
-        </FormControl>
-      );
-      const input = screen.getByRole('searchbox', { name: /search/i });
-      expect(input).toHaveAttribute('type', 'search');
-      expect(input).toHaveClass('form-control', 'form-control-sm', 'child-class');
-      expect(input).toHaveAttribute('data-slot', 'form-control');
     });
   });
 
@@ -252,9 +236,7 @@ describe('FormControl', () => {
       );
       const input = screen.getByRole('textbox', { name: /email/i });
       expect(input).toHaveAttribute('aria-describedby', 'email-help');
-      expect(document.getElementById('email-help')).toHaveTextContent(
-        'We never share your email.'
-      );
+      expect(document.getElementById('email-help')).toHaveTextContent('We never share your email.');
     });
 
     it('is focusable via keyboard', async () => {

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
 const alertVariants = cva('alert', {
@@ -52,15 +51,11 @@ const alertVariants = cva('alert', {
 });
 
 export interface AlertProps
-  extends Omit<React.ComponentProps<'div'>, 'color'>, VariantProps<typeof alertVariants> {
-  asChild?: boolean;
-}
+  extends Omit<React.ComponentProps<'div'>, 'color'>, VariantProps<typeof alertVariants> {}
 
-function Alert({ className, variant, color, asChild = false, ...props }: AlertProps) {
-  const Comp = asChild ? Slot.Root : 'div';
-
+function Alert({ className, variant, color, ...props }: AlertProps) {
   return (
-    <Comp
+    <div
       role="alert"
       data-slot="alert"
       className={cn(alertVariants({ variant, color }), className)}
@@ -71,14 +66,10 @@ function Alert({ className, variant, color, asChild = false, ...props }: AlertPr
 
 Alert.displayName = 'Alert';
 
-export interface AlertIconProps extends React.ComponentProps<'span'> {
-  asChild?: boolean;
-}
+export interface AlertIconProps extends React.ComponentProps<'span'> {}
 
-function AlertIcon({ className, asChild = false, ...props }: AlertIconProps) {
-  const Comp = asChild ? Slot.Root : 'span';
-
-  return <Comp data-slot="alert-icon" className={cn('alert-icon', className)} {...props} />;
+function AlertIcon({ className, ...props }: AlertIconProps) {
+  return <span data-slot="alert-icon" className={cn('alert-icon', className)} {...props} />;
 }
 
 AlertIcon.displayName = 'AlertIcon';
