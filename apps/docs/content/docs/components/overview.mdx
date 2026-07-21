@@ -1,0 +1,55 @@
+---
+title: Component Overview
+description: Hummingbird provides various UI components to improve web applications, the experience will keep on refining.
+sidebarTitle: Overview
+toc: true
+---
+
+import ComponentCard from "@/components/common/ComponentCard";
+import {
+  general,
+  dataDisplay,
+  dataEntry,
+  feedback,
+  navigation,
+} from "@/data/components";
+
+## General
+
+<div className="flex-2 mx-auto place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-70 sm:max-w-full gap-6">
+  {general.map((item) => (
+    <ComponentCard key={item.title} component={item} />
+  ))}
+</div>
+
+## Data Display
+
+<div className="flex-2 mx-auto place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-70 sm:max-w-full gap-6">
+  {dataDisplay.map((item) => (
+    <ComponentCard key={item.title} component={item} />
+  ))}
+</div>
+
+## Data Entry
+
+<div className="flex-2 mx-auto place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-70 sm:max-w-full gap-6">
+  {dataEntry.map((item) => (
+    <ComponentCard key={item.title} component={item} />
+  ))}
+</div>
+
+## Feedback
+
+<div className="flex-2 mx-auto place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-70 sm:max-w-full gap-6">
+  {feedback.map((item) => (
+    <ComponentCard key={item.title} component={item} />
+  ))}
+</div>
+
+## Navigation
+
+<div className="flex-2 mx-auto place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-70 sm:max-w-full gap-6">
+  {navigation.map((item) => (
+    <ComponentCard key={item.title} component={item} />
+  ))}
+</div>

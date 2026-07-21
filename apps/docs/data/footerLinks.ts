@@ -72,7 +72,7 @@ export const footerLinks: FooterLink[] = [
 export const socialLinks: SocialLink[] = [
   {
     name: "github",
-    url: "https://github.com/hummingbirdui/hummingbird",
+    url: "https://github.com/hummingbirdui/hummingbird-react",
     icon: GithubIcon,
   },
   {

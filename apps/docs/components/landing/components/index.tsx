@@ -1,7 +1,7 @@
 import SectionHeader from "@/components/common/SectionHeader";
+import ComponentsCard from "@/components/common/ComponentCard";
 import { components } from "@/data/components";
 import { Button } from "@hummingbirdui/react";
-import ComponentsCard from "./ComponentCard";
 
 const Components = () => {
   return (
@@ -14,7 +14,7 @@ const Components = () => {
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto my-10">
         {components.slice(0, 8).map((component) => (
-          <ComponentsCard key={component.title} data={component} />
+          <ComponentsCard key={component.title} component={component} />
         ))}
       </div>
       <div className="flex justify-center">
