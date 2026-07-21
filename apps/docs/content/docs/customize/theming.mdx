@@ -20,90 +20,90 @@ Hummingbird React is styled by Hummingbird CSS, which is built on Tailwind CSS v
 Here is a quick overview of the available prebuilt themes:
 
 <Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Name</TableHead>
-      <TableHead>Description</TableHead>
-      <TableHead>Preview</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell className="font-semibold">Default</TableCell>
-      <TableCell>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Name</Table.Head>
+      <Table.Head>Description</Table.Head>
+      <Table.Head>Preview</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Default</Table.Cell>
+      <Table.Cell>
         The signature Hummingbird theme with balanced neutrals and vibrant blue
         accents.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="default" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-semibold">Luxury</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Luxury</Table.Cell>
+      <Table.Cell>
         Rich maroon and golden tones crafted for a refined, premium appearance.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="luxury" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-semibold">Retro</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Retro</Table.Cell>
+      <Table.Cell>
         Warm vintage-inspired colors that bring a classic and timeless feel.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="retro" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-semibold">Arctic</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Arctic</Table.Cell>
+      <Table.Cell>
         Cool blues and frosty tones inspired by modern winter landscapes.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="arctic" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-semibold">Nature</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Nature</Table.Cell>
+      <Table.Cell>
         Fresh greens and earthy shades inspired by the natural world.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="nature" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-semibold">Dracula</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Dracula</Table.Cell>
+      <Table.Cell>
         Deep purples and vivid pinks designed for bold, high-contrast
         interfaces.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="dracula" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-semibold">Ember</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Ember</Table.Cell>
+      <Table.Cell>
         Warm oranges and amber tones that create an energetic, glowing
         aesthetic.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="ember" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-semibold">Midnight</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell className="font-semibold">Midnight</Table.Cell>
+      <Table.Cell>
         Deep blues and indigos designed for calm, modern dark experiences.
-      </TableCell>
-      <TableCell>
+      </Table.Cell>
+      <Table.Cell>
         <ThemeSwatches theme="midnight" swatchClassName="size-7" />
-      </TableCell>
-    </TableRow>
-  </TableBody>
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
 </Table>
 
 ### How to use themes
@@ -349,116 +349,118 @@ Tailwind theme variables are defined in namespaces, and each namespace correspon
 Defining new theme variables in these namespaces will make new corresponding utilities and variants available in the project:
 
 <Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Namespace</TableHead>
-      <TableHead>Utility classes</TableHead>
-      <TableHead>Preview</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>`--color-*`</TableCell>
-      <TableCell>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Namespace</Table.Head>
+      <Table.Head>Utility classes</Table.Head>
+      <Table.Head>Preview</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>`--color-*`</Table.Cell>
+      <Table.Cell>
         Color utilities like `bg-primary-light`, `text-primary-dark`, and many
         more
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--text-color-*`</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--text-color-*`</Table.Cell>
+      <Table.Cell>
         Text color utilities like `text-default`, `text-subtle`, and many more
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--background-color-*`</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--background-color-*`</Table.Cell>
+      <Table.Cell>
         Background color utilities like `bg-highlight`, `bg-emphasis`, and many
         more
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--border-color-*`</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--border-color-*`</Table.Cell>
+      <Table.Cell>
         Border color utilities like `border-default`, `border-subtle`, and many
         more
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--font-*`</TableCell>
-      <TableCell>Font family utilities like `font-serif`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--text-*`</TableCell>
-      <TableCell>Font size utilities like `text-xl`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--font-weight-*`</TableCell>
-      <TableCell>Font weight utilities like `font-bold`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--tracking-*`</TableCell>
-      <TableCell>Letter spacing utilities like `tracking-wide`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--leading-*`</TableCell>
-      <TableCell>Line height utilities like `leading-tight`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--breakpoint-*`</TableCell>
-      <TableCell>Responsive breakpoint variants like `sm:*`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--container-*`</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--font-*`</Table.Cell>
+      <Table.Cell>Font family utilities like `font-serif`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--text-*`</Table.Cell>
+      <Table.Cell>Font size utilities like `text-xl`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--font-weight-*`</Table.Cell>
+      <Table.Cell>Font weight utilities like `font-bold`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--tracking-*`</Table.Cell>
+      <Table.Cell>Letter spacing utilities like `tracking-wide`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--leading-*`</Table.Cell>
+      <Table.Cell>Line height utilities like `leading-tight`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--breakpoint-*`</Table.Cell>
+      <Table.Cell>Responsive breakpoint variants like `sm:*`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--container-*`</Table.Cell>
+      <Table.Cell>
         Container query variants like `@sm:*` and size utilities like `max-w-md`
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--spacing-*`</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--spacing-*`</Table.Cell>
+      <Table.Cell>
         Spacing and sizing utilities like `px-4`, `max-h-16`, and many more
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--radius-*`</TableCell>
-      <TableCell>Border radius utilities like `rounded-sm`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--shadow-*`</TableCell>
-      <TableCell>Box shadow utilities like `shadow-md`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--inset-shadow-*`</TableCell>
-      <TableCell>Inset box shadow utilities like `inset-shadow-xs`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--drop-shadow-*`</TableCell>
-      <TableCell>Drop shadow filter utilities like `drop-shadow-md`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--blur-*`</TableCell>
-      <TableCell>Blur filter utilities like `blur-md`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--perspective-*`</TableCell>
-      <TableCell>Perspective utilities like `perspective-near`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--aspect-*`</TableCell>
-      <TableCell>Aspect ratio utilities like `aspect-video`</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--ease-*`</TableCell>
-      <TableCell>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--radius-*`</Table.Cell>
+      <Table.Cell>Border radius utilities like `rounded-sm`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--shadow-*`</Table.Cell>
+      <Table.Cell>Box shadow utilities like `shadow-md`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--inset-shadow-*`</Table.Cell>
+      <Table.Cell>Inset box shadow utilities like `inset-shadow-xs`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--drop-shadow-*`</Table.Cell>
+      <Table.Cell>
+        Drop shadow filter utilities like `drop-shadow-md`
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--blur-*`</Table.Cell>
+      <Table.Cell>Blur filter utilities like `blur-md`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--perspective-*`</Table.Cell>
+      <Table.Cell>Perspective utilities like `perspective-near`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--aspect-*`</Table.Cell>
+      <Table.Cell>Aspect ratio utilities like `aspect-video`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--ease-*`</Table.Cell>
+      <Table.Cell>
         Transition timing function utilities like `ease-out`
-      </TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>`--animate-*`</TableCell>
-      <TableCell>Animation utilities like `animate-spin`</TableCell>
-    </TableRow>
-  </TableBody>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`--animate-*`</Table.Cell>
+      <Table.Cell>Animation utilities like `animate-spin`</Table.Cell>
+    </Table.Row>
+  </Table.Body>
 </Table>
 
 Follow the <a href="https://tailwindcss.com/docs/theme" target="_blank" rel="noopener noreferrer">official Tailwind CSS docs</a> for more details.

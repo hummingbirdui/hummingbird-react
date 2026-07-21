@@ -1,29 +1,20 @@
 "use client";
 
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuItem,
-  DropdownMenuItemText,
-  DropdownMenuSeparator,
-} from "@hummingbirdui/react";
+import { Button, Dropdown } from "@hummingbirdui/react";
 
 export default function DropdownItemText() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Dropdown>
+      <Dropdown.Trigger asChild>
         <Button>Details</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-56">
-        <DropdownMenuLabel>Signed in as</DropdownMenuLabel>
-        <DropdownMenuItemText>sohel@onesuite.io</DropdownMenuItemText>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Account settings</DropdownMenuItem>
-        <DropdownMenuItem>Sign out</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </Dropdown.Trigger>
+      <Dropdown.Content className="min-w-56">
+        <Dropdown.Label>Signed in as</Dropdown.Label>
+        <Dropdown.ItemText>sohel@onesuite.io</Dropdown.ItemText>
+        <Dropdown.Separator />
+        <Dropdown.Item>Account settings</Dropdown.Item>
+        <Dropdown.Item>Sign out</Dropdown.Item>
+      </Dropdown.Content>
+    </Dropdown>
   );
 }

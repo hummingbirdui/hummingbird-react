@@ -9,7 +9,7 @@ description: A modal dialog built on Radix UI that traps focus, locks scroll, an
 
 ## Centered
 
-Setting `centered` on `DialogContent` vertically centers the dialog in the viewport.
+Setting `centered` on `Dialog.Content` vertically centers the dialog in the viewport.
 
 <ComponentPreview name="dialog-centered" className="text-center" />
 
@@ -39,7 +39,7 @@ Passing `open` and `onOpenChange` to the `Dialog` root drives its open state ext
 
 ## API Reference
 
-Built on the [Radix UI Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) primitive. Each part forwards all props to its Radix counterpart, except `DialogHeader`, `DialogBody`, and `DialogFooter`, which are Hummingbird-specific layout parts rendered as plain `div` elements.
+Built on the [Radix UI Dialog](https://www.radix-ui.com/primitives/docs/components/dialog) primitive. Each part forwards all props to its Radix counterpart, except `Dialog.Header`, `Dialog.Body`, and `Dialog.Footer`, which are Hummingbird-specific layout parts rendered as plain `div` elements.
 
 ### Dialog
 
@@ -80,7 +80,7 @@ Contains all the parts of a dialog.
   ]}
 />
 
-### DialogTrigger
+### Dialog.Trigger
 
 The button that opens the dialog.
 
@@ -110,9 +110,9 @@ The button that opens the dialog.
   ]}
 />
 
-### DialogPortal
+### Dialog.Portal
 
-When used, portals your overlay and content parts into the `body`. `DialogContent` renders this part automatically, so you rarely need to use it directly.
+When used, portals your overlay and content parts into the `body`. `Dialog.Content` renders this part automatically, so you rarely need to use it directly.
 
 <PropsTable
   data={[
@@ -123,8 +123,8 @@ When used, portals your overlay and content parts into the `body`. `DialogConten
         <>
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries. If used on this
-          part, it will be inherited by <code>DialogOverlay</code> and{" "}
-          <code>DialogContent</code>.
+          part, it will be inherited by <code>Dialog.Overlay</code> and{" "}
+          <code>Dialog.Content</code>.
         </>
       ),
     },
@@ -137,9 +137,9 @@ When used, portals your overlay and content parts into the `body`. `DialogConten
   ]}
 />
 
-### DialogOverlay
+### Dialog.Overlay
 
-A layer that covers the inert portion of the view when the dialog is open. `DialogContent` renders this part automatically; use its `overlayProps` prop to customize it.
+A layer that covers the inert portion of the view when the dialog is open. `Dialog.Content` renders this part automatically; use its `overlayProps` prop to customize it.
 
 <PropsTable
   data={[
@@ -157,7 +157,7 @@ A layer that covers the inert portion of the view when the dialog is open. `Dial
         <>
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries. It inherits from{" "}
-          <code>DialogPortal</code>.
+          <code>Dialog.Portal</code>.
         </>
       ),
     },
@@ -178,9 +178,9 @@ A layer that covers the inert portion of the view when the dialog is open. `Dial
   ]}
 />
 
-### DialogContent
+### Dialog.Content
 
-Contains content to be rendered in the open dialog. Always renders its own `DialogPortal` and `DialogOverlay`, and wraps the content in the `modal` and `modal-dialog` elements.
+Contains content to be rendered in the open dialog. Always renders its own `Dialog.Portal` and `Dialog.Overlay`, and wraps the content in the `modal` and `modal-dialog` elements.
 
 <PropsTable
   data={[
@@ -198,7 +198,7 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
         <>
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries. It inherits from{" "}
-          <code>DialogPortal</code>.
+          <code>Dialog.Portal</code>.
         </>
       ),
     },
@@ -279,7 +279,7 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
       default: "false",
       description: (
         <>
-          Scrolls the <code>DialogBody</code> while the header and footer stay
+          Scrolls the <code>Dialog.Body</code> while the header and footer stay
           fixed.
         </>
       ),
@@ -309,28 +309,29 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
       description: (
         <>
           Container element forwarded to the internally rendered{" "}
-          <code>DialogPortal</code>.
+          <code>Dialog.Portal</code>.
         </>
       ),
     },
     {
       prop: "portalProps",
-      type: 'Omit<DialogPortalProps, "container" | "children">',
+      type: 'Omit<Dialog.PortalProps, "container" | "children">',
       typeSimple: "object",
       description: (
         <>
           Extra props forwarded to the internally rendered{" "}
-          <code>DialogPortal</code>.
+          <code>Dialog.Portal</code>.
         </>
       ),
     },
     {
       prop: "overlayProps",
-      type: "DialogOverlayProps",
+      type: "Dialog.OverlayProps",
       typeSimple: "object",
       description: (
         <>
-          Props forwarded to the internally rendered <code>DialogOverlay</code>.
+          Props forwarded to the internally rendered <code>Dialog.Overlay</code>
+          .
         </>
       ),
     },
@@ -357,11 +358,11 @@ Contains content to be rendered in the open dialog. Always renders its own `Dial
   ]}
 />
 
-### DialogHeader
+### Dialog.Header
 
 Hummingbird-specific layout part. Renders a `div` with the `modal-header` class for the top area of the dialog.
 
-### DialogTitle
+### Dialog.Title
 
 An accessible title to be announced when the dialog is opened. Renders an `h6` element by default.
 
@@ -382,7 +383,7 @@ An accessible title to be announced when the dialog is opened. Renders an `h6` e
   ]}
 />
 
-### DialogDescription
+### Dialog.Description
 
 An optional accessible description to be announced when the dialog is opened.
 
@@ -403,15 +404,15 @@ An optional accessible description to be announced when the dialog is opened.
   ]}
 />
 
-### DialogBody
+### Dialog.Body
 
 Hummingbird-specific layout part. Renders a `div` with the `modal-body` class for the main content of the dialog.
 
-### DialogFooter
+### Dialog.Footer
 
 Hummingbird-specific layout part. Renders a `div` with the `modal-footer` class, typically containing action buttons.
 
-### DialogClose
+### Dialog.Close
 
 The button that closes the dialog.
 

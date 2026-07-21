@@ -1,38 +1,27 @@
 "use client";
 
-import {
-  Button,
-  CloseButton,
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerClose,
-  DrawerBody,
-  DrawerDescription,
-} from "@hummingbirdui/react";
+import { Button, CloseButton, Drawer } from "@hummingbirdui/react";
 
 export default function DrawerWithoutOverlay() {
   return (
     <Drawer direction="right">
-      <DrawerTrigger asChild>
+      <Drawer.Trigger asChild>
         <Button variant="outline">Open without overlay</Button>
-      </DrawerTrigger>
-      <DrawerContent overlay={false}>
-        <DrawerHeader>
-          <DrawerTitle>No backdrop</DrawerTitle>
-          <DrawerClose asChild>
+      </Drawer.Trigger>
+      <Drawer.Content overlay={false}>
+        <Drawer.Header>
+          <Drawer.Title>No backdrop</Drawer.Title>
+          <Drawer.Close asChild>
             <CloseButton />
-          </DrawerClose>
-        </DrawerHeader>
-        <DrawerBody>
-          <DrawerDescription>
+          </Drawer.Close>
+        </Drawer.Header>
+        <Drawer.Body>
+          <Drawer.Description>
             Setting <code>overlay=&#123;false&#125;</code> hides the backdrop so
             the page behind stays visible.
-          </DrawerDescription>
-        </DrawerBody>
-      </DrawerContent>
+          </Drawer.Description>
+        </Drawer.Body>
+      </Drawer.Content>
     </Drawer>
   );
 }

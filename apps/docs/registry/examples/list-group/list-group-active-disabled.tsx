@@ -1,13 +1,13 @@
 "use client";
 
-import { ListGroup, ListGroupItem } from "@hummingbirdui/react";
+import { ListGroup } from "@hummingbirdui/react";
 
 export default function ListGroupActiveDisabled() {
   return (
     <ListGroup className="max-w-md">
-      <ListGroupItem active>Active item</ListGroupItem>
-      <ListGroupItem>Default item</ListGroupItem>
-      <ListGroupItem disabled>Disabled item</ListGroupItem>
+      <ListGroup.Item active>Active item</ListGroup.Item>
+      <ListGroup.Item>Default item</ListGroup.Item>
+      <ListGroup.Item disabled>Disabled item</ListGroup.Item>
     </ListGroup>
   );
 }

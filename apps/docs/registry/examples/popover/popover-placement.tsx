@@ -1,50 +1,44 @@
 "use client";
 
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverBody,
-  Button,
-} from "@hummingbirdui/react";
+import { Popover, Button } from "@hummingbirdui/react";
 
 export default function PopoverPlacement() {
   return (
     <div className="flex flex-wrap gap-2">
       <Popover>
-        <PopoverTrigger asChild>
+        <Popover.Trigger asChild>
           <Button variant="outline">Top</Button>
-        </PopoverTrigger>
-        <PopoverContent side="top">
-          <PopoverBody>Opens above the trigger.</PopoverBody>
-        </PopoverContent>
+        </Popover.Trigger>
+        <Popover.Content side="top">
+          <Popover.Body>Opens above the trigger.</Popover.Body>
+        </Popover.Content>
       </Popover>
 
       <Popover>
-        <PopoverTrigger asChild>
+        <Popover.Trigger asChild>
           <Button variant="outline">Right</Button>
-        </PopoverTrigger>
-        <PopoverContent side="right">
-          <PopoverBody>Opens to the right.</PopoverBody>
-        </PopoverContent>
+        </Popover.Trigger>
+        <Popover.Content side="right">
+          <Popover.Body>Opens to the right.</Popover.Body>
+        </Popover.Content>
       </Popover>
 
       <Popover>
-        <PopoverTrigger asChild>
+        <Popover.Trigger asChild>
           <Button variant="outline">Bottom</Button>
-        </PopoverTrigger>
-        <PopoverContent side="bottom">
-          <PopoverBody>Opens below the trigger.</PopoverBody>
-        </PopoverContent>
+        </Popover.Trigger>
+        <Popover.Content side="bottom">
+          <Popover.Body>Opens below the trigger.</Popover.Body>
+        </Popover.Content>
       </Popover>
 
       <Popover>
-        <PopoverTrigger asChild>
+        <Popover.Trigger asChild>
           <Button variant="outline">Left</Button>
-        </PopoverTrigger>
-        <PopoverContent side="left">
-          <PopoverBody>Opens to the left.</PopoverBody>
-        </PopoverContent>
+        </Popover.Trigger>
+        <Popover.Content side="left">
+          <Popover.Body>Opens to the left.</Popover.Body>
+        </Popover.Content>
       </Popover>
     </div>
   );

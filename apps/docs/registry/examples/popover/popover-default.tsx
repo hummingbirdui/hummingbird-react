@@ -1,26 +1,19 @@
 "use client";
 
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  Button,
-} from "@hummingbirdui/react";
+import { Popover, Button } from "@hummingbirdui/react";
 
 export default function PopoverDefault() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
+      <Popover.Trigger asChild>
         <Button>Open popover</Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <PopoverHeader>Popover title</PopoverHeader>
-        <PopoverBody>
+      </Popover.Trigger>
+      <Popover.Content>
+        <Popover.Header>Popover title</Popover.Header>
+        <Popover.Body>
           And here&apos;s some amazing content. It&apos;s very engaging. Right?
-        </PopoverBody>
-      </PopoverContent>
+        </Popover.Body>
+      </Popover.Content>
     </Popover>
   );
 }

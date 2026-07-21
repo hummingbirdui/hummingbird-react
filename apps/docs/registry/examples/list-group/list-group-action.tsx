@@ -1,20 +1,20 @@
 "use client";
 
-import { ListGroup, ListGroupItem } from "@hummingbirdui/react";
+import { ListGroup } from "@hummingbirdui/react";
 
 export default function ListGroupAction() {
   return (
     <ListGroup asChild className="max-w-md">
       <div>
-        <ListGroupItem action asChild>
+        <ListGroup.Item action asChild>
           <a href="#list-group">First action</a>
-        </ListGroupItem>
-        <ListGroupItem action active asChild>
+        </ListGroup.Item>
+        <ListGroup.Item action active asChild>
           <a href="#list-group">Active action</a>
-        </ListGroupItem>
-        <ListGroupItem action asChild>
+        </ListGroup.Item>
+        <ListGroup.Item action asChild>
           <a href="#list-group">Third action</a>
-        </ListGroupItem>
+        </ListGroup.Item>
       </div>
     </ListGroup>
   );

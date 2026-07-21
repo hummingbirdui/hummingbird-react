@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "@hummingbirdui/react";
+import { Table } from "@hummingbirdui/react";
 
 const colors = [
   "neutral",
@@ -24,18 +17,18 @@ export default function TableColors() {
     <div className="flex flex-col gap-6">
       {colors.map((color) => (
         <Table key={color} color={color}>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Color</TableHead>
-              <TableHead>Status</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell>{color}</TableCell>
-              <TableCell>Active</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Header>
+            <Table.Row>
+              <Table.Head>Color</Table.Head>
+              <Table.Head>Status</Table.Head>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>{color}</Table.Cell>
+              <Table.Cell>Active</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       ))}
     </div>

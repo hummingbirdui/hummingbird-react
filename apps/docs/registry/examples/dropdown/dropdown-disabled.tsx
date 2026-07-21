@@ -1,25 +1,19 @@
 "use client";
 
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@hummingbirdui/react";
+import { Button, Dropdown } from "@hummingbirdui/react";
 
 export default function DropdownDisabled() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Dropdown>
+      <Dropdown.Trigger asChild>
         <Button>Actions</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-48">
-        <DropdownMenuItem>Edit</DropdownMenuItem>
-        <DropdownMenuItem>Share</DropdownMenuItem>
-        <DropdownMenuItem disabled>Archive</DropdownMenuItem>
-        <DropdownMenuItem disabled>Delete</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </Dropdown.Trigger>
+      <Dropdown.Content className="min-w-48">
+        <Dropdown.Item>Edit</Dropdown.Item>
+        <Dropdown.Item>Share</Dropdown.Item>
+        <Dropdown.Item disabled>Archive</Dropdown.Item>
+        <Dropdown.Item disabled>Delete</Dropdown.Item>
+      </Dropdown.Content>
+    </Dropdown>
   );
 }

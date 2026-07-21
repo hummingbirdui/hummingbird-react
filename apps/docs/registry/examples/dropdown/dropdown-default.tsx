@@ -1,29 +1,21 @@
 "use client";
 
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-} from "@hummingbirdui/react";
+import { Button, Dropdown } from "@hummingbirdui/react";
 
 export default function DropdownDefault() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Dropdown>
+      <Dropdown.Trigger asChild>
         <Button>Open menu</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-48">
-        <DropdownMenuLabel>My account</DropdownMenuLabel>
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Settings</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Sign out</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </Dropdown.Trigger>
+      <Dropdown.Content className="min-w-48">
+        <Dropdown.Label>My account</Dropdown.Label>
+        <Dropdown.Item>Profile</Dropdown.Item>
+        <Dropdown.Item>Settings</Dropdown.Item>
+        <Dropdown.Item>Billing</Dropdown.Item>
+        <Dropdown.Separator />
+        <Dropdown.Item>Sign out</Dropdown.Item>
+      </Dropdown.Content>
+    </Dropdown>
   );
 }

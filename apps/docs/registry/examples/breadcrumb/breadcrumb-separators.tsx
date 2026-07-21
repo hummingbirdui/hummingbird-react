@@ -1,45 +1,39 @@
 "use client";
 
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-} from "@hummingbirdui/react";
+import { Breadcrumb } from "@hummingbirdui/react";
 
 export default function BreadcrumbSeparators() {
   return (
     <div className="flex flex-col gap-4">
       <Breadcrumb>
-        <BreadcrumbList separator="slash">
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem active>
-            <BreadcrumbPage>Slash</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
+        <Breadcrumb.List separator="slash">
+          <Breadcrumb.Item>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            <Breadcrumb.Page>Slash</Breadcrumb.Page>
+          </Breadcrumb.Item>
+        </Breadcrumb.List>
       </Breadcrumb>
       <Breadcrumb>
-        <BreadcrumbList separator="dashed">
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem active>
-            <BreadcrumbPage>Dashed</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
+        <Breadcrumb.List separator="dashed">
+          <Breadcrumb.Item>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            <Breadcrumb.Page>Dashed</Breadcrumb.Page>
+          </Breadcrumb.Item>
+        </Breadcrumb.List>
       </Breadcrumb>
       <Breadcrumb>
-        <BreadcrumbList separator="arrow">
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem active>
-            <BreadcrumbPage>Arrow</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
+        <Breadcrumb.List separator="arrow">
+          <Breadcrumb.Item>
+            <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            <Breadcrumb.Page>Arrow</Breadcrumb.Page>
+          </Breadcrumb.Item>
+        </Breadcrumb.List>
       </Breadcrumb>
     </div>
   );

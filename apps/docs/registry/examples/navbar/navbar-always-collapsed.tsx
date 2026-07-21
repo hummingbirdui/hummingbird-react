@@ -1,30 +1,23 @@
 "use client";
 
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarToggle,
-  NavbarCollapse,
-  NavbarNav,
-  NavLink,
-} from "@hummingbirdui/react";
+import { Navbar, Nav } from "@hummingbirdui/react";
 
 export default function NavbarAlwaysCollapsed() {
   return (
     <Navbar className="bg-subtle">
-      <NavbarBrand href="#">Hummingbird</NavbarBrand>
-      <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarNav asChild>
+      <Navbar.Brand href="#">Hummingbird</Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Navbar.Nav asChild>
           <div className="gap-2">
-            <NavLink href="#" active>
+            <Nav.Link href="#" active>
               Home
-            </NavLink>
-            <NavLink href="#">Features</NavLink>
-            <NavLink href="#">Pricing</NavLink>
+            </Nav.Link>
+            <Nav.Link href="#">Features</Nav.Link>
+            <Nav.Link href="#">Pricing</Nav.Link>
           </div>
-        </NavbarNav>
-      </NavbarCollapse>
+        </Navbar.Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

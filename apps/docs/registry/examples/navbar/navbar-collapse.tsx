@@ -1,20 +1,11 @@
 "use client";
 
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarToggle,
-  NavbarCollapse,
-  NavbarNav,
-  NavLink,
-  FormControl,
-  Button,
-} from "@hummingbirdui/react";
+import { Navbar, FormControl, Button, Nav } from "@hummingbirdui/react";
 
 export default function NavbarCollapseExample() {
   return (
     <Navbar expand="lg" className="bg-subtle">
-      <NavbarBrand href="#">Hummingbird</NavbarBrand>
+      <Navbar.Brand href="#">Hummingbird</Navbar.Brand>
       <div className="flex items-center lg:order-1 gap-2">
         <Button variant="text" size="sm">
           Signin
@@ -22,22 +13,22 @@ export default function NavbarCollapseExample() {
         <Button size="sm" className="max-sm:hidden">
           Signup
         </Button>
-        <NavbarToggle />
+        <Navbar.Toggle />
       </div>
-      <NavbarCollapse>
-        <NavbarNav asChild>
+      <Navbar.Collapse>
+        <Navbar.Nav asChild>
           <div className="gap-2 lg:items-center w-full">
-            <NavLink href="#" active>
+            <Nav.Link href="#" active>
               Home
-            </NavLink>
-            <NavLink href="#">Features</NavLink>
-            <NavLink href="#">Pricing</NavLink>
-            <NavLink href="#" disabled>
+            </Nav.Link>
+            <Nav.Link href="#">Features</Nav.Link>
+            <Nav.Link href="#">Pricing</Nav.Link>
+            <Nav.Link href="#" disabled>
               Disabled
-            </NavLink>
+            </Nav.Link>
           </div>
-        </NavbarNav>
-      </NavbarCollapse>
+        </Navbar.Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

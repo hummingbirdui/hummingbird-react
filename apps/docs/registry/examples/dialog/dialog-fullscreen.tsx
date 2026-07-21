@@ -1,38 +1,26 @@
 "use client";
 
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogClose,
-  Button,
-  CloseButton,
-} from "@hummingbirdui/react";
+import { Dialog, Button, CloseButton } from "@hummingbirdui/react";
 
 export default function DialogFullscreen() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <Dialog.Trigger asChild>
         <Button variant="outline">Fullscreen dialog</Button>
-      </DialogTrigger>
-      <DialogContent fullscreen>
-        <DialogHeader>
-          <DialogTitle>Fullscreen</DialogTitle>
-          <DialogClose asChild>
+      </Dialog.Trigger>
+      <Dialog.Content fullscreen>
+        <Dialog.Header>
+          <Dialog.Title>Fullscreen</Dialog.Title>
+          <Dialog.Close asChild>
             <CloseButton />
-          </DialogClose>
-        </DialogHeader>
-        <DialogBody>
-          <DialogDescription>
-            This dialog fills the entire viewport using{" "}
-            <code>fullscreen</code>.
-          </DialogDescription>
-        </DialogBody>
-      </DialogContent>
+          </Dialog.Close>
+        </Dialog.Header>
+        <Dialog.Body>
+          <Dialog.Description>
+            This dialog fills the entire viewport using <code>fullscreen</code>.
+          </Dialog.Description>
+        </Dialog.Body>
+      </Dialog.Content>
     </Dialog>
   );
 }

@@ -1,38 +1,27 @@
 "use client";
 
-import {
-  Button,
-  CloseButton,
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerClose,
-  DrawerBody,
-  DrawerDescription,
-} from "@hummingbirdui/react";
+import { Button, CloseButton, Drawer } from "@hummingbirdui/react";
 
 export default function DrawerDefault() {
   return (
     <Drawer>
-      <DrawerTrigger asChild>
+      <Drawer.Trigger asChild>
         <Button variant="outline">Open drawer</Button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Drawer title</DrawerTitle>
-          <DrawerClose asChild>
+      </Drawer.Trigger>
+      <Drawer.Content>
+        <Drawer.Header>
+          <Drawer.Title>Drawer title</Drawer.Title>
+          <Drawer.Close asChild>
             <CloseButton />
-          </DrawerClose>
-        </DrawerHeader>
-        <DrawerBody>
-          <DrawerDescription>
+          </Drawer.Close>
+        </Drawer.Header>
+        <Drawer.Body>
+          <Drawer.Description>
             Drag it down, click the backdrop, press Escape, or use the close
             button to dismiss it.
-          </DrawerDescription>
-        </DrawerBody>
-      </DrawerContent>
+          </Drawer.Description>
+        </Drawer.Body>
+      </Drawer.Content>
     </Drawer>
   );
 }

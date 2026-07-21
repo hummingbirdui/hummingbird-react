@@ -1,12 +1,12 @@
 "use client";
 
-import { Avatar, AvatarImage, AvatarFallback } from "@hummingbirdui/react";
+import { Avatar } from "@hummingbirdui/react";
 
 export default function AvatarFallbackExample() {
   return (
     <Avatar>
-      <AvatarImage src="" alt="Jane Doe" />
-      <AvatarFallback>JD</AvatarFallback>
+      <Avatar.Image src="" alt="Jane Doe" />
+      <Avatar.Fallback>JD</Avatar.Fallback>
     </Avatar>
   );
 }

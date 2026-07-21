@@ -1,12 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-  Button,
-} from "@hummingbirdui/react";
+import { Collapsible, Button } from "@hummingbirdui/react";
 
 export default function CollapsibleControlled() {
   const [open, setOpen] = React.useState(false);
@@ -21,18 +16,18 @@ export default function CollapsibleControlled() {
         <span className="text-sm">
           The panel is {open ? "open" : "closed"}.
         </span>
-        <CollapsibleTrigger asChild>
+        <Collapsible.Trigger asChild>
           <Button variant="outline" color="secondary" size="sm">
             {open ? "Close" : "Open"}
           </Button>
-        </CollapsibleTrigger>
+        </Collapsible.Trigger>
       </div>
-      <CollapsibleContent>
+      <Collapsible.Content>
         <div className="rounded-md border border-default px-4 py-3 text-sm">
           The parent component owns the open state through <code>open</code> and{" "}
           <code>onOpenChange</code>.
         </div>
-      </CollapsibleContent>
+      </Collapsible.Content>
     </Collapsible>
   );
 }

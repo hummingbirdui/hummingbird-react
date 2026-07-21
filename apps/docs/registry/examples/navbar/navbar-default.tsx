@@ -1,31 +1,24 @@
 "use client";
 
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarCollapse,
-  NavbarNav,
-  NavbarToggle,
-  NavLink,
-} from "@hummingbirdui/react";
+import { Navbar, Nav } from "@hummingbirdui/react";
 
 export default function NavbarDefault() {
   return (
     <Navbar expand="sm" className="bg-subtle">
-      <NavbarBrand href="#">Hummingbird</NavbarBrand>
-      <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarNav className="ms-auto">
-          <NavLink href="#" active>
+      <Navbar.Brand href="#">Hummingbird</Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Navbar.Nav className="ms-auto">
+          <Nav.Link href="#" active>
             Home
-          </NavLink>
-          <NavLink href="#">Features</NavLink>
-          <NavLink href="#">Pricing</NavLink>
-          <NavLink href="#" disabled>
+          </Nav.Link>
+          <Nav.Link href="#">Features</Nav.Link>
+          <Nav.Link href="#">Pricing</Nav.Link>
+          <Nav.Link href="#" disabled>
             Disabled
-          </NavLink>
-        </NavbarNav>
-      </NavbarCollapse>
+          </Nav.Link>
+        </Navbar.Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

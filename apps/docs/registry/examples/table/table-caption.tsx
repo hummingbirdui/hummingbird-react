@@ -1,35 +1,27 @@
 "use client";
 
-import {
-  Table,
-  TableCaption,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "@hummingbirdui/react";
+import { Table } from "@hummingbirdui/react";
 
 export default function TableCaptionExample() {
   return (
     <Table>
-      <TableCaption>A list of recent team members.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Name</TableHead>
-          <TableHead>Role</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableCell>Jane Cooper</TableCell>
-          <TableCell>Admin</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Cody Fisher</TableCell>
-          <TableCell>Member</TableCell>
-        </TableRow>
-      </TableBody>
+      <Table.Caption>A list of recent team members.</Table.Caption>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head>Name</Table.Head>
+          <Table.Head>Role</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Jane Cooper</Table.Cell>
+          <Table.Cell>Admin</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Cody Fisher</Table.Cell>
+          <Table.Cell>Member</Table.Cell>
+        </Table.Row>
+      </Table.Body>
     </Table>
   );
 }
