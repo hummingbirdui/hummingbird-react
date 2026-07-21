@@ -150,6 +150,10 @@ function <Name>({ className, variant, color, size, asChild = false, ...props }: 
 
 <Name>.displayName = '<Name>';
 
+namespace <Name> {
+  export type Props = React.ComponentProps<typeof <Name>>;
+}
+
 export { <Name>, <name>Variants };
 ```
 
@@ -159,15 +163,31 @@ Key conventions (do not deviate):
 - **`Omit<…, 'color'>`** on the props interface whenever the CVA has a `color` variant — the native HTML `color` attribute conflicts with it.
 - **Plain function component, no `forwardRef`.** `ref` flows to the element through `{...props}` (React 19+). Only destructure `ref` explicitly when you must merge it with an internal ref.
 - **`cn(<name>Variants({...}), className)`** — variants first, consumer `className` last so it wins.
-- **`displayName`** set explicitly (required; there's a test for it).
-- Export both the component and the `<name>Variants` function (named exports, no default).
-- For compound Radix components, repeat this pattern per part and export all parts.
+- **`displayName`** set explicitly (required; there's a test for it). Parts use the dotted form: `'<Name>.<Part>'`.
+- **Type-only namespace** merged with the component exposes the prop types (`<Name>.Props`, `<Name>.<Part>Props`) — prop interfaces are never part of the public surface.
+- Export only the component (compound root) and the `<name>Variants` function — **parts are never flat named exports** (`CardHeader` is wrong; consumers use `Card.Header`).
+- **Compound families**: name the root function `<Name>Root` (displayName `'<Name>'`), repeat the pattern per part, then assemble at the bottom of the **same `.tsx`** — never in `index.ts`: when the module is `'use client'`, dotting into or mutating its exports from a server file breaks under React Server Components.
+
+  ```tsx
+  const <Name> = /* @__PURE__ */ Object.assign(<Name>Root, {
+    Root: <Name>Root,
+    <Part>: <Name><Part>,
+  });
+
+  namespace <Name> {
+    export type Props = React.ComponentProps<typeof <Name>Root>;
+    export type RootProps = React.ComponentProps<typeof <Name>Root>;
+    export type <Part>Props = React.ComponentProps<typeof <Name><Part>>;
+  }
+
+  export { <Name>, <name>Variants };
+  ```
 
 ## Step 4 — Wire up the barrels
 
-1. Create `src/components/<name>/index.ts`:
+1. Create `src/components/<name>/index.ts` with explicit exports (never `export *` — the flat part names must not leak):
    ```ts
-   export * from './<name>';
+   export { <Name>, <name>Variants } from './<name>';
    ```
 2. Add ONE line to `src/components/index.ts`:
    ```ts
@@ -195,5 +215,6 @@ Then write tests with the `create-component-test` skill.
 - [ ] Radix primitives used for interactive/compound behavior
 - [ ] **Interactive:** no re-implemented Radix state — no controllable-open hook, no context for open/active state, no `useState`/`useEffect`/`useCallback` mount/show machine (root is a thin pass-through)
 - [ ] **Interactive:** animation via `data-[state]` keyframes (`tw-animate-css`) — not a JS-toggled `.show`/`.fade` class (transition + `forceMount` only as a last resort)
-- [ ] `<name>/index.ts` created + one line added to `components/index.ts`
+- [ ] Compound assembled via `Object.assign(<Name>Root, {...})` + type-only `namespace` in the same `.tsx`; parts have dotted `displayName`s and are not exported flat
+- [ ] `<name>/index.ts` created with explicit exports + one line added to `components/index.ts`
 - [ ] `tsc --noEmit` clean and `npm run build` succeeds

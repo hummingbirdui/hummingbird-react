@@ -22,6 +22,8 @@ import userEvent from '@testing-library/user-event';
 import { <Name>, <name>Variants } from './<name>';
 ```
 
+Only the compound root (or standalone component) and variants are exported — reference parts as `<Name>.<Part>` (e.g. `Card.Header`), never as flat names.
+
 ## Derive the cases from the component, not guesswork
 
 Open `<name>.tsx` and read its `cva` config. The arrays you loop over in tests must match the `variants`/`compoundVariants` exactly:
@@ -40,7 +42,7 @@ Use these `describe` blocks, dropping any that don't apply:
 4. **Class Merging** — base class always present; custom `className` is appended and coexists with variant classes (consumer class wins ordering).
 5. **Ref Forwarding** — `React.createRef<HTML…Element>()`, assert `ref.current instanceof HTML…Element` and that it exposes element properties.
 6. **asChild Prop** — render `<<Name> asChild><a href="…">…</a></<Name>>`; assert it renders the child element (e.g. `link` role), the Hummingbird classes are applied to it, and the child's own attributes/classes are preserved.
-7. **Display Name** — `expect(<Name>.displayName).toBe('<Name>')`.
+7. **Display Name** — `expect(<Name>.displayName).toBe('<Name>')`; parts use the dotted form: `expect(<Name>.<Part>.displayName).toBe('<Name>.<Part>')`.
 8. **Accessibility** — keyboard activation (`{Enter}`/`{Space}`), `aria-label`, `aria-describedby`, correct role/tag. For Radix compound components, assert the relevant ARIA wiring (e.g. `aria-expanded`, `role`).
 9. **`<name>Variants` function** — separate top-level `describe`: call `<name>Variants()` and `<name>Variants({ ... })` directly and assert the returned string `.toContain(...)` the expected classes for default and combined inputs.
 

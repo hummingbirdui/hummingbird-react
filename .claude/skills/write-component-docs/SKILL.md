@@ -55,7 +55,7 @@ Create `apps/docs/registry/examples/<component>/<example>.tsx`:
 ```tsx
 "use client";
 
-import { <Parts> } from "@hummingbirdui/react";
+import { <Roots> } from "@hummingbirdui/react";
 
 export default function <ExampleName>() {
   return ( /* the demo */ );
@@ -65,8 +65,9 @@ export default function <ExampleName>() {
 - `"use client"` directive is required (examples are interactive / composed into
   server-rendered MDX).
 - Default export, named like the example.
-- Import from `@hummingbirdui/react` (a single-component subpath like
-  `@hummingbirdui/react/button` also works).
+- Import only compound roots from `@hummingbirdui/react` (a single-component subpath
+  like `@hummingbirdui/react/button` also works); reference parts with dot notation
+  (`Card.Header`, `Dropdown.Item`) — flat part names are not exported.
 - Keep demos self-contained and minimal — they double as copy-paste source.
 - Escape JSX entities in copy (`&apos;`, `&quot;`) and wrap inline code in `<code>`.
 
@@ -118,7 +119,7 @@ The rule, derived from how these wrappers work:
 
 1. **Verify every Radix prop passes through.** Read the wrapper. Each part must
    spread `{...props}` onto its Radix primitive for the Radix prop to work. Note any
-   part that intercepts a prop (e.g. `AccordionContent` applies `className` to the
+   part that intercepts a prop (e.g. `Accordion.Content` applies `className` to the
    inner `accordion-body`, not the Radix `Content` root) — that is the wrapper's own
    behavior, not Radix's.
 2. **Redirect shared props to Radix — do not re-document them.** When the props are
