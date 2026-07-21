@@ -105,7 +105,7 @@ const Hero = () => {
           <Link href="/docs/getting-started/installation">Get started</Link>
         </Button>
         <Button size="lg" color="light" asChild>
-          <Link href="#">View components</Link>
+          <Link href="/docs/components/overview/">View components</Link>
         </Button>
       </div>
     </div>

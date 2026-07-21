@@ -1,0 +1,27 @@
+{
+  "title": "Components",
+  "pages": [
+    "overview",
+    "accordion",
+    "alert",
+    "avatar",
+    "badge",
+    "breadcrumb",
+    "button-group",
+    "button",
+    "card",
+    "close-button",
+    "collapsible",
+    "dialog",
+    "drawer",
+    "dropdown-menu",
+    "list-group",
+    "nav",
+    "navbar",
+    "pagination",
+    "popover",
+    "table",
+    "tabs",
+    "tooltip"
+  ]
+}

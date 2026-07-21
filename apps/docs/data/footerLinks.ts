@@ -30,7 +30,7 @@ export const footerLinks: FooterLink[] = [
   {
     title: "Resources",
     links: [
-      { label: "About Us", url: "/about" },
+      { label: "About Us", url: "https://hbui.dev/about/" },
       { label: "Documentation", url: "/docs/getting-started/installation" },
       { label: "Components", url: "/docs/components/overview" },
       {
@@ -48,9 +48,12 @@ export const footerLinks: FooterLink[] = [
         url: "https://github.com/hummingbirdui/hummingbird/blob/main/LICENSE",
         external: true,
       },
-      { label: "Privacy policy", url: "/privacy-policy" },
-      { label: "Terms & conditions", url: "/terms-and-conditions" },
-      { label: "Brand guideline", url: "/brand-guideline" },
+      { label: "Privacy policy", url: "https://hbui.dev/privacy-policy/" },
+      {
+        label: "Terms & conditions",
+        url: "https://hbui.dev/terms-and-conditions/",
+      },
+      { label: "Brand guideline", url: "https://hbui.dev/brand-guideline/" },
     ],
   },
   {
@@ -69,7 +72,7 @@ export const footerLinks: FooterLink[] = [
 export const socialLinks: SocialLink[] = [
   {
     name: "github",
-    url: "https://github.com/hummingbirdui/hummingbird",
+    url: "https://github.com/hummingbirdui/hummingbird-react",
     icon: GithubIcon,
   },
   {

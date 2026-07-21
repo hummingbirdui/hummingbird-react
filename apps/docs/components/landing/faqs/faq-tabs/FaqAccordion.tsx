@@ -1,6 +1,5 @@
 import { Faq } from "@/data/landing/faqs";
 import {
-  Button,
   Accordion,
   AccordionItem,
   AccordionHeader,
@@ -26,7 +25,9 @@ const FaqAccordion = ({ faqs }: FaqAccordionProps) => {
           <AccordionHeader>
             <AccordionTrigger className="after:hidden">
               {item.question}
-              <div className="btn btn-sm btn-light btn-circle border accordion-chevron">
+              <div
+                className={`btn btn-sm btn-circle text-muted accordion-chevron`}
+              >
                 <ChevronDown className="size-4.5" />
               </div>
             </AccordionTrigger>

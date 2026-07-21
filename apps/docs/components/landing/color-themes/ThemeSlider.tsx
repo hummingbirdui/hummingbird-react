@@ -4,6 +4,7 @@ import { Swiper as SwiperClass } from "swiper/types";
 import { Navigation } from "swiper/modules";
 import { themes } from "@/data/landing/themes";
 import { Button } from "@hummingbirdui/react";
+import { useIsDarkMode } from "@/hooks/use-main-theme";
 import ChevronLeftIcon from "@/components/icons/ChevronLeftIcon";
 import ChevronRightIcon from "@/components/icons/ChevronRightIcon";
 import "swiper/css/navigation";
@@ -18,6 +19,7 @@ const ThemeSlider = ({ selectedTheme, onThemeChange }: ThemeSliderProps) => {
   const swiperRef = useRef<SwiperClass | null>(null);
   const [isSlideBegin, setIsSlideBegin] = useState(true);
   const [isSlideEnd, setIsSlideEnd] = useState(false);
+  const isDark = useIsDarkMode();
 
   const handlePrev = () => {
     if (swiperRef.current) {
@@ -30,8 +32,6 @@ const ThemeSlider = ({ selectedTheme, onThemeChange }: ThemeSliderProps) => {
       swiperRef.current.slideNext();
     }
   };
-
-  console.log(selectedTheme);
 
   return (
     <div className="relative w-full sm:w-85/100 lg:w-89/100 mx-auto mb-6">
@@ -56,7 +56,7 @@ const ThemeSlider = ({ selectedTheme, onThemeChange }: ThemeSliderProps) => {
             <button
               onClick={() => onThemeChange(theme.toLowerCase())}
               data-theme={theme.toLowerCase()}
-              className={`flex items-center gap-3 rounded-lg border px-2 py-1.75 ${selectedTheme === theme ? "border-primary" : "border-subtle"}`}
+              className={`flex items-center bg-default gap-3 rounded-lg border px-2 py-1.75 ${selectedTheme === theme ? "border-[#1e90ff] dark:border-[#4da7ff]" : "border-subtle"} ${isDark && 'dark'}`}
             >
               <div className="size-6 rounded bg-primary shrink-0" />
               <span className="text-default capitalize">{theme}</span>

@@ -1,4 +1,5 @@
 import { Button } from "@hummingbirdui/react";
+import Link from "next/link";
 
 const CTA = () => {
   return (
@@ -12,7 +13,11 @@ const CTA = () => {
           matter. Start your next project with Hummingbird to finally have it
           all.
         </p>
-        <Button className="mx-auto">Explore Hummingbird</Button>
+        <Button className="mx-auto" asChild>
+          <Link href="/docs/getting-started/introduction/">
+            Explore Hummingbird
+          </Link>
+        </Button>
       </div>
     </div>
   );
