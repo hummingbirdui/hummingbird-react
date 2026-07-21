@@ -1,12 +1,5 @@
 import type * as React from "react";
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "@hummingbirdui/react/table";
+import { Table } from "@hummingbirdui/react/table";
 
 export type DataAttributeDef = {
   attribute: React.ReactNode;
@@ -20,28 +13,28 @@ export type DataAttributeDef = {
 export function DataAttributesTable({ data }: { data: DataAttributeDef[] }) {
   return (
     <Table highlight>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="bg-muted">Data attribute</TableHead>
-          <TableHead className="bg-muted">Values</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head className="bg-muted">Data attribute</Table.Head>
+          <Table.Head className="bg-muted">Values</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
         {data.map((row, i) => (
-          <TableRow key={i}>
-            <TableCell>
+          <Table.Row key={i}>
+            <Table.Cell>
               <code className="font-semibold">{row.attribute}</code>
-            </TableCell>
-            <TableCell>
+            </Table.Cell>
+            <Table.Cell>
               {Array.isArray(row.values) ? (
                 <code>{row.values.join(" | ")}</code>
               ) : (
                 row.values
               )}
-            </TableCell>
-          </TableRow>
+            </Table.Cell>
+          </Table.Row>
         ))}
-      </TableBody>
+      </Table.Body>
     </Table>
   );
 }

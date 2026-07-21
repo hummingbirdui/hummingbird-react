@@ -2,20 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerBody,
-  DrawerOverlay,
-} from "@hummingbirdui/react/drawer";
+import { Drawer } from "@hummingbirdui/react/drawer";
 import { Button } from "@hummingbirdui/react/button";
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbPage,
-} from "@hummingbirdui/react/breadcrumb";
+import { Breadcrumb } from "@hummingbirdui/react/breadcrumb";
 import { cn } from "@hummingbirdui/react/utils";
 import type { SidebarGroup } from "@/lib/docs-tree";
 import { Menu } from "lucide-react";
@@ -41,7 +30,7 @@ export function DocsBreadcrumb({ groups }: { groups: SidebarGroup[] }) {
   return (
     <nav className="sticky top-(--navbar-height) pointer-events-auto! z-30 flex items-center gap-4 py-2 px-6 sm:px-10 border-b border-subtle bg-default lg:hidden">
       <Drawer direction="left" open={open} onOpenChange={setOpen}>
-        <DrawerTrigger asChild>
+        <Drawer.Trigger asChild>
           <Button
             variant="subtle"
             color="neutral"
@@ -51,25 +40,25 @@ export function DocsBreadcrumb({ groups }: { groups: SidebarGroup[] }) {
           >
             <Menu className="size-5" />
           </Button>
-        </DrawerTrigger>
-        <DrawerOverlay className="top-[calc(var(--navbar-height)+54px)]!" />
-        <DrawerContent
+        </Drawer.Trigger>
+        <Drawer.Overlay className="top-[calc(var(--navbar-height)+54px)]!" />
+        <Drawer.Content
           overlay={false}
           className="w-60 top-[calc(var(--navbar-height)+54px)] lg:top-(--navbar-height) lg:max-h-[calc(100dvh-var(--navbar-height))]"
         >
-          <DrawerBody className="overflow-y-auto">
+          <Drawer.Body className="overflow-y-auto">
             <SidebarNav groups={groups} />
-          </DrawerBody>
-        </DrawerContent>
+          </Drawer.Body>
+        </Drawer.Content>
       </Drawer>
 
       {segments.length > 0 && (
         <Breadcrumb className="min-w-0">
-          <BreadcrumbList separator="arrow" className="flex-nowrap mb-0">
+          <Breadcrumb.List separator="arrow" className="flex-nowrap mb-0">
             {segments.map((segment, index) => {
               const isLast = index === segments.length - 1;
               return (
-                <BreadcrumbItem
+                <Breadcrumb.Item
                   key={index}
                   className={cn(
                     "font-medium",
@@ -78,14 +67,14 @@ export function DocsBreadcrumb({ groups }: { groups: SidebarGroup[] }) {
                   )}
                 >
                   {isLast ? (
-                    <BreadcrumbPage>{titleCase(segment)}</BreadcrumbPage>
+                    <Breadcrumb.Page>{titleCase(segment)}</Breadcrumb.Page>
                   ) : (
                     titleCase(segment)
                   )}
-                </BreadcrumbItem>
+                </Breadcrumb.Item>
               );
             })}
-          </BreadcrumbList>
+          </Breadcrumb.List>
         </Breadcrumb>
       )}
     </nav>

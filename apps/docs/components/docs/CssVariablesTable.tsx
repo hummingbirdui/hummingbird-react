@@ -1,12 +1,5 @@
 import type * as React from "react";
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "@hummingbirdui/react/table";
+import { Table } from "@hummingbirdui/react/table";
 
 export type CssVariableDef = {
   cssVariable: React.ReactNode;
@@ -16,22 +9,22 @@ export type CssVariableDef = {
 export function CssVariablesTable({ data }: { data: CssVariableDef[] }) {
   return (
     <Table highlight>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="bg-muted">CSS Variable</TableHead>
-          <TableHead className="bg-muted">Description</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head className="bg-muted">CSS Variable</Table.Head>
+          <Table.Head className="bg-muted">Description</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
         {data.map((row, i) => (
-          <TableRow key={i}>
-            <TableCell>
+          <Table.Row key={i}>
+            <Table.Cell>
               <code className="font-semibold">{row.cssVariable}</code>
-            </TableCell>
-            <TableCell>{row.description}</TableCell>
-          </TableRow>
+            </Table.Cell>
+            <Table.Cell>{row.description}</Table.Cell>
+          </Table.Row>
         ))}
-      </TableBody>
+      </Table.Body>
     </Table>
   );
 }

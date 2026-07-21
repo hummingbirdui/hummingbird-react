@@ -1,14 +1,7 @@
 "use client";
 
 import { Palette } from "lucide-react";
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-} from "@hummingbirdui/react";
+import { Button, Dropdown } from "@hummingbirdui/react";
 import { cn } from "@hummingbirdui/react/utils";
 import { ThemeSwatches } from "@/components/docs/ThemeSwatches";
 import { useMainTheme } from "@/hooks/use-main-theme";
@@ -18,8 +11,8 @@ export function ThemeDropdown() {
   const [theme, setTheme] = useMainTheme();
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Dropdown>
+      <Dropdown.Trigger asChild>
         <Button
           variant="subtle"
           color="neutral"
@@ -28,13 +21,13 @@ export function ThemeDropdown() {
         >
           <Palette className="size-4.5" />
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="min-w-66">
-        <DropdownMenuLabel className="text-default text-sm">
+      </Dropdown.Trigger>
+      <Dropdown.Content align="start" className="min-w-66">
+        <Dropdown.Label className="text-default text-sm">
           Color Theme
-        </DropdownMenuLabel>
+        </Dropdown.Label>
         {MAIN_THEMES.map((t) => (
-          <DropdownMenuItem
+          <Dropdown.Item
             key={t.value}
             data-theme={t.value}
             className={cn(
@@ -48,9 +41,9 @@ export function ThemeDropdown() {
           >
             {t.label}
             <ThemeSwatches theme={t.value} />
-          </DropdownMenuItem>
+          </Dropdown.Item>
         ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </Dropdown.Content>
+    </Dropdown>
   );
 }

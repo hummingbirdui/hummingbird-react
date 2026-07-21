@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ListGroup, ListGroupItem } from "@hummingbirdui/react/list-group";
+import { ListGroup } from "@hummingbirdui/react/list-group";
 import { cn } from "@hummingbirdui/react/utils";
 import type { SidebarGroup } from "@/lib/docs-tree";
 
@@ -29,7 +29,7 @@ export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
             {group.items.map((item) => {
               const active = normalize(pathname) === normalize(item.url);
               return (
-                <ListGroupItem
+                <ListGroup.Item
                   key={item.url}
                   action
                   active={active}
@@ -42,7 +42,7 @@ export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
                   )}
                 >
                   <Link href={item.url}>{item.name}</Link>
-                </ListGroupItem>
+                </ListGroup.Item>
               );
             })}
           </ListGroup>

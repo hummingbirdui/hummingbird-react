@@ -2,22 +2,22 @@ import { highlight } from "fumadocs-core/highlight";
 import CopyButton from "@/components/common/CopyButton";
 
 const code = `<Card className="w-59 p-2 rounded-2xl">
-  <CardImage position="top" src="/images/hamstar.webp" alt="A Hamstar" />
-  <CardBody className="px-0">
-    <CardTitle className="text-base!">
+  <Card.Image position="top" src="/images/hamstar.webp" alt="A Hamstar" />
+  <Card.Body className="px-0">
+    <Card.Title className="text-base!">
       10 Fascinating Animal Facts
-    </CardTitle>
-    <CardText className="text-xs text-muted mb-0">
+    </Card.Title>
+    <Card.Text className="text-xs text-muted mb-0">
       Discover surprising traits and behaviors from creatures big
       and small.
-    </CardText>
-  </CardBody>
-  <CardFooter className="p-0 flex items-center justify-between">
+    </Card.Text>
+  </Card.Body>
+  <Card.Footer className="p-0 flex items-center justify-between">
     <a className="text-xs text-muted no-underline" href="#">
       12 min read
     </a>
     <BookmarkButton />
-  </CardFooter>
+  </Card.Footer>
 </Card>`;
 
 const CodeSample = async () => {

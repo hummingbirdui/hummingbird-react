@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@hummingbirdui/react/tooltip";
+import { Tooltip } from "@hummingbirdui/react/tooltip";
 
 const COLORS = [
   "blue",
@@ -47,7 +43,11 @@ const SHADES = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 // the palettes are authored in.
 // ---------------------------------------------------------------------------
 
-function oklabFromLms(l: number, m: number, s: number): [number, number, number] {
+function oklabFromLms(
+  l: number,
+  m: number,
+  s: number,
+): [number, number, number] {
   const l3 = Math.cbrt(l);
   const m3 = Math.cbrt(m);
   const s3 = Math.cbrt(s);
@@ -80,9 +80,16 @@ function oklabFromCielab(L: number, a: number, b: number) {
   const Y = yr;
   const Z = zr * 0.82521;
   // Bradford chromatic adaptation D50 → D65, then XYZ → LMS
-  const X65 = 0.9554734527042182 * X - 0.023098536874261423 * Y + 0.0632593086610217 * Z;
-  const Y65 = -0.028369706963208136 * X + 1.0099954580058226 * Y + 0.021041398966943008 * Z;
-  const Z65 = 0.012314001688319899 * X - 0.020507696433477912 * Y + 1.3303659366080753 * Z;
+  const X65 =
+    0.9554734527042182 * X - 0.023098536874261423 * Y + 0.0632593086610217 * Z;
+  const Y65 =
+    -0.028369706963208136 * X +
+    1.0099954580058226 * Y +
+    0.021041398966943008 * Z;
+  const Z65 =
+    0.012314001688319899 * X -
+    0.020507696433477912 * Y +
+    1.3303659366080753 * Z;
   return oklabFromLms(
     0.8189330101 * X65 + 0.3618667424 * Y65 - 0.1288597137 * Z65,
     0.0329845436 * X65 + 0.9293118715 * Y65 + 0.0361456387 * Z65,
@@ -117,7 +124,11 @@ function toOklch(value: string): string {
   const lab = value.match(/^lab\((-?[\d.]+)%?\s+(-?[\d.]+)\s+(-?[\d.]+)\)$/);
   if (lab) {
     return formatOklch(
-      oklabFromCielab(parseFloat(lab[1]), parseFloat(lab[2]), parseFloat(lab[3])),
+      oklabFromCielab(
+        parseFloat(lab[1]),
+        parseFloat(lab[2]),
+        parseFloat(lab[3]),
+      ),
     );
   }
 
@@ -168,7 +179,7 @@ function Swatch({ color, shade }: { color: string; shade: number }) {
         if (next) setLabel(readValue());
       }}
     >
-      <TooltipTrigger asChild>
+      <Tooltip.Trigger asChild>
         <button
           type="button"
           aria-label={`Copy ${varName} value`}
@@ -183,8 +194,8 @@ function Swatch({ color, shade }: { color: string; shade: number }) {
             resetTimer.current = setTimeout(() => setLabel(value), 1500);
           }}
         />
-      </TooltipTrigger>
-      <TooltipContent>{label}</TooltipContent>
+      </Tooltip.Trigger>
+      <Tooltip.Content>{label}</Tooltip.Content>
     </Tooltip>
   );
 }

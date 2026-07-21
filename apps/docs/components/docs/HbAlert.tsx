@@ -1,4 +1,4 @@
-import { Alert, AlertIcon, type AlertProps } from "@hummingbirdui/react";
+import { Alert } from "@hummingbirdui/react";
 import { AlertCircle, Ban, InfoIcon } from "lucide-react";
 import React from "react";
 
@@ -6,12 +6,12 @@ const HbAlert = ({
   color,
   children,
 }: {
-  color?: AlertProps["color"];
+  color?: Alert.Props["color"];
   children?: React.ReactNode;
 }) => {
   return (
     <Alert color={color} variant="subtle">
-      <AlertIcon>
+      <Alert.Icon>
         {color === "warning" ? (
           <AlertCircle className="size-5" />
         ) : color === "info" ? (
@@ -19,7 +19,7 @@ const HbAlert = ({
         ) : color === "danger" ? (
           <Ban className="size-5" />
         ) : undefined}
-      </AlertIcon>
+      </Alert.Icon>
       {children}
     </Alert>
   );

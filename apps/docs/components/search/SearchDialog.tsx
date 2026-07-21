@@ -6,12 +6,8 @@ import { Search } from "lucide-react";
 import { useDocsSearch } from "fumadocs-core/search/client";
 import { oramaStaticClient } from "fumadocs-core/search/client/orama-static";
 import type { SortedResult } from "fumadocs-core/search";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@hummingbirdui/react/dialog";
-import { ListGroup, ListGroupItem } from "@hummingbirdui/react/list-group";
+import { Dialog } from "@hummingbirdui/react/dialog";
+import { ListGroup } from "@hummingbirdui/react/list-group";
 import { cn } from "@hummingbirdui/react/utils";
 
 const searchClient = oramaStaticClient({
@@ -150,7 +146,7 @@ export function SearchDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent
+      <Dialog.Content
         dialogClassName="max-w-[35rem] max-md:max-w-[calc(100%-3rem)] mx-auto mt-6"
         className="rounded-lg dark:border dark:border-default"
         onOpenAutoFocus={(e) => {
@@ -161,7 +157,7 @@ export function SearchDialog({
             ?.focus();
         }}
       >
-        <DialogTitle className="sr-only">Search documentation</DialogTitle>
+        <Dialog.Title className="sr-only">Search documentation</Dialog.Title>
 
         <div className="p-4 pb-0">
           <div className="flex h-14 items-center gap-3 rounded-lg px-4 ring-1 ring-primary">
@@ -200,7 +196,7 @@ export function SearchDialog({
                     return (
                       <div key={group.page?.id ?? groupIndex}>
                         {group.page && (
-                          <ListGroupItem
+                          <ListGroup.Item
                             action
                             asChild
                             className={cn(
@@ -223,14 +219,14 @@ export function SearchDialog({
                                 />
                               </span>
                             </button>
-                          </ListGroupItem>
+                          </ListGroup.Item>
                         )}
                         {group.items.map((item, itemIndex) => {
                           const index =
                             flatIndex + (group.page ? 1 : 0) + itemIndex;
                           const isActive = index === active;
                           return (
-                            <ListGroupItem
+                            <ListGroup.Item
                               key={item.id}
                               action
                               asChild
@@ -255,7 +251,7 @@ export function SearchDialog({
                                   </span>
                                 )}
                               </button>
-                            </ListGroupItem>
+                            </ListGroup.Item>
                           );
                         })}
                       </div>
@@ -292,7 +288,7 @@ export function SearchDialog({
             close
           </span>
         </div>
-      </DialogContent>
+      </Dialog.Content>
     </Dialog>
   );
 }

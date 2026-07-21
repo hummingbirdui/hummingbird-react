@@ -5,21 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Ellipsis } from "lucide-react";
-import { Navbar, NavbarBrand, NavbarNav } from "@hummingbirdui/react/navbar";
-import { NavLink } from "@hummingbirdui/react/nav";
+import { Navbar } from "@hummingbirdui/react/navbar";
+import { Nav } from "@hummingbirdui/react/nav";
 import { Badge } from "@hummingbirdui/react/badge";
 import { Button } from "@hummingbirdui/react/button";
 import { cn } from "@hummingbirdui/react/utils";
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerBody,
-  DrawerClose,
-  DarkThemeToggle,
-} from "@hummingbirdui/react";
+import { Drawer, DarkThemeToggle } from "@hummingbirdui/react";
 import { GithubMark } from "./BrandIcons";
 import { CloseButton } from "@hummingbirdui/react";
 import { ThemeDropdown } from "./ThemeDropdown";
@@ -57,7 +48,7 @@ function NavLinks({
       {navLinks.map((link) => {
         const active = link.isActive(pathname);
         return (
-          <NavLink
+          <Nav.Link
             key={link.href}
             asChild
             active={active}
@@ -69,7 +60,7 @@ function NavLinks({
             <Link href={link.href} onClick={onNavigate}>
               {link.label}
             </Link>
-          </NavLink>
+          </Nav.Link>
         );
       })}
     </>
@@ -98,14 +89,14 @@ export function SiteNavbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-subtle bg-default px-6 sm:px-10 pointer-events-auto! h-(--navbar-height)">
       <Navbar expand="lg" className="max-w-8xl mx-auto px-0 h-full">
-        <NavbarBrand asChild className="me-1 sm:me-4">
+        <Navbar.Brand asChild className="me-1 sm:me-4">
           <Link href="/" className="flex items-center gap-2">
             <Logo />
             <h5 className="text-muted font-semibold hidden sm:block mb-0">
               Hummingbird React
             </h5>
           </Link>
-        </NavbarBrand>
+        </Navbar.Brand>
 
         <Badge variant="subtle" color="neutral">
           v0.1.0
@@ -117,9 +108,9 @@ export function SiteNavbar() {
         />
 
         <div className="ms-auto flex items-center">
-          <NavbarNav className="hidden lg:flex">
+          <Navbar.Nav className="hidden lg:flex">
             <NavLinks pathname={pathname} />
-          </NavbarNav>
+          </Navbar.Nav>
           <SearchIconButton
             className="lg:hidden"
             onClick={() => setSearchOpen(true)}
@@ -145,7 +136,7 @@ export function SiteNavbar() {
           </Button>
 
           <Drawer direction="right" open={open} onOpenChange={setOpen}>
-            <DrawerTrigger asChild>
+            <Drawer.Trigger asChild>
               <Button
                 variant="subtle"
                 color="neutral"
@@ -155,10 +146,10 @@ export function SiteNavbar() {
               >
                 <Ellipsis className="size-4" />
               </Button>
-            </DrawerTrigger>
-            <DrawerContent className="w-80">
-              <DrawerHeader className="px-6 py-5">
-                <DrawerTitle asChild>
+            </Drawer.Trigger>
+            <Drawer.Content className="w-80">
+              <Drawer.Header className="px-6 py-5">
+                <Drawer.Title asChild>
                   <Link
                     href="/"
                     onClick={() => setOpen(false)}
@@ -167,22 +158,22 @@ export function SiteNavbar() {
                     <Logo />
                     <h5 className="mb-0 font-semibold">hummingbird</h5>
                   </Link>
-                </DrawerTitle>
-                <DrawerClose asChild>
+                </Drawer.Title>
+                <Drawer.Close asChild>
                   <CloseButton />
-                </DrawerClose>
-              </DrawerHeader>
-              <DrawerBody className="overflow-y-auto px-6 py-0">
-                <NavbarNav asChild>
+                </Drawer.Close>
+              </Drawer.Header>
+              <Drawer.Body className="overflow-y-auto px-6 py-0">
+                <Navbar.Nav asChild>
                   <div className="flex-col items-stretch gap-1">
                     <NavLinks
                       pathname={pathname}
                       onNavigate={() => setOpen(false)}
                     />
                   </div>
-                </NavbarNav>
-              </DrawerBody>
-            </DrawerContent>
+                </Navbar.Nav>
+              </Drawer.Body>
+            </Drawer.Content>
           </Drawer>
         </div>
       </Navbar>

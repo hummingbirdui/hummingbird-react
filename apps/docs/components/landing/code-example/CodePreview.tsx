@@ -1,12 +1,5 @@
 import GradientBorderBox from "@/components/common/GradientBorderBox";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardImage,
-  CardText,
-  CardTitle,
-} from "@hummingbirdui/react";
+import { Card } from "@hummingbirdui/react";
 
 const CodePreview = () => {
   return (
@@ -16,21 +9,21 @@ const CodePreview = () => {
     >
       <div className="py-9 size-full flex items-center justify-center bg-[url('/images/backgrounds/code-example-light.png')] dark:bg-[url('/images/backgrounds/code-example-dark.png')] bg-cover bg-center bg-no-repeat">
         <Card className="w-59 p-2 rounded-2xl">
-          <CardImage
+          <Card.Image
             position="top"
             src="/images/hamstar.webp"
             alt="A Hamstar"
           />
-          <CardBody className="px-0">
-            <CardTitle className="text-base!">
+          <Card.Body className="px-0">
+            <Card.Title className="text-base!">
               10 Fascinating Animal Facts
-            </CardTitle>
-            <CardText className="text-xs text-muted mb-0">
+            </Card.Title>
+            <Card.Text className="text-xs text-muted mb-0">
               Discover surprising traits and behaviors from creatures big and
               small.
-            </CardText>
-          </CardBody>
-          <CardFooter className="p-0 flex items-center justify-between">
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer className="p-0 flex items-center justify-between">
             <a className="text-xs text-muted no-underline" href="#">
               12 min read
             </a>
@@ -48,7 +41,7 @@ const CodePreview = () => {
                 />
               </svg>
             </button>
-          </CardFooter>
+          </Card.Footer>
         </Card>
       </div>
     </GradientBorderBox>

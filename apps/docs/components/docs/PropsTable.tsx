@@ -2,20 +2,8 @@
 
 import type * as React from "react";
 import { Info } from "lucide-react";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverBody,
-} from "@hummingbirdui/react/popover";
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "@hummingbirdui/react/table";
+import { Popover } from "@hummingbirdui/react/popover";
+import { Table } from "@hummingbirdui/react/table";
 
 export type PropDef = {
   prop: React.ReactNode;
@@ -38,15 +26,15 @@ function InfoPopover({
 }) {
   return (
     <Popover>
-      <PopoverTrigger
+      <Popover.Trigger
         aria-label={label}
         className="inline-flex shrink-0 cursor-pointer items-center rounded-full align-middle text-muted hover:opacity-75"
       >
         <Info size={14} aria-hidden />
-      </PopoverTrigger>
-      <PopoverContent side="top" className="max-w-90">
-        <PopoverBody className="text-sm">{children}</PopoverBody>
-      </PopoverContent>
+      </Popover.Trigger>
+      <Popover.Content side="top" className="max-w-90">
+        <Popover.Body className="text-sm">{children}</Popover.Body>
+      </Popover.Content>
     </Popover>
   );
 }
@@ -54,17 +42,17 @@ function InfoPopover({
 export function PropsTable({ data }: { data: PropDef[] }) {
   return (
     <Table highlight>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="bg-muted">Prop</TableHead>
-          <TableHead className="bg-muted">Type</TableHead>
-          <TableHead className="bg-muted">Default</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head className="bg-muted">Prop</Table.Head>
+          <Table.Head className="bg-muted">Type</Table.Head>
+          <Table.Head className="bg-muted">Default</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
         {data.map((row, i) => (
-          <TableRow key={i}>
-            <TableCell>
+          <Table.Row key={i}>
+            <Table.Cell>
               <span className="inline-flex items-center gap-2">
                 <code className="font-semibold">{row.prop}</code>
                 {row.description !== undefined && (
@@ -79,8 +67,8 @@ export function PropsTable({ data }: { data: PropDef[] }) {
                   </InfoPopover>
                 )}
               </span>
-            </TableCell>
-            <TableCell>
+            </Table.Cell>
+            <Table.Cell>
               <span className="inline-flex items-center gap-2">
                 <code>{row.typeSimple ?? row.type}</code>
                 {row.typeSimple !== undefined && (
@@ -95,13 +83,13 @@ export function PropsTable({ data }: { data: PropDef[] }) {
                   </InfoPopover>
                 )}
               </span>
-            </TableCell>
-            <TableCell>
+            </Table.Cell>
+            <Table.Cell>
               {row.default === undefined ? "—" : <code>{row.default}</code>}
-            </TableCell>
-          </TableRow>
+            </Table.Cell>
+          </Table.Row>
         ))}
-      </TableBody>
+      </Table.Body>
     </Table>
   );
 }
