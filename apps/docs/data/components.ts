@@ -57,8 +57,8 @@ export interface Section {
 
 export const general: Component[] = [
   {
-    title: 'Buttons',
-    url: '/docs/components/buttons',
+    title: 'Button',
+    url: '/docs/components/button',
     count: 15,
     imgComponent: Button,
   },
@@ -74,24 +74,24 @@ export const general: Component[] = [
     count: 3,
     imgComponent: CloseButton,
   },
-  {
-    title: 'Link',
-    url: '/docs/components/link',
-    count: 3,
-    imgComponent: Link,
-  },
+  // {
+  //   title: 'Link',
+  //   url: '/docs/components/link',
+  //   count: 3,
+  //   imgComponent: Link,
+  // },
 ];
 
 export const dataDisplay: Component[] = [
   {
-    title: 'Avatars',
-    url: '/docs/components/avatars',
+    title: 'Avatar',
+    url: '/docs/components/avatar',
     count: 10,
     imgComponent: Avatar,
   },
   {
-    title: 'Badges',
-    url: '/docs/components/badges',
+    title: 'Badge',
+    url: '/docs/components/badge',
     count: 10,
     imgComponent: Badge,
   },
@@ -108,74 +108,74 @@ export const dataDisplay: Component[] = [
     imgComponent: ListGroup,
   },
   {
-    title: 'Tables',
-    url: '/docs/components/tables',
+    title: 'Table',
+    url: '/docs/components/table',
     count: 13,
     imgComponent: Table,
   },
   {
-    title: 'Tooltips',
-    url: '/docs/components/tooltips',
+    title: 'Tooltip',
+    url: '/docs/components/tooltip',
     count: 4,
     imgComponent: Tooltip,
   },
-  {
-    title: 'Video',
-    url: '/docs/components/video',
-    count: 6,
-    imgComponent: Video,
-  },
+  // {
+  //   title: 'Video',
+  //   url: '/docs/components/video',
+  //   count: 6,
+  //   imgComponent: Video,
+  // },
 ];
 
 export const dataEntry: Component[] = [
-  {
-    title: 'Advanced Range',
-    url: '/docs/forms/advanced-forms/advanced-range',
-    count: 9,
-    imgComponent: AdvancedRange,
-  },
-  {
-    title: 'Advanced Select',
-    url: '/docs/forms/advanced-forms/advanced-select',
-    count: 7,
-    imgComponent: AdvancedSelect,
-  },
+  // {
+  //   title: 'Advanced Range',
+  //   url: '/docs/forms/advanced-forms/advanced-range',
+  //   count: 9,
+  //   imgComponent: AdvancedRange,
+  // },
+  // {
+  //   title: 'Advanced Select',
+  //   url: '/docs/forms/advanced-forms/advanced-select',
+  //   count: 7,
+  //   imgComponent: AdvancedSelect,
+  // },
   {
     title: 'Checkbox',
     url: '/docs/forms/checkbox',
     count: 6,
     imgComponent: Checkbox,
   },
+  // {
+  //   title: 'Date & Time Pickers',
+  //   url: '/docs/forms/advanced-forms/date-time-picker',
+  //   count: 10,
+  //   imgComponent: Dtp,
+  // },
+  // {
+  //   title: 'File Input',
+  //   url: '/docs/forms/file-input',
+  //   count: 7,
+  //   imgComponent: FileInput,
+  // },
   {
-    title: 'Date & Time Pickers',
-    url: '/docs/forms/advanced-forms/date-time-picker',
-    count: 10,
-    imgComponent: Dtp,
-  },
-  {
-    title: 'File Input',
-    url: '/docs/forms/file-input',
-    count: 7,
-    imgComponent: FileInput,
-  },
-  {
-    title: 'Floating labels',
-    url: '/docs/forms/floating-labels',
+    title: 'Floating label',
+    url: '/docs/forms/floating-label',
     count: 8,
     imgComponent: FloatingLabels,
   },
   {
-    title: 'Form Controls',
+    title: 'Form Control',
     url: '/docs/forms/form-control',
     count: 8,
     imgComponent: FormControls,
   },
-  {
-    title: 'Form Validation',
-    url: '/docs/forms/validation',
-    count: 5,
-    imgComponent: Validation,
-  },
+  // {
+  //   title: 'Form Validation',
+  //   url: '/docs/forms/validation',
+  //   count: 5,
+  //   imgComponent: Validation,
+  // },
   {
     title: 'Input Group',
     url: '/docs/forms/input-group',
@@ -206,57 +206,57 @@ export const dataEntry: Component[] = [
     count: 4,
     imgComponent: Switch,
   },
-  {
-    title: 'File Uploader',
-    url: '/docs/forms/advanced-forms/file-uploader',
-    count: 5,
-    imgComponent: Uploader,
-  },
+  // {
+  //   title: 'File Uploader',
+  //   url: '/docs/forms/advanced-forms/file-uploader',
+  //   count: 5,
+  //   imgComponent: Uploader,
+  // },
 ];
 
 export const feedback: Component[] = [
   {
-    title: 'Alerts',
-    url: '/docs/components/alerts',
+    title: 'Alert',
+    url: '/docs/components/alert',
     count: 6,
     imgComponent: Alert,
   },
   {
-    title: 'Modal',
-    url: '/docs/components/modal',
+    title: 'Dialog',
+    url: '/docs/components/dialog',
     count: 7,
     imgComponent: Modal,
   },
+  // {
+  //   title: 'Placeholders',
+  //   url: '/docs/components/placeholders',
+  //   count: 6,
+  //   imgComponent: Placeholder,
+  // },
   {
-    title: 'Placeholders',
-    url: '/docs/components/placeholders',
-    count: 6,
-    imgComponent: Placeholder,
-  },
-  {
-    title: 'Popovers',
-    url: '/docs/components/popovers',
+    title: 'Popover',
+    url: '/docs/components/popover',
     count: 7,
     imgComponent: Popover,
   },
-  {
-    title: 'Progress',
-    url: '/docs/components/progress',
-    count: 9,
-    imgComponent: Progress,
-  },
-  {
-    title: 'Loaders',
-    url: '/docs/components/loaders',
-    count: 5,
-    imgComponent: Loader,
-  },
-  {
-    title: 'Toasts',
-    url: '/docs/components/toasts',
-    count: 8,
-    imgComponent: Toast,
-  },
+  // {
+  //   title: 'Progress',
+  //   url: '/docs/components/progress',
+  //   count: 9,
+  //   imgComponent: Progress,
+  // },
+  // {
+  //   title: 'Loaders',
+  //   url: '/docs/components/loaders',
+  //   count: 5,
+  //   imgComponent: Loader,
+  // },
+  // {
+  //   title: 'Toasts',
+  //   url: '/docs/components/toasts',
+  //   count: 8,
+  //   imgComponent: Toast,
+  // },
 ];
 
 export const navigation: Component[] = [
@@ -272,27 +272,33 @@ export const navigation: Component[] = [
     count: 5,
     imgComponent: Breadcrumb,
   },
-  {
-    title: 'Carousel',
-    url: '/docs/components/carousel',
-    count: 9,
-    imgComponent: Carousel,
-  },
+  // {
+  //   title: 'Carousel',
+  //   url: '/docs/components/carousel',
+  //   count: 9,
+  //   imgComponent: Carousel,
+  // },
   {
     title: 'Collapse',
-    url: '/docs/components/collapse',
+    url: '/docs/components/collapsible',
     count: 3,
     imgComponent: Collapse,
   },
+  // {
+  //   title: 'Dropdowns',
+  //   url: '/docs/components/dropdowns',
+  //   count: 15,
+  //   imgComponent: Dropdown,
+  // },
   {
-    title: 'Dropdowns',
-    url: '/docs/components/dropdowns',
-    count: 15,
-    imgComponent: Dropdown,
+    title: 'Nav',
+    url: '/docs/components/nav',
+    count: 7,
+    imgComponent: NavsTabs,
   },
   {
-    title: 'Navs & Tabs',
-    url: '/docs/components/navs-tabs',
+    title: 'Tabs',
+    url: '/docs/components/tabs',
     count: 7,
     imgComponent: NavsTabs,
   },
@@ -303,8 +309,8 @@ export const navigation: Component[] = [
     imgComponent: Navbar,
   },
   {
-    title: 'Offcanvas',
-    url: '/docs/components/offcanvas',
+    title: 'Drawer',
+    url: '/docs/components/drawer',
     count: 7,
     imgComponent: Offcanvas,
   },
@@ -314,12 +320,12 @@ export const navigation: Component[] = [
     count: 10,
     imgComponent: Pagination,
   },
-  {
-    title: 'Scrollspy',
-    url: '/docs/components/scrollspy',
-    count: 4,
-    imgComponent: Scrollspy,
-  },
+  // {
+  //   title: 'Scrollspy',
+  //   url: '/docs/components/scrollspy',
+  //   count: 4,
+  //   imgComponent: Scrollspy,
+  // },
 ];
 
 export const layout: Component[] = [
@@ -345,29 +351,29 @@ export const components: Component[] = [
     imgComponent: Accordion,
   },
   {
-    title: 'Alerts',
-    url: '/docs/components/alerts',
+    title: 'Alert',
+    url: '/docs/components/alert',
     count: 6,
     imgComponent: Alert,
   },
   {
     title: 'Avatars',
-    url: '/docs/components/avatars',
+    url: '/docs/components/avatar',
     count: 10,
     imgComponent: Avatar,
   },
   {
-    title: 'Buttons',
-    url: '/docs/components/buttons',
+    title: 'Button',
+    url: '/docs/components/button',
     count: 15,
     imgComponent: Button,
   },
-  {
-    title: 'Carousel',
-    url: '/docs/components/carousel',
-    count: 9,
-    imgComponent: Carousel,
-  },
+  // {
+  //   title: 'Carousel',
+  //   url: '/docs/components/carousel',
+  //   count: 9,
+  //   imgComponent: Carousel,
+  // },
   {
     title: 'Checkbox',
     url: '/docs/forms/checkbox',
@@ -375,8 +381,8 @@ export const components: Component[] = [
     imgComponent: Checkbox,
   },
   {
-    title: 'Dropdowns',
-    url: '/docs/components/dropdowns',
+    title: 'Dropdown Menu',
+    url: '/docs/components/dropdown',
     count: 15,
     imgComponent: Dropdown,
   },
@@ -386,10 +392,16 @@ export const components: Component[] = [
     count: 8,
     imgComponent: FormControls,
   },
+  // {
+  //   title: 'Range',
+  //   url: '/docs/forms/range',
+  //   count: 6,
+  //   imgComponent: Range,
+  // },
   {
-    title: 'Range',
-    url: '/docs/forms/range',
-    count: 6,
-    imgComponent: Range,
+    title: 'Tooltip',
+    url: '/docs/components/tooltip',
+    count: 4,
+    imgComponent: Tooltip,
   },
 ];

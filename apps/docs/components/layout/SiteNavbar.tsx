@@ -39,7 +39,7 @@ const navLinks: {
     isActive: (p) => p.startsWith("/docs") && !p.startsWith("/docs/components"),
   },
   {
-    href: "/docs/components/button",
+    href: "/docs/components/overview/",
     label: "Components",
     isActive: (p) => p.startsWith("/docs/components"),
   },

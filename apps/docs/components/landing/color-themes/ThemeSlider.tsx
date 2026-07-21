@@ -56,7 +56,7 @@ const ThemeSlider = ({ selectedTheme, onThemeChange }: ThemeSliderProps) => {
             <button
               onClick={() => onThemeChange(theme.toLowerCase())}
               data-theme={theme.toLowerCase()}
-              className={`flex items-center bg-default gap-3 rounded-lg border px-2 py-1.75 ${selectedTheme === theme ? "border-primary" : "border-subtle"} ${isDark && 'dark'}`}
+              className={`flex items-center bg-default gap-3 rounded-lg border px-2 py-1.75 ${selectedTheme === theme ? "border-[#1e90ff] dark:border-[#4da7ff]" : "border-subtle"} ${isDark && 'dark'}`}
             >
               <div className="size-6 rounded bg-primary shrink-0" />
               <span className="text-default capitalize">{theme}</span>
