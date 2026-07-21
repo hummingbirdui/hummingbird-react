@@ -43,7 +43,7 @@ export interface RadioProps
   inline?: boolean;
 }
 
-function Radio({
+function RadioRoot({
   className,
   color,
   size,
@@ -92,7 +92,7 @@ function Radio({
   );
 }
 
-Radio.displayName = 'Radio';
+RadioRoot.displayName = 'Radio';
 
 export interface RadioGroupProps extends Omit<React.ComponentProps<'div'>, 'onChange'> {
   name?: string;
@@ -136,6 +136,17 @@ function RadioGroup({
   );
 }
 
-RadioGroup.displayName = 'RadioGroup';
+RadioGroup.displayName = 'Radio.Group';
 
-export { Radio, RadioGroup, radioVariants };
+const Radio = /* @__PURE__ */ Object.assign(RadioRoot, {
+  Root: RadioRoot,
+  Group: RadioGroup,
+});
+
+namespace Radio {
+  export type Props = React.ComponentProps<typeof RadioRoot>;
+  export type RootProps = React.ComponentProps<typeof RadioRoot>;
+  export type GroupProps = React.ComponentProps<typeof RadioGroup>;
+}
+
+export { Radio, radioVariants };

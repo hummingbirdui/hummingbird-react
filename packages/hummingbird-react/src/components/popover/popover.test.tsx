@@ -2,32 +2,22 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverAnchor,
-  PopoverClose,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-} from './popover';
+import { Popover } from './popover';
 
 // A complete popover used across the behavioral tests. Props forward to the
 // Radix root so open state can be exercised.
-function Example(
-  props: React.ComponentProps<typeof Popover> & { triggerLabel?: string }
-) {
+function Example(props: React.ComponentProps<typeof Popover> & { triggerLabel?: string }) {
   const { triggerLabel = 'Open', children, ...rootProps } = props;
   return (
     <Popover {...rootProps}>
-      <PopoverTrigger>{triggerLabel}</PopoverTrigger>
-      <PopoverContent>
-        <PopoverHeader>Title</PopoverHeader>
-        <PopoverBody>
+      <Popover.Trigger>{triggerLabel}</Popover.Trigger>
+      <Popover.Content>
+        <Popover.Header>Title</Popover.Header>
+        <Popover.Body>
           <span>Body</span>
           {children}
-        </PopoverBody>
-      </PopoverContent>
+        </Popover.Body>
+      </Popover.Content>
     </Popover>
   );
 }
@@ -96,14 +86,14 @@ describe('Popover', () => {
   });
 
   describe('Interactions', () => {
-    it('closes when a PopoverClose is clicked', async () => {
+    it('closes when a Popover.Close is clicked', async () => {
       const user = userEvent.setup();
       render(
         <Popover>
-          <PopoverTrigger>Open</PopoverTrigger>
-          <PopoverContent>
-            <PopoverClose>Dismiss</PopoverClose>
-          </PopoverContent>
+          <Popover.Trigger>Open</Popover.Trigger>
+          <Popover.Content>
+            <Popover.Close>Dismiss</Popover.Close>
+          </Popover.Content>
         </Popover>
       );
       await user.click(screen.getByRole('button', { name: /^open$/i }));
@@ -147,10 +137,10 @@ describe('Popover', () => {
       const user = userEvent.setup();
       render(
         <Popover>
-          <PopoverTrigger>Open</PopoverTrigger>
-          <PopoverContent className="custom-panel">
-            <PopoverBody>Body</PopoverBody>
-          </PopoverContent>
+          <Popover.Trigger>Open</Popover.Trigger>
+          <Popover.Content className="custom-panel">
+            <Popover.Body>Body</Popover.Body>
+          </Popover.Content>
         </Popover>
       );
       await user.click(screen.getByRole('button', { name: /^open$/i }));
@@ -162,17 +152,17 @@ describe('Popover', () => {
   });
 
   describe('Anchor', () => {
-    it('positions against a PopoverAnchor', async () => {
+    it('positions against a Popover.Anchor', async () => {
       const user = userEvent.setup();
       render(
         <Popover>
-          <PopoverAnchor>
+          <Popover.Anchor>
             <span>anchor</span>
-          </PopoverAnchor>
-          <PopoverTrigger>Open</PopoverTrigger>
-          <PopoverContent>
-            <PopoverBody>Anchored</PopoverBody>
-          </PopoverContent>
+          </Popover.Anchor>
+          <Popover.Trigger>Open</Popover.Trigger>
+          <Popover.Content>
+            <Popover.Body>Anchored</Popover.Body>
+          </Popover.Content>
         </Popover>
       );
       await user.click(screen.getByRole('button', { name: /^open$/i }));
@@ -184,12 +174,12 @@ describe('Popover', () => {
   describe('Display Name', () => {
     it.each([
       [Popover, 'Popover'],
-      [PopoverTrigger, 'PopoverTrigger'],
-      [PopoverAnchor, 'PopoverAnchor'],
-      [PopoverClose, 'PopoverClose'],
-      [PopoverContent, 'PopoverContent'],
-      [PopoverHeader, 'PopoverHeader'],
-      [PopoverBody, 'PopoverBody'],
+      [Popover.Trigger, 'Popover.Trigger'],
+      [Popover.Anchor, 'Popover.Anchor'],
+      [Popover.Close, 'Popover.Close'],
+      [Popover.Content, 'Popover.Content'],
+      [Popover.Header, 'Popover.Header'],
+      [Popover.Body, 'Popover.Body'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

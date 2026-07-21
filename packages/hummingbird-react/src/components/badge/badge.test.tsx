@@ -2,7 +2,7 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Badge, BadgeActionButton, badgeVariants } from './badge';
+import { Badge, badgeVariants } from './badge';
 
 describe('Badge', () => {
   describe('Rendering', () => {
@@ -277,7 +277,7 @@ describe('Badge', () => {
   describe('Display Name', () => {
     it('has correct display names', () => {
       expect(Badge.displayName).toBe('Badge');
-      expect(BadgeActionButton.displayName).toBe('BadgeActionButton');
+      expect(Badge.ActionButton.displayName).toBe('Badge.ActionButton');
     });
   });
 
@@ -294,17 +294,17 @@ describe('Badge', () => {
   });
 });
 
-describe('BadgeActionButton', () => {
+describe('Badge.ActionButton', () => {
   describe('Rendering', () => {
     it('renders a button element with the base class', () => {
-      render(<BadgeActionButton aria-label="Remove" />);
+      render(<Badge.ActionButton aria-label="Remove" />);
       const button = screen.getByRole('button', { name: /remove/i });
       expect(button).toBeInstanceOf(HTMLButtonElement);
       expect(button).toHaveClass('badge-action-btn');
     });
 
     it('has data-slot attribute', () => {
-      render(<BadgeActionButton aria-label="Remove" />);
+      render(<Badge.ActionButton aria-label="Remove" />);
       expect(screen.getByRole('button', { name: /remove/i })).toHaveAttribute(
         'data-slot',
         'badge-action-btn'
@@ -312,12 +312,12 @@ describe('BadgeActionButton', () => {
     });
 
     it('defaults to type="button"', () => {
-      render(<BadgeActionButton aria-label="Remove" />);
+      render(<Badge.ActionButton aria-label="Remove" />);
       expect(screen.getByRole('button', { name: /remove/i })).toHaveAttribute('type', 'button');
     });
 
     it('allows overriding the type attribute', () => {
-      render(<BadgeActionButton aria-label="Submit" type="submit" />);
+      render(<Badge.ActionButton aria-label="Submit" type="submit" />);
       expect(screen.getByRole('button', { name: /submit/i })).toHaveAttribute('type', 'submit');
     });
   });
@@ -327,13 +327,13 @@ describe('BadgeActionButton', () => {
       const handleClick = vi.fn();
       const user = userEvent.setup();
 
-      render(<BadgeActionButton aria-label="Remove" onClick={handleClick} />);
+      render(<Badge.ActionButton aria-label="Remove" onClick={handleClick} />);
       await user.click(screen.getByRole('button', { name: /remove/i }));
       expect(handleClick).toHaveBeenCalledOnce();
     });
 
     it('supports disabled state', () => {
-      render(<BadgeActionButton aria-label="Remove" disabled />);
+      render(<Badge.ActionButton aria-label="Remove" disabled />);
       expect(screen.getByRole('button', { name: /remove/i })).toBeDisabled();
     });
 
@@ -341,7 +341,7 @@ describe('BadgeActionButton', () => {
       const handleClick = vi.fn();
       const user = userEvent.setup();
 
-      render(<BadgeActionButton aria-label="Remove" disabled onClick={handleClick} />);
+      render(<Badge.ActionButton aria-label="Remove" disabled onClick={handleClick} />);
       await user.click(screen.getByRole('button', { name: /remove/i }));
       expect(handleClick).not.toHaveBeenCalled();
     });
@@ -350,7 +350,7 @@ describe('BadgeActionButton', () => {
       const handleClick = vi.fn();
       const user = userEvent.setup();
 
-      render(<BadgeActionButton aria-label="Remove" onClick={handleClick} />);
+      render(<Badge.ActionButton aria-label="Remove" onClick={handleClick} />);
       screen.getByRole('button', { name: /remove/i }).focus();
       await user.keyboard('{Enter}');
       expect(handleClick).toHaveBeenCalled();
@@ -359,7 +359,7 @@ describe('BadgeActionButton', () => {
 
   describe('Class Merging', () => {
     it('merges custom className with the base class', () => {
-      render(<BadgeActionButton aria-label="Remove" className="custom-action" />);
+      render(<Badge.ActionButton aria-label="Remove" className="custom-action" />);
       expect(screen.getByRole('button', { name: /remove/i })).toHaveClass(
         'badge-action-btn',
         'custom-action'
@@ -370,7 +370,7 @@ describe('BadgeActionButton', () => {
   describe('Ref Forwarding', () => {
     it('forwards ref to the button element', () => {
       const ref = React.createRef<HTMLButtonElement>();
-      render(<BadgeActionButton ref={ref} aria-label="Remove" />);
+      render(<Badge.ActionButton ref={ref} aria-label="Remove" />);
       expect(ref.current).toBeInstanceOf(HTMLButtonElement);
       expect(ref.current?.className).toContain('badge-action-btn');
     });

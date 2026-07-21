@@ -32,7 +32,7 @@ export interface NavProps
   asChild?: boolean;
 }
 
-function Nav({ className, variant, color, asChild = false, ...props }: NavProps) {
+function NavRoot({ className, variant, color, asChild = false, ...props }: NavProps) {
   const Comp = asChild ? Slot.Root : 'ul';
 
   return (
@@ -40,7 +40,7 @@ function Nav({ className, variant, color, asChild = false, ...props }: NavProps)
   );
 }
 
-Nav.displayName = 'Nav';
+NavRoot.displayName = 'Nav';
 
 export interface NavItemProps extends React.ComponentProps<'li'> {}
 
@@ -48,7 +48,7 @@ function NavItem({ className, ...props }: NavItemProps) {
   return <li data-slot="nav-item" className={className} {...props} />;
 }
 
-NavItem.displayName = 'NavItem';
+NavItem.displayName = 'Nav.Item';
 
 export interface NavLinkProps extends React.ComponentProps<'a'> {
   active?: boolean;
@@ -76,6 +76,19 @@ function NavLink({
   );
 }
 
-NavLink.displayName = 'NavLink';
+NavLink.displayName = 'Nav.Link';
 
-export { Nav, NavItem, NavLink, navVariants };
+const Nav = /* @__PURE__ */ Object.assign(NavRoot, {
+  Root: NavRoot,
+  Item: NavItem,
+  Link: NavLink,
+});
+
+namespace Nav {
+  export type Props = React.ComponentProps<typeof NavRoot>;
+  export type RootProps = React.ComponentProps<typeof NavRoot>;
+  export type ItemProps = React.ComponentProps<typeof NavItem>;
+  export type LinkProps = React.ComponentProps<typeof NavLink>;
+}
+
+export { Nav, navVariants };

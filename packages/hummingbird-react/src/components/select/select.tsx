@@ -49,4 +49,8 @@ function Select({ className, variant, size, color, state, ...props }: SelectProp
 
 Select.displayName = 'Select';
 
+namespace Select {
+  export type Props = React.ComponentProps<typeof Select>;
+}
+
 export { Select, selectVariants };

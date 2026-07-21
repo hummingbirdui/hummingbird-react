@@ -2,14 +2,14 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from './collapsible';
+import { Collapsible } from './collapsible';
 
 function Example(props: React.ComponentProps<typeof Collapsible>) {
   const { children, ...rootProps } = props;
   return (
     <Collapsible {...rootProps}>
-      <CollapsibleTrigger>Toggle</CollapsibleTrigger>
-      <CollapsibleContent>Panel content</CollapsibleContent>
+      <Collapsible.Trigger>Toggle</Collapsible.Trigger>
+      <Collapsible.Content>Panel content</Collapsible.Content>
       {children}
     </Collapsible>
   );
@@ -141,8 +141,8 @@ describe('Collapsible', () => {
     it('merges className on the content with the animation utilities', () => {
       render(
         <Collapsible defaultOpen>
-          <CollapsibleTrigger>Toggle</CollapsibleTrigger>
-          <CollapsibleContent className="custom-content">Panel content</CollapsibleContent>
+          <Collapsible.Trigger>Toggle</Collapsible.Trigger>
+          <Collapsible.Content className="custom-content">Panel content</Collapsible.Content>
         </Collapsible>
       );
       const content = document.querySelector('[data-slot="collapsible-content"]') as HTMLElement;
@@ -152,8 +152,8 @@ describe('Collapsible', () => {
     it('passes className through on the root and trigger', () => {
       render(
         <Collapsible className="custom-root">
-          <CollapsibleTrigger className="custom-trigger">Toggle</CollapsibleTrigger>
-          <CollapsibleContent>Panel content</CollapsibleContent>
+          <Collapsible.Trigger className="custom-trigger">Toggle</Collapsible.Trigger>
+          <Collapsible.Content>Panel content</Collapsible.Content>
         </Collapsible>
       );
       expect(document.querySelector('[data-slot="collapsible"]')).toHaveClass('custom-root');
@@ -168,8 +168,8 @@ describe('Collapsible', () => {
       const contentRef = React.createRef<HTMLDivElement>();
       render(
         <Collapsible defaultOpen ref={rootRef}>
-          <CollapsibleTrigger ref={triggerRef}>Toggle</CollapsibleTrigger>
-          <CollapsibleContent ref={contentRef}>Panel content</CollapsibleContent>
+          <Collapsible.Trigger ref={triggerRef}>Toggle</Collapsible.Trigger>
+          <Collapsible.Content ref={contentRef}>Panel content</Collapsible.Content>
         </Collapsible>
       );
       expect(rootRef.current).toBeInstanceOf(HTMLDivElement);
@@ -184,12 +184,12 @@ describe('Collapsible', () => {
       const user = userEvent.setup();
       render(
         <Collapsible>
-          <CollapsibleTrigger asChild>
+          <Collapsible.Trigger asChild>
             <button type="button" className="custom-btn">
               Custom toggle
             </button>
-          </CollapsibleTrigger>
-          <CollapsibleContent>Panel content</CollapsibleContent>
+          </Collapsible.Trigger>
+          <Collapsible.Content>Panel content</Collapsible.Content>
         </Collapsible>
       );
       const trigger = screen.getByRole('button', { name: 'Custom toggle' });
@@ -204,8 +204,8 @@ describe('Collapsible', () => {
   describe('Display Name', () => {
     it.each([
       [Collapsible, 'Collapsible'],
-      [CollapsibleTrigger, 'CollapsibleTrigger'],
-      [CollapsibleContent, 'CollapsibleContent'],
+      [Collapsible.Trigger, 'Collapsible.Trigger'],
+      [Collapsible.Content, 'Collapsible.Content'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

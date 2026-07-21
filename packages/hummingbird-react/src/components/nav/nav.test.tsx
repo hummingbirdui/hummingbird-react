@@ -2,25 +2,25 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Nav, NavItem, NavLink, navVariants } from './nav';
+import { Nav, navVariants } from './nav';
 
 // A small nav used across the tests.
 function Example(props: React.ComponentProps<typeof Nav>) {
   return (
     <Nav {...props}>
-      <NavItem>
-        <NavLink href="#home" active>
+      <Nav.Item>
+        <Nav.Link href="#home" active>
           Home
-        </NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="#profile">Profile</NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="#contact" disabled>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#profile">Profile</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#contact" disabled>
           Contact
-        </NavLink>
-      </NavItem>
+        </Nav.Link>
+      </Nav.Item>
     </Nav>
   );
 }
@@ -59,7 +59,7 @@ describe('Nav', () => {
       expect(screen.getByRole('list')).toHaveClass('nav');
     });
 
-    it('adds no Hummingbird class to NavItem', () => {
+    it('adds no Hummingbird class to Nav.Item', () => {
       render(<Example />);
       screen.getAllByRole('listitem').forEach((item) => {
         expect(item.getAttribute('class')).toBeNull();
@@ -149,11 +149,11 @@ describe('Nav', () => {
       const user = userEvent.setup();
       render(
         <Nav>
-          <NavItem>
-            <NavLink href="#home" onClick={handleClick}>
+          <Nav.Item>
+            <Nav.Link href="#home" onClick={handleClick}>
               Home
-            </NavLink>
-          </NavItem>
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       );
 
@@ -176,11 +176,11 @@ describe('Nav', () => {
     it('merges custom className on items and links', () => {
       render(
         <Nav>
-          <NavItem className="custom-item">
-            <NavLink href="#" active className="custom-link">
+          <Nav.Item className="custom-item">
+            <Nav.Link href="#" active className="custom-link">
               Home
-            </NavLink>
-          </NavItem>
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       );
       expect(screen.getByRole('listitem')).toHaveClass('custom-item');
@@ -205,11 +205,11 @@ describe('Nav', () => {
       const linkRef = React.createRef<HTMLAnchorElement>();
       render(
         <Nav>
-          <NavItem ref={itemRef}>
-            <NavLink ref={linkRef} href="#">
+          <Nav.Item ref={itemRef}>
+            <Nav.Link ref={linkRef} href="#">
               Home
-            </NavLink>
-          </NavItem>
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       );
       expect(itemRef.current).toBeInstanceOf(HTMLLIElement);
@@ -230,16 +230,16 @@ describe('Nav', () => {
       expect(el).toHaveClass('nav', 'nav-tabs');
     });
 
-    it('renders NavLink as the supplied child and preserves its attributes', () => {
+    it('renders Nav.Link as the supplied child and preserves its attributes', () => {
       render(
         <Nav>
-          <NavItem>
-            <NavLink asChild active>
+          <Nav.Item>
+            <Nav.Link asChild active>
               <button type="button" className="custom-link">
                 Home
               </button>
-            </NavLink>
-          </NavItem>
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       );
       const button = screen.getByRole('button', { name: /home/i });
@@ -251,8 +251,8 @@ describe('Nav', () => {
   describe('Display Name', () => {
     it.each([
       [Nav, 'Nav'],
-      [NavItem, 'NavItem'],
-      [NavLink, 'NavLink'],
+      [Nav.Item, 'Nav.Item'],
+      [Nav.Link, 'Nav.Link'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

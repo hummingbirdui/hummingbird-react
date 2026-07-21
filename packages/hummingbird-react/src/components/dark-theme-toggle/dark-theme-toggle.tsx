@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useThemeMode } from '../../hooks/use-theme-mode';
-import { Button, type ButtonProps } from '../button';
+import { Button } from '../button';
 
 function SunIcon(props: React.ComponentProps<'svg'>) {
   return (
@@ -39,7 +39,7 @@ function MoonIcon(props: React.ComponentProps<'svg'>) {
   );
 }
 
-export interface DarkThemeToggleProps extends ButtonProps {
+export interface DarkThemeToggleProps extends Button.Props {
   /** Icon shown while in dark mode (defaults to a sun) */
   iconDark?: React.FC<React.ComponentProps<'svg'>>;
   /** Icon shown while in light mode (defaults to a moon) */
@@ -84,5 +84,9 @@ function DarkThemeToggle({
 }
 
 DarkThemeToggle.displayName = 'DarkThemeToggle';
+
+namespace DarkThemeToggle {
+  export type Props = React.ComponentProps<typeof DarkThemeToggle>;
+}
 
 export { DarkThemeToggle };

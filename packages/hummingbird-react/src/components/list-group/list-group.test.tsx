@@ -4,8 +4,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
   ListGroup,
-  ListGroupItem,
-  ListText,
   listGroupVariants,
   listGroupItemVariants,
   listTextVariants,
@@ -16,7 +14,7 @@ describe('ListGroup', () => {
     it('renders a ul with the list-group class', () => {
       render(
         <ListGroup>
-          <ListGroupItem>Item one</ListGroupItem>
+          <ListGroup.Item>Item one</ListGroup.Item>
         </ListGroup>
       );
       const list = screen.getByRole('list');
@@ -28,8 +26,8 @@ describe('ListGroup', () => {
     it('renders items as li elements', () => {
       render(
         <ListGroup>
-          <ListGroupItem>First</ListGroupItem>
-          <ListGroupItem>Second</ListGroupItem>
+          <ListGroup.Item>First</ListGroup.Item>
+          <ListGroup.Item>Second</ListGroup.Item>
         </ListGroup>
       );
       const items = screen.getAllByRole('listitem');
@@ -42,10 +40,10 @@ describe('ListGroup', () => {
     it('renders list text content', () => {
       render(
         <ListGroup>
-          <ListGroupItem>
-            <ListText>Primary text</ListText>
-            <ListText variant="secondary">Secondary text</ListText>
-          </ListGroupItem>
+          <ListGroup.Item>
+            <ListGroup.Text>Primary text</ListGroup.Text>
+            <ListGroup.Text variant="secondary">Secondary text</ListGroup.Text>
+          </ListGroup.Item>
         </ListGroup>
       );
       expect(screen.getByText('Primary text')).toBeInTheDocument();
@@ -57,7 +55,7 @@ describe('ListGroup', () => {
     it('applies list-group-item and data-slot to items', () => {
       render(
         <ListGroup>
-          <ListGroupItem>Item</ListGroupItem>
+          <ListGroup.Item>Item</ListGroup.Item>
         </ListGroup>
       );
       const item = screen.getByRole('listitem');
@@ -65,8 +63,8 @@ describe('ListGroup', () => {
       expect(item).toHaveAttribute('data-slot', 'list-group-item');
     });
 
-    it('renders ListText as a paragraph with data-slot', () => {
-      render(<ListText>Text</ListText>);
+    it('renders ListGroup.Text as a paragraph with data-slot', () => {
+      render(<ListGroup.Text>Text</ListGroup.Text>);
       const text = screen.getByText('Text');
       expect(text).toBeInstanceOf(HTMLParagraphElement);
       expect(text).toHaveAttribute('data-slot', 'list-text');
@@ -87,7 +85,7 @@ describe('ListGroup', () => {
     it('applies list-group-item-action when action', () => {
       render(
         <ListGroup>
-          <ListGroupItem action>Item</ListGroupItem>
+          <ListGroup.Item action>Item</ListGroup.Item>
         </ListGroup>
       );
       expect(screen.getByRole('listitem')).toHaveClass('list-group-item', 'list-group-item-action');
@@ -96,7 +94,7 @@ describe('ListGroup', () => {
     it('applies list-group-item-pinned when pinned', () => {
       render(
         <ListGroup>
-          <ListGroupItem pinned>Item</ListGroupItem>
+          <ListGroup.Item pinned>Item</ListGroup.Item>
         </ListGroup>
       );
       expect(screen.getByRole('listitem')).toHaveClass('list-group-item', 'list-group-item-pinned');
@@ -105,7 +103,7 @@ describe('ListGroup', () => {
     it('applies no extra classes on a plain item', () => {
       render(
         <ListGroup>
-          <ListGroupItem>Item</ListGroupItem>
+          <ListGroup.Item>Item</ListGroup.Item>
         </ListGroup>
       );
       expect(screen.getByRole('listitem').className.trim()).toBe('list-group-item');
@@ -116,7 +114,7 @@ describe('ListGroup', () => {
     it('applies active class and aria-current', () => {
       render(
         <ListGroup>
-          <ListGroupItem active>Active item</ListGroupItem>
+          <ListGroup.Item active>Active item</ListGroup.Item>
         </ListGroup>
       );
       const item = screen.getByRole('listitem');
@@ -127,7 +125,7 @@ describe('ListGroup', () => {
     it('applies disabled class and aria-disabled', () => {
       render(
         <ListGroup>
-          <ListGroupItem disabled>Disabled item</ListGroupItem>
+          <ListGroup.Item disabled>Disabled item</ListGroup.Item>
         </ListGroup>
       );
       const item = screen.getByRole('listitem');
@@ -138,7 +136,7 @@ describe('ListGroup', () => {
     it('sets neither aria attribute by default', () => {
       render(
         <ListGroup>
-          <ListGroupItem>Item</ListGroupItem>
+          <ListGroup.Item>Item</ListGroup.Item>
         </ListGroup>
       );
       const item = screen.getByRole('listitem');
@@ -149,9 +147,9 @@ describe('ListGroup', () => {
     it('combines action, active, and pinned', () => {
       render(
         <ListGroup>
-          <ListGroupItem action pinned active>
+          <ListGroup.Item action pinned active>
             Item
-          </ListGroupItem>
+          </ListGroup.Item>
         </ListGroup>
       );
       expect(screen.getByRole('listitem')).toHaveClass(
@@ -163,7 +161,7 @@ describe('ListGroup', () => {
     });
   });
 
-  describe('ListText Variants', () => {
+  describe('ListGroup.Text Variants', () => {
     const variants = [
       { variant: 'primary', expected: 'list-text-primary' },
       { variant: 'secondary', expected: 'list-text-secondary' },
@@ -171,14 +169,14 @@ describe('ListGroup', () => {
 
     it('applies variant classes correctly', () => {
       variants.forEach(({ variant, expected }) => {
-        const { unmount } = render(<ListText variant={variant}>{variant}</ListText>);
+        const { unmount } = render(<ListGroup.Text variant={variant}>{variant}</ListGroup.Text>);
         expect(screen.getByText(variant)).toHaveClass(expected);
         unmount();
       });
     });
 
     it('defaults to the primary variant', () => {
-      render(<ListText>Default</ListText>);
+      render(<ListGroup.Text>Default</ListGroup.Text>);
       expect(screen.getByText('Default')).toHaveClass('list-text-primary');
     });
   });
@@ -189,9 +187,9 @@ describe('ListGroup', () => {
       const user = userEvent.setup();
       render(
         <ListGroup>
-          <ListGroupItem action onClick={handleClick}>
+          <ListGroup.Item action onClick={handleClick}>
             Clickable
-          </ListGroupItem>
+          </ListGroup.Item>
         </ListGroup>
       );
 
@@ -204,9 +202,9 @@ describe('ListGroup', () => {
       const user = userEvent.setup();
       render(
         <ListGroup>
-          <ListGroupItem action asChild onClick={handleClick}>
+          <ListGroup.Item action asChild onClick={handleClick}>
             <button type="button">Button item</button>
-          </ListGroupItem>
+          </ListGroup.Item>
         </ListGroup>
       );
 
@@ -221,11 +219,11 @@ describe('ListGroup', () => {
       const user = userEvent.setup();
       render(
         <ListGroup>
-          <ListGroupItem action disabled asChild onClick={handleClick}>
+          <ListGroup.Item action disabled asChild onClick={handleClick}>
             <button type="button" disabled>
               Disabled item
             </button>
-          </ListGroupItem>
+          </ListGroup.Item>
         </ListGroup>
       );
 
@@ -249,9 +247,9 @@ describe('ListGroup', () => {
     it('merges custom className on an item', () => {
       render(
         <ListGroup>
-          <ListGroupItem action active className="custom-item">
+          <ListGroup.Item action active className="custom-item">
             Item
-          </ListGroupItem>
+          </ListGroup.Item>
         </ListGroup>
       );
       expect(screen.getByRole('listitem')).toHaveClass(
@@ -262,11 +260,11 @@ describe('ListGroup', () => {
       );
     });
 
-    it('merges custom className on ListText', () => {
+    it('merges custom className on ListGroup.Text', () => {
       render(
-        <ListText variant="secondary" className="custom-text">
+        <ListGroup.Text variant="secondary" className="custom-text">
           Text
-        </ListText>
+        </ListGroup.Text>
       );
       expect(screen.getByText('Text')).toHaveClass('list-text-secondary', 'custom-text');
     });
@@ -284,16 +282,16 @@ describe('ListGroup', () => {
       const ref = React.createRef<HTMLLIElement>();
       render(
         <ListGroup>
-          <ListGroupItem ref={ref}>Item</ListGroupItem>
+          <ListGroup.Item ref={ref}>Item</ListGroup.Item>
         </ListGroup>
       );
       expect(ref.current).toBeInstanceOf(HTMLLIElement);
       expect(ref.current?.textContent).toBe('Item');
     });
 
-    it('forwards ref to the ListText element', () => {
+    it('forwards ref to the ListGroup.Text element', () => {
       const ref = React.createRef<HTMLParagraphElement>();
-      render(<ListText ref={ref}>Text</ListText>);
+      render(<ListGroup.Text ref={ref}>Text</ListGroup.Text>);
       expect(ref.current).toBeInstanceOf(HTMLParagraphElement);
     });
   });
@@ -314,11 +312,11 @@ describe('ListGroup', () => {
       render(
         <ListGroup asChild>
           <div>
-            <ListGroupItem action asChild>
+            <ListGroup.Item action asChild>
               <a href="/first" className="custom-link">
                 Link item
               </a>
-            </ListGroupItem>
+            </ListGroup.Item>
           </div>
         </ListGroup>
       );
@@ -332,9 +330,9 @@ describe('ListGroup', () => {
       render(
         <ListGroup asChild>
           <div>
-            <ListGroupItem action active asChild>
+            <ListGroup.Item action active asChild>
               <a href="/current">Current</a>
-            </ListGroupItem>
+            </ListGroup.Item>
           </div>
         </ListGroup>
       );
@@ -347,8 +345,8 @@ describe('ListGroup', () => {
   describe('Display Name', () => {
     it.each([
       [ListGroup, 'ListGroup'],
-      [ListGroupItem, 'ListGroupItem'],
-      [ListText, 'ListText'],
+      [ListGroup.Item, 'ListGroup.Item'],
+      [ListGroup.Text, 'ListGroup.Text'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -358,8 +356,8 @@ describe('ListGroup', () => {
     it('exposes list and listitem roles', () => {
       render(
         <ListGroup>
-          <ListGroupItem>One</ListGroupItem>
-          <ListGroupItem>Two</ListGroupItem>
+          <ListGroup.Item>One</ListGroup.Item>
+          <ListGroup.Item>Two</ListGroup.Item>
         </ListGroup>
       );
       expect(screen.getByRole('list')).toBeInTheDocument();
@@ -371,9 +369,9 @@ describe('ListGroup', () => {
       const user = userEvent.setup();
       render(
         <ListGroup>
-          <ListGroupItem action asChild onClick={handleClick}>
+          <ListGroup.Item action asChild onClick={handleClick}>
             <button type="button">Item</button>
-          </ListGroupItem>
+          </ListGroup.Item>
         </ListGroup>
       );
 

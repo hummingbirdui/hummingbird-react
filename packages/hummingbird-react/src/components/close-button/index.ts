@@ -1,1 +1,1 @@
-export * from './close-button';
+export { CloseButton, closeButtonVariants } from './close-button';

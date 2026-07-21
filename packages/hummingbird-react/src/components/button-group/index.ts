@@ -1,1 +1,1 @@
-export * from './button-group';
+export { ButtonGroup, buttonGroupVariants } from './button-group';

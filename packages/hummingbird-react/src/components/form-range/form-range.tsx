@@ -28,7 +28,8 @@ const formRangeVariants = cva('form-range', {
 export interface FormRangeProps
   // Omit native `color`/`size`/`type` — `color`/`size` collide with the CVA
   // variants and `type` is fixed to `range`.
-  extends Omit<React.ComponentProps<'input'>, 'color' | 'size' | 'type'>,
+  extends
+    Omit<React.ComponentProps<'input'>, 'color' | 'size' | 'type'>,
     VariantProps<typeof formRangeVariants> {}
 
 /** A styled native range slider (`<input type="range">`). */
@@ -44,5 +45,9 @@ function FormRange({ className, color, size, ...props }: FormRangeProps) {
 }
 
 FormRange.displayName = 'FormRange';
+
+namespace FormRange {
+  export type Props = React.ComponentProps<typeof FormRange>;
+}
 
 export { FormRange, formRangeVariants };

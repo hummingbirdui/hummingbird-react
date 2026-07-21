@@ -2,38 +2,25 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerPortal,
-  DrawerClose,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerBody,
-} from './drawer';
+import { Drawer } from './drawer';
 
 // A complete drawer used across the behavioral tests. `direction` is forwarded
 // to the Vaul root so the per-edge positioning can be exercised.
-function Example(
-  props: React.ComponentProps<typeof Drawer> & { triggerLabel?: string }
-) {
+function Example(props: React.ComponentProps<typeof Drawer> & { triggerLabel?: string }) {
   const { triggerLabel = 'Open', children, ...rootProps } = props;
   return (
     <Drawer {...rootProps}>
-      <DrawerTrigger>{triggerLabel}</DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Title</DrawerTitle>
-          <DrawerClose>Close</DrawerClose>
-        </DrawerHeader>
-        <DrawerBody>
-          <DrawerDescription>Description</DrawerDescription>
+      <Drawer.Trigger>{triggerLabel}</Drawer.Trigger>
+      <Drawer.Content>
+        <Drawer.Header>
+          <Drawer.Title>Title</Drawer.Title>
+          <Drawer.Close>Close</Drawer.Close>
+        </Drawer.Header>
+        <Drawer.Body>
+          <Drawer.Description>Description</Drawer.Description>
           {children}
-        </DrawerBody>
-      </DrawerContent>
+        </Drawer.Body>
+      </Drawer.Content>
     </Drawer>
   );
 }
@@ -121,7 +108,7 @@ describe('Drawer', () => {
   });
 
   describe('Interactions', () => {
-    it('closes when a DrawerClose is clicked', async () => {
+    it('closes when a Drawer.Close is clicked', async () => {
       const { user, content } = await openDrawer(<Example />);
       await user.click(screen.getByRole('button', { name: /close/i }));
       // Vaul plays its exit animation, then keeps the node with data-state=closed.
@@ -147,18 +134,18 @@ describe('Drawer', () => {
       const onOpenChange = vi.fn();
       const { rerender } = render(
         <Drawer open={false} onOpenChange={onOpenChange}>
-          <DrawerContent>
-            <DrawerTitle>Title</DrawerTitle>
-          </DrawerContent>
+          <Drawer.Content>
+            <Drawer.Title>Title</Drawer.Title>
+          </Drawer.Content>
         </Drawer>
       );
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
       rerender(
         <Drawer open onOpenChange={onOpenChange}>
-          <DrawerContent>
-            <DrawerTitle>Title</DrawerTitle>
-          </DrawerContent>
+          <Drawer.Content>
+            <Drawer.Title>Title</Drawer.Title>
+          </Drawer.Content>
         </Drawer>
       );
       expect(await screen.findByRole('dialog')).toBeInTheDocument();
@@ -170,10 +157,10 @@ describe('Drawer', () => {
       const user = userEvent.setup();
       render(
         <Drawer>
-          <DrawerTrigger>Open</DrawerTrigger>
-          <DrawerContent className="custom-panel">
-            <DrawerTitle>Title</DrawerTitle>
-          </DrawerContent>
+          <Drawer.Trigger>Open</Drawer.Trigger>
+          <Drawer.Content className="custom-panel">
+            <Drawer.Title>Title</Drawer.Title>
+          </Drawer.Content>
         </Drawer>
       );
       await user.click(screen.getByRole('button', { name: /open/i }));
@@ -187,13 +174,13 @@ describe('Drawer', () => {
       const user = userEvent.setup();
       render(
         <Drawer>
-          <DrawerTrigger>Open</DrawerTrigger>
-          <DrawerPortal>
-            <DrawerOverlay className="custom-backdrop" />
-            <DrawerContent>
-              <DrawerTitle>Composed</DrawerTitle>
-            </DrawerContent>
-          </DrawerPortal>
+          <Drawer.Trigger>Open</Drawer.Trigger>
+          <Drawer.Portal>
+            <Drawer.Overlay className="custom-backdrop" />
+            <Drawer.Content>
+              <Drawer.Title>Composed</Drawer.Title>
+            </Drawer.Content>
+          </Drawer.Portal>
         </Drawer>
       );
       await user.click(screen.getByRole('button', { name: /open/i }));
@@ -206,15 +193,15 @@ describe('Drawer', () => {
   describe('Display Name', () => {
     it.each([
       [Drawer, 'Drawer'],
-      [DrawerTrigger, 'DrawerTrigger'],
-      [DrawerPortal, 'DrawerPortal'],
-      [DrawerClose, 'DrawerClose'],
-      [DrawerOverlay, 'DrawerOverlay'],
-      [DrawerContent, 'DrawerContent'],
-      [DrawerHeader, 'DrawerHeader'],
-      [DrawerTitle, 'DrawerTitle'],
-      [DrawerDescription, 'DrawerDescription'],
-      [DrawerBody, 'DrawerBody'],
+      [Drawer.Trigger, 'Drawer.Trigger'],
+      [Drawer.Portal, 'Drawer.Portal'],
+      [Drawer.Close, 'Drawer.Close'],
+      [Drawer.Overlay, 'Drawer.Overlay'],
+      [Drawer.Content, 'Drawer.Content'],
+      [Drawer.Header, 'Drawer.Header'],
+      [Drawer.Title, 'Drawer.Title'],
+      [Drawer.Description, 'Drawer.Description'],
+      [Drawer.Body, 'Drawer.Body'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

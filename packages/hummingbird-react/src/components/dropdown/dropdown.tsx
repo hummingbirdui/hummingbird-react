@@ -6,7 +6,7 @@ import { cn } from '../../utils/cn';
 
 export type DropdownMenuProps = React.ComponentProps<typeof DropdownMenuPrimitive.Root>;
 
-function DropdownMenu({ open, defaultOpen, onOpenChange, ...props }: DropdownMenuProps) {
+function DropdownRoot({ open, defaultOpen, onOpenChange, ...props }: DropdownMenuProps) {
   const isControlled = open !== undefined;
   const [internalOpen, setInternalOpen] = React.useState(defaultOpen ?? false);
   const resolvedOpen = isControlled ? open : internalOpen;
@@ -31,21 +31,21 @@ function DropdownMenu({ open, defaultOpen, onOpenChange, ...props }: DropdownMen
     />
   );
 }
-DropdownMenu.displayName = 'DropdownMenu';
+DropdownRoot.displayName = 'Dropdown';
 
 function DropdownMenuPortal({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
   return <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />;
 }
-DropdownMenuPortal.displayName = 'DropdownMenuPortal';
+DropdownMenuPortal.displayName = 'Dropdown.Portal';
 
 function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
   return <DropdownMenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...props} />;
 }
-DropdownMenuTrigger.displayName = 'DropdownMenuTrigger';
+DropdownMenuTrigger.displayName = 'Dropdown.Trigger';
 
 function DropdownMenuContent({
   className,
@@ -68,12 +68,12 @@ function DropdownMenuContent({
     </DropdownMenuPrimitive.Portal>
   );
 }
-DropdownMenuContent.displayName = 'DropdownMenuContent';
+DropdownMenuContent.displayName = 'Dropdown.Content';
 
 function DropdownMenuGroup({ ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
   return <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />;
 }
-DropdownMenuGroup.displayName = 'DropdownMenuGroup';
+DropdownMenuGroup.displayName = 'Dropdown.Group';
 
 function DropdownMenuItem({
   className,
@@ -93,7 +93,7 @@ function DropdownMenuItem({
     />
   );
 }
-DropdownMenuItem.displayName = 'DropdownMenuItem';
+DropdownMenuItem.displayName = 'Dropdown.Item';
 
 function DropdownMenuLabel({
   className,
@@ -107,7 +107,7 @@ function DropdownMenuLabel({
     />
   );
 }
-DropdownMenuLabel.displayName = 'DropdownMenuLabel';
+DropdownMenuLabel.displayName = 'Dropdown.Label';
 
 function DropdownMenuSeparator({
   className,
@@ -121,7 +121,7 @@ function DropdownMenuSeparator({
     />
   );
 }
-DropdownMenuSeparator.displayName = 'DropdownMenuSeparator';
+DropdownMenuSeparator.displayName = 'Dropdown.Separator';
 
 function DropdownMenuItemText({ className, ...props }: React.ComponentProps<'span'>) {
   return (
@@ -132,16 +132,31 @@ function DropdownMenuItemText({ className, ...props }: React.ComponentProps<'spa
     />
   );
 }
-DropdownMenuItemText.displayName = 'DropdownMenuItemText';
+DropdownMenuItemText.displayName = 'Dropdown.ItemText';
 
-export {
-  DropdownMenu,
-  DropdownMenuPortal,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItemText,
-};
+const Dropdown = /* @__PURE__ */ Object.assign(DropdownRoot, {
+  Root: DropdownRoot,
+  Portal: DropdownMenuPortal,
+  Trigger: DropdownMenuTrigger,
+  Content: DropdownMenuContent,
+  Group: DropdownMenuGroup,
+  Item: DropdownMenuItem,
+  Label: DropdownMenuLabel,
+  Separator: DropdownMenuSeparator,
+  ItemText: DropdownMenuItemText,
+});
+
+namespace Dropdown {
+  export type Props = React.ComponentProps<typeof DropdownRoot>;
+  export type RootProps = React.ComponentProps<typeof DropdownRoot>;
+  export type PortalProps = React.ComponentProps<typeof DropdownMenuPortal>;
+  export type TriggerProps = React.ComponentProps<typeof DropdownMenuTrigger>;
+  export type ContentProps = React.ComponentProps<typeof DropdownMenuContent>;
+  export type GroupProps = React.ComponentProps<typeof DropdownMenuGroup>;
+  export type ItemProps = React.ComponentProps<typeof DropdownMenuItem>;
+  export type LabelProps = React.ComponentProps<typeof DropdownMenuLabel>;
+  export type SeparatorProps = React.ComponentProps<typeof DropdownMenuSeparator>;
+  export type ItemTextProps = React.ComponentProps<typeof DropdownMenuItemText>;
+}
+
+export { Dropdown };

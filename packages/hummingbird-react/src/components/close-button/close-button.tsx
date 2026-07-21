@@ -36,4 +36,8 @@ function CloseButton({ className, variant, shape, type = 'button', ...props }: C
 
 CloseButton.displayName = 'CloseButton';
 
+namespace CloseButton {
+  export type Props = React.ComponentProps<typeof CloseButton>;
+}
+
 export { CloseButton, closeButtonVariants };

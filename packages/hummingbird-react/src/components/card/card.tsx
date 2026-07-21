@@ -18,7 +18,7 @@ export interface CardProps extends React.ComponentProps<'div'>, VariantProps<typ
   asChild?: boolean;
 }
 
-function Card({ className, aside, action, asChild = false, ...props }: CardProps) {
+function CardRoot({ className, aside, action, asChild = false, ...props }: CardProps) {
   const Comp = asChild ? Slot.Root : 'div';
 
   return (
@@ -26,7 +26,7 @@ function Card({ className, aside, action, asChild = false, ...props }: CardProps
   );
 }
 
-Card.displayName = 'Card';
+CardRoot.displayName = 'Card';
 
 export interface CardSlotProps extends React.ComponentProps<'div'> {}
 
@@ -34,31 +34,31 @@ function CardHeader({ className, ...props }: CardSlotProps) {
   return <div data-slot="card-header" className={cn('card-header', className)} {...props} />;
 }
 
-CardHeader.displayName = 'CardHeader';
+CardHeader.displayName = 'Card.Header';
 
 function CardBody({ className, ...props }: CardSlotProps) {
   return <div data-slot="card-body" className={cn('card-body', className)} {...props} />;
 }
 
-CardBody.displayName = 'CardBody';
+CardBody.displayName = 'Card.Body';
 
 function CardFooter({ className, ...props }: CardSlotProps) {
   return <div data-slot="card-footer" className={cn('card-footer', className)} {...props} />;
 }
 
-CardFooter.displayName = 'CardFooter';
+CardFooter.displayName = 'Card.Footer';
 
 function CardTitle({ className, ...props }: CardSlotProps) {
   return <div data-slot="card-title" className={cn('card-title text-xl', className)} {...props} />;
 }
 
-CardTitle.displayName = 'CardTitle';
+CardTitle.displayName = 'Card.Title';
 
 function CardSubtitle({ className, ...props }: CardSlotProps) {
   return <div data-slot="card-subtitle" className={cn('card-subtitle', className)} {...props} />;
 }
 
-CardSubtitle.displayName = 'CardSubtitle';
+CardSubtitle.displayName = 'Card.Subtitle';
 
 export interface CardTextProps extends React.ComponentProps<'p'> {}
 
@@ -66,7 +66,7 @@ function CardText({ className, ...props }: CardTextProps) {
   return <p data-slot="card-text" className={cn('card-text', className)} {...props} />;
 }
 
-CardText.displayName = 'CardText';
+CardText.displayName = 'Card.Text';
 
 const cardImageVariants = cva('', {
   variants: {
@@ -96,7 +96,7 @@ function CardImage({ className, position, ...props }: CardImageProps) {
   );
 }
 
-CardImage.displayName = 'CardImage';
+CardImage.displayName = 'Card.Image';
 
 function CardImageOverlay({ className, ...props }: CardSlotProps) {
   return (
@@ -104,25 +104,39 @@ function CardImageOverlay({ className, ...props }: CardSlotProps) {
   );
 }
 
-CardImageOverlay.displayName = 'CardImageOverlay';
+CardImageOverlay.displayName = 'Card.ImageOverlay';
 
 function CardGroup({ className, ...props }: CardSlotProps) {
   return <div data-slot="card-group" className={cn('card-group', className)} {...props} />;
 }
 
-CardGroup.displayName = 'CardGroup';
+CardGroup.displayName = 'Card.Group';
 
-export {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-  CardImage,
-  CardImageOverlay,
-  CardGroup,
-  cardVariants,
-  cardImageVariants,
-};
+const Card = /* @__PURE__ */ Object.assign(CardRoot, {
+  Root: CardRoot,
+  Header: CardHeader,
+  Body: CardBody,
+  Footer: CardFooter,
+  Title: CardTitle,
+  Subtitle: CardSubtitle,
+  Text: CardText,
+  Image: CardImage,
+  ImageOverlay: CardImageOverlay,
+  Group: CardGroup,
+});
+
+namespace Card {
+  export type Props = React.ComponentProps<typeof CardRoot>;
+  export type RootProps = React.ComponentProps<typeof CardRoot>;
+  export type HeaderProps = React.ComponentProps<typeof CardHeader>;
+  export type BodyProps = React.ComponentProps<typeof CardBody>;
+  export type FooterProps = React.ComponentProps<typeof CardFooter>;
+  export type TitleProps = React.ComponentProps<typeof CardTitle>;
+  export type SubtitleProps = React.ComponentProps<typeof CardSubtitle>;
+  export type TextProps = React.ComponentProps<typeof CardText>;
+  export type ImageProps = React.ComponentProps<typeof CardImage>;
+  export type ImageOverlayProps = React.ComponentProps<typeof CardImageOverlay>;
+  export type GroupProps = React.ComponentProps<typeof CardGroup>;
+}
+
+export { Card, cardVariants, cardImageVariants };

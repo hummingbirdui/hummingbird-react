@@ -5,25 +5,25 @@ import { Drawer as DrawerPrimitive } from 'vaul';
 import { Slot } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
-function Drawer({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
+function DrawerRoot({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
   return <DrawerPrimitive.Root data-slot="drawer" {...props} />;
 }
-Drawer.displayName = 'Drawer';
+DrawerRoot.displayName = 'Drawer';
 
 function DrawerTrigger({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Trigger>) {
   return <DrawerPrimitive.Trigger data-slot="drawer-trigger" {...props} />;
 }
-DrawerTrigger.displayName = 'DrawerTrigger';
+DrawerTrigger.displayName = 'Drawer.Trigger';
 
 function DrawerPortal({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Portal>) {
   return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props} />;
 }
-DrawerPortal.displayName = 'DrawerPortal';
+DrawerPortal.displayName = 'Drawer.Portal';
 
 function DrawerClose({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Close>) {
   return <DrawerPrimitive.Close data-slot="drawer-close" {...props} />;
 }
-DrawerClose.displayName = 'DrawerClose';
+DrawerClose.displayName = 'Drawer.Close';
 
 function DrawerOverlay({
   className,
@@ -37,7 +37,7 @@ function DrawerOverlay({
     />
   );
 }
-DrawerOverlay.displayName = 'DrawerOverlay';
+DrawerOverlay.displayName = 'Drawer.Overlay';
 
 export interface DrawerContentProps extends React.ComponentProps<typeof DrawerPrimitive.Content> {
   overlay?: boolean;
@@ -64,12 +64,12 @@ function DrawerContent({ className, overlay = true, children, ...props }: Drawer
     </DrawerPortal>
   );
 }
-DrawerContent.displayName = 'DrawerContent';
+DrawerContent.displayName = 'Drawer.Content';
 
 function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return <div data-slot="drawer-header" className={cn('offcanvas-header', className)} {...props} />;
 }
-DrawerHeader.displayName = 'DrawerHeader';
+DrawerHeader.displayName = 'Drawer.Header';
 
 export interface DrawerTitleProps extends React.ComponentProps<'h6'> {
   /** Render as a child element instead of an `<h6>`. Uses Radix Slot. */
@@ -85,7 +85,7 @@ function DrawerTitle({ className, asChild = false, ...props }: DrawerTitleProps)
     </DrawerPrimitive.Title>
   );
 }
-DrawerTitle.displayName = 'DrawerTitle';
+DrawerTitle.displayName = 'Drawer.Title';
 
 function DrawerDescription({
   className,
@@ -95,22 +95,38 @@ function DrawerDescription({
     <DrawerPrimitive.Description data-slot="drawer-description" className={className} {...props} />
   );
 }
-DrawerDescription.displayName = 'DrawerDescription';
+DrawerDescription.displayName = 'Drawer.Description';
 
 function DrawerBody({ className, ...props }: React.ComponentProps<'div'>) {
   return <div data-slot="drawer-body" className={cn('offcanvas-body', className)} {...props} />;
 }
-DrawerBody.displayName = 'DrawerBody';
+DrawerBody.displayName = 'Drawer.Body';
 
-export {
-  Drawer,
-  DrawerTrigger,
-  DrawerPortal,
-  DrawerClose,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerBody,
-};
+const Drawer = /* @__PURE__ */ Object.assign(DrawerRoot, {
+  Root: DrawerRoot,
+  Trigger: DrawerTrigger,
+  Portal: DrawerPortal,
+  Close: DrawerClose,
+  Overlay: DrawerOverlay,
+  Content: DrawerContent,
+  Header: DrawerHeader,
+  Title: DrawerTitle,
+  Description: DrawerDescription,
+  Body: DrawerBody,
+});
+
+namespace Drawer {
+  export type Props = React.ComponentProps<typeof DrawerRoot>;
+  export type RootProps = React.ComponentProps<typeof DrawerRoot>;
+  export type TriggerProps = React.ComponentProps<typeof DrawerTrigger>;
+  export type PortalProps = React.ComponentProps<typeof DrawerPortal>;
+  export type CloseProps = React.ComponentProps<typeof DrawerClose>;
+  export type OverlayProps = React.ComponentProps<typeof DrawerOverlay>;
+  export type ContentProps = React.ComponentProps<typeof DrawerContent>;
+  export type HeaderProps = React.ComponentProps<typeof DrawerHeader>;
+  export type TitleProps = React.ComponentProps<typeof DrawerTitle>;
+  export type DescriptionProps = React.ComponentProps<typeof DrawerDescription>;
+  export type BodyProps = React.ComponentProps<typeof DrawerBody>;
+}
+
+export { Drawer };

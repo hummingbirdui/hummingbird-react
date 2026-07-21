@@ -9,7 +9,7 @@ import { navVariants } from '../nav/nav';
 
 const TabsActiveValueContext = React.createContext<string | undefined>(undefined);
 
-function Tabs({
+function TabsRoot({
   className,
   value,
   defaultValue,
@@ -40,7 +40,7 @@ function Tabs({
     </TabsActiveValueContext.Provider>
   );
 }
-Tabs.displayName = 'Tabs';
+TabsRoot.displayName = 'Tabs';
 
 export interface TabsListProps
   extends
@@ -56,7 +56,7 @@ function TabsList({ className, variant = 'tabs', color, ...props }: TabsListProp
     />
   );
 }
-TabsList.displayName = 'TabsList';
+TabsList.displayName = 'Tabs.List';
 
 function TabsTrigger({
   className,
@@ -75,11 +75,26 @@ function TabsTrigger({
     />
   );
 }
-TabsTrigger.displayName = 'TabsTrigger';
+TabsTrigger.displayName = 'Tabs.Trigger';
 
 function TabsContent({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Content>) {
   return <TabsPrimitive.Content data-slot="tabs-content" className={className} {...props} />;
 }
-TabsContent.displayName = 'TabsContent';
+TabsContent.displayName = 'Tabs.Content';
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+const Tabs = /* @__PURE__ */ Object.assign(TabsRoot, {
+  Root: TabsRoot,
+  List: TabsList,
+  Trigger: TabsTrigger,
+  Content: TabsContent,
+});
+
+namespace Tabs {
+  export type Props = React.ComponentProps<typeof TabsRoot>;
+  export type RootProps = React.ComponentProps<typeof TabsRoot>;
+  export type ListProps = React.ComponentProps<typeof TabsList>;
+  export type TriggerProps = React.ComponentProps<typeof TabsTrigger>;
+  export type ContentProps = React.ComponentProps<typeof TabsContent>;
+}
+
+export { Tabs };

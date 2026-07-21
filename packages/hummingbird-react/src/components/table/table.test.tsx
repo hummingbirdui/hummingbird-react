@@ -1,41 +1,31 @@
 import * as React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableFooter,
-  TableRow,
-  TableHead,
-  TableCell,
-  TableCaption,
-  tableVariants,
-} from './table';
+import { Table, tableVariants } from './table';
 
 // A complete table used across the tests.
 function Example(props: React.ComponentProps<typeof Table>) {
   return (
     <Table {...props}>
-      <TableCaption>User list</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Name</TableHead>
-          <TableHead>Role</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableCell>Ada</TableCell>
-          <TableCell>Engineer</TableCell>
-        </TableRow>
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell>Total</TableCell>
-          <TableCell>1</TableCell>
-        </TableRow>
-      </TableFooter>
+      <Table.Caption>User list</Table.Caption>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head>Name</Table.Head>
+          <Table.Head>Role</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Ada</Table.Cell>
+          <Table.Cell>Engineer</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+      <Table.Footer>
+        <Table.Row>
+          <Table.Cell>Total</Table.Cell>
+          <Table.Cell>1</Table.Cell>
+        </Table.Row>
+      </Table.Footer>
     </Table>
   );
 }
@@ -185,22 +175,22 @@ describe('Table', () => {
     it('passes className through on every sub-component', () => {
       render(
         <Table>
-          <TableCaption className="c-caption">Caption</TableCaption>
-          <TableHeader className="c-head">
-            <TableRow className="c-row">
-              <TableHead className="c-th">H</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody className="c-body">
-            <TableRow>
-              <TableCell className="c-td">D</TableCell>
-            </TableRow>
-          </TableBody>
-          <TableFooter className="c-foot">
-            <TableRow>
-              <TableCell>F</TableCell>
-            </TableRow>
-          </TableFooter>
+          <Table.Caption className="c-caption">Caption</Table.Caption>
+          <Table.Header className="c-head">
+            <Table.Row className="c-row">
+              <Table.Head className="c-th">H</Table.Head>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body className="c-body">
+            <Table.Row>
+              <Table.Cell className="c-td">D</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+          <Table.Footer className="c-foot">
+            <Table.Row>
+              <Table.Cell>F</Table.Cell>
+            </Table.Row>
+          </Table.Footer>
         </Table>
       );
       const table = screen.getByRole('table');
@@ -214,15 +204,15 @@ describe('Table', () => {
     });
   });
 
-  describe('TableRow', () => {
+  describe('Table.Row', () => {
     it('renders a tr element', () => {
       render(
         <Table>
-          <TableBody>
-            <TableRow data-testid="row">
-              <TableCell>x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Body>
+            <Table.Row data-testid="row">
+              <Table.Cell>x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(screen.getByTestId('row')).toBeInstanceOf(HTMLTableRowElement);
@@ -231,11 +221,11 @@ describe('Table', () => {
     it('applies table-active when active', () => {
       render(
         <Table>
-          <TableBody>
-            <TableRow active data-testid="row">
-              <TableCell>x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Body>
+            <Table.Row active data-testid="row">
+              <Table.Cell>x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(screen.getByTestId('row')).toHaveClass('table-active');
@@ -244,26 +234,26 @@ describe('Table', () => {
     it('has no class when active is false', () => {
       render(
         <Table>
-          <TableBody>
-            <TableRow data-testid="row">
-              <TableCell>x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Body>
+            <Table.Row data-testid="row">
+              <Table.Cell>x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(screen.getByTestId('row')).not.toHaveClass('table-active');
     });
   });
 
-  describe('TableCell', () => {
+  describe('Table.Cell', () => {
     it('renders a td element', () => {
       render(
         <Table>
-          <TableBody>
-            <TableRow>
-              <TableCell data-testid="cell">x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell data-testid="cell">x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       const cell = screen.getByTestId('cell');
@@ -274,13 +264,13 @@ describe('Table', () => {
     it('applies table-active when active', () => {
       render(
         <Table>
-          <TableBody>
-            <TableRow>
-              <TableCell active data-testid="cell">
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell active data-testid="cell">
                 x
-              </TableCell>
-            </TableRow>
-          </TableBody>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(screen.getByTestId('cell')).toHaveClass('table-active');
@@ -289,28 +279,28 @@ describe('Table', () => {
     it('preserves native cell attributes like colSpan', () => {
       render(
         <Table>
-          <TableBody>
-            <TableRow>
-              <TableCell colSpan={2} data-testid="cell">
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell colSpan={2} data-testid="cell">
                 x
-              </TableCell>
-            </TableRow>
-          </TableBody>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(screen.getByTestId('cell')).toHaveAttribute('colspan', '2');
     });
   });
 
-  describe('TableHead', () => {
+  describe('Table.Head', () => {
     it('renders a th element and preserves scope', () => {
       render(
         <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead scope="col">Name</TableHead>
-            </TableRow>
-          </TableHeader>
+          <Table.Header>
+            <Table.Row>
+              <Table.Head scope="col">Name</Table.Head>
+            </Table.Row>
+          </Table.Header>
         </Table>
       );
       const head = screen.getByRole('columnheader', { name: 'Name' });
@@ -319,16 +309,16 @@ describe('Table', () => {
     });
   });
 
-  describe('TableCaption', () => {
+  describe('Table.Caption', () => {
     it('renders a caption element inside the table', () => {
       render(
         <Table>
-          <TableCaption>Monthly report</TableCaption>
-          <TableBody>
-            <TableRow>
-              <TableCell>x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Caption>Monthly report</Table.Caption>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       const caption = screen.getByText('Monthly report');
@@ -342,11 +332,11 @@ describe('Table', () => {
       const ref = React.createRef<HTMLTableElement>();
       render(
         <Table ref={ref}>
-          <TableBody>
-            <TableRow>
-              <TableCell>x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(ref.current).toBeInstanceOf(HTMLTableElement);
@@ -358,11 +348,11 @@ describe('Table', () => {
       const cellRef = React.createRef<HTMLTableCellElement>();
       render(
         <Table>
-          <TableBody>
-            <TableRow ref={rowRef}>
-              <TableCell ref={cellRef}>x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Body>
+            <Table.Row ref={rowRef}>
+              <Table.Cell ref={cellRef}>x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(rowRef.current).toBeInstanceOf(HTMLTableRowElement);
@@ -373,13 +363,13 @@ describe('Table', () => {
   describe('Display Name', () => {
     it.each([
       [Table, 'Table'],
-      [TableHeader, 'TableHeader'],
-      [TableBody, 'TableBody'],
-      [TableFooter, 'TableFooter'],
-      [TableRow, 'TableRow'],
-      [TableHead, 'TableHead'],
-      [TableCell, 'TableCell'],
-      [TableCaption, 'TableCaption'],
+      [Table.Header, 'Table.Header'],
+      [Table.Body, 'Table.Body'],
+      [Table.Footer, 'Table.Footer'],
+      [Table.Row, 'Table.Row'],
+      [Table.Head, 'Table.Head'],
+      [Table.Cell, 'Table.Cell'],
+      [Table.Caption, 'Table.Caption'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -403,11 +393,11 @@ describe('Table', () => {
     it('supports aria-label on the table', () => {
       render(
         <Table aria-label="Data grid">
-          <TableBody>
-            <TableRow>
-              <TableCell>x</TableCell>
-            </TableRow>
-          </TableBody>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>x</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
       );
       expect(screen.getByRole('table', { name: /data grid/i })).toBeInTheDocument();

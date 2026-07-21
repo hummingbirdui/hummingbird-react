@@ -1,1 +1,1 @@
-export * from './theme-mode-script';
+export { ThemeModeScript } from './theme-mode-script';

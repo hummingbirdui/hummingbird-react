@@ -2,7 +2,7 @@ import * as React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { InputGroup, InputGroupText, inputGroupVariants } from './input-group';
+import { InputGroup, inputGroupVariants } from './input-group';
 import { FormControl } from '../form-control';
 import { Button } from '../button';
 
@@ -24,7 +24,7 @@ describe('InputGroup', () => {
     it('composes a text addon with a form control', () => {
       render(
         <InputGroup>
-          <InputGroupText>@</InputGroupText>
+          <InputGroup.Text>@</InputGroup.Text>
           <FormControl placeholder="Username" />
         </InputGroup>
       );
@@ -39,9 +39,9 @@ describe('InputGroup', () => {
     it('composes leading and trailing addons around a control', () => {
       render(
         <InputGroup>
-          <InputGroupText>$</InputGroupText>
+          <InputGroup.Text>$</InputGroup.Text>
           <FormControl placeholder="Amount" />
-          <InputGroupText>.00</InputGroupText>
+          <InputGroup.Text>.00</InputGroup.Text>
         </InputGroup>
       );
       expect(screen.getByText('$')).toBeInTheDocument();
@@ -145,7 +145,7 @@ describe('InputGroup', () => {
     it('addon can describe the control via aria-describedby', () => {
       render(
         <InputGroup>
-          <InputGroupText id="basic-addon">@</InputGroupText>
+          <InputGroup.Text id="basic-addon">@</InputGroup.Text>
           <FormControl placeholder="Username" aria-describedby="basic-addon" />
         </InputGroup>
       );
@@ -156,17 +156,17 @@ describe('InputGroup', () => {
   });
 });
 
-describe('InputGroupText', () => {
+describe('InputGroup.Text', () => {
   describe('Rendering', () => {
     it('renders a span element with the addon text', () => {
-      render(<InputGroupText>@</InputGroupText>);
+      render(<InputGroup.Text>@</InputGroup.Text>);
       const addon = screen.getByText('@');
       expect(addon).toBeInTheDocument();
       expect(addon).toBeInstanceOf(HTMLSpanElement);
     });
 
     it('renders with input-group-text class and data-slot attribute', () => {
-      render(<InputGroupText>@</InputGroupText>);
+      render(<InputGroup.Text>@</InputGroup.Text>);
       const addon = screen.getByText('@');
       expect(addon).toHaveClass('input-group-text');
       expect(addon).toHaveAttribute('data-slot', 'input-group-text');
@@ -174,9 +174,9 @@ describe('InputGroupText', () => {
 
     it('renders children elements', () => {
       render(
-        <InputGroupText>
+        <InputGroup.Text>
           <svg data-testid="addon-icon" />
-        </InputGroupText>
+        </InputGroup.Text>
       );
       expect(screen.getByTestId('addon-icon')).toBeInTheDocument();
     });
@@ -184,7 +184,7 @@ describe('InputGroupText', () => {
 
   describe('Class Merging', () => {
     it('merges custom className with the base class', () => {
-      render(<InputGroupText className="custom-addon">@</InputGroupText>);
+      render(<InputGroup.Text className="custom-addon">@</InputGroup.Text>);
       const addon = screen.getByText('@');
       expect(addon).toHaveClass('input-group-text', 'custom-addon');
     });
@@ -193,7 +193,7 @@ describe('InputGroupText', () => {
   describe('Ref Forwarding', () => {
     it('forwards ref to span element', () => {
       const ref = React.createRef<HTMLSpanElement>();
-      render(<InputGroupText ref={ref}>@</InputGroupText>);
+      render(<InputGroup.Text ref={ref}>@</InputGroup.Text>);
       expect(ref.current).toBeInstanceOf(HTMLSpanElement);
       expect(ref.current?.className).toContain('input-group-text');
     });
@@ -201,7 +201,7 @@ describe('InputGroupText', () => {
 
   describe('Display Name', () => {
     it('has correct display name', () => {
-      expect(InputGroupText.displayName).toBe('InputGroupText');
+      expect(InputGroup.Text.displayName).toBe('InputGroup.Text');
     });
   });
 });
