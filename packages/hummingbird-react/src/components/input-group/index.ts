@@ -1,1 +1,1 @@
-export * from './input-group';
+export { InputGroup, inputGroupVariants } from './input-group';

@@ -6,25 +6,25 @@ import { cn } from '../../utils/cn';
 
 export type PopoverProps = React.ComponentProps<typeof PopoverPrimitive.Root>;
 
-function Popover({ ...props }: PopoverProps) {
+function PopoverRoot({ ...props }: PopoverProps) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
 }
-Popover.displayName = 'Popover';
+PopoverRoot.displayName = 'Popover';
 
 function PopoverTrigger({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
-PopoverTrigger.displayName = 'PopoverTrigger';
+PopoverTrigger.displayName = 'Popover.Trigger';
 
 function PopoverAnchor({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {
   return <PopoverPrimitive.Anchor data-slot="popover-anchor" {...props} />;
 }
-PopoverAnchor.displayName = 'PopoverAnchor';
+PopoverAnchor.displayName = 'Popover.Anchor';
 
 function PopoverClose({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Close>) {
   return <PopoverPrimitive.Close data-slot="popover-close" {...props} />;
 }
-PopoverClose.displayName = 'PopoverClose';
+PopoverClose.displayName = 'Popover.Close';
 
 function PopoverContent({
   className,
@@ -68,24 +68,37 @@ function PopoverContent({
     </PopoverPrimitive.Portal>
   );
 }
-PopoverContent.displayName = 'PopoverContent';
+PopoverContent.displayName = 'Popover.Content';
 
 function PopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return <div data-slot="popover-header" className={cn('popover-header', className)} {...props} />;
 }
-PopoverHeader.displayName = 'PopoverHeader';
+PopoverHeader.displayName = 'Popover.Header';
 
 function PopoverBody({ className, ...props }: React.ComponentProps<'div'>) {
   return <div data-slot="popover-body" className={cn('popover-body', className)} {...props} />;
 }
-PopoverBody.displayName = 'PopoverBody';
+PopoverBody.displayName = 'Popover.Body';
 
-export {
-  Popover,
-  PopoverTrigger,
-  PopoverAnchor,
-  PopoverClose,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-};
+const Popover = /* @__PURE__ */ Object.assign(PopoverRoot, {
+  Root: PopoverRoot,
+  Trigger: PopoverTrigger,
+  Anchor: PopoverAnchor,
+  Close: PopoverClose,
+  Content: PopoverContent,
+  Header: PopoverHeader,
+  Body: PopoverBody,
+});
+
+namespace Popover {
+  export type Props = React.ComponentProps<typeof PopoverRoot>;
+  export type RootProps = React.ComponentProps<typeof PopoverRoot>;
+  export type TriggerProps = React.ComponentProps<typeof PopoverTrigger>;
+  export type AnchorProps = React.ComponentProps<typeof PopoverAnchor>;
+  export type CloseProps = React.ComponentProps<typeof PopoverClose>;
+  export type ContentProps = React.ComponentProps<typeof PopoverContent>;
+  export type HeaderProps = React.ComponentProps<typeof PopoverHeader>;
+  export type BodyProps = React.ComponentProps<typeof PopoverBody>;
+}
+
+export { Popover };

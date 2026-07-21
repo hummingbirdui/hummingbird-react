@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-} from "@hummingbirdui/react";
+import { Pagination } from "@hummingbirdui/react";
 
 const colors = [
   "primary",
@@ -22,17 +17,17 @@ export default function PaginationColors() {
     <div className="flex flex-col gap-3">
       {colors.map((color) => (
         <Pagination key={color} color={color}>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem active>
-              <PaginationLink href="#">2</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">3</PaginationLink>
-            </PaginationItem>
-          </PaginationContent>
+          <Pagination.Content>
+            <Pagination.Item>
+              <Pagination.Link href="#">1</Pagination.Link>
+            </Pagination.Item>
+            <Pagination.Item active>
+              <Pagination.Link href="#">2</Pagination.Link>
+            </Pagination.Item>
+            <Pagination.Item>
+              <Pagination.Link href="#">3</Pagination.Link>
+            </Pagination.Item>
+          </Pagination.Content>
         </Pagination>
       ))}
     </div>

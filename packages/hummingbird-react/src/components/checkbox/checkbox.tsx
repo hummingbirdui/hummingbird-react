@@ -86,4 +86,8 @@ function Checkbox({
 
 Checkbox.displayName = 'Checkbox';
 
+namespace Checkbox {
+  export type Props = React.ComponentProps<typeof Checkbox>;
+}
+
 export { Checkbox, checkboxVariants };

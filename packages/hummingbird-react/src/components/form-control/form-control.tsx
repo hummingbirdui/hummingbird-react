@@ -107,11 +107,11 @@ FormText.displayName = 'FormText';
 
 export interface InputIconProps extends React.ComponentProps<'div'> {}
 
-function InputIcon({ className, ...props }: InputIconProps) {
+function InputIconRoot({ className, ...props }: InputIconProps) {
   return <div data-slot="input-icon" className={cn('input-group-icon', className)} {...props} />;
 }
 
-InputIcon.displayName = 'InputIcon';
+InputIconRoot.displayName = 'InputIcon';
 
 export interface InputIconSlotProps extends React.ComponentProps<'span'> {}
 
@@ -125,7 +125,7 @@ function InputIconStart({ className, ...props }: InputIconSlotProps) {
   );
 }
 
-InputIconStart.displayName = 'InputIconStart';
+InputIconStart.displayName = 'InputIcon.Start';
 
 function InputIconEnd({ className, ...props }: InputIconSlotProps) {
   return (
@@ -137,7 +137,40 @@ function InputIconEnd({ className, ...props }: InputIconSlotProps) {
   );
 }
 
-InputIconEnd.displayName = 'InputIconEnd';
+InputIconEnd.displayName = 'InputIcon.End';
+
+const InputIcon = /* @__PURE__ */ Object.assign(InputIconRoot, {
+  Root: InputIconRoot,
+  Start: InputIconStart,
+  End: InputIconEnd,
+});
+
+namespace InputIcon {
+  export type Props = React.ComponentProps<typeof InputIconRoot>;
+  export type RootProps = React.ComponentProps<typeof InputIconRoot>;
+  export type StartProps = React.ComponentProps<typeof InputIconStart>;
+  export type EndProps = React.ComponentProps<typeof InputIconEnd>;
+}
+
+namespace FormControl {
+  export type Props = React.ComponentProps<typeof FormControl>;
+}
+
+namespace Textarea {
+  export type Props = React.ComponentProps<typeof Textarea>;
+}
+
+namespace FormLabel {
+  export type Props = React.ComponentProps<typeof FormLabel>;
+}
+
+namespace FormField {
+  export type Props = React.ComponentProps<typeof FormField>;
+}
+
+namespace FormText {
+  export type Props = React.ComponentProps<typeof FormText>;
+}
 
 export {
   FormControl,
@@ -146,8 +179,6 @@ export {
   FormField,
   FormText,
   InputIcon,
-  InputIconStart,
-  InputIconEnd,
   formControlVariants,
   formTextVariants,
 };

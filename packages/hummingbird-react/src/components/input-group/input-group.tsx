@@ -18,7 +18,7 @@ const inputGroupVariants = cva('input-group', {
 export interface InputGroupProps
   extends Omit<React.ComponentProps<'div'>, 'size'>, VariantProps<typeof inputGroupVariants> {}
 
-function InputGroup({ className, size, ...props }: InputGroupProps) {
+function InputGroupRoot({ className, size, ...props }: InputGroupProps) {
   return (
     <div
       role="group"
@@ -29,7 +29,7 @@ function InputGroup({ className, size, ...props }: InputGroupProps) {
   );
 }
 
-InputGroup.displayName = 'InputGroup';
+InputGroupRoot.displayName = 'InputGroup';
 
 export interface InputGroupTextProps extends React.ComponentProps<'span'> {}
 
@@ -39,6 +39,17 @@ function InputGroupText({ className, ...props }: InputGroupTextProps) {
   );
 }
 
-InputGroupText.displayName = 'InputGroupText';
+InputGroupText.displayName = 'InputGroup.Text';
 
-export { InputGroup, InputGroupText, inputGroupVariants };
+const InputGroup = /* @__PURE__ */ Object.assign(InputGroupRoot, {
+  Root: InputGroupRoot,
+  Text: InputGroupText,
+});
+
+namespace InputGroup {
+  export type Props = React.ComponentProps<typeof InputGroupRoot>;
+  export type RootProps = React.ComponentProps<typeof InputGroupRoot>;
+  export type TextProps = React.ComponentProps<typeof InputGroupText>;
+}
+
+export { InputGroup, inputGroupVariants };

@@ -9,8 +9,6 @@ import {
   FormField,
   FormText,
   InputIcon,
-  InputIconStart,
-  InputIconEnd,
   formControlVariants,
   formTextVariants,
 } from './form-control';
@@ -430,9 +428,9 @@ describe('InputIcon', () => {
   it('wraps a control with start and end icons', () => {
     render(
       <InputIcon data-testid="wrapper">
-        <InputIconStart data-testid="start">S</InputIconStart>
+        <InputIcon.Start data-testid="start">S</InputIcon.Start>
         <FormControl aria-label="Search" />
-        <InputIconEnd data-testid="end">E</InputIconEnd>
+        <InputIcon.End data-testid="end">E</InputIcon.End>
       </InputIcon>
     );
     const wrapper = screen.getByTestId('wrapper');
@@ -446,9 +444,9 @@ describe('InputIcon', () => {
   });
 });
 
-describe('InputIconStart', () => {
+describe('InputIcon.Start', () => {
   it('renders a span with the form-control-icon-start class', () => {
-    render(<InputIconStart data-testid="start">S</InputIconStart>);
+    render(<InputIcon.Start data-testid="start">S</InputIcon.Start>);
     const icon = screen.getByTestId('start');
     expect(icon).toBeInstanceOf(HTMLSpanElement);
     expect(icon).toHaveClass('form-control-icon-start');
@@ -457,21 +455,21 @@ describe('InputIconStart', () => {
 
   it('merges custom className', () => {
     render(
-      <InputIconStart data-testid="start" className="custom-icon">
+      <InputIcon.Start data-testid="start" className="custom-icon">
         S
-      </InputIconStart>
+      </InputIcon.Start>
     );
     expect(screen.getByTestId('start')).toHaveClass('form-control-icon-start', 'custom-icon');
   });
 
   it('has correct display name', () => {
-    expect(InputIconStart.displayName).toBe('InputIconStart');
+    expect(InputIcon.Start.displayName).toBe('InputIcon.Start');
   });
 });
 
-describe('InputIconEnd', () => {
+describe('InputIcon.End', () => {
   it('renders a span with the form-control-icon-end class', () => {
-    render(<InputIconEnd data-testid="end">E</InputIconEnd>);
+    render(<InputIcon.End data-testid="end">E</InputIcon.End>);
     const icon = screen.getByTestId('end');
     expect(icon).toBeInstanceOf(HTMLSpanElement);
     expect(icon).toHaveClass('form-control-icon-end');
@@ -479,7 +477,7 @@ describe('InputIconEnd', () => {
   });
 
   it('has correct display name', () => {
-    expect(InputIconEnd.displayName).toBe('InputIconEnd');
+    expect(InputIcon.End.displayName).toBe('InputIcon.End');
   });
 });
 

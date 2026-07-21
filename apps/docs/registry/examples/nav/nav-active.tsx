@@ -1,21 +1,21 @@
 "use client";
 
-import { Nav, NavItem, NavLink } from "@hummingbirdui/react";
+import { Nav } from "@hummingbirdui/react";
 
 export default function NavActive() {
   return (
     <Nav>
-      <NavItem>
-        <NavLink href="#">Overview</NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="#" active>
+      <Nav.Item>
+        <Nav.Link href="#">Overview</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#" active>
           Settings
-        </NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="#">Billing</NavLink>
-      </NavItem>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#">Billing</Nav.Link>
+      </Nav.Item>
     </Nav>
   );
 }

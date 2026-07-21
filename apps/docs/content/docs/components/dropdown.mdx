@@ -9,25 +9,25 @@ description: A toggleable menu of actions or links, anchored to a trigger and po
 
 ## Groups
 
-`DropdownMenuGroup` bundles related items under a `DropdownMenuLabel` section header.
+`Dropdown.Group` bundles related items under a `Dropdown.Label` section header.
 
 <ComponentPreview name="dropdown-groups" className="text-center" />
 
 ## Placement
 
-The `side` and `align` props on `DropdownMenuContent` control where the menu opens relative to its trigger.
+The `side` and `align` props on `Dropdown.Content` control where the menu opens relative to its trigger.
 
 <ComponentPreview name="dropdown-placement" className="text-center" />
 
 ## Disabled
 
-Use `disabled` to prevent a `DropdownMenuItem` from being selected.
+Use `disabled` to prevent a `Dropdown.Item` from being selected.
 
 <ComponentPreview name="dropdown-disabled" className="text-center" />
 
 ## Non-interactive text
 
-`DropdownMenuItemText` displays non-interactive text in a menu.
+`Dropdown.ItemText` displays non-interactive text in a menu.
 
 <ComponentPreview name="dropdown-item-text" className="text-center" />
 
@@ -35,7 +35,7 @@ Use `disabled` to prevent a `DropdownMenuItem` from being selected.
 
 Built on the [Radix UI Dropdown Menu](https://www.radix-ui.com/primitives/docs/components/dropdown-menu) primitive. Each part forwards all props to its Radix counterpart.
 
-### DropdownMenu
+### Dropdown
 
 Contains all the parts of a dropdown menu.
 
@@ -81,9 +81,9 @@ Contains all the parts of a dropdown menu.
   ]}
 />
 
-### DropdownMenuTrigger
+### Dropdown.Trigger
 
-The button that toggles the dropdown menu. By default, the `DropdownMenuContent` will position itself against the trigger.
+The button that toggles the dropdown menu. By default, the `Dropdown.Content` will position itself against the trigger.
 
 <PropsTable
   data={[
@@ -115,7 +115,7 @@ The button that toggles the dropdown menu. By default, the `DropdownMenuContent`
   ]}
 />
 
-### DropdownMenuPortal
+### Dropdown.Portal
 
 When used, portals the content part into the `body`.
 
@@ -128,7 +128,7 @@ When used, portals the content part into the `body`.
         <>
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries. If used on this
-          part, it will be inherited by <code>DropdownMenuContent</code>.
+          part, it will be inherited by <code>Dropdown.Content</code>.
         </>
       ),
     },
@@ -141,9 +141,9 @@ When used, portals the content part into the `body`.
   ]}
 />
 
-### DropdownMenuContent
+### Dropdown.Content
 
-The component that pops out when the dropdown menu is open. Hummingbird renders it inside a portal automatically, so wrapping it in a `DropdownMenuPortal` is not required.
+The component that pops out when the dropdown menu is open. Hummingbird renders it inside a portal automatically, so wrapping it in a `Dropdown.Portal` is not required.
 
 <PropsTable
   data={[
@@ -226,7 +226,7 @@ The component that pops out when the dropdown menu is open. Hummingbird renders 
         <>
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries. It inherits from{" "}
-          <code>DropdownMenuPortal</code>.
+          <code>Dropdown.Portal</code>.
         </>
       ),
     },
@@ -396,9 +396,9 @@ The component that pops out when the dropdown menu is open. Hummingbird renders 
   ]}
 />
 
-### DropdownMenuGroup
+### Dropdown.Group
 
-Used to group multiple `DropdownMenuItem`s.
+Used to group multiple `Dropdown.Item`s.
 
 <PropsTable
   data={[
@@ -417,7 +417,7 @@ Used to group multiple `DropdownMenuItem`s.
   ]}
 />
 
-### DropdownMenuItem
+### Dropdown.Item
 
 The component that contains the dropdown menu items.
 
@@ -484,7 +484,7 @@ The component that contains the dropdown menu items.
   ]}
 />
 
-### DropdownMenuLabel
+### Dropdown.Label
 
 Used to render a label. It won't be focusable using arrow keys.
 
@@ -505,7 +505,7 @@ Used to render a label. It won't be focusable using arrow keys.
   ]}
 />
 
-### DropdownMenuSeparator
+### Dropdown.Separator
 
 Used to visually separate items in the dropdown menu.
 
@@ -526,7 +526,7 @@ Used to visually separate items in the dropdown menu.
   ]}
 />
 
-### DropdownMenuItemText
+### Dropdown.ItemText
 
 Renders non-interactive text inside the menu as a `<span>`. This is a Hummingbird addition with no Radix counterpart; it accepts all standard `<span>` props.
 

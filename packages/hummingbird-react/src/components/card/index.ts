@@ -1,1 +1,1 @@
-export * from './card';
+export { Card, cardVariants, cardImageVariants } from './card';

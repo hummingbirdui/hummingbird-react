@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Alert, AlertIcon, alertVariants } from './alert';
+import { Alert, alertVariants } from './alert';
 
 describe('Alert', () => {
   describe('Rendering', () => {
@@ -186,7 +186,7 @@ describe('Alert', () => {
   describe('Display Name', () => {
     it('has correct display names', () => {
       expect(Alert.displayName).toBe('Alert');
-      expect(AlertIcon.displayName).toBe('AlertIcon');
+      expect(Alert.Icon.displayName).toBe('Alert.Icon');
     });
   });
 
@@ -208,10 +208,10 @@ describe('Alert', () => {
   });
 });
 
-describe('AlertIcon', () => {
+describe('Alert.Icon', () => {
   describe('Rendering', () => {
     it('renders a span with the alert-icon class', () => {
-      render(<AlertIcon data-testid="icon">!</AlertIcon>);
+      render(<Alert.Icon data-testid="icon">!</Alert.Icon>);
       const icon = screen.getByTestId('icon');
       expect(icon).toBeInstanceOf(HTMLSpanElement);
       expect(icon).toHaveClass('alert-icon');
@@ -219,14 +219,14 @@ describe('AlertIcon', () => {
     });
 
     it('has data-slot attribute', () => {
-      render(<AlertIcon data-testid="icon" />);
+      render(<Alert.Icon data-testid="icon" />);
       expect(screen.getByTestId('icon')).toHaveAttribute('data-slot', 'alert-icon');
     });
   });
 
   describe('Class Merging', () => {
     it('merges custom className with the base class', () => {
-      render(<AlertIcon data-testid="icon" className="custom-icon" />);
+      render(<Alert.Icon data-testid="icon" className="custom-icon" />);
       expect(screen.getByTestId('icon')).toHaveClass('alert-icon', 'custom-icon');
     });
   });
@@ -234,7 +234,7 @@ describe('AlertIcon', () => {
   describe('Ref Forwarding', () => {
     it('forwards ref to the span element', () => {
       const ref = React.createRef<HTMLSpanElement>();
-      render(<AlertIcon ref={ref} />);
+      render(<Alert.Icon ref={ref} />);
       expect(ref.current).toBeInstanceOf(HTMLSpanElement);
       expect(ref.current?.className).toContain('alert-icon');
     });

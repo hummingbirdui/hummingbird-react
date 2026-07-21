@@ -1,1 +1,1 @@
-export * from './tooltip';
+export { Tooltip } from './tooltip';

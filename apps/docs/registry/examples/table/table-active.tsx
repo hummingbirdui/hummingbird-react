@@ -1,37 +1,30 @@
 "use client";
 
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from "@hummingbirdui/react";
+import { Table } from "@hummingbirdui/react";
 
 export default function TableActive() {
   return (
     <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Name</TableHead>
-          <TableHead>Status</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableCell>Jane Cooper</TableCell>
-          <TableCell>Active</TableCell>
-        </TableRow>
-        <TableRow active>
-          <TableCell>Cody Fisher</TableCell>
-          <TableCell>Highlighted row</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Esther Howard</TableCell>
-          <TableCell active>Highlighted cell</TableCell>
-        </TableRow>
-      </TableBody>
+      <Table.Header>
+        <Table.Row>
+          <Table.Head>Name</Table.Head>
+          <Table.Head>Status</Table.Head>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Jane Cooper</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row active>
+          <Table.Cell>Cody Fisher</Table.Cell>
+          <Table.Cell>Highlighted row</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Esther Howard</Table.Cell>
+          <Table.Cell active>Highlighted cell</Table.Cell>
+        </Table.Row>
+      </Table.Body>
     </Table>
   );
 }

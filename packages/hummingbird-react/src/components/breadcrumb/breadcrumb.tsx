@@ -5,11 +5,11 @@ import { cn } from '../../utils/cn';
 
 export interface BreadcrumbProps extends React.ComponentProps<'nav'> {}
 
-function Breadcrumb(props: BreadcrumbProps) {
+function BreadcrumbRoot(props: BreadcrumbProps) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
 
-Breadcrumb.displayName = 'Breadcrumb';
+BreadcrumbRoot.displayName = 'Breadcrumb';
 
 const breadcrumbVariants = cva('breadcrumb', {
   variants: {
@@ -37,7 +37,7 @@ function BreadcrumbList({ className, separator, ...props }: BreadcrumbListProps)
   );
 }
 
-BreadcrumbList.displayName = 'BreadcrumbList';
+BreadcrumbList.displayName = 'Breadcrumb.List';
 
 export interface BreadcrumbItemProps extends React.ComponentProps<'li'> {
   active?: boolean;
@@ -53,7 +53,7 @@ function BreadcrumbItem({ className, active = false, ...props }: BreadcrumbItemP
   );
 }
 
-BreadcrumbItem.displayName = 'BreadcrumbItem';
+BreadcrumbItem.displayName = 'Breadcrumb.Item';
 
 export interface BreadcrumbLinkProps extends React.ComponentProps<'a'> {
   asChild?: boolean;
@@ -65,7 +65,7 @@ function BreadcrumbLink({ className, asChild = false, ...props }: BreadcrumbLink
   return <Comp data-slot="breadcrumb-link" className={className} {...props} />;
 }
 
-BreadcrumbLink.displayName = 'BreadcrumbLink';
+BreadcrumbLink.displayName = 'Breadcrumb.Link';
 
 export interface BreadcrumbPageProps extends React.ComponentProps<'span'> {}
 
@@ -83,13 +83,23 @@ function BreadcrumbPage({ className, ...props }: BreadcrumbPageProps) {
   );
 }
 
-BreadcrumbPage.displayName = 'BreadcrumbPage';
+BreadcrumbPage.displayName = 'Breadcrumb.Page';
 
-export {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  breadcrumbVariants,
-};
+const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbRoot, {
+  Root: BreadcrumbRoot,
+  List: BreadcrumbList,
+  Item: BreadcrumbItem,
+  Link: BreadcrumbLink,
+  Page: BreadcrumbPage,
+});
+
+namespace Breadcrumb {
+  export type Props = React.ComponentProps<typeof BreadcrumbRoot>;
+  export type RootProps = React.ComponentProps<typeof BreadcrumbRoot>;
+  export type ListProps = React.ComponentProps<typeof BreadcrumbList>;
+  export type ItemProps = React.ComponentProps<typeof BreadcrumbItem>;
+  export type LinkProps = React.ComponentProps<typeof BreadcrumbLink>;
+  export type PageProps = React.ComponentProps<typeof BreadcrumbPage>;
+}
+
+export { Breadcrumb, breadcrumbVariants };

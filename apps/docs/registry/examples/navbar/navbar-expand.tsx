@@ -1,19 +1,19 @@
 "use client";
 
-import { Navbar, NavbarBrand, NavbarNav, NavLink } from "@hummingbirdui/react";
+import { Navbar, Nav } from "@hummingbirdui/react";
 
 export default function NavbarExpand() {
   return (
     <Navbar expand="always" className="bg-subtle">
-      <NavbarBrand href="#">Hummingbird</NavbarBrand>
-      <NavbarNav asChild>
+      <Navbar.Brand href="#">Hummingbird</Navbar.Brand>
+      <Navbar.Nav asChild>
         <div className="gap-2">
-          <NavLink href="#" active>
+          <Nav.Link href="#" active>
             Home
-          </NavLink>
-          <NavLink href="#">Pricing</NavLink>
+          </Nav.Link>
+          <Nav.Link href="#">Pricing</Nav.Link>
         </div>
-      </NavbarNav>
+      </Navbar.Nav>
     </Navbar>
   );
 }

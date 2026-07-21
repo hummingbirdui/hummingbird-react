@@ -26,7 +26,7 @@ const avatarVariants = cva('avatar', {
 export interface AvatarProps
   extends React.ComponentProps<typeof AvatarPrimitive.Root>, VariantProps<typeof avatarVariants> {}
 
-function Avatar({ className, size, status, ...props }: AvatarProps) {
+function AvatarRoot({ className, size, status, ...props }: AvatarProps) {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
@@ -36,7 +36,7 @@ function Avatar({ className, size, status, ...props }: AvatarProps) {
   );
 }
 
-Avatar.displayName = 'Avatar';
+AvatarRoot.displayName = 'Avatar';
 
 function AvatarImage({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
@@ -48,7 +48,7 @@ function AvatarImage({ className, ...props }: React.ComponentProps<typeof Avatar
   );
 }
 
-AvatarImage.displayName = 'AvatarImage';
+AvatarImage.displayName = 'Avatar.Image';
 
 function AvatarFallback({
   className,
@@ -63,7 +63,7 @@ function AvatarFallback({
   );
 }
 
-AvatarFallback.displayName = 'AvatarFallback';
+AvatarFallback.displayName = 'Avatar.Fallback';
 
 export interface AvatarGroupProps extends React.ComponentProps<'div'> {}
 
@@ -71,6 +71,21 @@ function AvatarGroup({ className, ...props }: AvatarGroupProps) {
   return <div data-slot="avatar-group" className={cn('avatar-group', className)} {...props} />;
 }
 
-AvatarGroup.displayName = 'AvatarGroup';
+AvatarGroup.displayName = 'Avatar.Group';
 
-export { Avatar, AvatarImage, AvatarFallback, AvatarGroup, avatarVariants };
+const Avatar = /* @__PURE__ */ Object.assign(AvatarRoot, {
+  Root: AvatarRoot,
+  Image: AvatarImage,
+  Fallback: AvatarFallback,
+  Group: AvatarGroup,
+});
+
+namespace Avatar {
+  export type Props = React.ComponentProps<typeof AvatarRoot>;
+  export type RootProps = React.ComponentProps<typeof AvatarRoot>;
+  export type ImageProps = React.ComponentProps<typeof AvatarImage>;
+  export type FallbackProps = React.ComponentProps<typeof AvatarFallback>;
+  export type GroupProps = React.ComponentProps<typeof AvatarGroup>;
+}
+
+export { Avatar, avatarVariants };

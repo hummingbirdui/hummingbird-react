@@ -1,6 +1,6 @@
 "use client";
 
-import { Nav, NavItem, NavLink } from "@hummingbirdui/react";
+import { Nav } from "@hummingbirdui/react";
 
 export default function NavColors() {
   return (
@@ -17,17 +17,17 @@ export default function NavColors() {
         ] as const
       ).map((color) => (
         <Nav key={color} color={color} className="rounded-lg p-1">
-          <NavItem>
-            <NavLink href="#" active>
+          <Nav.Item>
+            <Nav.Link href="#" active>
               Active
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">Link</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">Link</NavLink>
-          </NavItem>
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#">Link</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#">Link</Nav.Link>
+          </Nav.Item>
         </Nav>
       ))}
     </div>

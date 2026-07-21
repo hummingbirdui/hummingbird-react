@@ -9,7 +9,7 @@ description: A small label that appears on hover or keyboard focus to describe t
 
 ## Placement
 
-Pass `side` (`"top" | "right" | "bottom" | "left"`) to `TooltipContent` to choose which edge of the trigger the tooltip points from.
+Pass `side` (`"top" | "right" | "bottom" | "left"`) to `Tooltip.Content` to choose which edge of the trigger the tooltip points from.
 
 <ComponentPreview name="tooltip-placement" />
 
@@ -21,7 +21,7 @@ Each `Tooltip` wraps its own provider, so `delayDuration` on the `Tooltip` tunes
 
 ## Provider
 
-Mounting a single `TooltipProvider` shares one `delayDuration` and the skip-delay behavior across every tooltip beneath it.
+Mounting a single `Tooltip.Provider` shares one `delayDuration` and the skip-delay behavior across every tooltip beneath it.
 
 <ComponentPreview name="tooltip-provider" />
 
@@ -29,7 +29,7 @@ Mounting a single `TooltipProvider` shares one `delayDuration` and the skip-dela
 
 Built on the [Radix UI Tooltip](https://www.radix-ui.com/primitives/docs/components/tooltip) primitive. Each part forwards all props to its Radix counterpart.
 
-### TooltipProvider
+### Tooltip.Provider
 
 Wraps your app to provide global functionality to your tooltips. Renders no DOM element of its own.
 
@@ -60,7 +60,7 @@ Wraps your app to provide global functionality to your tooltips. Renders no DOM 
 
 ### Tooltip
 
-Contains all the parts of a tooltip. Each `Tooltip` wraps itself in its own `TooltipProvider` with a `delayDuration` of `0`, so tooltips open instantly unless a delay is set. Renders no DOM element of its own.
+Contains all the parts of a tooltip. Each `Tooltip` wraps itself in its own `Tooltip.Provider` with a `delayDuration` of `0`, so tooltips open instantly unless a delay is set. Renders no DOM element of its own.
 
 <PropsTable
   data={[
@@ -104,18 +104,18 @@ Contains all the parts of a tooltip. Each `Tooltip` wraps itself in its own `Too
       type: "boolean",
       description: (
         <>
-          When <code>true</code>, trying to hover the content will result in
-          the tooltip closing as the pointer leaves the trigger. Inherits from{" "}
-          <code>TooltipProvider</code>.
+          When <code>true</code>, trying to hover the content will result in the
+          tooltip closing as the pointer leaves the trigger. Inherits from{" "}
+          <code>Tooltip.Provider</code>.
         </>
       ),
     },
   ]}
 />
 
-### TooltipTrigger
+### Tooltip.Trigger
 
-The button that toggles the tooltip. By default, the `TooltipContent` will position itself against the trigger.
+The button that toggles the tooltip. By default, the `Tooltip.Content` will position itself against the trigger.
 
 <PropsTable
   data={[
@@ -143,7 +143,7 @@ The button that toggles the tooltip. By default, the `TooltipContent` will posit
   ]}
 />
 
-### TooltipContent
+### Tooltip.Content
 
 The component that pops out when the tooltip is open. Renders inside a portal and includes the tooltip arrow automatically; children are wrapped in an inner `tooltip-inner` element.
 
@@ -162,9 +162,9 @@ The component that pops out when the tooltip is open. Renders inside a portal an
       description: (
         <>
           By default, screenreaders will announce the content inside the
-          component. If this is not descriptive enough, or you have content
-          that cannot be announced, use <code>aria-label</code> as a more
-          descriptive label.
+          component. If this is not descriptive enough, or you have content that
+          cannot be announced, use <code>aria-label</code> as a more descriptive
+          label.
         </>
       ),
     },
@@ -185,8 +185,8 @@ The component that pops out when the tooltip is open. Renders inside a portal an
       typeSimple: "function",
       description: (
         <>
-          Event handler called when a pointer event occurs outside the bounds
-          of the component. It can be prevented by calling{" "}
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
           <code>event.preventDefault()</code>.
         </>
       ),
@@ -204,8 +204,8 @@ The component that pops out when the tooltip is open. Renders inside a portal an
       default: '"top"',
       description: (
         <>
-          The preferred side of the trigger to render against when open. Will
-          be reversed when collisions occur and <code>avoidCollisions</code> is
+          The preferred side of the trigger to render against when open. Will be
+          reversed when collisions occur and <code>avoidCollisions</code> is
           enabled.
         </>
       ),
@@ -265,7 +265,7 @@ The component that pops out when the tooltip is open. Renders inside a portal an
           The distance in pixels from the boundary edges where collision
           detection should occur. Accepts a number (same for all sides), or a
           partial padding object, for example:{" "}
-          <code>{'{ top: 20, left: 20 }'}</code>.
+          <code>{"{ top: 20, left: 20 }"}</code>.
         </>
       ),
     },

@@ -2,19 +2,9 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  DropdownMenu,
-  DropdownMenuPortal,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItemText,
-} from './dropdown';
+import { Dropdown } from './dropdown';
 
-// Radix DropdownMenu is modal by default and sets `pointer-events: none` on the
+// Radix Dropdown is modal by default and sets `pointer-events: none` on the
 // body while open; disable user-event's pointer-events check so clicks on the
 // portaled menu items work in jsdom.
 const setupUser = () => userEvent.setup({ pointerEventsCheck: 0 });
@@ -23,30 +13,30 @@ const setupUser = () => userEvent.setup({ pointerEventsCheck: 0 });
 // portaled content is available synchronously; pass `defaultOpen={false}` for
 // the open/close interaction tests.
 function Example(
-  props: React.ComponentProps<typeof DropdownMenuContent> & {
+  props: React.ComponentProps<typeof Dropdown.Content> & {
     triggerLabel?: string;
     defaultOpen?: boolean;
   }
 ) {
   const { triggerLabel = 'Open', defaultOpen = true, children, ...contentProps } = props;
   return (
-    <DropdownMenu defaultOpen={defaultOpen}>
-      <DropdownMenuTrigger>{triggerLabel}</DropdownMenuTrigger>
-      <DropdownMenuContent {...contentProps}>
-        <DropdownMenuLabel>Account</DropdownMenuLabel>
-        <DropdownMenuGroup>
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Log out</DropdownMenuItem>
+    <Dropdown defaultOpen={defaultOpen}>
+      <Dropdown.Trigger>{triggerLabel}</Dropdown.Trigger>
+      <Dropdown.Content {...contentProps}>
+        <Dropdown.Label>Account</Dropdown.Label>
+        <Dropdown.Group>
+          <Dropdown.Item>Profile</Dropdown.Item>
+          <Dropdown.Item>Settings</Dropdown.Item>
+        </Dropdown.Group>
+        <Dropdown.Separator />
+        <Dropdown.Item>Log out</Dropdown.Item>
         {children}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </Dropdown.Content>
+    </Dropdown>
   );
 }
 
-describe('DropdownMenu', () => {
+describe('Dropdown', () => {
   describe('Rendering', () => {
     it('renders the trigger', () => {
       render(<Example defaultOpen={false} triggerLabel="Open menu" />);
@@ -135,8 +125,8 @@ describe('DropdownMenu', () => {
       expect(screen.getByRole('group')).toHaveAttribute('data-slot', 'dropdown-menu-group');
     });
 
-    it('renders DropdownMenuItemText as a span with dropdown-item-text', () => {
-      render(<DropdownMenuItemText>Plain text</DropdownMenuItemText>);
+    it('renders Dropdown.ItemText as a span with dropdown-item-text', () => {
+      render(<Dropdown.ItemText>Plain text</Dropdown.ItemText>);
       const text = screen.getByText('Plain text');
       expect(text.tagName).toBe('SPAN');
       expect(text).toHaveClass('dropdown-item-text');
@@ -149,12 +139,12 @@ describe('DropdownMenu', () => {
       const onOpenChange = vi.fn();
       const user = setupUser();
       render(
-        <DropdownMenu onOpenChange={onOpenChange}>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Item</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown onOpenChange={onOpenChange}>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item>Item</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
 
       await user.click(screen.getByRole('button', { name: /open/i }));
@@ -164,22 +154,22 @@ describe('DropdownMenu', () => {
     it('supports controlled open', async () => {
       const onOpenChange = vi.fn();
       const { rerender } = render(
-        <DropdownMenu open={false} onOpenChange={onOpenChange}>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Item</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown open={false} onOpenChange={onOpenChange}>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item>Item</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
       rerender(
-        <DropdownMenu open onOpenChange={onOpenChange}>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Item</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown open onOpenChange={onOpenChange}>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item>Item</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
       expect(await screen.findByRole('menu')).toBeInTheDocument();
     });
@@ -199,12 +189,12 @@ describe('DropdownMenu', () => {
       const onSelect = vi.fn();
       const user = setupUser();
       render(
-        <DropdownMenu defaultOpen>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onSelect={onSelect}>Log out</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item onSelect={onSelect}>Log out</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
 
       await user.click(screen.getByRole('menuitem', { name: 'Log out' }));
@@ -215,14 +205,12 @@ describe('DropdownMenu', () => {
     it('stays open when onSelect prevents the default', async () => {
       const user = setupUser();
       render(
-        <DropdownMenu defaultOpen>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onSelect={(event) => event.preventDefault()}>
-              Keep open
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item onSelect={(event) => event.preventDefault()}>Keep open</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
 
       await user.click(screen.getByRole('menuitem', { name: 'Keep open' }));
@@ -233,14 +221,14 @@ describe('DropdownMenu', () => {
       const onSelect = vi.fn();
       const user = setupUser();
       render(
-        <DropdownMenu defaultOpen>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem disabled onSelect={onSelect}>
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item disabled onSelect={onSelect}>
               Disabled item
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
 
       const item = screen.getByRole('menuitem', { name: 'Disabled item' });
@@ -257,12 +245,12 @@ describe('DropdownMenu', () => {
       const onOpenChange = vi.fn();
       const user = setupUser();
       render(
-        <DropdownMenu onOpenChange={onOpenChange}>
-          <DropdownMenuTrigger disabled>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Item</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown onOpenChange={onOpenChange}>
+          <Dropdown.Trigger disabled>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item>Item</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
 
       const trigger = screen.getByRole('button', { name: /open/i });
@@ -296,12 +284,12 @@ describe('DropdownMenu', () => {
       const onSelect = vi.fn();
       const user = setupUser();
       render(
-        <DropdownMenu>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onSelect={onSelect}>First</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item onSelect={onSelect}>First</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
 
       screen.getByRole('button', { name: /open/i }).focus();
@@ -338,14 +326,14 @@ describe('DropdownMenu', () => {
 
     it('merges className onto items, labels and separators', () => {
       render(
-        <DropdownMenu defaultOpen>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel className="custom-label">Label</DropdownMenuLabel>
-            <DropdownMenuItem className="custom-item">Item</DropdownMenuItem>
-            <DropdownMenuSeparator className="custom-separator" />
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Label className="custom-label">Label</Dropdown.Label>
+            <Dropdown.Item className="custom-item">Item</Dropdown.Item>
+            <Dropdown.Separator className="custom-separator" />
+          </Dropdown.Content>
+        </Dropdown>
       );
       expect(screen.getByText('Label')).toHaveClass('dropdown-header', 'custom-label');
       expect(screen.getByRole('menuitem', { name: 'Item' })).toHaveClass(
@@ -358,8 +346,8 @@ describe('DropdownMenu', () => {
       );
     });
 
-    it('merges className onto DropdownMenuItemText', () => {
-      render(<DropdownMenuItemText className="custom-text">Text</DropdownMenuItemText>);
+    it('merges className onto Dropdown.ItemText', () => {
+      render(<Dropdown.ItemText className="custom-text">Text</Dropdown.ItemText>);
       expect(screen.getByText('Text')).toHaveClass('dropdown-item-text', 'custom-text');
     });
   });
@@ -368,12 +356,12 @@ describe('DropdownMenu', () => {
     it('forwards ref to the content element', () => {
       const ref = React.createRef<HTMLDivElement>();
       render(
-        <DropdownMenu defaultOpen>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent ref={ref}>
-            <DropdownMenuItem>Item</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content ref={ref}>
+            <Dropdown.Item>Item</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
       expect(ref.current).toBeInstanceOf(HTMLDivElement);
       expect(ref.current?.className).toContain('dropdown-menu');
@@ -382,20 +370,20 @@ describe('DropdownMenu', () => {
     it('forwards ref to an item element', () => {
       const ref = React.createRef<HTMLDivElement>();
       render(
-        <DropdownMenu defaultOpen>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem ref={ref}>Item</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item ref={ref}>Item</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
       expect(ref.current).toBeInstanceOf(HTMLDivElement);
       expect(ref.current?.className).toContain('dropdown-item');
     });
 
-    it('forwards ref to the DropdownMenuItemText span', () => {
+    it('forwards ref to the Dropdown.ItemText span', () => {
       const ref = React.createRef<HTMLSpanElement>();
-      render(<DropdownMenuItemText ref={ref}>Text</DropdownMenuItemText>);
+      render(<Dropdown.ItemText ref={ref}>Text</Dropdown.ItemText>);
       expect(ref.current).toBeInstanceOf(HTMLSpanElement);
     });
   });
@@ -403,14 +391,14 @@ describe('DropdownMenu', () => {
   describe('asChild', () => {
     it('renders the trigger as the supplied child', () => {
       render(
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+        <Dropdown>
+          <Dropdown.Trigger asChild>
             <a href="/menu">Open link</a>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Item</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item>Item</Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
       const link = screen.getByRole('link', { name: /open link/i });
       expect(link).toBeInstanceOf(HTMLAnchorElement);
@@ -420,14 +408,14 @@ describe('DropdownMenu', () => {
 
     it('renders an item as the supplied child with the item classes', () => {
       render(
-        <DropdownMenu defaultOpen>
-          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem asChild>
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Item asChild>
               <a href="/profile">Profile</a>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </Dropdown.Item>
+          </Dropdown.Content>
+        </Dropdown>
       );
       const item = screen.getByRole('menuitem', { name: 'Profile' });
       expect(item).toBeInstanceOf(HTMLAnchorElement);
@@ -438,15 +426,15 @@ describe('DropdownMenu', () => {
 
   describe('Display Name', () => {
     it.each([
-      [DropdownMenu, 'DropdownMenu'],
-      [DropdownMenuPortal, 'DropdownMenuPortal'],
-      [DropdownMenuTrigger, 'DropdownMenuTrigger'],
-      [DropdownMenuContent, 'DropdownMenuContent'],
-      [DropdownMenuGroup, 'DropdownMenuGroup'],
-      [DropdownMenuItem, 'DropdownMenuItem'],
-      [DropdownMenuLabel, 'DropdownMenuLabel'],
-      [DropdownMenuSeparator, 'DropdownMenuSeparator'],
-      [DropdownMenuItemText, 'DropdownMenuItemText'],
+      [Dropdown, 'Dropdown'],
+      [Dropdown.Portal, 'Dropdown.Portal'],
+      [Dropdown.Trigger, 'Dropdown.Trigger'],
+      [Dropdown.Content, 'Dropdown.Content'],
+      [Dropdown.Group, 'Dropdown.Group'],
+      [Dropdown.Item, 'Dropdown.Item'],
+      [Dropdown.Label, 'Dropdown.Label'],
+      [Dropdown.Separator, 'Dropdown.Separator'],
+      [Dropdown.ItemText, 'Dropdown.ItemText'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

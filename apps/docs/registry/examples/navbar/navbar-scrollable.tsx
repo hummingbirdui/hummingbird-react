@@ -1,33 +1,26 @@
 "use client";
 
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarCollapse,
-  NavbarNav,
-  NavbarToggle,
-  NavLink,
-} from "@hummingbirdui/react";
+import { Navbar, Nav } from "@hummingbirdui/react";
 
 export default function NavbarScrollable() {
   return (
     <Navbar expand="lg" className="bg-subtle">
-      <NavbarBrand href="#">Hummingbird</NavbarBrand>
-      <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarNav scrollable asChild>
+      <Navbar.Brand href="#">Hummingbird</Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Navbar.Nav scrollable asChild>
           <div className="max-h-24 gap-2">
-            <NavLink href="#" active>
+            <Nav.Link href="#" active>
               Home
-            </NavLink>
-            <NavLink href="#">Features</NavLink>
-            <NavLink href="#">Pricing</NavLink>
-            <NavLink href="#">Docs</NavLink>
-            <NavLink href="#">Blog</NavLink>
-            <NavLink href="#">Support</NavLink>
+            </Nav.Link>
+            <Nav.Link href="#">Features</Nav.Link>
+            <Nav.Link href="#">Pricing</Nav.Link>
+            <Nav.Link href="#">Docs</Nav.Link>
+            <Nav.Link href="#">Blog</Nav.Link>
+            <Nav.Link href="#">Support</Nav.Link>
           </div>
-        </NavbarNav>
-      </NavbarCollapse>
+        </Navbar.Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

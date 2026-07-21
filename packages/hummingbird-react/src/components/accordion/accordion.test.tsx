@@ -2,37 +2,31 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionTrigger,
-  AccordionContent,
-} from './accordion';
+import { Accordion } from './accordion';
 
 // Three standard items shared by the behavioral tests.
-function Items(props: { itemProps?: Partial<React.ComponentProps<typeof AccordionItem>> }) {
+function Items(props: { itemProps?: Partial<React.ComponentProps<typeof Accordion.Item>> }) {
   const { itemProps } = props;
   return (
     <>
-      <AccordionItem value="a" {...itemProps}>
-        <AccordionHeader>
-          <AccordionTrigger>Item A</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>Content A</AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="b">
-        <AccordionHeader>
-          <AccordionTrigger>Item B</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>Content B</AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="c">
-        <AccordionHeader>
-          <AccordionTrigger>Item C</AccordionTrigger>
-        </AccordionHeader>
-        <AccordionContent>Content C</AccordionContent>
-      </AccordionItem>
+      <Accordion.Item value="a" {...itemProps}>
+        <Accordion.Header>
+          <Accordion.Trigger>Item A</Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Content>Content A</Accordion.Content>
+      </Accordion.Item>
+      <Accordion.Item value="b">
+        <Accordion.Header>
+          <Accordion.Trigger>Item B</Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Content>Content B</Accordion.Content>
+      </Accordion.Item>
+      <Accordion.Item value="c">
+        <Accordion.Header>
+          <Accordion.Trigger>Item C</Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Content>Content C</Accordion.Content>
+      </Accordion.Item>
     </>
   );
 }
@@ -391,12 +385,12 @@ describe('Accordion', () => {
     it('merges className on the item, header, and trigger', () => {
       render(
         <Accordion type="single" collapsible>
-          <AccordionItem value="a" className="custom-item">
-            <AccordionHeader className="custom-header">
-              <AccordionTrigger className="custom-trigger">Item A</AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent>Content A</AccordionContent>
-          </AccordionItem>
+          <Accordion.Item value="a" className="custom-item">
+            <Accordion.Header className="custom-header">
+              <Accordion.Trigger className="custom-trigger">Item A</Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content>Content A</Accordion.Content>
+          </Accordion.Item>
         </Accordion>
       );
       expect(document.querySelector('[data-slot="accordion-item"]')).toHaveClass(
@@ -413,15 +407,15 @@ describe('Accordion', () => {
       );
     });
 
-    it('applies AccordionContent className to the accordion-body div', () => {
+    it('applies Accordion.Content className to the accordion-body div', () => {
       render(
         <Accordion type="single" collapsible defaultValue="a">
-          <AccordionItem value="a">
-            <AccordionHeader>
-              <AccordionTrigger>Item A</AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent className="custom-body">Content A</AccordionContent>
-          </AccordionItem>
+          <Accordion.Item value="a">
+            <Accordion.Header>
+              <Accordion.Trigger>Item A</Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content className="custom-body">Content A</Accordion.Content>
+          </Accordion.Item>
         </Accordion>
       );
       const body = document.querySelector('[data-slot="accordion-body"]') as HTMLElement;
@@ -440,12 +434,12 @@ describe('Accordion', () => {
       const contentRef = React.createRef<HTMLDivElement>();
       render(
         <Accordion type="single" collapsible defaultValue="a" ref={rootRef}>
-          <AccordionItem value="a" ref={itemRef}>
-            <AccordionHeader>
-              <AccordionTrigger ref={triggerRef}>Item A</AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent ref={contentRef}>Content A</AccordionContent>
-          </AccordionItem>
+          <Accordion.Item value="a" ref={itemRef}>
+            <Accordion.Header>
+              <Accordion.Trigger ref={triggerRef}>Item A</Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content ref={contentRef}>Content A</Accordion.Content>
+          </Accordion.Item>
         </Accordion>
       );
       expect(rootRef.current).toBeInstanceOf(HTMLDivElement);
@@ -461,16 +455,16 @@ describe('Accordion', () => {
     it('renders the trigger as the supplied child with accordion classes', () => {
       render(
         <Accordion type="single" collapsible>
-          <AccordionItem value="a">
-            <AccordionHeader>
-              <AccordionTrigger asChild>
+          <Accordion.Item value="a">
+            <Accordion.Header>
+              <Accordion.Trigger asChild>
                 <button type="button" className="custom-btn">
                   Item A
                 </button>
-              </AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent>Content A</AccordionContent>
-          </AccordionItem>
+              </Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content>Content A</Accordion.Content>
+          </Accordion.Item>
         </Accordion>
       );
       const trigger = screen.getByRole('button', { name: 'Item A' });
@@ -482,10 +476,10 @@ describe('Accordion', () => {
   describe('Display Name', () => {
     it.each([
       [Accordion, 'Accordion'],
-      [AccordionItem, 'AccordionItem'],
-      [AccordionHeader, 'AccordionHeader'],
-      [AccordionTrigger, 'AccordionTrigger'],
-      [AccordionContent, 'AccordionContent'],
+      [Accordion.Item, 'Accordion.Item'],
+      [Accordion.Header, 'Accordion.Header'],
+      [Accordion.Trigger, 'Accordion.Trigger'],
+      [Accordion.Content, 'Accordion.Content'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

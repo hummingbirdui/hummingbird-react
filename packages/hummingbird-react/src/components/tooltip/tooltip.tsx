@@ -16,23 +16,23 @@ function TooltipProvider({
     />
   );
 }
-TooltipProvider.displayName = 'TooltipProvider';
+TooltipProvider.displayName = 'Tooltip.Provider';
 
 export type TooltipProps = React.ComponentProps<typeof TooltipPrimitive.Root>;
 
-function Tooltip({ ...props }: TooltipProps) {
+function TooltipRoot({ ...props }: TooltipProps) {
   return (
     <TooltipProvider>
       <TooltipPrimitive.Root data-slot="tooltip" {...props} />
     </TooltipProvider>
   );
 }
-Tooltip.displayName = 'Tooltip';
+TooltipRoot.displayName = 'Tooltip';
 
 function TooltipTrigger({ ...props }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
   return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
 }
-TooltipTrigger.displayName = 'TooltipTrigger';
+TooltipTrigger.displayName = 'Tooltip.Trigger';
 
 function TooltipContent({
   className,
@@ -65,6 +65,21 @@ function TooltipContent({
     </TooltipPrimitive.Portal>
   );
 }
-TooltipContent.displayName = 'TooltipContent';
+TooltipContent.displayName = 'Tooltip.Content';
 
-export { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent };
+const Tooltip = /* @__PURE__ */ Object.assign(TooltipRoot, {
+  Root: TooltipRoot,
+  Provider: TooltipProvider,
+  Trigger: TooltipTrigger,
+  Content: TooltipContent,
+});
+
+namespace Tooltip {
+  export type Props = React.ComponentProps<typeof TooltipRoot>;
+  export type RootProps = React.ComponentProps<typeof TooltipRoot>;
+  export type ProviderProps = React.ComponentProps<typeof TooltipProvider>;
+  export type TriggerProps = React.ComponentProps<typeof TooltipTrigger>;
+  export type ContentProps = React.ComponentProps<typeof TooltipContent>;
+}
+
+export { Tooltip };

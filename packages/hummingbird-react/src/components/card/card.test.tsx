@@ -2,20 +2,7 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-  CardImage,
-  CardImageOverlay,
-  CardGroup,
-  cardVariants,
-  cardImageVariants,
-} from './card';
+import { Card, cardVariants, cardImageVariants } from './card';
 
 describe('Card', () => {
   describe('Rendering', () => {
@@ -31,14 +18,14 @@ describe('Card', () => {
     it('renders a full card composition', () => {
       render(
         <Card>
-          <CardImage src="/img.png" alt="Cover" />
-          <CardHeader>Header</CardHeader>
-          <CardBody>
-            <CardTitle>Title</CardTitle>
-            <CardSubtitle>Subtitle</CardSubtitle>
-            <CardText>Some text</CardText>
-          </CardBody>
-          <CardFooter>Footer</CardFooter>
+          <Card.Image src="/img.png" alt="Cover" />
+          <Card.Header>Header</Card.Header>
+          <Card.Body>
+            <Card.Title>Title</Card.Title>
+            <Card.Subtitle>Subtitle</Card.Subtitle>
+            <Card.Text>Some text</Card.Text>
+          </Card.Body>
+          <Card.Footer>Footer</Card.Footer>
         </Card>
       );
       expect(screen.getByText('Header')).toBeInTheDocument();
@@ -52,42 +39,42 @@ describe('Card', () => {
 
   describe('Structure & classes', () => {
     it('applies card-header', () => {
-      render(<CardHeader>Header</CardHeader>);
+      render(<Card.Header>Header</Card.Header>);
       const el = screen.getByText('Header');
       expect(el).toHaveClass('card-header');
       expect(el).toHaveAttribute('data-slot', 'card-header');
     });
 
     it('applies card-body', () => {
-      render(<CardBody>Body</CardBody>);
+      render(<Card.Body>Body</Card.Body>);
       const el = screen.getByText('Body');
       expect(el).toHaveClass('card-body');
       expect(el).toHaveAttribute('data-slot', 'card-body');
     });
 
     it('applies card-footer', () => {
-      render(<CardFooter>Footer</CardFooter>);
+      render(<Card.Footer>Footer</Card.Footer>);
       const el = screen.getByText('Footer');
       expect(el).toHaveClass('card-footer');
       expect(el).toHaveAttribute('data-slot', 'card-footer');
     });
 
     it('applies card-title', () => {
-      render(<CardTitle>Title</CardTitle>);
+      render(<Card.Title>Title</Card.Title>);
       const el = screen.getByText('Title');
       expect(el).toHaveClass('card-title');
       expect(el).toHaveAttribute('data-slot', 'card-title');
     });
 
     it('applies card-subtitle', () => {
-      render(<CardSubtitle>Subtitle</CardSubtitle>);
+      render(<Card.Subtitle>Subtitle</Card.Subtitle>);
       const el = screen.getByText('Subtitle');
       expect(el).toHaveClass('card-subtitle');
       expect(el).toHaveAttribute('data-slot', 'card-subtitle');
     });
 
     it('applies card-text and renders a paragraph', () => {
-      render(<CardText>Text</CardText>);
+      render(<Card.Text>Text</Card.Text>);
       const el = screen.getByText('Text');
       expect(el).toBeInstanceOf(HTMLParagraphElement);
       expect(el).toHaveClass('card-text');
@@ -95,14 +82,14 @@ describe('Card', () => {
     });
 
     it('applies card-img-overlay', () => {
-      render(<CardImageOverlay>Overlay</CardImageOverlay>);
+      render(<Card.ImageOverlay>Overlay</Card.ImageOverlay>);
       const el = screen.getByText('Overlay');
       expect(el).toHaveClass('card-img-overlay');
       expect(el).toHaveAttribute('data-slot', 'card-image-overlay');
     });
 
     it('applies card-group', () => {
-      render(<CardGroup data-testid="group" />);
+      render(<Card.Group data-testid="group" />);
       const el = screen.getByTestId('group');
       expect(el).toHaveClass('card-group');
       expect(el).toHaveAttribute('data-slot', 'card-group');
@@ -131,7 +118,7 @@ describe('Card', () => {
     });
   });
 
-  describe('CardImage', () => {
+  describe('Card.Image', () => {
     const positions = [
       { position: 'top', expected: 'card-img-top' },
       { position: 'bottom', expected: 'card-img-bottom' },
@@ -141,7 +128,7 @@ describe('Card', () => {
     ] as const;
 
     it('renders an img with src and alt', () => {
-      render(<CardImage src="/cover.png" alt="Cover image" />);
+      render(<Card.Image src="/cover.png" alt="Cover image" />);
       const img = screen.getByRole('img', { name: /cover image/i });
       expect(img).toBeInstanceOf(HTMLImageElement);
       expect(img).toHaveAttribute('src', '/cover.png');
@@ -150,20 +137,20 @@ describe('Card', () => {
     });
 
     it('defaults to the top position class', () => {
-      render(<CardImage src="/cover.png" alt="Cover" />);
+      render(<Card.Image src="/cover.png" alt="Cover" />);
       expect(screen.getByRole('img', { name: /cover/i })).toHaveClass('card-img-top');
     });
 
     it('applies all position classes', () => {
       positions.forEach(({ position, expected }) => {
-        const { unmount } = render(<CardImage position={position} src="/x.png" alt={position} />);
+        const { unmount } = render(<Card.Image position={position} src="/x.png" alt={position} />);
         expect(screen.getByRole('img', { name: position })).toHaveClass(expected);
         unmount();
       });
     });
 
     it('merges custom className with the position class', () => {
-      render(<CardImage position="bottom" className="custom-img" src="/x.png" alt="Cover" />);
+      render(<Card.Image position="bottom" className="custom-img" src="/x.png" alt="Cover" />);
       expect(screen.getByRole('img', { name: /cover/i })).toHaveClass(
         'card-img-bottom',
         'custom-img'
@@ -215,12 +202,12 @@ describe('Card', () => {
     it('merges custom className on every slot component', () => {
       render(
         <Card data-testid="card">
-          <CardHeader className="c-header">Header</CardHeader>
-          <CardBody className="c-body">Body</CardBody>
-          <CardFooter className="c-footer">Footer</CardFooter>
-          <CardTitle className="c-title">Title</CardTitle>
-          <CardSubtitle className="c-subtitle">Subtitle</CardSubtitle>
-          <CardText className="c-text">Text</CardText>
+          <Card.Header className="c-header">Header</Card.Header>
+          <Card.Body className="c-body">Body</Card.Body>
+          <Card.Footer className="c-footer">Footer</Card.Footer>
+          <Card.Title className="c-title">Title</Card.Title>
+          <Card.Subtitle className="c-subtitle">Subtitle</Card.Subtitle>
+          <Card.Text className="c-text">Text</Card.Text>
         </Card>
       );
       expect(screen.getByText('Header')).toHaveClass('card-header', 'c-header');
@@ -245,8 +232,8 @@ describe('Card', () => {
       const textRef = React.createRef<HTMLParagraphElement>();
       render(
         <Card>
-          <CardBody ref={bodyRef}>Body</CardBody>
-          <CardText ref={textRef}>Text</CardText>
+          <Card.Body ref={bodyRef}>Body</Card.Body>
+          <Card.Text ref={textRef}>Text</Card.Text>
         </Card>
       );
       expect(bodyRef.current).toBeInstanceOf(HTMLDivElement);
@@ -255,7 +242,7 @@ describe('Card', () => {
 
     it('forwards ref to the image element', () => {
       const ref = React.createRef<HTMLImageElement>();
-      render(<CardImage ref={ref} src="/x.png" alt="Cover" />);
+      render(<Card.Image ref={ref} src="/x.png" alt="Cover" />);
       expect(ref.current).toBeInstanceOf(HTMLImageElement);
     });
   });
@@ -290,15 +277,15 @@ describe('Card', () => {
   describe('Display Name', () => {
     it.each([
       [Card, 'Card'],
-      [CardHeader, 'CardHeader'],
-      [CardBody, 'CardBody'],
-      [CardFooter, 'CardFooter'],
-      [CardTitle, 'CardTitle'],
-      [CardSubtitle, 'CardSubtitle'],
-      [CardText, 'CardText'],
-      [CardImage, 'CardImage'],
-      [CardImageOverlay, 'CardImageOverlay'],
-      [CardGroup, 'CardGroup'],
+      [Card.Header, 'Card.Header'],
+      [Card.Body, 'Card.Body'],
+      [Card.Footer, 'Card.Footer'],
+      [Card.Title, 'Card.Title'],
+      [Card.Subtitle, 'Card.Subtitle'],
+      [Card.Text, 'Card.Text'],
+      [Card.Image, 'Card.Image'],
+      [Card.ImageOverlay, 'Card.ImageOverlay'],
+      [Card.Group, 'Card.Group'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -313,7 +300,7 @@ describe('Card', () => {
     it('supports aria-labelledby wiring to the title', () => {
       render(
         <Card aria-labelledby="card-title" data-testid="card">
-          <CardTitle id="card-title">My card</CardTitle>
+          <Card.Title id="card-title">My card</Card.Title>
         </Card>
       );
       const card = screen.getByTestId('card');

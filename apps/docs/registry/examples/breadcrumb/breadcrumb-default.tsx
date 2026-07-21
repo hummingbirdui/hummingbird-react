@@ -1,27 +1,21 @@
 "use client";
 
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-} from "@hummingbirdui/react";
+import { Breadcrumb } from "@hummingbirdui/react";
 
 export default function BreadcrumbDefault() {
   return (
     <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem active>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="#">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="#">Components</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>
+          <Breadcrumb.Page>Breadcrumb</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
     </Breadcrumb>
   );
 }

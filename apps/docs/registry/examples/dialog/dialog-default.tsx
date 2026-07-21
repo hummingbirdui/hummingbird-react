@@ -1,49 +1,37 @@
 "use client";
 
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogFooter,
-  DialogClose,
-  Button,
-  CloseButton,
-} from "@hummingbirdui/react";
+import { Dialog, Button, CloseButton } from "@hummingbirdui/react";
 
 export default function DialogDefault() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <Dialog.Trigger asChild>
         <Button variant="outline">Open dialog</Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Modal title</DialogTitle>
-          <DialogClose asChild>
+      </Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title>Modal title</Dialog.Title>
+          <Dialog.Close asChild>
             <CloseButton />
-          </DialogClose>
-        </DialogHeader>
-        <DialogBody>
-          <DialogDescription>
+          </Dialog.Close>
+        </Dialog.Header>
+        <Dialog.Body>
+          <Dialog.Description>
             Click the backdrop, press Escape, or use a close button to dismiss
             it.
-          </DialogDescription>
-        </DialogBody>
-        <DialogFooter>
-          <DialogClose asChild>
+          </Dialog.Description>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Dialog.Close asChild>
             <Button color="secondary" variant="subtle" className="me-2">
               Cancel
             </Button>
-          </DialogClose>
-          <DialogClose asChild>
+          </Dialog.Close>
+          <Dialog.Close asChild>
             <Button>Save changes</Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
+          </Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
     </Dialog>
   );
 }

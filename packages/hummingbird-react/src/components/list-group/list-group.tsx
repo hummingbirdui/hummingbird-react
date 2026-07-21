@@ -17,7 +17,7 @@ export interface ListGroupProps
   asChild?: boolean;
 }
 
-function ListGroup({ className, numbered, asChild = false, ...props }: ListGroupProps) {
+function ListGroupRoot({ className, numbered, asChild = false, ...props }: ListGroupProps) {
   const Comp = asChild ? Slot.Root : 'ul';
 
   return (
@@ -29,7 +29,7 @@ function ListGroup({ className, numbered, asChild = false, ...props }: ListGroup
   );
 }
 
-ListGroup.displayName = 'ListGroup';
+ListGroupRoot.displayName = 'ListGroup';
 
 const listGroupItemVariants = cva('list-group-item', {
   variants: {
@@ -76,7 +76,7 @@ function ListGroupItem({
   );
 }
 
-ListGroupItem.displayName = 'ListGroupItem';
+ListGroupItem.displayName = 'ListGroup.Item';
 
 const listTextVariants = cva('', {
   variants: {
@@ -99,13 +99,19 @@ function ListText({ className, variant, ...props }: ListTextProps) {
   );
 }
 
-ListText.displayName = 'ListText';
+ListText.displayName = 'ListGroup.Text';
 
-export {
-  ListGroup,
-  ListGroupItem,
-  ListText,
-  listGroupVariants,
-  listGroupItemVariants,
-  listTextVariants,
-};
+const ListGroup = /* @__PURE__ */ Object.assign(ListGroupRoot, {
+  Root: ListGroupRoot,
+  Item: ListGroupItem,
+  Text: ListText,
+});
+
+namespace ListGroup {
+  export type Props = React.ComponentProps<typeof ListGroupRoot>;
+  export type RootProps = React.ComponentProps<typeof ListGroupRoot>;
+  export type ItemProps = React.ComponentProps<typeof ListGroupItem>;
+  export type TextProps = React.ComponentProps<typeof ListText>;
+}
+
+export { ListGroup, listGroupVariants, listGroupItemVariants, listTextVariants };

@@ -68,4 +68,8 @@ function Switch({ className, color, size, label, inline = false, ...props }: Swi
 
 Switch.displayName = 'Switch';
 
+namespace Switch {
+  export type Props = React.ComponentProps<typeof Switch>;
+}
+
 export { Switch, switchVariants };

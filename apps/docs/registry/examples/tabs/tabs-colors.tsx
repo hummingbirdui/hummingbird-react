@@ -1,42 +1,42 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@hummingbirdui/react";
+import { Tabs } from "@hummingbirdui/react";
 
 export default function TabsColors() {
   return (
     <div className="mx-auto flex max-w-xl flex-col gap-8">
       <Tabs defaultValue="one">
-        <TabsList variant="underline" color="success">
-          <TabsTrigger value="one">Active</TabsTrigger>
-          <TabsTrigger value="two">Pending</TabsTrigger>
-          <TabsTrigger value="three">Archived</TabsTrigger>
-        </TabsList>
-        <TabsContent value="one" className="py-4">
+        <Tabs.List variant="underline" color="success">
+          <Tabs.Trigger value="one">Active</Tabs.Trigger>
+          <Tabs.Trigger value="two">Pending</Tabs.Trigger>
+          <Tabs.Trigger value="three">Archived</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="one" className="py-4">
           Records that are currently active.
-        </TabsContent>
-        <TabsContent value="two" className="py-4">
+        </Tabs.Content>
+        <Tabs.Content value="two" className="py-4">
           Records awaiting approval.
-        </TabsContent>
-        <TabsContent value="three" className="py-4">
+        </Tabs.Content>
+        <Tabs.Content value="three" className="py-4">
           Records that have been archived.
-        </TabsContent>
+        </Tabs.Content>
       </Tabs>
 
       <Tabs defaultValue="alpha">
-        <TabsList variant="underline" color="danger">
-          <TabsTrigger value="alpha">Errors</TabsTrigger>
-          <TabsTrigger value="beta">Warnings</TabsTrigger>
-          <TabsTrigger value="gamma">Info</TabsTrigger>
-        </TabsList>
-        <TabsContent value="alpha" className="py-4">
+        <Tabs.List variant="underline" color="danger">
+          <Tabs.Trigger value="alpha">Errors</Tabs.Trigger>
+          <Tabs.Trigger value="beta">Warnings</Tabs.Trigger>
+          <Tabs.Trigger value="gamma">Info</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="alpha" className="py-4">
           Failures that need attention.
-        </TabsContent>
-        <TabsContent value="beta" className="py-4">
+        </Tabs.Content>
+        <Tabs.Content value="beta" className="py-4">
           Non-blocking warnings.
-        </TabsContent>
-        <TabsContent value="gamma" className="py-4">
+        </Tabs.Content>
+        <Tabs.Content value="gamma" className="py-4">
           Informational messages.
-        </TabsContent>
+        </Tabs.Content>
       </Tabs>
     </div>
   );

@@ -24,4 +24,8 @@ function FloatingLabel({ className, label, htmlFor, children, ...props }: Floati
 
 FloatingLabel.displayName = 'FloatingLabel';
 
+namespace FloatingLabel {
+  export type Props = React.ComponentProps<typeof FloatingLabel>;
+}
+
 export { FloatingLabel };

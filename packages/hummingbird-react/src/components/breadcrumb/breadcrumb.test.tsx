@@ -1,30 +1,23 @@
 import * as React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  breadcrumbVariants,
-} from './breadcrumb';
+import { Breadcrumb, breadcrumbVariants } from './breadcrumb';
 
 // A complete breadcrumb trail used across the tests.
-function Example(props: React.ComponentProps<typeof BreadcrumbList>) {
+function Example(props: React.ComponentProps<typeof Breadcrumb.List>) {
   return (
     <Breadcrumb>
-      <BreadcrumbList {...props}>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/library">Library</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem active>
-          <BreadcrumbPage>Data</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
+      <Breadcrumb.List {...props}>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/library">Library</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>
+          <Breadcrumb.Page>Data</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
     </Breadcrumb>
   );
 }
@@ -94,7 +87,7 @@ describe('Breadcrumb', () => {
       expect(items[2]).toHaveClass('breadcrumb-item', 'active');
     });
 
-    it('adds no Hummingbird class to BreadcrumbLink', () => {
+    it('adds no Hummingbird class to Breadcrumb.Link', () => {
       render(<Example />);
       const home = screen.getByRole('link', { name: /home/i });
       expect(home.getAttribute('class')).toBeNull();
@@ -133,9 +126,9 @@ describe('Breadcrumb', () => {
     it('passes className through on the nav', () => {
       render(
         <Breadcrumb className="custom-nav">
-          <BreadcrumbList>
-            <BreadcrumbItem>Item</BreadcrumbItem>
-          </BreadcrumbList>
+          <Breadcrumb.List>
+            <Breadcrumb.Item>Item</Breadcrumb.Item>
+          </Breadcrumb.List>
         </Breadcrumb>
       );
       expect(screen.getByRole('navigation')).toHaveClass('custom-nav');
@@ -153,11 +146,11 @@ describe('Breadcrumb', () => {
     it('merges custom className on items', () => {
       render(
         <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem active className="custom-item">
+          <Breadcrumb.List>
+            <Breadcrumb.Item active className="custom-item">
               Item
-            </BreadcrumbItem>
-          </BreadcrumbList>
+            </Breadcrumb.Item>
+          </Breadcrumb.List>
         </Breadcrumb>
       );
       expect(screen.getByRole('listitem')).toHaveClass('breadcrumb-item', 'active', 'custom-item');
@@ -166,16 +159,16 @@ describe('Breadcrumb', () => {
     it('applies className to links and pages', () => {
       render(
         <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/" className="custom-link">
+          <Breadcrumb.List>
+            <Breadcrumb.Item>
+              <Breadcrumb.Link href="/" className="custom-link">
                 Home
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem active>
-              <BreadcrumbPage className="custom-page">Data</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
+              </Breadcrumb.Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>
+              <Breadcrumb.Page className="custom-page">Data</Breadcrumb.Page>
+            </Breadcrumb.Item>
+          </Breadcrumb.List>
         </Breadcrumb>
       );
       expect(screen.getByRole('link', { name: /home/i })).toHaveClass('custom-link');
@@ -188,7 +181,7 @@ describe('Breadcrumb', () => {
       const ref = React.createRef<HTMLElement>();
       render(
         <Breadcrumb ref={ref}>
-          <BreadcrumbList />
+          <Breadcrumb.List />
         </Breadcrumb>
       );
       expect(ref.current).toBeInstanceOf(HTMLElement);
@@ -199,7 +192,7 @@ describe('Breadcrumb', () => {
       const ref = React.createRef<HTMLOListElement>();
       render(
         <Breadcrumb>
-          <BreadcrumbList ref={ref} />
+          <Breadcrumb.List ref={ref} />
         </Breadcrumb>
       );
       expect(ref.current).toBeInstanceOf(HTMLOListElement);
@@ -212,16 +205,16 @@ describe('Breadcrumb', () => {
       const pageRef = React.createRef<HTMLSpanElement>();
       render(
         <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem ref={itemRef}>
-              <BreadcrumbLink ref={linkRef} href="/">
+          <Breadcrumb.List>
+            <Breadcrumb.Item ref={itemRef}>
+              <Breadcrumb.Link ref={linkRef} href="/">
                 Home
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem active>
-              <BreadcrumbPage ref={pageRef}>Data</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
+              </Breadcrumb.Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active>
+              <Breadcrumb.Page ref={pageRef}>Data</Breadcrumb.Page>
+            </Breadcrumb.Item>
+          </Breadcrumb.List>
         </Breadcrumb>
       );
       expect(itemRef.current).toBeInstanceOf(HTMLLIElement);
@@ -231,18 +224,18 @@ describe('Breadcrumb', () => {
   });
 
   describe('asChild Prop', () => {
-    it('renders BreadcrumbLink as the supplied child and preserves its attributes', () => {
+    it('renders Breadcrumb.Link as the supplied child and preserves its attributes', () => {
       render(
         <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
+          <Breadcrumb.List>
+            <Breadcrumb.Item>
+              <Breadcrumb.Link asChild>
                 <button type="button" className="custom-link">
                   Home
                 </button>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </BreadcrumbList>
+              </Breadcrumb.Link>
+            </Breadcrumb.Item>
+          </Breadcrumb.List>
         </Breadcrumb>
       );
       const button = screen.getByRole('button', { name: /home/i });
@@ -254,10 +247,10 @@ describe('Breadcrumb', () => {
   describe('Display Name', () => {
     it.each([
       [Breadcrumb, 'Breadcrumb'],
-      [BreadcrumbList, 'BreadcrumbList'],
-      [BreadcrumbItem, 'BreadcrumbItem'],
-      [BreadcrumbLink, 'BreadcrumbLink'],
-      [BreadcrumbPage, 'BreadcrumbPage'],
+      [Breadcrumb.List, 'Breadcrumb.List'],
+      [Breadcrumb.Item, 'Breadcrumb.Item'],
+      [Breadcrumb.Link, 'Breadcrumb.Link'],
+      [Breadcrumb.Page, 'Breadcrumb.Page'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -272,7 +265,7 @@ describe('Breadcrumb', () => {
     it('allows overriding the nav aria-label', () => {
       render(
         <Breadcrumb aria-label="You are here">
-          <BreadcrumbList />
+          <Breadcrumb.List />
         </Breadcrumb>
       );
       expect(screen.getByRole('navigation')).toHaveAttribute('aria-label', 'You are here');

@@ -1,37 +1,26 @@
 "use client";
 
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogClose,
-  Button,
-  CloseButton,
-} from "@hummingbirdui/react";
+import { Dialog, Button, CloseButton } from "@hummingbirdui/react";
 
 export default function DialogCentered() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <Dialog.Trigger asChild>
         <Button variant="outline">Centered dialog</Button>
-      </DialogTrigger>
-      <DialogContent centered>
-        <DialogHeader>
-          <DialogTitle>Centered</DialogTitle>
-          <DialogClose asChild>
+      </Dialog.Trigger>
+      <Dialog.Content centered>
+        <Dialog.Header>
+          <Dialog.Title>Centered</Dialog.Title>
+          <Dialog.Close asChild>
             <CloseButton />
-          </DialogClose>
-        </DialogHeader>
-        <DialogBody>
-          <DialogDescription>
+          </Dialog.Close>
+        </Dialog.Header>
+        <Dialog.Body>
+          <Dialog.Description>
             This dialog is centered vertically in the viewport.
-          </DialogDescription>
-        </DialogBody>
-      </DialogContent>
+          </Dialog.Description>
+        </Dialog.Body>
+      </Dialog.Content>
     </Dialog>
   );
 }

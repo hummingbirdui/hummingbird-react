@@ -1,31 +1,21 @@
 "use client";
 
-import {
-  Button,
-  CloseButton,
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerClose,
-  DrawerBody,
-} from "@hummingbirdui/react";
+import { Button, CloseButton, Drawer } from "@hummingbirdui/react";
 
 export default function DrawerScrollable() {
   return (
     <Drawer direction="right">
-      <DrawerTrigger asChild>
+      <Drawer.Trigger asChild>
         <Button variant="outline">Open long drawer</Button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Terms of service</DrawerTitle>
-          <DrawerClose asChild>
+      </Drawer.Trigger>
+      <Drawer.Content>
+        <Drawer.Header>
+          <Drawer.Title>Terms of service</Drawer.Title>
+          <Drawer.Close asChild>
             <CloseButton />
-          </DrawerClose>
-        </DrawerHeader>
-        <DrawerBody>
+          </Drawer.Close>
+        </Drawer.Header>
+        <Drawer.Body>
           <p>Scroll to read all of the content below.</p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
@@ -44,8 +34,8 @@ export default function DrawerScrollable() {
             Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh.
             Aenean quam. In scelerisque sem at dolor. Maecenas mattis.
           </p>
-        </DrawerBody>
-      </DrawerContent>
+        </Drawer.Body>
+      </Drawer.Content>
     </Drawer>
   );
 }

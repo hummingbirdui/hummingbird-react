@@ -48,10 +48,13 @@ export default function App() {
 
 ## TypeScript support
 
-Hummingbird React is written in TypeScript and includes type definitions for all components. Component props are fully typed, so no additional `@types` packages are needed.
+Hummingbird React is written in TypeScript and includes type definitions for all components. Component props are fully typed and available on each component's namespace, so no additional `@types` packages are needed.
 
 ```tsx
-import { Button, type ButtonProps } from "@hummingbirdui/react";
+import { Button, Card } from "@hummingbirdui/react";
+
+type SubmitButtonProps = Button.Props;
+type CardHeaderProps = Card.HeaderProps;
 ```
 
 ## Customization

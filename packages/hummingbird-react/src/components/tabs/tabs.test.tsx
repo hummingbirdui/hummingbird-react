@@ -2,27 +2,27 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Tabs, TabsList, TabsTrigger, TabsContent, type TabsListProps } from './tabs';
+import { Tabs } from './tabs';
 
 function Example(
   props: React.ComponentProps<typeof Tabs> & {
-    listProps?: TabsListProps;
-    triggerProps?: Partial<React.ComponentProps<typeof TabsTrigger>>;
+    listProps?: Tabs.ListProps;
+    triggerProps?: Partial<React.ComponentProps<typeof Tabs.Trigger>>;
   }
 ) {
   const { listProps, triggerProps, ...rootProps } = props;
   return (
     <Tabs defaultValue="a" {...rootProps}>
-      <TabsList {...listProps}>
-        <TabsTrigger value="a" {...triggerProps}>
+      <Tabs.List {...listProps}>
+        <Tabs.Trigger value="a" {...triggerProps}>
           Tab A
-        </TabsTrigger>
-        <TabsTrigger value="b">Tab B</TabsTrigger>
-        <TabsTrigger value="c">Tab C</TabsTrigger>
-      </TabsList>
-      <TabsContent value="a">Panel A</TabsContent>
-      <TabsContent value="b">Panel B</TabsContent>
-      <TabsContent value="c">Panel C</TabsContent>
+        </Tabs.Trigger>
+        <Tabs.Trigger value="b">Tab B</Tabs.Trigger>
+        <Tabs.Trigger value="c">Tab C</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="a">Panel A</Tabs.Content>
+      <Tabs.Content value="b">Panel B</Tabs.Content>
+      <Tabs.Content value="c">Panel C</Tabs.Content>
     </Tabs>
   );
 }
@@ -46,12 +46,12 @@ describe('Tabs', () => {
     it('selects no tab when no value or defaultValue is given', () => {
       render(
         <Tabs>
-          <TabsList>
-            <TabsTrigger value="a">Tab A</TabsTrigger>
-            <TabsTrigger value="b">Tab B</TabsTrigger>
-          </TabsList>
-          <TabsContent value="a">Panel A</TabsContent>
-          <TabsContent value="b">Panel B</TabsContent>
+          <Tabs.List>
+            <Tabs.Trigger value="a">Tab A</Tabs.Trigger>
+            <Tabs.Trigger value="b">Tab B</Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="a">Panel A</Tabs.Content>
+          <Tabs.Content value="b">Panel B</Tabs.Content>
         </Tabs>
       );
       expect(screen.queryByText('Panel A')).not.toBeInTheDocument();
@@ -183,7 +183,9 @@ describe('Tabs', () => {
     it('supports controlled value', async () => {
       const onValueChange = vi.fn();
       const user = userEvent.setup();
-      const { rerender } = render(<Example defaultValue={undefined} value="a" onValueChange={onValueChange} />);
+      const { rerender } = render(
+        <Example defaultValue={undefined} value="a" onValueChange={onValueChange} />
+      );
       expect(screen.getByText('Panel A')).toBeInTheDocument();
 
       // Clicking reports the change but selection (and the active class) stays
@@ -215,7 +217,9 @@ describe('Tabs', () => {
     it('does not select a disabled trigger', async () => {
       const onValueChange = vi.fn();
       const user = userEvent.setup();
-      render(<Example defaultValue="b" onValueChange={onValueChange} triggerProps={{ disabled: true }} />);
+      render(
+        <Example defaultValue="b" onValueChange={onValueChange} triggerProps={{ disabled: true }} />
+      );
       const disabledTab = screen.getByRole('tab', { name: 'Tab A' });
       expect(disabledTab).toBeDisabled();
       expect(disabledTab).toHaveAttribute('data-disabled');
@@ -314,12 +318,12 @@ describe('Tabs', () => {
     it('passes className through on the root and content', () => {
       render(
         <Tabs defaultValue="a" className="custom-root">
-          <TabsList>
-            <TabsTrigger value="a">Tab A</TabsTrigger>
-          </TabsList>
-          <TabsContent value="a" className="custom-content">
+          <Tabs.List>
+            <Tabs.Trigger value="a">Tab A</Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="a" className="custom-content">
             Panel A
-          </TabsContent>
+          </Tabs.Content>
         </Tabs>
       );
       expect(document.querySelector('[data-slot="tabs"]')).toHaveClass('custom-root');
@@ -335,14 +339,14 @@ describe('Tabs', () => {
       const contentRef = React.createRef<HTMLDivElement>();
       render(
         <Tabs defaultValue="a" ref={rootRef}>
-          <TabsList ref={listRef}>
-            <TabsTrigger value="a" ref={triggerRef}>
+          <Tabs.List ref={listRef}>
+            <Tabs.Trigger value="a" ref={triggerRef}>
               Tab A
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="a" ref={contentRef}>
+            </Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="a" ref={contentRef}>
             Panel A
-          </TabsContent>
+          </Tabs.Content>
         </Tabs>
       );
       expect(rootRef.current).toBeInstanceOf(HTMLDivElement);
@@ -358,14 +362,14 @@ describe('Tabs', () => {
     it('renders the trigger as the supplied child with the nav-link classes', () => {
       render(
         <Tabs defaultValue="a">
-          <TabsList>
-            <TabsTrigger value="a" asChild>
+          <Tabs.List>
+            <Tabs.Trigger value="a" asChild>
               <button type="button" className="custom-btn">
                 Tab A
               </button>
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="a">Panel A</TabsContent>
+            </Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="a">Panel A</Tabs.Content>
         </Tabs>
       );
       const tab = screen.getByRole('tab', { name: 'Tab A' });
@@ -377,9 +381,9 @@ describe('Tabs', () => {
   describe('Display Name', () => {
     it.each([
       [Tabs, 'Tabs'],
-      [TabsList, 'TabsList'],
-      [TabsTrigger, 'TabsTrigger'],
-      [TabsContent, 'TabsContent'],
+      [Tabs.List, 'Tabs.List'],
+      [Tabs.Trigger, 'Tabs.Trigger'],
+      [Tabs.Content, 'Tabs.Content'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

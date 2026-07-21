@@ -5,7 +5,7 @@ description: Navigation that splits content across a sequence of numbered pages.
 
 ## Default
 
-`Pagination` is an accessible `<nav>` wrapping a `PaginationContent` list of `PaginationItem`s, with the current page marked by `active`.
+`Pagination` is an accessible `<nav>` wrapping a `Pagination.Content` list of `Pagination.Item`s, with the current page marked by `active`.
 
 <ComponentPreview name="pagination-default" className="flex justify-center" />
 
@@ -35,7 +35,7 @@ The `color` prop on `Pagination` conveys intent with `primary` (default), `secon
 
 ## Disabled
 
-The `disabled` prop on `PaginationItem` mutes and deactivates a control such as the previous link.
+The `disabled` prop on `Pagination.Item` mutes and deactivates a control such as the previous link.
 
 <ComponentPreview name="pagination-disabled" className="flex justify-center" />
 
@@ -79,11 +79,11 @@ The accessible `<nav>` wrapper. Variant props set here apply to the whole pagina
   ]}
 />
 
-### PaginationContent
+### Pagination.Content
 
 The `<ul>` list of page items.
 
-### PaginationItem
+### Pagination.Item
 
 <PropsTable
   data={[
@@ -108,9 +108,9 @@ The `<ul>` list of page items.
   ]}
 />
 
-### PaginationLink
+### Pagination.Link
 
-Inherits the current-page state from its parent `PaginationItem` and sets
+Inherits the current-page state from its parent `Pagination.Item` and sets
 `aria-current="page"` automatically.
 
 <PropsTable

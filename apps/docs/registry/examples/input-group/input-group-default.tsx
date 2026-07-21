@@ -1,11 +1,11 @@
 "use client";
 
-import { InputGroup, InputGroupText, FormControl } from "@hummingbirdui/react";
+import { InputGroup, FormControl } from "@hummingbirdui/react";
 
 export default function InputGroupDefault() {
   return (
     <InputGroup>
-      <InputGroupText>@</InputGroupText>
+      <InputGroup.Text>@</InputGroup.Text>
       <FormControl placeholder="Username" />
     </InputGroup>
   );

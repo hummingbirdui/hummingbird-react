@@ -61,7 +61,7 @@ const PaginationVariantsContext = React.createContext<PaginationVariants>({});
 export interface PaginationProps
   extends Omit<React.ComponentProps<'nav'>, 'color'>, PaginationVariants {}
 
-function Pagination({ className, size, shape, variant, color, ...props }: PaginationProps) {
+function PaginationRoot({ className, size, shape, variant, color, ...props }: PaginationProps) {
   const variants = React.useMemo(
     () => ({ size, shape, variant, color }),
     [size, shape, variant, color]
@@ -80,7 +80,7 @@ function Pagination({ className, size, shape, variant, color, ...props }: Pagina
   );
 }
 
-Pagination.displayName = 'Pagination';
+PaginationRoot.displayName = 'Pagination';
 
 export interface PaginationContentProps extends React.ComponentProps<'ul'> {}
 
@@ -96,7 +96,7 @@ function PaginationContent({ className, ...props }: PaginationContentProps) {
   );
 }
 
-PaginationContent.displayName = 'PaginationContent';
+PaginationContent.displayName = 'Pagination.Content';
 
 const PaginationItemActiveContext = React.createContext(false);
 
@@ -122,7 +122,7 @@ function PaginationItem({
   );
 }
 
-PaginationItem.displayName = 'PaginationItem';
+PaginationItem.displayName = 'Pagination.Item';
 
 export interface PaginationLinkProps extends React.ComponentProps<'a'> {
   asChild?: boolean;
@@ -142,6 +142,21 @@ function PaginationLink({ className, asChild = false, ...props }: PaginationLink
   );
 }
 
-PaginationLink.displayName = 'PaginationLink';
+PaginationLink.displayName = 'Pagination.Link';
 
-export { Pagination, PaginationContent, PaginationItem, PaginationLink, paginationVariants };
+const Pagination = /* @__PURE__ */ Object.assign(PaginationRoot, {
+  Root: PaginationRoot,
+  Content: PaginationContent,
+  Item: PaginationItem,
+  Link: PaginationLink,
+});
+
+namespace Pagination {
+  export type Props = React.ComponentProps<typeof PaginationRoot>;
+  export type RootProps = React.ComponentProps<typeof PaginationRoot>;
+  export type ContentProps = React.ComponentProps<typeof PaginationContent>;
+  export type ItemProps = React.ComponentProps<typeof PaginationItem>;
+  export type LinkProps = React.ComponentProps<typeof PaginationLink>;
+}
+
+export { Pagination, paginationVariants };

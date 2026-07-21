@@ -27,4 +27,8 @@ function ThemeModeScript({ defaultMode = DEFAULT_THEME_MODE, ...props }: ThemeMo
 
 ThemeModeScript.displayName = 'ThemeModeScript';
 
+namespace ThemeModeScript {
+  export type Props = React.ComponentProps<typeof ThemeModeScript>;
+}
+
 export { ThemeModeScript };

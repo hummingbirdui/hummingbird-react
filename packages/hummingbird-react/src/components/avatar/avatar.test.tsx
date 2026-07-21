@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Avatar, AvatarImage, AvatarFallback, AvatarGroup, avatarVariants } from './avatar';
+import { Avatar, avatarVariants } from './avatar';
 
 describe('Avatar', () => {
   describe('Rendering', () => {
@@ -16,19 +16,19 @@ describe('Avatar', () => {
     it('renders the fallback content', () => {
       render(
         <Avatar>
-          <AvatarFallback>KI</AvatarFallback>
+          <Avatar.Fallback>KI</Avatar.Fallback>
         </Avatar>
       );
       expect(screen.getByText('KI')).toBeInTheDocument();
     });
 
     it('does not render the image in jsdom (image never loads), showing the fallback instead', () => {
-      // Radix AvatarImage only renders once the image has actually loaded,
+      // Radix Avatar.Image only renders once the image has actually loaded,
       // which never happens in jsdom — the fallback is shown instead.
       render(
         <Avatar>
-          <AvatarImage src="/avatar.png" alt="User avatar" />
-          <AvatarFallback>KI</AvatarFallback>
+          <Avatar.Image src="/avatar.png" alt="User avatar" />
+          <Avatar.Fallback>KI</Avatar.Fallback>
         </Avatar>
       );
       expect(document.querySelector('[data-slot="avatar-image"]')).not.toBeInTheDocument();
@@ -47,7 +47,7 @@ describe('Avatar', () => {
     it('applies the fallback classes and data-slot', () => {
       render(
         <Avatar>
-          <AvatarFallback>KI</AvatarFallback>
+          <Avatar.Fallback>KI</Avatar.Fallback>
         </Avatar>
       );
       const fallback = screen.getByText('KI');
@@ -56,7 +56,7 @@ describe('Avatar', () => {
     });
 
     it('applies the group class and data-slot', () => {
-      render(<AvatarGroup data-testid="group" />);
+      render(<Avatar.Group data-testid="group" />);
       const group = screen.getByTestId('group');
       expect(group).toBeInstanceOf(HTMLDivElement);
       expect(group).toHaveAttribute('data-slot', 'avatar-group');
@@ -118,14 +118,14 @@ describe('Avatar', () => {
     it('merges custom className on the fallback', () => {
       render(
         <Avatar>
-          <AvatarFallback className="custom-fallback">KI</AvatarFallback>
+          <Avatar.Fallback className="custom-fallback">KI</Avatar.Fallback>
         </Avatar>
       );
       expect(screen.getByText('KI')).toHaveClass('avatar-name', 'rounded-full', 'custom-fallback');
     });
 
     it('merges custom className on the group', () => {
-      render(<AvatarGroup className="custom-group" data-testid="group" />);
+      render(<Avatar.Group className="custom-group" data-testid="group" />);
       expect(screen.getByTestId('group')).toHaveClass('avatar-group', 'custom-group');
     });
   });
@@ -142,7 +142,7 @@ describe('Avatar', () => {
       const ref = React.createRef<HTMLSpanElement>();
       render(
         <Avatar>
-          <AvatarFallback ref={ref}>KI</AvatarFallback>
+          <Avatar.Fallback ref={ref}>KI</Avatar.Fallback>
         </Avatar>
       );
       expect(ref.current).toBeInstanceOf(HTMLSpanElement);
@@ -151,7 +151,7 @@ describe('Avatar', () => {
 
     it('forwards ref to the group element', () => {
       const ref = React.createRef<HTMLDivElement>();
-      render(<AvatarGroup ref={ref} />);
+      render(<Avatar.Group ref={ref} />);
       expect(ref.current).toBeInstanceOf(HTMLDivElement);
       expect(ref.current?.className).toContain('avatar-group');
     });
@@ -160,9 +160,9 @@ describe('Avatar', () => {
   describe('Display Name', () => {
     it.each([
       [Avatar, 'Avatar'],
-      [AvatarImage, 'AvatarImage'],
-      [AvatarFallback, 'AvatarFallback'],
-      [AvatarGroup, 'AvatarGroup'],
+      [Avatar.Image, 'Avatar.Image'],
+      [Avatar.Fallback, 'Avatar.Fallback'],
+      [Avatar.Group, 'Avatar.Group'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -177,7 +177,7 @@ describe('Avatar', () => {
     it('supports aria-label on the root', () => {
       render(
         <Avatar aria-label="User avatar">
-          <AvatarFallback>KI</AvatarFallback>
+          <Avatar.Fallback>KI</Avatar.Fallback>
         </Avatar>
       );
       expect(screen.getByLabelText('User avatar')).toBeInTheDocument();
@@ -186,7 +186,7 @@ describe('Avatar', () => {
     it('exposes fallback initials as accessible text', () => {
       render(
         <Avatar>
-          <AvatarFallback>AB</AvatarFallback>
+          <Avatar.Fallback>AB</Avatar.Fallback>
         </Avatar>
       );
       expect(screen.getByText('AB')).toBeVisible();

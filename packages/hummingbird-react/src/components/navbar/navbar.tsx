@@ -29,7 +29,7 @@ export interface NavbarProps
   onOpenChange?: (open: boolean) => void;
 }
 
-function Navbar({ className, expand, open, defaultOpen, onOpenChange, ...props }: NavbarProps) {
+function NavbarRoot({ className, expand, open, defaultOpen, onOpenChange, ...props }: NavbarProps) {
   const ctx = React.useMemo(() => ({ expand }), [expand]);
 
   return (
@@ -46,7 +46,7 @@ function Navbar({ className, expand, open, defaultOpen, onOpenChange, ...props }
   );
 }
 
-Navbar.displayName = 'Navbar';
+NavbarRoot.displayName = 'Navbar';
 
 export interface NavbarBrandProps extends React.ComponentProps<'a'> {
   asChild?: boolean;
@@ -58,7 +58,7 @@ function NavbarBrand({ className, asChild = false, ...props }: NavbarBrandProps)
   return <Comp data-slot="navbar-brand" className={cn('navbar-brand', className)} {...props} />;
 }
 
-NavbarBrand.displayName = 'NavbarBrand';
+NavbarBrand.displayName = 'Navbar.Brand';
 
 const navbarNavVariants = cva('navbar-nav', {
   variants: {
@@ -86,7 +86,7 @@ function NavbarNav({ className, scrollable, asChild = false, ...props }: NavbarN
   );
 }
 
-NavbarNav.displayName = 'NavbarNav';
+NavbarNav.displayName = 'Navbar.Nav';
 
 export interface NavbarTextProps extends React.ComponentProps<'span'> {}
 
@@ -94,7 +94,7 @@ function NavbarText({ className, ...props }: NavbarTextProps) {
   return <span data-slot="navbar-text" className={cn('navbar-text', className)} {...props} />;
 }
 
-NavbarText.displayName = 'NavbarText';
+NavbarText.displayName = 'Navbar.Text';
 
 type CollapseGate = 'all' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'none';
 
@@ -155,7 +155,7 @@ function NavbarCollapse({ className, children, duration, style, ...props }: Navb
   );
 }
 
-NavbarCollapse.displayName = 'NavbarCollapse';
+NavbarCollapse.displayName = 'Navbar.Collapse';
 
 /** Default hamburger glyph for `NavbarToggle`; override by passing children. */
 function NavbarTogglerIcon({ className, ...props }: React.ComponentProps<'svg'>) {
@@ -180,7 +180,7 @@ function NavbarTogglerIcon({ className, ...props }: React.ComponentProps<'svg'>)
   );
 }
 
-NavbarTogglerIcon.displayName = 'NavbarTogglerIcon';
+NavbarTogglerIcon.displayName = 'Navbar.TogglerIcon';
 
 export interface NavbarToggleProps extends React.ComponentProps<
   typeof CollapsiblePrimitive.Trigger
@@ -199,16 +199,27 @@ function NavbarToggle({ className, children, ...props }: NavbarToggleProps) {
   );
 }
 
-NavbarToggle.displayName = 'NavbarToggle';
+NavbarToggle.displayName = 'Navbar.Toggle';
 
-export {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavbarText,
-  NavbarCollapse,
-  NavbarToggle,
-  NavbarTogglerIcon,
-  navbarVariants,
-  navbarNavVariants,
-};
+const Navbar = /* @__PURE__ */ Object.assign(NavbarRoot, {
+  Root: NavbarRoot,
+  Brand: NavbarBrand,
+  Nav: NavbarNav,
+  Text: NavbarText,
+  Collapse: NavbarCollapse,
+  Toggle: NavbarToggle,
+  TogglerIcon: NavbarTogglerIcon,
+});
+
+namespace Navbar {
+  export type Props = React.ComponentProps<typeof NavbarRoot>;
+  export type RootProps = React.ComponentProps<typeof NavbarRoot>;
+  export type BrandProps = React.ComponentProps<typeof NavbarBrand>;
+  export type NavProps = React.ComponentProps<typeof NavbarNav>;
+  export type TextProps = React.ComponentProps<typeof NavbarText>;
+  export type CollapseProps = React.ComponentProps<typeof NavbarCollapse>;
+  export type ToggleProps = React.ComponentProps<typeof NavbarToggle>;
+  export type TogglerIconProps = React.ComponentProps<typeof NavbarTogglerIcon>;
+}
+
+export { Navbar, navbarVariants, navbarNavVariants };

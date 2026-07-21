@@ -1,35 +1,26 @@
 "use client";
 
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuLabel,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-} from "@hummingbirdui/react";
+import { Button, Dropdown } from "@hummingbirdui/react";
 
 export default function DropdownGroups() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Dropdown>
+      <Dropdown.Trigger asChild>
         <Button>Workspace</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-56">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Documents</DropdownMenuLabel>
-          <DropdownMenuItem>New file</DropdownMenuItem>
-          <DropdownMenuItem>Import</DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Team</DropdownMenuLabel>
-          <DropdownMenuItem>Invite member</DropdownMenuItem>
-          <DropdownMenuItem>Manage roles</DropdownMenuItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </Dropdown.Trigger>
+      <Dropdown.Content className="min-w-56">
+        <Dropdown.Group>
+          <Dropdown.Label>Documents</Dropdown.Label>
+          <Dropdown.Item>New file</Dropdown.Item>
+          <Dropdown.Item>Import</Dropdown.Item>
+        </Dropdown.Group>
+        <Dropdown.Separator />
+        <Dropdown.Group>
+          <Dropdown.Label>Team</Dropdown.Label>
+          <Dropdown.Item>Invite member</Dropdown.Item>
+          <Dropdown.Item>Manage roles</Dropdown.Item>
+        </Dropdown.Group>
+      </Dropdown.Content>
+    </Dropdown>
   );
 }

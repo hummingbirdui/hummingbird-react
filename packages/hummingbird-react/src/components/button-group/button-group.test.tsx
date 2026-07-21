@@ -2,7 +2,7 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { ButtonGroup, ButtonToolbar, buttonGroupVariants } from './button-group';
+import { ButtonGroup, buttonGroupVariants } from './button-group';
 import { Button } from '../button';
 
 describe('ButtonGroup', () => {
@@ -197,17 +197,17 @@ describe('ButtonGroup', () => {
   });
 });
 
-describe('ButtonToolbar', () => {
+describe('ButtonGroup.Toolbar', () => {
   describe('Rendering', () => {
     it('renders a div element with role toolbar', () => {
-      render(<ButtonToolbar aria-label="Toolbar">Content</ButtonToolbar>);
+      render(<ButtonGroup.Toolbar aria-label="Toolbar">Content</ButtonGroup.Toolbar>);
       const toolbar = screen.getByRole('toolbar', { name: /toolbar/i });
       expect(toolbar).toBeInTheDocument();
       expect(toolbar).toBeInstanceOf(HTMLDivElement);
     });
 
     it('renders with btn-toolbar class and data-slot attribute', () => {
-      render(<ButtonToolbar>Content</ButtonToolbar>);
+      render(<ButtonGroup.Toolbar>Content</ButtonGroup.Toolbar>);
       const toolbar = screen.getByRole('toolbar');
       expect(toolbar).toHaveClass('btn-toolbar');
       expect(toolbar).toHaveAttribute('data-slot', 'button-toolbar');
@@ -215,7 +215,7 @@ describe('ButtonToolbar', () => {
 
     it('wraps multiple button groups', () => {
       render(
-        <ButtonToolbar aria-label="Editor toolbar">
+        <ButtonGroup.Toolbar aria-label="Editor toolbar">
           <ButtonGroup aria-label="First group">
             <Button>1</Button>
             <Button>2</Button>
@@ -223,7 +223,7 @@ describe('ButtonToolbar', () => {
           <ButtonGroup aria-label="Second group">
             <Button>3</Button>
           </ButtonGroup>
-        </ButtonToolbar>
+        </ButtonGroup.Toolbar>
       );
       const toolbar = screen.getByRole('toolbar');
       const groups = screen.getAllByRole('group');
@@ -235,7 +235,7 @@ describe('ButtonToolbar', () => {
 
   describe('Class Merging', () => {
     it('merges custom className with the base class', () => {
-      render(<ButtonToolbar className="custom-toolbar">Content</ButtonToolbar>);
+      render(<ButtonGroup.Toolbar className="custom-toolbar">Content</ButtonGroup.Toolbar>);
       const toolbar = screen.getByRole('toolbar');
       expect(toolbar).toHaveClass('btn-toolbar', 'custom-toolbar');
     });
@@ -244,7 +244,7 @@ describe('ButtonToolbar', () => {
   describe('Ref Forwarding', () => {
     it('forwards ref to div element', () => {
       const ref = React.createRef<HTMLDivElement>();
-      render(<ButtonToolbar ref={ref}>Content</ButtonToolbar>);
+      render(<ButtonGroup.Toolbar ref={ref}>Content</ButtonGroup.Toolbar>);
       expect(ref.current).toBeInstanceOf(HTMLDivElement);
       expect(ref.current?.className).toContain('btn-toolbar');
     });
@@ -252,13 +252,13 @@ describe('ButtonToolbar', () => {
 
   describe('Display Name', () => {
     it('has correct display name', () => {
-      expect(ButtonToolbar.displayName).toBe('ButtonToolbar');
+      expect(ButtonGroup.Toolbar.displayName).toBe('ButtonGroup.Toolbar');
     });
   });
 
   describe('Accessibility', () => {
     it('supports aria-label attribute', () => {
-      render(<ButtonToolbar aria-label="Formatting toolbar">Content</ButtonToolbar>);
+      render(<ButtonGroup.Toolbar aria-label="Formatting toolbar">Content</ButtonGroup.Toolbar>);
       expect(screen.getByLabelText('Formatting toolbar')).toBeInTheDocument();
     });
   });

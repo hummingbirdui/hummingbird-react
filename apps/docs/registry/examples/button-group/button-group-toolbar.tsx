@@ -1,10 +1,10 @@
 "use client";
 
-import { ButtonToolbar, ButtonGroup, Button } from "@hummingbirdui/react";
+import { ButtonGroup, Button } from "@hummingbirdui/react";
 
 export default function ButtonGroupToolbar() {
   return (
-    <ButtonToolbar className="flex gap-2">
+    <ButtonGroup.Toolbar className="flex gap-2">
       <ButtonGroup>
         <Button variant="outline">Bold</Button>
         <Button variant="outline">Italic</Button>
@@ -15,6 +15,6 @@ export default function ButtonGroupToolbar() {
         <Button variant="outline">Center</Button>
         <Button variant="outline">Right</Button>
       </ButtonGroup>
-    </ButtonToolbar>
+    </ButtonGroup.Toolbar>
   );
 }

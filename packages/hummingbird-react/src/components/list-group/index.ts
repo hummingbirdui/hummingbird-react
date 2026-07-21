@@ -1,1 +1,6 @@
-export * from './list-group';
+export {
+  ListGroup,
+  listGroupVariants,
+  listGroupItemVariants,
+  listTextVariants,
+} from './list-group';

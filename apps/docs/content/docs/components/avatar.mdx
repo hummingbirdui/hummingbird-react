@@ -23,19 +23,19 @@ The `status` prop adds a presence indicator: `online`, `offline`, `away`, or `bu
 
 ## Fallback
 
-`AvatarFallback` renders when the image is unavailable — typically the user's initials.
+`Avatar.Fallback` renders when the image is unavailable — typically the user's initials.
 
 <ComponentPreview name="avatar-fallback" />
 
 ## Group
 
-`AvatarGroup` stacks several avatars into an overlapping row.
+`Avatar.Group` stacks several avatars into an overlapping row.
 
 <ComponentPreview name="avatar-group" />
 
 ## API Reference
 
-Built on the [Radix UI Avatar](https://www.radix-ui.com/primitives/docs/components/avatar) primitive. `Avatar`, `AvatarImage`, and `AvatarFallback` forward all props to their Radix counterparts; `AvatarGroup` is a Hummingbird addition.
+Built on the [Radix UI Avatar](https://www.radix-ui.com/primitives/docs/components/avatar) primitive. `Avatar`, `Avatar.Image`, and `Avatar.Fallback` forward all props to their Radix counterparts; `Avatar.Group` is a Hummingbird addition.
 
 ### Avatar
 
@@ -71,7 +71,7 @@ Contains all the parts of an avatar.
   ]}
 />
 
-### AvatarImage
+### Avatar.Image
 
 The image to render. By default it will only render when it has loaded.
 
@@ -99,7 +99,7 @@ The image to render. By default it will only render when it has loaded.
   ]}
 />
 
-### AvatarFallback
+### Avatar.Fallback
 
 An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error.
 
@@ -126,7 +126,7 @@ An element that renders when the image hasn't loaded. This means whilst it's loa
   ]}
 />
 
-### AvatarGroup
+### Avatar.Group
 
 Stacks several avatars into an overlapping row. A Hummingbird addition with no Radix counterpart.
 

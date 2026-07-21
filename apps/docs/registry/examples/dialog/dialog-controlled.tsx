@@ -1,18 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogFooter,
-  DialogClose,
-  Button,
-  CloseButton,
-} from "@hummingbirdui/react";
+import { Dialog, Button, CloseButton } from "@hummingbirdui/react";
 
 export default function DialogControlled() {
   const [open, setOpen] = React.useState(false);
@@ -23,23 +12,23 @@ export default function DialogControlled() {
         Open controlled dialog
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Controlled dialog</DialogTitle>
-            <DialogClose asChild>
+        <Dialog.Content>
+          <Dialog.Header>
+            <Dialog.Title>Controlled dialog</Dialog.Title>
+            <Dialog.Close asChild>
               <CloseButton />
-            </DialogClose>
-          </DialogHeader>
-          <DialogBody>
-            <DialogDescription>
+            </Dialog.Close>
+          </Dialog.Header>
+          <Dialog.Body>
+            <Dialog.Description>
               Open state is driven by <code>open</code> and{" "}
               <code>onOpenChange</code> on the <code>Dialog</code> root.
-            </DialogDescription>
-          </DialogBody>
-          <DialogFooter>
+            </Dialog.Description>
+          </Dialog.Body>
+          <Dialog.Footer>
             <Button onClick={() => setOpen(false)}>Close</Button>
-          </DialogFooter>
-        </DialogContent>
+          </Dialog.Footer>
+        </Dialog.Content>
       </Dialog>
     </>
   );

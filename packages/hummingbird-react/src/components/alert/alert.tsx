@@ -53,7 +53,7 @@ const alertVariants = cva('alert', {
 export interface AlertProps
   extends Omit<React.ComponentProps<'div'>, 'color'>, VariantProps<typeof alertVariants> {}
 
-function Alert({ className, variant, color, ...props }: AlertProps) {
+function AlertRoot({ className, variant, color, ...props }: AlertProps) {
   return (
     <div
       role="alert"
@@ -64,7 +64,7 @@ function Alert({ className, variant, color, ...props }: AlertProps) {
   );
 }
 
-Alert.displayName = 'Alert';
+AlertRoot.displayName = 'Alert';
 
 export interface AlertIconProps extends React.ComponentProps<'span'> {}
 
@@ -72,6 +72,17 @@ function AlertIcon({ className, ...props }: AlertIconProps) {
   return <span data-slot="alert-icon" className={cn('alert-icon', className)} {...props} />;
 }
 
-AlertIcon.displayName = 'AlertIcon';
+AlertIcon.displayName = 'Alert.Icon';
 
-export { Alert, AlertIcon, alertVariants };
+const Alert = /* @__PURE__ */ Object.assign(AlertRoot, {
+  Root: AlertRoot,
+  Icon: AlertIcon,
+});
+
+namespace Alert {
+  export type Props = React.ComponentProps<typeof AlertRoot>;
+  export type RootProps = React.ComponentProps<typeof AlertRoot>;
+  export type IconProps = React.ComponentProps<typeof AlertIcon>;
+}
+
+export { Alert, alertVariants };

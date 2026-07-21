@@ -1,30 +1,25 @@
 "use client";
 
-import {
-  Avatar,
-  AvatarImage,
-  AvatarFallback,
-  AvatarGroup,
-} from "@hummingbirdui/react";
+import { Avatar } from "@hummingbirdui/react";
 
 export default function AvatarGroupExample() {
   return (
-    <AvatarGroup>
+    <Avatar.Group>
       <Avatar>
-        <AvatarImage src="https://i.pravatar.cc/150?img=12" alt="User one" />
-        <AvatarFallback>JD</AvatarFallback>
+        <Avatar.Image src="https://i.pravatar.cc/150?img=12" alt="User one" />
+        <Avatar.Fallback>JD</Avatar.Fallback>
       </Avatar>
       <Avatar>
-        <AvatarImage src="https://i.pravatar.cc/150?img=32" alt="User two" />
-        <AvatarFallback>AS</AvatarFallback>
+        <Avatar.Image src="https://i.pravatar.cc/150?img=32" alt="User two" />
+        <Avatar.Fallback>AS</Avatar.Fallback>
       </Avatar>
       <Avatar>
-        <AvatarImage src="https://i.pravatar.cc/150?img=45" alt="User three" />
-        <AvatarFallback>MK</AvatarFallback>
+        <Avatar.Image src="https://i.pravatar.cc/150?img=45" alt="User three" />
+        <Avatar.Fallback>MK</Avatar.Fallback>
       </Avatar>
       <Avatar>
-        <AvatarFallback>+3</AvatarFallback>
+        <Avatar.Fallback>+3</Avatar.Fallback>
       </Avatar>
-    </AvatarGroup>
+    </Avatar.Group>
   );
 }

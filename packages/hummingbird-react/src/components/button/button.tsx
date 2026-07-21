@@ -124,4 +124,8 @@ function Button({
 
 Button.displayName = 'Button';
 
+namespace Button {
+  export type Props = React.ComponentProps<typeof Button>;
+}
+
 export { Button, buttonVariants };

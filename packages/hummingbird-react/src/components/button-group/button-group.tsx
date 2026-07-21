@@ -23,7 +23,7 @@ const buttonGroupVariants = cva('', {
 export interface ButtonGroupProps
   extends React.ComponentProps<'div'>, VariantProps<typeof buttonGroupVariants> {}
 
-function ButtonGroup({ className, orientation, size, ...props }: ButtonGroupProps) {
+function ButtonGroupRoot({ className, orientation, size, ...props }: ButtonGroupProps) {
   return (
     <div
       role="group"
@@ -34,7 +34,7 @@ function ButtonGroup({ className, orientation, size, ...props }: ButtonGroupProp
   );
 }
 
-ButtonGroup.displayName = 'ButtonGroup';
+ButtonGroupRoot.displayName = 'ButtonGroup';
 
 export interface ButtonToolbarProps extends React.ComponentProps<'div'> {}
 
@@ -49,6 +49,17 @@ function ButtonToolbar({ className, ...props }: ButtonToolbarProps) {
   );
 }
 
-ButtonToolbar.displayName = 'ButtonToolbar';
+ButtonToolbar.displayName = 'ButtonGroup.Toolbar';
 
-export { ButtonGroup, ButtonToolbar, buttonGroupVariants };
+const ButtonGroup = /* @__PURE__ */ Object.assign(ButtonGroupRoot, {
+  Root: ButtonGroupRoot,
+  Toolbar: ButtonToolbar,
+});
+
+namespace ButtonGroup {
+  export type Props = React.ComponentProps<typeof ButtonGroupRoot>;
+  export type RootProps = React.ComponentProps<typeof ButtonGroupRoot>;
+  export type ToolbarProps = React.ComponentProps<typeof ButtonToolbar>;
+}
+
+export { ButtonGroup, buttonGroupVariants };

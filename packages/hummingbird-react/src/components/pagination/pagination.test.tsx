@@ -2,13 +2,7 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  paginationVariants,
-} from './pagination';
+import { Pagination, paginationVariants } from './pagination';
 
 // A complete pagination used across the tests.
 function Example({
@@ -17,20 +11,20 @@ function Example({
 }: React.ComponentProps<typeof Pagination> & { contentClassName?: string }) {
   return (
     <Pagination {...props}>
-      <PaginationContent className={contentClassName}>
-        <PaginationItem>
-          <PaginationLink href="#">Previous</PaginationLink>
-        </PaginationItem>
-        <PaginationItem active>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">2</PaginationLink>
-        </PaginationItem>
-        <PaginationItem disabled>
-          <PaginationLink href="#">Next</PaginationLink>
-        </PaginationItem>
-      </PaginationContent>
+      <Pagination.Content className={contentClassName}>
+        <Pagination.Item>
+          <Pagination.Link href="#">Previous</Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item active>
+          <Pagination.Link href="#">1</Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href="#">2</Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item disabled>
+          <Pagination.Link href="#">Next</Pagination.Link>
+        </Pagination.Item>
+      </Pagination.Content>
     </Pagination>
   );
 }
@@ -188,13 +182,13 @@ describe('Pagination', () => {
       const user = userEvent.setup();
       render(
         <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationLink href="#" onClick={handleClick}>
+          <Pagination.Content>
+            <Pagination.Item>
+              <Pagination.Link href="#" onClick={handleClick}>
                 2
-              </PaginationLink>
-            </PaginationItem>
-          </PaginationContent>
+              </Pagination.Link>
+            </Pagination.Item>
+          </Pagination.Content>
         </Pagination>
       );
 
@@ -205,11 +199,11 @@ describe('Pagination', () => {
     it('preserves the href attribute', () => {
       render(
         <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationLink href="/page/2">2</PaginationLink>
-            </PaginationItem>
-          </PaginationContent>
+          <Pagination.Content>
+            <Pagination.Item>
+              <Pagination.Link href="/page/2">2</Pagination.Link>
+            </Pagination.Item>
+          </Pagination.Content>
         </Pagination>
       );
       expect(screen.getByRole('link', { name: '2' })).toHaveAttribute('href', '/page/2');
@@ -234,13 +228,13 @@ describe('Pagination', () => {
     it('merges className on items and links', () => {
       render(
         <Pagination>
-          <PaginationContent>
-            <PaginationItem active className="custom-item">
-              <PaginationLink href="#" className="custom-link">
+          <Pagination.Content>
+            <Pagination.Item active className="custom-item">
+              <Pagination.Link href="#" className="custom-link">
                 1
-              </PaginationLink>
-            </PaginationItem>
-          </PaginationContent>
+              </Pagination.Link>
+            </Pagination.Item>
+          </Pagination.Content>
         </Pagination>
       );
       const link = screen.getByRole('link', { name: '1' });
@@ -259,7 +253,7 @@ describe('Pagination', () => {
 
     it('forwards ref to the ul element', () => {
       const ref = React.createRef<HTMLUListElement>();
-      render(<PaginationContent ref={ref} />);
+      render(<Pagination.Content ref={ref} />);
       expect(ref.current).toBeInstanceOf(HTMLUListElement);
       expect(ref.current?.className).toContain('pagination');
     });
@@ -267,9 +261,9 @@ describe('Pagination', () => {
     it('forwards ref to the li element', () => {
       const ref = React.createRef<HTMLLIElement>();
       render(
-        <PaginationContent>
-          <PaginationItem ref={ref}>Item</PaginationItem>
-        </PaginationContent>
+        <Pagination.Content>
+          <Pagination.Item ref={ref}>Item</Pagination.Item>
+        </Pagination.Content>
       );
       expect(ref.current).toBeInstanceOf(HTMLLIElement);
       expect(ref.current?.className).toContain('page-item');
@@ -278,9 +272,9 @@ describe('Pagination', () => {
     it('forwards ref to the anchor element', () => {
       const ref = React.createRef<HTMLAnchorElement>();
       render(
-        <PaginationLink href="#" ref={ref}>
+        <Pagination.Link href="#" ref={ref}>
           1
-        </PaginationLink>
+        </Pagination.Link>
       );
       expect(ref.current).toBeInstanceOf(HTMLAnchorElement);
       expect(ref.current?.className).toContain('page-link');
@@ -288,13 +282,13 @@ describe('Pagination', () => {
   });
 
   describe('asChild Prop', () => {
-    it('renders PaginationLink as the supplied child with classes and aria-current', () => {
+    it('renders Pagination.Link as the supplied child with classes and aria-current', () => {
       render(
-        <PaginationItem active>
-          <PaginationLink asChild>
+        <Pagination.Item active>
+          <Pagination.Link asChild>
             <button type="button">1</button>
-          </PaginationLink>
-        </PaginationItem>
+          </Pagination.Link>
+        </Pagination.Item>
       );
       const button = screen.getByRole('button', { name: '1' });
       expect(button).toHaveClass('page-link');
@@ -305,9 +299,9 @@ describe('Pagination', () => {
   describe('Display Name', () => {
     it.each([
       [Pagination, 'Pagination'],
-      [PaginationContent, 'PaginationContent'],
-      [PaginationItem, 'PaginationItem'],
-      [PaginationLink, 'PaginationLink'],
+      [Pagination.Content, 'Pagination.Content'],
+      [Pagination.Item, 'Pagination.Item'],
+      [Pagination.Link, 'Pagination.Link'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -339,13 +333,13 @@ describe('Pagination', () => {
       const user = userEvent.setup();
       render(
         <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationLink href="#" onClick={handleClick}>
+          <Pagination.Content>
+            <Pagination.Item>
+              <Pagination.Link href="#" onClick={handleClick}>
                 1
-              </PaginationLink>
-            </PaginationItem>
-          </PaginationContent>
+              </Pagination.Link>
+            </Pagination.Item>
+          </Pagination.Content>
         </Pagination>
       );
 

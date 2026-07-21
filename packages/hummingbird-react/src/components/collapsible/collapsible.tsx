@@ -4,17 +4,17 @@ import * as React from 'react';
 import { Collapsible as CollapsiblePrimitive } from 'radix-ui';
 import { cn } from '../../utils/cn';
 
-function Collapsible({ ...props }: React.ComponentProps<typeof CollapsiblePrimitive.Root>) {
+function CollapsibleRoot({ ...props }: React.ComponentProps<typeof CollapsiblePrimitive.Root>) {
   return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
 }
-Collapsible.displayName = 'Collapsible';
+CollapsibleRoot.displayName = 'Collapsible';
 
 function CollapsibleTrigger({
   ...props
 }: React.ComponentProps<typeof CollapsiblePrimitive.Trigger>) {
   return <CollapsiblePrimitive.Trigger data-slot="collapsible-trigger" {...props} />;
 }
-CollapsibleTrigger.displayName = 'CollapsibleTrigger';
+CollapsibleTrigger.displayName = 'Collapsible.Trigger';
 
 function CollapsibleContent({
   className,
@@ -31,6 +31,19 @@ function CollapsibleContent({
     />
   );
 }
-CollapsibleContent.displayName = 'CollapsibleContent';
+CollapsibleContent.displayName = 'Collapsible.Content';
 
-export { Collapsible, CollapsibleTrigger, CollapsibleContent };
+const Collapsible = /* @__PURE__ */ Object.assign(CollapsibleRoot, {
+  Root: CollapsibleRoot,
+  Trigger: CollapsibleTrigger,
+  Content: CollapsibleContent,
+});
+
+namespace Collapsible {
+  export type Props = React.ComponentProps<typeof CollapsibleRoot>;
+  export type RootProps = React.ComponentProps<typeof CollapsibleRoot>;
+  export type TriggerProps = React.ComponentProps<typeof CollapsibleTrigger>;
+  export type ContentProps = React.ComponentProps<typeof CollapsibleContent>;
+}
+
+export { Collapsible };

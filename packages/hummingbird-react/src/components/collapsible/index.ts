@@ -1,1 +1,1 @@
-export * from './collapsible';
+export { Collapsible } from './collapsible';

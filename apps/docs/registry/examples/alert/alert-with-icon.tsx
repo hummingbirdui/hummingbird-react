@@ -1,14 +1,14 @@
 "use client";
 
-import { Alert, AlertIcon } from "@hummingbirdui/react";
+import { Alert } from "@hummingbirdui/react";
 import { CircleCheck } from "lucide-react";
 
 export default function AlertWithIcon() {
   return (
     <Alert color="success">
-      <AlertIcon>
+      <Alert.Icon>
         <CircleCheck className="size-5" />
-      </AlertIcon>
+      </Alert.Icon>
       Your changes have been saved successfully.
     </Alert>
   );

@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogClose,
-  Button,
-  CloseButton,
-} from "@hummingbirdui/react";
+import { Dialog, Button, CloseButton } from "@hummingbirdui/react";
 
 const sizes = ["sm", "md", "lg", "xl"] as const;
 
@@ -20,22 +9,22 @@ export default function DialogSizes() {
     <div className="flex flex-wrap gap-2 justify-center">
       {sizes.map((size) => (
         <Dialog key={size}>
-          <DialogTrigger asChild>
+          <Dialog.Trigger asChild>
             <Button variant="outline">{size.toUpperCase()} dialog</Button>
-          </DialogTrigger>
-          <DialogContent size={size}>
-            <DialogHeader>
-              <DialogTitle>{size.toUpperCase()} dialog</DialogTitle>
-              <DialogClose asChild>
+          </Dialog.Trigger>
+          <Dialog.Content size={size}>
+            <Dialog.Header>
+              <Dialog.Title>{size.toUpperCase()} dialog</Dialog.Title>
+              <Dialog.Close asChild>
                 <CloseButton />
-              </DialogClose>
-            </DialogHeader>
-            <DialogBody>
-              <DialogDescription>
+              </Dialog.Close>
+            </Dialog.Header>
+            <Dialog.Body>
+              <Dialog.Description>
                 A dialog using <code>size=&quot;{size}&quot;</code>.
-              </DialogDescription>
-            </DialogBody>
-          </DialogContent>
+              </Dialog.Description>
+            </Dialog.Body>
+          </Dialog.Content>
         </Dialog>
       ))}
     </div>

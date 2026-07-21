@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  Button,
-  CloseButton,
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerClose,
-  DrawerBody,
-  DrawerDescription,
-} from "@hummingbirdui/react";
+import { Button, CloseButton, Drawer } from "@hummingbirdui/react";
 
 const directions = ["top", "right", "bottom", "left"] as const;
 
@@ -20,26 +9,26 @@ export default function DrawerDirection() {
     <div className="flex flex-wrap gap-2 justify-center">
       {directions.map((direction) => (
         <Drawer key={direction} direction={direction}>
-          <DrawerTrigger asChild>
+          <Drawer.Trigger asChild>
             <Button variant="outline" className="capitalize">
               {direction}
             </Button>
-          </DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerTitle className="capitalize">
+          </Drawer.Trigger>
+          <Drawer.Content>
+            <Drawer.Header>
+              <Drawer.Title className="capitalize">
                 {direction} drawer
-              </DrawerTitle>
-              <DrawerClose asChild>
+              </Drawer.Title>
+              <Drawer.Close asChild>
                 <CloseButton />
-              </DrawerClose>
-            </DrawerHeader>
-            <DrawerBody>
-              <DrawerDescription>
+              </Drawer.Close>
+            </Drawer.Header>
+            <Drawer.Body>
+              <Drawer.Description>
                 Slides in from the {direction} edge.
-              </DrawerDescription>
-            </DrawerBody>
-          </DrawerContent>
+              </Drawer.Description>
+            </Drawer.Body>
+          </Drawer.Content>
         </Drawer>
       ))}
     </div>

@@ -65,7 +65,15 @@ export interface BadgeProps
   asChild?: boolean;
 }
 
-function Badge({ className, variant, color, size, link, asChild = false, ...props }: BadgeProps) {
+function BadgeRoot({
+  className,
+  variant,
+  color,
+  size,
+  link,
+  asChild = false,
+  ...props
+}: BadgeProps) {
   const Comp = asChild ? Slot.Root : 'span';
 
   return (
@@ -77,7 +85,7 @@ function Badge({ className, variant, color, size, link, asChild = false, ...prop
   );
 }
 
-Badge.displayName = 'Badge';
+BadgeRoot.displayName = 'Badge';
 
 export interface BadgeActionButtonProps extends React.ComponentProps<'button'> {}
 
@@ -92,6 +100,17 @@ function BadgeActionButton({ className, type = 'button', ...props }: BadgeAction
   );
 }
 
-BadgeActionButton.displayName = 'BadgeActionButton';
+BadgeActionButton.displayName = 'Badge.ActionButton';
 
-export { Badge, BadgeActionButton, badgeVariants };
+const Badge = /* @__PURE__ */ Object.assign(BadgeRoot, {
+  Root: BadgeRoot,
+  ActionButton: BadgeActionButton,
+});
+
+namespace Badge {
+  export type Props = React.ComponentProps<typeof BadgeRoot>;
+  export type RootProps = React.ComponentProps<typeof BadgeRoot>;
+  export type ActionButtonProps = React.ComponentProps<typeof BadgeActionButton>;
+}
+
+export { Badge, badgeVariants };

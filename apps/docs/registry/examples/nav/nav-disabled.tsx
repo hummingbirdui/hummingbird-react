@@ -1,23 +1,23 @@
 "use client";
 
-import { Nav, NavItem, NavLink } from "@hummingbirdui/react";
+import { Nav } from "@hummingbirdui/react";
 
 export default function NavDisabled() {
   return (
     <Nav>
-      <NavItem>
-        <NavLink href="#" active>
+      <Nav.Item>
+        <Nav.Link href="#" active>
           Active
-        </NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="#">Link</NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="#" disabled>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#">Link</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#" disabled>
           Disabled
-        </NavLink>
-      </NavItem>
+        </Nav.Link>
+      </Nav.Item>
     </Nav>
   );
 }

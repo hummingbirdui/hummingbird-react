@@ -2,38 +2,28 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavbarText,
-  NavbarCollapse,
-  NavbarToggle,
-  NavbarTogglerIcon,
-  navbarVariants,
-  navbarNavVariants,
-} from './navbar';
+import { Navbar, navbarVariants, navbarNavVariants } from './navbar';
 
-// A complete navbar used across the tests. `NavbarCollapse` is forceMount-ed
+// A complete navbar used across the tests. `Navbar.Collapse` is forceMount-ed
 // by the component, so its content is always in the DOM.
 function Example(
   props: React.ComponentProps<typeof Navbar> & {
-    collapseProps?: React.ComponentProps<typeof NavbarCollapse>;
+    collapseProps?: React.ComponentProps<typeof Navbar.Collapse>;
   }
 ) {
   const { collapseProps, ...navbarProps } = props;
   return (
     <Navbar {...navbarProps}>
-      <NavbarBrand href="/">Brand</NavbarBrand>
-      <NavbarToggle />
-      <NavbarCollapse {...collapseProps}>
-        <NavbarNav>
+      <Navbar.Brand href="/">Brand</Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse {...collapseProps}>
+        <Navbar.Nav>
           <li>
             <a href="#home">Home</a>
           </li>
-        </NavbarNav>
-        <NavbarText>Signed in</NavbarText>
-      </NavbarCollapse>
+        </Navbar.Nav>
+        <Navbar.Text>Signed in</Navbar.Text>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
@@ -119,8 +109,8 @@ describe('Navbar', () => {
     it('drops the icon-button classes when the toggler has custom children', () => {
       render(
         <Navbar>
-          <NavbarToggle>Menu</NavbarToggle>
-          <NavbarCollapse>Content</NavbarCollapse>
+          <Navbar.Toggle>Menu</Navbar.Toggle>
+          <Navbar.Collapse>Content</Navbar.Collapse>
         </Navbar>
       );
       const toggler = screen.getByRole('button', { name: /toggle navigation/i });
@@ -129,8 +119,8 @@ describe('Navbar', () => {
       expect(toggler).toHaveTextContent('Menu');
     });
 
-    it('renders NavbarTogglerIcon as an svg with size-5', () => {
-      const { container } = render(<NavbarTogglerIcon data-testid="icon" />);
+    it('renders Navbar.TogglerIcon as an svg with size-5', () => {
+      const { container } = render(<Navbar.TogglerIcon data-testid="icon" />);
       const icon = container.querySelector('svg');
       expect(icon).toBeInTheDocument();
       expect(icon).toHaveClass('size-5');
@@ -161,11 +151,11 @@ describe('Navbar', () => {
     });
   });
 
-  describe('NavbarNav scrollable', () => {
+  describe('Navbar.Nav scrollable', () => {
     it('applies navbar-nav-scroll when scrollable', () => {
       render(
         <Navbar>
-          <NavbarNav scrollable />
+          <Navbar.Nav scrollable />
         </Navbar>
       );
       expect(screen.getByRole('list')).toHaveClass('navbar-nav', 'navbar-nav-scroll');
@@ -174,7 +164,7 @@ describe('Navbar', () => {
     it('applies only the base class by default', () => {
       render(
         <Navbar>
-          <NavbarNav />
+          <Navbar.Nav />
         </Navbar>
       );
       expect(screen.getByRole('list').className.trim()).toBe('navbar-nav');
@@ -318,14 +308,14 @@ describe('Navbar', () => {
     it('merges custom className on sub-components', () => {
       render(
         <Navbar>
-          <NavbarBrand href="/" className="custom-brand">
+          <Navbar.Brand href="/" className="custom-brand">
             Brand
-          </NavbarBrand>
-          <NavbarToggle className="custom-toggler" />
-          <NavbarCollapse className="custom-collapse">
-            <NavbarNav className="custom-nav" />
-            <NavbarText className="custom-text">Text</NavbarText>
-          </NavbarCollapse>
+          </Navbar.Brand>
+          <Navbar.Toggle className="custom-toggler" />
+          <Navbar.Collapse className="custom-collapse">
+            <Navbar.Nav className="custom-nav" />
+            <Navbar.Text className="custom-text">Text</Navbar.Text>
+          </Navbar.Collapse>
         </Navbar>
       );
       expect(screen.getByRole('link', { name: /brand/i })).toHaveClass(
@@ -347,7 +337,7 @@ describe('Navbar', () => {
       const ref = React.createRef<HTMLElement>();
       render(
         <Navbar ref={ref}>
-          <NavbarBrand href="/">Brand</NavbarBrand>
+          <Navbar.Brand href="/">Brand</Navbar.Brand>
         </Navbar>
       );
       expect(ref.current).toBeInstanceOf(HTMLElement);
@@ -361,11 +351,11 @@ describe('Navbar', () => {
       const textRef = React.createRef<HTMLSpanElement>();
       render(
         <Navbar>
-          <NavbarBrand ref={brandRef} href="/">
+          <Navbar.Brand ref={brandRef} href="/">
             Brand
-          </NavbarBrand>
-          <NavbarNav ref={navRef} />
-          <NavbarText ref={textRef}>Text</NavbarText>
+          </Navbar.Brand>
+          <Navbar.Nav ref={navRef} />
+          <Navbar.Text ref={textRef}>Text</Navbar.Text>
         </Navbar>
       );
       expect(brandRef.current).toBeInstanceOf(HTMLAnchorElement);
@@ -375,14 +365,14 @@ describe('Navbar', () => {
   });
 
   describe('asChild Prop', () => {
-    it('renders NavbarBrand as the supplied child and preserves its attributes', () => {
+    it('renders Navbar.Brand as the supplied child and preserves its attributes', () => {
       render(
         <Navbar>
-          <NavbarBrand asChild>
+          <Navbar.Brand asChild>
             <button type="button" className="custom-brand">
               Brand
             </button>
-          </NavbarBrand>
+          </Navbar.Brand>
         </Navbar>
       );
       const button = screen.getByRole('button', { name: /brand/i });
@@ -393,12 +383,12 @@ describe('Navbar', () => {
       const user = userEvent.setup();
       render(
         <Navbar>
-          <NavbarToggle asChild>
+          <Navbar.Toggle asChild>
             <button type="button" className="custom-toggle">
               Menu
             </button>
-          </NavbarToggle>
-          <NavbarCollapse>Content</NavbarCollapse>
+          </Navbar.Toggle>
+          <Navbar.Collapse>Content</Navbar.Collapse>
         </Navbar>
       );
       // The default aria-label is still applied, so it wins as accessible name.
@@ -414,12 +404,12 @@ describe('Navbar', () => {
   describe('Display Name', () => {
     it.each([
       [Navbar, 'Navbar'],
-      [NavbarBrand, 'NavbarBrand'],
-      [NavbarNav, 'NavbarNav'],
-      [NavbarText, 'NavbarText'],
-      [NavbarCollapse, 'NavbarCollapse'],
-      [NavbarToggle, 'NavbarToggle'],
-      [NavbarTogglerIcon, 'NavbarTogglerIcon'],
+      [Navbar.Brand, 'Navbar.Brand'],
+      [Navbar.Nav, 'Navbar.Nav'],
+      [Navbar.Text, 'Navbar.Text'],
+      [Navbar.Collapse, 'Navbar.Collapse'],
+      [Navbar.Toggle, 'Navbar.Toggle'],
+      [Navbar.TogglerIcon, 'Navbar.TogglerIcon'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -433,8 +423,8 @@ describe('Navbar', () => {
 
       render(
         <Navbar>
-          <NavbarToggle aria-label="Open menu" />
-          <NavbarCollapse>Content</NavbarCollapse>
+          <Navbar.Toggle aria-label="Open menu" />
+          <Navbar.Collapse>Content</Navbar.Collapse>
         </Navbar>
       );
       expect(screen.getByRole('button', { name: /open menu/i })).toBeInTheDocument();

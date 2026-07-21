@@ -5,13 +5,13 @@ description: A responsive navigation header with a brand, links, text, and a col
 
 ## Default
 
-The default navbar composes a `NavbarBrand` and a `NavbarNav` of `NavLink`s.
+The default navbar composes a `Navbar.Brand` and a `Navbar.Nav` of `Nav.Link`s.
 
 <ComponentPreview name="navbar-default" />
 
 ## Responsive collapse
 
-`NavbarToggle` and `NavbarCollapse` hide the menu behind a toggle below the `expand` breakpoint.
+`Navbar.Toggle` and `Navbar.Collapse` hide the menu behind a toggle below the `expand` breakpoint.
 
 <ComponentPreview name="navbar-collapse" />
 
@@ -23,25 +23,25 @@ The `expand` prop controls when the navbar expands horizontally. Supported value
 
 ## Always collapsed
 
-Omitting `expand` keeps the menu behind the toggle at every width, and `duration` on `NavbarCollapse` tunes the open and close speed in milliseconds.
+Omitting `expand` keeps the menu behind the toggle at every width, and `duration` on `Navbar.Collapse` tunes the open and close speed in milliseconds.
 
 <ComponentPreview name="navbar-always-collapsed" />
 
 ## Scrollable
 
-The `scrollable` prop on `NavbarNav` constrains the list height and scrolls its overflow.
+The `scrollable` prop on `Navbar.Nav` constrains the list height and scrolls its overflow.
 
 <ComponentPreview name="navbar-scrollable" />
 
 ## With text
 
-`NavbarText` renders non-link content such as a signed-in label.
+`Navbar.Text` renders non-link content such as a signed-in label.
 
 <ComponentPreview name="navbar-text" />
 
 ## Custom toggle
 
-Passing children to `NavbarToggle` overrides the default hamburger glyph.
+Passing children to `Navbar.Toggle` overrides the default hamburger glyph.
 
 <ComponentPreview name="navbar-custom-toggle" />
 
@@ -90,7 +90,7 @@ The navbar is built on the [Collapsible](/docs/components/collapsible#api-refere
   ]}
 />
 
-### NavbarNav
+### Navbar.Nav
 
 <PropsTable
   data={[
@@ -114,9 +114,9 @@ The navbar is built on the [Collapsible](/docs/components/collapsible#api-refere
   ]}
 />
 
-### NavbarCollapse
+### Navbar.Collapse
 
-`NavbarCollapse` wraps the Radix [Collapsible](/docs/components/collapsible#api-reference) content.
+`Navbar.Collapse` wraps the Radix [Collapsible](/docs/components/collapsible#api-reference) content.
 
 <PropsTable
   data={[
@@ -135,8 +135,8 @@ The navbar is built on the [Collapsible](/docs/components/collapsible#api-refere
         <>
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries.{" "}
-          <code>NavbarCollapse</code> sets this to <code>true</code> so the menu
-          stays mounted for its CSS collapse animation.
+          <code>Navbar.Collapse</code> sets this to <code>true</code> so the
+          menu stays mounted for its CSS collapse animation.
         </>
       ),
     },
@@ -187,9 +187,9 @@ The navbar is built on the [Collapsible](/docs/components/collapsible#api-refere
   ]}
 />
 
-### NavbarToggle
+### Navbar.Toggle
 
-`NavbarToggle` wraps the Radix [Collapsible](/docs/components/collapsible#api-reference) trigger. It renders the default hamburger `NavbarTogglerIcon` unless children are passed, and sets `aria-label="Toggle navigation"` by default.
+`Navbar.Toggle` wraps the Radix [Collapsible](/docs/components/collapsible#api-reference) trigger. It renders the default hamburger `Navbar.TogglerIcon` unless children are passed, and sets `aria-label="Toggle navigation"` by default.
 
 <PropsTable
   data={[
@@ -217,7 +217,7 @@ The navbar is built on the [Collapsible](/docs/components/collapsible#api-refere
   ]}
 />
 
-### NavbarBrand
+### Navbar.Brand
 
 <PropsTable
   data={[
@@ -235,7 +235,7 @@ The navbar is built on the [Collapsible](/docs/components/collapsible#api-refere
   ]}
 />
 
-`NavbarText` accepts `className`. `NavbarTogglerIcon` renders the default hamburger glyph and accepts standard `svg` props.
+`Navbar.Text` accepts `className`. `Navbar.TogglerIcon` renders the default hamburger glyph and accepts standard `svg` props.
 
 ## Styling
 

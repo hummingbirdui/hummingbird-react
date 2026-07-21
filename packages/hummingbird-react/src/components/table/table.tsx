@@ -42,7 +42,7 @@ const tableVariants = cva('table', {
 export interface TableProps
   extends Omit<React.ComponentProps<'table'>, 'color'>, VariantProps<typeof tableVariants> {}
 
-function Table({
+function TableRoot({
   className,
   size,
   color,
@@ -79,22 +79,22 @@ function Table({
   );
 }
 
-Table.displayName = 'Table';
+TableRoot.displayName = 'Table';
 
 function TableHeader({ className, ...props }: React.ComponentProps<'thead'>) {
   return <thead data-slot="table-header" className={className} {...props} />;
 }
-TableHeader.displayName = 'TableHeader';
+TableHeader.displayName = 'Table.Header';
 
 function TableBody({ className, ...props }: React.ComponentProps<'tbody'>) {
   return <tbody data-slot="table-body" className={className} {...props} />;
 }
-TableBody.displayName = 'TableBody';
+TableBody.displayName = 'Table.Body';
 
 function TableFooter({ className, ...props }: React.ComponentProps<'tfoot'>) {
   return <tfoot data-slot="table-footer" className={className} {...props} />;
 }
-TableFooter.displayName = 'TableFooter';
+TableFooter.displayName = 'Table.Footer';
 
 export interface TableRowProps extends React.ComponentProps<'tr'> {
   active?: boolean;
@@ -105,12 +105,12 @@ function TableRow({ className, active = false, ...props }: TableRowProps) {
     <tr data-slot="table-row" className={cn(active && 'table-active', className)} {...props} />
   );
 }
-TableRow.displayName = 'TableRow';
+TableRow.displayName = 'Table.Row';
 
 function TableHead({ className, ...props }: React.ComponentProps<'th'>) {
   return <th data-slot="table-head" className={className} {...props} />;
 }
-TableHead.displayName = 'TableHead';
+TableHead.displayName = 'Table.Head';
 
 export interface TableCellProps extends React.ComponentProps<'td'> {
   active?: boolean;
@@ -121,21 +121,34 @@ function TableCell({ className, active = false, ...props }: TableCellProps) {
     <td data-slot="table-cell" className={cn(active && 'table-active', className)} {...props} />
   );
 }
-TableCell.displayName = 'TableCell';
+TableCell.displayName = 'Table.Cell';
 
 function TableCaption({ className, ...props }: React.ComponentProps<'caption'>) {
   return <caption data-slot="table-caption" className={className} {...props} />;
 }
-TableCaption.displayName = 'TableCaption';
+TableCaption.displayName = 'Table.Caption';
 
-export {
-  Table,
-  TableHeader,
-  TableBody,
-  TableFooter,
-  TableRow,
-  TableHead,
-  TableCell,
-  TableCaption,
-  tableVariants,
-};
+const Table = /* @__PURE__ */ Object.assign(TableRoot, {
+  Root: TableRoot,
+  Header: TableHeader,
+  Body: TableBody,
+  Footer: TableFooter,
+  Row: TableRow,
+  Head: TableHead,
+  Cell: TableCell,
+  Caption: TableCaption,
+});
+
+namespace Table {
+  export type Props = React.ComponentProps<typeof TableRoot>;
+  export type RootProps = React.ComponentProps<typeof TableRoot>;
+  export type HeaderProps = React.ComponentProps<typeof TableHeader>;
+  export type BodyProps = React.ComponentProps<typeof TableBody>;
+  export type FooterProps = React.ComponentProps<typeof TableFooter>;
+  export type RowProps = React.ComponentProps<typeof TableRow>;
+  export type HeadProps = React.ComponentProps<typeof TableHead>;
+  export type CellProps = React.ComponentProps<typeof TableCell>;
+  export type CaptionProps = React.ComponentProps<typeof TableCaption>;
+}
+
+export { Table, tableVariants };

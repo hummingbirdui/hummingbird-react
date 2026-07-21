@@ -5,31 +5,31 @@ description: A set of layered panels whose triggers switch which panel is shown.
 
 ## Default
 
-`TabsList` uses the bordered style by default. Set `defaultValue` to select the initial tab.
+`Tabs.List` uses the bordered style by default. Set `defaultValue` to select the initial tab.
 
 <ComponentPreview name="tabs-default" />
 
 ## Underline
 
-Pass `variant="underline"` to `TabsList` for the underlined tab style.
+Pass `variant="underline"` to `Tabs.List` for the underlined tab style.
 
 <ComponentPreview name="tabs-underline" />
 
 ## Plain
 
-Pass `variant="default"` to `TabsList` for a borderless list of triggers.
+Pass `variant="default"` to `Tabs.List` for a borderless list of triggers.
 
 <ComponentPreview name="tabs-plain" />
 
 ## Colors
 
-The `color` prop on `TabsList` tints the active trigger.
+The `color` prop on `Tabs.List` tints the active trigger.
 
 <ComponentPreview name="tabs-colors" />
 
 ## Disabled
 
-Add `disabled` to a `TabsTrigger` to prevent its panel from being selected.
+Add `disabled` to a `Tabs.Trigger` to prevent its panel from being selected.
 
 <ComponentPreview name="tabs-disabled" />
 
@@ -115,7 +115,7 @@ Contains all the tabs component parts.
   ]}
 />
 
-### TabsList
+### Tabs.List
 
 Contains the triggers that are aligned along the edge of the active content.
 
@@ -134,8 +134,8 @@ Contains the triggers that are aligned along the edge of the active content.
       default: "true",
       description: (
         <>
-          When <code>true</code>, keyboard navigation will loop from last tab
-          to first, and vice versa.
+          When <code>true</code>, keyboard navigation will loop from last tab to
+          first, and vice versa.
         </>
       ),
     },
@@ -170,7 +170,7 @@ Contains the triggers that are aligned along the edge of the active content.
   ]}
 />
 
-### TabsTrigger
+### Tabs.Trigger
 
 The button that activates its associated content.
 
@@ -220,7 +220,7 @@ The button that activates its associated content.
   ]}
 />
 
-### TabsContent
+### Tabs.Content
 
 Contains the content associated with each trigger.
 

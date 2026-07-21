@@ -2,12 +2,7 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Tooltip,
-  TooltipProvider,
-  TooltipTrigger,
-  TooltipContent,
-} from './tooltip';
+import { Tooltip } from './tooltip';
 
 // A complete tooltip used across the behavioral tests. Props forward to the
 // Radix root so timing (`delayDuration`) and open state can be exercised.
@@ -17,11 +12,11 @@ function Example(
   const { triggerLabel = 'Hover me', label = 'Tooltip label', children, ...rootProps } = props;
   return (
     <Tooltip {...rootProps}>
-      <TooltipTrigger>{triggerLabel}</TooltipTrigger>
-      <TooltipContent>
+      <Tooltip.Trigger>{triggerLabel}</Tooltip.Trigger>
+      <Tooltip.Content>
         {label}
         {children}
-      </TooltipContent>
+      </Tooltip.Content>
     </Tooltip>
   );
 }
@@ -66,9 +61,7 @@ describe('Tooltip', () => {
 
     it('wraps the label in a tooltip-inner bubble', async () => {
       render(<Example open label="Inner text" />);
-      const inner = await waitFor(
-        () => document.querySelector('.tooltip-inner') as HTMLElement
-      );
+      const inner = await waitFor(() => document.querySelector('.tooltip-inner') as HTMLElement);
       expect(inner).toHaveTextContent('Inner text');
     });
 
@@ -112,8 +105,8 @@ describe('Tooltip', () => {
     it('merges className onto the content', async () => {
       render(
         <Tooltip open>
-          <TooltipTrigger>Open</TooltipTrigger>
-          <TooltipContent className="custom-tip">Tip</TooltipContent>
+          <Tooltip.Trigger>Open</Tooltip.Trigger>
+          <Tooltip.Content className="custom-tip">Tip</Tooltip.Content>
         </Tooltip>
       );
       const content = await waitFor(
@@ -124,14 +117,14 @@ describe('Tooltip', () => {
   });
 
   describe('Provider', () => {
-    it('works under a shared TooltipProvider', async () => {
+    it('works under a shared Tooltip.Provider', async () => {
       render(
-        <TooltipProvider>
+        <Tooltip.Provider>
           <Tooltip open>
-            <TooltipTrigger>Open</TooltipTrigger>
-            <TooltipContent>Shared</TooltipContent>
+            <Tooltip.Trigger>Open</Tooltip.Trigger>
+            <Tooltip.Content>Shared</Tooltip.Content>
           </Tooltip>
-        </TooltipProvider>
+        </Tooltip.Provider>
       );
       expect(await screen.findByRole('tooltip')).toBeInTheDocument();
     });
@@ -140,9 +133,9 @@ describe('Tooltip', () => {
   describe('Display Name', () => {
     it.each([
       [Tooltip, 'Tooltip'],
-      [TooltipProvider, 'TooltipProvider'],
-      [TooltipTrigger, 'TooltipTrigger'],
-      [TooltipContent, 'TooltipContent'],
+      [Tooltip.Provider, 'Tooltip.Provider'],
+      [Tooltip.Trigger, 'Tooltip.Trigger'],
+      [Tooltip.Content, 'Tooltip.Content'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

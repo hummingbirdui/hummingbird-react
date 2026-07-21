@@ -1,13 +1,13 @@
 "use client";
 
-import { ListGroup, ListGroupItem } from "@hummingbirdui/react";
+import { ListGroup } from "@hummingbirdui/react";
 
 export default function ListGroupDefault() {
   return (
     <ListGroup className="max-w-md">
-      <ListGroupItem>An item</ListGroupItem>
-      <ListGroupItem>A second item</ListGroupItem>
-      <ListGroupItem>A third item</ListGroupItem>
+      <ListGroup.Item>An item</ListGroup.Item>
+      <ListGroup.Item>A second item</ListGroup.Item>
+      <ListGroup.Item>A third item</ListGroup.Item>
     </ListGroup>
   );
 }

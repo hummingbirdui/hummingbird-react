@@ -1,14 +1,14 @@
 "use client";
 
-import { Navbar, NavbarBrand, NavbarText } from "@hummingbirdui/react";
+import { Navbar } from "@hummingbirdui/react";
 
 export default function NavbarText_() {
   return (
     <Navbar expand="always" className="bg-subtle">
-      <NavbarBrand href="#">Hummingbird</NavbarBrand>
-      <NavbarText>
+      <Navbar.Brand href="#">Hummingbird</Navbar.Brand>
+      <Navbar.Text>
         Signed in as <strong>Mark</strong>
-      </NavbarText>
+      </Navbar.Text>
     </Navbar>
   );
 }

@@ -2,26 +2,13 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  Dialog,
-  DialogTrigger,
-  DialogPortal,
-  DialogClose,
-  DialogOverlay,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogBody,
-  DialogFooter,
-  dialogVariants,
-} from './dialog';
+import { Dialog, dialogVariants } from './dialog';
 
 // A complete dialog used across the behavioral tests. Opens by default so the
 // portaled content is available synchronously; pass `defaultOpen={false}` for
 // the open/close interaction tests.
 function Example(
-  props: React.ComponentProps<typeof DialogContent> & {
+  props: React.ComponentProps<typeof Dialog.Content> & {
     triggerLabel?: string;
     defaultOpen?: boolean;
   }
@@ -29,20 +16,20 @@ function Example(
   const { triggerLabel = 'Open', defaultOpen = true, children, ...contentProps } = props;
   return (
     <Dialog defaultOpen={defaultOpen}>
-      <DialogTrigger>{triggerLabel}</DialogTrigger>
-      <DialogContent {...contentProps}>
-        <DialogHeader>
-          <DialogTitle>Title</DialogTitle>
-          <DialogClose>Close</DialogClose>
-        </DialogHeader>
-        <DialogBody>
-          <DialogDescription>Description</DialogDescription>
+      <Dialog.Trigger>{triggerLabel}</Dialog.Trigger>
+      <Dialog.Content {...contentProps}>
+        <Dialog.Header>
+          <Dialog.Title>Title</Dialog.Title>
+          <Dialog.Close>Close</Dialog.Close>
+        </Dialog.Header>
+        <Dialog.Body>
+          <Dialog.Description>Description</Dialog.Description>
           {children}
-        </DialogBody>
-        <DialogFooter>
-          <DialogClose>Cancel</DialogClose>
-        </DialogFooter>
-      </DialogContent>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Dialog.Close>Cancel</Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
     </Dialog>
   );
 }
@@ -70,13 +57,13 @@ describe('Dialog', () => {
     it('renders the supplied content parts', () => {
       render(
         <Dialog defaultOpen>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>My title</DialogTitle>
-            </DialogHeader>
-            <DialogBody>Body copy</DialogBody>
-            <DialogFooter>Footer</DialogFooter>
-          </DialogContent>
+          <Dialog.Content>
+            <Dialog.Header>
+              <Dialog.Title>My title</Dialog.Title>
+            </Dialog.Header>
+            <Dialog.Body>Body copy</Dialog.Body>
+            <Dialog.Footer>Footer</Dialog.Footer>
+          </Dialog.Content>
         </Dialog>
       );
       expect(screen.getByText('My title')).toBeInTheDocument();
@@ -188,7 +175,7 @@ describe('Dialog', () => {
   });
 
   describe('Interactions', () => {
-    it('closes when a DialogClose is clicked', async () => {
+    it('closes when a Dialog.Close is clicked', async () => {
       const user = userEvent.setup();
       render(<Example defaultOpen={false} />);
 
@@ -215,10 +202,10 @@ describe('Dialog', () => {
       const user = userEvent.setup();
       render(
         <Dialog onOpenChange={onOpenChange}>
-          <DialogTrigger>Open</DialogTrigger>
-          <DialogContent>
-            <DialogTitle>Title</DialogTitle>
-          </DialogContent>
+          <Dialog.Trigger>Open</Dialog.Trigger>
+          <Dialog.Content>
+            <Dialog.Title>Title</Dialog.Title>
+          </Dialog.Content>
         </Dialog>
       );
 
@@ -230,18 +217,18 @@ describe('Dialog', () => {
       const onOpenChange = vi.fn();
       const { rerender } = render(
         <Dialog open={false} onOpenChange={onOpenChange}>
-          <DialogContent>
-            <DialogTitle>Title</DialogTitle>
-          </DialogContent>
+          <Dialog.Content>
+            <Dialog.Title>Title</Dialog.Title>
+          </Dialog.Content>
         </Dialog>
       );
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
       rerender(
         <Dialog open onOpenChange={onOpenChange}>
-          <DialogContent>
-            <DialogTitle>Title</DialogTitle>
-          </DialogContent>
+          <Dialog.Content>
+            <Dialog.Title>Title</Dialog.Title>
+          </Dialog.Content>
         </Dialog>
       );
       expect(await screen.findByRole('dialog')).toBeInTheDocument();
@@ -285,12 +272,12 @@ describe('Dialog', () => {
     it('renders the trigger as the supplied child', () => {
       render(
         <Dialog>
-          <DialogTrigger asChild>
+          <Dialog.Trigger asChild>
             <a href="/open">Open link</a>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogTitle>Title</DialogTitle>
-          </DialogContent>
+          </Dialog.Trigger>
+          <Dialog.Content>
+            <Dialog.Title>Title</Dialog.Title>
+          </Dialog.Content>
         </Dialog>
       );
       const link = screen.getByRole('link', { name: /open link/i });
@@ -302,16 +289,16 @@ describe('Dialog', () => {
   describe('Display Name', () => {
     it.each([
       [Dialog, 'Dialog'],
-      [DialogTrigger, 'DialogTrigger'],
-      [DialogPortal, 'DialogPortal'],
-      [DialogClose, 'DialogClose'],
-      [DialogOverlay, 'DialogOverlay'],
-      [DialogContent, 'DialogContent'],
-      [DialogHeader, 'DialogHeader'],
-      [DialogTitle, 'DialogTitle'],
-      [DialogDescription, 'DialogDescription'],
-      [DialogBody, 'DialogBody'],
-      [DialogFooter, 'DialogFooter'],
+      [Dialog.Trigger, 'Dialog.Trigger'],
+      [Dialog.Portal, 'Dialog.Portal'],
+      [Dialog.Close, 'Dialog.Close'],
+      [Dialog.Overlay, 'Dialog.Overlay'],
+      [Dialog.Content, 'Dialog.Content'],
+      [Dialog.Header, 'Dialog.Header'],
+      [Dialog.Title, 'Dialog.Title'],
+      [Dialog.Description, 'Dialog.Description'],
+      [Dialog.Body, 'Dialog.Body'],
+      [Dialog.Footer, 'Dialog.Footer'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });

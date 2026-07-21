@@ -1,32 +1,21 @@
 "use client";
 
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogBody,
-  DialogFooter,
-  DialogClose,
-  Button,
-  CloseButton,
-} from "@hummingbirdui/react";
+import { Dialog, Button, CloseButton } from "@hummingbirdui/react";
 
 export default function DialogScrollable() {
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <Dialog.Trigger asChild>
         <Button variant="outline">Scrollable dialog</Button>
-      </DialogTrigger>
-      <DialogContent scrollable centered>
-        <DialogHeader>
-          <DialogTitle>Terms of service</DialogTitle>
-          <DialogClose asChild>
+      </Dialog.Trigger>
+      <Dialog.Content scrollable centered>
+        <Dialog.Header>
+          <Dialog.Title>Terms of service</Dialog.Title>
+          <Dialog.Close asChild>
             <CloseButton />
-          </DialogClose>
-        </DialogHeader>
-        <DialogBody className="max-h-72">
+          </Dialog.Close>
+        </Dialog.Header>
+        <Dialog.Body className="max-h-72">
           <p>Scroll to read all of the content below.</p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
@@ -45,13 +34,13 @@ export default function DialogScrollable() {
             Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh.
             Aenean quam. In scelerisque sem at dolor. Maecenas mattis.
           </p>
-        </DialogBody>
-        <DialogFooter>
-          <DialogClose asChild>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Dialog.Close asChild>
             <Button>Got it</Button>
-          </DialogClose>
-        </DialogFooter>
-      </DialogContent>
+          </Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
     </Dialog>
   );
 }

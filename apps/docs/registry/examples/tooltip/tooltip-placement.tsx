@@ -1,41 +1,36 @@
 "use client";
 
-import {
-  Button,
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@hummingbirdui/react";
+import { Button, Tooltip } from "@hummingbirdui/react";
 
 export default function TooltipPlacement() {
   return (
     <div className="flex flex-wrap justify-center gap-2">
       <Tooltip>
-        <TooltipTrigger asChild>
+        <Tooltip.Trigger asChild>
           <Button variant="outline">Top</Button>
-        </TooltipTrigger>
-        <TooltipContent side="top">On top</TooltipContent>
+        </Tooltip.Trigger>
+        <Tooltip.Content side="top">On top</Tooltip.Content>
       </Tooltip>
 
       <Tooltip>
-        <TooltipTrigger asChild>
+        <Tooltip.Trigger asChild>
           <Button variant="outline">Right</Button>
-        </TooltipTrigger>
-        <TooltipContent side="right">On the right</TooltipContent>
+        </Tooltip.Trigger>
+        <Tooltip.Content side="right">On the right</Tooltip.Content>
       </Tooltip>
 
       <Tooltip>
-        <TooltipTrigger asChild>
+        <Tooltip.Trigger asChild>
           <Button variant="outline">Bottom</Button>
-        </TooltipTrigger>
-        <TooltipContent side="bottom">On the bottom</TooltipContent>
+        </Tooltip.Trigger>
+        <Tooltip.Content side="bottom">On the bottom</Tooltip.Content>
       </Tooltip>
 
       <Tooltip>
-        <TooltipTrigger asChild>
+        <Tooltip.Trigger asChild>
           <Button variant="outline">Left</Button>
-        </TooltipTrigger>
-        <TooltipContent side="left">On the left</TooltipContent>
+        </Tooltip.Trigger>
+        <Tooltip.Content side="left">On the left</Tooltip.Content>
       </Tooltip>
     </div>
   );
