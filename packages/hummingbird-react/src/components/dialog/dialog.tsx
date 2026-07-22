@@ -172,7 +172,6 @@ function DialogFooter({ className, ...props }: React.ComponentProps<'div'>) {
 DialogFooter.displayName = 'Dialog.Footer';
 
 const Dialog = /* @__PURE__ */ Object.assign(DialogRoot, {
-  Root: DialogRoot,
   Trigger: DialogTrigger,
   Portal: DialogPortal,
   Close: DialogClose,
@@ -187,7 +186,6 @@ const Dialog = /* @__PURE__ */ Object.assign(DialogRoot, {
 
 namespace Dialog {
   export type Props = React.ComponentProps<typeof DialogRoot>;
-  export type RootProps = React.ComponentProps<typeof DialogRoot>;
   export type TriggerProps = React.ComponentProps<typeof DialogTrigger>;
   export type PortalProps = React.ComponentProps<typeof DialogPortal>;
   export type CloseProps = React.ComponentProps<typeof DialogClose>;

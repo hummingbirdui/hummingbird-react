@@ -34,14 +34,12 @@ function CollapsibleContent({
 CollapsibleContent.displayName = 'Collapsible.Content';
 
 const Collapsible = /* @__PURE__ */ Object.assign(CollapsibleRoot, {
-  Root: CollapsibleRoot,
   Trigger: CollapsibleTrigger,
   Content: CollapsibleContent,
 });
 
 namespace Collapsible {
   export type Props = React.ComponentProps<typeof CollapsibleRoot>;
-  export type RootProps = React.ComponentProps<typeof CollapsibleRoot>;
   export type TriggerProps = React.ComponentProps<typeof CollapsibleTrigger>;
   export type ContentProps = React.ComponentProps<typeof CollapsibleContent>;
 }

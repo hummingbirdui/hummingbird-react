@@ -103,13 +103,11 @@ function BadgeActionButton({ className, type = 'button', ...props }: BadgeAction
 BadgeActionButton.displayName = 'Badge.ActionButton';
 
 const Badge = /* @__PURE__ */ Object.assign(BadgeRoot, {
-  Root: BadgeRoot,
   ActionButton: BadgeActionButton,
 });
 
 namespace Badge {
   export type Props = React.ComponentProps<typeof BadgeRoot>;
-  export type RootProps = React.ComponentProps<typeof BadgeRoot>;
   export type ActionButtonProps = React.ComponentProps<typeof BadgeActionButton>;
 }
 

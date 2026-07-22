@@ -85,8 +85,7 @@ function AccordionContent({
 }
 AccordionContent.displayName = 'Accordion.Content';
 
-const Accordion = /* @__PURE__ */ Object.assign(AccordionRoot, {
-  Root: AccordionRoot,
+const Accordion = Object.assign(AccordionRoot, {
   Item: AccordionItem,
   Header: AccordionHeader,
   Trigger: AccordionTrigger,
@@ -95,7 +94,6 @@ const Accordion = /* @__PURE__ */ Object.assign(AccordionRoot, {
 
 namespace Accordion {
   export type Props = React.ComponentProps<typeof AccordionRoot>;
-  export type RootProps = React.ComponentProps<typeof AccordionRoot>;
   export type ItemProps = React.ComponentProps<typeof AccordionItem>;
   export type HeaderProps = React.ComponentProps<typeof AccordionHeader>;
   export type TriggerProps = React.ComponentProps<typeof AccordionTrigger>;

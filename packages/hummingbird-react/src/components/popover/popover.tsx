@@ -81,7 +81,6 @@ function PopoverBody({ className, ...props }: React.ComponentProps<'div'>) {
 PopoverBody.displayName = 'Popover.Body';
 
 const Popover = /* @__PURE__ */ Object.assign(PopoverRoot, {
-  Root: PopoverRoot,
   Trigger: PopoverTrigger,
   Anchor: PopoverAnchor,
   Close: PopoverClose,
@@ -92,7 +91,6 @@ const Popover = /* @__PURE__ */ Object.assign(PopoverRoot, {
 
 namespace Popover {
   export type Props = React.ComponentProps<typeof PopoverRoot>;
-  export type RootProps = React.ComponentProps<typeof PopoverRoot>;
   export type TriggerProps = React.ComponentProps<typeof PopoverTrigger>;
   export type AnchorProps = React.ComponentProps<typeof PopoverAnchor>;
   export type CloseProps = React.ComponentProps<typeof PopoverClose>;

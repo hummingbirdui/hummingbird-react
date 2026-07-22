@@ -103,7 +103,6 @@ function DrawerBody({ className, ...props }: React.ComponentProps<'div'>) {
 DrawerBody.displayName = 'Drawer.Body';
 
 const Drawer = /* @__PURE__ */ Object.assign(DrawerRoot, {
-  Root: DrawerRoot,
   Trigger: DrawerTrigger,
   Portal: DrawerPortal,
   Close: DrawerClose,
@@ -117,7 +116,6 @@ const Drawer = /* @__PURE__ */ Object.assign(DrawerRoot, {
 
 namespace Drawer {
   export type Props = React.ComponentProps<typeof DrawerRoot>;
-  export type RootProps = React.ComponentProps<typeof DrawerRoot>;
   export type TriggerProps = React.ComponentProps<typeof DrawerTrigger>;
   export type PortalProps = React.ComponentProps<typeof DrawerPortal>;
   export type CloseProps = React.ComponentProps<typeof DrawerClose>;

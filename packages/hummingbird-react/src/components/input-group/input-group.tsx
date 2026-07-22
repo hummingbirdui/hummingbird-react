@@ -42,13 +42,11 @@ function InputGroupText({ className, ...props }: InputGroupTextProps) {
 InputGroupText.displayName = 'InputGroup.Text';
 
 const InputGroup = /* @__PURE__ */ Object.assign(InputGroupRoot, {
-  Root: InputGroupRoot,
   Text: InputGroupText,
 });
 
 namespace InputGroup {
   export type Props = React.ComponentProps<typeof InputGroupRoot>;
-  export type RootProps = React.ComponentProps<typeof InputGroupRoot>;
   export type TextProps = React.ComponentProps<typeof InputGroupText>;
 }
 

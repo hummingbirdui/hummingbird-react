@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/khayrul/Developer/Technext/hummingbird-react stash)",
+      "Bash(git -C /Users/khayrul/Developer/Technext/hummingbird-react stash pop)",
+      "Edit(/.claude/skills/create-component/**)"
+    ]
+  }
+}

@@ -75,13 +75,11 @@ function AlertIcon({ className, ...props }: AlertIconProps) {
 AlertIcon.displayName = 'Alert.Icon';
 
 const Alert = /* @__PURE__ */ Object.assign(AlertRoot, {
-  Root: AlertRoot,
   Icon: AlertIcon,
 });
 
 namespace Alert {
   export type Props = React.ComponentProps<typeof AlertRoot>;
-  export type RootProps = React.ComponentProps<typeof AlertRoot>;
   export type IconProps = React.ComponentProps<typeof AlertIcon>;
 }
 

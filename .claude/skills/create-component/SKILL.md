@@ -170,13 +170,11 @@ Key conventions (do not deviate):
 
   ```tsx
   const <Name> = /* @__PURE__ */ Object.assign(<Name>Root, {
-    Root: <Name>Root,
     <Part>: <Name><Part>,
   });
 
   namespace <Name> {
     export type Props = React.ComponentProps<typeof <Name>Root>;
-    export type RootProps = React.ComponentProps<typeof <Name>Root>;
     export type <Part>Props = React.ComponentProps<typeof <Name><Part>>;
   }
 

@@ -145,7 +145,6 @@ function PaginationLink({ className, asChild = false, ...props }: PaginationLink
 PaginationLink.displayName = 'Pagination.Link';
 
 const Pagination = /* @__PURE__ */ Object.assign(PaginationRoot, {
-  Root: PaginationRoot,
   Content: PaginationContent,
   Item: PaginationItem,
   Link: PaginationLink,
@@ -153,7 +152,6 @@ const Pagination = /* @__PURE__ */ Object.assign(PaginationRoot, {
 
 namespace Pagination {
   export type Props = React.ComponentProps<typeof PaginationRoot>;
-  export type RootProps = React.ComponentProps<typeof PaginationRoot>;
   export type ContentProps = React.ComponentProps<typeof PaginationContent>;
   export type ItemProps = React.ComponentProps<typeof PaginationItem>;
   export type LinkProps = React.ComponentProps<typeof PaginationLink>;

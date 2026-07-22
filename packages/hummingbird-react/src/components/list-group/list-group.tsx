@@ -102,14 +102,12 @@ function ListText({ className, variant, ...props }: ListTextProps) {
 ListText.displayName = 'ListGroup.Text';
 
 const ListGroup = /* @__PURE__ */ Object.assign(ListGroupRoot, {
-  Root: ListGroupRoot,
   Item: ListGroupItem,
   Text: ListText,
 });
 
 namespace ListGroup {
   export type Props = React.ComponentProps<typeof ListGroupRoot>;
-  export type RootProps = React.ComponentProps<typeof ListGroupRoot>;
   export type ItemProps = React.ComponentProps<typeof ListGroupItem>;
   export type TextProps = React.ComponentProps<typeof ListText>;
 }

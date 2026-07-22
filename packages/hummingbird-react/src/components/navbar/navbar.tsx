@@ -202,7 +202,6 @@ function NavbarToggle({ className, children, ...props }: NavbarToggleProps) {
 NavbarToggle.displayName = 'Navbar.Toggle';
 
 const Navbar = /* @__PURE__ */ Object.assign(NavbarRoot, {
-  Root: NavbarRoot,
   Brand: NavbarBrand,
   Nav: NavbarNav,
   Text: NavbarText,
@@ -213,7 +212,6 @@ const Navbar = /* @__PURE__ */ Object.assign(NavbarRoot, {
 
 namespace Navbar {
   export type Props = React.ComponentProps<typeof NavbarRoot>;
-  export type RootProps = React.ComponentProps<typeof NavbarRoot>;
   export type BrandProps = React.ComponentProps<typeof NavbarBrand>;
   export type NavProps = React.ComponentProps<typeof NavbarNav>;
   export type TextProps = React.ComponentProps<typeof NavbarText>;

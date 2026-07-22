@@ -52,13 +52,11 @@ function ButtonToolbar({ className, ...props }: ButtonToolbarProps) {
 ButtonToolbar.displayName = 'ButtonGroup.Toolbar';
 
 const ButtonGroup = /* @__PURE__ */ Object.assign(ButtonGroupRoot, {
-  Root: ButtonGroupRoot,
   Toolbar: ButtonToolbar,
 });
 
 namespace ButtonGroup {
   export type Props = React.ComponentProps<typeof ButtonGroupRoot>;
-  export type RootProps = React.ComponentProps<typeof ButtonGroupRoot>;
   export type ToolbarProps = React.ComponentProps<typeof ButtonToolbar>;
 }
 

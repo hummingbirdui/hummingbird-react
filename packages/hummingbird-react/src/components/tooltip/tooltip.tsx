@@ -68,7 +68,6 @@ function TooltipContent({
 TooltipContent.displayName = 'Tooltip.Content';
 
 const Tooltip = /* @__PURE__ */ Object.assign(TooltipRoot, {
-  Root: TooltipRoot,
   Provider: TooltipProvider,
   Trigger: TooltipTrigger,
   Content: TooltipContent,
@@ -76,7 +75,6 @@ const Tooltip = /* @__PURE__ */ Object.assign(TooltipRoot, {
 
 namespace Tooltip {
   export type Props = React.ComponentProps<typeof TooltipRoot>;
-  export type RootProps = React.ComponentProps<typeof TooltipRoot>;
   export type ProviderProps = React.ComponentProps<typeof TooltipProvider>;
   export type TriggerProps = React.ComponentProps<typeof TooltipTrigger>;
   export type ContentProps = React.ComponentProps<typeof TooltipContent>;

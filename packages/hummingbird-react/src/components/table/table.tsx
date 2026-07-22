@@ -129,7 +129,6 @@ function TableCaption({ className, ...props }: React.ComponentProps<'caption'>) 
 TableCaption.displayName = 'Table.Caption';
 
 const Table = /* @__PURE__ */ Object.assign(TableRoot, {
-  Root: TableRoot,
   Header: TableHeader,
   Body: TableBody,
   Footer: TableFooter,
@@ -141,7 +140,6 @@ const Table = /* @__PURE__ */ Object.assign(TableRoot, {
 
 namespace Table {
   export type Props = React.ComponentProps<typeof TableRoot>;
-  export type RootProps = React.ComponentProps<typeof TableRoot>;
   export type HeaderProps = React.ComponentProps<typeof TableHeader>;
   export type BodyProps = React.ComponentProps<typeof TableBody>;
   export type FooterProps = React.ComponentProps<typeof TableFooter>;

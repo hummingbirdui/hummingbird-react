@@ -140,14 +140,12 @@ function InputIconEnd({ className, ...props }: InputIconSlotProps) {
 InputIconEnd.displayName = 'InputIcon.End';
 
 const InputIcon = /* @__PURE__ */ Object.assign(InputIconRoot, {
-  Root: InputIconRoot,
   Start: InputIconStart,
   End: InputIconEnd,
 });
 
 namespace InputIcon {
   export type Props = React.ComponentProps<typeof InputIconRoot>;
-  export type RootProps = React.ComponentProps<typeof InputIconRoot>;
   export type StartProps = React.ComponentProps<typeof InputIconStart>;
   export type EndProps = React.ComponentProps<typeof InputIconEnd>;
 }

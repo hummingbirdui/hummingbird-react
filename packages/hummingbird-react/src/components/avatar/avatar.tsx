@@ -74,7 +74,6 @@ function AvatarGroup({ className, ...props }: AvatarGroupProps) {
 AvatarGroup.displayName = 'Avatar.Group';
 
 const Avatar = /* @__PURE__ */ Object.assign(AvatarRoot, {
-  Root: AvatarRoot,
   Image: AvatarImage,
   Fallback: AvatarFallback,
   Group: AvatarGroup,
@@ -82,7 +81,6 @@ const Avatar = /* @__PURE__ */ Object.assign(AvatarRoot, {
 
 namespace Avatar {
   export type Props = React.ComponentProps<typeof AvatarRoot>;
-  export type RootProps = React.ComponentProps<typeof AvatarRoot>;
   export type ImageProps = React.ComponentProps<typeof AvatarImage>;
   export type FallbackProps = React.ComponentProps<typeof AvatarFallback>;
   export type GroupProps = React.ComponentProps<typeof AvatarGroup>;

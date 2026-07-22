@@ -113,7 +113,6 @@ function CardGroup({ className, ...props }: CardSlotProps) {
 CardGroup.displayName = 'Card.Group';
 
 const Card = /* @__PURE__ */ Object.assign(CardRoot, {
-  Root: CardRoot,
   Header: CardHeader,
   Body: CardBody,
   Footer: CardFooter,
@@ -127,7 +126,6 @@ const Card = /* @__PURE__ */ Object.assign(CardRoot, {
 
 namespace Card {
   export type Props = React.ComponentProps<typeof CardRoot>;
-  export type RootProps = React.ComponentProps<typeof CardRoot>;
   export type HeaderProps = React.ComponentProps<typeof CardHeader>;
   export type BodyProps = React.ComponentProps<typeof CardBody>;
   export type FooterProps = React.ComponentProps<typeof CardFooter>;

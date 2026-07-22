@@ -135,7 +135,6 @@ function DropdownMenuItemText({ className, ...props }: React.ComponentProps<'spa
 DropdownMenuItemText.displayName = 'Dropdown.ItemText';
 
 const Dropdown = /* @__PURE__ */ Object.assign(DropdownRoot, {
-  Root: DropdownRoot,
   Portal: DropdownMenuPortal,
   Trigger: DropdownMenuTrigger,
   Content: DropdownMenuContent,
@@ -148,7 +147,6 @@ const Dropdown = /* @__PURE__ */ Object.assign(DropdownRoot, {
 
 namespace Dropdown {
   export type Props = React.ComponentProps<typeof DropdownRoot>;
-  export type RootProps = React.ComponentProps<typeof DropdownRoot>;
   export type PortalProps = React.ComponentProps<typeof DropdownMenuPortal>;
   export type TriggerProps = React.ComponentProps<typeof DropdownMenuTrigger>;
   export type ContentProps = React.ComponentProps<typeof DropdownMenuContent>;

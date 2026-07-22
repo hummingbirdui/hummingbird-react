@@ -139,13 +139,11 @@ function RadioGroup({
 RadioGroup.displayName = 'Radio.Group';
 
 const Radio = /* @__PURE__ */ Object.assign(RadioRoot, {
-  Root: RadioRoot,
   Group: RadioGroup,
 });
 
 namespace Radio {
   export type Props = React.ComponentProps<typeof RadioRoot>;
-  export type RootProps = React.ComponentProps<typeof RadioRoot>;
   export type GroupProps = React.ComponentProps<typeof RadioGroup>;
 }
 

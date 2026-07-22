@@ -83,7 +83,6 @@ function TabsContent({ className, ...props }: React.ComponentProps<typeof TabsPr
 TabsContent.displayName = 'Tabs.Content';
 
 const Tabs = /* @__PURE__ */ Object.assign(TabsRoot, {
-  Root: TabsRoot,
   List: TabsList,
   Trigger: TabsTrigger,
   Content: TabsContent,
@@ -91,7 +90,6 @@ const Tabs = /* @__PURE__ */ Object.assign(TabsRoot, {
 
 namespace Tabs {
   export type Props = React.ComponentProps<typeof TabsRoot>;
-  export type RootProps = React.ComponentProps<typeof TabsRoot>;
   export type ListProps = React.ComponentProps<typeof TabsList>;
   export type TriggerProps = React.ComponentProps<typeof TabsTrigger>;
   export type ContentProps = React.ComponentProps<typeof TabsContent>;

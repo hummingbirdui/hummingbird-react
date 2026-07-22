@@ -79,14 +79,12 @@ function NavLink({
 NavLink.displayName = 'Nav.Link';
 
 const Nav = /* @__PURE__ */ Object.assign(NavRoot, {
-  Root: NavRoot,
   Item: NavItem,
   Link: NavLink,
 });
 
 namespace Nav {
   export type Props = React.ComponentProps<typeof NavRoot>;
-  export type RootProps = React.ComponentProps<typeof NavRoot>;
   export type ItemProps = React.ComponentProps<typeof NavItem>;
   export type LinkProps = React.ComponentProps<typeof NavLink>;
 }

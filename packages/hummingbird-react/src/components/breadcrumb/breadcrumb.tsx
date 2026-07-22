@@ -86,7 +86,6 @@ function BreadcrumbPage({ className, ...props }: BreadcrumbPageProps) {
 BreadcrumbPage.displayName = 'Breadcrumb.Page';
 
 const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbRoot, {
-  Root: BreadcrumbRoot,
   List: BreadcrumbList,
   Item: BreadcrumbItem,
   Link: BreadcrumbLink,
@@ -95,7 +94,6 @@ const Breadcrumb = /* @__PURE__ */ Object.assign(BreadcrumbRoot, {
 
 namespace Breadcrumb {
   export type Props = React.ComponentProps<typeof BreadcrumbRoot>;
-  export type RootProps = React.ComponentProps<typeof BreadcrumbRoot>;
   export type ListProps = React.ComponentProps<typeof BreadcrumbList>;
   export type ItemProps = React.ComponentProps<typeof BreadcrumbItem>;
   export type LinkProps = React.ComponentProps<typeof BreadcrumbLink>;
