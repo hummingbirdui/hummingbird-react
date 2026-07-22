@@ -29,4 +29,4 @@ export * from './table';
 export * from './tabs';
 export * from './theme-mode-script';
 export * from './tooltip';
-export * from './typography';
+export * from '../typography/text';
