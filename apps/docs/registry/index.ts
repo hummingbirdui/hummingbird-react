@@ -204,4 +204,11 @@ export const registry: Record<string, RegistryEntry> = {
   "reboot-blockquote": { file: "reboot/blockquote.tsx" },
   "reboot-legend": { file: "reboot/legend.tsx" },
   "reboot-captions": { file: "reboot/captions.tsx" },
+  "text-default": { file: "text/text-default.tsx" },
+  "text-headings": { file: "text/text-headings.tsx" },
+  "text-elements": { file: "text/text-elements.tsx" },
+  "text-sizes": { file: "text/text-sizes.tsx" },
+  "text-weights": { file: "text/text-weights.tsx" },
+  "text-truncate": { file: "text/text-truncate.tsx" },
+  "text-line-clamp": { file: "text/text-line-clamp.tsx" },
 };

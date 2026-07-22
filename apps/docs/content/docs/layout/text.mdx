@@ -1,0 +1,87 @@
+---
+title: Text
+description: Text is a polymorphic typography component for rendering any text element with consistent size, weight, and overflow handling.
+---
+
+## Default
+
+Text renders a `p` element by default.
+
+<ComponentPreview name="text-default" />
+
+## Headings
+
+Text can render any heading element from `h1` to `h6`.
+
+<ComponentPreview name="text-headings" />
+
+## Elements
+
+Other text elements can be rendered by passing the `as` prop.
+
+<ComponentPreview name="text-elements" />
+
+## Sizes
+
+The `size` prop sets the font size, from `xs` up to `9xl`.
+
+<ComponentPreview name="text-sizes" />
+
+## Font weight
+
+The `fontWeight` prop sets the font weight, from `thin` up to `black`.
+
+<ComponentPreview name="text-weights" />
+
+## Truncate
+
+Setting `truncate` cuts off overflowing text on a single line with an ellipsis.
+
+<ComponentPreview name="text-truncate" />
+
+## Line clamp
+
+The `lineClamp` prop limits the text to the given number of lines and truncates the overflow with an ellipsis.
+
+<ComponentPreview name="text-line-clamp" />
+
+## API Reference
+
+<PropsTable
+  data={[
+    {
+      prop: "as",
+      type: '"p" | "span" | "label" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "small" | "strong" | "em" | "blockquote" | "code" | "mark" | "del" | "ins" | "sub" | "sup" | "b"',
+      default: '"p"',
+      description: "The text tag to render.",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"',
+      description:
+        "Font size. When omitted, the rendered tag keeps its default size.",
+    },
+    {
+      prop: "fontWeight",
+      type: '"thin" | "extralight" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold" | "black"',
+      description:
+        "Font weight. When omitted, the rendered tag keeps its default weight.",
+    },
+    {
+      prop: "truncate",
+      type: "boolean",
+      description:
+        "Truncates overflowing text on a single line with an ellipsis.",
+    },
+    {
+      prop: "lineClamp",
+      type: "1 | 2 | 3 | 4 | 5 | 6",
+      description: "Limits the text to the given number of lines.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
