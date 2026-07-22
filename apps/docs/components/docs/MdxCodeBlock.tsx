@@ -3,24 +3,7 @@
 import { Check, Copy, File } from "lucide-react";
 import { Button } from "@hummingbirdui/react";
 import { cn } from "@hummingbirdui/react/utils";
-import {
-  isValidElement,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
-
-/** Recursively pull the plain-text source out of Shiki's highlighted spans. */
-function extractText(node: ReactNode): string {
-  if (typeof node === "string") return node;
-  if (typeof node === "number") return String(node);
-  if (Array.isArray(node)) return node.map(extractText).join("");
-  if (isValidElement(node)) {
-    return extractText((node.props as { children?: ReactNode }).children);
-  }
-  return "";
-}
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type MdxCodeBlockProps = React.HTMLAttributes<HTMLPreElement> & {
   title?: string;
@@ -35,7 +18,10 @@ export function MdxCodeBlock({
   ...props
 }: MdxCodeBlockProps) {
   const [copied, setCopied] = useState(false);
-  const rawCode = useMemo(() => extractText(children), [children]);
+  // The highlighted children arrive from the server as a partially-lazy
+  // Flight tree, so walking element props here misses outlined chunks —
+  // read the rendered text from the DOM instead.
+  const preRef = useRef<HTMLPreElement>(null);
 
   useEffect(() => {
     if (!copied) return;
@@ -60,7 +46,8 @@ export function MdxCodeBlock({
         aria-label={copied ? "Copied" : "Copy code"}
         className="absolute right-2 top-2 z-10"
         onClick={() => {
-          void navigator.clipboard.writeText(rawCode);
+          const code = preRef.current?.textContent ?? "";
+          void navigator.clipboard.writeText(code.replace(/\n$/, ""));
           setCopied(true);
         }}
       >
@@ -68,6 +55,7 @@ export function MdxCodeBlock({
       </Button>
 
       <pre
+        ref={preRef}
         className={cn(
           "hb-code m-0 overflow-auto py-6 pe-12! ps-5",
           title && "pt-12",
