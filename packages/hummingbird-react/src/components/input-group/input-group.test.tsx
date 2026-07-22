@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { InputGroup, inputGroupVariants } from './input-group';
-import { FormControl } from '../form-control';
+import { Input } from '../input';
 import { Button } from '../button';
 
 describe('InputGroup', () => {
@@ -25,7 +25,7 @@ describe('InputGroup', () => {
       render(
         <InputGroup>
           <InputGroup.Text>@</InputGroup.Text>
-          <FormControl placeholder="Username" />
+          <Input placeholder="Username" />
         </InputGroup>
       );
       const group = screen.getByRole('group');
@@ -40,7 +40,7 @@ describe('InputGroup', () => {
       render(
         <InputGroup>
           <InputGroup.Text>$</InputGroup.Text>
-          <FormControl placeholder="Amount" />
+          <Input placeholder="Amount" />
           <InputGroup.Text>.00</InputGroup.Text>
         </InputGroup>
       );
@@ -53,7 +53,7 @@ describe('InputGroup', () => {
       const user = userEvent.setup();
       render(
         <InputGroup>
-          <FormControl placeholder="Search" />
+          <Input placeholder="Search" />
           <Button>Go</Button>
         </InputGroup>
       );
@@ -146,7 +146,7 @@ describe('InputGroup', () => {
       render(
         <InputGroup>
           <InputGroup.Text id="basic-addon">@</InputGroup.Text>
-          <FormControl placeholder="Username" aria-describedby="basic-addon" />
+          <Input placeholder="Username" aria-describedby="basic-addon" />
         </InputGroup>
       );
       const input = screen.getByPlaceholderText('Username');

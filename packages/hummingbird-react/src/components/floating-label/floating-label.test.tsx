@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FloatingLabel } from './floating-label';
-import { FormControl, Textarea } from '../form-control';
+import { Input, Textarea } from '../input';
 import { Select } from '../select';
 
 describe('FloatingLabel', () => {
@@ -11,7 +11,7 @@ describe('FloatingLabel', () => {
     it('renders a wrapper div with the control and the label', () => {
       render(
         <FloatingLabel label="Email address" htmlFor="email">
-          <FormControl id="email" type="email" />
+          <Input id="email" type="email" />
         </FloatingLabel>
       );
       const input = screen.getByLabelText('Email address');
@@ -23,7 +23,7 @@ describe('FloatingLabel', () => {
     it('renders with data-slot attribute', () => {
       const { container } = render(
         <FloatingLabel label="Name">
-          <FormControl />
+          <Input />
         </FloatingLabel>
       );
       const wrapper = container.querySelector('[data-slot="floating-label"]');
@@ -34,7 +34,7 @@ describe('FloatingLabel', () => {
     it('renders the label after the control (CSS-required order)', () => {
       const { container } = render(
         <FloatingLabel label="Name" htmlFor="name">
-          <FormControl id="name" />
+          <Input id="name" />
         </FloatingLabel>
       );
       const wrapper = container.querySelector('[data-slot="floating-label"]');
@@ -44,16 +44,16 @@ describe('FloatingLabel', () => {
       expect(children[1]?.tagName).toBe('LABEL');
     });
 
-    it('renders the label as a FormLabel with form-label class', () => {
+    it('renders the label as a Field.Label with form-label class', () => {
       render(
         <FloatingLabel label="Name">
-          <FormControl />
+          <Input />
         </FloatingLabel>
       );
       const label = screen.getByText('Name');
       expect(label.tagName).toBe('LABEL');
       expect(label).toHaveClass('form-label');
-      expect(label).toHaveAttribute('data-slot', 'form-label');
+      expect(label).toHaveAttribute('data-slot', 'field-label');
     });
 
     it('supports React node label content', () => {
@@ -65,7 +65,7 @@ describe('FloatingLabel', () => {
             </>
           }
         >
-          <FormControl />
+          <Input />
         </FloatingLabel>
       );
       expect(screen.getByText('(required)')).toBeInTheDocument();
@@ -76,7 +76,7 @@ describe('FloatingLabel', () => {
     it('injects a blank placeholder when the control has none', () => {
       render(
         <FloatingLabel label="Name" htmlFor="name">
-          <FormControl id="name" />
+          <Input id="name" />
         </FloatingLabel>
       );
       const input = screen.getByLabelText('Name');
@@ -86,7 +86,7 @@ describe('FloatingLabel', () => {
     it('preserves an existing placeholder on the control', () => {
       render(
         <FloatingLabel label="Name" htmlFor="name">
-          <FormControl id="name" placeholder="Jane Doe" />
+          <Input id="name" placeholder="Jane Doe" />
         </FloatingLabel>
       );
       const input = screen.getByLabelText('Name');
@@ -106,10 +106,10 @@ describe('FloatingLabel', () => {
   });
 
   describe('Control Integration', () => {
-    it('works with FormControl and keeps its classes', () => {
+    it('works with Input and keeps its classes', () => {
       render(
         <FloatingLabel label="Email" htmlFor="email">
-          <FormControl id="email" variant="fill" size="lg" />
+          <Input id="email" variant="fill" size="lg" />
         </FloatingLabel>
       );
       const input = screen.getByLabelText('Email');
@@ -144,7 +144,7 @@ describe('FloatingLabel', () => {
       const user = userEvent.setup();
       render(
         <FloatingLabel label="Name" htmlFor="name">
-          <FormControl id="name" />
+          <Input id="name" />
         </FloatingLabel>
       );
       const input = screen.getByLabelText('Name');
@@ -157,7 +157,7 @@ describe('FloatingLabel', () => {
     it('always includes base form-floating class', () => {
       const { container } = render(
         <FloatingLabel label="Name">
-          <FormControl />
+          <Input />
         </FloatingLabel>
       );
       const wrapper = container.querySelector('[data-slot="floating-label"]');
@@ -167,7 +167,7 @@ describe('FloatingLabel', () => {
     it('merges custom className with the base class', () => {
       const { container } = render(
         <FloatingLabel label="Name" className="custom-class mb-3">
-          <FormControl />
+          <Input />
         </FloatingLabel>
       );
       const wrapper = container.querySelector('[data-slot="floating-label"]');
@@ -180,7 +180,7 @@ describe('FloatingLabel', () => {
       const ref = React.createRef<HTMLDivElement>();
       render(
         <FloatingLabel label="Name" ref={ref}>
-          <FormControl />
+          <Input />
         </FloatingLabel>
       );
       expect(ref.current).toBeInstanceOf(HTMLDivElement);
@@ -191,7 +191,7 @@ describe('FloatingLabel', () => {
       const ref = React.createRef<HTMLInputElement>();
       render(
         <FloatingLabel label="Name" htmlFor="name">
-          <FormControl id="name" ref={ref} />
+          <Input id="name" ref={ref} />
         </FloatingLabel>
       );
       expect(ref.current).toBeInstanceOf(HTMLInputElement);
@@ -209,7 +209,7 @@ describe('FloatingLabel', () => {
     it('wires the label to the control via htmlFor and id', () => {
       render(
         <FloatingLabel label="Email address" htmlFor="floating-email">
-          <FormControl id="floating-email" type="email" />
+          <Input id="floating-email" type="email" />
         </FloatingLabel>
       );
       const label = screen.getByText('Email address');
@@ -222,7 +222,7 @@ describe('FloatingLabel', () => {
       const user = userEvent.setup();
       render(
         <FloatingLabel label="Name" htmlFor="name">
-          <FormControl id="name" />
+          <Input id="name" />
         </FloatingLabel>
       );
       await user.click(screen.getByText('Name'));
@@ -232,7 +232,7 @@ describe('FloatingLabel', () => {
     it('renders the label without a for attribute when htmlFor is omitted', () => {
       render(
         <FloatingLabel label="Name">
-          <FormControl />
+          <Input />
         </FloatingLabel>
       );
       const label = screen.getByText('Name');

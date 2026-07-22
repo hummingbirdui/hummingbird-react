@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
-const formRangeVariants = cva('form-range', {
+const rangeVariants = cva('form-range', {
   variants: {
     size: {
       sm: 'form-range-sm',
@@ -25,29 +25,29 @@ const formRangeVariants = cva('form-range', {
   },
 });
 
-export interface FormRangeProps
+export interface RangeProps
   // Omit native `color`/`size`/`type` — `color`/`size` collide with the CVA
   // variants and `type` is fixed to `range`.
   extends
     Omit<React.ComponentProps<'input'>, 'color' | 'size' | 'type'>,
-    VariantProps<typeof formRangeVariants> {}
+    VariantProps<typeof rangeVariants> {}
 
 /** A styled native range slider (`<input type="range">`). */
-function FormRange({ className, color, size, ...props }: FormRangeProps) {
+function Range({ className, color, size, ...props }: RangeProps) {
   return (
     <input
       type="range"
-      data-slot="form-range"
-      className={cn(formRangeVariants({ color, size }), className)}
+      data-slot="range"
+      className={cn(rangeVariants({ color, size }), className)}
       {...props}
     />
   );
 }
 
-FormRange.displayName = 'FormRange';
+Range.displayName = 'Range';
 
-namespace FormRange {
-  export type Props = React.ComponentProps<typeof FormRange>;
+namespace Range {
+  export type Props = React.ComponentProps<typeof Range>;
 }
 
-export { FormRange, formRangeVariants };
+export { Range, rangeVariants };

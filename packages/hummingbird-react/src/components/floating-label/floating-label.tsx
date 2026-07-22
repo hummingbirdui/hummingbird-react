@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cn } from '../../utils/cn';
-import { FormLabel } from '../form-control';
+import { Field } from '../input';
 
 export interface FloatingLabelProps extends React.ComponentProps<'div'> {
   label: React.ReactNode;
@@ -17,7 +17,7 @@ function FloatingLabel({ className, label, htmlFor, children, ...props }: Floati
   return (
     <div data-slot="floating-label" className={cn('form-floating', className)} {...props}>
       {control}
-      <FormLabel htmlFor={htmlFor}>{label}</FormLabel>
+      <Field.Label htmlFor={htmlFor}>{label}</Field.Label>
     </div>
   );
 }

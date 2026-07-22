@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
-const formControlVariants = cva('', {
+const inputVariants = cva('', {
   variants: {
     variant: {
       outline: 'form-control',
@@ -31,33 +31,33 @@ const formControlVariants = cva('', {
   },
 });
 
-type FormControlVariantProps = VariantProps<typeof formControlVariants>;
+type InputVariantProps = VariantProps<typeof inputVariants>;
 
-export interface FormControlProps
-  extends Omit<React.ComponentProps<'input'>, 'color' | 'size'>, FormControlVariantProps {}
+export interface InputProps
+  extends Omit<React.ComponentProps<'input'>, 'color' | 'size'>, InputVariantProps {}
 
-function FormControl({ className, variant, size, color, state, ...props }: FormControlProps) {
+function Input({ className, variant, size, color, state, ...props }: InputProps) {
   return (
     <input
-      data-slot="form-control"
+      data-slot="input"
       aria-invalid={state === 'invalid' || undefined}
-      className={cn(formControlVariants({ variant, size, color, state }), className)}
+      className={cn(inputVariants({ variant, size, color, state }), className)}
       {...props}
     />
   );
 }
 
-FormControl.displayName = 'FormControl';
+Input.displayName = 'Input';
 
 export interface TextareaProps
-  extends Omit<React.ComponentProps<'textarea'>, 'color'>, FormControlVariantProps {}
+  extends Omit<React.ComponentProps<'textarea'>, 'color'>, InputVariantProps {}
 
 function Textarea({ className, variant, size, color, state, ...props }: TextareaProps) {
   return (
     <textarea
       data-slot="textarea"
       aria-invalid={state === 'invalid' || undefined}
-      className={cn(formControlVariants({ variant, size, color, state }), className)}
+      className={cn(inputVariants({ variant, size, color, state }), className)}
       {...props}
     />
   );
@@ -65,23 +65,23 @@ function Textarea({ className, variant, size, color, state, ...props }: Textarea
 
 Textarea.displayName = 'Textarea';
 
-export interface FormLabelProps extends React.ComponentProps<'label'> {}
+export interface FieldProps extends React.ComponentProps<'div'> {}
 
-function FormLabel({ className, ...props }: FormLabelProps) {
-  return <label data-slot="form-label" className={cn('form-label', className)} {...props} />;
+function FieldRoot({ className, ...props }: FieldProps) {
+  return <div data-slot="field" className={cn('form-field', className)} {...props} />;
 }
 
-FormLabel.displayName = 'FormLabel';
+FieldRoot.displayName = 'Field';
 
-export interface FormFieldProps extends React.ComponentProps<'div'> {}
+export interface FieldLabelProps extends React.ComponentProps<'label'> {}
 
-function FormField({ className, ...props }: FormFieldProps) {
-  return <div data-slot="form-field" className={cn('form-field', className)} {...props} />;
+function FieldLabel({ className, ...props }: FieldLabelProps) {
+  return <label data-slot="field-label" className={cn('form-label', className)} {...props} />;
 }
 
-FormField.displayName = 'FormField';
+FieldLabel.displayName = 'Field.Label';
 
-const formTextVariants = cva('', {
+const fieldTextVariants = cva('', {
   variants: {
     variant: {
       default: 'form-text',
@@ -94,16 +94,16 @@ const formTextVariants = cva('', {
   },
 });
 
-export interface FormTextProps
-  extends React.ComponentProps<'p'>, VariantProps<typeof formTextVariants> {}
+export interface FieldTextProps
+  extends React.ComponentProps<'p'>, VariantProps<typeof fieldTextVariants> {}
 
-function FormText({ className, variant, ...props }: FormTextProps) {
+function FieldText({ className, variant, ...props }: FieldTextProps) {
   return (
-    <p data-slot="form-text" className={cn(formTextVariants({ variant }), className)} {...props} />
+    <p data-slot="field-text" className={cn(fieldTextVariants({ variant }), className)} {...props} />
   );
 }
 
-FormText.displayName = 'FormText';
+FieldText.displayName = 'Field.Text';
 
 export interface InputIconProps extends React.ComponentProps<'div'> {}
 
@@ -139,6 +139,17 @@ function InputIconEnd({ className, ...props }: InputIconSlotProps) {
 
 InputIconEnd.displayName = 'InputIcon.End';
 
+const Field = /* @__PURE__ */ Object.assign(FieldRoot, {
+  Label: FieldLabel,
+  Text: FieldText,
+});
+
+namespace Field {
+  export type Props = React.ComponentProps<typeof FieldRoot>;
+  export type LabelProps = React.ComponentProps<typeof FieldLabel>;
+  export type TextProps = React.ComponentProps<typeof FieldText>;
+}
+
 const InputIcon = /* @__PURE__ */ Object.assign(InputIconRoot, {
   Start: InputIconStart,
   End: InputIconEnd,
@@ -150,33 +161,12 @@ namespace InputIcon {
   export type EndProps = React.ComponentProps<typeof InputIconEnd>;
 }
 
-namespace FormControl {
-  export type Props = React.ComponentProps<typeof FormControl>;
+namespace Input {
+  export type Props = React.ComponentProps<typeof Input>;
 }
 
 namespace Textarea {
   export type Props = React.ComponentProps<typeof Textarea>;
 }
 
-namespace FormLabel {
-  export type Props = React.ComponentProps<typeof FormLabel>;
-}
-
-namespace FormField {
-  export type Props = React.ComponentProps<typeof FormField>;
-}
-
-namespace FormText {
-  export type Props = React.ComponentProps<typeof FormText>;
-}
-
-export {
-  FormControl,
-  Textarea,
-  FormLabel,
-  FormField,
-  FormText,
-  InputIcon,
-  formControlVariants,
-  formTextVariants,
-};
+export { Input, Textarea, Field, InputIcon, inputVariants, fieldTextVariants };

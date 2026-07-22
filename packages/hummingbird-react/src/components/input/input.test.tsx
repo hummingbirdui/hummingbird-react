@@ -3,37 +3,35 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
-  FormControl,
+  Input,
   Textarea,
-  FormLabel,
-  FormField,
-  FormText,
+  Field,
   InputIcon,
-  formControlVariants,
-  formTextVariants,
-} from './form-control';
+  inputVariants,
+  fieldTextVariants,
+} from './input';
 
-describe('FormControl', () => {
+describe('Input', () => {
   describe('Rendering', () => {
     it('renders an input element', () => {
-      render(<FormControl aria-label="Name" />);
+      render(<Input aria-label="Name" />);
       const input = screen.getByRole('textbox', { name: /name/i });
       expect(input).toBeInTheDocument();
       expect(input).toBeInstanceOf(HTMLInputElement);
     });
 
     it('sets the data-slot attribute', () => {
-      render(<FormControl aria-label="Name" />);
-      expect(screen.getByRole('textbox')).toHaveAttribute('data-slot', 'form-control');
+      render(<Input aria-label="Name" />);
+      expect(screen.getByRole('textbox')).toHaveAttribute('data-slot', 'input');
     });
 
     it('applies the form-control base class by default', () => {
-      render(<FormControl aria-label="Name" />);
+      render(<Input aria-label="Name" />);
       expect(screen.getByRole('textbox')).toHaveClass('form-control');
     });
 
     it('preserves native input attributes', () => {
-      render(<FormControl type="email" name="email" placeholder="Enter email" required />);
+      render(<Input type="email" name="email" placeholder="Enter email" required />);
       const input = screen.getByPlaceholderText('Enter email');
       expect(input).toHaveAttribute('type', 'email');
       expect(input).toHaveAttribute('name', 'email');
@@ -41,7 +39,7 @@ describe('FormControl', () => {
     });
 
     it('supports file input type', () => {
-      render(<FormControl type="file" data-testid="file-input" />);
+      render(<Input type="file" data-testid="file-input" />);
       const input = screen.getByTestId('file-input');
       expect(input).toHaveAttribute('type', 'file');
       expect(input).toHaveClass('form-control');
@@ -51,7 +49,7 @@ describe('FormControl', () => {
   describe('Interactions', () => {
     it('accepts typed input (uncontrolled)', async () => {
       const user = userEvent.setup();
-      render(<FormControl aria-label="Name" />);
+      render(<Input aria-label="Name" />);
       const input = screen.getByRole('textbox', { name: /name/i });
 
       await user.type(input, 'hello');
@@ -61,31 +59,31 @@ describe('FormControl', () => {
     it('fires onChange for each keystroke', async () => {
       const handleChange = vi.fn();
       const user = userEvent.setup();
-      render(<FormControl aria-label="Name" onChange={handleChange} />);
+      render(<Input aria-label="Name" onChange={handleChange} />);
 
       await user.type(screen.getByRole('textbox'), 'abc');
       expect(handleChange).toHaveBeenCalledTimes(3);
     });
 
     it('supports uncontrolled defaultValue', () => {
-      render(<FormControl aria-label="Name" defaultValue="initial" />);
+      render(<Input aria-label="Name" defaultValue="initial" />);
       expect(screen.getByRole('textbox')).toHaveValue('initial');
     });
 
     it('supports controlled value', () => {
       const { rerender } = render(
-        <FormControl aria-label="Name" value="first" onChange={() => {}} />
+        <Input aria-label="Name" value="first" onChange={() => {}} />
       );
       const input = screen.getByRole('textbox');
       expect(input).toHaveValue('first');
 
-      rerender(<FormControl aria-label="Name" value="second" onChange={() => {}} />);
+      rerender(<Input aria-label="Name" value="second" onChange={() => {}} />);
       expect(input).toHaveValue('second');
     });
 
     it('keeps a controlled value fixed when the parent does not update it', async () => {
       const user = userEvent.setup();
-      render(<FormControl aria-label="Name" value="locked" onChange={() => {}} />);
+      render(<Input aria-label="Name" value="locked" onChange={() => {}} />);
       const input = screen.getByRole('textbox');
 
       await user.type(input, 'x');
@@ -95,7 +93,7 @@ describe('FormControl', () => {
     it('supports disabled state and blocks typing', async () => {
       const handleChange = vi.fn();
       const user = userEvent.setup();
-      render(<FormControl aria-label="Name" disabled onChange={handleChange} />);
+      render(<Input aria-label="Name" disabled onChange={handleChange} />);
       const input = screen.getByRole('textbox');
 
       expect(input).toBeDisabled();
@@ -106,7 +104,7 @@ describe('FormControl', () => {
 
     it('supports readOnly state and blocks typing', async () => {
       const user = userEvent.setup();
-      render(<FormControl aria-label="Name" readOnly defaultValue="fixed" />);
+      render(<Input aria-label="Name" readOnly defaultValue="fixed" />);
       const input = screen.getByRole('textbox');
 
       expect(input).toHaveAttribute('readonly');
@@ -117,14 +115,14 @@ describe('FormControl', () => {
 
   describe('Variants', () => {
     it('applies the outline variant (default base class)', () => {
-      render(<FormControl aria-label="Name" variant="outline" />);
+      render(<Input aria-label="Name" variant="outline" />);
       const input = screen.getByRole('textbox');
       expect(input).toHaveClass('form-control');
       expect(input).not.toHaveClass('form-control-fill');
     });
 
     it('applies the fill variant', () => {
-      render(<FormControl aria-label="Name" variant="fill" />);
+      render(<Input aria-label="Name" variant="fill" />);
       const input = screen.getByRole('textbox');
       expect(input).toHaveClass('form-control-fill');
       expect(input).not.toHaveClass('form-control');
@@ -140,7 +138,7 @@ describe('FormControl', () => {
 
     it('applies size classes correctly', () => {
       sizes.forEach(({ size, expected }) => {
-        const { unmount } = render(<FormControl aria-label="Name" size={size} />);
+        const { unmount } = render(<Input aria-label="Name" size={size} />);
         const input = screen.getByRole('textbox');
         expect(input).toHaveClass('form-control');
         if (expected) {
@@ -156,7 +154,7 @@ describe('FormControl', () => {
 
     it('applies color classes correctly', () => {
       colors.forEach((color) => {
-        const { unmount } = render(<FormControl aria-label="Name" color={color} />);
+        const { unmount } = render(<Input aria-label="Name" color={color} />);
         const input = screen.getByRole('textbox');
         expect(input).toHaveClass('form-control', `form-control-${color}`);
         unmount();
@@ -166,28 +164,28 @@ describe('FormControl', () => {
 
   describe('Validation States', () => {
     it('applies is-valid for the valid state', () => {
-      render(<FormControl aria-label="Name" state="valid" />);
+      render(<Input aria-label="Name" state="valid" />);
       const input = screen.getByRole('textbox');
       expect(input).toHaveClass('is-valid');
       expect(input).not.toHaveAttribute('aria-invalid');
     });
 
     it('applies is-invalid and aria-invalid for the invalid state', () => {
-      render(<FormControl aria-label="Name" state="invalid" />);
+      render(<Input aria-label="Name" state="invalid" />);
       const input = screen.getByRole('textbox');
       expect(input).toHaveClass('is-invalid');
       expect(input).toHaveAttribute('aria-invalid', 'true');
     });
 
     it('sets no aria-invalid without a state', () => {
-      render(<FormControl aria-label="Name" />);
+      render(<Input aria-label="Name" />);
       expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-invalid');
     });
   });
 
   describe('Class Merging', () => {
     it('merges custom className with variant classes', () => {
-      render(<FormControl aria-label="Name" size="lg" color="success" className="custom-class" />);
+      render(<Input aria-label="Name" size="lg" color="success" className="custom-class" />);
       const input = screen.getByRole('textbox');
       expect(input).toHaveClass(
         'form-control',
@@ -201,7 +199,7 @@ describe('FormControl', () => {
   describe('Ref Forwarding', () => {
     it('forwards ref to the input element', () => {
       const ref = React.createRef<HTMLInputElement>();
-      render(<FormControl ref={ref} aria-label="Name" defaultValue="ref value" />);
+      render(<Input ref={ref} aria-label="Name" defaultValue="ref value" />);
       expect(ref.current).toBeInstanceOf(HTMLInputElement);
       expect(ref.current?.value).toBe('ref value');
       expect(ref.current?.className).toContain('form-control');
@@ -210,17 +208,17 @@ describe('FormControl', () => {
 
   describe('Display Name', () => {
     it('has correct display name', () => {
-      expect(FormControl.displayName).toBe('FormControl');
+      expect(Input.displayName).toBe('Input');
     });
   });
 
   describe('Accessibility', () => {
-    it('associates with a FormLabel via htmlFor', () => {
+    it('associates with a Field.Label via htmlFor', () => {
       render(
-        <FormField>
-          <FormLabel htmlFor="username">Username</FormLabel>
-          <FormControl id="username" />
-        </FormField>
+        <Field>
+          <Field.Label htmlFor="username">Username</Field.Label>
+          <Input id="username" />
+        </Field>
       );
       expect(screen.getByLabelText('Username')).toBeInstanceOf(HTMLInputElement);
     });
@@ -228,8 +226,8 @@ describe('FormControl', () => {
     it('supports aria-describedby pointing at helper text', () => {
       render(
         <>
-          <FormControl aria-label="Email" aria-describedby="email-help" />
-          <FormText id="email-help">We never share your email.</FormText>
+          <Input aria-label="Email" aria-describedby="email-help" />
+          <Field.Text id="email-help">We never share your email.</Field.Text>
         </>
       );
       const input = screen.getByRole('textbox', { name: /email/i });
@@ -239,7 +237,7 @@ describe('FormControl', () => {
 
     it('is focusable via keyboard', async () => {
       const user = userEvent.setup();
-      render(<FormControl aria-label="Name" />);
+      render(<Input aria-label="Name" />);
       await user.tab();
       expect(screen.getByRole('textbox')).toHaveFocus();
     });
@@ -336,50 +334,50 @@ describe('Textarea', () => {
   });
 });
 
-describe('FormLabel', () => {
+describe('Field.Label', () => {
   it('renders a label element with the form-label class', () => {
-    render(<FormLabel htmlFor="x">Label text</FormLabel>);
+    render(<Field.Label htmlFor="x">Label text</Field.Label>);
     const label = screen.getByText('Label text');
     expect(label).toBeInstanceOf(HTMLLabelElement);
     expect(label).toHaveClass('form-label');
-    expect(label).toHaveAttribute('data-slot', 'form-label');
+    expect(label).toHaveAttribute('data-slot', 'field-label');
     expect(label).toHaveAttribute('for', 'x');
   });
 
   it('merges custom className', () => {
-    render(<FormLabel className="custom-label">Label</FormLabel>);
+    render(<Field.Label className="custom-label">Label</Field.Label>);
     expect(screen.getByText('Label')).toHaveClass('form-label', 'custom-label');
   });
 
   it('has correct display name', () => {
-    expect(FormLabel.displayName).toBe('FormLabel');
+    expect(Field.Label.displayName).toBe('Field.Label');
   });
 });
 
-describe('FormField', () => {
+describe('Field', () => {
   it('renders a div with the form-field class', () => {
-    render(<FormField data-testid="field">content</FormField>);
+    render(<Field data-testid="field">content</Field>);
     const field = screen.getByTestId('field');
     expect(field).toBeInstanceOf(HTMLDivElement);
     expect(field).toHaveClass('form-field');
-    expect(field).toHaveAttribute('data-slot', 'form-field');
+    expect(field).toHaveAttribute('data-slot', 'field');
   });
 
   it('merges custom className', () => {
     render(
-      <FormField data-testid="field" className="custom-field">
+      <Field data-testid="field" className="custom-field">
         content
-      </FormField>
+      </Field>
     );
     expect(screen.getByTestId('field')).toHaveClass('form-field', 'custom-field');
   });
 
   it('has correct display name', () => {
-    expect(FormField.displayName).toBe('FormField');
+    expect(Field.displayName).toBe('Field');
   });
 });
 
-describe('FormText', () => {
+describe('Field.Text', () => {
   const variants = [
     { variant: 'default', expected: 'form-text' },
     { variant: 'valid', expected: 'valid-feedback' },
@@ -387,16 +385,16 @@ describe('FormText', () => {
   ] as const;
 
   it('renders a p element with the form-text class by default', () => {
-    render(<FormText>Helper</FormText>);
+    render(<Field.Text>Helper</Field.Text>);
     const text = screen.getByText('Helper');
     expect(text).toBeInstanceOf(HTMLParagraphElement);
     expect(text).toHaveClass('form-text');
-    expect(text).toHaveAttribute('data-slot', 'form-text');
+    expect(text).toHaveAttribute('data-slot', 'field-text');
   });
 
   it('applies each variant class', () => {
     variants.forEach(({ variant, expected }) => {
-      const { unmount } = render(<FormText variant={variant}>{variant}</FormText>);
+      const { unmount } = render(<Field.Text variant={variant}>{variant}</Field.Text>);
       expect(screen.getByText(variant)).toHaveClass(expected);
       unmount();
     });
@@ -404,15 +402,15 @@ describe('FormText', () => {
 
   it('merges custom className', () => {
     render(
-      <FormText variant="invalid" className="custom-text">
+      <Field.Text variant="invalid" className="custom-text">
         Error
-      </FormText>
+      </Field.Text>
     );
     expect(screen.getByText('Error')).toHaveClass('invalid-feedback', 'custom-text');
   });
 
   it('has correct display name', () => {
-    expect(FormText.displayName).toBe('FormText');
+    expect(Field.Text.displayName).toBe('Field.Text');
   });
 });
 
@@ -429,7 +427,7 @@ describe('InputIcon', () => {
     render(
       <InputIcon data-testid="wrapper">
         <InputIcon.Start data-testid="start">S</InputIcon.Start>
-        <FormControl aria-label="Search" />
+        <Input aria-label="Search" />
         <InputIcon.End data-testid="end">E</InputIcon.End>
       </InputIcon>
     );
@@ -481,37 +479,37 @@ describe('InputIcon.End', () => {
   });
 });
 
-describe('formControlVariants', () => {
+describe('inputVariants', () => {
   it('generates the outline base class by default', () => {
-    const classes = formControlVariants();
+    const classes = inputVariants();
     expect(classes).toContain('form-control');
     expect(classes).not.toContain('form-control-fill');
   });
 
   it('generates the fill base class', () => {
-    expect(formControlVariants({ variant: 'fill' })).toContain('form-control-fill');
+    expect(inputVariants({ variant: 'fill' })).toContain('form-control-fill');
   });
 
   it('generates size classes', () => {
-    expect(formControlVariants({ size: 'sm' })).toContain('form-control-sm');
-    expect(formControlVariants({ size: 'lg' })).toContain('form-control-lg');
-    expect(formControlVariants({ size: 'md' })).not.toContain('form-control-sm');
+    expect(inputVariants({ size: 'sm' })).toContain('form-control-sm');
+    expect(inputVariants({ size: 'lg' })).toContain('form-control-lg');
+    expect(inputVariants({ size: 'md' })).not.toContain('form-control-sm');
   });
 
   it('generates color classes', () => {
     const colors = ['primary', 'secondary', 'info', 'success', 'warning'] as const;
     colors.forEach((color) => {
-      expect(formControlVariants({ color })).toContain(`form-control-${color}`);
+      expect(inputVariants({ color })).toContain(`form-control-${color}`);
     });
   });
 
   it('generates state classes', () => {
-    expect(formControlVariants({ state: 'valid' })).toContain('is-valid');
-    expect(formControlVariants({ state: 'invalid' })).toContain('is-invalid');
+    expect(inputVariants({ state: 'valid' })).toContain('is-valid');
+    expect(inputVariants({ state: 'invalid' })).toContain('is-invalid');
   });
 
   it('combines variant, size, color, and state', () => {
-    const classes = formControlVariants({
+    const classes = inputVariants({
       variant: 'fill',
       size: 'lg',
       color: 'success',
@@ -524,13 +522,13 @@ describe('formControlVariants', () => {
   });
 });
 
-describe('formTextVariants', () => {
+describe('fieldTextVariants', () => {
   it('generates the form-text class by default', () => {
-    expect(formTextVariants()).toContain('form-text');
+    expect(fieldTextVariants()).toContain('form-text');
   });
 
   it('generates feedback classes', () => {
-    expect(formTextVariants({ variant: 'valid' })).toContain('valid-feedback');
-    expect(formTextVariants({ variant: 'invalid' })).toContain('invalid-feedback');
+    expect(fieldTextVariants({ variant: 'valid' })).toContain('valid-feedback');
+    expect(fieldTextVariants({ variant: 'invalid' })).toContain('invalid-feedback');
   });
 });
