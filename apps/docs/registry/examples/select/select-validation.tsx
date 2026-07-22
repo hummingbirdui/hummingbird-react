@@ -1,26 +1,26 @@
 "use client";
 
-import { FormField, Select, FormText } from "@hummingbirdui/react";
+import { Field, Select } from "@hummingbirdui/react";
 
 export default function SelectValidation() {
   return (
     <div className="space-y-4 max-w-sm mx-auto">
-      <FormField>
+      <Field>
         <Select state="valid" defaultValue="pro">
           <option value="free">Free</option>
           <option value="pro">Pro</option>
         </Select>
-        <FormText variant="valid">Looks good.</FormText>
-      </FormField>
-      <FormField>
+        <Field.Text variant="valid">Looks good.</Field.Text>
+      </Field>
+      <Field>
         <Select state="invalid" defaultValue="">
           <option value="" disabled>
             Choose a plan
           </option>
           <option value="pro">Pro</option>
         </Select>
-        <FormText variant="invalid">Select a plan to continue.</FormText>
-      </FormField>
+        <Field.Text variant="invalid">Select a plan to continue.</Field.Text>
+      </Field>
     </div>
   );
 }

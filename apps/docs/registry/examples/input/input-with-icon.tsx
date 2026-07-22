@@ -1,19 +1,19 @@
 "use client";
 
-import { InputIcon, FormControl } from "@hummingbirdui/react";
+import { InputIcon, Input } from "@hummingbirdui/react";
 import { Search, Check } from "lucide-react";
 
-export default function FormControlWithIcon() {
+export default function InputWithIcon() {
   return (
     <div className="space-y-4 max-w-sm mx-auto">
       <InputIcon>
         <InputIcon.Start>
           <Search className="size-4" />
         </InputIcon.Start>
-        <FormControl placeholder="Search" />
+        <Input placeholder="Search" />
       </InputIcon>
       <InputIcon>
-        <FormControl placeholder="Username" defaultValue="jane" />
+        <Input placeholder="Username" defaultValue="jane" />
         <InputIcon.End>
           <Check className="size-4" />
         </InputIcon.End>

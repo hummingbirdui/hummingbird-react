@@ -1,7 +1,7 @@
 {
   "title": "Forms",
   "pages": [
-    "form-control",
+    "input",
     "select",
     "checkbox",
     "radio",

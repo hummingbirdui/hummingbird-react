@@ -5,16 +5,9 @@ import { Alert } from "@hummingbirdui/react/alert";
 import { Badge } from "@hummingbirdui/react/badge";
 import { Avatar } from "@hummingbirdui/react/avatar";
 import { Breadcrumb } from "@hummingbirdui/react/breadcrumb";
-import {
-  FormControl,
-  Textarea,
-  FormLabel,
-  FormField,
-  FormText,
-  InputIcon,
-} from "@hummingbirdui/react/form-control";
+import { Input, Textarea, Field, InputIcon } from "@hummingbirdui/react/input";
 import { FloatingLabel } from "@hummingbirdui/react/floating-label";
-import { FormRange } from "@hummingbirdui/react/form-range";
+import { Range } from "@hummingbirdui/react/range";
 import { CloseButton } from "@hummingbirdui/react/close-button";
 import { Card } from "@hummingbirdui/react/card";
 import { Select } from "@hummingbirdui/react/select";
@@ -51,14 +44,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Breadcrumb: Breadcrumb as any,
 
     // Form components — native HTML form elements styled by Hummingbird CSS.
-    FormControl: (props: any) => <FormControl {...props} />,
+    Input: (props: any) => <Input {...props} />,
     Textarea: (props: any) => <Textarea {...props} />,
-    FormLabel: (props: any) => <FormLabel {...props} />,
-    FormField: (props: any) => <FormField {...props} />,
-    FormText: (props: any) => <FormText {...props} />,
+    Field: Field as any,
     InputIcon: InputIcon as any,
     FloatingLabel: (props: any) => <FloatingLabel {...props} />,
-    FormRange: (props: any) => <FormRange {...props} />,
+    Range: (props: any) => <Range {...props} />,
     Select: (props: any) => <Select {...props} />,
 
     Card: Card as any,

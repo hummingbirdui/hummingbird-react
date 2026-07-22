@@ -1,10 +1,10 @@
 "use client";
 
-import { FormControl } from "@hummingbirdui/react";
+import { Input } from "@hummingbirdui/react";
 
-export default function FormControlDisabled() {
+export default function InputDisabled() {
   return (
-    <FormControl
+    <Input
       placeholder="Disabled"
       defaultValue="Read only value"
       disabled
