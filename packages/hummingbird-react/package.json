@@ -1,6 +1,6 @@
 {
   "name": "@hummingbirdui/react",
-  "version": "0.0.0-insider.5",
+  "version": "0.0.0-insider.6",
   "description": "Modern, accessible, and customizable React components built with Radix UI and Tailwind CSS.",
   "keywords": [
     "hummingbird",
@@ -40,9 +40,21 @@
       "types": "./dist/hooks/*/index.d.ts",
       "import": "./dist/hooks/*/index.js"
     },
+    "./layout": {
+      "types": "./dist/layout/index.d.ts",
+      "import": "./dist/layout/index.js"
+    },
     "./layout/*": {
       "types": "./dist/layout/*/index.d.ts",
       "import": "./dist/layout/*/index.js"
+    },
+    "./typography": {
+      "types": "./dist/typography/index.d.ts",
+      "import": "./dist/typography/index.js"
+    },
+    "./typography/*": {
+      "types": "./dist/typography/*/index.d.ts",
+      "import": "./dist/typography/*/index.js"
     },
     "./*": {
       "types": "./dist/components/*/index.d.ts",
