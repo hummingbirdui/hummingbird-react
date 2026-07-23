@@ -18,43 +18,43 @@ export const features: Feature[] = [
   {
     icon: CodeIcon,
     color: "primary",
-    title: "Semantic & Clean Markup",
+    title: "Modular Components",
     description:
-      "Readable, purpose-driven class names for maintainable, clutter-free HTML.",
+      "Reusable components designed to handle complex UI logic.",
   },
   {
     icon: PaletteIcon,
     color: "secondary",
+    title: "Fully Customizable",
+    description:
+      "Tweak any component using Tailwind utilities or design tokens.",
+  },
+  {
+    icon: SettingsIcon,
+    color: "error",
     title: "Easy Theming",
     description:
       "Customize colors and styles with minimal CSS variable changes.",
   },
   {
-    icon: SettingsIcon,
-    color: "error",
-    title: "Fully Customizable",
-    description:
-      "Tweak any component using Tailwind utilities or global design tokens.",
-  },
-  {
     icon: BoltIcon,
     color: "warning",
-    title: "Built for Optimization",
+    title: "Reliable Foundations",
     description:
-      "No unused CSS. Small file sizes. Production-ready out of the box.",
+      "Built on Radix primitives for accessible, predictable interactions.",
   },
   {
     icon: TuneIcon,
     color: "info",
-    title: "Framework Compatible",
+    title: "Structured for Scale",
     description:
-      "Enjoy seamless compatibility with all modern frameworks and zero hassle.",
+      "Consistent design patterns for better maintainability.",
   },
   {
     icon: ExtensionIcon,
     color: "success",
-    title: "Structured for Scale",
+    title: "Built for Optimization",
     description:
-      "All components follow a consistent design system for better maintainability.",
+      "Tree-shakable. Small bundles. Production-ready out of the box.",
   },
 ];
