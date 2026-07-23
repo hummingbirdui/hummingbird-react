@@ -69,7 +69,7 @@ function NavLinks({
 
 const Logo = () => (
   <Image
-    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/logos/hummingbird.svg`}
+    src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/logos/hummingbird-react.svg`}
     alt="Hummingbird"
     width={40}
     height={40}
@@ -92,13 +92,13 @@ export function SiteNavbar() {
         <Navbar.Brand asChild className="me-1 sm:me-4">
           <Link href="/" className="flex items-center gap-2">
             <Logo />
-            <h5 className="text-muted font-semibold hidden sm:block mb-0">
-              Hummingbird React
+            <h5 className="text-muted font-semibold max-sm:hidden mb-0">
+              hummingbird React
             </h5>
           </Link>
         </Navbar.Brand>
 
-        <Badge variant="subtle" color="neutral">
+        <Badge variant="subtle" color="neutral" className="max-sm:hidden">
           v0.1.0
         </Badge>
 
