@@ -9,14 +9,14 @@ export const SiteFooter = () => {
           <div className="col-span-10 xl:col-span-5">
             <a href="#!" className="mb-4 flex items-center gap-2 no-underline">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/logos/hummingbird.svg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/logos/hummingbird-react.svg`}
                 alt="Hummingbird"
                 width={40}
                 height={40}
                 priority
               />
               <span className="text-2xl font-semibold text-muted">
-                hummingbird
+                hummingbird React
               </span>
             </a>
             <p className="mb-4 text-sm text-muted xl:max-w-75">

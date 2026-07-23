@@ -2,7 +2,7 @@ import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Radio, radioVariants } from './radio';
+import { Radio, RadioGroup, radioVariants } from './radio';
 
 describe('Radio', () => {
   describe('Rendering', () => {
@@ -250,7 +250,7 @@ describe('Radio', () => {
   describe('Display Name', () => {
     it('has correct display names', () => {
       expect(Radio.displayName).toBe('Radio');
-      expect(Radio.Group.displayName).toBe('Radio.Group');
+      expect(RadioGroup.displayName).toBe('RadioGroup');
     });
   });
 
@@ -292,14 +292,14 @@ describe('Radio', () => {
   });
 });
 
-describe('Radio.Group', () => {
-  function Example(props: React.ComponentProps<typeof Radio.Group>) {
+describe('RadioGroup', () => {
+  function Example(props: React.ComponentProps<typeof RadioGroup>) {
     return (
-      <Radio.Group name="plan" {...props}>
+      <RadioGroup name="plan" {...props}>
         <Radio label="Free" value="free" />
         <Radio label="Pro" value="pro" />
         <Radio label="Team" value="team" />
-      </Radio.Group>
+      </RadioGroup>
     );
   }
 
@@ -335,9 +335,9 @@ describe('Radio.Group', () => {
 
     it("lets a radio's own name override the group name", () => {
       render(
-        <Radio.Group name="plan">
+        <RadioGroup name="plan">
           <Radio label="Custom" value="custom" name="other" />
-        </Radio.Group>
+        </RadioGroup>
       );
       expect(screen.getByRole('radio')).toHaveAttribute('name', 'other');
     });
@@ -409,11 +409,11 @@ describe('Radio.Group', () => {
       expect(screen.getByRole('radio', { name: 'Pro' })).not.toBeChecked();
 
       rerender(
-        <Radio.Group name="plan" value="pro" onValueChange={onValueChange}>
+        <RadioGroup name="plan" value="pro" onValueChange={onValueChange}>
           <Radio label="Free" value="free" />
           <Radio label="Pro" value="pro" />
           <Radio label="Team" value="team" />
-        </Radio.Group>
+        </RadioGroup>
       );
       expect(screen.getByRole('radio', { name: 'Pro' })).toBeChecked();
     });
@@ -423,10 +423,10 @@ describe('Radio.Group', () => {
       const onChange = vi.fn();
       const user = userEvent.setup();
       render(
-        <Radio.Group name="plan" value="free" onValueChange={onValueChange}>
+        <RadioGroup name="plan" value="free" onValueChange={onValueChange}>
           <Radio label="Free" value="free" />
           <Radio label="Pro" value="pro" onChange={onChange} />
-        </Radio.Group>
+        </RadioGroup>
       );
 
       await user.click(screen.getByRole('radio', { name: 'Pro' }));

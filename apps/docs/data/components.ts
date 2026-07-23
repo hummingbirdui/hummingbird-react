@@ -165,8 +165,8 @@ export const dataEntry: Component[] = [
     imgComponent: FloatingLabels,
   },
   {
-    title: 'Form Control',
-    url: '/docs/forms/form-control',
+    title: 'Input',
+    url: '/docs/forms/input',
     count: 8,
     imgComponent: FormControls,
   },
@@ -387,8 +387,8 @@ export const components: Component[] = [
     imgComponent: Dropdown,
   },
   {
-    title: 'Form Controls',
-    url: '/docs/forms/form-control',
+    title: 'Input',
+    url: '/docs/forms/input',
     count: 8,
     imgComponent: FormControls,
   },

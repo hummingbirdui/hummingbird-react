@@ -9,6 +9,11 @@ export * from './components';
 export * from './layout';
 
 //  ===================================
+//  Typography
+//  ===================================
+export * from './typography';
+
+//  ===================================
 //  Hooks
 //  ===================================
 export * from './hooks';
