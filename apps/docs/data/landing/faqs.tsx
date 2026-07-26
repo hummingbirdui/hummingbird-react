@@ -1,6 +1,9 @@
+import Link from "next/link";
+import { ReactNode } from "react";
+
 export interface Faq {
   question: string;
-  answer: string;
+  answer: ReactNode | string;
 }
 
 export interface FaqTab {
@@ -8,6 +11,40 @@ export interface FaqTab {
   value: string;
   faqs: Faq[];
 }
+
+export const faqs: Faq[] = [
+  {
+    question: "What is Hummingbird UI?",
+    answer:
+      "Hummingbird UI is an open-source component framework built on Tailwind CSS. It provides production-ready UI components with semantic markup, flexible theming, and a scalable design system.",
+  },
+  {
+    question: "Can I use Hummingbird with React?",
+    answer: (
+      <>
+        Yes. Not only HB seamlessly works with React apps, it also comes with a{" "}
+        <Link
+          href="https://react.hbui.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          React version
+        </Link>{" "}
+        that includes clean JSX syntax for React developers.
+      </>
+    ),
+  },
+  {
+    question: "Do I need to know Tailwind CSS?",
+    answer:
+      "Basic knowledge of Tailwind CSS is recommended. Hummingbird builds on Tailwind's utility-first approach while providing cleaner component classes and easier customization.",
+  },
+  {
+    question: "Is Hummingbird UI open source?",
+    answer:
+      "Yes. The framework is open source, allowing you to use, customize, and extend it in both personal and commercial projects according to its license.",
+  },
+];
 
 export const faqTabs: FaqTab[] = [
   {

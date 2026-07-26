@@ -1,5 +1,6 @@
 import SectionHeader from "@/components/common/SectionHeader";
-import FaqTabs from "./faq-tabs";
+import FaqAccordion from "./FaqAccordion";
+import { faqs } from "@/data/landing/faqs";
 
 const Faqs = () => {
   return (
@@ -9,7 +10,7 @@ const Faqs = () => {
         subtitle="Everything you need to know about Hummingbird, our community component registry for Hummingbird."
       />
 
-      <FaqTabs />
+      <FaqAccordion faqs={faqs} />
     </div>
   );
 };
