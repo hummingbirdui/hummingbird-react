@@ -7,6 +7,8 @@ import { cn } from "@hummingbirdui/react/utils";
 import { DocsToc } from "@/components/docs/DocsToc";
 import { DocsPagination } from "@/components/docs/DocsPagination";
 
+export const dynamicParams = false;
+
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {

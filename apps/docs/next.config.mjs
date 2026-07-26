@@ -10,7 +10,10 @@ const basePath = "";
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ["@hummingbirdui/react"],
-  output: "export",
+  // "export" only for builds: in dev it makes Next throw a "missing param in
+  // generateStaticParams()" error (ignoring dynamicParams=false) on any
+  // unknown /docs/* URL instead of rendering the not-found page.
+  output: process.env.NODE_ENV === "production" ? "export" : undefined,
   basePath,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
