@@ -1,9 +1,6 @@
 <div align="center">
    <a href="https://react.hbui.dev/">
-      <picture>
-         <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/hummingbirdui/hummingbird-react/main/apps/docs/public/images/logos/hummingbird-react-wordmark-dark.svg" />
-         <img src="https://raw.githubusercontent.com/hummingbirdui/hummingbird-react/main/apps/docs/public/images/logos/hummingbird-react-wordmark-light.svg" alt="hummingbird React" height="40" />
-      </picture>
+      <img src="https://raw.githubusercontent.com/hummingbirdui/hummingbird-react/main/apps/docs/public/images/logos/hummingbird-react-wordmark.svg" alt="hummingbird React" height="40" />
    </a>
 
 React components for Hummingbird, built with Tailwind CSS.
