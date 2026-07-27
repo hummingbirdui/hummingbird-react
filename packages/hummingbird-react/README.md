@@ -1,7 +1,9 @@
 <div align="center">
-   <a href="https://react.hbui.dev/" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; color: inherit;">
-      <img src='https://raw.githubusercontent.com/hummingbirdui/hummingbird-react/9107c9dbed6f2430339ca1a5af291d2a7da683b0/apps/docs/public/images/logos/hummingbird-react.svg' alt="Logo" class="w-10 h-10" />
-      <span style="font-size: 1.5rem; font-weight: 700;">hummingbird React</span>
+   <a href="https://react.hbui.dev/">
+      <picture>
+         <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/hummingbirdui/hummingbird-react/main/apps/docs/public/images/logos/hummingbird-react-wordmark-dark.svg" />
+         <img src="https://raw.githubusercontent.com/hummingbirdui/hummingbird-react/main/apps/docs/public/images/logos/hummingbird-react-wordmark-light.svg" alt="hummingbird React" height="40" />
+      </picture>
    </a>
 
 React components for Hummingbird, built with Tailwind CSS.
