@@ -134,9 +134,7 @@ function Calendar({
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>
-              <div className="flex size-9 items-center justify-center text-center">
-                {children}
-              </div>
+              <div className="flex size-9 items-center justify-center text-center">{children}</div>
             </td>
           );
         },
@@ -146,12 +144,14 @@ function Calendar({
     />
   );
 }
-
+Calendar.displayName = 'Calendar';
 function CalendarDayButton({
   className,
   day,
   modifiers,
   locale,
+  // the native HTML `color` attribute conflicts with Button's `color` variant prop
+  color: _color,
   ...props
 }: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {
   const defaultClassNames = getDefaultClassNames();
@@ -185,5 +185,5 @@ function CalendarDayButton({
     />
   );
 }
-
+CalendarDayButton.displayName = 'CalendarDayButton';
 export { Calendar, CalendarDayButton };
