@@ -5,11 +5,12 @@
   "keywords": [
     "hummingbird",
     "react",
+    "tailwindcss",
     "components",
-    "modern components",
-    "react components",
+    "modern-components",
+    "react-components",
     "radix-ui",
-    "react ui"
+    "react-ui"
   ],
   "homepage": "https://react.hbui.dev",
   "repository": {

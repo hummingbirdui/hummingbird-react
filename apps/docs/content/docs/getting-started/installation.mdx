@@ -19,16 +19,12 @@ npm install @hummingbirdui/react
 
 #### 3. Import CSS
 
-Import Hummingbird styles in the main CSS file (e.g., `globals.css`), and register the package as a source so the Tailwind compiler scans it for class names.
+Import Hummingbird styles in the main CSS file (e.g., `globals.css`).
 
 ```css
 @import "tailwindcss";
 @import "@hummingbirdui/react";
 ```
-
-The `@source` directive is required because Tailwind does not scan node_modules by default. Since Hummingbird generates component classes on demand, Tailwind must scan the `@hummingbirdui/react` package. Update the relative path so it points to node_modules from your CSS file.
-
-No per-component CSS imports or manual purge configuration are needed.
 
 #### 4. Use components
 
@@ -38,11 +34,7 @@ Import any component and use it in the application.
 import { Button } from "@hummingbirdui/react";
 
 export default function App() {
-  return (
-    <Button variant="filled" color="primary">
-      Click me
-    </Button>
-  );
+  return <Button color="info">Click me</Button>;
 }
 ```
 
@@ -67,4 +59,4 @@ All components accept a `className` prop. Custom classes are merged with the com
 </Button>
 ```
 
-For theme-level changes such as colors and spacing, Hummingbird provides global and component-specific CSS variables. See the [Customize section](/docs/customize/theming) for details.
+For theme-level changes such as colors and spacing, Hummingbird provides global and component-specific CSS variables. See the [Customize section](/docs/customize/component) for details.
