@@ -3,6 +3,7 @@ export type RegistryEntry = {
 };
 
 export const registry: Record<string, RegistryEntry> = {
+  "calendar-default": { file: "calendar/calendar-default.tsx" },
   "button-default": { file: "buttons/button-default.tsx" },
   "button-variants": { file: "buttons/button-variants.tsx" },
   "button-colors": { file: "buttons/button-colors.tsx" },
