@@ -66,7 +66,7 @@ Render `ThemeModeScript` inside `<head>` to apply the saved theme before first p
 
 ```tsx
 // app/layout.tsx
-import { ThemeModeScript } from "@hummingbirdui/react/theme-mode-script";
+import { ThemeModeScript } from "@hummingbirdui/react";
 
 export default function RootLayout({
   children,
@@ -102,7 +102,7 @@ export default function RootLayout({
 ```tsx
 "use client";
 
-import { DarkThemeToggle } from "@hummingbirdui/react/dark-theme-toggle";
+import { DarkThemeToggle } from "@hummingbirdui/react";
 
 export function Navbar() {
   return <DarkThemeToggle />;
