@@ -79,11 +79,11 @@ export const SiteFooter = () => {
 
           <div className="col-span-10 sm:col-span-6 md:col-span-4">
             <h3 className="mb-4 text-sm font-bold text-subtle">Newsletter</h3>
-            <script
-              async
-              src="https://api.mailbluster.com/v1/forms/0aa446ee-1675-41ba-b481-fa705e80728e.js"
-              data-form="0aa446ee-1675-41ba-b481-fa705e80728e"
-            ></script>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `<script async src="https://api.mailbluster.com/v1/forms/1449b807-fb8c-4a8a-98c7-fb8607274bb0.js" data-form="1449b807-fb8c-4a8a-98c7-fb8607274bb0"></script>`,
+              }}
+            />
 
             <p className="text-subtle text-xs mt-1.5 mb-5">
               Our email newsletters are powered by{" "}
