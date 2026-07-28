@@ -17,6 +17,7 @@ export function CodeBlock({
   children,
   rawCode,
   lang = "tsx",
+  codeBlockClass,
   filePath,
   showPreview = true,
 }: {
@@ -24,6 +25,7 @@ export function CodeBlock({
   rawCode: string;
   lang?: string;
   filePath?: string;
+  codeBlockClass?: string;
   showPreview?: boolean;
 }) {
   const codeRef = useRef<HTMLDivElement>(null);
@@ -103,6 +105,7 @@ export function CodeBlock({
         ref={codeRef}
         className={cn(
           "hb-code overflow-auto transition-[max-height] duration-300 [&_pre]:my-0",
+          codeBlockClass,
           showPreview ? "p-4" : "px-4 py-7",
           filePath && "pt-14",
         )}

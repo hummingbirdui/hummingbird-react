@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@hummingbirdui/react";
+@import "@hummingbirdui/react" theme(static);
 @import "./themes/themes.css";
 @custom-variant dark (&:where(.dark, .dark *), .dark);
 @custom-variant active (&.active, &:active);
