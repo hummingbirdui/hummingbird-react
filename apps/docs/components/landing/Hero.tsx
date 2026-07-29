@@ -81,9 +81,9 @@ const Hero = () => {
       </h1>
 
       <p className="text-xl text-muted text-center tracking-tighter max-w-180 mb-14">
-        Build polished interfaces faster with reusable components,
-        production-ready templates, multiple themes, and comprehensive
-        documentation—all powered by Hummingbird.
+        Build polished interfaces faster with reusable components, multiple
+        themes, reliable UI patterns, and comprehensive documentation - all
+        powered by Hummingbird.
       </p>
 
       <div className="flex items-center gap-4">
