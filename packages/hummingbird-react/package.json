@@ -1,6 +1,6 @@
 {
   "name": "@hummingbirdui/react",
-  "version": "0.0.0-insider.6",
+  "version": "1.0.0-alpha.0",
   "description": "Modern, accessible, and customizable React components built with Radix UI and Tailwind CSS.",
   "keywords": [
     "hummingbird",

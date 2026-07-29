@@ -1,31 +1,17 @@
 import { Badge, Button } from "@hummingbirdui/react";
-import { Palette } from "lucide-react";
+import { ChevronRight, Palette } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div
-      className="px-6 py-28 flex flex-col items-center bg-[url('/images/backgrounds/hero-light.png')] dark:bg-[url('/images/backgrounds/hero-dark.png')] bg-cover bg-no-repeat"
-    >
-      <a href="#!">
+    <div className="px-6 py-28 flex flex-col items-center bg-[url('/images/backgrounds/hero-light.png')] dark:bg-[url('/images/backgrounds/hero-dark.png')] bg-cover bg-no-repeat">
+      <Link href="/docs/customize/theming/">
         <Badge variant="subtle" size="lg" className="gap-2 p-[3.5px] mb-8">
           <Palette />
           Explore our color theme
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="text-primary mr-1.5"
-          >
-            <path
-              d="M6.63649 13.0876C6.53649 12.9626 6.48336 12.8251 6.47711 12.6751C6.47086 12.5251 6.52399 12.3938 6.63649 12.2813L9.93649 8.98131L6.61774 5.66256C6.51774 5.56256 6.47086 5.42818 6.47711 5.25943C6.48336 5.09068 6.53649 4.95631 6.63649 4.85631C6.76149 4.73131 6.89586 4.67193 7.03961 4.67818C7.18336 4.68443 7.31149 4.74381 7.42399 4.85631L11.1552 8.58756C11.2177 8.65006 11.2615 8.71256 11.2865 8.77506C11.3115 8.83756 11.324 8.90631 11.324 8.98131C11.324 9.05631 11.3115 9.12506 11.2865 9.18756C11.2615 9.25006 11.2177 9.31256 11.1552 9.37506L7.44274 13.0876C7.33024 13.2001 7.19899 13.2532 7.04899 13.2469C6.89899 13.2407 6.76149 13.1876 6.63649 13.0876Z"
-              fill="currentColor"
-            />
-          </svg>
+          <ChevronRight className="size-4" />
         </Badge>
-      </a>
+      </Link>
 
       <h1 className="text-5xl lg:text-8xl text-center font-medium tracking-[-2px] lg:tracking-[-5px] leading-[1.05] mb-6">
         Modern React{" "}
@@ -95,9 +81,9 @@ const Hero = () => {
       </h1>
 
       <p className="text-xl text-muted text-center tracking-tighter max-w-180 mb-14">
-        Build polished interfaces faster with reusable components,
-        production-ready templates, multiple themes, and comprehensive
-        documentation—all powered by Hummingbird.
+        Build polished interfaces faster with reusable components, multiple
+        themes, reliable UI patterns, and comprehensive documentation - all
+        powered by Hummingbird.
       </p>
 
       <div className="flex items-center gap-4">

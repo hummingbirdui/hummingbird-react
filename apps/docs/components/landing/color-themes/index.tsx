@@ -22,7 +22,7 @@ const ColorThemes = () => {
     <div className="px-6 py-20">
       <SectionHeader
         title="Color themes, perfected."
-        subtitle="Hummingbird offers a range of thoughtfully crafted themes with balanced colors, smooth transitions, and a consistent UI"
+        subtitle="Start with thoughtfully designed themes. Customize effortlessly while preserving a cohesive visual experience. "
       />
 
       <div className="mx-auto max-w-148 sm:max-w-172 lg:max-w-236">

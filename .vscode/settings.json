@@ -1,4 +1,7 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "liveServer.settings.port": 5501,
   "cSpell.words": [
     "hummingbirdui"

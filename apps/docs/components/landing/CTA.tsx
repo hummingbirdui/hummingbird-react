@@ -4,7 +4,7 @@ import Link from "next/link";
 const CTA = () => {
   return (
     <div className="px-6 mb-18">
-      <div className="px-4 pt-22.5 pb-15 rounded-3xl flex flex-col max-w-8xl mx-auto bg-[url('/images/backgrounds/cta-light.png')] dark:bg-[url('/images/backgrounds/cta-dark.png')] bg-cover bg-no-repeat">
+      <div className="px-4 py-15 rounded-3xl flex flex-col max-w-8xl mx-auto bg-[url('/images/backgrounds/cta-light.png')] dark:bg-[url('/images/backgrounds/cta-dark.png')] bg-cover bg-no-repeat">
         <h1 className="text-4xl sm:text-6xl text-center tracking-tighter sm:tracking-[-3px] font-medium mb-4">
           Ship your next project faster
         </h1>
