@@ -11,8 +11,7 @@ export default function CalendarDefault() {
       mode="single"
       selected={date}
       onSelect={setDate}
-      className="rounded-lg border"
-      captionLayout="dropdown"
+      className="mx-auto rounded-lg border border-default"
     />
   );
 }
