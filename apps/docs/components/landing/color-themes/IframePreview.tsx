@@ -76,9 +76,12 @@ const IframePreview = ({
 
     iframe.addEventListener("load", handleLoad);
 
+    // The initial contentDocument is "about:blank" with readyState "complete",
+    // so only run the eager check once the actual srcdoc document is in place.
     if (
-      iframe.contentDocument?.readyState === "complete" ||
-      iframe.contentDocument?.readyState === "interactive"
+      iframe.contentDocument?.URL === "about:srcdoc" &&
+      (iframe.contentDocument.readyState === "complete" ||
+        iframe.contentDocument.readyState === "interactive")
     ) {
       handleLoad();
     }
