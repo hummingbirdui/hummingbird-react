@@ -7,7 +7,7 @@ const NavsTabs = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <mask id="path-1-inside-1_34356_69286" fill="var(--color-contrast)">
+      <mask id="path-1-inside-1_34356_69286" fill="var(--color-inverse)">
         <path d="M0 0H66.6667V36H0V0Z" />
       </mask>
       <path

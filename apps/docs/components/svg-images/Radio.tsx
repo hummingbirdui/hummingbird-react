@@ -8,7 +8,7 @@ const Radio = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle cx="8" cy="8" r="8" fill="var(--color-primary)" />
-      <circle cx="8" cy="8" r="3" fill="var(--color-contrast)" />
+      <circle cx="8" cy="8" r="3" fill="var(--color-inverse)" />
       <rect
         x="24"
         y="4"
@@ -18,7 +18,7 @@ const Radio = () => {
         fill="var(--background-color-highlight)"
       />
       <circle cx="8" cy="32" r="8" fill="var(--color-primary)" />
-      <circle cx="8" cy="32" r="3" fill="var(--color-contrast)" />
+      <circle cx="8" cy="32" r="3" fill="var(--color-inverse)" />
       <rect
         x="24"
         y="28"

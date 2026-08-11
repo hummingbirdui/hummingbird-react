@@ -18,7 +18,7 @@ const Navbar = () => {
       ></rect>
       <path
         d="M0 8C0 3.58172 3.58172 0 8 0H192C196.418 0 200 3.58172 200 8V29.9551H0V8Z"
-        fill="var(--color-contrast)"
+        fill="var(--color-inverse)"
       ></path>
       <path
         d="M8 0.5H192C196.142 0.500002 199.5 3.85787 199.5 8V29.4551H0.5V8C0.5 3.85786 3.85786 0.5 8 0.5Z"

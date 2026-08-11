@@ -128,10 +128,24 @@ Here is the list of semantic colors that will be generated as Tailwind utilities
     </Table.Row>
     <Table.Row>
       <Table.Cell>
+        <div className="h-9 w-20 border border-muted rounded bg-default" />
+      </Table.Cell>
+      <Table.Cell>`border-muted`</Table.Cell>
+      <Table.Cell>`--border-color-muted`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
         <div className="h-9 w-20 border border-default rounded bg-default" />
       </Table.Cell>
       <Table.Cell>`border-default`</Table.Cell>
       <Table.Cell>`--border-color-default`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <div className="h-9 w-20 border border-highlight rounded bg-default" />
+      </Table.Cell>
+      <Table.Cell>`border-highlight`</Table.Cell>
+      <Table.Cell>`--border-color-highlight`</Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>
@@ -142,83 +156,24 @@ Here is the list of semantic colors that will be generated as Tailwind utilities
     </Table.Row>
     <Table.Row>
       <Table.Head colSpan={3} className="text-center">
-        Actions colors (generate all color-related utilities)
-      </Table.Head>
-    </Table.Row>
-    <Table.Row>
-      <Table.Head />
-      <Table.Head>Color name</Table.Head>
-      <Table.Head>Description</Table.Head>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-active" />
-      </Table.Cell>
-      <Table.Cell>Active color</Table.Cell>
-      <Table.Cell>`--color-active`</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-hover" />
-      </Table.Cell>
-      <Table.Cell>Hover color</Table.Cell>
-      <Table.Cell>`--color-hover`</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-selected" />
-      </Table.Cell>
-      <Table.Cell>Selected color</Table.Cell>
-      <Table.Cell>`--color-selected`</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <span className="text-disabled">Disabled text</span>
-      </Table.Cell>
-      <Table.Cell>Disabled text color</Table.Cell>
-      <Table.Cell>`--color-disabled-color`</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-disabled" />
-      </Table.Cell>
-      <Table.Cell>Disabled Background</Table.Cell>
-      <Table.Cell>`--color-disabled`</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-focus" />
-      </Table.Cell>
-      <Table.Cell>Focus color</Table.Cell>
-      <Table.Cell>`--color-focus`</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Head colSpan={3} className="text-center">
         Theme colors (generate all color-related utilities)
       </Table.Head>
     </Table.Row>
     <Table.Row>
       <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-light" />
+        <div className="h-9 w-20 border border-subtle/30 rounded bg-neutral" />
       </Table.Cell>
-      <Table.Cell>Light color</Table.Cell>
-      <Table.Cell>`--color-light`</Table.Cell>
+      <Table.Cell>Neutral color</Table.Cell>
+      <Table.Cell>`--color-neutral`</Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-dark" />
-      </Table.Cell>
-      <Table.Cell>Dark color</Table.Cell>
-      <Table.Cell>`--color-dark`</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell>
-        <div className="h-9 w-20 border border-subtle/30 rounded bg-dark text-contrast flex items-center justify-center dark:bg-emphasis">
-          Contrast
+        <div className="h-9 w-20 border border-subtle/30 rounded bg-neutral text-inverse flex items-center justify-center dark:bg-emphasis">
+          {"Inverse"}
         </div>
       </Table.Cell>
-      <Table.Cell>Contrast text color</Table.Cell>
-      <Table.Cell>`--color-contrast`</Table.Cell>
+      <Table.Cell>Inverse text color</Table.Cell>
+      <Table.Cell>`--color-inverse`</Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>
@@ -444,7 +399,7 @@ Use semantic color classes like:
 These classes use the theme's color variables, so the UI stays consistent when customizing or switching themes. They can be applied to any element or passed to any component through the `className` prop.
 
 ```tsx
-<button className="bg-primary text-contrast hover:bg-primary-dark">
+<button className="bg-primary text-inverse hover:bg-primary-dark">
   Button
 </button>
 
