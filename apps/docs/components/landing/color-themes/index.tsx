@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { initThemeComparison } from "./initThemeComparison";
 import SectionHeader from "@/components/common/SectionHeader";
 import ThemeSlider from "./ThemeSlider";
@@ -8,15 +8,9 @@ import IframePreview from "./IframePreview";
 import ThemeComparison from "./ThemeComparison";
 
 const ColorThemes = () => {
+  // Local to this section: the slider drives the iframe preview only, with no
+  // tie to the site-wide main theme.
   const [theme, setTheme] = useState("default");
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("main-theme");
-
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
-  }, []);
 
   return (
     <div className="px-6 py-20">

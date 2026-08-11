@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@hummingbirdui/hummingbird':
-        specifier: ^1.2.2
-        version: 1.2.2(@popperjs/core@2.11.8)
+        specifier: ^1.4.0
+        version: 1.4.0(@popperjs/core@2.11.8)
       '@tailwindcss/postcss':
         specifier: ^4.3.1
         version: 4.3.2
@@ -882,8 +882,8 @@ packages:
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
-  '@hummingbirdui/hummingbird@1.2.2':
-    resolution: {integrity: sha512-KBG8ybaYoGRclgoXqcbxGZ8fm1V4TRM9UvAHwizMC169UveS076WrqNijiHYFnQkjFv7CflFS2HzOH8hyJd90w==}
+  '@hummingbirdui/hummingbird@1.4.0':
+    resolution: {integrity: sha512-wrZmHjQJuqra4+JMFUWQdIG0m3mIrCOSzIAK8vdJDY0S9CE6xLSW4e1E6lTFw7s1btEAaGRZzgSOIPokrRUvsg==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
@@ -5178,7 +5178,7 @@ snapshots:
     dependencies:
       '@popperjs/core': 2.11.8
 
-  '@hummingbirdui/hummingbird@1.2.2(@popperjs/core@2.11.8)':
+  '@hummingbirdui/hummingbird@1.4.0(@popperjs/core@2.11.8)':
     dependencies:
       '@popperjs/core': 2.11.8
 
