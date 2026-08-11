@@ -44,8 +44,6 @@ const buttonVariants = cva('btn', {
     { variant: 'filled', color: 'warning', class: 'btn-warning' },
     { variant: 'filled', color: 'danger', class: 'btn-danger' },
     { variant: 'filled', color: 'neutral', class: 'btn-neutral' },
-    { variant: 'filled', color: 'light', class: 'btn-light' },
-    { variant: 'filled', color: 'dark', class: 'btn-dark' },
 
     // Subtle variants
     { variant: 'subtle', color: 'primary', class: 'btn-subtle-primary' },
@@ -55,8 +53,6 @@ const buttonVariants = cva('btn', {
     { variant: 'subtle', color: 'warning', class: 'btn-subtle-warning' },
     { variant: 'subtle', color: 'danger', class: 'btn-subtle-danger' },
     { variant: 'subtle', color: 'neutral', class: 'btn-subtle-neutral' },
-    { variant: 'subtle', color: 'light', class: 'btn-subtle-light' },
-    { variant: 'subtle', color: 'dark', class: 'btn-subtle-dark' },
 
     // Outline variants
     { variant: 'outline', color: 'primary', class: 'btn-outline-primary' },
@@ -66,8 +62,6 @@ const buttonVariants = cva('btn', {
     { variant: 'outline', color: 'warning', class: 'btn-outline-warning' },
     { variant: 'outline', color: 'danger', class: 'btn-outline-danger' },
     { variant: 'outline', color: 'neutral', class: 'btn-outline-neutral' },
-    { variant: 'outline', color: 'light', class: 'btn-outline-light' },
-    { variant: 'outline', color: 'dark', class: 'btn-outline-dark' },
 
     // Text variants
     { variant: 'text', color: 'primary', class: 'btn-text-primary' },
@@ -77,8 +71,6 @@ const buttonVariants = cva('btn', {
     { variant: 'text', color: 'warning', class: 'btn-text-warning' },
     { variant: 'text', color: 'danger', class: 'btn-text-danger' },
     { variant: 'text', color: 'neutral', class: 'btn-text-neutral' },
-    { variant: 'text', color: 'light', class: 'btn-text-light' },
-    { variant: 'text', color: 'dark', class: 'btn-text-dark' },
 
     // Icon variants
     { variant: 'icon', color: 'primary', class: 'btn-icon-primary' },
