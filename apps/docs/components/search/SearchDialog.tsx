@@ -12,7 +12,20 @@ import { cn } from "@hummingbirdui/react/utils";
 
 const searchClient = oramaStaticClient({
   from: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/search`,
+  search: {
+    // Defaults (8 hits per page, 60 total) drop lower-scored snippets, so
+    // whole sections (e.g. Button's "Variants") vanish from results. Raise
+    // them — the section collapse below dedupes hits, keeping the list short.
+    limit: 300,
+    groupBy: { properties: ["page_id"], maxResult: 30 },
+  },
 });
+
+// Page url -> headings (anchor id + title) in document order, fetched once
+// from the static TOC endpoint. Used to collapse a page's matches into one
+// row per section, ordered like the page's TOC instead of Orama's relevance
+// order.
+type TocMap = Record<string, { id: string; title: string }[]>;
 
 // A page hit followed by its matched headings/snippets, mirroring how the
 // main Hummingbird docs group DocSearch results under the page title.
@@ -52,7 +65,18 @@ export function SearchDialog({
   const router = useRouter();
   const { search, setSearch, query } = useDocsSearch({ client: searchClient });
   const [active, setActive] = useState(0);
+  const [tocMap, setTocMap] = useState<TocMap | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open || tocMap) return;
+    fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/toc`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: TocMap | null) => {
+        if (data) setTocMap(data);
+      })
+      .catch(() => {});
+  }, [open, tocMap]);
 
   const results = useMemo<SortedResult[]>(
     () => (Array.isArray(query.data) ? query.data : []),
@@ -74,6 +98,45 @@ export function SearchDialog({
       }
     }
 
+    // Orama returns a page's matched headings and raw text snippets ranked by
+    // relevance score. Collapse them into one row per section — titled by its
+    // heading and ordered like the page's TOC — matching how the main
+    // Hummingbird docs (DocSearch) present results. Intro text with no anchor
+    // is dropped: the page row itself covers it.
+    for (const group of list) {
+      const pageUrl =
+        group.page?.url ?? group.items[0]?.url.split("#", 1)[0];
+      const toc = pageUrl != null ? tocMap?.[pageUrl] : undefined;
+      if (!toc) continue;
+
+      // One match per anchor; a matched heading wins over a text snippet so
+      // its term highlighting is kept.
+      const byAnchor = new Map<string, SortedResult>();
+      for (const item of group.items) {
+        const hashIndex = item.url.indexOf("#");
+        if (hashIndex === -1) continue;
+        const anchor = item.url.slice(hashIndex + 1);
+        const existing = byAnchor.get(anchor);
+        if (!existing || (existing.type !== "heading" && item.type === "heading"))
+          byAnchor.set(anchor, item);
+      }
+
+      const ordered: SortedResult[] = [];
+      for (const heading of toc) {
+        const match = byAnchor.get(heading.id);
+        if (!match) continue;
+        byAnchor.delete(heading.id);
+        ordered.push(
+          match.type === "heading"
+            ? match
+            : { ...match, type: "heading", content: heading.title },
+        );
+      }
+      // Anchors missing from the TOC keep their relevance order at the end.
+      ordered.push(...byAnchor.values());
+      group.items = ordered;
+    }
+
     const q = search.trim().toLowerCase();
     const score = (group: ResultGroup) => {
       if (!q || !group.page) return 0;
@@ -87,7 +150,7 @@ export function SearchDialog({
       .map((group, order) => ({ group, order }))
       .sort((a, b) => score(b.group) - score(a.group) || a.order - b.order)
       .map(({ group }) => group);
-  }, [results, search]);
+  }, [results, search, tocMap]);
 
   // Displayed order, flattened — keyboard navigation walks this list.
   const flatResults = useMemo(

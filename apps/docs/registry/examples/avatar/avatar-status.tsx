@@ -4,7 +4,7 @@ import { Avatar } from "@hummingbirdui/react";
 
 export default function AvatarStatus() {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex justify-center gap-4">
       <Avatar status="online">
         <Avatar.Image
           src="https://i.pravatar.cc/150?img=12"

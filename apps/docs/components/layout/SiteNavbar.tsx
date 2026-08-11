@@ -99,12 +99,12 @@ export function SiteNavbar() {
           </Link>
         </Navbar.Brand>
 
-        <Badge variant="subtle" color="neutral" className="max-md:hidden">
+        <Badge variant="subtle" color="neutral" className="max-xl:hidden">
           v{version}
         </Badge>
 
         <SearchButton
-          className="ms-2 hidden sm:ms-15 xl:flex"
+          className="ms-2 hidden sm:ms-8 xl:ms-15 lg:flex"
           onClick={() => setSearchOpen(true)}
         />
 
@@ -113,7 +113,7 @@ export function SiteNavbar() {
             <NavLinks pathname={pathname} />
           </Navbar.Nav>
           <SearchIconButton
-            className="xl:hidden"
+            className="lg:hidden"
             onClick={() => setSearchOpen(true)}
           />
           <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex"></div>

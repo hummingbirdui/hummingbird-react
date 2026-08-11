@@ -55,7 +55,7 @@ const Dtp = () => {
           width="160"
           height="92"
           rx="8"
-          fill="var(--color-contrast)"
+          fill="var(--color-inverse)"
         ></rect>
         <rect
           x="14"
@@ -362,7 +362,7 @@ const Dtp = () => {
             width="160"
             height="92"
             rx="8"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
       </defs>

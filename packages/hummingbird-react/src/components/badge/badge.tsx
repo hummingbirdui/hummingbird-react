@@ -7,8 +7,8 @@ const badgeVariants = cva('badge', {
   variants: {
     variant: {
       filled: '',
-      subtle: 'badge-subtle',
-      outline: 'badge-outline',
+      subtle: '',
+      outline: '',
     },
     color: {
       neutral: '',
@@ -36,7 +36,7 @@ const badgeVariants = cva('badge', {
     { variant: 'filled', color: 'success', class: 'badge-success' },
     { variant: 'filled', color: 'warning', class: 'badge-warning' },
     { variant: 'filled', color: 'danger', class: 'badge-danger' },
-
+    { variant: 'filled', color: 'neutral', class: 'badge-neutral' },
     // Subtle variants
     { variant: 'subtle', color: 'primary', class: 'badge-subtle-primary' },
     { variant: 'subtle', color: 'secondary', class: 'badge-subtle-secondary' },
@@ -44,7 +44,7 @@ const badgeVariants = cva('badge', {
     { variant: 'subtle', color: 'success', class: 'badge-subtle-success' },
     { variant: 'subtle', color: 'warning', class: 'badge-subtle-warning' },
     { variant: 'subtle', color: 'danger', class: 'badge-subtle-danger' },
-
+    { variant: 'subtle', color: 'neutral', class: 'badge-subtle-neutral' },
     // Outline variants
     { variant: 'outline', color: 'primary', class: 'badge-outline-primary' },
     { variant: 'outline', color: 'secondary', class: 'badge-outline-secondary' },
@@ -52,6 +52,7 @@ const badgeVariants = cva('badge', {
     { variant: 'outline', color: 'success', class: 'badge-outline-success' },
     { variant: 'outline', color: 'warning', class: 'badge-outline-warning' },
     { variant: 'outline', color: 'danger', class: 'badge-outline-danger' },
+    { variant: 'outline', color: 'neutral', class: 'badge-outline-neutral' },
   ],
   defaultVariants: {
     variant: 'filled',

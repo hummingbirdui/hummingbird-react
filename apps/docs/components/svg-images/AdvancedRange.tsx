@@ -83,7 +83,7 @@ const AdvancedRange = () => {
             width="67.0769"
             height="6"
             rx="3"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           />
         </clipPath>
         <clipPath id="clip1_35496_29461">
@@ -93,7 +93,7 @@ const AdvancedRange = () => {
             width="68"
             height="6"
             rx="3"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           />
         </clipPath>
         <clipPath id="clip2_35496_29461">
@@ -103,7 +103,7 @@ const AdvancedRange = () => {
             width="68"
             height="6"
             rx="3"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           />
         </clipPath>
       </defs>

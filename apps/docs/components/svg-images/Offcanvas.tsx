@@ -31,10 +31,10 @@ const Offcanvas = () => {
           r="2.5"
           fill="var(--background-color-muted)"
         ></circle>
-        <mask id="path-8-inside-1_34356_69312" fill="var(--color-contrast)">
+        <mask id="path-8-inside-1_34356_69312" fill="var(--color-inverse)">
           <path d="M0 15H77V117.835H0V15Z"></path>
         </mask>
-        <path d="M0 15H77V117.835H0V15Z" fill="var(--color-contrast)"></path>
+        <path d="M0 15H77V117.835H0V15Z" fill="var(--color-inverse)"></path>
         <path
           d="M77 117.835V118.835H78V117.835H77ZM0 117.835H-1V118.835H0V117.835ZM77 15H76V117.835H77H78V15H77ZM77 117.835V116.835H0V117.835V118.835H77V117.835ZM0 117.835H1V15H0H-1V117.835H0Z"
           fill="var(--background-color-emphasis)"
@@ -149,7 +149,7 @@ const Offcanvas = () => {
             width="200"
             height="118"
             rx="8"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
       </defs>

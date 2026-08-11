@@ -48,7 +48,7 @@ const Table = () => {
         width="200"
         height="20"
         transform="translate(1 22)"
-        fill="var(--color-contrast)"
+        fill="var(--color-inverse)"
       ></rect>
       <path
         d="M9 30.2C9 29.5373 9.53726 29 10.2 29H62.2492C62.912 29 63.4492 29.5373 63.4492 30.2V33.8C63.4492 34.4627 62.912 35 62.2492 35H10.2C9.53726 35 9 34.4627 9 33.8V30.2Z"
@@ -78,7 +78,7 @@ const Table = () => {
         width="200"
         height="20"
         transform="translate(1 43)"
-        fill="var(--color-contrast)"
+        fill="var(--color-inverse)"
       ></rect>
       <path
         d="M9 51.2C9 50.5373 9.53726 50 10.2 50H62.2492C62.912 50 63.4492 50.5373 63.4492 51.2V54.8C63.4492 55.4627 62.912 56 62.2492 56H10.2C9.53726 56 9 55.4627 9 54.8V51.2Z"
@@ -108,7 +108,7 @@ const Table = () => {
         width="200"
         height="20"
         transform="translate(1 64)"
-        fill="var(--color-contrast)"
+        fill="var(--color-inverse)"
       ></rect>
       <path
         d="M9 72.2C9 71.5373 9.53726 71 10.2 71H62.2492C62.912 71 63.4492 71.5373 63.4492 72.2V75.8C63.4492 76.4627 62.912 77 62.2492 77H10.2C9.53726 77 9 76.4627 9 75.8V72.2Z"
@@ -136,7 +136,7 @@ const Table = () => {
       ></rect>
       <path
         d="M1 85H201V97C201 101.418 197.418 105 193 105H9C4.58173 105 1 101.418 1 97V85Z"
-        fill="var(--color-contrast)"
+        fill="var(--color-inverse)"
       ></path>
       <path
         d="M9 93.2C9 92.5373 9.53726 92 10.2 92H62.2492C62.912 92 63.4492 92.5373 63.4492 93.2V96.8C63.4492 97.4627 62.912 98 62.2492 98H10.2C9.53726 98 9 97.4627 9 96.8V93.2Z"

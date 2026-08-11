@@ -40,3 +40,4 @@ next-env.d.ts
 
 # docs preview themes, fetched by scripts/fetch-themes.mjs
 /app/themes/
+/public/themes.css
