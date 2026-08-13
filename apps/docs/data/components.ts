@@ -241,17 +241,17 @@ export const feedback: Component[] = [
     imgComponent: Popover,
   },
   // {
-  //   title: 'Progress',
-  //   url: '/docs/components/progress',
-  //   count: 9,
+  //   title: "Progress",
+  //   url: "/docs/components/progress",
+  //   count: 7,
   //   imgComponent: Progress,
   // },
-  // {
-  //   title: 'Loaders',
-  //   url: '/docs/components/loaders',
-  //   count: 5,
-  //   imgComponent: Loader,
-  // },
+  {
+    title: "Loader",
+    url: "/docs/components/loader",
+    count: 6,
+    imgComponent: Loader,
+  },
   // {
   //   title: 'Toasts',
   //   url: '/docs/components/toasts',

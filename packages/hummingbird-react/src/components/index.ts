@@ -17,6 +17,7 @@ export * from './floating-label';
 export * from './input';
 export * from './input-group';
 export * from './list-group';
+export * from './loader';
 export * from './nav';
 export * from './navbar';
 export * from './pagination';
