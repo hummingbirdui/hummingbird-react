@@ -3,28 +3,26 @@
 import * as React from "react";
 import { format } from "date-fns";
 import { ChevronDownIcon } from "lucide-react";
-import { Button, Calendar, Field, Input, Popover } from "@hummingbirdui/react";
+
+import { Calendar, DatePicker, Field, Input } from "@hummingbirdui/react";
 
 export default function DatePickerTime() {
   const [open, setOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date | undefined>(undefined);
 
   return (
-    <div className="flex gap-2 mx-auto max-w-xs">
+    <div className="mx-auto flex max-w-xs gap-2">
       <Field>
-        <label htmlFor="date-picker-optional">Date</label>
-        <Popover open={open} onOpenChange={setOpen}>
-          <Popover.Trigger>
-            <Button
-              variant="outline"
-              id="date-picker-optional"
-              className="w-32 justify-between font-normal"
-            >
-              {date ? format(date, "PPP") : "Select date"}
-              <ChevronDownIcon data-icon="inline-end" />
-            </Button>
-          </Popover.Trigger>
-          <Popover.Content className="w-auto overflow-hidden p-0" align="start">
+        <Field.Label htmlFor="date-picker-optional">Date</Field.Label>
+        <DatePicker open={open} onOpenChange={setOpen}>
+          <DatePicker.Trigger
+            id="date-picker-optional"
+            placeholder="Select date"
+            icon={<ChevronDownIcon />}
+          >
+            {date && format(date, "PPP")}
+          </DatePicker.Trigger>
+          <DatePicker.Content>
             <Calendar
               mode="single"
               selected={date}
@@ -35,17 +33,17 @@ export default function DatePickerTime() {
                 setOpen(false);
               }}
             />
-          </Popover.Content>
-        </Popover>
+          </DatePicker.Content>
+        </DatePicker>
       </Field>
-      <Field className="w-32">
-        <label htmlFor="time-picker-optional">Time</label>
+      <Field className="w-32 shrink-0">
+        <Field.Label htmlFor="time-picker-optional">Time</Field.Label>
         <Input
           type="time"
           id="time-picker-optional"
           step="1"
           defaultValue="10:30:00"
-          className="appearance-none bg-background [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+          className="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
         />
       </Field>
     </div>

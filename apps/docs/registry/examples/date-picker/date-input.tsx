@@ -4,12 +4,12 @@ import * as React from "react";
 import { CalendarIcon } from "lucide-react";
 
 import {
-  Field,
-  Calendar,
-  InputGroup,
-  Input,
   Button,
-  Popover,
+  Calendar,
+  DatePicker,
+  Field,
+  Input,
+  InputIcon,
 } from "@hummingbirdui/react";
 
 function formatDate(date: Date | undefined) {
@@ -40,62 +40,59 @@ export default function DatePickerInput() {
   const [value, setValue] = React.useState(formatDate(date));
 
   return (
-    <Field className="mx-auto w-48">
-      <label htmlFor="date-required">Subscription Date</label>
-      <InputGroup>
-        <Input
-          id="date-required"
-          value={value}
-          placeholder="June 01, 2025"
-          onChange={(e) => {
-            const date = new Date(e.target.value);
-            setValue(e.target.value);
-            if (isValidDate(date)) {
-              setDate(date);
-              setMonth(date);
-            }
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "ArrowDown") {
-              e.preventDefault();
-              setOpen(true);
-            }
-          }}
-        />
-        <InputGroup.Text align="inline-end">
-          <Popover open={open} onOpenChange={setOpen}>
-            <Popover.Trigger>
-              <Button
-                id="date-picker"
-                variant="ghost"
-                size="icon-xs"
-                aria-label="Select date"
-              >
-                <CalendarIcon />
-                <span className="sr-only">Select date</span>
-              </Button>
-            </Popover.Trigger>
-            <Popover.Content
-              className="w-auto overflow-hidden p-0"
-              align="end"
-              alignOffset={-8}
-              sideOffset={10}
-            >
-              <Calendar
-                mode="single"
-                selected={date}
-                month={month}
-                onMonthChange={setMonth}
-                onSelect={(date) => {
+    <Field className="mx-auto w-56">
+      <Field.Label htmlFor="date-required">Subscription Date</Field.Label>
+      <DatePicker open={open} onOpenChange={setOpen}>
+        <DatePicker.Anchor asChild>
+          <InputIcon>
+            <Input
+              id="date-required"
+              value={value}
+              placeholder="June 01, 2025"
+              onChange={(e) => {
+                const date = new Date(e.target.value);
+                setValue(e.target.value);
+                if (isValidDate(date)) {
                   setDate(date);
-                  setValue(formatDate(date));
-                  setOpen(false);
-                }}
-              />
-            </Popover.Content>
-          </Popover>
-        </InputGroup.Text>
-      </InputGroup>
+                  setMonth(date);
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowDown") {
+                  e.preventDefault();
+                  setOpen(true);
+                }
+              }}
+            />
+            <InputIcon.End>
+              <DatePicker.Trigger asChild>
+                <Button
+                  shape="circle"
+                  variant="text"
+                  size="sm"
+                  aria-label="Select date"
+                  className="-me-2"
+                >
+                  <CalendarIcon className="size-3.5" />
+                </Button>
+              </DatePicker.Trigger>
+            </InputIcon.End>
+          </InputIcon>
+        </DatePicker.Anchor>
+        <DatePicker.Content align="end" sideOffset={10}>
+          <Calendar
+            mode="single"
+            selected={date}
+            month={month}
+            onMonthChange={setMonth}
+            onSelect={(date) => {
+              setDate(date);
+              setValue(formatDate(date));
+              setOpen(false);
+            }}
+          />
+        </DatePicker.Content>
+      </DatePicker>
     </Field>
   );
 }

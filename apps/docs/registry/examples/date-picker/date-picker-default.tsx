@@ -3,33 +3,31 @@
 import * as React from "react";
 import { format } from "date-fns";
 
-import { Button, Calendar, Field, Popover } from "@hummingbirdui/react";
+import { Calendar, DatePicker, Field } from "@hummingbirdui/react";
 
 export default function DatePickerSimple() {
+  const [open, setOpen] = React.useState(false);
   const [date, setDate] = React.useState<Date>();
 
   return (
-    <Field className="mx-auto w-44">
-      <label htmlFor="date-picker-simple">Date</label>
-      <Popover>
-        <Popover.Trigger asChild>
-          <Button
-            variant="outline"
-            id="date-picker-simple"
-            className="justify-start font-normal"
-          >
-            {date ? format(date, "PPP") : <span>Pick a date</span>}
-          </Button>
-        </Popover.Trigger>
-        <Popover.Content className="w-auto p-0">
+    <Field className="mx-auto w-48">
+      <Field.Label htmlFor="date-picker-simple">Date</Field.Label>
+      <DatePicker open={open} onOpenChange={setOpen}>
+        <DatePicker.Trigger id="date-picker-simple" placeholder="Pick a date">
+          {date && format(date, "PPP")}
+        </DatePicker.Trigger>
+        <DatePicker.Content>
           <Calendar
             mode="single"
             selected={date}
-            onSelect={setDate}
             defaultMonth={date}
+            onSelect={(date) => {
+              setDate(date);
+              setOpen(false);
+            }}
           />
-        </Popover.Content>
-      </Popover>
+        </DatePicker.Content>
+      </DatePicker>
     </Field>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
+import { Calendar, Card, Field, Input, InputIcon } from "@hummingbirdui/react";
 import { Clock2Icon } from "lucide-react";
-import { Calendar, Card, Field, InputGroup, Input } from "@hummingbirdui/react";
 
 export default function CalendarWithTime() {
   const [date, setDate] = React.useState<Date | undefined>(
@@ -10,20 +10,20 @@ export default function CalendarWithTime() {
   );
 
   return (
-    <Card size="sm" className="mx-auto w-fit">
+    <Card className="mx-auto w-fit">
       <Card.Body className="p-0">
         <Calendar
           mode="single"
           selected={date}
           onSelect={setDate}
-          className="p-0"
+          className="w-full"
         />
       </Card.Body>
-      <Card.Footer className="border-t border-default bg-card">
+      <Card.Footer className="border-t border-default">
         <div>
           <Field className="mb-3">
-            <label htmlFor="time-from">Start Time</label>
-            <InputGroup>
+            <Field.Label htmlFor="time-from">Start Time</Field.Label>
+            <InputIcon>
               <Input
                 id="time-from"
                 type="time"
@@ -31,14 +31,14 @@ export default function CalendarWithTime() {
                 defaultValue="10:30:00"
                 className="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
               />
-              <InputGroup.Text>
-                <Clock2Icon className="text-muted-foreground" />
-              </InputGroup.Text>
-            </InputGroup>
+              <InputIcon.End>
+                <Clock2Icon className="text-muted size-4" />
+              </InputIcon.End>
+            </InputIcon>
           </Field>
           <Field>
-            <label htmlFor="time-to">End Time</label>
-            <InputGroup>
+            <Field.Label htmlFor="time-to">End Time</Field.Label>
+            <InputIcon>
               <Input
                 id="time-to"
                 type="time"
@@ -46,10 +46,10 @@ export default function CalendarWithTime() {
                 defaultValue="12:30:00"
                 className="appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
               />
-              <InputGroup.Text>
-                <Clock2Icon className="text-muted-foreground text-xs" />
-              </InputGroup.Text>
-            </InputGroup>
+              <InputIcon.End>
+                <Clock2Icon className="text-muted size-4" />
+              </InputIcon.End>
+            </InputIcon>
           </Field>
         </div>
       </Card.Footer>

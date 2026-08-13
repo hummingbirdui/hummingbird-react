@@ -1,29 +1,143 @@
 ---
 title: Date Picker
-description: An interactive component that expands and collapses a single panel of content.
+description: An input-style date field that opens a calendar in a popover, built on the Popover and Calendar components.
 ---
 
 ## Default
+
+Composes `DatePicker` with the [Calendar](/docs/components/calendar) component. The selected date is formatted into the trigger's children, and the controlled `open` state closes the popover on select.
 
 <ComponentPreview name="date-picker-default" />
 
 ## Range Picker
 
+Passing `mode="range"` and `numberOfMonths` to the calendar turns the picker into a range picker.
+
 <ComponentPreview name="date-picker-with-range" />
 
 ## Date of Birth
+
+Setting `captionLayout="dropdown"` on the calendar adds month and year dropdowns for reaching distant dates.
 
 <ComponentPreview name="date-of-birth" />
 
 ## Input
 
-<ComponentPreview name="date-input" />
-
-## Input
+For typed entry, a regular `Input` parses the text while an icon button opens the calendar. `DatePicker.Anchor` positions the popover against the whole input instead of the icon button.
 
 <ComponentPreview name="date-input" />
 
 ## Date Time Picker
 
+A date picker paired with a time input. The `icon` prop swaps the default calendar icon for a chevron.
+
 <ComponentPreview name="date-time-picker" />
 
+## API Reference
+
+Built on the [Popover](/docs/components/popover) component. `DatePicker` owns no date state — the calendar's `selected`/`onSelect` and the trigger's children remain with the consumer, so every `react-day-picker` mode works unchanged. For form submission, a hidden input can be rendered next to the trigger.
+
+### DatePicker
+
+Contains all the parts of a date picker. Props are the same as [Popover](/docs/components/popover#popover).
+
+### DatePicker.Trigger
+
+The input-style button that toggles the popover. Renders the children as the formatted value, or the `placeholder` when children are empty.
+
+<PropsTable
+  data={[
+    {
+      prop: "placeholder",
+      type: "string",
+      description: "Muted text shown while no value (children) is rendered.",
+    },
+    {
+      prop: "icon",
+      type: "ReactNode",
+      description: (
+        <>
+          Icon rendered at the inline end. Defaults to a calendar icon;{" "}
+          <code>null</code> removes it.
+        </>
+      ),
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      default: '"md"',
+      description: "The size of the trigger, matching the input sizes.",
+    },
+    {
+      prop: "state",
+      type: '"valid" | "invalid"',
+      description: (
+        <>
+          Validation styling. <code>invalid</code> also sets{" "}
+          <code>aria-invalid</code>.
+        </>
+      ),
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-empty]",
+      values: ["Present when no value is rendered"],
+    },
+  ]}
+/>
+
+### DatePicker.Anchor
+
+An optional element to position the `DatePicker.Content` against. Props are the same as [Popover.Anchor](/docs/components/popover#popoveranchor).
+
+### DatePicker.Content
+
+The popover panel that contains the calendar. It defaults to `align="start"`, hides the popover arrow, and removes the popover's default width limit. All other props are the same as [Popover.Content](/docs/components/popover#popovercontent).
+
+<PropsTable
+  data={[
+    {
+      prop: "arrow",
+      type: "boolean",
+      default: "false",
+      description: "Shows the popover arrow.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## CSS variables
+
+The trigger reuses Hummingbird's `form-control` classes, so it follows the same border, focus, and disabled styling as [Input](/docs/components/input). The `date-picker-trigger` class exposes these CSS variables, which can be overridden to modify its appearance. Read more about customizing with CSS variables [here](/docs/customize/component#using-css-variables).
+
+```css
+.date-picker-trigger {
+  --date-picker-placeholder-color: var(--text-color-muted);
+  --date-picker-icon-color: var(--text-color-muted);
+  --date-picker-icon-size: --spacing(4);
+}
+```

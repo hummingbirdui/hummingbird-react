@@ -107,8 +107,8 @@ importers:
   packages/hummingbird-react:
     dependencies:
       '@hummingbirdui/hummingbird':
-        specifier: '>=1.0'
-        version: 1.2.0(@popperjs/core@2.11.8)
+        specifier: ^1.4.0
+        version: 1.4.0(@popperjs/core@2.11.8)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -118,6 +118,9 @@ importers:
       date-fns:
         specifier: ^4.4.0
         version: 4.4.0
+      lucide-react:
+        specifier: ^1.21.0
+        version: 1.23.0(react@19.2.7)
       radix-ui:
         specifier: ^1.6.0
         version: 1.6.2(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -892,13 +895,13 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@hummingbirdui/hummingbird@1.2.0':
-    resolution: {integrity: sha512-qiRv6RwDtFRafHtI7yhTn5p1mLNFuHu5C8QSZAgucRLR44YztuWEcfL4L+hQnqYse6GOIUR4I2Jj565zM78tuw==}
+  '@hummingbirdui/hummingbird@1.2.2':
+    resolution: {integrity: sha512-KBG8ybaYoGRclgoXqcbxGZ8fm1V4TRM9UvAHwizMC169UveS076WrqNijiHYFnQkjFv7CflFS2HzOH8hyJd90w==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
-  '@hummingbirdui/hummingbird@1.2.2':
-    resolution: {integrity: sha512-KBG8ybaYoGRclgoXqcbxGZ8fm1V4TRM9UvAHwizMC169UveS076WrqNijiHYFnQkjFv7CflFS2HzOH8hyJd90w==}
+  '@hummingbirdui/hummingbird@1.4.0':
+    resolution: {integrity: sha512-wrZmHjQJuqra4+JMFUWQdIG0m3mIrCOSzIAK8vdJDY0S9CE6xLSW4e1E6lTFw7s1btEAaGRZzgSOIPokrRUvsg==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
 
@@ -5204,11 +5207,11 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@hummingbirdui/hummingbird@1.2.0(@popperjs/core@2.11.8)':
+  '@hummingbirdui/hummingbird@1.2.2(@popperjs/core@2.11.8)':
     dependencies:
       '@popperjs/core': 2.11.8
 
-  '@hummingbirdui/hummingbird@1.2.2(@popperjs/core@2.11.8)':
+  '@hummingbirdui/hummingbird@1.4.0(@popperjs/core@2.11.8)':
     dependencies:
       '@popperjs/core': 2.11.8
 
