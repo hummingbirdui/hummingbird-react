@@ -1,0 +1,206 @@
+---
+title: Slider
+description: An input where the user selects a value or range from within a given range, with full keyboard, touch, and RTL support.
+---
+
+## Default
+
+The slider renders one thumb per entry in `value` or `defaultValue`.
+
+<ComponentPreview name="slider-default" />
+
+## Range
+
+Multiple values create a range slider; `minStepsBetweenThumbs` keeps the thumbs from overlapping.
+
+<ComponentPreview name="slider-range" />
+
+## Colors
+
+The `color` prop switches the slider's color scheme.
+
+<ComponentPreview name="slider-colors" />
+
+## Sizes
+
+The `size` prop scales the track and thumb.
+
+<ComponentPreview name="slider-sizes" />
+
+## Vertical
+
+`orientation="vertical"` renders a vertical slider; the height comes from the container.
+
+<ComponentPreview name="slider-vertical" />
+
+## Controlled
+
+`value` with `onValueChange` controls the slider, for displaying or syncing the current value.
+
+<ComponentPreview name="slider-controlled" />
+
+## Disabled
+
+The `disabled` prop prevents interaction and mutes the colors.
+
+<ComponentPreview name="slider-disabled" />
+
+## API Reference
+
+Built on the [Radix UI Slider](https://www.radix-ui.com/primitives/docs/components/slider) primitive. All props are forwarded to the Radix root; the track, range, and thumbs are rendered internally with Hummingbird's `slider-track`, `slider-range`, and `slider-thumb` classes.
+
+### Slider
+
+<PropsTable
+  data={[
+    {
+      prop: "defaultValue",
+      type: "number[]",
+      description:
+        "The value of the slider when initially rendered. Used when the slider does not need to be controlled.",
+    },
+    {
+      prop: "value",
+      type: "number[]",
+      description: (
+        <>
+          The controlled value of the slider. Must be used in conjunction with{" "}
+          <code>onValueChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: number[]) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+    {
+      prop: "onValueCommit",
+      type: "(value: number[]) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the value changes at the end of an interaction. Useful when only the committed value triggers side effects.",
+    },
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"',
+      typeSimple: "enum",
+      default: '"primary"',
+      description: "The slider color.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      typeSimple: "enum",
+      default: '"md"',
+      description: "The slider size.",
+    },
+    {
+      prop: "name",
+      type: "string",
+      description:
+        "The name of the slider, submitted with its owning form as part of a name/value pair.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description:
+        "When true, prevents the user from interacting with the slider.",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      default: '"horizontal"',
+      description: "The orientation of the slider.",
+    },
+    {
+      prop: "dir",
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description:
+        "The reading direction of the slider. If omitted, assumes LTR (left-to-right) reading mode.",
+    },
+    {
+      prop: "inverted",
+      type: "boolean",
+      default: "false",
+      description: "Whether the slider is visually inverted.",
+    },
+    {
+      prop: "min",
+      type: "number",
+      default: "0",
+      description: "The minimum value for the range.",
+    },
+    {
+      prop: "max",
+      type: "number",
+      default: "100",
+      description: "The maximum value for the range.",
+    },
+    {
+      prop: "step",
+      type: "number",
+      default: "1",
+      description: "The stepping interval.",
+    },
+    {
+      prop: "minStepsBetweenThumbs",
+      type: "number",
+      default: "0",
+      description: (
+        <>
+          The minimum permitted <code>step</code>s between multiple thumbs.
+        </>
+      ),
+    },
+    {
+      prop: "form",
+      type: "string",
+      description: (
+        <>
+          The id of the form the slider belongs to. If omitted, the slider is
+          associated with its nearest ancestor <code>form</code>.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+<br />
+
+<DataAttributesTable
+  data={[
+    { attribute: "[data-disabled]", values: "Present when disabled" },
+    { attribute: "[data-orientation]", values: ["vertical", "horizontal"] },
+  ]}
+/>
+
+## Keyboard Interactions
+
+The slider follows the [WAI-ARIA slider pattern](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/): arrow keys move the focused thumb by a step, `Page Up`/`Page Down` move by larger steps, and `Home`/`End` jump to the minimum and maximum.
+
+## Styling
+
+The slider component utilizes several CSS variables for customization, defined on the root's `slider` class. The track tint is derived from `--slider-color` automatically.
+
+```css
+.slider {
+  --slider-color: var(--color-primary);
+  --slider-height: --spacing(6);
+  --slider-thumb-width: --spacing(5);
+  --slider-thumb-height: --spacing(5);
+  --slider-thumb-border-radius: calc(infinity * 1px);
+  --slider-thumb-box-shadow: --alpha(var(--slider-color) / 16%) 0px 0px 0px 8px;
+  --slider-track-height: --spacing(1.5);
+  --slider-track-border-radius: var(--radius-sm);
+}
+```
