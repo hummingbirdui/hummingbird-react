@@ -2,6 +2,7 @@
 /* @import 'tailwindcss'; */
 @import '@hummingbirdui/hummingbird';
 @import 'tw-animate-css';
+@import './styles/scroll-area.css';
 
 @source './components';
 @source './layout';
