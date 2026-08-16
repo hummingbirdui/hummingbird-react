@@ -252,12 +252,12 @@ export const feedback: Component[] = [
   //   count: 5,
   //   imgComponent: Loader,
   // },
-  // {
-  //   title: 'Toasts',
-  //   url: '/docs/components/toasts',
-  //   count: 8,
-  //   imgComponent: Toast,
-  // },
+  {
+    title: "Sonner",
+    url: "/docs/components/sonner",
+    count: 5,
+    imgComponent: Toast,
+  },
 ];
 
 export const navigation: Component[] = [

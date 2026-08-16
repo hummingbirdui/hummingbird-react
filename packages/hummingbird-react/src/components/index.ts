@@ -24,6 +24,7 @@ export * from './popover';
 export * from './radio';
 export * from './range';
 export * from './select';
+export * from './sonner';
 export * from './switch';
 export * from './table';
 export * from './tabs';
