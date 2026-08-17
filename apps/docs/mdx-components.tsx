@@ -5,6 +5,7 @@ import { ColorPalette } from "@/components/docs/ColorPalette";
 import { ComponentPreview } from "@/components/docs/ComponentPreview";
 import { CssFileCode } from "@/components/docs/CssFileCode";
 import { MdxCodeBlock } from "@/components/docs/MdxCodeBlock";
+import { PackageManagerTabs } from "@/components/docs/PackageManagerTabs";
 import { PropsTable } from "@/components/docs/PropsTable";
 import { DataAttributesTable } from "@/components/docs/DataAttributesTable";
 import { CssVariablesTable } from "@/components/docs/CssVariablesTable";
@@ -24,6 +25,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Table: Table as any,
     ComponentPreview: (props: any) => <ComponentPreview {...props} />,
 
+    PackageManagerTabs: (props: any) => <PackageManagerTabs {...props} />,
     PropsTable: (props: any) => <PropsTable {...props} />,
     DataAttributesTable: (props: any) => <DataAttributesTable {...props} />,
     CssVariablesTable: (props: any) => <CssVariablesTable {...props} />,

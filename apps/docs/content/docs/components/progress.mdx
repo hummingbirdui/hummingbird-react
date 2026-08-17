@@ -1,0 +1,194 @@
+---
+title: Progress
+description: A progress bar that visualizes task completion, with colors, labels, stacked segments, stripes, and animation.
+---
+
+## Default
+
+Built on the [Radix UI Progress](https://www.radix-ui.com/primitives/docs/components/progress) primitive. The `value` prop sizes the bar and sets the `progressbar` ARIA attributes; a default bar renders automatically, so `Progress.Bar` is only needed to customize it.
+
+<ComponentPreview name="progress-default" className="max-w-sm mx-auto" />
+
+## Colors
+
+The `color` prop on `Progress.Bar` changes the bar's background.
+
+<ComponentPreview name="progress-colors" />
+
+## Height
+
+The track height is adjusted with a height utility on the root.
+
+<ComponentPreview name="progress-height" />
+
+## Labels
+
+Content inside `Progress.Bar` renders as a label on the bar.
+
+<ComponentPreview name="progress-labels" />
+
+## Multiple bars
+
+`Progress.Stacked` combines several progress segments in one track; each segment is sized by its own `value`.
+
+<ComponentPreview name="progress-stacked" />
+
+## Striped
+
+Setting `striped` overlays a striped pattern on the bar.
+
+<ComponentPreview name="progress-striped" />
+
+## Animated stripes
+
+`animated` with `striped` animates the stripe pattern. The animation pauses automatically when reduced motion is preferred.
+
+<ComponentPreview name="progress-animated" />
+
+## API Reference
+
+Built on the [Radix UI Progress](https://www.radix-ui.com/primitives/docs/components/progress) primitive. Each part forwards all props to its Radix counterpart.
+
+### Progress
+
+The progress track. It reads the current value, sets the `progressbar` ARIA attributes, and renders a default `Progress.Bar` when no children are provided.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "value",
+      type: "number | null",
+      typeSimple: "number",
+      description: (
+        <>
+          The progress value. A value of <code>null</code> renders an
+          indeterminate bar.
+        </>
+      ),
+    },
+    {
+      prop: "max",
+      type: "number",
+      default: "100",
+      description: "The maximum progress value.",
+    },
+    {
+      prop: "getValueLabel",
+      type: "(value: number, max: number) => string",
+      typeSimple: "function",
+      description:
+        "A function to get the accessible label text representing the current value in a human-readable format.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"complete"', '"indeterminate"', '"loading"'],
+    },
+    {
+      attribute: "[data-value]",
+      values: ["The current value"],
+    },
+    {
+      attribute: "[data-max]",
+      values: ["The max value"],
+    },
+  ]}
+/>
+
+### Progress.Bar
+
+The filled portion of the track, sized from the root's `value`.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "info" | "success" | "warning" | "danger"',
+      typeSimple: "enum",
+      default: '"primary"',
+      description: "The background color of the bar.",
+    },
+    {
+      prop: "striped",
+      type: "boolean",
+      description: "Overlays a striped pattern.",
+    },
+    {
+      prop: "animated",
+      type: "boolean",
+      description: (
+        <>
+          Animates the stripes. Use together with <code>striped</code>. The
+          animation pauses when reduced motion is preferred.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"complete"', '"indeterminate"', '"loading"'],
+    },
+    {
+      attribute: "[data-value]",
+      values: ["The current value"],
+    },
+    {
+      attribute: "[data-max]",
+      values: ["The max value"],
+    },
+  ]}
+/>
+
+### Progress.Stacked
+
+A container that stacks multiple `Progress` segments in one track. Inside it, each segment's `value` sizes the segment itself and the bar fills it.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React progress is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available progress classes in the [Class overview](https://hbui.dev/docs/components/progress/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/progress/#css-variables) documentation to explore all available variables.

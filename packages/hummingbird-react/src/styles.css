@@ -3,6 +3,8 @@
 @import '@hummingbirdui/hummingbird';
 @import 'tw-animate-css';
 @import './styles/slider.css';
+@import './styles/calendar.css';
+@import './styles/date-picker.css';
 
 @source './components';
 @source './layout';

@@ -30,9 +30,12 @@ function PopoverContent({
   className,
   align = 'center',
   sideOffset = 6,
+  arrow = true,
   children,
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Content>) {
+}: React.ComponentProps<typeof PopoverPrimitive.Content> & {
+  arrow?: boolean;
+}) {
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Content
@@ -48,22 +51,24 @@ function PopoverContent({
         {...props}
       >
         {children}
-        <PopoverPrimitive.Arrow data-slot="popover-arrow" asChild>
-          <span className="relative block h-[7px] w-3.5">
-            <span
-              className={cn(
-                'absolute top-0 left-0 block size-0 border-x-[7px] border-t-[7px] border-x-transparent',
-                'border-t-[color:var(--popover-arrow-border-color)]'
-              )}
-            />
-            <span
-              className={cn(
-                'absolute left-0 top-[calc(-1*var(--popover-border-width))] block size-0 border-x-[7px] border-t-[7px] border-x-transparent',
-                'border-t-[color:var(--popover-bg)]'
-              )}
-            />
-          </span>
-        </PopoverPrimitive.Arrow>
+        {arrow && (
+          <PopoverPrimitive.Arrow data-slot="popover-arrow" asChild>
+            <span className="relative block h-[7px] w-3.5">
+              <span
+                className={cn(
+                  'absolute top-0 left-0 block size-0 border-x-[7px] border-t-[7px] border-x-transparent',
+                  'border-t-[color:var(--popover-arrow-border-color)]'
+                )}
+              />
+              <span
+                className={cn(
+                  'absolute left-0 top-[calc(-1*var(--popover-border-width))] block size-0 border-x-[7px] border-t-[7px] border-x-transparent',
+                  'border-t-[color:var(--popover-bg)]'
+                )}
+              />
+            </span>
+          </PopoverPrimitive.Arrow>
+        )}
       </PopoverPrimitive.Content>
     </PopoverPrimitive.Portal>
   );
