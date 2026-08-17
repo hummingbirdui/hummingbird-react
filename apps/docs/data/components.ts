@@ -228,17 +228,17 @@ export const feedback: Component[] = [
     count: 7,
     imgComponent: Modal,
   },
-  // {
-  //   title: 'Placeholders',
-  //   url: '/docs/components/placeholders',
-  //   count: 6,
-  //   imgComponent: Placeholder,
-  // },
   {
     title: "Popover",
     url: "/docs/components/popover",
     count: 7,
     imgComponent: Popover,
+  },
+  {
+    title: "Sonner",
+    url: "/docs/components/sonner",
+    count: 5,
+    imgComponent: Toast,
   },
   {
     title: "Progress",
@@ -252,12 +252,6 @@ export const feedback: Component[] = [
     count: 5,
     imgComponent: Loader,
   },
-  // {
-  //   title: 'Toasts',
-  //   url: '/docs/components/toasts',
-  //   count: 8,
-  //   imgComponent: Toast,
-  // },
 ];
 
 export const navigation: Component[] = [

@@ -7,7 +7,7 @@ const figtree = Figtree({
   variable: "--font-figtree",
   display: "swap",
 });
-import { ThemeModeScript } from "@hummingbirdui/react";
+import { ThemeModeScript, Toaster } from "@hummingbirdui/react";
 import { MainThemeScript } from "@/components/layout/MainThemeScript";
 import { MainThemeController } from "@/components/layout/MainThemeController";
 import { SiteNavbar } from "@/components/layout/SiteNavbar";
@@ -49,6 +49,7 @@ export default function RootLayout({
         <MainThemeController />
         <SiteNavbar />
         <div className="flex-1">{children}</div>
+        <Toaster />
         <SiteFooter />
       </body>
     </html>

@@ -58,7 +58,7 @@ export function MdxCodeBlock({
         ref={preRef}
         className={cn(
           "hb-code m-0 overflow-auto py-6 pe-12! ps-5",
-          title && "pt-12",
+          title && "pt-12!",
           className,
         )}
         {...props}

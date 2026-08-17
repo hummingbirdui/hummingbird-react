@@ -1,0 +1,202 @@
+---
+title: Sonner
+description: An opinionated toast component powered by Sonner, styled with Hummingbird's design tokens.
+---
+
+## Usage
+
+The `Toaster` is rendered once at the application root; toasts are then fired from anywhere with the `toast` function.
+
+```tsx title="app/layout.tsx"
+import { Toaster } from "@hummingbirdui/react";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  );
+}
+```
+
+```tsx
+import { toast } from "@hummingbirdui/react";
+
+toast("Event has been created");
+```
+
+## Default
+
+The default toast displays a message, with optional description and action.
+
+<ComponentPreview name="sonner-default" />
+
+## Types
+
+`toast.success`, `toast.info`, `toast.warning`, and `toast.error` render typed toasts with a matching icon. `toast.promise` tracks a promise through loading, success, and error states.
+
+<ComponentPreview name="sonner-types" />
+
+## Description
+
+`toast.message` renders a message with a supporting description underneath.
+
+<ComponentPreview name="sonner-description" />
+
+## Position
+
+Toasts appear at the viewport position set on the `Toaster` (`bottom-right` by default); an individual toast overrides it with the `position` option.
+
+<ComponentPreview name="sonner-position" />
+
+## Custom
+
+`toast.custom` renders fully custom JSX - including Hummingbird's own toast classes while Sonner keeps handling stacking, timing, and dismissal.
+
+<ComponentPreview name="sonner-custom" />
+
+## API Reference
+
+Built on [Sonner](https://sonner.emilkowal.ski) by Emil Kowalski. The `Toaster` forwards all props to Sonner and pre-wires Hummingbird tokens for the toast background, text, border, and radius, which a consumer `style` overrides per variable.
+
+### Toaster
+
+<PropsTable
+  data={[
+    {
+      prop: "theme",
+      type: '"light" | "dark" | "system"',
+      typeSimple: "enum",
+      default: '"light"',
+      description:
+        "The toast color scheme. Hummingbird's tokens adapt to dark mode on their own, so this mainly affects Sonner's built-in icons and buttons.",
+    },
+    {
+      prop: "position",
+      type: '"top-left" | "top-center" | "top-right" | "bottom-left" | "bottom-center" | "bottom-right"',
+      typeSimple: "enum",
+      default: '"bottom-right"',
+      description: "The place where the toasts appear.",
+    },
+    {
+      prop: "richColors",
+      type: "boolean",
+      default: "false",
+      description: "Makes error and success toasts colorful.",
+    },
+    {
+      prop: "expand",
+      type: "boolean",
+      default: "false",
+      description: "Shows stacked toasts expanded by default.",
+    },
+    {
+      prop: "visibleToasts",
+      type: "number",
+      default: "3",
+      description: "The number of toasts visible at the same time.",
+    },
+    {
+      prop: "closeButton",
+      type: "boolean",
+      default: "false",
+      description: "Adds a close button to all toasts.",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "4000",
+      description:
+        "The time in milliseconds that a toast remains visible before it is automatically dismissed.",
+    },
+    {
+      prop: "offset",
+      type: "string | number | Offset",
+      typeSimple: "number",
+      default: '"24px"',
+      description: "The distance of the toasts from the viewport edges.",
+    },
+    {
+      prop: "dir",
+      type: '"ltr" | "rtl" | "auto"',
+      typeSimple: "enum",
+      default: '"auto"',
+      description: "The text direction of the toasts.",
+    },
+    {
+      prop: "hotkey",
+      type: "string[]",
+      default: '["altKey", "KeyT"]',
+      description: "The keyboard shortcut that moves focus to the toast area.",
+    },
+    {
+      prop: "invert",
+      type: "boolean",
+      default: "false",
+      description:
+        "Inverts the toast colors, dark on light themes and vice versa.",
+    },
+    {
+      prop: "gap",
+      type: "number",
+      default: "14",
+      description: "The gap in pixels between toasts when expanded.",
+    },
+    {
+      prop: "icons",
+      type: "ToasterProps['icons']",
+      typeSimple: "object",
+      description:
+        "Custom icons for the success, info, warning, error, loading, and close slots.",
+    },
+    {
+      prop: "toastOptions",
+      type: "ToasterProps['toastOptions']",
+      typeSimple: "object",
+      description:
+        "Default options applied to every toast, such as classNames, duration, or unstyled.",
+    },
+    {
+      prop: "style",
+      type: "React.CSSProperties",
+      typeSimple: "object",
+      description:
+        "Inline styles merged over the pre-wired Hummingbird token variables.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### toast
+
+The `toast` function shows a toast and returns its id.
+
+- `toast.success` / `toast.info` / `toast.warning` / `toast.error` — typed toasts with an icon
+- `toast.message` — message with a description
+- `toast.promise` — loading, success, and error states of a promise
+- `toast.loading` — toast with a spinner
+- `toast.custom` — custom JSX
+- `toast.dismiss` — removes a toast by id, or all toasts without one
+
+Every call accepts options like `description`, `duration`, `position`, and `action` — see the [Sonner API reference](https://sonner.emilkowal.ski/toast).
+
+## Styling
+
+The `Toaster` maps Sonner's CSS variables to Hummingbird tokens, so toasts follow the active theme automatically.
+
+```css
+--normal-bg: var(--background-color-subtle);
+--normal-text: var(--text-color-default);
+--normal-border: var(--border-color-default);
+--border-radius: var(--radius-lg);
+```
+
+- Individual variables are overridden through the `style` prop on the `Toaster`.
+- Per-part classes are applied through `toastOptions.classNames`; fully custom markup uses `toast.custom` with Hummingbird's [toast classes](https://hbui.dev/docs/components/toasts/#class-overview).
