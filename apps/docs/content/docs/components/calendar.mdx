@@ -1,0 +1,102 @@
+---
+title: Calendar
+description: A date field component that lets users select dates and date ranges, navigate months, and pick a month or year directly.
+---
+
+## Default
+
+Built on [React DayPicker](https://daypicker.dev/). A single date is selected with `mode="single"`.
+
+<ComponentPreview name="calendar-default" />
+
+## Range Calendar
+
+`mode="range"` selects a start and end date, and `numberOfMonths` shows several months side by side.
+
+<ComponentPreview name="calendar-range" />
+
+## Month and Year Selector
+
+`captionLayout="dropdown"` replaces the caption label with month and year dropdowns.
+
+<ComponentPreview name="calendar-caption" />
+
+## Calendar Presets
+
+Buttons outside the calendar can set the selected date and visible month through the controlled `selected` and `month` props.
+
+<ComponentPreview name="calendar-presets" />
+
+## Calendar With Time
+
+A calendar combined with time inputs for picking a date and time together.
+
+<ComponentPreview name="calendar-withtime" />
+
+## Booked dates
+
+The `disabled` and `modifiers` props mark dates as unavailable.
+
+<ComponentPreview name="calendar-booked-dates" />
+
+## Week numbers
+
+`showWeekNumber` adds an ISO week number column.
+
+<ComponentPreview name="calendar-week-numbers" />
+
+## API Reference
+
+`Calendar` forwards all props to [React DayPicker](https://daypicker.dev/api/type-aliases/DayPickerProps/), including `mode`, `selected`, `onSelect`, `numberOfMonths`, `captionLayout`, `showWeekNumber`, `disabled`, and `locale`.
+
+<PropsTable
+  data={[
+    {
+      prop: "buttonVariant",
+      type: '"filled" | "subtle" | "outline" | "text" | "link" | "icon"',
+      default: '"text"',
+      description: "The button variant used for the previous and next month buttons.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## CSS variables
+
+The `calendar` class exposes these CSS variables, which can be overridden to modify the calendar's appearance. Read more about customizing with CSS variables [here](/docs/customize/component#using-css-variables).
+
+```css
+.calendar {
+  --calendar-bg: var(--background-color-default);
+  --calendar-color: var(--text-color-default);
+  --calendar-muted-color: var(--text-color-muted);
+  --calendar-padding: --spacing(2);
+  --calendar-border-radius: var(--radius-lg);
+  --calendar-cell-size: --spacing(9);
+  --calendar-cell-radius: var(--radius-md);
+  --calendar-disabled-opacity: 0.5;
+  --calendar-outside-opacity: 0.7;
+  --calendar-nav-btn-size: --spacing(9);
+  --calendar-nav-btn-icon-size: --spacing(4);
+  --calendar-caption-height: --spacing(9);
+  --calendar-caption-font-size: var(--text-sm);
+  --calendar-caption-font-weight: var(--font-weight-medium);
+  --calendar-caption-icon-size: --spacing(3.5);
+  --calendar-caption-icon-color: var(--text-color-muted);
+  --calendar-weekday-color: var(--text-color-muted);
+  --calendar-weekday-font-size: var(--text-xs);
+  --calendar-weekday-font-weight: var(--font-weight-normal);
+  --calendar-day-color: var(--text-color-default);
+  --calendar-day-font-weight: var(--font-weight-normal);
+  --calendar-day-selected-color: var(--color-white);
+  --calendar-day-selected-bg: var(--color-primary);
+  --calendar-day-range-color: var(--text-color-default);
+  --calendar-day-range-bg: var(--background-color-muted);
+  --calendar-week-number-color: var(--text-color-muted);
+  --calendar-week-number-font-size: var(--text-xs);
+}
+```

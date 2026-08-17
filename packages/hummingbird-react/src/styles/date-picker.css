@@ -1,0 +1,29 @@
+@utility date-picker-trigger {
+  @layer base {
+    --date-picker-placeholder-color: var(--text-color-muted);
+    --date-picker-icon-color: var(--text-color-muted);
+    --date-picker-icon-size: --spacing(4);
+
+    @apply inline-flex cursor-pointer items-center justify-between gap-2 text-start select-none;
+
+    > [data-slot='date-picker-value'] {
+      @apply truncate;
+
+      &[data-placeholder] {
+        @apply text-(--date-picker-placeholder-color);
+      }
+    }
+    > [data-slot='date-picker-icon'] {
+      @apply flex shrink-0 items-center text-(--date-picker-icon-color);
+
+      svg {
+        @apply size-(--date-picker-icon-size);
+      }
+    }
+  }
+}
+
+.popover.date-picker-content,
+.popover:has([data-slot='calendar']) {
+  max-width: none;
+}
