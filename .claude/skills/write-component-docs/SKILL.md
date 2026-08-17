@@ -1,6 +1,6 @@
 ---
 name: write-component-docs
-description: Write the docs MDX page for a Hummingbird React component in apps/docs/content/docs/components/, with live ComponentPreview examples covering every variant/state, a Radix-redirect API Reference, and a Styling section. Use when asked to "write/add docs for <X>", "document the <X> component", or "create the <X> mdx page".
+description: Write the docs MDX page for a Hummingbird React component in apps/docs/content/docs/components/, with live ComponentPreview examples covering every variant/state, a full inline API Reference (PropsTable/DataAttributesTable per part, mirroring the Radix API reference), and a Styling section. Use when asked to "write/add docs for <X>", "document the <X> component", or "create the <X> mdx page".
 ---
 
 # Write Hummingbird React component docs
@@ -115,35 +115,48 @@ are picked up automatically.
 
 ## Step 4 — API Reference (Radix-backed components)
 
-The rule, derived from how these wrappers work:
+Mirror the **full Radix API reference inline, per part** — `accordion.mdx` and
+`popover.mdx` are the templates. Do NOT link out to Radix in place of tables; the
+only Radix link is the one-line intro:
 
-1. **Verify every Radix prop passes through.** Read the wrapper. Each part must
-   spread `{...props}` onto its Radix primitive for the Radix prop to work. Note any
-   part that intercepts a prop (e.g. `Accordion.Content` applies `className` to the
-   inner `accordion-body`, not the Radix `Content` root) — that is the wrapper's own
-   behavior, not Radix's.
-2. **Redirect shared props to Radix — do not re-document them.** When the props are
-   the same as Radix's, link out instead of rebuilding a table:
+```mdx
+## API Reference
 
-   ```mdx
-   For detailed usage guidelines, see the [Radix UI](https://www.radix-ui.com/primitives/docs/components/<name>#api-reference) documentation.
-   ```
+Built on the [Radix UI <Name>](https://www.radix-ui.com/primitives/docs/components/<name>) primitive. Each part forwards all props to its Radix counterpart.
+```
 
-3. **Only table genuinely new props.** When a part introduces a prop that is *not*
-   from Radix, add a `<PropsTable>` for those props, component-wise. If a part adds
-   nothing of its own, it gets no table — redirect and move on.
-4. **Whenever a table exists, include a `className` row.** Any part that gets a
-   `<PropsTable>` lists `className` as the last row (`type: "string"`, description
-   "Additional classes merged with the generated classes."). A part with no new props
-   gets no table, so `className` is not tabled there.
+Then one `### <Name>` / `### <Name>.<Part>` sub-heading per part, each with a
+one-sentence description and its tables:
 
-`<PropsTable>` shape (`prop`, `type`, optional `default`, `description`; description
-may be JSX):
+1. **Verify every Radix prop passes through before tabling it.** Read the wrapper.
+   Each part must spread `{...props}` onto its Radix primitive for the Radix prop to
+   work. Note any part that intercepts a prop (e.g. `Accordion.Content` applies
+   `className` to the inner `accordion-body`, not the Radix `Content` root) — that
+   is the wrapper's own behavior, not Radix's. Omit props the wrapper hardcodes.
+2. **`<PropsTable>` = full prop set**: every Radix prop that passes through (copy
+   the descriptions from Radix's API reference, `asChild` first), then the wrapper's
+   own CVA/custom props, then `className` as the **last row** (`type: "string"`,
+   description "Additional classes merged with the generated classes."). Use
+   `typeSimple` ("enum", "function", "number", …) when `type` is a union or
+   signature. Required props are marked with a trailing `*` (`prop: "type*"`).
+3. **`<DataAttributesTable>` after the props** (separated by `<br />`) for every
+   part on which Radix sets `data-*` attributes (`[data-state]`, `[data-side]`,
+   `[data-value]`, …), with the `values` array listing the literal values or a
+   short phrase (e.g. `"The current value"`).
+4. **`<CssVariablesTable>`** when Radix exposes CSS variables on the part
+   (`--radix-<name>-content-transform-origin`, measured width/height vars, …) — see
+   `popover.mdx`/`accordion.mdx`.
+5. **A part with no props still gets its sub-heading** and one-line description
+   ("Renders a `div` with Hummingbird's `popover-header` class.") — a `className`
+   passthrough alone is worth a one-row table (see `Progress.Stacked`).
+
+`<PropsTable>` row shape (`prop`, `type`, optional `typeSimple`, optional
+`default`, `description`; description may be JSX):
 
 ```mdx
 <PropsTable
   data={[
-    { prop: "<new-prop>", type: '"a" | "b"', default: '"a"', description: "…" },
+    { prop: "<prop>", type: '"a" | "b"', typeSimple: "enum", default: '"a"', description: "…" },
   ]}
 />
 ```
@@ -157,7 +170,7 @@ directly (variant, color, size, shape, asChild, className) as in `button.mdx`.
 - [ ] Every preview has a registered example file under `registry/examples/<component>/` and a line in `registry/index.ts`
 - [ ] All prose is third person — no "you"/"your"/"we"/imperative
 - [ ] Example files: `"use client"`, default export, import from `@hummingbirdui/react`
-- [ ] Radix-backed: confirmed each documented Radix prop spreads through the wrapper; shared props redirect to Radix
-- [ ] `PropsTable` only for parts with genuinely new props; every table that exists ends with a `className` row
+- [ ] Radix-backed: full API tables inline per part (props + data attributes + CSS variables), each Radix prop confirmed to spread through the wrapper
+- [ ] Every `PropsTable` lists the full prop set (`asChild` first when supported) and ends with a `className` row
 - [ ] Prose is short — one sentence per section, no boilerplate "Renders a `<div>`." lines under API sub-headings
 - [ ] Frontmatter `title` + third-person `description`; Styling section with the two hbui.dev links
