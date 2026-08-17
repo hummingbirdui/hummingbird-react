@@ -27,12 +27,342 @@ Setting `overlay={false}` on `Drawer.Content` renders the panel without the back
 
 ## API Reference
 
-Drawer is built on [Vaul](https://vaul.emilkowal.ski/). For detailed usage guidelines, see the [Vaul](https://vaul.emilkowal.ski/api) documentation.
+Built on [Vaul](https://vaul.emilkowal.ski/). Each part forwards all props to its Vaul counterpart, except `Drawer.Header` and `Drawer.Body`, which are Hummingbird-specific layout parts rendered as plain `div` elements.
 
-### Drawer.Content
+### Drawer
+
+Contains all the parts of a drawer.
 
 <PropsTable
   data={[
+    {
+      prop: "defaultOpen",
+      type: "boolean",
+      default: "false",
+      description: (
+        <>
+          Opened by default, skips the initial enter animation. Still reacts to{" "}
+          <code>open</code> state changes.
+        </>
+      ),
+    },
+    {
+      prop: "open",
+      type: "boolean",
+      description: (
+        <>
+          The controlled open state of the drawer. Must be used in conjunction
+          with <code>onOpenChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the open state of the drawer changes.",
+    },
+    {
+      prop: "modal",
+      type: "boolean",
+      default: "true",
+      description: (
+        <>
+          When <code>false</code>, allows interacting with elements outside of
+          the drawer without closing it.
+        </>
+      ),
+    },
+    {
+      prop: "container",
+      type: "HTMLElement",
+      default: "document.body",
+      description: "Specify a container element to portal the drawer into.",
+    },
+    {
+      prop: "direction",
+      type: '"top" | "right" | "bottom" | "left"',
+      typeSimple: "enum",
+      default: '"bottom"',
+      description: "The edge of the screen the drawer slides from.",
+    },
+    {
+      prop: "onAnimationEnd",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Gets triggered after the open or close animation ends. It receives an{" "}
+          <code>open</code> argument with the open state of the drawer by the
+          time the function was triggered.
+        </>
+      ),
+    },
+    {
+      prop: "dismissible",
+      type: "boolean",
+      default: "true",
+      description: (
+        <>
+          When <code>false</code>, dragging, clicking outside, or pressing
+          Escape will not close the drawer. Use in combination with the{" "}
+          <code>open</code> prop.
+        </>
+      ),
+    },
+    {
+      prop: "handleOnly",
+      type: "boolean",
+      default: "false",
+      description: (
+        <>
+          When <code>true</code>, only allows the drawer to be dragged by a Vaul{" "}
+          <code>Handle</code> component.
+        </>
+      ),
+    },
+    {
+      prop: "repositionInputs",
+      type: "boolean",
+      default: "true",
+      description: (
+        <>
+          When <code>true</code>, repositions inputs rather than scrolling them
+          into view when the keyboard is in the way. Setting it to{" "}
+          <code>false</code> falls back to the default browser behavior.
+        </>
+      ),
+    },
+    {
+      prop: "snapPoints",
+      type: "(number | string)[]",
+      typeSimple: "array",
+      description: (
+        <>
+          Array of numbers from 0 to 1 that corresponds to the percentage of the
+          screen a given snap point should take up, ordered from least visible,
+          e.g. <code>[0.2, 0.5, 0.8]</code>. Also accepts px values, which do
+          not take screen height into account.
+        </>
+      ),
+    },
+    {
+      prop: "activeSnapPoint",
+      type: "number | string | null",
+      description: (
+        <>
+          The controlled active snap point. Must be used in conjunction with{" "}
+          <code>setActiveSnapPoint</code>.
+        </>
+      ),
+    },
+    {
+      prop: "setActiveSnapPoint",
+      type: "(snapPoint: number | string | null) => void",
+      typeSimple: "function",
+      description: "Setter called when the active snap point changes.",
+    },
+    {
+      prop: "fadeFromIndex",
+      type: "number",
+      description: (
+        <>
+          Index of a <code>snapPoints</code> entry from which the overlay fade
+          should be applied. Defaults to the last snap point.
+        </>
+      ),
+    },
+    {
+      prop: "snapToSequentialPoint",
+      type: "boolean",
+      default: "false",
+      description:
+        "Disables velocity-based swiping for snap points, so a snap point is never skipped even at high velocity. Useful if each snap point in a drawer is equally important.",
+    },
+  ]}
+/>
+
+### Drawer.Trigger
+
+The button that opens the drawer.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+  ]}
+/>
+
+### Drawer.Portal
+
+When used, portals your overlay and content parts into the `body`. `Drawer.Content` renders this part automatically, so you rarely need to use it directly.
+
+<PropsTable
+  data={[
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description: (
+        <>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. If used on this
+          part, it will be inherited by <code>Drawer.Overlay</code> and{" "}
+          <code>Drawer.Content</code>.
+        </>
+      ),
+    },
+    {
+      prop: "container",
+      type: "HTMLElement",
+      default: "document.body",
+      description: "Specify a container element to portal the content into.",
+    },
+  ]}
+/>
+
+### Drawer.Overlay
+
+A layer that covers the inert portion of the view when the drawer is open. `Drawer.Content` renders this part automatically while `overlay` is `true`.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description: (
+        <>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>Drawer.Portal</code>.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+  ]}
+/>
+
+### Drawer.Content
+
+Contains content to be rendered in the open drawer. Always renders its own `Drawer.Portal`, and shows a drag handle when `direction` is `"bottom"`.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description: (
+        <>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>Drawer.Portal</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onOpenAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when focus moves into the component after
+          opening. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when focus moves to the trigger after closing. It
+          can be prevented by calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onInteractOutside",
+      type: "(event: React.FocusEvent | MouseEvent | TouchEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when an interaction (pointer or focus event)
+          happens outside the bounds of the component. It can be prevented by
+          calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
     {
       prop: "overlay",
       type: "boolean",
@@ -46,8 +376,27 @@ Drawer is built on [Vaul](https://vaul.emilkowal.ski/). For detailed usage guide
     },
   ]}
 />
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-vaul-drawer-direction]",
+      values: ['"top"', '"right"', '"bottom"', '"left"'],
+    },
+  ]}
+/>
+
+### Drawer.Header
+
+Hummingbird-specific layout part. Renders a `div` with the `offcanvas-header` class for the top area of the drawer.
 
 ### Drawer.Title
+
+An accessible title to be announced when the drawer is opened. Renders an `h6` element by default.
 
 <PropsTable
   data={[
@@ -55,7 +404,54 @@ Drawer is built on [Vaul](https://vaul.emilkowal.ski/). For detailed usage guide
       prop: "asChild",
       type: "boolean",
       default: "false",
-      description: "Render as a child element instead of the default `h6`.",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Drawer.Description
+
+An optional accessible description to be announced when the drawer is opened.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Drawer.Body
+
+Hummingbird-specific layout part. Renders a `div` with the `offcanvas-body` class that grows to fill the panel and scrolls its own overflow.
+
+### Drawer.Close
+
+The button that closes the drawer.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
     },
     {
       prop: "className",
@@ -70,5 +466,5 @@ Drawer is built on [Vaul](https://vaul.emilkowal.ski/). For detailed usage guide
 Hummingbird React drawer is styled entirely through Hummingbird's utility classes and CSS
 variables.
 
-- See the full list of available drawer classes in the [Class overview](https://hbui.dev/docs/components/drawer/#class-overview).
-- Visit the [CSS Variables](https://hbui.dev/docs/components/drawer/#css-variables) documentation to explore all available variables.
+- See the full list of available drawer classes in the [Class overview](https://hbui.dev/docs/components/offcanvas/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/offcanvas/#css-variables) documentation to explore all available variables.

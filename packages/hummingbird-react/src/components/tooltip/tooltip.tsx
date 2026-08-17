@@ -36,7 +36,7 @@ TooltipTrigger.displayName = 'Tooltip.Trigger';
 
 function TooltipContent({
   className,
-  sideOffset = 6,
+  sideOffset = 2,
   children,
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Content>) {

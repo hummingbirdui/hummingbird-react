@@ -68,7 +68,7 @@ const AdvancedSelect = () => {
           width="200"
           height="88"
           rx="8"
-          fill="var(--color-contrast)"
+          fill="var(--color-inverse)"
         ></rect>
         <rect
           x="8.5"
@@ -135,7 +135,7 @@ const AdvancedSelect = () => {
             width="200"
             height="88"
             rx="8"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
       </defs>

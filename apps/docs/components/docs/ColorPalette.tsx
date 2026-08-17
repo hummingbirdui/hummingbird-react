@@ -36,13 +36,6 @@ const COLORS = [
 
 const SHADES = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
-// ---------------------------------------------------------------------------
-// Color math: the build/browser may hand back the color as oklch(), lab(),
-// rgb(), or #hex (Lightning CSS transpiles oklch for older browser targets).
-// Everything is converted to OKLCH so the palette always displays the format
-// the palettes are authored in.
-// ---------------------------------------------------------------------------
-
 function oklabFromLms(
   l: number,
   m: number,
@@ -200,12 +193,6 @@ function Swatch({ color, shade }: { color: string; shade: number }) {
   );
 }
 
-/**
- * Interactive palette grid: every color × shade of the active theme, with the
- * resolved OKLCH value in a tooltip and click-to-copy. Values are read from
- * the CSS variables at hover time, so the grid always reflects the current
- * theme and dark mode.
- */
 export function ColorPalette() {
   return (
     <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4 lg:gap-5 2xl:gap-7">

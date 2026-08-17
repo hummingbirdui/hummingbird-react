@@ -19,8 +19,7 @@ export const features: Feature[] = [
     icon: CodeIcon,
     color: "primary",
     title: "Modular Components",
-    description:
-      "Reusable components designed to handle complex UI logic.",
+    description: "Reusable components designed to handle complex UI logic.",
   },
   {
     icon: PaletteIcon,
@@ -48,7 +47,7 @@ export const features: Feature[] = [
     color: "info",
     title: "Structured for Scale",
     description:
-      "Consistent design patterns for better maintainability.",
+      "Consistent design patterns for better maintainability across components.",
   },
   {
     icon: ExtensionIcon,

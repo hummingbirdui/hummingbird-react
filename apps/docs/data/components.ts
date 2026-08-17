@@ -1,48 +1,49 @@
-import Accordion from '@/components/svg-images/Accordion';
-import AdvancedRange from '@/components/svg-images/AdvancedRange';
-import AdvancedSelect from '@/components/svg-images/AdvancedSelect';
-import Alert from '@/components/svg-images/Alert';
-import Avatar from '@/components/svg-images/Avatar';
-import Badge from '@/components/svg-images/Badge';
-import Breadcrumb from '@/components/svg-images/Breadcrumb';
-import ButtonGroup from '@/components/svg-images/ButtonGroup';
-import Card from '@/components/svg-images/Card';
-import Carousel from '@/components/svg-images/Carousel';
-import Checkbox from '@/components/svg-images/Checkbox';
-import CloseButton from '@/components/svg-images/CloseButton';
-import Collapse from '@/components/svg-images/Collapse';
-import CustomScrollbar from '@/components/svg-images/CustomScrollbar';
-import Divider from '@/components/svg-images/Divider';
-import Dropdown from '@/components/svg-images/Dropdown';
-import Dtp from '@/components/svg-images/Dtp';
-import FileInput from '@/components/svg-images/FileInput';
-import FloatingLabels from '@/components/svg-images/FloatingLabels';
-import FormControls from '@/components/svg-images/FormControls';
-import InputGroup from '@/components/svg-images/InputGroup';
-import Link from '@/components/svg-images/Link';
-import ListGroup from '@/components/svg-images/ListGroup';
-import Loader from '@/components/svg-images/Loader';
-import Modal from '@/components/svg-images/Modal';
-import Navbar from '@/components/svg-images/Navbar';
-import NavsTabs from '@/components/svg-images/NavsTabs';
-import Offcanvas from '@/components/svg-images/Offcanvas';
-import Pagination from '@/components/svg-images/Pagination';
-import Placeholder from '@/components/svg-images/Placeholder';
-import Popover from '@/components/svg-images/Popover';
-import Progress from '@/components/svg-images/Progress';
-import Radio from '@/components/svg-images/Radio';
-import Range from '@/components/svg-images/Range';
-import Scrollspy from '@/components/svg-images/Scrollspy';
-import Select from '@/components/svg-images/Select';
-import Switch from '@/components/svg-images/Switch';
-import Table from '@/components/svg-images/Table';
-import Toast from '@/components/svg-images/Toast';
-import Tooltip from '@/components/svg-images/Tooltip';
-import Uploader from '@/components/svg-images/Uploader';
-import Validation from '@/components/svg-images/Validation';
-import Video from '@/components/svg-images/Video';
+import Accordion from "@/components/svg-images/Accordion";
+import AdvancedRange from "@/components/svg-images/AdvancedRange";
+import AdvancedSelect from "@/components/svg-images/AdvancedSelect";
+import Alert from "@/components/svg-images/Alert";
+import Avatar from "@/components/svg-images/Avatar";
+import Badge from "@/components/svg-images/Badge";
+import Breadcrumb from "@/components/svg-images/Breadcrumb";
+import ButtonGroup from "@/components/svg-images/ButtonGroup";
+import Card from "@/components/svg-images/Card";
+import Carousel from "@/components/svg-images/Carousel";
+import Checkbox from "@/components/svg-images/Checkbox";
+import CloseButton from "@/components/svg-images/CloseButton";
+import Collapse from "@/components/svg-images/Collapse";
+import CustomScrollbar from "@/components/svg-images/CustomScrollbar";
+import Divider from "@/components/svg-images/Divider";
+import Dropdown from "@/components/svg-images/Dropdown";
+import Dtp from "@/components/svg-images/Dtp";
+import FileInput from "@/components/svg-images/FileInput";
+import FloatingLabels from "@/components/svg-images/FloatingLabels";
+import FormControls from "@/components/svg-images/FormControls";
+import InputGroup from "@/components/svg-images/InputGroup";
+import Link from "@/components/svg-images/Link";
+import ListGroup from "@/components/svg-images/ListGroup";
+import Loader from "@/components/svg-images/Loader";
+import Modal from "@/components/svg-images/Modal";
+import Navbar from "@/components/svg-images/Navbar";
+import NavsTabs from "@/components/svg-images/NavsTabs";
+import Tab from "@/components/svg-images/Tab";
+import Offcanvas from "@/components/svg-images/Offcanvas";
+import Pagination from "@/components/svg-images/Pagination";
+import Placeholder from "@/components/svg-images/Placeholder";
+import Popover from "@/components/svg-images/Popover";
+import Progress from "@/components/svg-images/Progress";
+import Radio from "@/components/svg-images/Radio";
+import Range from "@/components/svg-images/Range";
+import Scrollspy from "@/components/svg-images/Scrollspy";
+import Select from "@/components/svg-images/Select";
+import Switch from "@/components/svg-images/Switch";
+import Table from "@/components/svg-images/Table";
+import Toast from "@/components/svg-images/Toast";
+import Tooltip from "@/components/svg-images/Tooltip";
+import Uploader from "@/components/svg-images/Uploader";
+import Validation from "@/components/svg-images/Validation";
+import Video from "@/components/svg-images/Video";
 
-import Button from '@/components/svg-images/Button';
+import Button from "@/components/svg-images/Button";
 export interface Component {
   title: string;
   count: number;
@@ -57,20 +58,20 @@ export interface Section {
 
 export const general: Component[] = [
   {
-    title: 'Button',
-    url: '/docs/components/button',
+    title: "Button",
+    url: "/docs/components/button",
     count: 15,
     imgComponent: Button,
   },
   {
-    title: 'Button Group',
-    url: '/docs/components/button-group',
+    title: "Button Group",
+    url: "/docs/components/button-group",
     count: 12,
     imgComponent: ButtonGroup,
   },
   {
-    title: 'Close Button',
-    url: '/docs/components/close-button',
+    title: "Close Button",
+    url: "/docs/components/close-button",
     count: 3,
     imgComponent: CloseButton,
   },
@@ -84,38 +85,38 @@ export const general: Component[] = [
 
 export const dataDisplay: Component[] = [
   {
-    title: 'Avatar',
-    url: '/docs/components/avatar',
+    title: "Avatar",
+    url: "/docs/components/avatar",
     count: 10,
     imgComponent: Avatar,
   },
   {
-    title: 'Badge',
-    url: '/docs/components/badge',
+    title: "Badge",
+    url: "/docs/components/badge",
     count: 10,
     imgComponent: Badge,
   },
   {
-    title: 'Card',
-    url: '/docs/components/card',
+    title: "Card",
+    url: "/docs/components/card",
     count: 10,
     imgComponent: Card,
   },
   {
-    title: 'List Group',
-    url: '/docs/components/list-group',
+    title: "List Group",
+    url: "/docs/components/list-group",
     count: 10,
     imgComponent: ListGroup,
   },
   {
-    title: 'Table',
-    url: '/docs/components/table',
+    title: "Table",
+    url: "/docs/components/table",
     count: 13,
     imgComponent: Table,
   },
   {
-    title: 'Tooltip',
-    url: '/docs/components/tooltip',
+    title: "Tooltip",
+    url: "/docs/components/tooltip",
     count: 4,
     imgComponent: Tooltip,
   },
@@ -141,8 +142,8 @@ export const dataEntry: Component[] = [
   //   imgComponent: AdvancedSelect,
   // },
   {
-    title: 'Checkbox',
-    url: '/docs/forms/checkbox',
+    title: "Checkbox",
+    url: "/docs/forms/checkbox",
     count: 6,
     imgComponent: Checkbox,
   },
@@ -159,14 +160,14 @@ export const dataEntry: Component[] = [
   //   imgComponent: FileInput,
   // },
   {
-    title: 'Floating label',
-    url: '/docs/forms/floating-label',
+    title: "Floating label",
+    url: "/docs/forms/floating-label",
     count: 8,
     imgComponent: FloatingLabels,
   },
   {
-    title: 'Input',
-    url: '/docs/forms/input',
+    title: "Input",
+    url: "/docs/forms/input",
     count: 8,
     imgComponent: FormControls,
   },
@@ -177,32 +178,32 @@ export const dataEntry: Component[] = [
   //   imgComponent: Validation,
   // },
   {
-    title: 'Input Group',
-    url: '/docs/forms/input-group',
+    title: "Input Group",
+    url: "/docs/forms/input-group",
     count: 12,
     imgComponent: InputGroup,
   },
   {
-    title: 'Radio',
-    url: '/docs/forms/radio',
+    title: "Radio",
+    url: "/docs/forms/radio",
     count: 6,
     imgComponent: Radio,
   },
   {
-    title: 'Range',
-    url: '/docs/forms/range',
+    title: "Range",
+    url: "/docs/forms/range",
     count: 6,
     imgComponent: Range,
   },
   {
-    title: 'Select',
-    url: '/docs/forms/select',
+    title: "Select",
+    url: "/docs/forms/select",
     count: 6,
     imgComponent: Select,
   },
   {
-    title: 'Switch',
-    url: '/docs/forms/switch',
+    title: "Switch",
+    url: "/docs/forms/switch",
     count: 4,
     imgComponent: Switch,
   },
@@ -216,14 +217,14 @@ export const dataEntry: Component[] = [
 
 export const feedback: Component[] = [
   {
-    title: 'Alert',
-    url: '/docs/components/alert',
+    title: "Alert",
+    url: "/docs/components/alert",
     count: 6,
     imgComponent: Alert,
   },
   {
-    title: 'Dialog',
-    url: '/docs/components/dialog',
+    title: "Dialog",
+    url: "/docs/components/dialog",
     count: 7,
     imgComponent: Modal,
   },
@@ -234,8 +235,8 @@ export const feedback: Component[] = [
   //   imgComponent: Placeholder,
   // },
   {
-    title: 'Popover',
-    url: '/docs/components/popover',
+    title: "Popover",
+    url: "/docs/components/popover",
     count: 7,
     imgComponent: Popover,
   },
@@ -261,14 +262,14 @@ export const feedback: Component[] = [
 
 export const navigation: Component[] = [
   {
-    title: 'Accordion',
-    url: '/docs/components/accordion',
+    title: "Accordion",
+    url: "/docs/components/accordion",
     count: 2,
     imgComponent: Accordion,
   },
   {
-    title: 'Breadcrumb',
-    url: '/docs/components/breadcrumb',
+    title: "Breadcrumb",
+    url: "/docs/components/breadcrumb",
     count: 5,
     imgComponent: Breadcrumb,
   },
@@ -279,8 +280,8 @@ export const navigation: Component[] = [
   //   imgComponent: Carousel,
   // },
   {
-    title: 'Collapse',
-    url: '/docs/components/collapsible',
+    title: "Collapse",
+    url: "/docs/components/collapsible",
     count: 3,
     imgComponent: Collapse,
   },
@@ -291,32 +292,32 @@ export const navigation: Component[] = [
   //   imgComponent: Dropdown,
   // },
   {
-    title: 'Nav',
-    url: '/docs/components/nav',
+    title: "Nav",
+    url: "/docs/components/nav",
     count: 7,
     imgComponent: NavsTabs,
   },
   {
-    title: 'Tabs',
-    url: '/docs/components/tabs',
+    title: "Tabs",
+    url: "/docs/components/tabs",
     count: 7,
-    imgComponent: NavsTabs,
+    imgComponent: Tab,
   },
   {
-    title: 'Navbar',
-    url: '/docs/components/navbar',
+    title: "Navbar",
+    url: "/docs/components/navbar",
     count: 11,
     imgComponent: Navbar,
   },
   {
-    title: 'Drawer',
-    url: '/docs/components/drawer',
+    title: "Drawer",
+    url: "/docs/components/drawer",
     count: 7,
     imgComponent: Offcanvas,
   },
   {
-    title: 'Pagination',
-    url: '/docs/components/pagination',
+    title: "Pagination",
+    url: "/docs/components/pagination",
     count: 10,
     imgComponent: Pagination,
   },
@@ -330,14 +331,14 @@ export const navigation: Component[] = [
 
 export const layout: Component[] = [
   {
-    title: 'Custom Scrollbar',
-    url: '/docs/components/custom-scrollbar',
+    title: "Custom Scrollbar",
+    url: "/docs/components/custom-scrollbar",
     count: 4,
     imgComponent: CustomScrollbar,
   },
   {
-    title: 'Divider',
-    url: '/docs/components/divider',
+    title: "Divider",
+    url: "/docs/components/divider",
     count: 5,
     imgComponent: Divider,
   },
@@ -345,26 +346,26 @@ export const layout: Component[] = [
 
 export const components: Component[] = [
   {
-    title: 'Accordion',
-    url: '/docs/components/accordion',
+    title: "Accordion",
+    url: "/docs/components/accordion",
     count: 2,
     imgComponent: Accordion,
   },
   {
-    title: 'Alert',
-    url: '/docs/components/alert',
+    title: "Alert",
+    url: "/docs/components/alert",
     count: 6,
     imgComponent: Alert,
   },
   {
-    title: 'Avatars',
-    url: '/docs/components/avatar',
+    title: "Avatars",
+    url: "/docs/components/avatar",
     count: 10,
     imgComponent: Avatar,
   },
   {
-    title: 'Button',
-    url: '/docs/components/button',
+    title: "Button",
+    url: "/docs/components/button",
     count: 15,
     imgComponent: Button,
   },
@@ -375,20 +376,20 @@ export const components: Component[] = [
   //   imgComponent: Carousel,
   // },
   {
-    title: 'Checkbox',
-    url: '/docs/forms/checkbox',
+    title: "Checkbox",
+    url: "/docs/forms/checkbox",
     count: 6,
     imgComponent: Checkbox,
   },
   {
-    title: 'Dropdown Menu',
-    url: '/docs/components/dropdown',
+    title: "Dropdown Menu",
+    url: "/docs/components/dropdown",
     count: 15,
     imgComponent: Dropdown,
   },
   {
-    title: 'Input',
-    url: '/docs/forms/input',
+    title: "Input",
+    url: "/docs/forms/input",
     count: 8,
     imgComponent: FormControls,
   },
@@ -399,8 +400,8 @@ export const components: Component[] = [
   //   imgComponent: Range,
   // },
   {
-    title: 'Tooltip',
-    url: '/docs/components/tooltip',
+    title: "Tooltip",
+    url: "/docs/components/tooltip",
     count: 4,
     imgComponent: Tooltip,
   },

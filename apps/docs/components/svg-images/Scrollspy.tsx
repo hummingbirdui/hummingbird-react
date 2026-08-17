@@ -8,7 +8,7 @@ const Scrollspy = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_35324_9273)">
-        <rect width="60" height="118" fill="var(--color-contrast)"></rect>
+        <rect width="60" height="118" fill="var(--color-inverse)"></rect>
         <rect
           x="8"
           y="8"
@@ -53,7 +53,7 @@ const Scrollspy = () => {
           width="140"
           height="118"
           transform="translate(60)"
-          fill="var(--color-contrast)"
+          fill="var(--color-inverse)"
         ></rect>
         <rect
           x="68"
@@ -139,14 +139,14 @@ const Scrollspy = () => {
             width="200"
             height="118"
             rx="8"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
         <clipPath id="clip1_35324_9273">
           <rect
             width="11"
             height="11"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
             transform="translate(166.062 11) rotate(-45)"
           ></rect>
         </clipPath>
@@ -154,7 +154,7 @@ const Scrollspy = () => {
           <rect
             width="11"
             height="11"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
             transform="translate(166.062 70) rotate(-45)"
           ></rect>
         </clipPath>

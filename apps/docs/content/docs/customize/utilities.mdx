@@ -3,15 +3,6 @@ title: Utilities
 description: Frequently used utilities for customizing Hummingbird React components.
 ---
 
-All Tailwind utility classes can be applied to Hummingbird React components through the `className` prop. Custom classes are merged with the component classes, so utilities can adjust spacing, typography, radius, and more without writing custom CSS. This page lists the most frequently used utilities; see the <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer">official Tailwind CSS docs</a> for the complete reference.
-
-Each utility supports these value forms:
-
-- `p-4` — a number, multiplied by the `--spacing` scale (where applicable)
-- `p-px` — a fixed `1px` value
-- `p-(--my-padding)` — a custom CSS property
-- `p-[12px]` — an arbitrary value
-
 ## Padding
 
 Utilities for controlling the padding of an element.
@@ -25,39 +16,39 @@ Utilities for controlling the padding of an element.
   </Table.Header>
   <Table.Body>
     <Table.Row>
-      <Table.Cell>`p-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"p-<number>"}</Table.Cell>
       <Table.Cell>`padding: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`px-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"px-<number>"}</Table.Cell>
       <Table.Cell>`padding-inline: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`py-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"py-<number>"}</Table.Cell>
       <Table.Cell>`padding-block: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`ps-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"ps-<number>"}</Table.Cell>
       <Table.Cell>`padding-inline-start: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`pe-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"pe-<number>"}</Table.Cell>
       <Table.Cell>`padding-inline-end: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`pt-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"pt-<number>"}</Table.Cell>
       <Table.Cell>`padding-top: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`pr-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"pr-<number>"}</Table.Cell>
       <Table.Cell>`padding-right: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`pb-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"pb-<number>"}</Table.Cell>
       <Table.Cell>`padding-bottom: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`pl-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"pl-<number>"}</Table.Cell>
       <Table.Cell>`padding-left: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
   </Table.Body>
@@ -76,47 +67,47 @@ Utilities for controlling the margin of an element. Negative values (e.g., `-mt-
   </Table.Header>
   <Table.Body>
     <Table.Row>
-      <Table.Cell>`m-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"m-<number>"}</Table.Cell>
       <Table.Cell>`margin: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`mx-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"mx-<number>"}</Table.Cell>
       <Table.Cell>`margin-inline: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`my-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"my-<number>"}</Table.Cell>
       <Table.Cell>`margin-block: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`ms-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"ms-<number>"}</Table.Cell>
       <Table.Cell>`margin-inline-start: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`me-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"me-<number>"}</Table.Cell>
       <Table.Cell>`margin-inline-end: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`mt-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"mt-<number>"}</Table.Cell>
       <Table.Cell>`margin-top: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`mr-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"mr-<number>"}</Table.Cell>
       <Table.Cell>`margin-right: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`mb-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"mb-<number>"}</Table.Cell>
       <Table.Cell>`margin-bottom: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`ml-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"ml-<number>"}</Table.Cell>
       <Table.Cell>`margin-left: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`space-x-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"space-x-<number>"}</Table.Cell>
       <Table.Cell>Horizontal gap between direct children</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`space-y-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"space-y-<number>"}</Table.Cell>
       <Table.Cell>Vertical gap between direct children</Table.Cell>
     </Table.Row>
   </Table.Body>
@@ -135,21 +126,21 @@ Utilities for controlling the font family of an element.
   </Table.Header>
   <Table.Body>
     <Table.Row>
-      <Table.Cell>`font-sans`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-sans"}</Table.Cell>
       <Table.Cell>
         `font-family: var(--font-sans);` — 'Figtree', ui-sans-serif, system-ui,
         sans-serif
       </Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-serif`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-serif"}</Table.Cell>
       <Table.Cell>
         `font-family: var(--font-serif);` — ui-serif, Georgia, Cambria, Times,
         serif
       </Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-mono`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-mono"}</Table.Cell>
       <Table.Cell>
         `font-family: var(--font-mono);` — ui-monospace, SFMono-Regular, Menlo,
         monospace
@@ -171,39 +162,39 @@ Utilities for controlling the font size of an element. Each size also sets a mat
   </Table.Header>
   <Table.Body>
     <Table.Row>
-      <Table.Cell>`text-xs`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-xs"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-xs);` — 0.75rem (12px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-sm`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-sm"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-sm);` — 0.875rem (14px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-base`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-base"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-base);` — 1rem (16px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-lg`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-lg"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-lg);` — 1.125rem (18px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-xl"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-xl);` — 1.25rem (20px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-2xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-2xl"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-2xl);` — 1.5rem (24px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-3xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-3xl"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-3xl);` — 1.875rem (30px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-4xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-4xl"}</Table.Cell>
       <Table.Cell>`font-size: var(--text-4xl);` — 2.25rem (36px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`text-5xl` to `text-9xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-5xl"} to {"text-9xl"}</Table.Cell>
       <Table.Cell>
         `font-size: var(--text-5xl);` and larger — 3rem (48px) to 8rem (128px)
       </Table.Cell>
@@ -224,39 +215,39 @@ Utilities for controlling the font weight of an element.
   </Table.Header>
   <Table.Body>
     <Table.Row>
-      <Table.Cell>`font-thin`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-thin"}</Table.Cell>
       <Table.Cell>`font-weight: 100;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-extralight`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-extralight"}</Table.Cell>
       <Table.Cell>`font-weight: 200;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-light`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-light"}</Table.Cell>
       <Table.Cell>`font-weight: 300;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-normal`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-normal"}</Table.Cell>
       <Table.Cell>`font-weight: 400;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-medium`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-medium"}</Table.Cell>
       <Table.Cell>`font-weight: 500;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-semibold`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-semibold"}</Table.Cell>
       <Table.Cell>`font-weight: 600;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-bold`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-bold"}</Table.Cell>
       <Table.Cell>`font-weight: 700;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-extrabold`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-extrabold"}</Table.Cell>
       <Table.Cell>`font-weight: 800;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`font-black`</Table.Cell>
+      <Table.Cell className='text-info'>{"font-black"}</Table.Cell>
       <Table.Cell>`font-weight: 900;`</Table.Cell>
     </Table.Row>
   </Table.Body>
@@ -275,15 +266,15 @@ Utilities for controlling the line height of an element.
   </Table.Header>
   <Table.Body>
     <Table.Row>
-      <Table.Cell>`text-<size>/<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"text-<size>/<number>"}</Table.Cell>
       <Table.Cell>`font-size: <size>; line-height: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`leading-none`</Table.Cell>
+      <Table.Cell className='text-info'>{"leading-none"}</Table.Cell>
       <Table.Cell>`line-height: 1;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`leading-<number>`</Table.Cell>
+      <Table.Cell className='text-info'>{"leading-<number>"}</Table.Cell>
       <Table.Cell>`line-height: calc(var(--spacing) * <number>);`</Table.Cell>
     </Table.Row>
   </Table.Body>
@@ -302,53 +293,53 @@ Utilities for controlling the border radius of an element. Side-specific variant
   </Table.Header>
   <Table.Body>
     <Table.Row>
-      <Table.Cell>`rounded-xs`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-xs"}</Table.Cell>
       <Table.Cell>
         `border-radius: var(--radius-xs);` — 0.125rem (2px)
       </Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-sm`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-sm"}</Table.Cell>
       <Table.Cell>
         `border-radius: var(--radius-sm);` — 0.25rem (4px)
       </Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-md`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-md"}</Table.Cell>
       <Table.Cell>
         `border-radius: var(--radius-md);` — 0.375rem (6px)
       </Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-lg`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-lg"}</Table.Cell>
       <Table.Cell>`border-radius: var(--radius-lg);` — 0.5rem (8px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-xl"}</Table.Cell>
       <Table.Cell>
         `border-radius: var(--radius-xl);` — 0.75rem (12px)
       </Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-2xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-2xl"}</Table.Cell>
       <Table.Cell>`border-radius: var(--radius-2xl);` — 1rem (16px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-3xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-3xl"}</Table.Cell>
       <Table.Cell>
         `border-radius: var(--radius-3xl);` — 1.5rem (24px)
       </Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-4xl`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-4xl"}</Table.Cell>
       <Table.Cell>`border-radius: var(--radius-4xl);` — 2rem (32px)</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-none`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-none"}</Table.Cell>
       <Table.Cell>`border-radius: 0;`</Table.Cell>
     </Table.Row>
     <Table.Row>
-      <Table.Cell>`rounded-full`</Table.Cell>
+      <Table.Cell className='text-info'>{"rounded-full"}</Table.Cell>
       <Table.Cell>`border-radius: calc(infinity * 1px);`</Table.Cell>
     </Table.Row>
   </Table.Body>

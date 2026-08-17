@@ -14,7 +14,7 @@ const FileInput = () => {
           rx="8"
           fill="var(--background-color-muted)"
         ></rect>
-        <mask id="path-3-inside-1_35321_6640" fill="var(--color-contrast)">
+        <mask id="path-3-inside-1_35321_6640" fill="var(--color-inverse)">
           <path d="M0 0H56V36H0V0Z"></path>
         </mask>
         <path
@@ -48,7 +48,7 @@ const FileInput = () => {
             width="200"
             height="36"
             rx="8"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
       </defs>

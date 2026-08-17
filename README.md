@@ -1,9 +1,9 @@
 <div align="center">
    <a href="https://react.hbui.dev/">
-      <img  width="350" src='https://raw.githubusercontent.com/hummingbirdui/hummingbird/87dc656e578d3e6fd0e4a45eabe1f5e02bdeafd1/apps/docs/public/images/logos/hummingbird-lg.svg' alt="Logo" class="w-10 h-10" />
+      <img src="https://raw.githubusercontent.com/hummingbirdui/hummingbird-react/main/apps/docs/public/images/logos/hummingbird-react-wordmark.svg" alt="hummingbird React" height="40" />
    </a>
 
-Modern, accessible, and customizable React components built with Radix UI and Tailwind CSS.
+React components for Hummingbird, built with Tailwind CSS.
 
 ![downloads](https://img.shields.io/npm/dt/@hummingbirdui/react?style=flat-square)
 ![npm](https://img.shields.io/npm/v/@hummingbirdui/react?style=flat-square)
@@ -22,7 +22,6 @@ Modern, accessible, and customizable React components built with Radix UI and Ta
   - [Install Hummingbird React](#2-install-hummingbird-react)
   - [Import CSS](#3-import-css)
   - [Use components](#4-use-components)
-- [Per-component imports](#per-component-imports)
 - [TypeScript Support](#typescript-support)
 - [License](#license)
 - [Contribution guidelines](#contribution-guidelines)
@@ -35,23 +34,22 @@ Comprehensive documentation is available at [react.hbui.dev](https://react.hbui.
 
 ## Getting started
 
-Hummingbird React brings the Hummingbird component system to React. Components are styled by [Hummingbird CSS](https://github.com/hummingbirdui/hummingbird) and powered by [Radix UI](https://www.radix-ui.com/) primitives for behavior and accessibility. You can:
-
-- Use fully styled, accessible components out of the box
-- Import individual components from their own subpaths to keep bundles small
-- Customize any component with Tailwind utility classes via `className`
+Hummingbird React is the official React component library for the [Hummingbird](https://hbui.dev/) design system. It provides a large set of accessible, fully styled React components such as buttons, forms, dialogs, and dropdowns, along with patterns suitable for dashboards, SaaS applications, and e-commerce systems.
 
 ## Installation
 
 ### 1. Install Tailwind CSS
 
-Ensure you have a project set up with Tailwind CSS. If you haven't set up Tailwind CSS yet, follow the <a href="https://tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">official installation guide</a>.
+Ensure the project is set up with Tailwind CSS. If Tailwind CSS hasn't been set up yet, follow the <a href="https://tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">official installation guide</a>.
 
 ### 2. Install Hummingbird React
 
-Install Hummingbird React via your preferred package manager. The `@hummingbirdui/hummingbird` package provides the styles and is required as a peer dependency.
+Install Hummingbird React via a preferred package manager:
 
 ```bash
+# Using pnpm
+pnpm add @hummingbirdui/react
+
 # Using npm
 npm install @hummingbirdui/react
 
@@ -61,17 +59,12 @@ yarn add @hummingbirdui/react
 
 ### 3. Import CSS
 
-Import Hummingbird styles in your main CSS file (e.g., `globals.css`), and register the package as a source so the Tailwind compiler scans it for class names.
+Import Hummingbird styles in your main CSS file (e.g., `globals.css`).
 
 ```css
 @import "tailwindcss";
-@import "@hummingbirdui/hummingbird";
-@source "../node_modules/@hummingbirdui/react";
+@import "@hummingbirdui/react";
 ```
-
-The `@source` directive is required because Tailwind does not scan node_modules by default. Since Hummingbird generates component classes on demand, Tailwind must scan the `@hummingbirdui/react` package. Update the relative path so it points to node_modules from your CSS file.
-
-No per-component CSS imports or manual purge configuration are needed.
 
 ### 4. Use components
 
@@ -82,26 +75,9 @@ import { Button } from "@hummingbirdui/react";
 
 export default function App() {
   return (
-    <Button variant="filled" color="primary">
-      Click me
-    </Button>
+    <Button color="secondary">Click me</Button>
   );
 }
-```
-
-## Per-component imports
-
-Every component is also available from its own subpath. This keeps the bundle small because only the imported components are included.
-
-```tsx
-import { Button } from "@hummingbirdui/react/button";
-import { Alert, AlertIcon } from "@hummingbirdui/react/alert";
-```
-
-The `cn` utility for merging class names is available from the `utils` subpath.
-
-```tsx
-import { cn } from "@hummingbirdui/react/utils";
 ```
 
 ## TypeScript support
@@ -198,6 +174,34 @@ Meet the core team behind Hummingbird:
       <sub><b>Khayrul Islam</b></sub><br/>
       <code>khayrul25</code><br/>
       Senior Frontend Developer
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="200">
+      <img src="https://avatars.githubusercontent.com/u/141500318?v=4" width="80" height="80"/><br/>
+      <sub><b>Riazul Islam</b></sub><br/>
+      <code>riazul01</code><br/>
+      Software Engineer
+    </td>
+    <td align="center" width="200">
+      <img src="https://avatars.githubusercontent.com/u/61972765?v=4" width="80" height="80"/><br/>
+      <sub><b>Md. Raihanul Haq</b></sub><br/>
+      <code>Raihan-Niloy</code><br/>
+      UI/UX Designer
+    </td>
+    <td align="center" width="200">
+      <img src="https://avatars.githubusercontent.com/u/236851058?v=4" width="80" height="80"/><br/>
+      <sub><b>Pantha Sharma</b></sub><br/>
+      <code>Pantha-25</code><br/>
+      UI/UX Designer
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="200">
+      <img src="https://avatars.githubusercontent.com/u/110757982?v=4" width="80" height="80"/><br/>
+      <sub><b>Qurratul Aein Rafia</b></sub><br/>
+      <code>RafiAein</code><br/>
+      Editorial Strategist
     </td>
   </tr>
 </table>

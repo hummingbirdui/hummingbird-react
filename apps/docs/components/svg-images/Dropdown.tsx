@@ -27,7 +27,7 @@ const Dropdown = () => {
         width="200"
         height="56"
         rx="8"
-        fill="var(--color-contrast)"
+        fill="var(--color-inverse)"
       ></rect>
       <rect
         x="0.5"

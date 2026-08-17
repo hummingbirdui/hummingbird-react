@@ -38,7 +38,7 @@ const Progress = () => {
             width="200"
             height="12"
             rx="6"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           />
         </clipPath>
         <clipPath id="clip1_35496_29578">
@@ -48,7 +48,7 @@ const Progress = () => {
             width="61"
             height="12"
             rx="6"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           />
         </clipPath>
       </defs>

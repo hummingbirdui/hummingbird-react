@@ -12,8 +12,6 @@ export default function ButtonColors() {
       <Button color="warning">Warning</Button>
       <Button color="danger">Danger</Button>
       <Button color="neutral">Neutral</Button>
-      <Button color="light">Light</Button>
-      <Button color="dark">Dark</Button>
     </div>
   );
 }

@@ -237,7 +237,7 @@ const Avatar = () => {
             width="32"
             height="32"
             rx="16"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
         <clipPath id="clip1_34356_68855">
@@ -247,7 +247,7 @@ const Avatar = () => {
             width="32"
             height="32"
             rx="16"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
         <clipPath id="clip2_34356_68855">
@@ -257,7 +257,7 @@ const Avatar = () => {
             width="32"
             height="32"
             rx="16"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
         <clipPath id="clip3_34356_68855">
@@ -267,7 +267,7 @@ const Avatar = () => {
             width="32"
             height="32"
             rx="16"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
         <clipPath id="clip4_34356_68855">
@@ -277,7 +277,7 @@ const Avatar = () => {
             width="32"
             height="32"
             rx="16"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
         <clipPath id="clip5_34356_68855">
@@ -287,7 +287,7 @@ const Avatar = () => {
             width="32"
             height="32"
             rx="16"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           ></rect>
         </clipPath>
       </defs>

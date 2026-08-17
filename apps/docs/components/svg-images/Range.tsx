@@ -44,7 +44,7 @@ const Range = () => {
             width="68"
             height="6"
             rx="3"
-            fill="var(--color-contrast)"
+            fill="var(--color-inverse)"
           />
         </clipPath>
       </defs>

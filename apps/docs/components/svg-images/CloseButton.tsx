@@ -7,7 +7,7 @@ const CloseButton = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="40" height="40" rx="5" fill="var(--color-contrast)"></rect>
+      <rect width="40" height="40" rx="5" fill="var(--color-inverse)"></rect>
       <rect
         x="0.625"
         y="0.625"

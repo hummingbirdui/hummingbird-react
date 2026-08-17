@@ -1,42 +1,33 @@
 "use client";
 
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 interface IframePreviewProps {
   children: ReactNode;
   theme: string;
   className?: string;
-  initialContent?: string;
   mountTarget?: string;
   onReady?: (document: Document, window: Window) => void | (() => void);
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const INITIAL_CONTENT = `<!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/@hummingbirdui/browser@1.2.2/dist/index.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hummingbirdui/browser@1.4.0/dist/index.global.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hummingbirdui/hummingbird@main/apps/docs/public/themes.css">
+    <link rel="stylesheet" href="${basePath}/themes.css">
 
     <style type="text/tailwindcss">
       @custom-variant dark (&:where(.dark, .dark *), .dark);
       @custom-variant active (&:active, &.active);
     </style>
-
-    <script>
-      const mainTheme = localStorage.getItem("main-theme");
-
-      if (mainTheme) {
-        document.documentElement.setAttribute("data-theme", mainTheme);
-      }
-    </script>
   </head>
 
   <body class="h-screen">
     <div id="root"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@hummingbirdui/hummingbird@1.2.2/dist/hummingbird.bundle.min.js"></script>
   </body>
 </html>`;
 
@@ -44,7 +35,6 @@ const IframePreview = ({
   children,
   theme,
   className,
-  initialContent = INITIAL_CONTENT,
   mountTarget = "#root",
   onReady,
 }: IframePreviewProps) => {
@@ -52,8 +42,6 @@ const IframePreview = ({
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
 
   const cleanupRef = useRef<(() => void) | void>(undefined);
-
-  const srcDoc = useMemo(() => initialContent, [initialContent]);
 
   useEffect(() => {
     if (!iframe) return;
@@ -76,9 +64,12 @@ const IframePreview = ({
 
     iframe.addEventListener("load", handleLoad);
 
+    // The initial contentDocument is "about:blank" with readyState "complete",
+    // so only run the eager check once the actual srcdoc document is in place.
     if (
-      iframe.contentDocument?.readyState === "complete" ||
-      iframe.contentDocument?.readyState === "interactive"
+      iframe.contentDocument?.URL === "about:srcdoc" &&
+      (iframe.contentDocument.readyState === "complete" ||
+        iframe.contentDocument.readyState === "interactive")
     ) {
       handleLoad();
     }
@@ -86,14 +77,14 @@ const IframePreview = ({
     return () => {
       iframe.removeEventListener("load", handleLoad);
     };
-  }, [iframe, mountTarget, srcDoc]);
+  }, [iframe, mountTarget]);
 
   useEffect(() => {
     if (!mountNode || !iframe?.contentDocument || !iframe.contentWindow) {
       return;
     }
 
-    requestAnimationFrame(() => {
+    const frame = requestAnimationFrame(() => {
       cleanupRef.current?.();
 
       cleanupRef.current = onReady?.(
@@ -103,21 +94,24 @@ const IframePreview = ({
     });
 
     return () => {
+      cancelAnimationFrame(frame);
       cleanupRef.current?.();
+      cleanupRef.current = undefined;
     };
-  }, [mountNode, children, iframe, onReady]);
+  }, [mountNode, iframe, onReady]);
 
+  // mountNode belongs to the loaded srcdoc document, so this both applies the
+  // initial theme once that document is ready and reapplies it on change.
   useEffect(() => {
-    if (!iframe?.contentDocument) return;
-    iframe.contentDocument.documentElement.setAttribute("data-theme", theme);
-  }, [iframe, theme]);
+    mountNode?.ownerDocument.documentElement.setAttribute("data-theme", theme);
+  }, [mountNode, theme]);
 
   return (
     <>
       <iframe
         ref={setIframe}
-        srcDoc={srcDoc}
-        className={`size-full ${className ?? ""}`}
+        srcDoc={INITIAL_CONTENT}
+        className={`size-full rounded-4xl overflow-hidden ${className ?? ""}`}
       />
 
       {mountNode && createPortal(children, mountNode)}

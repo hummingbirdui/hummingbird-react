@@ -16,6 +16,7 @@ import { CloseButton } from "@hummingbirdui/react";
 import { ThemeDropdown } from "./ThemeDropdown";
 import { SearchButton, SearchIconButton } from "../search/SearchToggle";
 import { SearchDialog } from "../search/SearchDialog";
+import { version } from "@hummingbirdui/react/package.json";
 
 const GITHUB_URL = "https://github.com/hummingbirdui/hummingbird-react";
 
@@ -98,12 +99,12 @@ export function SiteNavbar() {
           </Link>
         </Navbar.Brand>
 
-        <Badge variant="subtle" color="neutral" className="max-sm:hidden">
-          v0.1.0
+        <Badge variant="subtle" color="neutral" className="max-xl:hidden">
+          v{version}
         </Badge>
 
         <SearchButton
-          className="ms-2 hidden sm:ms-15 lg:flex"
+          className="ms-2 hidden sm:ms-8 xl:ms-15 lg:flex"
           onClick={() => setSearchOpen(true)}
         />
 

@@ -66,7 +66,7 @@ Render `ThemeModeScript` inside `<head>` to apply the saved theme before first p
 
 ```tsx
 // app/layout.tsx
-import { ThemeModeScript } from "@hummingbirdui/react/theme-mode-script";
+import { ThemeModeScript } from "@hummingbirdui/react";
 
 export default function RootLayout({
   children,
@@ -102,7 +102,7 @@ export default function RootLayout({
 ```tsx
 "use client";
 
-import { DarkThemeToggle } from "@hummingbirdui/react/dark-theme-toggle";
+import { DarkThemeToggle } from "@hummingbirdui/react";
 
 export function Navbar() {
   return <DarkThemeToggle />;
@@ -217,9 +217,8 @@ A list of theme variables that are overridden when dark mode is active.
       --text-color-emphasis: var(--color-white);
 
       /* Neutral */
-      --color-light: var(--color-gray-800);
-      --color-dark: var(--color-gray-700);
-      --color-contrast: var(--color-gray-950);
+      --color-neutral: var(--color-gray-700);
+      --color-inverse: var(--color-gray-950);
 
       /* Primary */
       --color-primary-lighter: var(--color-blue-950);

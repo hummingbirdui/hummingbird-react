@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@hummingbirdui/react";
+@import "@hummingbirdui/react" theme(static);
 @import "./themes/themes.css";
 @custom-variant dark (&:where(.dark, .dark *), .dark);
 @custom-variant active (&.active, &:active);
@@ -322,4 +322,49 @@ code:not(pre code) {
   @layer base {
     @apply border border-default rounded-sm py-0.5 px-1.5 text-xs text-muted leading-none;
   }
+}
+
+#u_column_1 {
+  @apply border-0! bg-transparent!;
+  > div {
+    @apply p-0!;
+  }
+}
+.u_row {
+  .container {
+    @apply max-w-full!;
+  }
+}
+.u_content_form {
+  @apply p-0!;
+  form {
+    @apply flex! gap-2!;
+    > div {
+      @apply flex-1!;
+      > div > div {
+        @apply p-0!;
+      }
+    }
+    input {
+      @apply h-9.25! rounded-lg! border-transparent! bg-muted! text-sm! font-sans! hover:bg-highlight! focus:bg-primary-lighter! text-default! focus:shadow-none! focus:border-primary!;
+      &::placeholder {
+        @apply text-muted!;
+      }
+    }
+    &:last-child {
+      @apply text-nowrap!;
+
+      button {
+        @layer base {
+          @apply w-23! mt-0! h-9.25! rounded-lg! py-2.25! bg-primary/15! hover:bg-primary/20! text-primary-dark! font-semibold! text-sm! font-sans!;
+        }
+      }
+    }
+  }
+  .success {
+    @apply border-transparent! bg-success-lighter! text-success-darker! px-4! py-3.5 font-sans! font-medium text-base!;
+  }
+}
+.powered-by {
+  @apply hidden!;
 }
