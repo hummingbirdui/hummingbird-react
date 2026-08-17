@@ -246,12 +246,12 @@ export const feedback: Component[] = [
     count: 7,
     imgComponent: Progress,
   },
-  // {
-  //   title: 'Loaders',
-  //   url: '/docs/components/loaders',
-  //   count: 5,
-  //   imgComponent: Loader,
-  // },
+  {
+    title: 'Loader',
+    url: '/docs/components/loader',
+    count: 5,
+    imgComponent: Loader,
+  },
   // {
   //   title: 'Toasts',
   //   url: '/docs/components/toasts',
