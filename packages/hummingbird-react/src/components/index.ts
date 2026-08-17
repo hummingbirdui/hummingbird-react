@@ -23,6 +23,7 @@ export * from './nav';
 export * from './navbar';
 export * from './pagination';
 export * from './popover';
+export * from './progress';
 export * from './radio';
 export * from './range';
 export * from './select';
