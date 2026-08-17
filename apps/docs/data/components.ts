@@ -331,9 +331,9 @@ export const navigation: Component[] = [
 
 export const layout: Component[] = [
   {
-    title: "Custom Scrollbar",
-    url: "/docs/components/custom-scrollbar",
-    count: 4,
+    title: "Scroll Area",
+    url: "/docs/components/scroll-area",
+    count: 5,
     imgComponent: CustomScrollbar,
   },
   {

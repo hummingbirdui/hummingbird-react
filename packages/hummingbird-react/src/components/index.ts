@@ -27,6 +27,7 @@ export * from './popover';
 export * from './progress';
 export * from './radio';
 export * from './range';
+export * from './scroll-area';
 export * from './select';
 export * from './slider';
 export * from './sonner';

@@ -1,0 +1,51 @@
+@utility scroll-area {
+  @layer base {
+    --scroll-area-scrollbar-size: --spacing(3);
+    --scroll-area-thumb-color: var(--background-color-emphasis);
+    --scroll-area-track-color: var(--background-color-muted);
+
+    @apply relative overflow-hidden;
+  }
+}
+
+@utility scroll-area-viewport {
+  @layer base {
+    @apply size-full rounded-[inherit];
+  }
+}
+
+@utility scroll-area-scrollbar {
+  @layer base {
+    @apply flex touch-none select-none bg-(--scroll-area-track-color);
+
+    &[data-orientation='vertical'] {
+      @apply w-(--scroll-area-scrollbar-size);
+    }
+
+    &[data-orientation='horizontal'] {
+      @apply h-(--scroll-area-scrollbar-size) flex-col;
+    }
+  }
+}
+
+@utility scroll-area-scrollbar-rounded {
+  @layer base {
+    @apply rounded-full;
+
+    .scroll-area-thumb {
+      @apply rounded-full;
+    }
+  }
+}
+
+@utility scroll-area-thumb {
+  @layer base {
+    @apply relative flex-1 bg-(--scroll-area-thumb-color);
+  }
+}
+
+@utility scroll-area-corner {
+  @layer base {
+    @apply bg-transparent;
+  }
+}
