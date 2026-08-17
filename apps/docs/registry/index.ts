@@ -3,6 +3,18 @@ export type RegistryEntry = {
 };
 
 export const registry: Record<string, RegistryEntry> = {
+  "calendar-default": { file: "calendar/calendar-default.tsx" },
+  "calendar-range": { file: "calendar/calendar-range.tsx" },
+  "calendar-caption": { file: "calendar/calendar-caption.tsx" },
+  "calendar-presets": { file: "calendar/calendar-presets.tsx" },
+  "calendar-withtime": { file: "calendar/calendar-withtime.tsx" },
+  "calendar-booked-dates": { file: "calendar/calendar-booked-dates.tsx" },
+  "calendar-week-numbers": { file: "calendar/calendar-week-numbers.tsx" },
+  "date-picker-default": { file: "date-picker/date-picker-default.tsx" },
+  "date-picker-with-range": { file: "date-picker/date-picker-with-range.tsx" },
+  "date-of-birth": { file: "date-picker/date-of-birth.tsx" },
+  "date-input": { file: "date-picker/date-input.tsx" },
+  "date-time-picker": { file: "date-picker/date-time-picker.tsx" },
   "button-default": { file: "buttons/button-default.tsx" },
   "button-variants": { file: "buttons/button-variants.tsx" },
   "button-colors": { file: "buttons/button-colors.tsx" },
