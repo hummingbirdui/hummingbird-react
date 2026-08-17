@@ -240,16 +240,16 @@ export const feedback: Component[] = [
     count: 7,
     imgComponent: Popover,
   },
-  // {
-  //   title: "Progress",
-  //   url: "/docs/components/progress",
-  //   count: 7,
-  //   imgComponent: Progress,
-  // },
   {
-    title: "Loader",
-    url: "/docs/components/loader",
-    count: 6,
+    title: "Progress",
+    url: "/docs/components/progress",
+    count: 7,
+    imgComponent: Progress,
+  },
+  {
+    title: 'Loader',
+    url: '/docs/components/loader',
+    count: 5,
     imgComponent: Loader,
   },
   // {
