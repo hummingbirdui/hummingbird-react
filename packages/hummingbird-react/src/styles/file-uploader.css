@@ -1,0 +1,215 @@
+@utility file-uploader {
+  @layer base {
+    --file-uploader-padding: --spacing(6);
+    --file-uploader-bg: var(--background-color-subtle);
+    --file-uploader-border-color: var(--border-color-default);
+    --file-uploader-border-radius: var(--radius-xl);
+    --file-uploader-hover-border-color: var(--color-primary);
+    --file-uploader-hover-bg: --alpha(var(--color-primary) / 5%);
+    --file-uploader-reject-border-color: var(--color-danger);
+    --file-uploader-reject-bg: --alpha(var(--color-danger) / 5%);
+    --file-uploader-avatar-overlay: --alpha(var(--color-inverse) / 70%);
+    --file-uploader-avatar-size: --spacing(40);
+
+    @apply p-(--file-uploader-padding)
+    bg-(--file-uploader-bg)
+    border
+    border-dashed
+    border-(--file-uploader-border-color)
+    rounded-(--file-uploader-border-radius)
+    cursor-pointer
+    outline-none
+    transition
+    duration-300;
+
+    &:hover,
+    &:focus-visible,
+    &[data-drag-active] {
+      @apply border-(--file-uploader-hover-border-color)
+      bg-(--file-uploader-hover-bg);
+    }
+
+    &[data-drag-reject] {
+      @apply border-(--file-uploader-reject-border-color)
+      bg-(--file-uploader-reject-bg);
+    }
+
+    &[data-disabled] {
+      @apply pointer-events-none opacity-50;
+    }
+  }
+}
+
+@utility file-uploader-message {
+  @layer base {
+    @apply text-center my-3;
+
+    & > p {
+      @apply mb-0;
+    }
+  }
+}
+
+@utility file-uploader-avatar {
+  @layer base {
+    @apply relative
+    p-0
+    size-(--file-uploader-avatar-size)
+    rounded-full
+    overflow-hidden;
+
+    .file-uploader-message {
+      @apply absolute
+      inset-0
+      m-0
+      size-full
+      flex
+      items-center
+      justify-center
+      z-10;
+    }
+
+    &[data-filled] {
+      .file-uploader-message {
+        @apply opacity-0 invisible transition duration-200;
+      }
+
+      &:hover .file-uploader-message {
+        @apply opacity-100 visible bg-(--file-uploader-avatar-overlay);
+      }
+    }
+
+    .file-uploader-avatar-image {
+      @apply absolute inset-0 size-full object-cover;
+    }
+  }
+}
+
+@utility file-uploader-box {
+  @layer base {
+    --file-uploader-box-size: --spacing(15);
+
+    @apply p-0 size-(--file-uploader-box-size) rounded-lg order-last;
+
+    .file-uploader-message {
+      @apply m-0 size-full flex items-center justify-center;
+    }
+  }
+}
+
+@utility file-uploader-list {
+  @layer base {
+    --file-uploader-list-padding: --spacing(2);
+    --file-uploader-list-font-size: var(--text-sm);
+    --file-uploader-list-bg: var(--background-color-subtle);
+    --file-uploader-list-border-radius: var(--radius-lg);
+    --file-uploader-list-image-size: --spacing(13);
+    --file-uploader-list-image-border-width: var(--border-width);
+    --file-uploader-list-image-border-color: var(--border-color-subtle);
+    --file-uploader-list-image-border-radius: var(--radius-lg);
+
+    @apply mt-4 space-y-2 list-none p-0;
+
+    .file-uploader-item {
+      @apply relative
+      p-(--file-uploader-list-padding)
+      flex items-center gap-3
+      bg-(--file-uploader-list-bg)
+      rounded-(--file-uploader-list-border-radius);
+    }
+
+    .file-uploader-item-image {
+      @apply size-(--file-uploader-list-image-size)
+      shrink-0
+      flex items-center justify-center
+      border-(length:--file-uploader-list-image-border-width)
+      border-(--file-uploader-list-image-border-color)
+      rounded-(--file-uploader-list-image-border-radius)
+      overflow-hidden;
+
+      & > img {
+        @apply object-cover size-full;
+      }
+    }
+
+    .file-uploader-item-info {
+      @apply flex-1
+      flex flex-col gap-1.5
+      text-(length:--file-uploader-list-font-size)
+      truncate;
+    }
+
+    .file-uploader-item-remove {
+      @apply flex items-center justify-center
+      size-8 shrink-0 me-1
+      cursor-pointer border-0 bg-transparent
+      rounded-md
+      hover:bg-(--background-color-muted);
+
+      svg {
+        @apply size-3.5;
+      }
+    }
+  }
+}
+
+@utility file-uploader-thumbnails {
+  @layer base {
+    --file-uploader-thumbnail-size: --spacing(14);
+    --file-uploader-thumbnail-border-width: var(--border-width);
+    --file-uploader-thumbnail-border-color: var(--border-color-subtle);
+    --file-uploader-thumbnail-border-radius: var(--radius-lg);
+    --file-uploader-thumbnail-remove-btn-size: --spacing(3);
+    --file-uploader-thumbnail-remove-btn-bg: var(--color-neutral);
+    --file-uploader-thumbnail-remove-btn-color: var(--color-white);
+    --file-uploader-thumbnail-remove-btn-radius: calc(infinity * 1px);
+
+    @apply mt-4 flex flex-wrap items-center gap-2 list-none p-0;
+
+    .file-uploader-item {
+      @apply relative;
+    }
+
+    .file-uploader-item-image {
+      @apply size-(--file-uploader-thumbnail-size)
+      flex items-center justify-center
+      border-(length:--file-uploader-thumbnail-border-width)
+      border-(--file-uploader-thumbnail-border-color)
+      rounded-(--file-uploader-thumbnail-border-radius)
+      overflow-hidden;
+
+      & > img {
+        @apply object-cover size-full;
+      }
+    }
+
+    .file-uploader-item-remove {
+      @apply absolute
+      -top-1
+      -right-1
+      flex items-center justify-center
+      size-(--file-uploader-thumbnail-remove-btn-size)
+      text-(--file-uploader-thumbnail-remove-btn-color)
+      bg-(--file-uploader-thumbnail-remove-btn-bg)
+      rounded-(--file-uploader-thumbnail-remove-btn-radius)
+      cursor-pointer
+      border-0;
+
+      svg {
+        @apply size-2;
+      }
+    }
+  }
+}
+
+@utility file-uploader-dropbox {
+  @layer base {
+    --file-uploader-box-size: --spacing(15);
+
+    @apply mt-0;
+
+    .file-uploader-item-image {
+      @apply size-(--file-uploader-box-size);
+    }
+  }
+}

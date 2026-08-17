@@ -168,6 +168,16 @@ export const registry: Record<string, RegistryEntry> = {
   "dropdown-placement": { file: "dropdown/dropdown-placement.tsx" },
   "dropdown-disabled": { file: "dropdown/dropdown-disabled.tsx" },
   "dropdown-item-text": { file: "dropdown/dropdown-item-text.tsx" },
+  "file-uploader-default": { file: "file-uploader/file-uploader-default.tsx" },
+  "file-uploader-thumbnail": {
+    file: "file-uploader/file-uploader-thumbnail.tsx",
+  },
+  "file-uploader-avatar": { file: "file-uploader/file-uploader-avatar.tsx" },
+  "file-uploader-dropbox": { file: "file-uploader/file-uploader-dropbox.tsx" },
+  "file-uploader-single": { file: "file-uploader/file-uploader-single.tsx" },
+  "file-uploader-validation": {
+    file: "file-uploader/file-uploader-validation.tsx",
+  },
   "scroll-area-default": { file: "scroll-area/scroll-area-default.tsx" },
   "scroll-area-horizontal": { file: "scroll-area/scroll-area-horizontal.tsx" },
   "scroll-area-both": { file: "scroll-area/scroll-area-both.tsx" },

@@ -1,0 +1,394 @@
+---
+title: File Uploader
+description: A drag-and-drop file uploader with list, thumbnail, avatar, and dropbox previews, built on react-dropzone.
+---
+
+## Default
+
+Files dropped or browsed into `FileUploader.Dropzone` appear in `FileUploader.List` with an icon or image preview, name, size, and a remove button.
+
+<ComponentPreview name="file-uploader-default" />
+
+## Thumbnail preview
+
+`FileUploader.Thumbnails` displays the selected files as square thumbnails with a corner remove button.
+
+<ComponentPreview name="file-uploader-thumbnail" />
+
+## Avatar
+
+`variant="avatar"` turns the dropzone into a circular uploader that fills with the selected image; hovering it reveals the message overlay again.
+
+<ComponentPreview name="file-uploader-avatar" />
+
+## FileDropBox
+
+The `dropbox` layout places a box-style dropzone (`variant="box"`) inline with the thumbnails.
+
+<ComponentPreview name="file-uploader-dropbox" />
+
+## Single file
+
+`maxFiles={1}` makes the uploader single-file: a new selection replaces the previous one.
+
+<ComponentPreview name="file-uploader-single" />
+
+## Validation
+
+`accept`, `maxSize`, `minSize`, and a custom `validator` reject files declaratively; rejections style the dropzone through `[data-drag-reject]` and surface details in `onDropRejected`.
+
+<ComponentPreview name="file-uploader-validation" />
+
+## API Reference
+
+Built on [react-dropzone](https://react-dropzone.js.org). The root is a headless provider — every react-dropzone option passes through it — and the parts carry Hummingbird's `file-uploader-*` classes. The uploader manages file selection only; uploading the files is left to the application.
+
+### FileUploader
+
+The provider that holds the selected files and the dropzone state. Renders a plain `div`.
+
+<PropsTable
+  data={[
+    {
+      prop: "files",
+      type: "File[]",
+      description: (
+        <>
+          The controlled list of selected files. Must be used in conjunction
+          with <code>onFilesChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "defaultFiles",
+      type: "File[]",
+      description:
+        "The initially selected files when the list is uncontrolled.",
+    },
+    {
+      prop: "onFilesChange",
+      type: "(files: File[]) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the list of selected files changes, after drops and removals.",
+    },
+    {
+      prop: "accept",
+      type: "Record<string, string[]>",
+      typeSimple: "object",
+      description: (
+        <>
+          The accepted file types, as MIME types mapped to extensions — e.g.{" "}
+          <code>{'{ "image/*": [] }'}</code>.
+        </>
+      ),
+    },
+    {
+      prop: "maxFiles",
+      type: "number",
+      default: "0",
+      description: (
+        <>
+          The maximum number of files. <code>0</code> means no limit;{" "}
+          <code>1</code> makes the uploader single-file, replacing the previous
+          selection.
+        </>
+      ),
+    },
+    {
+      prop: "maxSize",
+      type: "number",
+      default: "Infinity",
+      description: "The maximum file size in bytes.",
+    },
+    {
+      prop: "minSize",
+      type: "number",
+      default: "0",
+      description: "The minimum file size in bytes.",
+    },
+    {
+      prop: "multiple",
+      type: "boolean",
+      default: "true",
+      description: (
+        <>
+          Allows selecting multiple files. Defaults to <code>false</code> when{" "}
+          <code>maxFiles</code> is <code>1</code>.
+        </>
+      ),
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      default: "false",
+      description: "Disables the uploader entirely.",
+    },
+    {
+      prop: "noClick",
+      type: "boolean",
+      default: "false",
+      description: "Disables opening the file dialog by clicking the dropzone.",
+    },
+    {
+      prop: "noDrag",
+      type: "boolean",
+      default: "false",
+      description: "Disables drag and drop.",
+    },
+    {
+      prop: "noKeyboard",
+      type: "boolean",
+      default: "false",
+      description:
+        "Disables opening the file dialog with Enter and Space on the focused dropzone.",
+    },
+    {
+      prop: "validator",
+      type: "(file: File) => FileError | FileError[] | null",
+      typeSimple: "function",
+      description: "Custom validation run for each selected file.",
+    },
+    {
+      prop: "onDrop",
+      type: "(accepted: File[], rejections: FileRejection[], event) => void",
+      typeSimple: "function",
+      description: "Event handler called on every drop or selection.",
+    },
+    {
+      prop: "onDropAccepted",
+      type: "(files: File[], event) => void",
+      typeSimple: "function",
+      description: "Event handler called when files pass validation.",
+    },
+    {
+      prop: "onDropRejected",
+      type: "(rejections: FileRejection[], event) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when files fail validation, with the rejection reasons.",
+    },
+    {
+      prop: "onError",
+      type: "(error: Error) => void",
+      typeSimple: "function",
+      description: "Event handler called when reading a file errors.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### FileUploader.Dropzone
+
+The visible drop target. Renders the hidden file input, wires the drag-and-drop and click-to-browse behavior, and in the avatar variant fills with the selected image.
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"default" | "avatar" | "box"',
+      typeSimple: "enum",
+      default: '"default"',
+      description:
+        "The dropzone style: full-width panel, circular avatar, or a small square box for the dropbox layout.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+<br />
+
+<DataAttributesTable
+  data={[
+    { attribute: "[data-drag-active]", values: "Present while dragging over" },
+    {
+      attribute: "[data-drag-reject]",
+      values: "Present while dragging files that will be rejected",
+    },
+    { attribute: "[data-disabled]", values: "Present when disabled" },
+    {
+      attribute: "[data-filled]",
+      values: "Present on the avatar variant once an image is selected",
+    },
+  ]}
+/>
+
+### FileUploader.Message
+
+Renders a `div` with Hummingbird's `file-uploader-message` class for the dropzone content.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### FileUploader.List
+
+A list-style preview of the selected files. Without `renderItem`, each file renders as `Item` + `ItemImage` + `ItemInfo` + `ItemRemove`.
+
+<PropsTable
+  data={[
+    {
+      prop: "renderItem",
+      type: "(file: File, index: number) => ReactNode",
+      typeSimple: "function",
+      description: "Custom rendering for each selected file.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### FileUploader.Thumbnails
+
+A thumbnail grid preview of the selected files. Children render after the thumbnails — the place for a box dropzone in the dropbox layout.
+
+<PropsTable
+  data={[
+    {
+      prop: "dropbox",
+      type: "boolean",
+      default: "false",
+      description:
+        "Renders the dropbox layout, sizing thumbnails to match an inline box dropzone.",
+    },
+    {
+      prop: "renderItem",
+      type: "(file: File, index: number) => ReactNode",
+      typeSimple: "function",
+      description: "Custom rendering for each selected file.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### FileUploader.Item
+
+One selected file. Provides the file to the item parts below it.
+
+<PropsTable
+  data={[
+    {
+      prop: "file*",
+      type: "File",
+      description: "The file this item represents.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### FileUploader.ItemImage
+
+An image preview for image files (via an object URL, revoked automatically), or a file icon for other types.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### FileUploader.ItemInfo
+
+The file's name and formatted size.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### FileUploader.ItemRemove
+
+A button that removes the item's file from the selection.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+The file uploader component utilizes several CSS variables for customization, defined on the dropzone and preview classes.
+
+```css
+.file-uploader {
+  --file-uploader-padding: --spacing(6);
+  --file-uploader-bg: var(--background-color-subtle);
+  --file-uploader-border-color: var(--border-color-default);
+  --file-uploader-border-radius: var(--radius-xl);
+  --file-uploader-hover-border-color: var(--color-primary);
+  --file-uploader-hover-bg: --alpha(var(--color-primary) / 5%);
+  --file-uploader-reject-border-color: var(--color-danger);
+  --file-uploader-reject-bg: --alpha(var(--color-danger) / 5%);
+  --file-uploader-avatar-overlay: --alpha(var(--color-inverse) / 70%);
+  --file-uploader-avatar-size: --spacing(40);
+}
+.file-uploader-list {
+  --file-uploader-list-padding: --spacing(2);
+  --file-uploader-list-font-size: var(--text-sm);
+  --file-uploader-list-bg: var(--background-color-subtle);
+  --file-uploader-list-border-radius: var(--radius-lg);
+  --file-uploader-list-image-size: --spacing(13);
+  --file-uploader-list-image-border-width: var(--border-width);
+  --file-uploader-list-image-border-color: var(--border-color-subtle);
+  --file-uploader-list-image-border-radius: var(--radius-lg);
+}
+.file-uploader-thumbnails {
+  --file-uploader-thumbnail-size: --spacing(14);
+  --file-uploader-thumbnail-border-width: var(--border-width);
+  --file-uploader-thumbnail-border-color: var(--border-color-subtle);
+  --file-uploader-thumbnail-border-radius: var(--radius-lg);
+  --file-uploader-thumbnail-remove-btn-size: --spacing(3);
+  --file-uploader-thumbnail-remove-btn-bg: var(--color-neutral);
+  --file-uploader-thumbnail-remove-btn-color: var(--color-white);
+  --file-uploader-thumbnail-remove-btn-radius: calc(infinity * 1px);
+}
+```
