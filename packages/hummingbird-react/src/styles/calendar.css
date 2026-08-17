@@ -1,0 +1,289 @@
+@utility calendar {
+  @layer base {
+    --calendar-bg: var(--background-color-default);
+    --calendar-color: var(--text-color-default);
+    --calendar-muted-color: var(--text-color-muted);
+    --calendar-padding: --spacing(2);
+    --calendar-border-radius: var(--radius-lg);
+    --calendar-cell-size: --spacing(9);
+    --calendar-cell-radius: var(--radius-md);
+    --calendar-disabled-opacity: 0.5;
+    --calendar-outside-opacity: 0.7;
+
+    --calendar-nav-btn-size: --spacing(9);
+    --calendar-nav-btn-icon-size: --spacing(4);
+
+    --calendar-caption-height: --spacing(9);
+    --calendar-caption-font-size: var(--text-sm);
+    --calendar-caption-font-weight: var(--font-weight-medium);
+    --calendar-caption-icon-size: --spacing(3.5);
+    --calendar-caption-icon-color: var(--text-color-muted);
+
+    --calendar-weekday-color: var(--text-color-muted);
+    --calendar-weekday-font-size: var(--text-xs);
+    --calendar-weekday-font-weight: var(--font-weight-normal);
+
+    --calendar-day-color: var(--text-color-default);
+    --calendar-day-font-weight: var(--font-weight-normal);
+    --calendar-day-selected-color: var(--color-white);
+    --calendar-day-selected-bg: var(--color-primary);
+    --calendar-day-range-color: var(--text-color-default);
+    --calendar-day-range-bg: var(--background-color-muted);
+
+    --calendar-week-number-color: var(--text-color-muted);
+    --calendar-week-number-font-size: var(--text-xs);
+
+    @apply w-fit
+    p-(--calendar-padding)
+    text-(--calendar-color)
+    bg-(--calendar-bg)
+    rounded-(--calendar-border-radius);
+
+    /* let the surface underneath show through when embedded */
+    :where(
+        [data-slot='card'],
+        [data-slot='card-body'],
+        [data-slot='popover-content'],
+        [data-slot='popover-body']
+      )
+      & {
+      @apply bg-transparent;
+    }
+  }
+}
+
+@utility calendar-months {
+  @layer base {
+    @apply relative flex flex-col gap-4;
+    @variant md {
+      @apply flex-row;
+    }
+  }
+}
+
+@utility calendar-month {
+  @layer base {
+    @apply flex w-full flex-col gap-4;
+  }
+}
+
+@utility calendar-nav {
+  @layer base {
+    @apply absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1;
+  }
+}
+
+@utility calendar-nav-button {
+  @layer base {
+    @apply size-(--calendar-nav-btn-size) p-0 select-none;
+
+    & svg {
+      @apply size-(--calendar-nav-btn-icon-size);
+    }
+    &:dir(rtl) svg {
+      @apply rotate-180;
+    }
+    &[aria-disabled='true'] {
+      @apply opacity-(--calendar-disabled-opacity);
+    }
+  }
+}
+
+@utility calendar-caption {
+  @layer base {
+    @apply flex h-(--calendar-caption-height) w-full items-center justify-center px-(--calendar-nav-btn-size);
+  }
+}
+
+@utility calendar-caption-label {
+  @layer base {
+    @apply text-(length:--calendar-caption-font-size)
+    font-(--calendar-caption-font-weight)
+    select-none;
+  }
+}
+
+/* caption_label when captionLayout uses dropdowns */
+@utility calendar-caption-dropdown {
+  @layer base {
+    @apply flex items-center gap-1 rounded-(--calendar-cell-radius);
+
+    & > svg {
+      @apply size-(--calendar-caption-icon-size) text-(--calendar-caption-icon-color);
+    }
+  }
+}
+
+@utility calendar-dropdowns {
+  @layer base {
+    @apply flex h-(--calendar-caption-height) w-full items-center justify-center gap-1.5
+    text-(length:--calendar-caption-font-size)
+    font-(--calendar-caption-font-weight);
+  }
+}
+
+@utility calendar-dropdown-root {
+  @layer base {
+    @apply relative rounded-(--calendar-cell-radius);
+  }
+}
+
+/* the invisible native select stretched over the styled label */
+@utility calendar-dropdown {
+  @layer base {
+    @apply absolute inset-0 cursor-pointer opacity-0;
+  }
+}
+
+@utility calendar-grid {
+  @layer base {
+    @apply w-full border-collapse;
+  }
+}
+
+@utility calendar-weekdays {
+  @layer base {
+    @apply flex;
+  }
+}
+
+@utility calendar-weekday {
+  @layer base {
+    @apply min-w-(--calendar-cell-size) flex-1 rounded-(--calendar-cell-radius)
+    text-(length:--calendar-weekday-font-size)
+    text-(--calendar-weekday-color)
+    font-(--calendar-weekday-font-weight)
+    select-none;
+  }
+}
+
+@utility calendar-week-view {
+  @layer base {
+    @apply mt-2 flex w-full;
+  }
+}
+
+@utility calendar-week-number-header {
+  @layer base {
+    @apply w-(--calendar-cell-size) select-none;
+  }
+}
+
+@utility calendar-week-number {
+  @layer base {
+    @apply text-(length:--calendar-week-number-font-size)
+    text-(--calendar-week-number-color)
+    select-none;
+
+    & > div {
+      @apply flex size-(--calendar-cell-size) items-center justify-center text-center;
+    }
+  }
+}
+
+@utility calendar-day-view {
+  @layer base {
+    /* flexible columns: cells share the row evenly and never shrink below
+       --calendar-cell-size, so the grid tracks any container width while
+       staying aligned with the weekday header row */
+    @apply relative h-(--calendar-cell-size) min-w-(--calendar-cell-size) flex-1 rounded-(--calendar-cell-radius) p-0 text-center select-none;
+
+    /* keep the row-edge corners of a selected range rounded; with week
+       numbers the first cell is the week number, so cover both layouts */
+    &:first-child[data-selected='true'] button,
+    :where(.calendar-week-number) + &[data-selected='true'] button {
+      @apply rounded-l-(--calendar-cell-radius);
+    }
+    &:last-child[data-selected='true'] button {
+      @apply rounded-r-(--calendar-cell-radius);
+    }
+  }
+}
+
+@utility calendar-day-button {
+  @layer base {
+    @apply relative isolate z-10 flex size-full flex-col gap-1 border-0 p-0 leading-none
+    rounded-(--calendar-cell-radius)
+    text-(--calendar-day-color)
+    font-(--calendar-day-font-weight);
+
+    & > span {
+      @apply text-xs opacity-70;
+    }
+
+    :where(.calendar-outside) & {
+      @apply opacity-(--calendar-outside-opacity);
+    }
+
+    &[data-selected-single='true'] {
+      @apply bg-(--calendar-day-selected-bg) text-(--calendar-day-selected-color);
+    }
+    &[data-range-start='true'],
+    &[data-range-end='true'] {
+      @apply rounded-(--calendar-cell-radius) bg-(--calendar-day-selected-bg) text-(--calendar-day-selected-color);
+    }
+    &[data-range-middle='true'] {
+      @apply rounded-none bg-(--calendar-day-range-bg) text-(--calendar-day-range-color);
+    }
+
+    @variant dark {
+      &:hover {
+        @apply text-(--calendar-day-color);
+      }
+    }
+  }
+}
+
+@utility calendar-range-start {
+  @layer base {
+    @apply relative isolate z-0 rounded-l-(--calendar-cell-radius) bg-(--calendar-day-range-bg);
+
+    &::after {
+      @apply absolute inset-y-0 end-0 w-4 bg-(--calendar-day-range-bg) content-[''];
+    }
+  }
+}
+
+@utility calendar-range-middle {
+  @layer base {
+    @apply rounded-none;
+  }
+}
+
+@utility calendar-range-end {
+  @layer base {
+    @apply relative isolate z-0 rounded-r-(--calendar-cell-radius) bg-(--calendar-day-range-bg);
+
+    &::after {
+      @apply absolute inset-y-0 start-0 w-4 bg-(--calendar-day-range-bg) content-[''];
+    }
+  }
+}
+
+@utility calendar-today {
+  @layer base {
+    @apply rounded-(--calendar-cell-radius) text-(--calendar-day-color);
+
+    &[data-selected='true'] {
+      @apply rounded-none;
+    }
+  }
+}
+
+@utility calendar-outside {
+  @layer base {
+    @apply text-(--calendar-muted-color);
+  }
+}
+
+@utility calendar-disabled {
+  @layer base {
+    @apply text-(--calendar-muted-color) opacity-(--calendar-disabled-opacity);
+  }
+}
+
+@utility calendar-hidden {
+  @layer base {
+    @apply invisible;
+  }
+}

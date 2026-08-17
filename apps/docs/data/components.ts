@@ -228,35 +228,29 @@ export const feedback: Component[] = [
     count: 7,
     imgComponent: Modal,
   },
-  // {
-  //   title: 'Placeholders',
-  //   url: '/docs/components/placeholders',
-  //   count: 6,
-  //   imgComponent: Placeholder,
-  // },
   {
     title: "Popover",
     url: "/docs/components/popover",
     count: 7,
     imgComponent: Popover,
   },
-  // {
-  //   title: 'Progress',
-  //   url: '/docs/components/progress',
-  //   count: 9,
-  //   imgComponent: Progress,
-  // },
-  // {
-  //   title: 'Loaders',
-  //   url: '/docs/components/loaders',
-  //   count: 5,
-  //   imgComponent: Loader,
-  // },
   {
     title: "Sonner",
     url: "/docs/components/sonner",
     count: 5,
     imgComponent: Toast,
+  },
+  {
+    title: "Progress",
+    url: "/docs/components/progress",
+    count: 7,
+    imgComponent: Progress,
+  },
+  {
+    title: 'Loader',
+    url: '/docs/components/loader',
+    count: 5,
+    imgComponent: Loader,
   },
 ];
 

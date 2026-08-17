@@ -1,0 +1,108 @@
+---
+title: Loader
+description: A visual indicator for loading states, with border and growing spinners and an animated bar loader.
+---
+
+## Default
+
+The default loader is a circular border spinner. It renders `role="status"` with a visually hidden label for screen readers.
+
+<ComponentPreview name="loader-default" className="text-center" />
+
+## Colors
+
+The `color` prop tints the spinner; without it the spinner inherits `currentcolor`.
+
+<ComponentPreview name="loader-colors" />
+
+## Growing spinner
+
+`variant="grow"` renders a pulsing indicator that grows and fades.
+
+<ComponentPreview name="loader-grow" />
+
+## Sizes
+
+`size="sm"` renders a small spinner; any other dimension is set with a size utility.
+
+<ComponentPreview name="loader-sizes" />
+
+## Bar loader
+
+`variant="bar"` renders a horizontal indeterminate loading bar. The `color` prop switches the bar's color scheme.
+
+<ComponentPreview name="loader-bar" />
+
+## Buttons
+
+A small loader inside a disabled button indicates a busy action. The loader is hidden from screen readers there, since the button provides the label.
+
+<ComponentPreview name="loader-buttons" />
+
+## API Reference
+
+### Loader
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"border" | "grow" | "bar"',
+      typeSimple: "enum",
+      default: '"border"',
+      description: "The loader style.",
+    },
+    {
+      prop: "color",
+      type: '"primary" | "secondary" | "info" | "success" | "warning" | "danger" | "neutral"',
+      typeSimple: "enum",
+      description: (
+        <>
+          The loader color. Unset spinners inherit <code>currentcolor</code>;
+          the bar defaults to primary. <code>neutral</code> applies to spinners
+          only.
+        </>
+      ),
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md"',
+      typeSimple: "enum",
+      default: '"md"',
+      description:
+        "The spinner size. The bar loader is sized with utilities instead.",
+    },
+    {
+      prop: "label",
+      type: "string",
+      default: '"Loading..."',
+      description:
+        "Screen-reader text announced with the loader. An empty string omits it.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior. The child provides its own
+          screen-reader label.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React loader is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available loader classes in the [Class overview](https://hbui.dev/docs/components/loaders/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/loaders/#css-variables) documentation to explore all available variables.
