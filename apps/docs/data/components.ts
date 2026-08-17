@@ -202,6 +202,12 @@ export const dataEntry: Component[] = [
     imgComponent: Select,
   },
   {
+    title: "Slider",
+    url: "/docs/components/slider",
+    count: 7,
+    imgComponent: Range,
+  },
+  {
     title: "Switch",
     url: "/docs/forms/switch",
     count: 4,
