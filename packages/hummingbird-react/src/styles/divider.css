@@ -1,0 +1,131 @@
+@utility divider {
+  @layer base {
+    --divider-color: var(--border-color-default);
+    --divider-thickness: 1px;
+    --divider-label-gap: --spacing(3);
+
+    @apply shrink-0 border-0 bg-(--divider-color);
+  }
+}
+
+@utility divider-horizontal {
+  @layer base {
+    @apply h-(--divider-thickness) w-full;
+  }
+}
+
+@utility divider-vertical {
+  @layer base {
+    @apply w-(--divider-thickness) self-stretch;
+  }
+}
+
+/* Thickness ------------------------------------------------------------- */
+
+@utility divider-thickness-md {
+  @layer base {
+    --divider-thickness: 2px;
+  }
+}
+
+@utility divider-thickness-thick {
+  @layer base {
+    --divider-thickness: 4px;
+  }
+}
+
+/* Colour ---------------------------------------------------------------- */
+
+@utility divider-primary {
+  @layer base {
+    --divider-color: var(--background-color-primary);
+  }
+}
+
+@utility divider-secondary {
+  @layer base {
+    --divider-color: var(--background-color-secondary);
+  }
+}
+
+@utility divider-info {
+  @layer base {
+    --divider-color: var(--background-color-info);
+  }
+}
+
+@utility divider-success {
+  @layer base {
+    --divider-color: var(--background-color-success);
+  }
+}
+
+@utility divider-warning {
+  @layer base {
+    --divider-color: var(--background-color-warning);
+  }
+}
+
+@utility divider-danger {
+  @layer base {
+    --divider-color: var(--background-color-danger);
+  }
+}
+
+/* Line style -----------------------------------------------------------
+   A dashed or dotted rule cannot be drawn with a background colour, so
+   these swap to a border on the leading edge and drop the fill. */
+
+@utility divider-dashed {
+  @layer base {
+    @apply bg-transparent border-(--divider-color) border-dashed;
+
+    &[data-orientation='horizontal'] {
+      border-top-width: var(--divider-thickness);
+    }
+
+    &[data-orientation='vertical'] {
+      border-left-width: var(--divider-thickness);
+    }
+  }
+}
+
+@utility divider-dotted {
+  @layer base {
+    @apply bg-transparent border-(--divider-color) border-dotted;
+
+    &[data-orientation='horizontal'] {
+      border-top-width: var(--divider-thickness);
+    }
+
+    &[data-orientation='vertical'] {
+      border-left-width: var(--divider-thickness);
+    }
+  }
+}
+
+/* Labelled divider ------------------------------------------------------ */
+
+@utility divider-labelled {
+  @layer base {
+    @apply flex items-center gap-(--divider-label-gap);
+  }
+}
+
+@utility divider-labelled-vertical {
+  @layer base {
+    @apply h-full flex-col;
+  }
+}
+
+@utility divider-line {
+  @layer base {
+    @apply flex-1;
+  }
+}
+
+@utility divider-label {
+  @layer base {
+    @apply shrink-0 text-sm text-(--text-color-muted);
+  }
+}
