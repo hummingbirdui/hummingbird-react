@@ -34,3 +34,19 @@ if (typeof globalThis !== 'undefined' && !('ResizeObserver' in globalThis)) {
     disconnect() {}
   };
 }
+
+// jsdom doesn't implement IntersectionObserver; Embla (the Carousel's engine)
+// uses it to track slides in view. Provide a no-op stub so the carousel mounts.
+if (typeof globalThis !== 'undefined' && !('IntersectionObserver' in globalThis)) {
+  globalThis.IntersectionObserver = class {
+    root = null;
+    rootMargin = '';
+    thresholds = [];
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return [];
+    }
+  } as unknown as typeof IntersectionObserver;
+}
