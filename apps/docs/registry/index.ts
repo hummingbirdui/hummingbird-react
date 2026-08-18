@@ -266,4 +266,9 @@ export const registry: Record<string, RegistryEntry> = {
   "text-weights": { file: "text/text-weights.tsx" },
   "text-truncate": { file: "text/text-truncate.tsx" },
   "text-line-clamp": { file: "text/text-line-clamp.tsx" },
+  "divider-default": { file: "divider/divider-default.tsx" },
+  "divider-vertical": { file: "divider/divider-vertical.tsx" },
+  "divider-label": { file: "divider/divider-label.tsx" },
+  "divider-vertical-label": { file: "divider/divider-vertical-label.tsx" },
+  "divider-label-colors": { file: "divider/divider-label-colors.tsx" },
 };

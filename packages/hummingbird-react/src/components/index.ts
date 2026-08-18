@@ -14,6 +14,7 @@ export * from './collapsible';
 export * from './dark-theme-toggle';
 export * from './date-picker';
 export * from './dialog';
+export * from './divider';
 export * from './drawer';
 export * from './dropdown';
 export * from './file-uploader';
