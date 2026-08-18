@@ -1,0 +1,226 @@
+---
+title: Carousel
+description: A swipeable slideshow for cycling through images or content, with controls, indicators, and captions, built on Embla Carousel.
+---
+
+## Default
+
+A classic image carousel with overlay controls, bar indicators, and captions. Slides respond to drag, swipe, and arrow keys.
+
+<ComponentPreview name="carousel-default" />
+
+## Multiple slides
+
+Slide widths come from basis utilities on `Carousel.Item`; `opts` forwards Embla options like `align` and `loop`.
+
+<ComponentPreview name="carousel-gallery" />
+
+## Autoplay
+
+Embla plugins pass through the `plugins` prop — here the official autoplay plugin advances testimonials every four seconds.
+
+<ComponentPreview name="carousel-autoplay" />
+
+## Drag free
+
+`dragFree: true` scrolls with free momentum instead of snapping to slides.
+
+<ComponentPreview name="carousel-drag-free" />
+
+## Vertical
+
+`orientation="vertical"` scrolls along the y-axis; the container height is set on `Carousel.Content`, and the controls dock to the top and bottom edges.
+
+<ComponentPreview name="carousel-vertical" />
+
+## Slide counter
+
+`setApi` exposes the Embla API for imperative control and state, such as tracking the selected slide.
+
+<ComponentPreview name="carousel-counter" />
+
+## Thumbnails
+
+The Embla API also drives external navigation — here a synced thumbnail strip highlights the selected slide and jumps on click.
+
+<ComponentPreview name="carousel-thumbnails" />
+
+## API Reference
+
+Built on [Embla Carousel](https://www.embla-carousel.com). The root owns the Embla instance and provides it to the parts; every Embla option and plugin passes through.
+
+### Carousel
+
+<PropsTable
+  data={[
+    {
+      prop: "opts",
+      type: "EmblaOptionsType",
+      typeSimple: "object",
+      description: (
+        <>
+          Options forwarded to Embla Carousel — <code>loop</code>,{" "}
+          <code>align</code>, <code>dragFree</code>, <code>skipSnaps</code>, and
+          more; see the{" "}
+          <a href="https://www.embla-carousel.com/api/options/">
+            Embla options reference
+          </a>
+          .
+        </>
+      ),
+    },
+    {
+      prop: "plugins",
+      type: "EmblaPluginType[]",
+      typeSimple: "array",
+      description:
+        "Embla plugins, such as autoplay, class names, or wheel gestures.",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      default: '"horizontal"',
+      description: "The scroll axis of the carousel.",
+    },
+    {
+      prop: "setApi",
+      type: "(api: CarouselApi) => void",
+      typeSimple: "function",
+      description:
+        "Receives the Embla API instance for imperative control and state subscriptions.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+<br />
+
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-orientation]",
+      values: ["horizontal", "vertical"],
+    },
+  ]}
+/>
+
+### Carousel.Content
+
+The scroll viewport and flex container holding the slides. `className` applies to the flex container — the place for a height in vertical carousels.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Carousel.Item
+
+One slide. Defaults to full width; basis utilities show multiple slides per view.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Carousel.Previous
+
+The previous-slide control, disabled when the carousel cannot scroll back. Children replace the default chevron icon.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Carousel.Next
+
+The next-slide control, disabled when the carousel cannot scroll forward. Children replace the default chevron icon.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Carousel.Indicators
+
+One indicator button per snap point; the active indicator tracks the selected slide.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Carousel.Caption
+
+Renders a `div` with Hummingbird's `carousel-caption` class, positioned over the slide.
+
+<PropsTable
+  data={[
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+The root reuses core Hummingbird's `carousel` class and its CSS variables for the controls, indicators, and caption; the Embla-specific parts add two variables of their own.
+
+```css
+.carousel {
+  --carousel-control-width: 15%;
+  --carousel-control-color: var(--color-white);
+  --carousel-control-opacity: 0.5;
+  --carousel-control-hover-opacity: 0.9;
+  --carousel-control-icon-width: 2rem;
+  --carousel-control-icon-height: 2rem;
+  --carousel-indicator-width: 1.875rem;
+  --carousel-indicator-height: 0.1875rem;
+  --carousel-indicator-spacer: --spacing(0.75);
+  --carousel-indicator-active-bg: var(--color-white);
+  --carousel-indicator-hit-area-height: 0.625rem;
+  --carousel-indicator-opacity: 0.5;
+  --carousel-indicator-active-opacity: 1;
+  --carousel-caption-width: 70%;
+  --carousel-caption-spacer: --spacing(5);
+  --carousel-caption-padding-y: --spacing(5);
+  --carousel-caption-color: var(--color-white);
+}
+.carousel-container {
+  --carousel-item-spacing: --spacing(4);
+}
+.carousel-control {
+  --carousel-control-disabled-opacity: 0.25;
+}
+```

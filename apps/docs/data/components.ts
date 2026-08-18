@@ -273,12 +273,12 @@ export const navigation: Component[] = [
     count: 5,
     imgComponent: Breadcrumb,
   },
-  // {
-  //   title: 'Carousel',
-  //   url: '/docs/components/carousel',
-  //   count: 9,
-  //   imgComponent: Carousel,
-  // },
+  {
+    title: "Carousel",
+    url: "/docs/components/carousel",
+    count: 7,
+    imgComponent: Carousel,
+  },
   {
     title: "Collapse",
     url: "/docs/components/collapsible",

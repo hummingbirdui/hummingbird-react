@@ -1,0 +1,103 @@
+/*
+ * Embla-specific utilities for the React Carousel. The root, controls, icons,
+ * indicators container, and caption reuse core Hummingbird's `carousel`,
+ * `carousel-control-prev/next(-icon)`, `carousel-indicators`, and
+ * `carousel-caption` utilities (and their CSS variables). Core's `carousel-item`
+ * belongs to the Bootstrap-style JS carousel (it hides non-active slides), so
+ * Embla slides use `carousel-slide` instead.
+ */
+
+@utility carousel {
+  @layer base {
+    --carousel-control-color: var(--color-white);
+    --carousel-indicator-active-bg: var(--color-white);
+    --carousel-caption-color: var(--color-white);
+    --carousel-control-prev-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/></svg>");
+    --carousel-control-next-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/></svg>");
+  }
+}
+
+@utility carousel-viewport {
+  @layer base {
+    @apply w-full overflow-hidden;
+  }
+}
+
+@utility carousel-container {
+  @layer base {
+    --carousel-item-spacing: --spacing(4);
+
+    @apply flex touch-pan-y ms-[calc(var(--carousel-item-spacing)*-1)];
+
+    &[data-orientation='vertical'] {
+      @apply flex-col touch-pan-x ms-0 mt-[calc(var(--carousel-item-spacing)*-1)];
+    }
+  }
+}
+
+@utility carousel-slide {
+  @layer base {
+    @apply relative min-w-0 shrink-0 grow-0 basis-full ps-(--carousel-item-spacing);
+
+    &[data-orientation='vertical'] {
+      @apply ps-0 pt-(--carousel-item-spacing);
+    }
+  }
+}
+
+/* Supplements core's carousel-control-prev/next with the states the JS
+   carousel never had: a disabled look and vertical placement. */
+@utility carousel-control {
+  @layer base {
+    --carousel-control-disabled-opacity: 0.25;
+    &:disabled {
+      @apply cursor-default opacity-(--carousel-control-disabled-opacity);
+    }
+
+    &[data-orientation='vertical'] {
+      @apply w-full h-(--carousel-control-width);
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        @apply rotate-90;
+      }
+    }
+
+    &.carousel-control-prev[data-orientation='vertical'] {
+      @apply right-0 bottom-auto;
+    }
+
+    &.carousel-control-next[data-orientation='vertical'] {
+      @apply left-0 top-auto;
+    }
+  }
+}
+
+/* Core styles indicator buttons via [data-bs-target]; the React indicators
+   are real buttons styled by class, with the active state as a data-attr. */
+@utility carousel-indicator {
+  @layer base {
+    @apply box-content
+    flex-[0_1_auto]
+    w-(--carousel-indicator-width)
+    h-(--carousel-indicator-height)
+    p-0
+    mr-(--carousel-indicator-spacer)
+    ml-(--carousel-indicator-spacer)
+    cursor-pointer
+    bg-(--carousel-indicator-active-bg)
+    bg-clip-padding
+    border-0
+    border-transparent
+    border-solid
+    border-t-(--carousel-indicator-hit-area-height)
+    border-b-(--carousel-indicator-hit-area-height)
+    opacity-(--carousel-indicator-opacity)
+    transition-opacity
+    duration-600;
+
+    &[data-active] {
+      @apply opacity-(--carousel-indicator-active-opacity);
+    }
+  }
+}
