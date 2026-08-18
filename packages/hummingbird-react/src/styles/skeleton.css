@@ -1,0 +1,74 @@
+@utility skeleton {
+  @layer base {
+    --skeleton-color: var(--background-color-muted);
+    --skeleton-highlight: var(--background-color-emphasis);
+    --skeleton-radius: var(--radius-md);
+
+    @apply block relative overflow-hidden w-full h-4
+    bg-(--skeleton-color)
+    rounded-(--skeleton-radius);
+  }
+}
+
+@utility skeleton-text {
+  @layer base {
+    --skeleton-radius: var(--radius-sm);
+    @apply h-4 w-full;
+  }
+}
+
+@utility skeleton-circle {
+  @layer base {
+    --skeleton-radius: calc(infinity * 1px);
+    @apply size-10 aspect-square;
+  }
+}
+
+@utility skeleton-rounded {
+  @layer base {
+    --skeleton-radius: var(--radius-lg);
+  }
+}
+
+@utility skeleton-pulse {
+  @layer base {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: skeleton-pulse 1.6s ease-in-out infinite;
+    }
+  }
+}
+
+@utility skeleton-shimmer {
+  @layer base {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--skeleton-highlight),
+        transparent
+      );
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      &::after {
+        animation: skeleton-shimmer 1.6s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

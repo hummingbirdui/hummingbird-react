@@ -1,0 +1,80 @@
+---
+title: Skeleton
+description: A placeholder that traces the shape of content while it loads.
+---
+
+## Default
+
+A skeleton renders a single pulsing line, standing in for content that has not arrived yet. It is hidden from screen readers by default.
+
+<ComponentPreview name="skeleton-default" className="text-center" />
+
+## Shapes
+
+The `variant` prop sets the outline: `text` (default), `rectangle`, `rounded`, or `circle`. A circle suits avatars, while rounded blocks map to images and cards.
+
+<ComponentPreview name="skeleton-shapes" />
+
+## Animation
+
+The `animation` prop switches the effect between `pulse` (default), `shimmer`, and `none`. Both animations stop when a visitor has asked for reduced motion.
+
+<ComponentPreview name="skeleton-animation" />
+
+## Sizing
+
+Width and height are set with utility classes or an inline `style`, so a skeleton can match the exact box it replaces.
+
+<ComponentPreview name="skeleton-sizing" />
+
+## Composing a layout
+
+Skeletons are meant to be stacked. A few of them together sketch out a real layout — here an avatar next to two lines of text below a media block.
+
+<ComponentPreview name="skeleton-composition" />
+
+## Accessibility
+
+Each skeleton carries `aria-hidden` so assistive technology skips the placeholder rather than announcing empty boxes. When the loading state itself should be announced, passing `role="status"` with an accessible name and `aria-hidden={false}` turns the region into a live one.
+
+## API Reference
+
+### Skeleton
+
+<PropsTable
+  data={[
+    {
+      prop: "variant",
+      type: '"text" | "rectangle" | "rounded" | "circle"',
+      typeSimple: "enum",
+      default: '"text"',
+      description: "The placeholder shape.",
+    },
+    {
+      prop: "animation",
+      type: '"pulse" | "shimmer" | "none"',
+      typeSimple: "enum",
+      default: '"pulse"',
+      description: "The loading animation. Both effects respect reduced-motion preferences.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description: "Render as a child element instead of the default.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React skeleton is styled entirely through Hummingbird's utility classes and CSS
+variables.
+
+- See the full list of available skeleton classes in the [Class overview](https://hbui.dev/docs/components/skeleton/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/skeleton/#css-variables) documentation to explore all available variables.
