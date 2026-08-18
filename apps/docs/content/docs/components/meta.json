@@ -18,6 +18,7 @@
     "dialog",
     "drawer",
     "dropdown",
+    "file-uploader",
     "list-group",
     "loader",
     "nav",

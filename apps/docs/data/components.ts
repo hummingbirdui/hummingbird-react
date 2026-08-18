@@ -213,12 +213,12 @@ export const dataEntry: Component[] = [
     count: 4,
     imgComponent: Switch,
   },
-  // {
-  //   title: 'File Uploader',
-  //   url: '/docs/forms/advanced-forms/file-uploader',
-  //   count: 5,
-  //   imgComponent: Uploader,
-  // },
+  {
+    title: "File Uploader",
+    url: "/docs/components/file-uploader",
+    count: 6,
+    imgComponent: Uploader,
+  },
 ];
 
 export const feedback: Component[] = [

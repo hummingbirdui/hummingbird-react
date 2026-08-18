@@ -16,6 +16,7 @@ export * from './date-picker';
 export * from './dialog';
 export * from './drawer';
 export * from './dropdown';
+export * from './file-uploader';
 export * from './floating-label';
 export * from './input';
 export * from './input-group';
