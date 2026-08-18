@@ -8,6 +8,8 @@
     "switch",
     "input-group",
     "floating-label",
-    "range"
+    "range",
+    "slider",
+    "file-uploader"
   ]
 }

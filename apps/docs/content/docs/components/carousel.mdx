@@ -61,11 +61,7 @@ Built on [Embla Carousel](https://www.embla-carousel.com). The root owns the Emb
         <>
           Options forwarded to Embla Carousel — <code>loop</code>,{" "}
           <code>align</code>, <code>dragFree</code>, <code>skipSnaps</code>, and
-          more; see the{" "}
-          <a href="https://www.embla-carousel.com/api/options/">
-            Embla options reference
-          </a>
-          .
+          more; see the options table below.
         </>
       ),
     },
@@ -109,86 +105,157 @@ Built on [Embla Carousel](https://www.embla-carousel.com). The root owns the Emb
   ]}
 />
 
-### Carousel.Content
+#### Options
 
-The scroll viewport and flex container holding the slides. `className` applies to the flex container — the place for a height in vertical carousels.
+Keys accepted by the `opts` object, matching the [Embla v8 options](https://www.embla-carousel.com/docs/v8/api/options) one to one. `axis` is the exception — it is managed by the `orientation` prop and overwritten if set here.
 
 <PropsTable
   data={[
     {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
+      prop: "active",
+      type: "boolean",
+      default: "true",
+      description:
+        "Turns the carousel on or off; when false, slides render statically and dragging is disabled.",
     },
-  ]}
-/>
-
-### Carousel.Item
-
-One slide. Defaults to full width; basis utilities show multiple slides per view.
-
-<PropsTable
-  data={[
     {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
+      prop: "align",
+      type: '"start" | "center" | "end" | (viewSize: number, snapSize: number, index: number) => number',
+      typeSimple: "enum | function",
+      default: '"center"',
+      description:
+        "Aligns the slides relative to the viewport, or a function returning a custom offset in pixels.",
     },
-  ]}
-/>
-
-### Carousel.Previous
-
-The previous-slide control, disabled when the carousel cannot scroll back. Children replace the default chevron icon.
-
-<PropsTable
-  data={[
     {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
+      prop: "breakpoints",
+      type: "{ [mediaQuery: string]: EmblaOptionsType }",
+      typeSimple: "object",
+      default: "{}",
+      description: (
+        <>
+          Option overrides applied at media queries, e.g.{" "}
+          <code>{'{ "(min-width: 768px)": { loop: true } }'}</code>.
+        </>
+      ),
     },
-  ]}
-/>
-
-### Carousel.Next
-
-The next-slide control, disabled when the carousel cannot scroll forward. Children replace the default chevron icon.
-
-<PropsTable
-  data={[
     {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
+      prop: "containScroll",
+      type: 'false | "trimSnaps" | "keepSnaps"',
+      typeSimple: "enum",
+      default: '"trimSnaps"',
+      description:
+        "Clears leading and trailing empty space that causes excessive scrolling; trimSnaps removes unreachable snap points, keepSnaps keeps them.",
     },
-  ]}
-/>
-
-### Carousel.Indicators
-
-One indicator button per snap point; the active indicator tracks the selected slide.
-
-<PropsTable
-  data={[
     {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
+      prop: "container",
+      type: "string | HTMLElement | null",
+      typeSimple: "string | element",
+      default: "null",
+      description:
+        "A custom container node or selector holding the slides; defaults to the first direct child of the viewport.",
     },
-  ]}
-/>
-
-### Carousel.Caption
-
-Renders a `div` with Hummingbird's `carousel-caption` class, positioned over the slide.
-
-<PropsTable
-  data={[
     {
-      prop: "className",
-      type: "string",
-      description: "Additional classes merged with the generated classes.",
+      prop: "direction",
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      default: '"ltr"',
+      description: "The content direction of the carousel.",
+    },
+    {
+      prop: "dragFree",
+      type: "boolean",
+      default: "false",
+      description:
+        "Scrolls with free momentum on drag instead of snapping to slides.",
+    },
+    {
+      prop: "dragThreshold",
+      type: "number",
+      default: "10",
+      description:
+        "Drag distance in pixels before dragging starts; affects when clicks are treated as drags, not drag sensitivity.",
+    },
+    {
+      prop: "duration",
+      type: "number",
+      default: "25",
+      description:
+        "Scroll animation speed for programmatic scrolls — an attraction factor, not milliseconds; higher is slower.",
+    },
+    {
+      prop: "inViewThreshold",
+      type: "number | number[]",
+      typeSimple: "number",
+      default: "0",
+      description:
+        "IntersectionObserver threshold deciding how much of a slide must be visible to count as in view.",
+    },
+    {
+      prop: "loop",
+      type: "boolean",
+      default: "false",
+      description: "Enables infinite looping through the slides.",
+    },
+    {
+      prop: "skipSnaps",
+      type: "boolean",
+      default: "false",
+      description:
+        "Allows skipping intermediate snap points when dragging vigorously.",
+    },
+    {
+      prop: "slides",
+      type: "string | HTMLElement[] | NodeListOf<HTMLElement> | null",
+      typeSimple: "string | elements",
+      default: "null",
+      description:
+        "Custom slide nodes or a selector; defaults to the direct children of the container.",
+    },
+    {
+      prop: "slidesToScroll",
+      type: 'number | "auto"',
+      typeSimple: "number | enum",
+      default: "1",
+      description:
+        "Number of slides scrolled per step; auto groups slides by how many fit in the viewport.",
+    },
+    {
+      prop: "startIndex",
+      type: "number",
+      default: "0",
+      description: "Index of the slide selected on init.",
+    },
+    {
+      prop: "watchDrag",
+      type: "boolean | (emblaApi, event) => boolean | void",
+      typeSimple: "boolean | function",
+      default: "true",
+      description:
+        "Enables mouse and touch dragging, or a callback to accept or reject each drag interaction.",
+    },
+    {
+      prop: "watchResize",
+      type: "boolean | (emblaApi, entries) => boolean | void",
+      typeSimple: "boolean | function",
+      default: "true",
+      description:
+        "Reinitializes the carousel when the container or slides resize, or a callback to customize the behavior.",
+    },
+    {
+      prop: "watchSlides",
+      type: "boolean | (emblaApi, mutations) => boolean | void",
+      typeSimple: "boolean | function",
+      default: "true",
+      description:
+        "Reinitializes the carousel when slides are added or removed, or a callback to customize the behavior.",
+    },
+    {
+      prop: "watchFocus",
+      type: "boolean | (emblaApi, event) => boolean | void",
+      typeSimple: "boolean | function",
+      default: "true",
+      description:
+        "Scrolls a slide into view when it receives focus, or a callback to customize the behavior.",
     },
   ]}
 />

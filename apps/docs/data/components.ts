@@ -203,7 +203,7 @@ export const dataEntry: Component[] = [
   },
   {
     title: "Slider",
-    url: "/docs/components/slider",
+    url: "/docs/forms/slider",
     count: 7,
     imgComponent: Range,
   },
@@ -215,7 +215,7 @@ export const dataEntry: Component[] = [
   },
   {
     title: "File Uploader",
-    url: "/docs/components/file-uploader",
+    url: "/docs/forms/file-uploader",
     count: 6,
     imgComponent: Uploader,
   },
