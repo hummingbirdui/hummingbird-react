@@ -266,4 +266,9 @@ export const registry: Record<string, RegistryEntry> = {
   "text-weights": { file: "text/text-weights.tsx" },
   "text-truncate": { file: "text/text-truncate.tsx" },
   "text-line-clamp": { file: "text/text-line-clamp.tsx" },
+  "skeleton-default": { file: "skeleton/skeleton-default.tsx" },
+  "skeleton-sizes": { file: "skeleton/skeleton-sizes.tsx" },
+  "skeleton-colors": { file: "skeleton/skeleton-colors.tsx" },
+  "skeleton-wave": { file: "skeleton/skeleton-wave.tsx" },
+  "skeleton-card": { file: "skeleton/skeleton-card.tsx" },
 };

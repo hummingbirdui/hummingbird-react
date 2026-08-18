@@ -1,0 +1,81 @@
+---
+title: Skeleton
+description: Placeholder bars that indicate content is loading.
+---
+
+## Default
+
+`Skeleton` renders a placeholder bar sized by the surrounding text, with width set through grid `col-*` or width utilities. `Skeleton.Group` wraps the bars and applies the glow animation by default.
+
+<ComponentPreview name="skeleton-default" />
+
+## Sizes
+
+The `size` prop offers four heights: `xs`, `sm`, `md` (default), and `lg`.
+
+<ComponentPreview name="skeleton-sizes" />
+
+## Colors
+
+The bar inherits `currentcolor`, so text color utilities recolor it.
+
+<ComponentPreview name="skeleton-colors" />
+
+## Wave
+
+Setting `animation="wave"` on `Skeleton.Group` sweeps a highlight across the bars instead of pulsing them.
+
+<ComponentPreview name="skeleton-wave" />
+
+## Card
+
+Skeletons compose with other components to mirror the layout they stand in for; adding the `placeholder` class to a disabled `Button` reserves its space.
+
+<ComponentPreview name="skeleton-card" />
+
+## API Reference
+
+### Skeleton
+
+<PropsTable
+  data={[
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "md" | "lg"',
+      typeSimple: "enum",
+      default: '"md"',
+      description: "The height of the placeholder bar.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### Skeleton.Group
+
+<PropsTable
+  data={[
+    {
+      prop: "animation",
+      type: '"glow" | "wave"',
+      typeSimple: "enum",
+      default: '"glow"',
+      description: "The loading animation applied to the skeletons inside.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React skeleton is styled entirely through Hummingbird's utility classes and CSS variables.
+
+- See the full list of available placeholder classes in the [Class overview](https://hbui.dev/docs/components/placeholders/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/placeholders/#css-variables) documentation to explore all available variables.
