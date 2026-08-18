@@ -266,4 +266,9 @@ export const registry: Record<string, RegistryEntry> = {
   "text-weights": { file: "text/text-weights.tsx" },
   "text-truncate": { file: "text/text-truncate.tsx" },
   "text-line-clamp": { file: "text/text-line-clamp.tsx" },
+  "form-demo": { file: "forms/form-demo.tsx" },
+  "form-slider": { file: "forms/form-slider.tsx" },
+  "form-date-picker": { file: "forms/form-date-picker.tsx" },
+  "form-file-uploader": { file: "forms/form-file-uploader.tsx" },
+  "form-server-error": { file: "forms/form-server-error.tsx" },
 };
