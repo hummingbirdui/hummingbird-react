@@ -271,4 +271,9 @@ export const registry: Record<string, RegistryEntry> = {
   "skeleton-colors": { file: "skeleton/skeleton-colors.tsx" },
   "skeleton-wave": { file: "skeleton/skeleton-wave.tsx" },
   "skeleton-card": { file: "skeleton/skeleton-card.tsx" },
+  "form-demo": { file: "forms/form-demo.tsx" },
+  "form-slider": { file: "forms/form-slider.tsx" },
+  "form-date-picker": { file: "forms/form-date-picker.tsx" },
+  "form-file-uploader": { file: "forms/form-file-uploader.tsx" },
+  "form-server-error": { file: "forms/form-server-error.tsx" },
 };
