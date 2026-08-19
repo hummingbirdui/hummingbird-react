@@ -271,4 +271,7 @@ export const registry: Record<string, RegistryEntry> = {
   "divider-label": { file: "divider/divider-label.tsx" },
   "divider-vertical-label": { file: "divider/divider-vertical-label.tsx" },
   "divider-label-colors": { file: "divider/divider-label-colors.tsx" },
+  "container-default": { file: "container/container-default.tsx" },
+  "container-responsive": { file: "container/container-responsive.tsx" },
+  "container-fluid": { file: "container/container-fluid.tsx" },
 };

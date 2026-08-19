@@ -1,0 +1,129 @@
+---
+title: Container
+description: A responsive wrapper that centers content and caps its width at each breakpoint.
+---
+
+## Default
+
+Use the `Container` component to center content with a `max-width` at each breakpoint. It also adds horizontal padding to prevent content from touching the edges of the viewport.
+
+<ComponentPreview name="container-default" showPreview={false} />
+
+## How it works
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Breakpoint</Table.Head>
+      <Table.Head>Viewport</Table.Head>
+      <Table.Head>Max-width</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>None</Table.Cell>
+      <Table.Cell>&lt;640px</Table.Cell>
+      <Table.Cell>100%</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>sm</code>
+      </Table.Cell>
+      <Table.Cell>640px</Table.Cell>
+      <Table.Cell>40rem</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>md</code>
+      </Table.Cell>
+      <Table.Cell>768px</Table.Cell>
+      <Table.Cell>48rem</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>lg</code>
+      </Table.Cell>
+      <Table.Cell>1024px</Table.Cell>
+      <Table.Cell>64rem</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>xl</code>
+      </Table.Cell>
+      <Table.Cell>1280px</Table.Cell>
+      <Table.Cell>80rem</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>2xl</code>
+      </Table.Cell>
+      <Table.Cell>1536px</Table.Cell>
+      <Table.Cell>96rem</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+## Responsive
+
+The `breakpoint` prop sets the maximum width of the container at a specific breakpoint. The container remains fluid until it reaches that breakpoint.
+
+<ComponentPreview name="container-responsive" showPreview={false} />
+
+## Fluid
+
+The `fluid` prop sets the container to full width across all breakpoints.
+
+<ComponentPreview name="container-fluid" showPreview={false} />
+
+## API Reference
+
+### Container
+
+<PropsTable
+  data={[
+    {
+      prop: "breakpoint",
+      type: '"sm" | "md" | "lg" | "xl" | "xxl"',
+      typeSimple: "enum",
+      description: "Keeps the element full width until this breakpoint.",
+    },
+    {
+      prop: "fluid",
+      type: "boolean",
+      default: "false",
+      description: "Spans the full width at every breakpoint.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+### Breakpoint CSS variables
+
+The container uses the following CSS variables for its breakpoints. Override or extend them according to the project’s requirements.
+
+```css
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+}
+```
+
+### Gutter CSS variables
+
+The container uses the following gutter CSS variables for its horizontal padding. Override or extend them according to the project’s requirements.
+
+```css
+.container {
+  --grid-gutter-x: 1.5rem;
+  --grid-gutter-y: 0;
+}
+```

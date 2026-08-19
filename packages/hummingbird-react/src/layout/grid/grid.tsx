@@ -329,4 +329,4 @@ function Col({ className, xs, sm, md, lg, xl, xxl, ...props }: ColProps) {
 
 Col.displayName = 'Col';
 
-export { Container, Row, Col };
+export { Row, Col };
