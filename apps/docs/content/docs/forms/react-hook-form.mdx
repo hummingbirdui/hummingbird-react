@@ -1,0 +1,162 @@
+---
+title: React Hook Form
+description: Building forms with React Hook Form and Zod schema validation.
+---
+
+[React Hook Form](https://react-hook-form.com) manages form state, [Zod](https://zod.dev) validates values against a schema, and Hummingbird's `Field` parts render the markup.
+
+## Installation
+
+install React Hook Form, Zod, and the resolver package:
+
+<PackageManagerTabs command="npm install react-hook-form @hookform/resolvers zod" />
+
+## Demo
+
+<ComponentPreview name="form-demo" />
+
+## Anatomy
+
+The example shows how to compose a `Field` with `Controller` from React Hook Form. The `field` object spreads the input props, and `fieldState` provides validation state and error messages.
+
+```tsx
+<Controller
+  name="title"
+  control={form.control}
+  render={({ field, fieldState }) => (
+    <Field>
+      <Field.Label htmlFor="title">Title</Field.Label>
+      <Input
+        {...field}
+        id="title"
+        state={fieldState.invalid ? "invalid" : undefined}
+      />
+      {fieldState.invalid && (
+        <Field.Text variant="invalid">{fieldState.error?.message}</Field.Text>
+      )}
+    </Field>
+  )}
+/>
+```
+
+## Building a form
+
+### Create a form schema
+
+Define a Zod schema for the form fields, and infer the TypeScript type from it.
+
+```tsx
+import { z } from "zod";
+
+const formSchema = z.object({
+  username: z.string().min(2, "Username must be at least 2 characters."),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+```
+
+### Set up the form
+
+The `useForm` hook initializes the form with the Zod resolver and default values. The `onSubmit` function receives validated and typed data.
+
+```tsx
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+const form = useForm<FormValues>({
+  resolver: zodResolver(formSchema),
+  defaultValues: { username: "" },
+});
+
+function onSubmit(data: FormValues) {
+  // data is validated and typed
+}
+```
+
+### Build the form
+
+Now build the form with `Controller` fields and a submit button. The `handleSubmit` function wraps the `onSubmit` callback.
+
+```tsx
+<form onSubmit={form.handleSubmit(onSubmit)}>
+  {/* Controller fields */}
+  <Button type="submit">Submit</Button>
+</form>
+```
+
+## Validation modes
+
+Use the `mode` option to control when validation occurs. The default is `onSubmit`.
+
+```tsx
+const form = useForm<FormValues>({
+  resolver: zodResolver(formSchema),
+  defaultValues: { username: "" },
+  mode: "onBlur",
+});
+```
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Mode</Table.Head>
+      <Table.Head>Validation triggers</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>
+        <code>onSubmit</code> (default)
+      </Table.Cell>
+      <Table.Cell>When the form is submitted</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>onBlur</code>
+      </Table.Cell>
+      <Table.Cell>When a field loses focus</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>onChange</code>
+      </Table.Cell>
+      <Table.Cell>On every change</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>onTouched</code>
+      </Table.Cell>
+      <Table.Cell>On first blur, then on every change</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <code>all</code>
+      </Table.Cell>
+      <Table.Cell>On both blur and change</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+## Date picker
+
+The calendar binds through `selected`/`onSelect`, closing the popover after a date is picked.
+
+<ComponentPreview name="form-date-picker" />
+
+## Slider
+
+`Slider` holds a `number[]` value bound with `value`/`onValueChange`.
+
+<ComponentPreview name="form-slider" />
+
+## File uploader
+
+Zod v4 validates files natively — `z.file()` supports `.max()` for byte size and `.mime()` for exact MIME types.
+
+<ComponentPreview name="form-file-uploader" />
+
+## Server errors
+
+`setError("root", ...)` stores a form-level error rendered in an `Alert`; it clears on the next submit. `formState.isSubmitting` disables the button while the request is in flight.
+
+<ComponentPreview name="form-server-error" />

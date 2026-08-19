@@ -15,6 +15,7 @@
     "prebuild": "node scripts/fetch-themes.mjs"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@hummingbirdui/react": "workspace:^",
     "@types/react-frame-component": "^4.1.6",
     "date-fns": "^4.4.0",
@@ -27,8 +28,10 @@
     "react-day-picker": "^10.0.1",
     "react-dom": "^19.2.7",
     "react-frame-component": "^5.3.2",
+    "react-hook-form": "^7.66.1",
     "rehype-autolink-headings": "^7.1.0",
-    "swiper": "^14.0.5"
+    "swiper": "^14.0.5",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.14",
@@ -36,8 +39,7 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
-    "gh-pages": "^6.3.0",
-    "zod": "^4.4.3"
+    "gh-pages": "^6.3.0"
   },
   "browserslist": [
     "chrome >= 111",

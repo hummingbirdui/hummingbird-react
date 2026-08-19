@@ -32,6 +32,7 @@ export * from './radio';
 export * from './range';
 export * from './scroll-area';
 export * from './select';
+export * from './skeleton';
 export * from './slider';
 export * from './sonner';
 export * from './switch';

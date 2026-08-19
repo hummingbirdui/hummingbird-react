@@ -99,7 +99,11 @@ export interface FieldTextProps
 
 function FieldText({ className, variant, ...props }: FieldTextProps) {
   return (
-    <p data-slot="field-text" className={cn(fieldTextVariants({ variant }), className)} {...props} />
+    <div
+      data-slot="field-text"
+      className={cn(fieldTextVariants({ variant }), className)}
+      {...props}
+    />
   );
 }
 
