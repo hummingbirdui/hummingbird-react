@@ -259,18 +259,6 @@ const ROW_COLS: Record<Breakpoint, Record<RowCols, string>> = {
 };
 
 //  ===================================
-//  Container
-//  ===================================
-
-export interface ContainerProps extends React.ComponentProps<'div'> {}
-
-function Container({ className, ...props }: ContainerProps) {
-  return <div className={cn('container', className)} {...props} />;
-}
-
-Container.displayName = 'Container';
-
-//  ===================================
 //  Row
 //  ===================================
 
@@ -341,4 +329,4 @@ function Col({ className, xs, sm, md, lg, xl, xxl, ...props }: ColProps) {
 
 Col.displayName = 'Col';
 
-export { Container, Row, Col };
+export { Row, Col };

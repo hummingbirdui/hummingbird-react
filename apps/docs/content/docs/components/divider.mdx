@@ -1,0 +1,69 @@
+---
+title: Divider
+description: A horizontal or vertical line that separates content, with an optional label.
+---
+
+## Default
+
+The default divider renders a native `hr`; border utilities adjust its color and thickness.
+
+<ComponentPreview name="divider-default" />
+
+## Vertical
+
+Setting `orientation="vertical"` renders a vertical rule, sized and colored through utility classes.
+
+<ComponentPreview name="divider-vertical" />
+
+## With label
+
+Passing children turns the divider into a labeled divider, and the `align` prop positions the label at `start`, `center` (default), or `end`.
+
+<ComponentPreview name="divider-label" />
+
+## Vertical with label
+
+Labeled dividers also work vertically.
+
+<ComponentPreview name="divider-vertical-label" />
+
+## Label colors
+
+The line segments around a label are styled with `before:` and `after:` border utilities.
+
+<ComponentPreview name="divider-label-colors" />
+
+## API Reference
+
+### Divider
+
+<PropsTable
+  data={[
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      default: '"horizontal"',
+      description: "The direction of the divider.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "center" | "end"',
+      typeSimple: "enum",
+      default: '"center"',
+      description: "The position of the label along the divider.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React divider is styled entirely through Hummingbird's utility classes and CSS variables.
+
+- See the full list of available divider classes in the [Class overview](https://hbui.dev/docs/components/divider/#class-overview).
+- Visit the [CSS Variables](https://hbui.dev/docs/components/divider/#css-variables) documentation to explore all available variables.

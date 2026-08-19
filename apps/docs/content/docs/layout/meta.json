@@ -1,4 +1,4 @@
 {
   "title": "Layout & Content",
-  "pages": ["grid", "text"]
+  "pages": ["container", "grid", "text"]
 }
