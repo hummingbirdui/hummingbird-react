@@ -1,0 +1,90 @@
+---
+title: Astro
+description: This guide explains how to set up Hummingbird React in an Astro project, including dark mode support.
+frameworkGuide: true
+---
+
+## Installation
+
+#### 1. Install Tailwind CSS
+
+Create an Astro project and set it up with Tailwind CSS. If Tailwind CSS hasn't been set up yet, follow the <a href="https://tailwindcss.com/docs/installation/framework-guides/astro" target="_blank" rel="noopener noreferrer">official installation guide</a>.
+
+#### 2. Install the React integration
+
+Hummingbird React components need Astro's React integration.
+
+```bash
+npx astro add react
+```
+
+#### 3. Install Hummingbird React
+
+Install Hummingbird React via a preferred package manager.
+
+<PackageManagerTabs command="npm install @hummingbirdui/react" />
+
+#### 4. Import CSS
+
+Import Hummingbird styles in the main CSS file. The package registers its own Tailwind `@source` paths, so no additional configuration is needed.
+
+```css title="src/styles/global.css"
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+```
+
+#### 5. Use components
+
+Import any component and use it in `.astro` pages or React islands. Static components render without a client directive; interactive components (dropdowns, modals, tooltips, etc.) need one, such as `client:load`.
+
+```astro title="src/pages/index.astro"
+---
+import "../styles/global.css";
+import { Button } from "@hummingbirdui/react";
+---
+
+<Button color="primary" client:load>Click me</Button>
+```
+
+## Dark mode
+
+Hummingbird uses class-based dark mode — a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+
+#### 1. Add the dark variant
+
+Register the class-based dark variant after the style imports.
+
+```css title="src/styles/global.css"
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+```
+
+#### 2. Set the initial theme
+
+Apply the saved theme with an inline script in the layout `<head>` — it runs before first paint, so there is no flash of the wrong theme. `is:inline` keeps Astro from bundling and deferring it.
+
+```astro title="src/layouts/Layout.astro"
+<head>
+  <!-- ... -->
+  <script is:inline>
+    const theme = localStorage.getItem("theme");
+    document.documentElement.classList.toggle(
+      "dark",
+      theme === "dark" ||
+        (theme !== "light" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+  </script>
+</head>
+```
+
+#### 3. Add a theme toggle
+
+`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. It needs a client directive to be interactive. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
+
+```astro title="src/layouts/Layout.astro"
+---
+import { DarkThemeToggle } from "@hummingbirdui/react";
+---
+
+<DarkThemeToggle client:load />
+```

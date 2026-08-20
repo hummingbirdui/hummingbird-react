@@ -9,6 +9,10 @@ export const { docs, meta } = defineDocs({
     schema: pageSchema.extend({
       // Shorter label for the sidebar; the page keeps `title` as its H1.
       sidebarTitle: z.string().optional(),
+      // Framework guide pages show the framework switcher rail instead of
+      // the table of contents (same convention as core Hummingbird's
+      // `redirects` frontmatter flag).
+      frameworkGuide: z.boolean().optional(),
     }),
   },
 });

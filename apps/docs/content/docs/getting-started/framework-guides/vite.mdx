@@ -1,0 +1,81 @@
+---
+title: Vite
+description: This guide explains how to set up Hummingbird React in a Vite project, including dark mode support.
+frameworkGuide: true
+---
+
+## Installation
+
+#### 1. Install Tailwind CSS
+
+Create a React project with Vite and set it up with Tailwind CSS using the Vite plugin. If Tailwind CSS hasn't been set up yet, follow the <a href="https://tailwindcss.com/docs/installation/using-vite" target="_blank" rel="noopener noreferrer">official installation guide</a>.
+
+#### 2. Install Hummingbird React
+
+Install Hummingbird React via a preferred package manager.
+
+<PackageManagerTabs command="npm install @hummingbirdui/react" />
+
+#### 3. Import CSS
+
+Import Hummingbird styles in the main CSS file. The package registers its own Tailwind `@source` paths, so no additional configuration is needed.
+
+```css title="src/index.css"
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+```
+
+#### 4. Use components
+
+Import any component and use it in the application.
+
+```tsx title="src/App.tsx"
+import { Button } from "@hummingbirdui/react";
+
+export default function App() {
+  return <Button color="primary">Click me</Button>;
+}
+```
+
+## Dark mode
+
+Hummingbird uses class-based dark mode — a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+
+#### 1. Add the dark variant
+
+Register the class-based dark variant after the style imports.
+
+```css title="src/index.css"
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+```
+
+#### 2. Set the initial theme
+
+Vite renders on the client, so React components run after the page is already visible. Apply the saved theme with an inline script in `index.html` instead — it runs before first paint, so there is no flash of the wrong theme.
+
+```html title="index.html"
+<head>
+  <!-- ... -->
+  <script>
+    const theme = localStorage.getItem("theme");
+    document.documentElement.classList.toggle(
+      "dark",
+      theme === "dark" ||
+        (theme !== "light" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+  </script>
+</head>
+```
+
+#### 3. Add a theme toggle
+
+`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
+
+```tsx title="src/components/Navbar.tsx"
+import { DarkThemeToggle } from "@hummingbirdui/react";
+
+export function Navbar() {
+  return <DarkThemeToggle />;
+}
+```

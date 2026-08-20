@@ -38,6 +38,8 @@ Hummingbird React is the official React component library for the [Hummingbird](
 
 ## Installation
 
+Using a framework? The [framework guides](https://react.hbui.dev/docs/getting-started/framework-guides/) cover Next.js, Vite, Astro, Remix, React Router, and Gatsby step by step, including dark mode setup.
+
 ### 1. Install Tailwind CSS
 
 Ensure the project is set up with Tailwind CSS. If Tailwind CSS hasn't been set up yet, follow the <a href="https://tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">official installation guide</a>.

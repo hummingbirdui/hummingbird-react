@@ -1,0 +1,104 @@
+---
+title: Remix
+description: This guide explains how to set up Hummingbird React in a Remix v2 project, including dark mode support.
+frameworkGuide: true
+---
+
+<HbAlert color="info">
+  Remix has merged into React Router. New projects should follow the [React
+  Router guide](/docs/getting-started/framework-guides/react-router) — this
+  guide covers existing Remix v2 (Vite) apps.
+</HbAlert>
+
+## Installation
+
+#### 1. Install Tailwind CSS
+
+Set up the Remix project with Tailwind CSS using the Vite plugin, following the <a href="https://tailwindcss.com/docs/installation/using-vite" target="_blank" rel="noopener noreferrer">official installation guide</a>. The `tailwindcss()` plugin goes alongside `remix()` in `vite.config.ts`.
+
+#### 2. Install Hummingbird React
+
+Install Hummingbird React via a preferred package manager.
+
+<PackageManagerTabs command="npm install @hummingbirdui/react" />
+
+#### 3. Import CSS
+
+Import Hummingbird styles in the main CSS file. The package registers its own Tailwind `@source` paths, so no additional configuration is needed.
+
+```css title="app/tailwind.css"
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+```
+
+Make sure the CSS file is imported in the root route.
+
+```tsx title="app/root.tsx"
+import "./tailwind.css";
+```
+
+#### 4. Use components
+
+Import any component and use it in routes.
+
+```tsx title="app/routes/_index.tsx"
+import { Button } from "@hummingbirdui/react";
+
+export default function Index() {
+  return <Button color="primary">Click me</Button>;
+}
+```
+
+## Dark mode
+
+Hummingbird uses class-based dark mode — a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+
+#### 1. Add the dark variant
+
+Register the class-based dark variant after the style imports.
+
+```css title="app/tailwind.css"
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+```
+
+#### 2. Set the initial theme
+
+Render `ThemeModeScript` inside `<head>` in the root route so the saved theme is applied before first paint — no flash of the wrong theme. Add `suppressHydrationWarning` to `<html>` since the script updates it before React hydrates.
+
+```tsx title="app/root.tsx"
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { ThemeModeScript } from "@hummingbirdui/react";
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <Meta />
+        <Links />
+        <ThemeModeScript />
+      </head>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+export default function App() {
+  return <Outlet />;
+}
+```
+
+#### 3. Add a theme toggle
+
+`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
+
+```tsx title="app/components/Navbar.tsx"
+import { DarkThemeToggle } from "@hummingbirdui/react";
+
+export function Navbar() {
+  return <DarkThemeToggle />;
+}
+```

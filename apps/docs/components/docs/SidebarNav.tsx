@@ -27,7 +27,11 @@ export function SidebarNav({ groups }: { groups: SidebarGroup[] }) {
           )}
           <ListGroup className="w-full bg-transparent gap-0.5">
             {group.items.map((item) => {
-              const active = normalize(pathname) === normalize(item.url);
+              const path = normalize(pathname);
+              const url = normalize(item.url);
+              // Prefix match keeps a collapsed folder's index entry (e.g.
+              // Framework Guides) highlighted while on one of its child pages.
+              const active = path === url || path.startsWith(url + "/");
               return (
                 <ListGroup.Item
                   key={item.url}
