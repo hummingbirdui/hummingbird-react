@@ -30,14 +30,6 @@ export const frameworks: Framework[] = [
     url: "/docs/getting-started/framework-guides/astro",
   },
   {
-    name: "Remix",
-    logo: {
-      light: "/images/frameworks/remix.svg",
-      dark: "/images/frameworks/remix-dark.svg",
-    },
-    url: "/docs/getting-started/framework-guides/remix",
-  },
-  {
     name: "React Router",
     logo: {
       light: "/images/frameworks/react-router.svg",

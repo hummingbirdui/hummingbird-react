@@ -5,13 +5,13 @@ description: A visual indicator for loading states, with border and growing spin
 
 ## Default
 
-The default loader is a circular border spinner. It renders `role="status"` with a visually hidden label for screen readers.
+The default loader is a circular border spinner.
 
 <ComponentPreview name="loader-default" className="text-center" />
 
 ## Colors
 
-The `color` prop tints the spinner; without it the spinner inherits `currentcolor`.
+Use the `color` prop to change the loader's color.
 
 <ComponentPreview name="loader-colors" />
 
@@ -35,7 +35,7 @@ The `color` prop tints the spinner; without it the spinner inherits `currentcolo
 
 ## Buttons
 
-A small loader inside a disabled button indicates a busy action. The loader is hidden from screen readers there, since the button provides the label.
+Loaders can be placed inside buttons to indicate a loading state.
 
 <ComponentPreview name="loader-buttons" />
 

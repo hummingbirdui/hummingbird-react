@@ -5,19 +5,19 @@ description: A drag-and-drop file uploader with list, thumbnail, avatar, and dro
 
 ## Default
 
-Files dropped or browsed into `FileUploader.Dropzone` appear in `FileUploader.List` with an icon or image preview, name, size, and a remove button.
+Files can be uploaded by clicking the dropzone or by dragging and dropping files into it. Selected files are shown in a list with their name, size, and a remove button.
 
 <ComponentPreview name="file-uploader-default" />
 
 ## Thumbnail preview
 
-`FileUploader.Thumbnails` displays the selected files as square thumbnails with a corner remove button.
+`FileUploader.Thumbnails` displays the selected files as square thumbnails.
 
 <ComponentPreview name="file-uploader-thumbnail" />
 
 ## Avatar
 
-`variant="avatar"` turns the dropzone into a circular uploader that fills with the selected image; hovering it reveals the message overlay again.
+`variant="avatar"` turns the dropzone into a circular uploader that fills with the selected image.
 
 <ComponentPreview name="file-uploader-avatar" />
 
@@ -35,13 +35,13 @@ The `dropbox` layout places a box-style dropzone (`variant="box"`) inline with t
 
 ## Validation
 
-`accept`, `maxSize`, `minSize`, and a custom `validator` reject files declaratively; rejections style the dropzone through `[data-drag-reject]` and surface details in `onDropRejected`.
+File upload can be validated using the `accept`, `maxSize`, `minSize`, and `validator` props.
 
 <ComponentPreview name="file-uploader-validation" />
 
 ## API Reference
 
-Built on [react-dropzone](https://react-dropzone.js.org). The root is a headless provider — every react-dropzone option passes through it — and the parts carry Hummingbird's `file-uploader-*` classes. The uploader manages file selection only; uploading the files is left to the application.
+Built on [react-dropzone](https://react-dropzone.js.org). Every option from `react-dropzone` is passed through to the `FileUploader` component.
 
 ### FileUploader
 

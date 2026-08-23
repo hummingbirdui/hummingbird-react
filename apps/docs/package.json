@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "type": "module",
   "private": true,
   "scripts": {
@@ -12,7 +12,9 @@
     "predeploy": "next build",
     "deploy": "gh-pages -d out -b gh-pages --dotfiles",
     "predev": "node scripts/fetch-themes.mjs",
-    "prebuild": "node scripts/fetch-themes.mjs"
+    "prebuild": "node scripts/fetch-themes.mjs",
+    "predeploy:internal": "next build",
+    "deploy:internal": "echo staging-react.hbui.dev > ./out/CNAME && gh-pages -d out --dotfiles -r https://github.com/hummingbirdui/staging-react.git"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

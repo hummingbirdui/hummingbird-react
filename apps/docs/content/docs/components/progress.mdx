@@ -5,8 +5,6 @@ description: A progress bar that visualizes task completion, with colors, labels
 
 ## Default
 
-Built on the [Radix UI Progress](https://www.radix-ui.com/primitives/docs/components/progress) primitive. The `value` prop sizes the bar and sets the `progressbar` ARIA attributes; a default bar renders automatically, so `Progress.Bar` is only needed to customize it.
-
 <ComponentPreview name="progress-default" className="max-w-sm mx-auto" />
 
 ## Colors
@@ -41,7 +39,7 @@ Setting `striped` overlays a striped pattern on the bar.
 
 ## Animated stripes
 
-`animated` with `striped` animates the stripe pattern. The animation pauses automatically when reduced motion is preferred.
+Combine `animated` with `striped` to animate the stripe pattern.
 
 <ComponentPreview name="progress-animated" />
 
@@ -50,8 +48,6 @@ Setting `striped` overlays a striped pattern on the bar.
 Built on the [Radix UI Progress](https://www.radix-ui.com/primitives/docs/components/progress) primitive. Each part forwards all props to its Radix counterpart.
 
 ### Progress
-
-The progress track. It reads the current value, sets the `progressbar` ARIA attributes, and renders a default `Progress.Bar` when no children are provided.
 
 <PropsTable
   data={[
@@ -113,8 +109,6 @@ The progress track. It reads the current value, sets the `progressbar` ARIA attr
 
 ### Progress.Bar
 
-The filled portion of the track, sized from the root's `value`.
-
 <PropsTable
   data={[
     {
@@ -172,8 +166,6 @@ The filled portion of the track, sized from the root's `value`.
 />
 
 ### Progress.Stacked
-
-A container that stacks multiple `Progress` segments in one track. Inside it, each segment's `value` sizes the segment itself and the bar fills it.
 
 <PropsTable
   data={[

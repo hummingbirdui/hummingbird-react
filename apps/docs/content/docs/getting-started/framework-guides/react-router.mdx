@@ -41,7 +41,7 @@ export default function Home() {
 
 ## Dark mode
 
-Hummingbird uses class-based dark mode — a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+Hummingbird uses class-based dark mode - a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
 
 #### 1. Add the dark variant
 
@@ -53,7 +53,7 @@ Register the class-based dark variant after the style imports.
 
 #### 2. Set the initial theme
 
-Render `ThemeModeScript` inside `<head>` in the root route so the saved theme is applied before first paint — no flash of the wrong theme. Add `suppressHydrationWarning` to `<html>` since the script updates it before React hydrates.
+Render `ThemeModeScript` inside `<head>` in the root route so the saved theme is applied before first paint - no flash of the wrong theme. Add `suppressHydrationWarning` to `<html>` since the script updates it before React hydrates.
 
 ```tsx title="app/root.tsx"
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";

@@ -48,7 +48,7 @@ import { Button } from "@hummingbirdui/react";
 
 ## Dark mode
 
-Hummingbird uses class-based dark mode — a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+Hummingbird uses class-based dark mode - a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
 
 #### 1. Add the dark variant
 
@@ -60,7 +60,7 @@ Register the class-based dark variant after the style imports.
 
 #### 2. Set the initial theme
 
-Apply the saved theme with an inline script in the layout `<head>` — it runs before first paint, so there is no flash of the wrong theme. `is:inline` keeps Astro from bundling and deferring it.
+Apply the saved theme with an inline script in the layout `<head>` - it runs before first paint, so there is no flash of the wrong theme. `is:inline` keeps Astro from bundling and deferring it.
 
 ```astro title="src/layouts/Layout.astro"
 <head>
@@ -81,10 +81,20 @@ Apply the saved theme with an inline script in the layout `<head>` — it runs b
 
 `DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. It needs a client directive to be interactive. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
 
-```astro title="src/layouts/Layout.astro"
----
+```tsx
 import { DarkThemeToggle } from "@hummingbirdui/react";
+
+const ThemeToggler = () => {
+  return <DarkThemeToggle />;
+};
+
+export default ThemeToggler;
+```
+
+```astro title="src/pages/index.astro"
+---
+import ThemeToggler from '@component/ThemeToggler'
 ---
 
-<DarkThemeToggle client:load />
+<ThemeToggler client:load>
 ```

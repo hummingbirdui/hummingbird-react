@@ -5,7 +5,7 @@ description: An input-style date field that opens a calendar in a popover, built
 
 ## Default
 
-Composes `DatePicker` with the [Calendar](/docs/components/calendar) component. The selected date is formatted into the trigger's children, and the controlled `open` state closes the popover on select.
+The DatePicker component extends the [Calendar](/docs/components/calendar) component, providing input style trigger and popover wrapper for calendar.
 
 <ComponentPreview name="date-picker-default" />
 
@@ -17,13 +17,13 @@ Passing `mode="range"` and `numberOfMonths` to the calendar turns the picker int
 
 ## Date of Birth
 
-Setting `captionLayout="dropdown"` on the calendar adds month and year dropdowns for reaching distant dates.
+Setting `captionLayout="dropdown"` on the calendar adds month and year dropdowns.
 
 <ComponentPreview name="date-of-birth" />
 
 ## Input
 
-For typed entry, a regular `Input` parses the text while an icon button opens the calendar. `DatePicker.Anchor` positions the popover against the whole input instead of the icon button.
+For typed entry, a regular `Input` parses the text while an icon button opens the calendar.
 
 <ComponentPreview name="date-input" />
 
@@ -35,7 +35,11 @@ A date picker paired with a time input. The `icon` prop swaps the default calend
 
 ## API Reference
 
-Built on the [Popover](/docs/components/popover) component. `DatePicker` owns no date state — the calendar's `selected`/`onSelect` and the trigger's children remain with the consumer, so every `react-day-picker` mode works unchanged. For form submission, a hidden input can be rendered next to the trigger.
+The date picker combines two components: a [Calendar](/docs/components/calendar) for date selection, wrapped in a [Popover](/docs/components/popover) for the open/close behavior.
+
+### Calendar
+
+The date grid placed inside `DatePicker.Content`. All selection props (`mode`, `selected`, `onSelect`, …) are documented in the [Calendar API reference](/docs/components/calendar#api-reference).
 
 ### DatePicker
 
@@ -112,7 +116,7 @@ An optional element to position the `DatePicker.Content` against. Props are the 
 
 ### DatePicker.Content
 
-The popover panel that contains the calendar. It defaults to `align="start"`, hides the popover arrow, and removes the popover's default width limit. All other props are the same as [Popover.Content](/docs/components/popover#popovercontent).
+The popover panel that the `Calendar` is placed into. It defaults to `align="start"`, hides the popover arrow, and removes the popover's default width limit. All other props are the same as [Popover.Content](/docs/components/popover#popovercontent).
 
 <PropsTable
   data={[

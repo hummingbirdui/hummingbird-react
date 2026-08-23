@@ -45,13 +45,13 @@ export function FrameworkSidebar() {
               <img
                 src={`${basePath}${item.logo.light}`}
                 alt=""
-                className="w-6 object-contain dark:hidden"
+                className="w-5 object-contain dark:hidden"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`${basePath}${item.logo.dark}`}
                 alt=""
-                className="w-6 object-contain hidden dark:block"
+                className="w-5 object-contain hidden dark:block"
               />
               <span className="text-base font-medium">{item.name}</span>
             </span>
