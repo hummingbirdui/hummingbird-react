@@ -5,37 +5,35 @@ description: A scrollable region with custom, consistently styled scrollbars tha
 
 ## Default
 
-Content scrolls inside `ScrollArea.Viewport`; `ScrollArea.Scrollbar` renders a vertical scrollbar with a default thumb. With the default `type="hover"`, the scrollbar appears while hovering the area.
+ScrollArea lets you control the appearance of scrollbars in a scrollable region.
 
 <ComponentPreview name="scroll-area-default" />
 
 ## Horizontal
 
-`orientation="horizontal"` on the scrollbar handles horizontally overflowing content.
+Use `orientation="horizontal"` on the scrollbar to handle horizontally overflowing content.
 
 <ComponentPreview name="scroll-area-horizontal" />
 
 ## Both directions
 
-Two scrollbars cover both axes, and `ScrollArea.Corner` fills the square where they meet.
-
 <ComponentPreview name="scroll-area-both" />
 
 ## Rounded
 
-The `rounded` prop gives the track and thumb the pill shape of Hummingbird's `scrollbar-rounded` utility.
+Use `rounded` prop on the scrollbar to round the scrollbar track and thumb.
 
 <ComponentPreview name="scroll-area-rounded" />
 
 ## Always visible
 
-`type="always"` keeps the scrollbar visible whenever content overflows, instead of showing it on hover.
+Use `type="always"` on the scrollbar to keep the scrollbar visible whenever content overflows, instead of showing it on hover.
 
 <ComponentPreview name="scroll-area-always" />
 
 ## API Reference
 
-Built on the [Radix UI Scroll Area](https://www.radix-ui.com/primitives/docs/components/scroll-area) primitive. Each part forwards all props to its Radix counterpart and carries its own Hummingbird utility class (`scroll-area`, `scroll-area-viewport`, `scroll-area-scrollbar`, `scroll-area-thumb`, `scroll-area-corner`).
+ScrollArea is built on the [Radix UI Scroll Area](https://www.radix-ui.com/primitives/docs/components/scroll-area) primitive. Each part forwards all props to its Radix counterpart.
 
 ### ScrollArea
 
@@ -104,8 +102,6 @@ Built on the [Radix UI Scroll Area](https://www.radix-ui.com/primitives/docs/com
 
 ### ScrollArea.Viewport
 
-The viewport area of the scroll area, where the content lives.
-
 <PropsTable
   data={[
     {
@@ -128,8 +124,6 @@ The viewport area of the scroll area, where the content lives.
 />
 
 ### ScrollArea.Scrollbar
-
-The scrollbar track. When it has no children, a default `ScrollArea.Thumb` is rendered automatically.
 
 <PropsTable
   data={[
@@ -155,8 +149,7 @@ The scrollbar track. When it has no children, a default `ScrollArea.Thumb` is re
       prop: "rounded",
       type: "boolean",
       default: "false",
-      description:
-        "Rounds the track and the default thumb into a pill shape.",
+      description: "Rounds the track and the default thumb into a pill shape.",
     },
     {
       prop: "forceMount",
@@ -182,8 +175,6 @@ The scrollbar track. When it has no children, a default `ScrollArea.Thumb` is re
 />
 
 ### ScrollArea.Thumb
-
-The draggable thumb inside a scrollbar.
 
 <PropsTable
   data={[
@@ -219,8 +210,6 @@ The draggable thumb inside a scrollbar.
 />
 
 ### ScrollArea.Corner
-
-The corner where a vertical and a horizontal scrollbar meet.
 
 <PropsTable
   data={[

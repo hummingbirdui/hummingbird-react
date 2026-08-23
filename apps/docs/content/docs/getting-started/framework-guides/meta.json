@@ -1,0 +1,4 @@
+{
+  "title": "Framework Guides",
+  "pages": ["nextjs", "vite", "astro", "react-router", "gatsby"]
+}

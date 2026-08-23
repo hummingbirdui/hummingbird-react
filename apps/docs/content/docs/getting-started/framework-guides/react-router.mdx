@@ -1,0 +1,96 @@
+---
+title: React Router
+description: This guide explains how to set up Hummingbird React in a React Router framework-mode project, including dark mode support.
+frameworkGuide: true
+---
+
+This guide covers React Router v7 in framework mode (the successor to Remix). For a plain single-page app using React Router as a library, follow the [Vite guide](/docs/getting-started/framework-guides/vite) instead.
+
+## Installation
+
+#### 1. Install Tailwind CSS
+
+Create a React Router project — new projects from `create-react-router` ship with Tailwind CSS preconfigured. For existing projects, follow the <a href="https://tailwindcss.com/docs/installation/framework-guides/react-router" target="_blank" rel="noopener noreferrer">official installation guide</a>.
+
+#### 2. Install Hummingbird React
+
+Install Hummingbird React via a preferred package manager.
+
+<PackageManagerTabs command="npm install @hummingbirdui/react" />
+
+#### 3. Import CSS
+
+Import Hummingbird styles in the main CSS file. The package registers its own Tailwind `@source` paths, so no additional configuration is needed.
+
+```css title="app/app.css"
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+```
+
+#### 4. Use components
+
+Import any component and use it in routes.
+
+```tsx title="app/routes/home.tsx"
+import { Button } from "@hummingbirdui/react";
+
+export default function Home() {
+  return <Button color="primary">Click me</Button>;
+}
+```
+
+## Dark mode
+
+Hummingbird uses class-based dark mode - a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+
+#### 1. Add the dark variant
+
+Register the class-based dark variant after the style imports.
+
+```css title="app/app.css"
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+```
+
+#### 2. Set the initial theme
+
+Render `ThemeModeScript` inside `<head>` in the root route so the saved theme is applied before first paint - no flash of the wrong theme. Add `suppressHydrationWarning` to `<html>` since the script updates it before React hydrates.
+
+```tsx title="app/root.tsx"
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { ThemeModeScript } from "@hummingbirdui/react";
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+        <ThemeModeScript />
+      </head>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+export default function App() {
+  return <Outlet />;
+}
+```
+
+#### 3. Add a theme toggle
+
+`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
+
+```tsx title="app/components/Navbar.tsx"
+import { DarkThemeToggle } from "@hummingbirdui/react";
+
+export function Navbar() {
+  return <DarkThemeToggle />;
+}
+```

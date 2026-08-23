@@ -6,6 +6,7 @@ import { useMDXComponents } from "@/mdx-components";
 import { cn } from "@hummingbirdui/react/utils";
 import { DocsToc } from "@/components/docs/DocsToc";
 import { DocsPagination } from "@/components/docs/DocsPagination";
+import { FrameworkSidebar } from "@/components/docs/FrameworkSidebar";
 
 export const dynamicParams = false;
 
@@ -19,13 +20,15 @@ export default async function Page(props: {
 
   const MDX = page.data.body;
   const toc = page.data.toc ?? [];
+  const isFrameworkGuide = page.data.frameworkGuide === true;
   const { previous, next } = findNeighbour(source.pageTree, page.url);
 
   return (
     <div
       className={cn(
         "py-10 lg:ps-10",
-        toc.length > 0 && "xl:grid xl:grid-cols-[1fr_16.75rem]",
+        (isFrameworkGuide || toc.length > 0) &&
+          "xl:grid xl:grid-cols-[1fr_16.75rem]",
       )}
     >
       <article className="docs-content min-w-0">
@@ -36,7 +39,11 @@ export default async function Page(props: {
         <MDX components={useMDXComponents({})} />
         <DocsPagination prev={previous} next={next} />
       </article>
-      {toc.length > 0 && <DocsToc toc={toc} />}
+      {isFrameworkGuide ? (
+        <FrameworkSidebar />
+      ) : (
+        toc.length > 0 && <DocsToc toc={toc} />
+      )}
     </div>
   );
 }

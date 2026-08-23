@@ -1,0 +1,83 @@
+---
+title: Gatsby
+description: This guide explains how to set up Hummingbird React in a Gatsby project, including dark mode support.
+frameworkGuide: true
+---
+
+## Installation
+
+#### 1. Install Tailwind CSS
+
+Create a Gatsby project and set it up with Tailwind CSS. If Tailwind CSS hasn't been set up yet, follow the <a href="https://tailwindcss.com/docs/installation/framework-guides/gatsby" target="_blank" rel="noopener noreferrer">official installation guide</a>.
+
+#### 2. Install Hummingbird React
+
+Install Hummingbird React via a preferred package manager.
+
+<PackageManagerTabs command="npm install @hummingbirdui/react" />
+
+#### 3. Import CSS
+
+Import Hummingbird styles in the main CSS file. The package registers its own Tailwind `@source` paths, so no additional configuration is needed.
+
+```css title="src/styles/global.css"
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+```
+
+Make sure the CSS file is imported in `gatsby-browser.js`.
+
+```js title="gatsby-browser.js"
+import "./src/styles/global.css";
+```
+
+#### 4. Use components
+
+Import any component and use it in pages.
+
+```jsx title="src/pages/index.js"
+import * as React from "react";
+import { Button } from "@hummingbirdui/react";
+
+export default function IndexPage() {
+  return <Button color="primary">Click me</Button>;
+}
+```
+
+## Dark mode
+
+Hummingbird uses class-based dark mode - a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+
+#### 1. Add the dark variant
+
+Register the class-based dark variant after the style imports.
+
+```css title="src/styles/global.css"
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+```
+
+#### 2. Set the initial theme
+
+Add `ThemeModeScript` to the document `<head>` in `gatsby-ssr.js` so the saved theme is applied before first paint - no flash of the wrong theme.
+
+```jsx title="gatsby-ssr.js"
+import * as React from "react";
+import { ThemeModeScript } from "@hummingbirdui/react";
+
+export const onRenderBody = ({ setHeadComponents }) => {
+  setHeadComponents([<ThemeModeScript key="theme-mode-script" />]);
+};
+```
+
+#### 3. Add a theme toggle
+
+`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
+
+```jsx title="src/components/Navbar.js"
+import * as React from "react";
+import { DarkThemeToggle } from "@hummingbirdui/react";
+
+export function Navbar() {
+  return <DarkThemeToggle />;
+}
+```

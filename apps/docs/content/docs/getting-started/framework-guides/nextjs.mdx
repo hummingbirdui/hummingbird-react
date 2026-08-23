@@ -1,0 +1,87 @@
+---
+title: Next.js
+description: This guide explains how to set up Hummingbird React in a Next.js project, including dark mode support.
+frameworkGuide: true
+---
+
+## Installation
+
+#### 1. Install Tailwind CSS
+
+Create a Next.js project and set it up with Tailwind CSS. If Tailwind CSS hasn't been set up yet, follow the <a href="https://tailwindcss.com/docs/installation/framework-guides/nextjs" target="_blank" rel="noopener noreferrer">official installation guide</a>.
+
+#### 2. Install Hummingbird React
+
+Install Hummingbird React via a preferred package manager.
+
+<PackageManagerTabs command="npm install @hummingbirdui/react" />
+
+#### 3. Import CSS
+
+Import Hummingbird styles in the main CSS file. The package registers its own Tailwind `@source` paths, so no additional configuration is needed.
+
+```css title="app/globals.css"
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+```
+
+#### 4. Use components
+
+Import any component and use it in the application. All components work in React Server Components; interactive ones are marked `"use client"` internally.
+
+```tsx title="app/page.tsx"
+import { Button } from "@hummingbirdui/react";
+
+export default function Home() {
+  return <Button color="primary">Click me</Button>;
+}
+```
+
+## Dark mode
+
+Hummingbird uses class-based dark mode - a `.dark` class on `<html>` switches the whole theme. See [Dark Mode](/docs/customize/dark-mode) for details and customization.
+
+#### 1. Add the dark variant
+
+Register the class-based dark variant after the style imports.
+
+```css title="app/globals.css"
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+```
+
+#### 2. Set the initial theme
+
+Render `ThemeModeScript` inside `<head>` so the saved theme is applied before first paint - no flash of the wrong theme. It is safe in React Server Components. Add `suppressHydrationWarning` to `<html>` since the script updates it before React hydrates.
+
+```tsx title="app/layout.tsx"
+import { ThemeModeScript } from "@hummingbirdui/react";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeModeScript />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+#### 3. Add a theme toggle
+
+`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
+
+```tsx title="components/Navbar.tsx"
+"use client";
+
+import { DarkThemeToggle } from "@hummingbirdui/react";
+
+export function Navbar() {
+  return <DarkThemeToggle />;
+}
+```

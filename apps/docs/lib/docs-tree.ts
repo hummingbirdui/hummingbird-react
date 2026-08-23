@@ -12,7 +12,12 @@ export interface SidebarGroup {
   items: SidebarItem[];
 }
 
-/** Depth-first collect every page (and folder index) under a set of nodes. */
+/**
+ * Depth-first collect the pages under a set of nodes. A nested folder with an
+ * index page collapses to that single entry — its child pages are reached
+ * from the index instead (e.g. the framework guides card grid); folders
+ * without an index still flatten into the parent group.
+ */
 function collectPages(nodes: Node[]): SidebarItem[] {
   const items: SidebarItem[] = [];
 
@@ -20,8 +25,11 @@ function collectPages(nodes: Node[]): SidebarItem[] {
     if (node.type === "page") {
       items.push({ name: node.name, url: node.url });
     } else if (node.type === "folder") {
-      if (node.index) items.push({ name: node.index.name, url: node.index.url });
-      items.push(...collectPages(node.children));
+      if (node.index) {
+        items.push({ name: node.index.name, url: node.index.url });
+      } else {
+        items.push(...collectPages(node.children));
+      }
     }
   }
 
