@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { describe, it, expect, afterEach } from 'vitest';
 import { render, screen, act, cleanup } from '@testing-library/react';
-import { Toaster, toast } from './sonner';
+import { Toaster, toast } from './toast';
 
 afterEach(() => {
   act(() => {

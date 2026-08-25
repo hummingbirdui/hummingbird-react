@@ -233,8 +233,8 @@ export const feedback: Component[] = [
     imgComponent: Popover,
   },
   {
-    title: "Sonner",
-    url: "/docs/components/sonner",
+    title: "Toast",
+    url: "/docs/components/toast",
     count: 5,
     imgComponent: Toast,
   },

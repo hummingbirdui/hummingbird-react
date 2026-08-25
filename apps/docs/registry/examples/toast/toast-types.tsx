@@ -2,10 +2,10 @@
 
 import { Button, toast } from "@hummingbirdui/react";
 
-export default function SonnerTypes() {
+export default function ToastTypes() {
   const promise = () =>
     new Promise<{ name: string }>((resolve) =>
-      setTimeout(() => resolve({ name: "Sonner" }), 2000)
+      setTimeout(() => resolve({ name: "Event" }), 2000)
     );
 
   return (

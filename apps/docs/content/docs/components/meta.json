@@ -14,7 +14,6 @@
     "carousel",
     "close-button",
     "collapsible",
-    "date-picker",
     "dialog",
     "divider",
     "drawer",
@@ -28,9 +27,9 @@
     "progress",
     "scroll-area",
     "skeleton",
-    "sonner",
     "table",
     "tabs",
+    "toast",
     "tooltip"
   ]
 }

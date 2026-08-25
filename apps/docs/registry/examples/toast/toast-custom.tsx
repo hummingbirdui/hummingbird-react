@@ -2,7 +2,7 @@
 
 import { Button, CloseButton, toast } from "@hummingbirdui/react";
 
-export default function SonnerCustom() {
+export default function ToastCustom() {
   return (
     <div className="text-center">
       <Button

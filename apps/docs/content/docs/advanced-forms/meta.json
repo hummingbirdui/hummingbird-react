@@ -1,0 +1,4 @@
+{
+  "title": "Advanced Forms",
+  "pages": ["slider", "file-uploader", "date-picker", "react-hook-form"]
+}

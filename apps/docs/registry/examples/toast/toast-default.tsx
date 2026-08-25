@@ -2,7 +2,7 @@
 
 import { Button, toast } from "@hummingbirdui/react";
 
-export default function SonnerDefault() {
+export default function ToastDefault() {
   return (
     <div className="text-center">
       <Button

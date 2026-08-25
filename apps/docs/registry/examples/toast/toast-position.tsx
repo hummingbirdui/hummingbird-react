@@ -11,7 +11,7 @@ const positions = [
   "bottom-right",
 ] as const;
 
-export default function SonnerPosition() {
+export default function ToastPosition() {
   return (
     <div className="flex flex-wrap justify-center gap-2">
       {positions.map((position) => (
