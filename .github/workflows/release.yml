@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
 
       # No registry-url here: with npm Trusted Publishing (OIDC) there is no
       # NODE_AUTH_TOKEN, and the .npmrc that registry-url writes references it
