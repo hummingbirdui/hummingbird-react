@@ -1,5 +1,17 @@
 # @hummingbirdui/react
 
+## 1.0.0-insider.11
+
+### Minor Changes
+
+- [`68b79ae`](https://github.com/hummingbirdui/hummingbird-react/commit/68b79ae874f8b2fd0f054ec126fae8760d7013b2) Thanks [@khayrul25](https://github.com/khayrul25)! - Rename the sonner component module to toast. The `Toaster` and `toast` exports are unchanged, but the deep import path moves from `@hummingbirdui/react/sonner` to `@hummingbirdui/react/toast`.
+
+- [`68b79ae`](https://github.com/hummingbirdui/hummingbird-react/commit/68b79ae874f8b2fd0f054ec126fae8760d7013b2) Thanks [@khayrul25](https://github.com/khayrul25)! - Ranamed sonner component to toast
+
+### Patch Changes
+
+- [`41ede38`](https://github.com/hummingbirdui/hummingbird-react/commit/41ede3855881aaf208c77819d9f6fb1e79fbc5d9) Thanks [@khayrul25](https://github.com/khayrul25)! - Align the test toolchain (Vitest 4, Vite 7) and fix stale component tests. No runtime changes — this release validates the new automated publishing pipeline.
+
 ## 1.0.0-insider.10
 
 Last manually published release (2026-08-23), before release automation was introduced.
