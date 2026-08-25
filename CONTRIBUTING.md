@@ -14,7 +14,10 @@ Thank you for your interest in contributing to Hummingbird React! This guide wil
 - [Testing](#testing)
 - [Linting and formatting](#linting-and-formatting)
 - [Commit conventions](#commit-conventions)
+- [Adding a changeset](#adding-a-changeset)
 - [Submitting a pull request](#submitting-a-pull-request)
+- [Releases (maintainers)](#releases-maintainers)
+- [Command cheat-sheet](#command-cheat-sheet)
 - [Reporting bugs and requesting features](#reporting-bugs-and-requesting-features)
 - [License](#license)
 
@@ -43,7 +46,7 @@ hummingbird-react/
 
 ## Prerequisites
 
-- **Node.js** >= 18
+- **Node.js** >= 20.9 — Node 22 recommended (pinned in `.nvmrc`, so `nvm use` / `fnm use` picks it up)
 - **pnpm** 9 (the repo pins `pnpm@9.0.0` via the `packageManager` field — enable [Corepack](https://nodejs.org/api/corepack.html) with `corepack enable` to get the right version automatically)
 
 ## Getting started
@@ -123,11 +126,17 @@ When documenting a component:
 Tests use [Vitest](https://vitest.dev/) with [Testing Library](https://testing-library.com/) and run in a jsdom environment.
 
 ```sh
-# Run tests in watch mode
+# Run the suite once (what CI runs)
 pnpm --filter @hummingbirdui/react test
+
+# Watch mode while developing
+pnpm --filter @hummingbirdui/react test:watch
 
 # Run tests with the Vitest UI
 pnpm --filter @hummingbirdui/react test:ui
+
+# A single test file
+pnpm --filter @hummingbirdui/react exec vitest run src/components/card/card.test.tsx
 ```
 
 Every component should have a `<name>.test.tsx` file next to it covering rendering, interactions, all variants/colors/sizes, class merging, ref forwarding, `asChild` behavior, `displayName`, and basic accessibility. Use `button.test.tsx` as a reference for the expected structure.
@@ -167,16 +176,29 @@ fix: correct focus ring on button in dark mode
 docs: add API reference for dialog
 ```
 
+## Adding a changeset
+
+Releases are automated with [Changesets](https://github.com/changesets/changesets). Any PR that changes the library's behavior (a feature, a fix, a breaking change) must include a changeset:
+
+```sh
+pnpm changeset
+```
+
+Pick `@hummingbirdui/react`, choose the bump type (patch / minor / major), and write a short, user-facing summary — it becomes the CHANGELOG entry. Commit the generated `.changeset/*.md` file **together with your code**.
+
+- Docs-only, CI-only, or purely internal changes don't need one — no changeset simply means no release is queued.
+- Forgot it? No harm done: open a tiny follow-up PR containing just the changeset file (mention the original PR number in the summary so the changelog reads well).
+- `pnpm changeset status` tells you whether the library changed without a changeset recorded.
+
 ## Submitting a pull request
 
-1. Make sure the project builds and all checks pass:
+1. Make sure all checks pass (this is exactly what CI runs):
 
    ```sh
-   pnpm build
-   pnpm lint
-   pnpm check-types
-   pnpm --filter @hummingbirdui/react test
+   pnpm turbo run lint check-types test build
    ```
+
+   And, if your PR changes the library, that it includes a [changeset](#adding-a-changeset).
 
 2. Push your branch to your fork:
 
@@ -189,6 +211,39 @@ docs: add API reference for dialog
 4. In the PR description, explain **what** you changed and **why**. Link any related issues (e.g. `Closes #123`). Screenshots or screen recordings are appreciated for visual changes.
 
 5. A maintainer will review your PR. Please be responsive to feedback — small follow-up commits are fine; we can squash on merge.
+
+## Releases (maintainers)
+
+Publishing is fully automated by `.github/workflows/release.yml` — **never run `npm publish` manually** (auth is npm Trusted Publishing; there are no tokens).
+
+1. Merged PRs with changesets feed an auto-maintained PR titled **"chore(release): version packages"** (version bump + CHANGELOG + lockfile). It accumulates until you're ready to ship.
+2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), then publishes.
+
+What gets published depends on the release phase, decided by `.changeset/pre.json`:
+
+| Phase | Version | npm dist-tag | git tag / GitHub Release |
+| --- | --- | --- | --- |
+| Pre mode (`insider`, current) | `1.0.0-insider.N` | `insider` | none |
+| Stable (after graduation) | `X.Y.Z` | `latest` | `vX.Y.Z` + Release with changelog notes |
+
+- Graduate to stable: `pnpm changeset pre exit` in a PR — the workflow detects the change automatically; nothing else to edit.
+- Switch prerelease line (e.g. to beta): `pnpm changeset pre exit && pnpm changeset pre enter beta`.
+- Never add `publishConfig.tag` to package.json — pre mode already routes dist-tags.
+- On Dependabot major bumps, check release notes first: tool families (vite/vitest/@vitejs, TypeScript/typescript-eslint, GitHub Actions) must move together.
+
+## Command cheat-sheet
+
+| Command | Purpose |
+| --- | --- |
+| `pnpm turbo run lint check-types test build` | Full CI matrix locally — run before every PR |
+| `pnpm changeset` | Record a release note + bump for your change |
+| `pnpm changeset status` | Any pending changesets? Library changed without one? |
+| `pnpm dev` | Library watch mode + docs site dev server |
+| `pnpm --filter @hummingbirdui/react test:watch` | Vitest watch mode |
+| `pnpm --filter docs dev` | Docs dev server only |
+| `pnpm --filter docs deploy` | Deploy docs to GitHub Pages (maintainers, manual) |
+| `pnpm changeset pre exit` / `pre enter <tag>` | Move between release phases (maintainers) |
+| `npm view @hummingbirdui/react dist-tags` | Verify what shipped where |
 
 ## Reporting bugs and requesting features
 
