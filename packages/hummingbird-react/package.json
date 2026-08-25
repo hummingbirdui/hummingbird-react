@@ -115,7 +115,7 @@
     "@vitejs/plugin-react": "^5.2.0",
     "@vitest/ui": "^4.1.11",
     "esbuild": "^0.28.2",
-    "eslint": "^8.56.0",
+    "eslint": "^10.9.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.33.2",
     "jsdom": "^30.0.1",
