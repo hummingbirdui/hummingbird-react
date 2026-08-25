@@ -251,7 +251,8 @@ What gets published depends on the release phase, decided by `.changeset/pre.jso
 | `pnpm --filter @hummingbirdui/react test:watch` | Vitest watch mode |
 | `pnpm --filter docs dev` | Docs dev server only |
 | `pnpm --filter docs deploy` | Deploy docs to GitHub Pages (maintainers, manual) |
-| `pnpm changeset pre exit` / `pre enter <tag>` | Move between release phases (maintainers) |
+| `pnpm changeset pre exit` | Exit current release phase |
+| `pnpm changeset pre enter <alpha, beta, rc, insider>` | Enter new release phase |
 | `npm view @hummingbirdui/react dist-tags` | Verify what shipped where |
 
 ## Reporting bugs and requesting features
