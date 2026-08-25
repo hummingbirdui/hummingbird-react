@@ -186,6 +186,15 @@ pnpm changeset
 
 Pick `@hummingbirdui/react`, choose the bump type (patch / minor / major), and write a short, user-facing summary — it becomes the CHANGELOG entry. Commit the generated `.changeset/*.md` file **together with your code**.
 
+**Start the summary with a type prefix** — it decides which section of the GitHub Release notes the change appears under:
+
+| Prefix | Release-notes section | Example summary |
+| --- | --- | --- |
+| `new:` | New Components | `new: Combobox component with keyboard navigation` |
+| `feat:` | Features | `feat: add size prop to Dialog` |
+| `fix:` | Fixes | `fix: badge outline classes now match the core CSS` |
+| anything else | Updates | `chore: bump radix-ui to 1.7` |
+
 - Docs-only, CI-only, or purely internal changes don't need one — no changeset simply means no release is queued.
 - Forgot it? No harm done: open a tiny follow-up PR containing just the changeset file (mention the original PR number in the summary so the changelog reads well).
 - `pnpm changeset status` tells you whether the library changed without a changeset recorded.
