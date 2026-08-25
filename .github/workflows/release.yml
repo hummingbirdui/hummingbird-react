@@ -26,7 +26,7 @@ jobs:
       # No registry-url here: with npm Trusted Publishing (OIDC) there is no
       # NODE_AUTH_TOKEN, and the .npmrc that registry-url writes references it
       # unconditionally — npm then fails on the unset variable.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: pnpm
