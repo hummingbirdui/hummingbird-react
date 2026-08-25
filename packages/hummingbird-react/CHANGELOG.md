@@ -1,5 +1,11 @@
 # @hummingbirdui/react
 
+## 1.0.0-beta.0
+
+### Patch Changes
+
+- chore: switch prerelease channel from insider to beta
+
 ## 1.0.0-insider.11
 
 ### Minor Changes
