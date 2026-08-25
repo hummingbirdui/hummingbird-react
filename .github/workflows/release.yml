@@ -54,13 +54,12 @@ jobs:
       - name: Create Version PR or publish to npm
         uses: changesets/action@v2
         with:
-          version: pnpm run version-packages
-          publish: pnpm run release
-          commit: "chore(release): version packages"
-          title: "chore(release): version packages"
-          createGithubReleases: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version-script: pnpm run version-packages
+          publish-script: pnpm run release
+          commit-message: "chore(release): version packages"
+          pr-title: "chore(release): version packages"
+          create-github-releases: false
 
       # Changesets' own tags would be "@hummingbirdui/react@X.Y.Z"; we want
       # "vX.Y.Z", so publish runs with --no-git-tag and this step tags instead.
