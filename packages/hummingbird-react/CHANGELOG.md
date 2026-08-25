@@ -1,5 +1,11 @@
 # @hummingbirdui/react
 
+## 1.0.0-beta.12
+
+### Patch Changes
+
+- [#49](https://github.com/hummingbirdui/hummingbird-react/pull/49) [`dfb8853`](https://github.com/hummingbirdui/hummingbird-react/commit/dfb885323396028834bf6714247e8d295174b3f9) Thanks [@khayrul25](https://github.com/khayrul25)! - chore: switch prerelease channel from insider to beta
+
 ## 1.0.0-insider.11
 
 ### Minor Changes
