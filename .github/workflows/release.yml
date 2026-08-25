@@ -1,0 +1,95 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+# Queue runs, never cancel one — a publish must not be killed mid-flight.
+concurrency: release-${{ github.ref }}
+
+permissions:
+  contents: write # push the version commit to the changeset-release branch
+  pull-requests: write # open/update the "Version Packages" PR
+  id-token: write # npm Trusted Publishing (OIDC) + provenance
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      # No registry-url here: with npm Trusted Publishing (OIDC) there is no
+      # NODE_AUTH_TOKEN, and the .npmrc that registry-url writes references it
+      # unconditionally — npm then fails on the unset variable.
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # npm Trusted Publishing (OIDC) requires npm >= 11.5.1; Node 22 bundles npm 10.
+      - run: npm install -g npm@^11
+
+      # Insider vs stable is decided by changesets pre mode, so graduating to
+      # stable needs nothing here — just `pnpm changeset pre exit` in a PR.
+      #   pre mode ("insider"):  npm `insider` dist-tag, no git tag, no GitHub
+      #                          Release (notes accumulate in CHANGELOG.md)
+      #   out of pre mode:       npm `latest`, then the step below creates a
+      #                          v<version> git tag and a GitHub Release
+      - name: Detect changesets pre mode
+        id: mode
+        run: |
+          if [ -f .changeset/pre.json ] && [ "$(node -p "require('./.changeset/pre.json').mode")" = "pre" ]; then
+            echo "pre=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "pre=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Version PR or publish to npm
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version-packages
+          publish: pnpm run release
+          commit: "chore(release): version packages"
+          title: "chore(release): version packages"
+          createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Changesets' own tags would be "@hummingbirdui/react@X.Y.Z"; we want
+      # "vX.Y.Z", so publish runs with --no-git-tag and this step tags instead.
+      # It acts only when the version in package.json is a stable x.y.z that is
+      # live on npm, and the tag and the Release are each guarded on their own —
+      # so a partial failure (or a missed run) self-heals on the next push to
+      # main, and reruns never duplicate anything.
+      - name: Tag and create GitHub Release (stable only)
+        if: steps.mode.outputs.pre == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(node -p "require('./packages/hummingbird-react/package.json').version")
+          if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "Version $VERSION is not a stable x.y.z — nothing to do"; exit 0
+          fi
+          TAG="v$VERSION"
+          if ! npm view "@hummingbirdui/react@$VERSION" version >/dev/null 2>&1; then
+            echo "$VERSION is not on npm (yet) — nothing to do"; exit 0
+          fi
+          node .github/scripts/release-notes.mjs "$VERSION" > /tmp/release-notes.md
+          if [ -z "$(git ls-remote --tags origin "refs/tags/$TAG")" ]; then
+            git tag "$TAG"
+            git push origin "$TAG"
+          else
+            echo "Tag $TAG already exists — skipping tag"
+          fi
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "$TAG" --notes-file /tmp/release-notes.md
+          else
+            echo "Release $TAG already exists — skipping release"
+          fi
