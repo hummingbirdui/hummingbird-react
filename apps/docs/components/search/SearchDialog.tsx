@@ -179,6 +179,7 @@ export function SearchDialog({
   }, [open, setSearch]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset keyboard selection when results change
     setActive(0);
   }, [flatResults]);
 

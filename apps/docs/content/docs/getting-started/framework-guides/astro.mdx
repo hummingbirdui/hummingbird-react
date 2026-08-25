@@ -79,22 +79,12 @@ Apply the saved theme with an inline script in the layout `<head>` - it runs bef
 
 #### 3. Add a theme toggle
 
-`DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. It needs a client directive to be interactive. For custom controls, use the [useThemeMode hook](/docs/customize/dark-mode#the-usethememode-hook).
-
-```tsx
-import { DarkThemeToggle } from "@hummingbirdui/react";
-
-const ThemeToggler = () => {
-  return <DarkThemeToggle />;
-};
-
-export default ThemeToggler;
-```
+Add `DarkThemeToggle` to your page. It needs a client directive to be interactive. `DarkThemeToggle` switches between light and dark mode, persists the choice, and keeps browser tabs in sync. For custom controls, use the `useThemeMode` hook.
 
 ```astro title="src/pages/index.astro"
 ---
-import ThemeToggler from '@component/ThemeToggler'
+import { DarkThemeToggle } from "@hummingbirdui/react";
 ---
 
-<ThemeToggler client:load>
+<DarkThemeToggle client:load>
 ```

@@ -1,6 +1,5 @@
+import type React from "react";
 import Accordion from "@/components/svg-images/Accordion";
-import AdvancedRange from "@/components/svg-images/AdvancedRange";
-import AdvancedSelect from "@/components/svg-images/AdvancedSelect";
 import Alert from "@/components/svg-images/Alert";
 import Avatar from "@/components/svg-images/Avatar";
 import Badge from "@/components/svg-images/Badge";
@@ -14,12 +13,9 @@ import Collapse from "@/components/svg-images/Collapse";
 import CustomScrollbar from "@/components/svg-images/CustomScrollbar";
 import Divider from "@/components/svg-images/Divider";
 import Dropdown from "@/components/svg-images/Dropdown";
-import Dtp from "@/components/svg-images/Dtp";
-import FileInput from "@/components/svg-images/FileInput";
 import FloatingLabels from "@/components/svg-images/FloatingLabels";
 import FormControls from "@/components/svg-images/FormControls";
 import InputGroup from "@/components/svg-images/InputGroup";
-import Link from "@/components/svg-images/Link";
 import ListGroup from "@/components/svg-images/ListGroup";
 import Loader from "@/components/svg-images/Loader";
 import Modal from "@/components/svg-images/Modal";
@@ -28,27 +24,23 @@ import NavsTabs from "@/components/svg-images/NavsTabs";
 import Tab from "@/components/svg-images/Tab";
 import Offcanvas from "@/components/svg-images/Offcanvas";
 import Pagination from "@/components/svg-images/Pagination";
-import Placeholder from "@/components/svg-images/Placeholder";
 import Popover from "@/components/svg-images/Popover";
 import Progress from "@/components/svg-images/Progress";
 import Radio from "@/components/svg-images/Radio";
 import Range from "@/components/svg-images/Range";
-import Scrollspy from "@/components/svg-images/Scrollspy";
 import Select from "@/components/svg-images/Select";
 import Switch from "@/components/svg-images/Switch";
 import Table from "@/components/svg-images/Table";
 import Toast from "@/components/svg-images/Toast";
 import Tooltip from "@/components/svg-images/Tooltip";
 import Uploader from "@/components/svg-images/Uploader";
-import Validation from "@/components/svg-images/Validation";
-import Video from "@/components/svg-images/Video";
 
 import Button from "@/components/svg-images/Button";
 export interface Component {
   title: string;
   count: number;
   url: string;
-  imgComponent: any;
+  imgComponent: React.ElementType;
 }
 
 export interface Section {

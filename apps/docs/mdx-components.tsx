@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- the `any`s below
+   sidestep the ForwardRefExoticComponent conflict between @types/react and
+   @types/mdx; see the inline comments. */
 import type { MDXComponents } from "mdx/types";
 import { Button } from "@hummingbirdui/react/button";
 import { Table } from "@hummingbirdui/react/table";

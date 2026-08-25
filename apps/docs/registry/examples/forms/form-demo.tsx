@@ -41,7 +41,7 @@ export default function FormDemo() {
     },
   });
 
-  function onSubmit(data: FormValues) {
+  function onSubmit(_data: FormValues) {
     toast("Form submitted successfully!");
   }
 

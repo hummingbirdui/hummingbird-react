@@ -2,7 +2,9 @@ import { source } from "@/lib/source";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { findNeighbour } from "fumadocs-core/page-tree";
-import { useMDXComponents } from "@/mdx-components";
+// Aliased because it is a plain function, not a hook — the alias keeps
+// react-hooks/rules-of-hooks from flagging the call in this async component.
+import { useMDXComponents as getMDXComponents } from "@/mdx-components";
 import { cn } from "@hummingbirdui/react/utils";
 import { DocsToc } from "@/components/docs/DocsToc";
 import { DocsPagination } from "@/components/docs/DocsPagination";
@@ -36,7 +38,7 @@ export default async function Page(props: {
         {page.data.description && (
           <p className="text-xl mb-10 font-light">{page.data.description}</p>
         )}
-        <MDX components={useMDXComponents({})} />
+        <MDX components={getMDXComponents({})} />
         <DocsPagination prev={previous} next={next} />
       </article>
       {isFrameworkGuide ? (

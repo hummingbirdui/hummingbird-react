@@ -1,6 +1,6 @@
 "use client";
 
-import { Navbar, Input, Button, Nav } from "@hummingbirdui/react";
+import { Navbar, Button, Nav } from "@hummingbirdui/react";
 
 export default function NavbarCollapseExample() {
   return (

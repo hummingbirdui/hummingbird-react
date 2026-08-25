@@ -10,13 +10,13 @@ export default function FrameworkCard({ framework }: { framework: Framework }) {
       href={framework.url}
       className="h-54 w-full rounded-lg border border-subtle hover:border-primary bg-default no-underline flex flex-col items-center justify-center"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
+      { }
       <img
         src={`${basePath}${framework.logo.light}`}
         alt={framework.name}
         className="mb-5 w-20 object-contain dark:hidden"
       />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
+      { }
       <img
         src={`${basePath}${framework.logo.dark}`}
         alt={framework.name}

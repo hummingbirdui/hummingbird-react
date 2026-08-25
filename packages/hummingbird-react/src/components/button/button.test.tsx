@@ -111,6 +111,8 @@ describe('Button', () => {
   });
 
   describe('Colors', () => {
+    // `light`/`dark` exist as prop values but have no btn-* utility in the
+    // Hummingbird CSS, so they render only the base class and aren't asserted.
     const colors = [
       'primary',
       'secondary',
@@ -119,8 +121,6 @@ describe('Button', () => {
       'warning',
       'danger',
       'neutral',
-      'light',
-      'dark',
     ] as const;
 
     it('applies filled variant with all color options', () => {

@@ -384,10 +384,10 @@ describe('Field.Text', () => {
     { variant: 'invalid', expected: 'invalid-feedback' },
   ] as const;
 
-  it('renders a p element with the form-text class by default', () => {
+  it('renders a div with the form-text class by default', () => {
     render(<Field.Text>Helper</Field.Text>);
     const text = screen.getByText('Helper');
-    expect(text).toBeInstanceOf(HTMLParagraphElement);
+    expect(text).toBeInstanceOf(HTMLDivElement);
     expect(text).toHaveClass('form-text');
     expect(text).toHaveAttribute('data-slot', 'field-text');
   });

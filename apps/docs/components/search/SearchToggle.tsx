@@ -8,6 +8,7 @@ import { cn } from "@hummingbirdui/react/utils";
 function useIsMac() {
   const [isMac, setIsMac] = useState(true);
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration-safe platform detection; must run after mount
     setIsMac(/Mac|iPhone|iPad|iPod/.test(navigator.platform));
   }, []);
   return isMac;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Drawer } from './drawer';
 
@@ -101,8 +101,8 @@ describe('Drawer', () => {
       for (const direction of directions) {
         const { content } = await openDrawer(<Example direction={direction} />);
         expect(content).toHaveAttribute('data-vaul-drawer-direction', direction);
-        // Reset for the next iteration.
-        await userEvent.setup().keyboard('{Escape}');
+        // Unmount before the next iteration so only one trigger is on screen.
+        cleanup();
       }
     });
   });

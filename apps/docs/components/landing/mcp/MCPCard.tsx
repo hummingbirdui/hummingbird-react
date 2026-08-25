@@ -12,7 +12,7 @@ const MCPCard = ({ borderColor }: MCPCardProps) => {
         Copy from /dashboard/account — your personal Pro token is baked in.
       </p>
       <div className="h-37 bg-muted p-3 rounded-lg">
-        console.log('Hello World!)
+        console.log(&apos;Hello World!)
       </div>
     </GradientBorderBox>
   );

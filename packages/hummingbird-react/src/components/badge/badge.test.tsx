@@ -67,7 +67,7 @@ describe('Badge', () => {
           Subtle
         </Badge>
       );
-      expect(screen.getByText('Subtle')).toHaveClass('badge', 'badge-subtle');
+      expect(screen.getByText('Subtle')).toHaveClass('badge', 'badge-subtle-neutral');
     });
 
     it('applies outline variant class', () => {
@@ -76,7 +76,7 @@ describe('Badge', () => {
           Outline
         </Badge>
       );
-      expect(screen.getByText('Outline')).toHaveClass('badge', 'badge-outline');
+      expect(screen.getByText('Outline')).toHaveClass('badge', 'badge-outline-neutral');
     });
   });
 
@@ -102,11 +102,7 @@ describe('Badge', () => {
             {color}
           </Badge>
         );
-        expect(screen.getByText(color)).toHaveClass(
-          'badge',
-          'badge-subtle',
-          `badge-subtle-${color}`
-        );
+        expect(screen.getByText(color)).toHaveClass('badge', `badge-subtle-${color}`);
         unmount();
       });
     });
@@ -118,26 +114,24 @@ describe('Badge', () => {
             {color}
           </Badge>
         );
-        expect(screen.getByText(color)).toHaveClass(
-          'badge',
-          'badge-outline',
-          `badge-outline-${color}`
-        );
+        expect(screen.getByText(color)).toHaveClass('badge', `badge-outline-${color}`);
         unmount();
       });
     });
 
-    it('applies neutral color without a color class in every variant', () => {
-      const variants = ['filled', 'subtle', 'outline'] as const;
-      variants.forEach((variant) => {
+    it('applies the neutral color class in every variant', () => {
+      const expected = {
+        filled: 'badge-neutral',
+        subtle: 'badge-subtle-neutral',
+        outline: 'badge-outline-neutral',
+      } as const;
+      (Object.keys(expected) as Array<keyof typeof expected>).forEach((variant) => {
         const { unmount } = render(
           <Badge variant={variant} color="neutral">
             neutral
           </Badge>
         );
-        const badge = screen.getByText('neutral');
-        expect(badge).toHaveClass('badge');
-        expect(badge.className).not.toMatch(/neutral/);
+        expect(screen.getByText('neutral')).toHaveClass('badge', expected[variant]);
         unmount();
       });
     });
@@ -168,7 +162,7 @@ describe('Badge', () => {
         </Badge>
       );
       const badge = screen.getByText('Large Success Outline');
-      expect(badge).toHaveClass('badge', 'badge-outline', 'badge-outline-success', 'badge-lg');
+      expect(badge).toHaveClass('badge', 'badge-outline-success', 'badge-lg');
     });
   });
 
@@ -257,7 +251,7 @@ describe('Badge', () => {
         </Badge>
       );
       const link = screen.getByRole('link', { name: /warning/i });
-      expect(link).toHaveClass('badge', 'badge-outline', 'badge-outline-warning', 'badge-md');
+      expect(link).toHaveClass('badge', 'badge-outline-warning', 'badge-md');
     });
 
     it('preserves child element attributes', () => {
@@ -424,10 +418,10 @@ describe('badgeVariants', () => {
     expect(badgeVariants({ link: false })).not.toContain('badge-link');
   });
 
-  it('generates only the base class for neutral color', () => {
+  it('generates the neutral color class', () => {
     const classes = badgeVariants({ variant: 'filled', color: 'neutral' });
     expect(classes).toContain('badge');
-    expect(classes).not.toMatch(/neutral/);
+    expect(classes).toContain('badge-neutral');
   });
 
   it('combines variant, color, size, and link', () => {

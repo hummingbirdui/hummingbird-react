@@ -41,13 +41,13 @@ export function FrameworkSidebar() {
             )}
           >
             <span className="flex items-center gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              { }
               <img
                 src={`${basePath}${item.logo.light}`}
                 alt=""
                 className="w-5 object-contain dark:hidden"
               />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              { }
               <img
                 src={`${basePath}${item.logo.dark}`}
                 alt=""
