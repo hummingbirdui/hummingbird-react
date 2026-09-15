@@ -1,0 +1,71 @@
+name: Prerelease
+
+# Manual one-off prereleases, published from whatever ref the workflow is run
+# on. No commit, no git tag, no GitHub Release — just the version on the npm
+# dist-tag named by its identifier (1.1.0-beta.0 → `beta`).
+#
+# NOTE: this file must be registered as a trusted publisher for
+# @hummingbirdui/react on npmjs.com (Package Settings → Trusted Publisher →
+# workflow filename "prerelease.yml") — npm OIDC auth is per workflow file.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Prerelease version (e.g. 1.1.0-beta.0). Stable versions ship via the changesets loop in release.yml, not here."
+        required: true
+        type: string
+
+# Share the queue with release.yml runs so two publishes never overlap.
+concurrency: release-${{ github.ref }}
+
+permissions:
+  id-token: write # npm Trusted Publishing (OIDC) + provenance
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      # No registry-url here: with npm Trusted Publishing (OIDC) there is no
+      # NODE_AUTH_TOKEN, and the .npmrc that registry-url writes references it
+      # unconditionally — npm then fails on the unset variable.
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # npm Trusted Publishing (OIDC) requires npm >= 11.5.1; Node 22 bundles npm 10.
+      - run: npm install -g npm@^11
+
+      - name: Validate version and derive dist-tag
+        id: meta
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+-[a-z]+(\.[0-9]+)?$'; then
+            echo "::error::'$VERSION' must be a prerelease like 1.1.0-beta.0 — stable versions ship via the changesets loop"
+            exit 1
+          fi
+          if npm view "@hummingbirdui/react@$VERSION" version >/dev/null 2>&1; then
+            echo "::error::$VERSION is already published"
+            exit 1
+          fi
+          echo "tag=$(echo "$VERSION" | sed -E 's/^[0-9.]+-([a-z]+).*/\1/')" >> "$GITHUB_OUTPUT"
+
+      - name: Set package version (not committed)
+        working-directory: packages/hummingbird-react
+        run: npm version "${{ inputs.version }}" --no-git-tag-version
+
+      - run: pnpm turbo run build lint check-types test --filter=@hummingbirdui/react
+
+      # npm (not pnpm) so OIDC Trusted Publishing + provenance apply; the
+      # package has no workspace:* deps, so npm can publish it directly.
+      - name: Publish to npm
+        working-directory: packages/hummingbird-react
+        run: npm publish --tag "${{ steps.meta.outputs.tag }}"

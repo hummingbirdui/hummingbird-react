@@ -72,7 +72,7 @@ hummingbird-react/
    pnpm dev
    ```
 
-   This runs `dev` in all workspaces via Turborepo: the library rebuilds on change (`tsup --watch`) and the docs site starts at `http://localhost:3000` (or another port if 3000 is busy), so you can see your changes live.
+   This runs `dev` in all workspaces via Turborepo: the library rebuilds on change (`rollup --watch`) and the docs site starts at `http://localhost:3000` (or another port if 3000 is busy), so you can see your changes live. (Watch mode rebuilds the JS only — run `pnpm --filter @hummingbirdui/react build` once if you change `src/styles.css` or need fresh type declarations.)
 
 5. **Create a branch** for your feature or bug fix:
 
@@ -223,21 +223,22 @@ Pick `@hummingbirdui/react`, choose the bump type (patch / minor / major), and w
 
 ## Releases (maintainers)
 
-Publishing is fully automated by `.github/workflows/release.yml` — **never run `npm publish` manually** (auth is npm Trusted Publishing; there are no tokens).
+Publishing is fully automated — **never run `npm publish` from a machine** (auth is npm Trusted Publishing via OIDC; there are no tokens). There are two workflows:
+
+### Stable releases — `.github/workflows/release.yml` (automatic)
 
 1. Merged PRs with changesets feed an auto-maintained PR titled **"chore(release): version packages"** (version bump + CHANGELOG + lockfile). It accumulates until you're ready to ship.
-2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), then publishes.
+2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), publishes to npm `latest`, then creates the `vX.Y.Z` git tag and a GitHub Release with changelog notes. The tag/Release step is guarded and self-heals on the next push to `main` if a run half-fails.
 
-What gets published depends on the release phase, decided by `.changeset/pre.json`:
+### Prereleases — `.github/workflows/prerelease.yml` (manual, rare)
 
-| Phase | Version | npm dist-tag | git tag / GitHub Release |
-| --- | --- | --- | --- |
-| Pre mode (`insider`, current) | `1.0.0-insider.N` | `insider` | none |
-| Stable (after graduation) | `X.Y.Z` | `latest` | `vX.Y.Z` + Release with changelog notes |
+Run it from the Actions tab: pick the branch to publish from, and enter an explicit prerelease version such as `1.1.0-beta.0`. The workflow validates it (prerelease format only, not already on npm), runs the full check suite, and publishes to the npm dist-tag named by the identifier (`1.1.0-beta.0` → `beta`, `1.2.0-insider.0` → `insider`). Nothing is committed and no git tag or GitHub Release is created — `latest` is untouched.
 
-- Graduate to stable: `pnpm changeset pre exit` in a PR — the workflow detects the change automatically; nothing else to edit.
-- Switch prerelease line (e.g. to beta): `pnpm changeset pre exit && pnpm changeset pre enter beta`.
-- Never add `publishConfig.tag` to package.json — pre mode already routes dist-tags.
+Notes:
+
+- Changesets **pre mode is not used** (`pre enter` / `pre exit` — don't). Prereleases go through prerelease.yml only.
+- Each workflow file is registered as its own trusted publisher for the package on npmjs.com (Package Settings → Trusted Publisher) — a renamed or new publishing workflow must be (re-)registered there.
+- Never add `publishConfig.tag` to package.json — dist-tags are passed explicitly at publish time.
 - On Dependabot major bumps, check release notes first: tool families (vite/vitest/@vitejs, TypeScript/typescript-eslint, GitHub Actions) must move together.
 
 ## Command cheat-sheet
@@ -251,8 +252,6 @@ What gets published depends on the release phase, decided by `.changeset/pre.jso
 | `pnpm --filter @hummingbirdui/react test:watch` | Vitest watch mode |
 | `pnpm --filter docs dev` | Docs dev server only |
 | `pnpm --filter docs deploy` | Deploy docs to GitHub Pages (maintainers, manual) |
-| `pnpm changeset pre exit` | Exit current release phase |
-| `pnpm changeset pre enter <alpha, beta, rc, insider>` | Enter new release phase |
 | `npm view @hummingbirdui/react dist-tags` | Verify what shipped where |
 
 ## Reporting bugs and requesting features
