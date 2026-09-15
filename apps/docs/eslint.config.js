@@ -18,6 +18,12 @@ const eslintConfig = defineConfig([
     ".source/**",
   ]),
   {
+    settings: {
+      // Explicit version: eslint-plugin-react's 'detect' path (the default
+      // in eslint-config-next) calls the context.getFilename API that
+      // ESLint 10 removed and crashes.
+      react: { version: "19" },
+    },
     plugins: {
       "unused-imports": unusedImports,
     },
