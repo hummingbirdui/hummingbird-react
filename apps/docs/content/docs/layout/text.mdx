@@ -52,18 +52,21 @@ The `lineClamp` prop limits the text to the given number of lines and truncates 
     {
       prop: "as",
       type: '"p" | "span" | "label" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "small" | "strong" | "em" | "blockquote" | "code" | "mark" | "del" | "ins" | "sub" | "sup" | "b"',
+      typeSimple: "enum",
       default: '"p"',
       description: "The text tag to render.",
     },
     {
       prop: "size",
       type: '"xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"',
+      typeSimple: "enum",
       description:
         "Font size. When omitted, the rendered tag keeps its default size.",
     },
     {
       prop: "fontWeight",
       type: '"thin" | "extralight" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold" | "black"',
+      typeSimple: "enum",
       description:
         "Font weight. When omitted, the rendered tag keeps its default weight.",
     },
