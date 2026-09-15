@@ -52,7 +52,8 @@ const fallback = SECTIONS[2];
 
 for (const raw of items) {
   let text = raw
-    // changelog-github decoration: [`hash`](url) Thanks [@user](url)! -
+    // changelog-github decoration: [#pr](url) [`hash`](url) Thanks [@user](url)! -
+    .replace(/^\[#\d+\]\([^)]*\)\s*/i, "")
     .replace(/^\[`[0-9a-f]+`\]\([^)]*\)\s*/i, "")
     .replace(/^Thanks\s*\[[^\]]*\]\([^)]*\)!\s*-\s*/i, "")
     // default-formatter decoration: "hash: "

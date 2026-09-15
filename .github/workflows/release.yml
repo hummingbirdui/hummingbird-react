@@ -62,8 +62,18 @@ jobs:
             echo "Version $VERSION is not a stable x.y.z — nothing to do"; exit 0
           fi
           TAG="v$VERSION"
-          if ! npm view "@hummingbirdui/react@$VERSION" version >/dev/null 2>&1; then
-            echo "$VERSION is not on npm (yet) — nothing to do"; exit 0
+          # Registry reads can lag a just-finished publish by a minute or so —
+          # retry before concluding the version was never published.
+          published=""
+          for attempt in $(seq 1 12); do
+            if npm view "@hummingbirdui/react@$VERSION" version >/dev/null 2>&1; then
+              published=1; break
+            fi
+            echo "npm does not report $VERSION yet (attempt $attempt/12) — retrying in 10s"
+            sleep 10
+          done
+          if [ -z "$published" ]; then
+            echo "$VERSION is not on npm — nothing to do"; exit 0
           fi
           node .github/scripts/release-notes.mjs "$VERSION" > /tmp/release-notes.md
           if [ -z "$(git ls-remote --tags origin "refs/tags/$TAG")" ]; then
