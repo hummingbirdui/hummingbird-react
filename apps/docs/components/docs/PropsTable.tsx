@@ -70,7 +70,11 @@ export function PropsTable({ data }: { data: PropDef[] }) {
             </Table.Cell>
             <Table.Cell>
               <span className="inline-flex items-center gap-2">
-                <code>{row.typeSimple ?? row.type}</code>
+                {/* whitespace-normal: inline code is badge-styled (nowrap),
+                    which would push long union types past the page edge */}
+                <code className="whitespace-normal">
+                  {row.typeSimple ?? row.type}
+                </code>
                 {row.typeSimple !== undefined && (
                   <InfoPopover
                     label={
@@ -79,7 +83,7 @@ export function PropsTable({ data }: { data: PropDef[] }) {
                         : "Full type"
                     }
                   >
-                    <code>{row.type}</code>
+                    <code className="whitespace-normal">{row.type}</code>
                   </InfoPopover>
                 )}
               </span>
