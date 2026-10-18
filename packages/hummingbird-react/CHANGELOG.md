@@ -1,5 +1,11 @@
 # @hummingbirdui/react
 
+## 1.0.1
+
+### Patch Changes
+
+- [#64](https://github.com/hummingbirdui/hummingbird-react/pull/64) [`b776c3a`](https://github.com/hummingbirdui/hummingbird-react/commit/b776c3ab60c8943f05319fa29fc22e7086f273b6) Thanks [@khayrul25](https://github.com/khayrul25)! - Update: Update @hummingbirdui/hummingbird version to v1.4.1
+
 ## 1.0.0
 
 ### Major Changes
