@@ -28,7 +28,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "@hummingbirdui/hummingbird": "^1.4.0",
+    "@hummingbirdui/hummingbird": "^1.4.1",
     "@tailwindcss/postcss": "^4.3.1",
     "lucide-react": "^1.33.0",
     "postcss": "^8.5.15",

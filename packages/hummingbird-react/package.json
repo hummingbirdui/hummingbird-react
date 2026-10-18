@@ -83,7 +83,7 @@
     "prepublishOnly": "node -e \"require('fs').accessSync('dist/index.js');require('fs').accessSync('dist/styles.css')\""
   },
   "dependencies": {
-    "@hummingbirdui/hummingbird": "^1.4.0",
+    "@hummingbirdui/hummingbird": "^1.4.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
