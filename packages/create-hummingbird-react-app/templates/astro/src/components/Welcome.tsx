@@ -18,7 +18,9 @@ export default function Welcome() {
           <span className="text-muted text-xl font-semibold">hummingbird React</span>
         </a>
         <DarkThemeToggle className="mb-8" />
-        <h2 className="mb-6 font-medium">To get started, edit the {ENTRY_FILE} file.</h2>
+        <h2 className="mb-6 font-medium">
+          To get started, edit <code className="text-2xl whitespace-nowrap">{ENTRY_FILE}</code>
+        </h2>
         <p className="mb-12 max-w-100">
           Start customizing your project and make it your own. Explore the{' '}
           <a href="https://react.hbui.dev/docs/customize/component" target="_blank" rel="noreferrer">
