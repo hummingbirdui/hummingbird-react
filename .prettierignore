@@ -1,0 +1,2 @@
+# Templates mirror each framework's upstream formatting; don't rewrite them.
+packages/create-hummingbird-react-app/templates/
