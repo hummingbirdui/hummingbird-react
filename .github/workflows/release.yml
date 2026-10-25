@@ -47,43 +47,13 @@ jobs:
           create-github-releases: false
 
       # Changesets' own tags would be "@hummingbirdui/react@X.Y.Z"; we want
-      # "vX.Y.Z", so publish runs with --no-git-tag and this step tags instead.
-      # It acts only when the version in package.json is a stable x.y.z that is
-      # live on npm — prereleases (published manually via prerelease.yml) are
-      # never tagged — and the tag and the Release are each guarded on their
-      # own, so a partial failure (or a missed run) self-heals on the next
-      # push to main, and reruns never duplicate anything.
-      - name: Tag and create GitHub Release (stable only)
+      # "vX.Y.Z" for the library, so publish runs with --no-git-tag and this
+      # step tags instead. The CLI gets "create-hummingbird-react-app@X.Y.Z"
+      # so the two never collide. See .github/scripts/tag-release.sh for the
+      # guards (stable only, live on npm, idempotent, self-healing).
+      - name: Tag and create GitHub Releases (stable only)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VERSION=$(node -p "require('./packages/hummingbird-react/package.json').version")
-          if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
-            echo "Version $VERSION is not a stable x.y.z — nothing to do"; exit 0
-          fi
-          TAG="v$VERSION"
-          # Registry reads can lag a just-finished publish by a minute or so —
-          # retry before concluding the version was never published.
-          published=""
-          for attempt in $(seq 1 12); do
-            if npm view "@hummingbirdui/react@$VERSION" version >/dev/null 2>&1; then
-              published=1; break
-            fi
-            echo "npm does not report $VERSION yet (attempt $attempt/12) — retrying in 10s"
-            sleep 10
-          done
-          if [ -z "$published" ]; then
-            echo "$VERSION is not on npm — nothing to do"; exit 0
-          fi
-          node .github/scripts/release-notes.mjs "$VERSION" > /tmp/release-notes.md
-          if [ -z "$(git ls-remote --tags origin "refs/tags/$TAG")" ]; then
-            git tag "$TAG"
-            git push origin "$TAG"
-          else
-            echo "Tag $TAG already exists — skipping tag"
-          fi
-          if ! gh release view "$TAG" >/dev/null 2>&1; then
-            gh release create "$TAG" --title "$TAG" --notes-file /tmp/release-notes.md
-          else
-            echo "Release $TAG already exists — skipping release"
-          fi
+          .github/scripts/tag-release.sh packages/hummingbird-react "@hummingbirdui/react" "v"
+          .github/scripts/tag-release.sh packages/create-hummingbird-react-app "create-hummingbird-react-app" "create-hummingbird-react-app@"

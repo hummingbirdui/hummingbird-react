@@ -1,5 +1,6 @@
 // Builds the GitHub Release body for the given version from CHANGELOG.md.
-// Usage: node .github/scripts/release-notes.mjs 1.0.0
+// Usage: node .github/scripts/release-notes.mjs 1.0.0 [path/to/CHANGELOG.md]
+//        (the CHANGELOG defaults to the library's)
 //
 // Changesets groups CHANGELOG entries by bump type (Minor/Patch); this script
 // regroups them into reader-facing sections based on the summary's prefix:
@@ -10,11 +11,12 @@ import { readFileSync } from "node:fs";
 
 const version = process.argv[2];
 if (!version) {
-  console.error("usage: release-notes.mjs <version>");
+  console.error("usage: release-notes.mjs <version> [changelog-path]");
   process.exit(1);
 }
 
-const changelog = readFileSync("packages/hummingbird-react/CHANGELOG.md", "utf8");
+const changelogPath = process.argv[3] ?? "packages/hummingbird-react/CHANGELOG.md";
+const changelog = readFileSync(changelogPath, "utf8");
 const escaped = version.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const match = changelog.match(
   new RegExp(`^## ${escaped}\\s*\\n([\\s\\S]*?)(?=^## |\\s*$(?![\\s\\S]))`, "m"),

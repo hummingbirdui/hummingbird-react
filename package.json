@@ -10,7 +10,7 @@
     "check-types": "turbo run check-types",
     "changeset": "changeset",
     "version-packages": "changeset version && pnpm install --lockfile-only",
-    "release": "turbo run build lint check-types test --filter=@hummingbirdui/react && changeset publish --no-git-tag"
+    "release": "turbo run build lint check-types test --filter=@hummingbirdui/react --filter=create-hummingbird-react-app && changeset publish --no-git-tag"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.0",

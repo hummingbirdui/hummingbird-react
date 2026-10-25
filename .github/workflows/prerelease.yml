@@ -4,12 +4,21 @@ name: Prerelease
 # on. No commit, no git tag, no GitHub Release — just the version on the npm
 # dist-tag named by its identifier (1.1.0-beta.0 → `beta`).
 #
-# NOTE: this file must be registered as a trusted publisher for
-# @hummingbirdui/react on npmjs.com (Package Settings → Trusted Publisher →
-# workflow filename "prerelease.yml") — npm OIDC auth is per workflow file.
+# NOTE: this file must be registered as a trusted publisher on npmjs.com for
+# every package it can publish (Package Settings → Trusted Publisher →
+# workflow filename "prerelease.yml") — npm OIDC auth is per workflow file
+# and per package: @hummingbirdui/react and create-hummingbird-react-app.
 on:
   workflow_dispatch:
     inputs:
+      package:
+        description: "Package to prerelease"
+        required: true
+        type: choice
+        default: "@hummingbirdui/react"
+        options:
+          - "@hummingbirdui/react"
+          - create-hummingbird-react-app
       version:
         description: "Prerelease version (e.g. 1.1.0-beta.0). Stable versions ship via the changesets loop in release.yml, not here."
         required: true
@@ -43,29 +52,36 @@ jobs:
       # npm Trusted Publishing (OIDC) requires npm >= 11.5.1; Node 22 bundles npm 10.
       - run: npm install -g npm@^11
 
-      - name: Validate version and derive dist-tag
+      - name: Validate inputs and derive dist-tag
         id: meta
         env:
+          PACKAGE: ${{ inputs.package }}
           VERSION: ${{ inputs.version }}
         run: |
+          case "$PACKAGE" in
+            "@hummingbirdui/react") DIR=packages/hummingbird-react ;;
+            "create-hummingbird-react-app") DIR=packages/create-hummingbird-react-app ;;
+            *) echo "::error::Unknown package '$PACKAGE'"; exit 1 ;;
+          esac
           if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+-[a-z]+(\.[0-9]+)?$'; then
             echo "::error::'$VERSION' must be a prerelease like 1.1.0-beta.0 — stable versions ship via the changesets loop"
             exit 1
           fi
-          if npm view "@hummingbirdui/react@$VERSION" version >/dev/null 2>&1; then
-            echo "::error::$VERSION is already published"
+          if npm view "$PACKAGE@$VERSION" version >/dev/null 2>&1; then
+            echo "::error::$PACKAGE@$VERSION is already published"
             exit 1
           fi
+          echo "dir=$DIR" >> "$GITHUB_OUTPUT"
           echo "tag=$(echo "$VERSION" | sed -E 's/^[0-9.]+-([a-z]+).*/\1/')" >> "$GITHUB_OUTPUT"
 
       - name: Set package version (not committed)
-        working-directory: packages/hummingbird-react
+        working-directory: ${{ steps.meta.outputs.dir }}
         run: npm version "${{ inputs.version }}" --no-git-tag-version
 
-      - run: pnpm turbo run build lint check-types test --filter=@hummingbirdui/react
+      - run: pnpm turbo run build lint check-types test --filter="${{ inputs.package }}"
 
-      # npm (not pnpm) so OIDC Trusted Publishing + provenance apply; the
-      # package has no workspace:* deps, so npm can publish it directly.
+      # npm (not pnpm) so OIDC Trusted Publishing + provenance apply; neither
+      # package has workspace:* deps, so npm can publish it directly.
       - name: Publish to npm
-        working-directory: packages/hummingbird-react
+        working-directory: ${{ steps.meta.outputs.dir }}
         run: npm publish --tag "${{ steps.meta.outputs.tag }}"
