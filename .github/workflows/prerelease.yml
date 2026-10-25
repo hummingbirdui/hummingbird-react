@@ -26,7 +26,7 @@ permissions:
   id-token: write # npm Trusted Publishing (OIDC) + provenance
 
 env:
-  # Published in this order; the library first, since the CLI's templates use it.
+  # Same packages as .github/scripts/packages.sh.
   PACKAGE_DIRS: packages/hummingbird-react packages/create-hummingbird-react-app
 
 jobs:
@@ -77,10 +77,8 @@ jobs:
 
       - run: pnpm turbo run build lint check-types test --filter=@hummingbirdui/react --filter=create-hummingbird-react-app
 
-      # npm (not pnpm) so OIDC Trusted Publishing + provenance apply; neither
-      # package has workspace:* deps, so npm can publish them directly.
+      # npm (not pnpm) so OIDC Trusted Publishing + provenance apply. Dry-runs
+      # both packages before publishing either, then publishes library first
+      # and stops at the first failure; see the script for recovery.
       - name: Publish to npm
-        run: |
-          for dir in $PACKAGE_DIRS; do
-            (cd "$dir" && npm publish --tag "${{ steps.meta.outputs.tag }}")
-          done
+        run: bash .github/scripts/publish-packages.sh "${{ steps.meta.outputs.tag }}"

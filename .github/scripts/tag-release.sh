@@ -13,23 +13,9 @@
 # reruns never duplicate anything.
 set -euo pipefail
 
-# "<package dir>:<npm name>" for every package in the release.
-PACKAGES=(
-  "packages/hummingbird-react:@hummingbirdui/react"
-  "packages/create-hummingbird-react-app:create-hummingbird-react-app"
-)
+source "$(dirname "$0")/packages.sh"
 
-VERSION=""
-for entry in "${PACKAGES[@]}"; do
-  dir="${entry%%:*}"
-  v=$(node -p "require('./$dir/package.json').version")
-  if [ -z "$VERSION" ]; then
-    VERSION="$v"
-  elif [ "$v" != "$VERSION" ]; then
-    echo "::error::Package versions differ ($dir is $v, expected $VERSION). Check the \"fixed\" group in .changeset/config.json."
-    exit 1
-  fi
-done
+VERSION=$(shared_version)
 
 if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
   echo "Version $VERSION is not a stable x.y.z — nothing to do"; exit 0
