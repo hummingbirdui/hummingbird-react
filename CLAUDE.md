@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Hummingbird React (`@hummingbirdui/react`) — the official React component library for the Hummingbird design system. A pnpm + Turborepo monorepo with two workspaces:
+Hummingbird React (`@hummingbirdui/react`) — the official React component library for the Hummingbird design system. A pnpm + Turborepo monorepo with three workspaces:
 
 - `packages/hummingbird-react` — the published component library (React 19 peer dep, ESM only).
+- `packages/create-hummingbird-react-app` — the published `npx create-hummingbird-react-app` scaffolder CLI (see "CLI" below).
 - `apps/docs` — Next.js (static export) docs site at react.hbui.dev, built on fumadocs-mdx.
 
 ## Commands
@@ -29,6 +30,14 @@ pnpm --filter @hummingbirdui/react lint
 pnpm --filter @hummingbirdui/react build
 ```
 
+CLI (`packages/create-hummingbird-react-app`):
+
+```bash
+pnpm --filter create-hummingbird-react-app test         # vitest run (turbo builds dist/ first; bin.test.ts runs it)
+pnpm --filter create-hummingbird-react-app build        # tsup -> dist/index.js
+node packages/create-hummingbird-react-app/dist/index.js /tmp/x --template vite --no-install --no-git --yes
+```
+
 Docs app:
 
 ```bash
@@ -40,7 +49,11 @@ pnpm --filter docs build    # static export to apps/docs/out
 
 ## Releases
 
-Publishing is automated with Changesets + GitHub Actions (`.github/workflows/release.yml`). PRs that change the library must include a changeset (`pnpm changeset`); merging to `main` maintains a "chore(release): version packages" PR, and merging *that* publishes a **stable** version to npm `latest` and creates a `vX.Y.Z` git tag + GitHub Release (custom step in release.yml, not changesets' own `pkg@version` tags — the step is guarded on npm/tag/release state and self-heals on the next push). **Prereleases are manual**: run the Prerelease workflow (`.github/workflows/prerelease.yml`) from the Actions tab with an explicit version like `1.1.0-beta.0` — it publishes that exact version from the chosen ref to the dist-tag named by the identifier (`beta`, `insider`), with no commit, git tag, or GitHub Release. npm Trusted Publishing (OIDC) is bound per workflow filename, so prerelease.yml is registered as its own trusted publisher for the package on npmjs.com. Changesets pre mode is no longer used. npm auth is Trusted Publishing (OIDC) — no token secret. Never `npm publish` manually from a machine.
+Publishing is automated with Changesets + GitHub Actions (`.github/workflows/release.yml`). PRs that change a published package must include a changeset (`pnpm changeset`); the library and the CLI are versioned independently. Merging to `main` maintains a "chore(release): version packages" PR, and merging *that* publishes **stable** versions to npm `latest` and creates git tags + GitHub Releases via `.github/scripts/tag-release.sh` (not changesets' own tags): `vX.Y.Z` for the library, `create-hummingbird-react-app@X.Y.Z` for the CLI — each guarded on npm/tag/release state and self-healing on the next push. **Prereleases are manual**: run the Prerelease workflow (`.github/workflows/prerelease.yml`) from the Actions tab with a package and an explicit version like `1.1.0-beta.0` — it publishes that exact version from the chosen ref to the dist-tag named by the identifier (`beta`, `insider`), with no commit, git tag, or GitHub Release. npm Trusted Publishing (OIDC) is bound per workflow filename, so prerelease.yml is registered as its own trusted publisher for each package on npmjs.com. Changesets pre mode is no longer used. npm auth is Trusted Publishing (OIDC) — no token secret. Never `npm publish` manually from a machine — the only exception is the one-time bootstrap publish of a brand-new package, since a trusted publisher can't be registered before the package exists (see CONTRIBUTING.md).
+
+## CLI
+
+`create-hummingbird-react-app` is TypeScript bundled by tsup into one zero-dependency `dist/index.js` (`@clack/prompts` and `picocolors` are devDeps inlined via `noExternal`; args via `node:util` `parseArgs`). `templates/{nextjs,vite,astro,react-router,gatsby}/` are static, standalone TypeScript projects copied as-is, except `_gitignore` → `.gitignore` and the `package.json` name / README `{{projectName}}` rewrite (`src/copy.ts`). They are not workspaces and are excluded from the package's tsc/eslint and from root prettier. `HbLogo.tsx`, `HeroIllustration.tsx` and the welcome `<main>` block are byte-identical across templates (only `ENTRY_FILE` differs), enforced by `tests/templates.test.ts`. Templates track each framework's current scaffolder output; `.github/workflows/templates-smoke.yml` installs and builds each one from npm. The template registry (entry file, dev script, Node range) is `src/templates.ts`.
 
 ## Skills
 
