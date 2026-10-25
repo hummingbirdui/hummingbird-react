@@ -1,0 +1,199 @@
+---
+title: CLI
+description: Create a new project with Hummingbird React, Tailwind CSS and dark mode already set up, using create-hummingbird-react-app.
+---
+
+## Create a project
+
+`create-hummingbird-react-app` scaffolds a new project with Hummingbird React already configured. Run it with a preferred package manager.
+
+<PackageManagerTabs command="npx create-hummingbird-react-app@latest" />
+
+The CLI asks a few questions:
+
+1. **Where to create the project.** The default is `my-hummingbird-app`.
+2. **Which framework to use.** Next.js is preselected.
+3. **Whether to install dependencies.** It uses the package manager that ran the command.
+4. **Whether to initialize a git repository.** This is skipped inside an existing repository.
+
+Then start the development server and open the URL it prints.
+
+<PackageManagerTabs command="npm run dev" />
+
+Gatsby uses `develop` instead of `dev`.
+
+## Templates
+
+Every template is written in TypeScript and follows the matching framework guide.
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Template</Table.Head>
+      <Table.Head>Framework</Table.Head>
+      <Table.Head>Edit first</Table.Head>
+      <Table.Head>Dev server</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell><code>nextjs</code></Table.Cell>
+      <Table.Cell><a href="/docs/getting-started/framework-guides/nextjs">Next.js</a> (App Router)</Table.Cell>
+      <Table.Cell><code>app/page.tsx</code></Table.Cell>
+      <Table.Cell><code>localhost:3000</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>vite</code></Table.Cell>
+      <Table.Cell><a href="/docs/getting-started/framework-guides/vite">Vite</a></Table.Cell>
+      <Table.Cell><code>src/App.tsx</code></Table.Cell>
+      <Table.Cell><code>localhost:5173</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>astro</code></Table.Cell>
+      <Table.Cell><a href="/docs/getting-started/framework-guides/astro">Astro</a></Table.Cell>
+      <Table.Cell><code>src/pages/index.astro</code></Table.Cell>
+      <Table.Cell><code>localhost:4321</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>react-router</code></Table.Cell>
+      <Table.Cell><a href="/docs/getting-started/framework-guides/react-router">React Router</a> (framework mode)</Table.Cell>
+      <Table.Cell><code>app/routes/home.tsx</code></Table.Cell>
+      <Table.Cell><code>localhost:5173</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>gatsby</code></Table.Cell>
+      <Table.Cell><a href="/docs/getting-started/framework-guides/gatsby">Gatsby</a></Table.Cell>
+      <Table.Cell><code>src/pages/index.tsx</code></Table.Cell>
+      <Table.Cell><code>localhost:8000</code></Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+Each template shows a welcome page built with `Button` and `DarkThemeToggle`. Edit the file listed above to start building.
+
+## What's included
+
+All templates share the same setup:
+
+- **Tailwind CSS v4** with the framework's official integration: the Vite plugin for Vite, Astro and React Router, and PostCSS for Next.js and Gatsby.
+- **Hummingbird React styles** imported in the CSS entry. No Tailwind config is needed, because the package registers its own `@source` paths.
+- **Class-based dark mode.** The saved theme is applied before first paint, so there is no flash of the wrong theme.
+
+```css
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+```
+
+The CSS entry and the initial theme script live in a different place in each framework.
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Template</Table.Head>
+      <Table.Head>CSS entry</Table.Head>
+      <Table.Head>Initial theme</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>Next.js</Table.Cell>
+      <Table.Cell><code>app/globals.css</code></Table.Cell>
+      <Table.Cell><code>ThemeModeScript</code> in <code>app/layout.tsx</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Vite</Table.Cell>
+      <Table.Cell><code>src/index.css</code></Table.Cell>
+      <Table.Cell>Inline script in <code>index.html</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Astro</Table.Cell>
+      <Table.Cell><code>src/styles/global.css</code></Table.Cell>
+      <Table.Cell>Inline script in <code>src/layouts/Layout.astro</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>React Router</Table.Cell>
+      <Table.Cell><code>app/app.css</code></Table.Cell>
+      <Table.Cell><code>ThemeModeScript</code> in <code>app/root.tsx</code></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Gatsby</Table.Cell>
+      <Table.Cell><code>src/styles/global.css</code></Table.Cell>
+      <Table.Cell><code>ThemeModeScript</code> in <code>gatsby-ssr.tsx</code></Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+To switch themes or customize colors, see [Theming](/docs/customize/theming). To change how dark mode works, see [Dark Mode](/docs/customize/dark-mode).
+
+## Options
+
+Pass a directory and options to skip the matching prompts.
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.Head>Option</Table.Head>
+      <Table.Head>Description</Table.Head>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell><code>[directory]</code></Table.Cell>
+      <Table.Cell>Where to create the project. Use <code>.</code> for the current directory. The package name is derived from it.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>-t, --template &lt;id&gt;</code></Table.Cell>
+      <Table.Cell>One of <code>nextjs</code>, <code>vite</code>, <code>astro</code>, <code>react-router</code> or <code>gatsby</code>.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>--pm &lt;name&gt;</code></Table.Cell>
+      <Table.Cell>Package manager for installing: <code>npm</code>, <code>pnpm</code>, <code>yarn</code> or <code>bun</code>. Defaults to the one that ran the command.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>--install</code> / <code>--no-install</code></Table.Cell>
+      <Table.Cell>Install dependencies, or skip it. Asked by default.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>--git</code> / <code>--no-git</code></Table.Cell>
+      <Table.Cell>Initialize a git repository with an initial commit, or skip it. Asked by default, and not offered inside an existing repository.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>--overwrite</code></Table.Cell>
+      <Table.Cell>Empty a non-empty target directory without asking. <code>.git</code> is kept.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>-y, --yes</code></Table.Cell>
+      <Table.Cell>Skip all prompts and use the defaults.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>-h, --help</code></Table.Cell>
+      <Table.Cell>Show usage.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><code>-v, --version</code></Table.Cell>
+      <Table.Cell>Show the CLI version.</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+<PackageManagerTabs command="npx create-hummingbird-react-app@latest my-app --template vite" />
+
+## Non-interactive use
+
+Pass `--yes` to run without prompts, for example in CI or scripts. Without other options it creates `my-hummingbird-app` from the `nextjs` template, installs dependencies, and initializes git. A non-empty target directory is an error unless `--overwrite` is passed.
+
+<PackageManagerTabs command="npx create-hummingbird-react-app@latest my-app --template astro --no-git --yes" />
+
+## Requirements
+
+The CLI needs Node.js 20.19 or later. Some frameworks need a newer version, and the CLI warns when the running version is outside the template's range.
+
+- **Astro** needs Node.js 22.23.4 or later.
+- **React Router** needs Node.js 22.22 or later.
+- **Gatsby** supports Node.js versions below 26.
+
+## Adding to an existing project
+
+The CLI only creates new projects. To add Hummingbird React to an existing app, follow the [installation guide](/docs/getting-started/installation) or the [framework guide](/docs/getting-started/framework-guides) for the framework in use.
