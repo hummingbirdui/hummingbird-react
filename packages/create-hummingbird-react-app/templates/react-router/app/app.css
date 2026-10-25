@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+
+@custom-variant dark (&:where(.dark, .dark *), .dark);

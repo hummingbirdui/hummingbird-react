@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Welcome from '../components/Welcome';
+---
+
+<Layout>
+	<!-- Interactive React components need a client directive to hydrate. -->
+	<Welcome client:load />
+</Layout>
