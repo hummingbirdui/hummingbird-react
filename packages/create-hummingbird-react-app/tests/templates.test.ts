@@ -105,7 +105,7 @@ describe.each(TEMPLATE_IDS)('template %s', (id) => {
   });
 
   it('shares the logo and illustration components byte for byte', () => {
-    for (const name of ['HbLogo.tsx', 'HeroIllustration.tsx']) {
+    for (const name of ['HbReactLogo.tsx', 'HeroIllustration.tsx']) {
       expect(read(id, `${layout.components}/${name}`), name).toBe(
         read('vite', `src/components/${name}`)
       );

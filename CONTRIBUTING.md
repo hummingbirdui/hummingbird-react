@@ -130,7 +130,7 @@ Template rules (enforced by `tests/templates.test.ts`):
 - **Templates are not workspaces.** Don't run `pnpm add` inside them; edit their `package.json` by hand. Dependabot raises their ranges weekly.
 - **Dotfiles use a `_` prefix.** Store `.gitignore` as `_gitignore`; it is renamed on copy, because npm strips `.gitignore` from published packages.
 - **Placeholders.** `package.json` `name` is replaced with the project name, and `{{projectName}}` in `README.md` is filled in.
-- **Shared files stay identical.** `HbLogo.tsx`, `HeroIllustration.tsx` and the welcome page's `<main>` block must match across all five templates; only the `ENTRY_FILE` constant differs. Change them everywhere at once.
+- **Shared files stay identical.** `HbReactLogo.tsx`, `HeroIllustration.tsx` and the welcome page's `<main>` block must match across all five templates; only the `ENTRY_FILE` constant differs. Change them everywhere at once.
 - **No linters, web fonts or extra boilerplate.** Templates stay minimal so there is less to keep current.
 
 Unit and integration tests run in CI with the rest of the repo. The **Template smoke test** workflow (`.github/workflows/templates-smoke.yml`) scaffolds, installs and builds every template on PRs that touch the package and weekly; run it manually with `library: workspace` to test templates against an unreleased library build.

@@ -1,5 +1,5 @@
 import { Button, DarkThemeToggle } from '@hummingbirdui/react';
-import { HbLogo } from './components/HbLogo';
+import { HbReactLogo } from './components/HbReactLogo';
 import { HeroIllustration } from './components/HeroIllustration';
 
 const ENTRY_FILE = 'src/App.tsx';
@@ -14,8 +14,8 @@ export default function App() {
           rel="noreferrer"
           className="mb-12 flex items-center gap-2 no-underline"
         >
-          <HbLogo className="size-10" />
-          <span className="text-muted text-xl font-semibold">hummingbird</span>
+          <HbReactLogo className="size-10" />
+          <span className="text-muted text-xl font-semibold">hummingbird React</span>
         </a>
         <DarkThemeToggle className="mb-8" />
         <h2 className="mb-6 font-medium">To get started, edit the {ENTRY_FILE} file.</h2>
