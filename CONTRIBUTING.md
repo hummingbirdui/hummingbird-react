@@ -209,7 +209,9 @@ Releases are automated with [Changesets](https://github.com/changesets/changeset
 pnpm changeset
 ```
 
-Pick the package(s) you changed (`@hummingbirdui/react` and/or `create-hummingbird-react-app`; they are versioned independently), choose the bump type (patch / minor / major), and write a short, user-facing summary — it becomes the CHANGELOG entry. Commit the generated `.changeset/*.md` file **together with your code**.
+Pick the package(s) you changed, choose the bump type (patch / minor / major), and write a short, user-facing summary — it becomes the CHANGELOG entry. Commit the generated `.changeset/*.md` file **together with your code**.
+
+`@hummingbirdui/react` and `create-hummingbird-react-app` are a Changesets **fixed group** (`.changeset/config.json`): they always share one version and are released together. A changeset for either one bumps both, and the package without changes gets a "No changes in this release" CHANGELOG entry.
 
 **Start the summary with a type prefix** — it decides which section of the GitHub Release notes the change appears under:
 
@@ -253,17 +255,17 @@ Publishing is fully automated — **never run `npm publish` from a machine** (au
 ### Stable releases — `.github/workflows/release.yml` (automatic)
 
 1. Merged PRs with changesets feed an auto-maintained PR titled **"chore(release): version packages"** (version bump + CHANGELOG + lockfile). It accumulates until you're ready to ship.
-2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), publishes to npm `latest`, then creates a git tag and a GitHub Release with changelog notes for each package whose new version is live: `vX.Y.Z` for the library, `create-hummingbird-react-app@X.Y.Z` for the CLI. The tag/Release step (`.github/scripts/tag-release.sh`) is guarded per package and self-heals on the next push to `main` if a run half-fails.
+2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), publishes both packages to npm `latest` at the same version, then creates one `vX.Y.Z` git tag and one GitHub Release covering both. The Release lists the library's changes, followed by a `create-hummingbird-react-app` section when the CLI has changes of its own. The tag/Release step (`.github/scripts/tag-release.sh`) refuses to run if the two versions differ, waits until both are live on npm, and self-heals on the next push to `main` if a run half-fails.
 
 ### Prereleases — `.github/workflows/prerelease.yml` (manual, rare)
 
-Run it from the Actions tab: pick the branch to publish from, choose the package, and enter an explicit prerelease version such as `1.1.0-beta.0`. The workflow validates it (prerelease format only, not already on npm), runs the full check suite, and publishes to the npm dist-tag named by the identifier (`1.1.0-beta.0` → `beta`, `1.2.0-insider.0` → `insider`). Nothing is committed and no git tag or GitHub Release is created — `latest` is untouched.
+Run it from the Actions tab: pick the branch to publish from, and enter an explicit prerelease version such as `1.1.0-beta.0`. The workflow validates it (prerelease format only, not already on npm for either package), runs the full check suite, and publishes both packages at that version to the npm dist-tag named by the identifier (`1.1.0-beta.0` → `beta`, `1.2.0-insider.0` → `insider`). Nothing is committed and no git tag or GitHub Release is created — `latest` is untouched.
 
 Notes:
 
 - Changesets **pre mode is not used** (`pre enter` / `pre exit` — don't). Prereleases go through prerelease.yml only.
 - Each workflow file is registered as its own trusted publisher for each package on npmjs.com (Package Settings → Trusted Publisher) — a renamed or new publishing workflow, or a new package, must be (re-)registered there.
-- **Bootstrapping a new package** is the one exception to "never publish from a machine": a trusted publisher can only be registered for a package that already exists on npm. A maintainer publishes the first version once with `npm publish --access public` (2FA) from a clean checkout of the PR, registers `release.yml` and `prerelease.yml` as trusted publishers, sets publishing access to "Require two-factor authentication and disallow tokens", and only then merges. Merging first would make the release job try to publish the package without a trusted publisher and fail.
+- **Bootstrapping a new package** is the one exception to "never publish from a machine": a trusted publisher can only be registered for a package that already exists on npm. A maintainer publishes the first version once with `npm publish` (2FA) from a clean checkout of the PR, at the version in `package.json` — which must equal the other package's current version, since they are a fixed group — registers `release.yml` and `prerelease.yml` as trusted publishers, sets publishing access to "Require two-factor authentication and disallow tokens", and only then merges. Merging first would make the release job try to publish the package without a trusted publisher and fail.
 - Never add `publishConfig.tag` to package.json — dist-tags are passed explicitly at publish time.
 - On Dependabot major bumps, check release notes first: tool families (vite/vitest/@vitejs, TypeScript/typescript-eslint, GitHub Actions) must move together.
 

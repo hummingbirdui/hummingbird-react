@@ -5,7 +5,7 @@
     { "repo": "hummingbirdui/hummingbird-react" }
   ],
   "commit": false,
-  "fixed": [],
+  "fixed": [["@hummingbirdui/react", "create-hummingbird-react-app"]],
   "linked": [],
   "access": "public",
   "baseBranch": "main",

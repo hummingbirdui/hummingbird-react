@@ -1,42 +1,60 @@
 #!/usr/bin/env bash
-# Tags a stable release and creates its GitHub Release, for one package.
-# Usage: tag-release.sh <package-dir> <npm-name> <tag-prefix>
-#   tag-release.sh packages/hummingbird-react "@hummingbirdui/react" "v"
-#   tag-release.sh packages/create-hummingbird-react-app create-hummingbird-react-app "create-hummingbird-react-app@"
+# Tags a stable release and creates its GitHub Release.
 #
-# It acts only when the version in package.json is a stable x.y.z that is
-# live on npm — prereleases (published manually via prerelease.yml) are never
+# @hummingbirdui/react and create-hummingbird-react-app are a Changesets
+# "fixed" group: they always share one version and ship together, so a single
+# vX.Y.Z tag and Release covers both. The step refuses to run if the versions
+# ever drift apart.
+#
+# It acts only when the version is a stable x.y.z that is live on npm for every
+# package — prereleases (published manually via prerelease.yml) are never
 # tagged — and the tag and the Release are each guarded on their own, so a
 # partial failure (or a missed run) self-heals on the next push to main, and
-# reruns never duplicate anything. Each package is guarded independently.
+# reruns never duplicate anything.
 set -euo pipefail
 
-DIR="$1"
-NAME="$2"
-PREFIX="$3"
+# "<package dir>:<npm name>" for every package in the release.
+PACKAGES=(
+  "packages/hummingbird-react:@hummingbirdui/react"
+  "packages/create-hummingbird-react-app:create-hummingbird-react-app"
+)
 
-VERSION=$(node -p "require('./$DIR/package.json').version")
+VERSION=""
+for entry in "${PACKAGES[@]}"; do
+  dir="${entry%%:*}"
+  v=$(node -p "require('./$dir/package.json').version")
+  if [ -z "$VERSION" ]; then
+    VERSION="$v"
+  elif [ "$v" != "$VERSION" ]; then
+    echo "::error::Package versions differ ($dir is $v, expected $VERSION). Check the \"fixed\" group in .changeset/config.json."
+    exit 1
+  fi
+done
+
 if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
-  echo "$NAME: version $VERSION is not a stable x.y.z — nothing to do"; exit 0
+  echo "Version $VERSION is not a stable x.y.z — nothing to do"; exit 0
 fi
-TAG="$PREFIX$VERSION"
+TAG="v$VERSION"
 
 # Registry reads can lag a just-finished publish by a minute or so — retry
-# before concluding the version was never published.
-published=""
-for attempt in $(seq 1 12); do
-  if npm view "$NAME@$VERSION" version >/dev/null 2>&1; then
-    published=1; break
+# before concluding a version was never published.
+for entry in "${PACKAGES[@]}"; do
+  name="${entry#*:}"
+  published=""
+  for attempt in $(seq 1 12); do
+    if npm view "$name@$VERSION" version >/dev/null 2>&1; then
+      published=1; break
+    fi
+    echo "npm does not report $name@$VERSION yet (attempt $attempt/12) — retrying in 10s"
+    sleep 10
+  done
+  if [ -z "$published" ]; then
+    echo "$name@$VERSION is not on npm — nothing to do"; exit 0
   fi
-  echo "npm does not report $NAME@$VERSION yet (attempt $attempt/12) — retrying in 10s"
-  sleep 10
 done
-if [ -z "$published" ]; then
-  echo "$NAME@$VERSION is not on npm — nothing to do"; exit 0
-fi
 
 NOTES=$(mktemp)
-node .github/scripts/release-notes.mjs "$VERSION" "$DIR/CHANGELOG.md" > "$NOTES"
+node .github/scripts/release-notes.mjs "$VERSION" > "$NOTES"
 
 if [ -z "$(git ls-remote --tags origin "refs/tags/$TAG")" ]; then
   git tag "$TAG"

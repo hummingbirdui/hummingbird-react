@@ -46,14 +46,13 @@ jobs:
           pr-title: "chore(release): version packages"
           create-github-releases: false
 
-      # Changesets' own tags would be "@hummingbirdui/react@X.Y.Z"; we want
-      # "vX.Y.Z" for the library, so publish runs with --no-git-tag and this
-      # step tags instead. The CLI gets "create-hummingbird-react-app@X.Y.Z"
-      # so the two never collide. See .github/scripts/tag-release.sh for the
-      # guards (stable only, live on npm, idempotent, self-healing).
-      - name: Tag and create GitHub Releases (stable only)
+      # Changesets' own tags would be "<package>@X.Y.Z" per package; the
+      # library and the CLI are a fixed group that always shares one version,
+      # so publish runs with --no-git-tag and this step creates a single
+      # "vX.Y.Z" tag and GitHub Release for both. See
+      # .github/scripts/tag-release.sh for the guards (versions match, stable
+      # only, live on npm, idempotent, self-healing).
+      - name: Tag and create GitHub Release (stable only)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          .github/scripts/tag-release.sh packages/hummingbird-react "@hummingbirdui/react" "v"
-          .github/scripts/tag-release.sh packages/create-hummingbird-react-app "create-hummingbird-react-app" "create-hummingbird-react-app@"
+        run: .github/scripts/tag-release.sh
