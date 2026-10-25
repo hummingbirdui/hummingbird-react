@@ -1,6 +1,6 @@
 {
   "name": "create-hummingbird-react-app",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Scaffold a React project pre-configured with Hummingbird React, Tailwind CSS v4 and dark mode.",
   "keywords": [
     "hummingbird",
