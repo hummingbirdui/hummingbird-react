@@ -19,7 +19,7 @@
   "homepage": "https://react.hbui.dev/docs/getting-started/cli",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hummingbirdui/hummingbird-react.git",
+    "url": "git+https://github.com/hummingbirdui/hummingbird-react.git",
     "directory": "packages/create-hummingbird-react-app"
   },
   "bugs": "https://github.com/hummingbirdui/hummingbird-react/issues",
@@ -27,7 +27,7 @@
   "author": "Hummingbird UI",
   "type": "module",
   "bin": {
-    "create-hummingbird-react-app": "./dist/index.js"
+    "create-hummingbird-react-app": "dist/index.js"
   },
   "files": [
     "dist",
@@ -47,7 +47,7 @@
     "check-types": "tsc --noEmit",
     "lint": "eslint src tests",
     "format": "prettier --write src tests",
-    "prepublishOnly": "node -e \"require('fs').accessSync('dist/index.js');require('fs').accessSync('templates/vite/package.json')\""
+    "prepublishOnly": "npm run build && node -e \"require('fs').accessSync('dist/index.js');require('fs').accessSync('templates/vite/package.json')\""
   },
   "devDependencies": {
     "@clack/prompts": "^1.8.1",
