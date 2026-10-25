@@ -9,6 +9,24 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+  # create-hummingbird-react-app templates are standalone projects (not
+  # workspaces) with no lockfile, so ranges are raised in package.json
+  # directly. The "Template smoke test" workflow is the gate for these PRs.
+  - package-ecosystem: "npm"
+    directories:
+      - "/packages/create-hummingbird-react-app/templates/*"
+    schedule:
+      interval: "weekly"
+    versioning-strategy: increase
+    groups:
+      template-dependencies:
+        patterns: ["*"]
+    commit-message:
+      prefix: "chore(templates)"
+    ignore:
+      # Templates track the TypeScript line create-vite ships (~6.0.x).
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

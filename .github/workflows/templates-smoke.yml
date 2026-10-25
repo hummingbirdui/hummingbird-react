@@ -1,0 +1,102 @@
+name: Template smoke test
+
+# Scaffolds every create-hummingbird-react-app template, installs it from the
+# registry exactly as a user would, and builds it. Runs when the CLI or its
+# templates change, weekly to catch upstream framework drift, and on demand
+# (optionally against the workspace build of @hummingbirdui/react).
+on:
+  pull_request:
+    paths:
+      - "packages/create-hummingbird-react-app/**"
+      - ".github/workflows/templates-smoke.yml"
+  push:
+    branches: [main]
+    paths:
+      - "packages/create-hummingbird-react-app/**"
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      library:
+        description: "Where @hummingbirdui/react comes from"
+        type: choice
+        default: npm
+        options:
+          - npm
+          - workspace
+
+concurrency:
+  group: templates-smoke-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  smoke:
+    name: ${{ matrix.template }} (${{ matrix.pm }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        template: [nextjs, vite, astro, react-router, gatsby]
+        pm: [npm]
+        include:
+          # pnpm's strict node_modules is the stricter test of CSS @import resolution.
+          - { template: vite, pm: pnpm }
+          - { template: nextjs, pm: pnpm }
+    env:
+      APP_DIR: ${{ github.workspace }}/../smoke-app
+      NEXT_TELEMETRY_DISABLED: 1
+      GATSBY_TELEMETRY_DISABLED: 1
+      ASTRO_TELEMETRY_DISABLED: 1
+      NODE_OPTIONS: --max-old-space-size=4096
+    steps:
+      - uses: actions/checkout@v7
+
+      # Reads the pnpm version from "packageManager" in package.json
+      - uses: pnpm/action-setup@v6
+
+      # .nvmrc (22) satisfies every template, including Gatsby (< 26).
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm turbo run build --filter=create-hummingbird-react-app
+
+      - name: Pack the workspace library
+        if: inputs.library == 'workspace'
+        run: |
+          pnpm turbo run build --filter=@hummingbirdui/react
+          cd packages/hummingbird-react
+          pnpm pack --out "$RUNNER_TEMP/hummingbird-react.tgz"
+
+      - name: Scaffold
+        run: >
+          node packages/create-hummingbird-react-app/dist/index.js "$APP_DIR"
+          --template ${{ matrix.template }} --pm ${{ matrix.pm }} --no-install --no-git --yes
+
+      - name: Use the workspace library
+        if: inputs.library == 'workspace'
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
+            pkg.dependencies["@hummingbirdui/react"] = "file:" + process.env.RUNNER_TEMP + "/hummingbird-react.tgz";
+            fs.writeFileSync("package.json", JSON.stringify(pkg, null, 2) + "\n");
+          '
+
+      - name: Install
+        working-directory: ${{ env.APP_DIR }}
+        run: ${{ matrix.pm }} install
+
+      - name: Type-check
+        if: matrix.template == 'react-router' || matrix.template == 'gatsby'
+        working-directory: ${{ env.APP_DIR }}
+        run: ${{ matrix.pm }} run typecheck
+
+      - name: Build
+        working-directory: ${{ env.APP_DIR }}
+        run: ${{ matrix.pm }} run build
