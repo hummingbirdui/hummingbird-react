@@ -57,6 +57,14 @@ describe('template registry', () => {
     for (const id of TEMPLATE_IDS) expect(existsSync(templateDir(id))).toBe(true);
   });
 
+  it('starts every dev server with the "dev" script', () => {
+    for (const t of TEMPLATES) {
+      const pkg = JSON.parse(read(t.id, 'package.json')) as { scripts: Record<string, string> };
+      expect(t.devScript).toBe('dev');
+      expect(pkg.scripts.dev, t.id).toBeTruthy();
+    }
+  });
+
   it('has entries in the same order as the ids', () => {
     expect(TEMPLATES.map((t) => t.id)).toEqual([...TEMPLATE_IDS]);
   });
@@ -125,6 +133,30 @@ describe.each(TEMPLATE_IDS)('template %s', (id) => {
 
   it('uses a README with the project name placeholder', () => {
     expect(read(id, 'README.md').startsWith('# {{projectName}}')).toBe(true);
+  });
+});
+
+describe('gatsby pnpm config', () => {
+  const config = read('gatsby', 'pnpm-workspace.yaml');
+
+  it('uses a hoisted node_modules, which Gatsby requires', () => {
+    expect(config).toMatch(/^nodeLinker: hoisted$/m);
+  });
+
+  it('reviews every dependency build script so pnpm 11+ does not fail the install', () => {
+    for (const pkg of [
+      '"@parcel/watcher": true',
+      'gatsby: true',
+      'gatsby-cli: true',
+      'lmdb: true',
+      'msgpackr-extract: true',
+      'sharp: true',
+      'core-js: false',
+      'core-js-pure: false',
+      'es5-ext: false',
+    ]) {
+      expect(config).toContain(`  ${pkg}`);
+    }
   });
 });
 

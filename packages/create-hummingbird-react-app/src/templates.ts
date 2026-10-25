@@ -12,7 +12,7 @@ export interface Template {
   /** The file holding the welcome page; shown in the page itself and in next steps. */
   entryFile: string;
   /** package.json script that starts the dev server. */
-  devScript: 'dev' | 'develop';
+  devScript: 'dev';
   devUrl: string;
   /** Framework guide on the Hummingbird React docs site. */
   docsUrl: string;
@@ -70,7 +70,7 @@ export const TEMPLATES: readonly Template[] = [
     name: 'Gatsby',
     hint: 'Static site generator',
     entryFile: 'src/pages/index.tsx',
-    devScript: 'develop',
+    devScript: 'dev',
     devUrl: 'http://localhost:8000',
     docsUrl: `${GUIDES}/gatsby`,
     minNode: '18.0.0',

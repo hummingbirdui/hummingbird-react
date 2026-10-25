@@ -40,9 +40,11 @@ jobs:
         template: [nextjs, vite, astro, react-router, gatsby]
         pm: [npm]
         include:
-          # pnpm's strict node_modules is the stricter test of CSS @import resolution.
+          # pnpm's strict node_modules is the stricter test of CSS @import
+          # resolution, and pnpm 11+ fails installs on unreviewed build scripts.
           - { template: vite, pm: pnpm }
           - { template: nextjs, pm: pnpm }
+          - { template: gatsby, pm: pnpm }
     env:
       APP_DIR: ${{ github.workspace }}/../smoke-app
       NEXT_TELEMETRY_DISABLED: 1
@@ -64,6 +66,16 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm turbo run build --filter=create-hummingbird-react-app
+
+      # The repo pins pnpm 9 for itself; users run the latest pnpm, which is
+      # stricter (allowBuilds, ERR_PNPM_IGNORED_BUILDS). Test the app with that.
+      - name: Choose the app's package manager command
+        run: |
+          if [ "${{ matrix.pm }}" = "pnpm" ]; then
+            echo "PM=npx --yes pnpm@latest" >> "$GITHUB_ENV"
+          else
+            echo "PM=npm" >> "$GITHUB_ENV"
+          fi
 
       - name: Pack the workspace library
         if: inputs.library == 'workspace'
@@ -90,13 +102,13 @@ jobs:
 
       - name: Install
         working-directory: ${{ env.APP_DIR }}
-        run: ${{ matrix.pm }} install
+        run: $PM install
 
       - name: Type-check
         if: matrix.template == 'react-router' || matrix.template == 'gatsby'
         working-directory: ${{ env.APP_DIR }}
-        run: ${{ matrix.pm }} run typecheck
+        run: $PM run typecheck
 
       - name: Build
         working-directory: ${{ env.APP_DIR }}
-        run: ${{ matrix.pm }} run build
+        run: $PM run build

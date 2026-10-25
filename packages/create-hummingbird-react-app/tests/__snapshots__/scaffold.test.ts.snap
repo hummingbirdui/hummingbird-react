@@ -25,6 +25,7 @@ exports[`scaffolding gatsby > copies the template and personalizes it 1`] = `
   "gatsby-config.ts",
   "gatsby-ssr.tsx",
   "package.json",
+  "pnpm-workspace.yaml",
   "postcss.config.js",
   "src/components/HbReactLogo.tsx",
   "src/components/HeroIllustration.tsx",

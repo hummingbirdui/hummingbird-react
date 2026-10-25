@@ -5,7 +5,7 @@
 ## Getting started
 
 ```bash
-npm run develop
+npm run dev
 ```
 
 Open [http://localhost:8000](http://localhost:8000) and edit `src/pages/index.tsx`. The page updates as you save.
@@ -14,7 +14,7 @@ Open [http://localhost:8000](http://localhost:8000) and edit `src/pages/index.ts
 
 | Script | Description |
 | --- | --- |
-| `develop` | Start the development server |
+| `dev` | Start the development server (alias of `develop`) |
 | `build` | Build for production |
 | `serve` | Serve the production build |
 | `typecheck` | Type-check the project |
@@ -26,6 +26,8 @@ Open [http://localhost:8000](http://localhost:8000) and edit `src/pages/index.ts
 - **Components:** import anything from `@hummingbirdui/react`, for example `import { Button } from "@hummingbirdui/react"`.
 
 Gatsby 5 supports Node.js 18 up to, but not including, 26.
+
+`pnpm-workspace.yaml` configures pnpm for Gatsby: a flat `node_modules`, which Gatsby needs, and the dependency install scripts pnpm is allowed to run. npm, Yarn and Bun ignore it.
 
 ## Learn more
 
