@@ -17,7 +17,7 @@
     "deploy:internal": "echo staging-react.hbui.dev > ./out/CNAME && gh-pages -d out --dotfiles -r https://github.com/hummingbirdui/staging-react.git"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.2.2",
+    "@hookform/resolvers": "^6.0.0",
     "@hummingbirdui/react": "workspace:^",
     "@types/react-frame-component": "^4.1.6",
     "date-fns": "^4.4.0",
