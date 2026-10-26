@@ -57,10 +57,13 @@ jobs:
       # Reads the pnpm version from "packageManager" in package.json
       - uses: pnpm/action-setup@v6
 
-      # .nvmrc (22) satisfies every template, including Gatsby (< 26).
+      # .nvmrc (22) satisfies every template, including Gatsby (< 26), but
+      # frameworks raise their 22.x minimum over time (Astro 7 needs 22.23.4+),
+      # so always use the newest 22.x rather than the runner's cached one.
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
+          check-latest: true
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
