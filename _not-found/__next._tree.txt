@@ -1,9 +1,11 @@
-:HL["/_next/static/chunks/1b26l27fw0h_4.css","style"]
-:HL["/_next/static/chunks/4103v8c9j3nq2.css","style"]
+:HL["/_next/static/chunks/2y6th23lpqng9.css","style"]
+:HL["/_next/static/chunks/1ou33eqlpo_jr.css","style"]
 :HL["/images/logos/themewagon.svg","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/os.png","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/mb.png","image"]
 :HL["/images/logos/onedesk-dark.svg","image"]
 :HL["/images/logos/onedesk.svg","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/gn.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4160,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"2wsRw-9jJEIy-F_3zjvdi"}
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"/_not-found","h":64,"c":"$Q2"}]]
+0:{"b":"ZfnfJKtyGnDMuo1zpjjXO","t":{"t":{"s":"","h":16,"c":"$Q1"}}}

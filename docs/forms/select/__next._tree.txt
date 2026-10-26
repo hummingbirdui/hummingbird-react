@@ -1,5 +1,5 @@
-:HL["/_next/static/chunks/1b26l27fw0h_4.css","style"]
-:HL["/_next/static/chunks/4103v8c9j3nq2.css","style"]
+:HL["/_next/static/chunks/2y6th23lpqng9.css","style"]
+:HL["/_next/static/chunks/1ou33eqlpo_jr.css","style"]
 :HL["/_next/static/media/f7aa21714c1c53f8-s.p.0-95eo-012xnf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logos/themewagon.svg","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/os.png","image"]
@@ -7,4 +7,7 @@
 :HL["/images/logos/onedesk-dark.svg","image"]
 :HL["/images/logos/onedesk.svg","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/gn.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"docs","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"oc","key":"forms/select","siblings":["getting-started"]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"2wsRw-9jJEIy-F_3zjvdi"}
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"oc","k":"forms/select","s":["getting-started"]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":"docs","h":131136,"c":"$Q2"}]]
+0:{"b":"ZfnfJKtyGnDMuo1zpjjXO","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
