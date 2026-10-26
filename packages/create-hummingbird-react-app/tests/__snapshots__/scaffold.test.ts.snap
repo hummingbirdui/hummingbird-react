@@ -1,0 +1,92 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`scaffolding astro > copies the template and personalizes it 1`] = `
+[
+  ".gitignore",
+  "README.md",
+  "astro.config.mjs",
+  "package.json",
+  "public/favicon.svg",
+  "src/components/HbReactLogo.tsx",
+  "src/components/HeroIllustration.tsx",
+  "src/components/Welcome.tsx",
+  "src/layouts/Layout.astro",
+  "src/pages/index.astro",
+  "src/styles/global.css",
+  "tsconfig.json",
+]
+`;
+
+exports[`scaffolding gatsby > copies the template and personalizes it 1`] = `
+[
+  ".gitignore",
+  "README.md",
+  "gatsby-browser.ts",
+  "gatsby-config.ts",
+  "gatsby-ssr.tsx",
+  "package.json",
+  "pnpm-workspace.yaml",
+  "postcss.config.js",
+  "src/components/HbReactLogo.tsx",
+  "src/components/HeroIllustration.tsx",
+  "src/pages/index.tsx",
+  "src/styles.d.ts",
+  "src/styles/global.css",
+  "static/favicon.svg",
+  "tsconfig.json",
+]
+`;
+
+exports[`scaffolding nextjs > copies the template and personalizes it 1`] = `
+[
+  ".gitignore",
+  "README.md",
+  "app/globals.css",
+  "app/icon.svg",
+  "app/layout.tsx",
+  "app/page.tsx",
+  "components/HbReactLogo.tsx",
+  "components/HeroIllustration.tsx",
+  "next.config.ts",
+  "package.json",
+  "postcss.config.mjs",
+  "tsconfig.json",
+]
+`;
+
+exports[`scaffolding react-router > copies the template and personalizes it 1`] = `
+[
+  ".gitignore",
+  "README.md",
+  "app/app.css",
+  "app/components/HbReactLogo.tsx",
+  "app/components/HeroIllustration.tsx",
+  "app/root.tsx",
+  "app/routes.ts",
+  "app/routes/home.tsx",
+  "package.json",
+  "public/favicon.svg",
+  "react-router.config.ts",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`scaffolding vite > copies the template and personalizes it 1`] = `
+[
+  ".gitignore",
+  "README.md",
+  "index.html",
+  "package.json",
+  "public/favicon.svg",
+  "src/App.tsx",
+  "src/components/HbReactLogo.tsx",
+  "src/components/HeroIllustration.tsx",
+  "src/index.css",
+  "src/main.tsx",
+  "tsconfig.app.json",
+  "tsconfig.json",
+  "tsconfig.node.json",
+  "vite.config.ts",
+]
+`;

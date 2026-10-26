@@ -1,0 +1,66 @@
+{
+  "name": "create-hummingbird-react-app",
+  "version": "1.0.1",
+  "description": "Scaffold a React project pre-configured with Hummingbird React, Tailwind CSS v4 and dark mode.",
+  "keywords": [
+    "hummingbird",
+    "hummingbirdui",
+    "react",
+    "tailwindcss",
+    "create",
+    "scaffold",
+    "template",
+    "nextjs",
+    "vite",
+    "astro",
+    "react-router",
+    "gatsby"
+  ],
+  "homepage": "https://react.hbui.dev/docs/getting-started/cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hummingbirdui/hummingbird-react.git",
+    "directory": "packages/create-hummingbird-react-app"
+  },
+  "bugs": "https://github.com/hummingbirdui/hummingbird-react/issues",
+  "license": "MIT",
+  "author": "Hummingbird UI",
+  "type": "module",
+  "bin": {
+    "create-hummingbird-react-app": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src tests",
+    "format": "prettier --write src tests",
+    "prepublishOnly": "npm run build && node -e \"require('fs').accessSync('dist/index.js');require('fs').accessSync('templates/vite/package.json')\""
+  },
+  "devDependencies": {
+    "@clack/prompts": "^1.8.1",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
+    "eslint": "^10.9.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "picocolors": "^1.1.1",
+    "tsup": "^9.0.0",
+    "typescript": "6.0.3",
+    "vitest": "^5.0.0"
+  }
+}

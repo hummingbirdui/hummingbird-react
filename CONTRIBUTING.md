@@ -10,6 +10,7 @@ Thank you for your interest in contributing to Hummingbird React! This guide wil
 - [Getting started](#getting-started)
 - [Development workflow](#development-workflow)
 - [Working on the component library](#working-on-the-component-library)
+- [Working on the CLI](#working-on-the-cli)
 - [Working on the documentation](#working-on-the-documentation)
 - [Testing](#testing)
 - [Linting and formatting](#linting-and-formatting)
@@ -34,14 +35,18 @@ hummingbird-react/
 ├── apps/
 │   └── docs/                  # Documentation site (Next.js + Fumadocs) — react.hbui.dev
 └── packages/
-    └── hummingbird-react/     # The component library, published as @hummingbirdui/react
-        └── src/
-            ├── components/    # One folder per component (button, card, dialog, ...)
-            ├── layout/        # Layout primitives
-            ├── typography/    # Typography components
-            ├── hooks/         # Shared hooks
-            ├── utils/         # Shared utilities (cn, etc.)
-            └── styles.css     # Library styles entry
+    ├── hummingbird-react/     # The component library, published as @hummingbirdui/react
+    │   └── src/
+    │       ├── components/    # One folder per component (button, card, dialog, ...)
+    │       ├── layout/        # Layout primitives
+    │       ├── typography/    # Typography components
+    │       ├── hooks/         # Shared hooks
+    │       ├── utils/         # Shared utilities (cn, etc.)
+    │       └── styles.css     # Library styles entry
+    └── create-hummingbird-react-app/  # Project scaffolder CLI, published as create-hummingbird-react-app
+        ├── src/               # CLI source (bundled to dist/index.js by tsup)
+        ├── templates/         # One standalone project per framework
+        └── tests/
 ```
 
 ## Prerequisites
@@ -111,6 +116,26 @@ When adding or modifying a component, follow the existing conventions:
 - **Variants**: define variants, colors, and sizes with CVA and export a `variants()` helper when the component has them.
 - **Registration**: export the new component from `src/components/index.ts` so it is included in the package entry point.
 
+## Working on the CLI
+
+`packages/create-hummingbird-react-app` is the `npx create-hummingbird-react-app` scaffolder. The CLI source is in `src/` and is bundled with its prompt libraries into a single `dist/index.js`, so the published package has no runtime dependencies. `templates/<id>/` holds one complete project per framework (`nextjs`, `vite`, `astro`, `react-router`, `gatsby`), copied verbatim apart from the renames below.
+
+```sh
+pnpm --filter create-hummingbird-react-app dev    # rebuild the CLI on change
+node packages/create-hummingbird-react-app/dist/index.js ../scratch-app --template vite --no-git
+```
+
+Template rules (enforced by `tests/templates.test.ts`):
+
+- **Templates are not workspaces.** Don't run `pnpm add` inside them; edit their `package.json` by hand. Dependabot raises their ranges weekly.
+- **Dotfiles use a `_` prefix.** Store `.gitignore` as `_gitignore`; it is renamed on copy, because npm strips `.gitignore` from published packages.
+- **Placeholders.** `package.json` `name` is replaced with the project name, and `{{projectName}}` in `README.md` is filled in.
+- **Shared files stay identical.** `HbReactLogo.tsx`, `HeroIllustration.tsx` and the welcome page's `<main>` block must match across all five templates; only the `ENTRY_FILE` constant differs. Change them everywhere at once.
+- **pnpm needs extra config for some templates.** pnpm 11+ fails installs when a dependency has an install script that isn't reviewed in `allowBuilds`. Gatsby's `pnpm-workspace.yaml` lists its reviewed scripts and sets `nodeLinker: hoisted`, which Gatsby needs. The smoke workflow installs pnpm templates with the latest pnpm to catch new cases.
+- **No linters, web fonts or extra boilerplate.** Templates stay minimal so there is less to keep current.
+
+Unit and integration tests run in CI with the rest of the repo. The **Template smoke test** workflow (`.github/workflows/templates-smoke.yml`) scaffolds, installs and builds every template on PRs that touch the package and weekly; run it manually with `library: workspace` to test templates against an unreleased library build.
+
 ## Working on the documentation
 
 The docs site is a Next.js app using Fumadocs, located in `apps/docs/`. Component documentation lives in `apps/docs/content/docs/components/` as MDX files.
@@ -178,13 +203,15 @@ docs: add API reference for dialog
 
 ## Adding a changeset
 
-Releases are automated with [Changesets](https://github.com/changesets/changesets). Any PR that changes the library's behavior (a feature, a fix, a breaking change) must include a changeset:
+Releases are automated with [Changesets](https://github.com/changesets/changesets). Any PR that changes the behavior of a published package (a feature, a fix, a breaking change) must include a changeset:
 
 ```sh
 pnpm changeset
 ```
 
-Pick `@hummingbirdui/react`, choose the bump type (patch / minor / major), and write a short, user-facing summary — it becomes the CHANGELOG entry. Commit the generated `.changeset/*.md` file **together with your code**.
+Pick the package(s) you changed, choose the bump type (patch / minor / major), and write a short, user-facing summary — it becomes the CHANGELOG entry. Commit the generated `.changeset/*.md` file **together with your code**.
+
+`@hummingbirdui/react` and `create-hummingbird-react-app` are a Changesets **fixed group** (`.changeset/config.json`): they always share one version and are released together. A changeset for either one bumps both, and the package without changes gets a "No changes in this release" CHANGELOG entry.
 
 **Start the summary with a type prefix** — it decides which section of the GitHub Release notes the change appears under:
 
@@ -228,16 +255,18 @@ Publishing is fully automated — **never run `npm publish` from a machine** (au
 ### Stable releases — `.github/workflows/release.yml` (automatic)
 
 1. Merged PRs with changesets feed an auto-maintained PR titled **"chore(release): version packages"** (version bump + CHANGELOG + lockfile). It accumulates until you're ready to ship.
-2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), publishes to npm `latest`, then creates the `vX.Y.Z` git tag and a GitHub Release with changelog notes. The tag/Release step is guarded and self-heals on the next push to `main` if a run half-fails.
+2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), publishes both packages to npm `latest` at the same version, then creates one `vX.Y.Z` git tag and one GitHub Release covering both. The Release lists the library's changes, followed by a `create-hummingbird-react-app` section when the CLI has changes of its own. The tag/Release step (`.github/scripts/tag-release.sh`) refuses to run if the two versions differ, waits until both are live on npm, and self-heals on the next push to `main` if a run half-fails.
 
 ### Prereleases — `.github/workflows/prerelease.yml` (manual, rare)
 
-Run it from the Actions tab: pick the branch to publish from, and enter an explicit prerelease version such as `1.1.0-beta.0`. The workflow validates it (prerelease format only, not already on npm), runs the full check suite, and publishes to the npm dist-tag named by the identifier (`1.1.0-beta.0` → `beta`, `1.2.0-insider.0` → `insider`). Nothing is committed and no git tag or GitHub Release is created — `latest` is untouched.
+Run it from the Actions tab: pick the branch to publish from, and enter an explicit prerelease version such as `1.1.0-beta.0`. The workflow validates it (prerelease format only, not already on npm for either package), runs the full check suite, and publishes both packages at that version to the npm dist-tag named by the identifier (`1.1.0-beta.0` → `beta`, `1.2.0-insider.0` → `insider`). Nothing is committed and no git tag or GitHub Release is created — `latest` is untouched.
 
 Notes:
 
+- **Both packages ship or neither does, as far as npm allows.** npm can't publish two packages atomically, and a published version can never be republished. `.github/scripts/publish-packages.sh` (used by both workflows) therefore dry-runs every package before publishing any, then publishes the library first and stops at the first failure. If the CLI fails after the library is already out, the job fails with instructions: fix the cause and **re-run the workflow**. It skips what's already on npm and publishes the rest at the same version. Don't bump the version to work around it. The tag and GitHub Release are only created once both are live.
 - Changesets **pre mode is not used** (`pre enter` / `pre exit` — don't). Prereleases go through prerelease.yml only.
-- Each workflow file is registered as its own trusted publisher for the package on npmjs.com (Package Settings → Trusted Publisher) — a renamed or new publishing workflow must be (re-)registered there.
+- Each workflow file is registered as its own trusted publisher for each package on npmjs.com (Package Settings → Trusted Publisher) — a renamed or new publishing workflow, or a new package, must be (re-)registered there.
+- **Bootstrapping a new package** is the one exception to "never publish from a machine": a trusted publisher can only be registered for a package that already exists on npm. A maintainer publishes the first version once with `npm publish` (2FA) from a clean checkout of the PR, at the version in `package.json` — which must equal the other package's current version, since they are a fixed group — registers `release.yml` and `prerelease.yml` as trusted publishers, sets publishing access to "Require two-factor authentication and disallow tokens", and only then merges. Merging first would make the release job try to publish the package without a trusted publisher and fail.
 - Never add `publishConfig.tag` to package.json — dist-tags are passed explicitly at publish time.
 - On Dependabot major bumps, check release notes first: tool families (vite/vitest/@vitejs, TypeScript/typescript-eslint, GitHub Actions) must move together.
 
@@ -251,6 +280,8 @@ Notes:
 | `pnpm dev` | Library watch mode + docs site dev server |
 | `pnpm --filter @hummingbirdui/react test:watch` | Vitest watch mode |
 | `pnpm --filter docs dev` | Docs dev server only |
+| `pnpm --filter create-hummingbird-react-app test` | CLI unit + integration tests (builds first via turbo) |
+| `node packages/create-hummingbird-react-app/dist/index.js <dir> -t <template>` | Try the CLI locally |
 | `pnpm --filter docs deploy` | Deploy docs to GitHub Pages (maintainers, manual) |
 | `npm view @hummingbirdui/react dist-tags` | Verify what shipped where |
 

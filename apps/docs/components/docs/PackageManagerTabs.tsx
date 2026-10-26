@@ -48,6 +48,16 @@ function convertLine(line: string, manager: Manager): string {
   const tokens = line.trim().split(/\s+/);
   const [bin, sub] = tokens;
 
+  // create-* scaffolders: `npx create-foo@latest dir --flag` becomes
+  // `pnpm create foo dir --flag` (the create commands fetch the latest version)
+  if (bin === "npx" && /^create-/.test(sub ?? "")) {
+    const name = sub.replace(/^create-/, "").replace(/@latest$/, "");
+    const tail = tokens.length > 2 ? ` ${tokens.slice(2).join(" ")}` : "";
+    return manager === "npm"
+      ? line.trim()
+      : `${manager} create ${name}${tail}`;
+  }
+
   // npx / dlx style execution
   if (bin === "npx" || bin === "bunx") {
     const args = tokens.slice(1).join(" ");

@@ -17,6 +17,7 @@ React components for Hummingbird, built with Tailwind CSS.
 
 - [Documentation](#documentation)
 - [Getting Started](#getting-started)
+- [Quick start](#quick-start)
 - [Installation](#installation)
   - [Install Tailwind CSS](#1-install-tailwind-css)
   - [Install Hummingbird React](#2-install-hummingbird-react)
@@ -35,6 +36,16 @@ Comprehensive documentation is available at [react.hbui.dev](https://react.hbui.
 ## Getting started
 
 Hummingbird React is the official React component library for the [Hummingbird](https://hbui.dev/) design system. It provides a large set of accessible, fully styled React components such as buttons, forms, dialogs, and dropdowns, along with patterns suitable for dashboards, SaaS applications, and e-commerce systems.
+
+## Quick start
+
+Create a new Next.js, Vite, Astro, React Router or Gatsby project with Tailwind CSS, Hummingbird React and dark mode already set up:
+
+```bash
+npx create-hummingbird-react-app@latest
+```
+
+pnpm, yarn and bun work too: `pnpm create hummingbird-react-app`. See the [CLI docs](https://react.hbui.dev/docs/getting-started/cli) for templates and options. To add Hummingbird React to an existing project, follow the steps below.
 
 ## Installation
 
@@ -130,6 +141,7 @@ To contribute code:
 
 6. **Make your changes**:
    - If modifying the library, work in `packages/hummingbird-react/src/`.
+   - If modifying the project scaffolder, work in `packages/create-hummingbird-react-app/`.
    - If updating documentation, work in `apps/docs/`.
 
 7. **Build the project** (optional but recommended before committing):

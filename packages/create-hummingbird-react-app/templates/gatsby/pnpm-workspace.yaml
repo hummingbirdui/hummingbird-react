@@ -1,0 +1,21 @@
+# pnpm settings for this project. npm, Yarn and Bun ignore this file.
+
+# Gatsby copies its runtime into .cache/ and imports its own dependencies from
+# there, so it needs a flat node_modules like npm creates.
+nodeLinker: hoisted
+
+# pnpm 11+ blocks dependency install scripts unless they are reviewed here,
+# and fails the install otherwise (ERR_PNPM_IGNORED_BUILDS).
+# https://pnpm.io/settings/build#allowbuilds
+allowBuilds:
+  # Gatsby and the native modules it depends on
+  "@parcel/watcher": true
+  gatsby: true
+  gatsby-cli: true
+  lmdb: true
+  msgpackr-extract: true
+  sharp: true
+  # These postinstall scripts only print messages
+  core-js: false
+  core-js-pure: false
+  es5-ext: false

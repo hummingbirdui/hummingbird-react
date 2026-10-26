@@ -1,4 +1,4 @@
 {
   "title": "Getting Started",
-  "pages": ["introduction", "installation", "framework-guides"]
+  "pages": ["introduction", "installation", "cli", "framework-guides"]
 }

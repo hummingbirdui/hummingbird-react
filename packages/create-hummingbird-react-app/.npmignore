@@ -1,0 +1,17 @@
+# `files` in package.json whitelists dist/ and templates/. These rules only
+# keep artefacts from a locally-run template out of the tarball.
+templates/**/node_modules
+templates/**/dist
+templates/**/build
+templates/**/public/page-data
+templates/**/.next
+templates/**/.astro
+templates/**/.react-router
+templates/**/.cache
+templates/**/package-lock.json
+templates/**/pnpm-lock.yaml
+templates/**/yarn.lock
+templates/**/bun.lock
+templates/**/bun.lockb
+templates/**/next-env.d.ts
+templates/**/*.tsbuildinfo
