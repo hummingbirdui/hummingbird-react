@@ -30,7 +30,32 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/layout.png",
       dark: "/images/blocks/layout-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "layout-1",
+        title: "A simple sidebar with navigation grouped by section",
+        file: "layouts/layout-1.tsx",
+        className: "min-h-225",
+      },
+      {
+        name: "layout-2",
+        title: "A responsive sidebar with a search bar",
+        file: "layouts/layout-2.tsx",
+        className: "min-h-225",
+      },
+      {
+        name: "layout-3",
+        title: "A sidebar with collapsible sections",
+        file: "layouts/layout-3.tsx",
+        className: "min-h-225",
+      },
+      {
+        name: "layout-4",
+        title: "A sidebar with submenus as dropdowns",
+        file: "layouts/layout-4.tsx",
+        className: "min-h-225",
+      },
+    ],
   },
   {
     slug: "hero-sections",
