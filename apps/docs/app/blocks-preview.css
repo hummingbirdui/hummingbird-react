@@ -1,0 +1,11 @@
+/*
+ * Stylesheet for the block preview pages loaded in iframes on /blocks.
+ * Deliberately not globals.css: blocks render with Hummingbird's own type
+ * scale and font (as on hbui.dev), not the docs site's overrides.
+ */
+@import "tailwindcss";
+@import "@hummingbirdui/react";
+@import "./themes/themes.css";
+
+@custom-variant dark (&:where(.dark, .dark *), .dark);
+@custom-variant active (&:active, &.active);
