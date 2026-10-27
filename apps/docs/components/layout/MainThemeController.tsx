@@ -2,7 +2,11 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { MAIN_THEMES, MAIN_THEME_STORAGE_KEY } from "./main-themes";
+import {
+  MAIN_THEMES,
+  MAIN_THEME_STORAGE_KEY,
+  usesDefaultMainTheme,
+} from "./main-themes";
 
 export function MainThemeController() {
   const pathname = usePathname();
@@ -10,7 +14,7 @@ export function MainThemeController() {
   useEffect(() => {
     const html = document.documentElement;
 
-    if (pathname === "/") {
+    if (usesDefaultMainTheme(pathname)) {
       html.removeAttribute("data-theme");
       return;
     }

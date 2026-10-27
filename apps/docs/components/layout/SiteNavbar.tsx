@@ -14,6 +14,7 @@ import { Drawer, DarkThemeToggle } from "@hummingbirdui/react";
 import { GithubMark } from "./BrandIcons";
 import { CloseButton } from "@hummingbirdui/react";
 import { ThemeDropdown } from "./ThemeDropdown";
+import { usesDefaultMainTheme } from "./main-themes";
 import { SearchButton, SearchIconButton } from "../search/SearchToggle";
 import { SearchDialog } from "../search/SearchDialog";
 import { version } from "@hummingbirdui/react/package.json";
@@ -34,6 +35,11 @@ const navLinks: {
     href: "/docs/components/overview/",
     label: "Components",
     isActive: (p) => p.startsWith("/docs/components"),
+  },
+  {
+    href: "/blocks/",
+    label: "Blocks",
+    isActive: (p) => p.startsWith("/blocks"),
   },
 ];
 
@@ -119,7 +125,7 @@ export function SiteNavbar() {
           />
           <div className="mx-2 xl:mx-4 my-auto border-l h-8 xl:h-10 border-subtle flex"></div>
           <DarkThemeToggle />
-          {pathname !== "/" && (
+          {!usesDefaultMainTheme(pathname) && (
             <div className="ms-1.5">
               <ThemeDropdown />
             </div>
