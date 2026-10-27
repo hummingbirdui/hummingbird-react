@@ -47,7 +47,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^6.0.0
-        version: 6.0.0(@standard-schema/spec@1.1.0)(ajv@6.15.0)(react-hook-form@7.90.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)
+        version: 6.0.0(@standard-schema/spec@1.1.0)(ajv@6.15.0)(react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)
       '@hummingbirdui/react':
         specifier: workspace:^
         version: link:../../packages/hummingbird-react
@@ -85,8 +85,8 @@ importers:
         specifier: ^5.3.2
         version: 5.3.2(prop-types@15.8.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react-hook-form:
-        specifier: ^7.86.0
-        version: 7.90.0(@types/react@19.3.0)(react@19.3.1)
+        specifier: ^7.91.0
+        version: 7.91.0(@types/react@19.3.0)(react@19.3.1)
       rehype-autolink-headings:
         specifier: ^7.1.0
         version: 7.1.0
@@ -4593,8 +4593,8 @@ packages:
       react: '>= 16.8 || ^17.0.0 || ^18.0.0 || ^19.0.0'
       react-dom: '>= 16.8 || ^17.0.0 || ^18.0.0 || ^19.0.0'
 
-  react-hook-form@7.90.0:
-    resolution: {integrity: sha512-+NdG0FLzCPhFOp2NNxaUYLF9fyZhNjx9FTBBSYWF71/l6BBlmIc/j6xlp3DbaHWLJbIG7Zd8oznA19xJClU97w==}
+  react-hook-form@7.91.0:
+    resolution: {integrity: sha512-5BEBUnCBwa28AFXYTYmOaB/+CSpJ/+CWVASHEvIGUzFdHyUiPHeRhG7r5hOZ8nZi0yP7pbHdFNXO/p31EKTJFQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@types/react': '*'
@@ -5816,10 +5816,10 @@ snapshots:
 
   '@fumari/image-size@0.1.1': {}
 
-  '@hookform/resolvers@6.0.0(@standard-schema/spec@1.1.0)(ajv@6.15.0)(react-hook-form@7.90.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)':
+  '@hookform/resolvers@6.0.0(@standard-schema/spec@1.1.0)(ajv@6.15.0)(react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.90.0(@types/react@19.3.0)(react@19.3.1)
+      react-hook-form: 7.91.0(@types/react@19.3.0)(react@19.3.1)
     optionalDependencies:
       '@standard-schema/spec': 1.1.0
       ajv: 6.15.0
@@ -9897,7 +9897,7 @@ snapshots:
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
 
-  react-hook-form@7.90.0(@types/react@19.3.0)(react@19.3.1):
+  react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1):
     dependencies:
       react: 19.3.1
     optionalDependencies:
