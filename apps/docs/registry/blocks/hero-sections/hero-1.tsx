@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight, ClipboardCheck, Menu, Zap } from "lucide-react";
 import { Badge, Button, Nav, Navbar, Text } from "@hummingbirdui/react";
 import { cn } from "@hummingbirdui/react/utils";
 
@@ -30,7 +31,7 @@ export default function Hero1() {
       >
         <div className="flex items-center gap-2">
           <Navbar.Toggle className="btn btn-icon">
-            <MenuIcon />
+            <Menu className="size-4.5" />
           </Navbar.Toggle>
           <Navbar.Brand href="#" className="flex items-center gap-2 me-0">
             <img
@@ -69,18 +70,7 @@ export default function Hero1() {
               color="primary"
               className="mb-8 py-1.25 pe-2.5"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  fill="currentColor"
-                  d="m7 22l4-7.5l-8-1L15 2h2l-4 7.5l8 1L9 22z"
-                />
-              </svg>
+              <Zap className="size-3" fill="currentColor" />
               Design. Inspire. Transform
             </Badge>
             <Text
@@ -100,18 +90,7 @@ export default function Hero1() {
             </Text>
             <Button color="neutral" size="lg">
               Start Project
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1.5em"
-                height="1.5em"
-                viewBox="0 0 24 24"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  fill="currentColor"
-                  d="M16.175 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"
-                />
-              </svg>
+              <ArrowRight className="size-6" />
             </Button>
             <div className="sm:flex items-center max-lg:justify-between gap-2.5 xl:gap-7 mt-16 max-lg:mb-12">
               {stats.map((stat, index) => (
@@ -126,7 +105,7 @@ export default function Hero1() {
                         stat.className,
                       )}
                     >
-                      <ClipboardCheckIcon />
+                      <ClipboardCheck className="size-5" />
                     </div>
                     <div>
                       <Text as="h4" className="mb-1">
@@ -157,40 +136,5 @@ export default function Hero1() {
         </div>
       </div>
     </>
-  );
-}
-
-function MenuIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-    >
-      <path
-        fill="currentColor"
-        d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"
-        strokeWidth="0.5"
-        stroke="currentColor"
-      />
-    </svg>
-  );
-}
-
-function ClipboardCheckIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1.25em"
-      height="1.25em"
-      viewBox="0 0 24 24"
-    >
-      <path d="M0 0h24v24H0z" fill="none" />
-      <path
-        fill="currentColor"
-        d="M10.6 13.25L8.45 11.1q-.275-.275-.7-.275t-.7.275t-.275.7t.275.7l2.85 2.85q.3.3.7.3t.7-.3l5.65-5.65q.275-.275.275-.7t-.275-.7t-.7-.275t-.7.275zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h4.2q.325-.9 1.088-1.45T12 1t1.713.55T14.8 3H19q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zm7.538-14.962q.212-.213.212-.538t-.213-.537T12 2.75t-.537.213t-.213.537t.213.538t.537.212t.538-.213M5 19V5z"
-      />
-    </svg>
   );
 }

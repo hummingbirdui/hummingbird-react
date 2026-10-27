@@ -1,5 +1,6 @@
 "use client";
 
+import { Menu, Star } from "lucide-react";
 import { Avatar, Badge, Button, Nav, Navbar, Text } from "@hummingbirdui/react";
 
 const navLinks = ["Home", "Features", "Pricing", "Company"];
@@ -41,7 +42,7 @@ export default function Hero3() {
         <Navbar expand="lg" className="max-w-7xl mx-auto px-6 md:px-10 py-4">
           <div className="flex items-center gap-2 me-8">
             <Navbar.Toggle className="btn btn-icon">
-              <MenuIcon />
+              <Menu className="size-4.5" />
             </Navbar.Toggle>
             <Navbar.Brand href="#" className="flex items-center gap-2 me-0">
               <img
@@ -111,7 +112,11 @@ export default function Hero3() {
               </Text>
               <div className="flex">
                 {Array.from({ length: 5 }, (_, index) => (
-                  <StarIcon key={index} />
+                  <Star
+                    key={index}
+                    className="size-4.5 text-warning"
+                    fill="currentColor"
+                  />
                 ))}
               </div>
             </div>
@@ -144,42 +149,5 @@ export default function Hero3() {
         </div>
       </div>
     </div>
-  );
-}
-
-function MenuIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-    >
-      <path
-        fill="currentColor"
-        d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"
-        strokeWidth="0.5"
-        stroke="currentColor"
-      />
-    </svg>
-  );
-}
-
-function StarIcon() {
-  return (
-    <svg
-      className="text-warning"
-      xmlns="http://www.w3.org/2000/svg"
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-    >
-      <path
-        fill="currentColor"
-        d="m12 16.3l-3.7 2.825q-.275.225-.6.213t-.575-.188t-.387-.475t-.013-.65L8.15 13.4l-3.625-2.575q-.3-.2-.375-.525t.025-.6t.35-.488t.6-.212H9.6l1.45-4.8q.125-.35.388-.538T12 3.475t.563.188t.387.537L14.4 9h4.475q.35 0 .6.213t.35.487t.025.6t-.375.525L15.85 13.4l1.425 4.625q.125.35-.012.65t-.388.475t-.575.188t-.6-.213z"
-        strokeWidth="0.5"
-        stroke="currentColor"
-      />
-    </svg>
   );
 }
