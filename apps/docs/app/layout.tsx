@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
-import "./globals.css";
 
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
   display: "swap",
 });
-import { ThemeModeScript, Toaster } from "@hummingbirdui/react";
+import { ThemeModeScript } from "@hummingbirdui/react";
 import { MainThemeScript } from "@/components/layout/MainThemeScript";
-import { MainThemeController } from "@/components/layout/MainThemeController";
-import { SiteNavbar } from "@/components/layout/SiteNavbar";
-import { SiteFooter } from "@/components/layout/SiteFooter";
 
 export const metadata: Metadata = {
   title: {
@@ -45,13 +41,7 @@ export default function RootLayout({
         <ThemeModeScript />
         <MainThemeScript />
       </head>
-      <body className="min-h-screen flex flex-col bg-default text-default">
-        <MainThemeController />
-        <SiteNavbar />
-        <div className="flex-1">{children}</div>
-        <Toaster />
-        <SiteFooter />
-      </body>
+      <body className="bg-default text-default">{children}</body>
     </html>
   );
 }
