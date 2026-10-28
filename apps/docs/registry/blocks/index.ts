@@ -110,7 +110,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/feature.png",
       dark: "/images/blocks/feature-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "feature-1",
+        title: "Simple feature cards",
+        file: "feature-sections/feature-1.tsx",
+        className: "min-h-230",
+      },
+      {
+        name: "feature-2",
+        title: "Split feature layout with image",
+        file: "feature-sections/feature-2.tsx",
+        className: "min-h-170",
+      },
+      {
+        name: "feature-3",
+        title: "Bento grid layout feature section",
+        file: "feature-sections/feature-3.tsx",
+        className: "min-h-340",
+      },
+      {
+        name: "feature-4",
+        title: "Asymmetric feature layout",
+        file: "feature-sections/feature-4.tsx",
+        className: "min-h-235",
+      },
+      {
+        name: "feature-5",
+        title: "Feature layout with side columns and central image",
+        file: "feature-sections/feature-5.tsx",
+        className: "min-h-215",
+      },
+    ],
   },
   {
     slug: "pricing-plans",
@@ -122,7 +153,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/pricing.png",
       dark: "/images/blocks/pricing-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "pricing-1",
+        title: "Three column card layout with icon",
+        file: "pricing-plans/pricing-1.tsx",
+        className: "min-h-228.5",
+      },
+      {
+        name: "pricing-2",
+        title: "Minimal cards with billing toggle",
+        file: "pricing-plans/pricing-2.tsx",
+        className: "min-h-193",
+      },
+      {
+        name: "pricing-3",
+        title: "Three column bordered card layout",
+        file: "pricing-plans/pricing-3.tsx",
+        className: "min-h-218",
+      },
+      {
+        name: "pricing-4",
+        title: "Grid layout with gradient background accents",
+        file: "pricing-plans/pricing-4.tsx",
+        className: "min-h-315",
+      },
+      {
+        name: "pricing-5",
+        title: "Table-based pricing comparison",
+        file: "pricing-plans/pricing-5.tsx",
+        className: "min-h-265",
+      },
+    ],
   },
   {
     slug: "stats",
@@ -134,7 +196,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/stats.png",
       dark: "/images/blocks/stats-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "stat-1",
+        title: "Stat cards with trend indicators",
+        file: "stats/stat-1.tsx",
+        className: "min-h-50",
+      },
+      {
+        name: "stat-2",
+        title: "Stat cards with performance trends",
+        file: "stats/stat-2.tsx",
+        className: "min-h-65",
+      },
+      {
+        name: "stat-3",
+        title: "Stat cards with actions",
+        file: "stats/stat-3.tsx",
+        className: "min-h-65",
+      },
+      {
+        name: "stat-4",
+        title: "Stat cards with charts status indicators",
+        file: "stats/stat-4.tsx",
+        className: "min-h-69",
+      },
+      {
+        name: "stat-5",
+        title: "Stat cards with mixed data indicators",
+        file: "stats/stat-5.tsx",
+        className: "min-h-65",
+      },
+    ],
   },
   {
     slug: "testimonials",
@@ -146,7 +239,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/testimonial.png",
       dark: "/images/blocks/testimonial-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "testimonial-1",
+        title: "Single card testimonial with brand",
+        file: "testimonials/testimonial-1.tsx",
+        className: "min-h-149",
+      },
+      {
+        name: "testimonial-2",
+        title: "Split testimonial card with image",
+        file: "testimonials/testimonial-2.tsx",
+        className: "min-h-173",
+      },
+      {
+        name: "testimonial-3",
+        title: "Split testimonial section with heading",
+        file: "testimonials/testimonial-3.tsx",
+        className: "min-h-200",
+      },
+      {
+        name: "testimonial-4",
+        title: "Minimal spotlight testimonial",
+        file: "testimonials/testimonial-4.tsx",
+        className: "min-h-143",
+      },
+      {
+        name: "testimonial-5",
+        title: "Testimonial section with stats cards",
+        file: "testimonials/testimonial-5.tsx",
+        className: "min-h-155",
+      },
+    ],
   },
   {
     slug: "team-sections",
@@ -158,7 +282,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/team.png",
       dark: "/images/blocks/team-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "team-1",
+        title: "Simple team grid with profile cards",
+        file: "team-sections/team-1.tsx",
+        className: "min-h-265",
+      },
+      {
+        name: "team-2",
+        title: "Team section with large image cards",
+        file: "team-sections/team-2.tsx",
+        className: "min-h-185",
+      },
+      {
+        name: "team-3",
+        title: "Square image profile cards",
+        file: "team-sections/team-3.tsx",
+        className: "min-h-172",
+      },
+      {
+        name: "team-4",
+        title: "Bordered grid team cards",
+        file: "team-sections/team-4.tsx",
+        className: "min-h-150",
+      },
+      {
+        name: "team-5",
+        title: "Hover reveal overlay team cards",
+        file: "team-sections/team-5.tsx",
+        className: "min-h-210",
+      },
+    ],
   },
   {
     slug: "cta-sections",
@@ -170,7 +325,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/cta.png",
       dark: "/images/blocks/cta-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "cta-1",
+        title: "Simple cta card",
+        file: "cta-sections/cta-1.tsx",
+        className: "min-h-185",
+      },
+      {
+        name: "cta-2",
+        title: "Split cta section with feature list and image",
+        file: "cta-sections/cta-2.tsx",
+        className: "min-h-170",
+      },
+      {
+        name: "cta-3",
+        title: "Cta cards with multiple startup options",
+        file: "cta-sections/cta-3.tsx",
+        className: "min-h-170",
+      },
+      {
+        name: "cta-4",
+        title: "Feature cta panel with stats card",
+        file: "cta-sections/cta-4.tsx",
+        className: "min-h-155",
+      },
+      {
+        name: "cta-5",
+        title: "Marketing promo cta banner",
+        file: "cta-sections/cta-5.tsx",
+        className: "min-h-72",
+      },
+    ],
   },
   {
     slug: "footers",
@@ -182,7 +368,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/footer.png",
       dark: "/images/blocks/footer-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "footer-1",
+        title: "Default footer section",
+        file: "footers/footer-1.tsx",
+        className: "min-h-85",
+      },
+      {
+        name: "footer-2",
+        title: "Footer with newsletter",
+        file: "footers/footer-2.tsx",
+        className: "min-h-120",
+      },
+      {
+        name: "footer-3",
+        title: "Multi card footer layout",
+        file: "footers/footer-3.tsx",
+        className: "min-h-98",
+      },
+      {
+        name: "footer-4",
+        title: "Footer layout with cta",
+        file: "footers/footer-4.tsx",
+        className: "min-h-118",
+      },
+      {
+        name: "footer-5",
+        title: "E-commerce footer layout",
+        file: "footers/footer-5.tsx",
+        className: "min-h-115",
+      },
+    ],
   },
   {
     slug: "authentication-forms",
@@ -194,7 +411,38 @@ export const blockCategories: BlockCategory[] = [
       light: "/images/blocks/auth.png",
       dark: "/images/blocks/auth-dark.png",
     },
-    blocks: [],
+    blocks: [
+      {
+        name: "signin-1",
+        title: "Basic sign-in form",
+        file: "authentication-forms/signin-1.tsx",
+        className: "min-h-220",
+      },
+      {
+        name: "signin-2",
+        title: "Sign-in form with floating labels",
+        file: "authentication-forms/signin-2.tsx",
+        className: "min-h-200",
+      },
+      {
+        name: "signin-3",
+        title: "Multi card sign-in layout",
+        file: "authentication-forms/signin-3.tsx",
+        className: "min-h-170",
+      },
+      {
+        name: "signup-1",
+        title: "Split signup layout with marketing panel",
+        file: "authentication-forms/signup-1.tsx",
+        className: "min-h-260",
+      },
+      {
+        name: "signup-2",
+        title: "Split auth layout with signin/signup tabs",
+        file: "authentication-forms/signup-2.tsx",
+        className: "min-h-260",
+      },
+    ],
   },
 ];
 
