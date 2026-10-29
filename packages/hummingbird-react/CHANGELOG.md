@@ -4,7 +4,9 @@
 
 ### Minor Changes
 
-- [#83](https://github.com/hummingbirdui/hummingbird-react/pull/83) [`5ef5a9f`](https://github.com/hummingbirdui/hummingbird-react/commit/5ef5a9f373cb6ada97499231b66c5a8e4b2d1f0e) Thanks [@khayrul25](https://github.com/khayrul25)! - Add the `NavigationMenu` component and dropdown submenus (`Dropdown.Sub`, `Dropdown.SubTrigger`, `Dropdown.SubContent`).
+- [#83](https://github.com/hummingbirdui/hummingbird-react/pull/83) [`5ef5a9f`](https://github.com/hummingbirdui/hummingbird-react/commit/5ef5a9f373cb6ada97499231b66c5a8e4b2d1f0e) Thanks [@khayrul25](https://github.com/khayrul25)! - Add the `NavigationMenu` component.
+-  Add dropdown submenus (`Dropdown.Sub`, `Dropdown.SubTrigger`, `Dropdown.SubContent`).
+- Add 10 different UI blocks - `Layout`, `Hero`, `Feature`, `Pricing`, `Testimonial`, `CallToAction`, `Stats`, `Team`, `Authentication`, and `Footer`.
 
 ## 1.0.1
 
