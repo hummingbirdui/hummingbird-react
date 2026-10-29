@@ -11,6 +11,14 @@ import {
 
 const TEMPLATES_ROOT = path.resolve(import.meta.dirname, '../templates');
 
+// The templates must scaffold with the library version released alongside the
+// CLI; .github/scripts/sync-template-versions.mjs keeps them in step.
+const LIBRARY_VERSION = (
+  JSON.parse(
+    readFileSync(path.resolve(import.meta.dirname, '../../hummingbird-react/package.json'), 'utf8')
+  ) as { version: string }
+).version;
+
 /** Where each template keeps its CSS entry and its welcome page source. */
 const LAYOUT: Record<string, { css: string; welcome: string; components: string }> = {
   nextjs: { css: 'app/globals.css', welcome: 'app/page.tsx', components: 'components' },
@@ -94,13 +102,13 @@ describe.each(TEMPLATE_IDS)('template %s', (id) => {
     }
   });
 
-  it('depends on @hummingbirdui/react and Tailwind CSS v4', () => {
+  it('depends on the current @hummingbirdui/react and Tailwind CSS v4', () => {
     const pkg = JSON.parse(read(id, 'package.json')) as {
       dependencies?: Record<string, string>;
       devDependencies?: Record<string, string>;
     };
     const deps = { ...pkg.dependencies, ...pkg.devDependencies };
-    expect(deps['@hummingbirdui/react']).toMatch(/^\^1\./);
+    expect(deps['@hummingbirdui/react']).toBe(`^${LIBRARY_VERSION}`);
     expect(deps.tailwindcss).toMatch(/^\^4\./);
     expect(deps.react).toMatch(/^\^19\./);
   });

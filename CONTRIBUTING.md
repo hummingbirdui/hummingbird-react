@@ -254,7 +254,7 @@ Publishing is fully automated — **never run `npm publish` from a machine** (au
 
 ### Stable releases — `.github/workflows/release.yml` (automatic)
 
-1. Merged PRs with changesets feed an auto-maintained PR titled **"chore(release): version packages"** (version bump + CHANGELOG + lockfile). It accumulates until you're ready to ship.
+1. Merged PRs with changesets feed an auto-maintained PR titled **"chore(release): version packages"** (version bump + CHANGELOG + lockfile, plus the CLI templates' `@hummingbirdui/react` dependency moved to the new version by `.github/scripts/sync-template-versions.mjs`). It accumulates until you're ready to ship.
 2. **Merging that PR is the release.** The workflow verifies (lint, types, tests, build), publishes both packages to npm `latest` at the same version, then creates one `vX.Y.Z` git tag and one GitHub Release covering both. The Release lists the library's changes, followed by a `create-hummingbird-react-app` section when the CLI has changes of its own. The tag/Release step (`.github/scripts/tag-release.sh`) refuses to run if the two versions differ, waits until both are live on npm, and self-heals on the next push to `main` if a run half-fails.
 
 ### Prereleases — `.github/workflows/prerelease.yml` (manual, rare)
