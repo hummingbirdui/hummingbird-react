@@ -2,8 +2,14 @@ name: Template smoke test
 
 # Scaffolds every create-hummingbird-react-app template, installs it from the
 # registry exactly as a user would, and builds it. Runs when the CLI or its
-# templates change, weekly to catch upstream framework drift, and on demand
-# (optionally against the workspace build of @hummingbirdui/react).
+# templates change, weekly to catch upstream framework drift, and on demand.
+#
+# @hummingbirdui/react comes from npm, except when the version the template
+# asks for isn't published yet — the "chore(release): version packages" PR
+# and the push that releases it point the templates at the version about to
+# ship — or when the workflow is run by hand with library=workspace. Then the
+# repo's own build is packed and installed instead, since that is the build
+# the release will publish.
 on:
   pull_request:
     paths:
@@ -80,8 +86,24 @@ jobs:
             echo "PM=npm" >> "$GITHUB_ENV"
           fi
 
+      - name: Choose where @hummingbirdui/react comes from
+        env:
+          TEMPLATE_MANIFEST: packages/create-hummingbird-react-app/templates/${{ matrix.template }}/package.json
+        run: |
+          if [ "${{ inputs.library }}" = "workspace" ]; then
+            echo "LIBRARY=workspace" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          range=$(node -p "require('./$TEMPLATE_MANIFEST').dependencies['@hummingbirdui/react']")
+          if [ -n "$(npm view "@hummingbirdui/react@$range" version 2>/dev/null)" ]; then
+            echo "LIBRARY=npm" >> "$GITHUB_ENV"
+          else
+            echo "::notice::@hummingbirdui/react@$range is not on npm yet (release in progress) — testing against the workspace build"
+            echo "LIBRARY=workspace" >> "$GITHUB_ENV"
+          fi
+
       - name: Pack the workspace library
-        if: inputs.library == 'workspace'
+        if: env.LIBRARY == 'workspace'
         run: |
           pnpm turbo run build --filter=@hummingbirdui/react
           cd packages/hummingbird-react
@@ -93,7 +115,7 @@ jobs:
           --template ${{ matrix.template }} --pm ${{ matrix.pm }} --no-install --no-git --yes
 
       - name: Use the workspace library
-        if: inputs.library == 'workspace'
+        if: env.LIBRARY == 'workspace'
         working-directory: ${{ env.APP_DIR }}
         run: |
           node -e '
