@@ -107,7 +107,11 @@ describe('NavigationMenu', () => {
     it('closes the panel on Escape', async () => {
       const user = setupUser();
       render(<Example />);
-      await user.click(screen.getByRole('button', { name: /products/i }));
+      // Open from the keyboard: a pointer click also schedules Radix's 200ms
+      // hover-open timer, which would reopen the panel after Escape on a slow
+      // runner and make this test flaky.
+      screen.getByRole('button', { name: /products/i }).focus();
+      await user.keyboard('{Enter}');
       await screen.findByRole('link', { name: /analytics/i });
 
       await user.keyboard('{Escape}');
