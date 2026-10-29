@@ -1,0 +1,947 @@
+3:"$Sreact.fragment"
+4:"/_next/static/chunks/13_an0f2ztgqb.js"
+5:I[77420,["$4"],"default"]
+6:I[44976,["$4"],"default"]
+d:"/_next/static/chunks/2akx4p4qrqc0p.js"
+e:"/_next/static/chunks/0gigfjnincjf3.js"
+f:"/_next/static/chunks/1376-94u851qa.js"
+10:"/_next/static/chunks/0sjshpa68moll.js"
+11:"/_next/static/chunks/33cjcsyi6lzkq.js"
+12:"/_next/static/chunks/2xf2rybx9ghs2.js"
+13:"/_next/static/chunks/1_6wev6cju92l.js"
+14:"/_next/static/chunks/2-8929zp2d58v.js"
+15:"/_next/static/chunks/1rdvori2xxj20.js"
+16:I[26830,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],""]
+17:"BlockPreviewFrame"
+18:I[20558,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],"$17"]
+22:"ViewportBoundary"
+23:I[16242,["$4"],"$22"]
+24:"MetadataBoundary"
+25:I[16242,["$4"],"$24"]
+26:"$Sreact.suspense"
+27:I[94959,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+19:T1a5c,"use client";
+
+import { Button, Card, Text } from "@hummingbirdui/react";
+
+type Social = "github" | "linkedin" | "twitter";
+
+const members: {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  socials: Social[];
+}[] = [
+  {
+    name: "Marcus Thorne",
+    role: "Frontend Developer",
+    bio: "Passionate about crafting beautiful UI and smooth UX.",
+    image:
+      "https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&w=1021&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    socials: ["github", "linkedin"],
+  },
+  {
+    name: "Jane Smith",
+    role: "UI/UX Designer",
+    bio: "Designing intuitive and user-friendly experiences.",
+    image:
+      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170",
+    socials: ["twitter", "linkedin"],
+  },
+  {
+    name: "Michael Lee",
+    role: "Backend Engineer",
+    bio: "Building scalable and efficient server-side systems.",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    socials: ["github", "linkedin"],
+  },
+  {
+    name: "Emily Davis",
+    role: "Project Manager",
+    bio: "Ensuring projects are delivered on time and on point.",
+    image:
+      "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=699&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    socials: ["twitter", "linkedin"],
+  },
+  {
+    name: "David Kim",
+    role: "Full Stack Developer",
+    bio: "Bridging frontend and backend with seamless integration.",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    socials: ["github", "linkedin"],
+  },
+  {
+    name: "Sophia Brown",
+    role: "Product Designer",
+    bio: "Creating delightful product experiences with user focus.",
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    socials: ["twitter", "linkedin"],
+  },
+  {
+    name: "Daniel Wilson",
+    role: "DevOps Engineer",
+    bio: "Automating workflows and optimizing infrastructure.",
+    image:
+      "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    socials: ["github", "linkedin"],
+  },
+  {
+    name: "Olivia Martinez",
+    role: "Marketing Lead",
+    bio: "Driving growth through creative marketing strategies.",
+    image:
+      "https://images.unsplash.com/photo-1563584316028-2b70b3a3a8bf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    socials: ["twitter", "linkedin"],
+  },
+];
+
+const socialIcons: Record<Social, { label: string; path: string }> = {
+  github: {
+    label: "GitHub",
+    path: "M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2",
+  },
+  linkedin: {
+    label: "LinkedIn",
+    path: "M19.707 3H4.347a1.3 1.3 0 0 0-1.306 1.306v15.388c0 .696.58 1.306 1.306 1.306h15.3a1.3 1.3 0 0 0 1.307-1.306V4.277C21.013 3.581 20.432 3 19.707 3M8.354 18.3H5.713V9.735h2.642zM7.019 8.545a1.53 1.53 0 0 1-1.538-1.539c0-.841.696-1.538 1.538-1.538s1.54.697 1.54 1.538s-.64 1.54-1.54 1.54M18.371 18.3h-2.642v-4.152c0-.987-.029-2.293-1.393-2.293c-1.394 0-1.597 1.103-1.597 2.206V18.3h-2.642V9.735h2.584v1.19h.029c.377-.696 1.22-1.393 2.526-1.393c2.7 0 3.193 1.742 3.193 4.123V18.3z",
+  },
+  twitter: {
+    label: "X",
+    path: "m17.687 3.063l-4.996 5.711l-4.32-5.711H2.112l7.477 9.776l-7.086 8.099h3.034l5.469-6.25l4.78 6.25h6.102l-7.794-10.304l6.625-7.571zm-1.064 16.06L5.654 4.782h1.803l10.846 14.34z",
+  },
+};
+
+export default function Team1() {
+  return (
+    <section className="px-6 py-20 max-w-7xl mx-auto">
+      <div className="text-center mb-12">
+        <Text as="h1" size="3xl" className="sm:text-4xl mb-4">
+          Meet Our Team
+        </Text>
+        <Text className="text-muted sm:text-lg max-w-150 mx-auto">
+          Our team is a diverse group of passionate designers, developers, and
+          strategists dedicated to building exceptional digital experiences.
+        </Text>
+      </div>
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
+        {members.map((member) => (
+          <Card
+            key={member.name}
+            className="text-center border-subtle max-w-80"
+          >
+            <Card.Image
+              src={member.image}
+              alt={member.name}
+              className="rounded-full w-32 h-32 object-cover mx-auto mt-6"
+            />
+            <Card.Body>
+              <Text
+                as="h6"
+                size="lg"
+                fontWeight="semibold"
+                className="card-title mb-1"
+              >
+                {member.name}
+              </Text>
+              <Text size="sm" className="text-subtle mb-4">
+                {member.role}
+              </Text>
+              <Text size="sm" className="text-muted mb-0">
+                {member.bio}
+              </Text>
+            </Card.Body>
+            <Card.Footer className="flex justify-center gap-2 pb-4">
+              {member.socials.map((social) => (
+                <Button
+                  key={social}
+                  asChild
+                  variant="icon"
+                  color={null}
+                  size="sm"
+                  className="hover:text-muted transition"
+                >
+                  <a href="#!" aria-label={socialIcons[social].label}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path fill="currentColor" d={socialIcons[social].path} />
+                    </svg>
+                  </a>
+                </Button>
+              ))}
+            </Card.Footer>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[["$","div",null,{"className":"px-6 max-w-332 mx-auto my-10","children":[["$","nav",null,{"aria-label":"breadcrumb","data-slot":"breadcrumb","children":["$","ol",null,{"data-slot":"breadcrumb-list","className":"breadcrumb","children":[["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/","children":"Home","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/blocks/","children":"Blocks","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item active","children":["$","span",null,{"role":"link","aria-disabled":"true","aria-current":"page","data-slot":"breadcrumb-page","children":"Team Sections"}]}]]}]}],["$","h3",null,{"data-slot":"text","className":"mb-4 mt-8","children":"Team Sections"}],["$","p",null,{"data-slot":"text","className":"text-lg","children":"Explore Tailwind CSS team section examples to showcase your team members and roles. These blocks include a variety of layouts and styles to help you present your team in a clear and organized way."}],[["$","$L18","team-1",{"id":"simple-team-grid-with-profile-cards","title":"Simple team grid with profile cards","src":"/blocks-preview/team-1/","className":"min-h-265","rawCode":"$19","children":"$L1a"}],"$L1b","$L1c","$L1d","$L1e"]]}],["$L1f"],"$L20"]}],"p":"$@21","v":null,"s":"$9"}}]]
+a:[["children",{"s":{"n":"category","t":"d","k":"team-sections","s":[]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"blocks","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(site)","h":131072,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L23",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L25",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$26",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Team Sections - Blocks - Hummingbird React"}],["$","meta","1",{"name":"description","content":"Explore Tailwind CSS team section examples to showcase your team members and roles. These blocks include a variety of layouts and styles to help you present your team in a clear and organized way."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0tkfkuwy0yjwj.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","3",{"rel":"icon","href":"/images/favicons/favicon.ico"}],["$","link","4",{"rel":"icon","href":"/images/favicons/favicon.svg","type":"image/svg+xml"}],["$","link","5",{"rel":"icon","href":"/images/favicons/favicon-96x96.png","type":"image/png","sizes":"96x96"}],["$","link","6",{"rel":"apple-touch-icon","href":"/images/favicons/apple-touch-icon.png"}],["$","link","7",{"rel":"manifest","href":"/images/favicons/site.webmanifest"}],["$","$L27","8",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@28","v":null,"s":"$9"}},"a":"$@29","u":"$@2a","b":"4XXIyUC1vICs4BT4G-F75"}
+34:I[16242,["$4"],"OutletBoundary"]
+2b:T948c,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Button, Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">type</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Social</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;github&quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> |</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;linkedin&quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> |</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;twitter&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> members</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  name</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  role</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  bio</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  image</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  socials</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Social</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}[] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Marcus Thorne&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Frontend Developer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Passionate about crafting beautiful UI and smooth UX.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&amp;w=1021&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;github&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Jane Smith&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;UI/UX Designer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Designing intuitive and user-friendly experiences.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&amp;w=1170&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;twitter&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Michael Lee&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Backend Engineer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Building scalable and efficient server-side systems.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;github&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Emily Davis&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Project Manager&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Ensuring projects are delivered on time and on point.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&amp;w=699&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;twitter&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;David Kim&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Full Stack Developer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Bridging frontend and backend with seamless integration.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;github&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Sophia Brown&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Product Designer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Creating delightful product experiences with user focus.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&amp;w=880&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;twitter&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Daniel Wilson&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;DevOps Engineer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Automating workflows and optimizing infrastructure.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1546820389-44d77e1f3b31?q=80&amp;w=764&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;github&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Olivia Martinez&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Marketing Lead&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Driving growth through creative marketing strategies.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1563584316028-2b70b3a3a8bf?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    socials: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;twitter&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;linkedin&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> socialIcons</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Record</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&lt;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">Social</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, { </span><span style="color:#E36209;--shiki-dark:#FFAB70">label</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; </span><span style="color:#E36209;--shiki-dark:#FFAB70">path</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> }&gt; </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  github: {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    label: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;GitHub&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    path: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  linkedin: {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    label: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;LinkedIn&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    path: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;M19.707 3H4.347a1.3 1.3 0 0 0-1.306 1.306v15.388c0 .696.58 1.306 1.306 1.306h15.3a1.3 1.3 0 0 0 1.307-1.306V4.277C21.013 3.581 20.432 3 19.707 3M8.354 18.3H5.713V9.735h2.642zM7.019 8.545a1.53 1.53 0 0 1-1.538-1.539c0-.841.696-1.538 1.538-1.538s1.54.697 1.54 1.538s-.64 1.54-1.54 1.54M18.371 18.3h-2.642v-4.152c0-.987-.029-2.293-1.393-2.293c-1.394 0-1.597 1.103-1.597 2.206V18.3h-2.642V9.735h2.584v1.19h.029c.377-.696 1.22-1.393 2.526-1.393c2.7 0 3.193 1.742 3.193 4.123V18.3z&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  twitter: {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    label: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;X&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    path: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;m17.687 3.063l-4.996 5.711l-4.32-5.711H2.112l7.477 9.776l-7.086 8.099h3.034l5.469-6.25l4.78 6.25h6.102l-7.794-10.304l6.625-7.571zm-1.064 16.06L5.654 4.782h1.803l10.846 14.34z&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Team1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 max-w-7xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-center mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h1&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-4xl mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Meet Our Team</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted sm:text-lg max-w-150 mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Our team is a diverse group of passionate designers, developers, and</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          strategists dedicated to building exceptional digital experiences.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {members.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">member</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-center border-subtle max-w-80&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card.Image</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.image}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;rounded-full w-32 h-32 object-cover mx-auto mt-6&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card.Body</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h6&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;card-title mb-1&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                {member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-subtle mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                {member.role}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted mb-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                {member.bio}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card.Body</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card.Footer</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex justify-center gap-2 pb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.socials.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">social</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{social}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  asChild</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;icon&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#005CC5;--shiki-dark:#79B8FF">null</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;hover:text-muted transition&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#!&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> aria-label</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{socialIcons[social].label}&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">svg</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                      xmlns</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;http://www.w3.org/2000/svg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                      width</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;24&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                      height</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;24&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                      viewBox</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;0 0 24 24&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">path</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> d</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{socialIcons[social].path} /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">svg</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card.Footer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1a:[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2b"}}]}]]
+2c:T95b,"use client";
+
+import { Card, Text } from "@hummingbirdui/react";
+
+const members = [
+  {
+    name: "Leslie Alexander",
+    role: "Co-Founder / CEO",
+    bio: "Expert in strategic planning and human-centric design with 10+ years of experience.",
+    image:
+      "https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&w=1021&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Michael Foster",
+    role: "Co-Founder / CTO",
+    bio: "Architecting scalable solutions and leading our engineering team to new heights.",
+    image:
+      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170",
+  },
+  {
+    name: "Dries Vincent",
+    role: "Business Relations",
+    bio: "Building bridges between technology and user needs through global partnerships.",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+export default function Team2() {
+  return (
+    <section className="px-6 py-20 mx-auto max-w-7xl">
+      <div className="text-center mb-12">
+        <Text as="h1" size="3xl" className="sm:text-4xl mb-4">
+          Meet Our Leadership
+        </Text>
+        <Text className="text-muted sm:text-lg max-w-150 mx-auto">
+          We’re a dynamic group of individuals who are passionate about what we
+          do and dedicated to delivering the best results for our clients.
+        </Text>
+      </div>
+      <div className="mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {members.map((member) => (
+          <Card key={member.name} className="bg-default border-0">
+            <img
+              className="aspect-3/2 rounded-2xl object-cover mb-6"
+              src={member.image}
+              alt={member.name}
+            />
+            <Text
+              as="h3"
+              size="lg"
+              fontWeight="semibold"
+              className="text-default mb-2"
+            >
+              {member.name}
+            </Text>
+            <Text size="base" fontWeight="medium" className="text-primary mb-4">
+              {member.role}
+            </Text>
+            <Text size="base" className="text-muted">
+              {member.bio}
+            </Text>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}2d:T3d3c,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> members</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Leslie Alexander&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Co-Founder / CEO&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Expert in strategic planning and human-centric design with 10+ years of experience.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&amp;w=1021&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Michael Foster&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Co-Founder / CTO&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Architecting scalable solutions and leading our engineering team to new heights.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&amp;w=1170&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Dries Vincent&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Business Relations&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Building bridges between technology and user needs through global partnerships.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Team2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 mx-auto max-w-7xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-center mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h1&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-4xl mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Meet Our Leadership</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted sm:text-lg max-w-150 mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          We’re a dynamic group of individuals who are passionate about what we</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          do and dedicated to delivering the best results for our clients.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {members.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">member</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name} </span><span style="color:#6F42C1;--shiki-dark:#B392F0">className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-default border-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;aspect-3/2 rounded-2xl object-cover mb-6&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.image}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default mb-2&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-primary mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.role}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.bio}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1b:["$","$L18","team-2",{"id":"team-section-with-large-image-cards","title":"Team section with large image cards","src":"/blocks-preview/team-2/","className":"min-h-185","rawCode":"$2c","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2d"}}]}]]}]
+2e:T85f,"use client";
+
+import { Text } from "@hummingbirdui/react";
+
+const members = [
+  {
+    name: "Lindsay Walton",
+    role: "Front-end Developer",
+    image:
+      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170",
+  },
+  {
+    name: "Courtney Henry",
+    role: "Designer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Tom Cook",
+    role: "Director of Product",
+    image:
+      "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Leonard Krasner",
+    role: "Senior Designer",
+    image:
+      "https://images.unsplash.com/photo-1563584316028-2b70b3a3a8bf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+export default function Team3() {
+  return (
+    <section className="px-6 py-20 mx-auto max-w-7xl">
+      <Text
+        as="h3"
+        size="base"
+        fontWeight="semibold"
+        className="text-primary mb-3"
+      >
+        Our people
+      </Text>
+      <Text as="h1" size="3xl" className="sm:text-4xl mb-4">
+        Built by a team of experts
+      </Text>
+      <Text className="text-muted sm:text-lg mb-12">
+        We believe that great software is built by diverse teams who are
+        passionate about their craft.
+      </Text>
+      <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8">
+        {members.map((member) => (
+          <div key={member.name}>
+            <img
+              className="aspect-square object-cover rounded-2xl mb-6"
+              src={member.image}
+              alt={member.name}
+            />
+            <Text as="h3" size="base" fontWeight="semibold">
+              {member.name}
+            </Text>
+            <Text size="sm" className="text-muted">
+              {member.role}
+            </Text>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}2f:T39e6,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> members</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Lindsay Walton&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Front-end Developer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&amp;w=1170&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Courtney Henry&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Designer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Tom Cook&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Director of Product&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1546820389-44d77e1f3b31?q=80&amp;w=764&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Leonard Krasner&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Senior Designer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1563584316028-2b70b3a3a8bf?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Team3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 mx-auto max-w-7xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-primary mb-3&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        Our people</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h1&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-4xl mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        Built by a team of experts</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted sm:text-lg mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        We believe that great software is built by diverse teams who are</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        passionate about their craft.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {members.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">member</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;aspect-square object-cover rounded-2xl mb-6&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.image}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.role}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1c:["$","$L18","team-3",{"id":"square-image-profile-cards","title":"Square image profile cards","src":"/blocks-preview/team-3/","className":"min-h-172","rawCode":"$2e","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2f"}}]}]]}]
+30:Tadf,"use client";
+
+import { Text } from "@hummingbirdui/react";
+import { cn } from "@hummingbirdui/react/utils";
+
+const members = [
+  {
+    name: "Arlo White",
+    role: "Backend Engineer",
+    bio: "Building robust systems with a focus on security and efficiency.",
+    image:
+      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170",
+    className:
+      "md:border-r md:pr-8 lg:pr-12 last:border-r-0 lg:nth-4:border-r-0",
+  },
+  {
+    name: "Sarah Jenkins",
+    role: "UX Designer",
+    bio: "Creating intuitive interfaces that put the user first.",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    className:
+      "md:pl-8 lg:border-r lg:px-8 lg:last:border-r-0 lg:nth-4:border-r-0",
+  },
+  {
+    name: "James Wilson",
+    role: "Product Manager",
+    bio: "Bridging the gap between technical teams and business goals.",
+    image:
+      "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    className:
+      "md:border-r md:pr-8 lg:px-8 lg:last:border-r-0 lg:nth-4:border-r-0",
+  },
+  {
+    name: "Maya Patel",
+    role: "Frontend Lead",
+    bio: "Specializing in modern React architectures and animations.",
+    image:
+      "https://images.unsplash.com/photo-1563584316028-2b70b3a3a8bf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    className: "md:pl-8 lg:pl-8",
+  },
+];
+
+export default function Team4() {
+  return (
+    <section className="px-6 py-20 mx-auto max-w-7xl">
+      <Text as="h1" size="3xl" className="sm:text-4xl mb-4">
+        Our Team
+      </Text>
+      <Text className="text-muted sm:text-lg max-w-2xl mb-12">
+        The talented people making it all happen.
+      </Text>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-subtle">
+        {members.map((member) => (
+          <div
+            key={member.name}
+            className={cn("border-b border-subtle py-12", member.className)}
+          >
+            <img
+              className="size-16 object-cover rounded-full mb-6"
+              src={member.image}
+              alt={member.name}
+            />
+            <Text as="h3" size="lg" fontWeight="semibold" className="mb-1">
+              {member.name}
+            </Text>
+            <Text size="sm" fontWeight="medium" className="text-primary mb-4">
+              {member.role}
+            </Text>
+            <Text size="sm" className="text-muted mb-0">
+              {member.bio}
+            </Text>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}31:T4594,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { cn } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react/utils&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> members</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Arlo White&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Backend Engineer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Building robust systems with a focus on security and efficiency.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&amp;w=1170&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;md:border-r md:pr-8 lg:pr-12 last:border-r-0 lg:nth-4:border-r-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Sarah Jenkins&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;UX Designer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Creating intuitive interfaces that put the user first.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;md:pl-8 lg:border-r lg:px-8 lg:last:border-r-0 lg:nth-4:border-r-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;James Wilson&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Product Manager&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Bridging the gap between technical teams and business goals.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1546820389-44d77e1f3b31?q=80&amp;w=764&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;md:border-r md:pr-8 lg:px-8 lg:last:border-r-0 lg:nth-4:border-r-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Maya Patel&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Frontend Lead&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    bio: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Specializing in modern React architectures and animations.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1563584316028-2b70b3a3a8bf?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:pl-8 lg:pl-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Team4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 mx-auto max-w-7xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h1&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-4xl mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        Our Team</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted sm:text-lg max-w-2xl mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        The talented people making it all happen.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {members.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">member</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;border-b border-subtle py-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, member.className)}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-16 object-cover rounded-full mb-6&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.image}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-primary mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.role}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted mb-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {member.bio}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1d:["$","$L18","team-4",{"id":"bordered-grid-team-cards","title":"Bordered grid team cards","src":"/blocks-preview/team-4/","className":"min-h-150","rawCode":"$30","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$31"}}]}]]}]
+32:Ta97,"use client";
+
+import { Text } from "@hummingbirdui/react";
+
+const members = [
+  {
+    name: "Jordan Smith",
+    role: "Creative Director",
+    image:
+      "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    links: ["LinkedIn", "Twitter"],
+  },
+  {
+    name: "Anya Taylor",
+    role: "Lead Developer",
+    image:
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    links: ["Github", "LinkedIn"],
+  },
+  {
+    name: "David Vose",
+    role: "Product Manager",
+    image:
+      "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&q=80&w=600",
+    links: ["LinkedIn", "Twitter"],
+  },
+];
+
+export default function Team5() {
+  return (
+    <section className="px-6 py-20 mx-auto max-w-7xl">
+      <Text as="h1" size="3xl" className="sm:text-4xl mb-4">
+        Meet our specialists
+      </Text>
+      <Text className="text-muted sm:text-lg max-w-2xl mb-12">
+        Our team is composed of industry veterans and creative thinkers
+        dedicated to solving complex problems with elegant solutions.
+      </Text>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {members.map((member) => (
+          <div
+            key={member.name}
+            className="group relative overflow-hidden aspect-4/5"
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className="absolute size-full object-cover grayscale transition-transform duration-700 group-hover:scale-110 group-hover:grayscale-0"
+            />
+            <div className="absolute bottom-0 p-8 size-full flex flex-col bg-linear-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Text
+                size="xs"
+                fontWeight="medium"
+                className="text-white mb-2 mt-auto"
+              >
+                {member.role}
+              </Text>
+              <Text as="h3" size="2xl" className="text-white mb-4">
+                {member.name}
+              </Text>
+              <div className="flex gap-4">
+                {member.links.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="text-white hover:text-primary text-sm"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}33:T44b9,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> members</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Jordan Smith&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Creative Director&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&amp;w=1170&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    links: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;LinkedIn&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Twitter&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Anya Taylor&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Lead Developer&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    links: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Github&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;LinkedIn&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    name: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;David Vose&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    role: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Product Manager&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&amp;fit=crop&amp;q=80&amp;w=600&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    links: [</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;LinkedIn&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Twitter&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Team5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 mx-auto max-w-7xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h1&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-4xl mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        Meet our specialists</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted sm:text-lg max-w-2xl mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        Our team is composed of industry veterans and creative thinkers</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        dedicated to solving complex problems with elegant solutions.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {members.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">member</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;group relative overflow-hidden aspect-4/5&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.image}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{member.name}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute size-full object-cover grayscale transition-transform duration-700 group-hover:scale-110 group-hover:grayscale-0&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute bottom-0 p-8 size-full flex flex-col bg-linear-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xs&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-white mb-2 mt-auto&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                {member.role}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;2xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-white mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                {member.name}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex gap-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                {member.links.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">link</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                    key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{link}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                    href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                    className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-white hover:text-primary text-sm&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    {link}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1e:["$","$L18","team-5",{"id":"hover-reveal-overlay-team-cards","title":"Hover reveal overlay team cards","src":"/blocks-preview/team-5/","className":"min-h-210","rawCode":"$32","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$33"}}]}]]}]
+1f:["$","script","script-0",{"src":"/_next/static/chunks/1rdvori2xxj20.js","async":true}]
+20:["$","$L34",null,{"children":["$","$26",null,{"name":"Next.MetadataOutlet","children":"$@35"}]}]
+2a:true
+9:300
+35:null
+9:C
+29:0
+b:"$undefined"
+7:"$undefined"
+28:"$undefined"
+21:"$undefined"

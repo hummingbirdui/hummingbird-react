@@ -1,0 +1,1015 @@
+3:"$Sreact.fragment"
+4:"/_next/static/chunks/13_an0f2ztgqb.js"
+5:I[77420,["$4"],"default"]
+6:I[44976,["$4"],"default"]
+d:"/_next/static/chunks/2akx4p4qrqc0p.js"
+e:"/_next/static/chunks/0gigfjnincjf3.js"
+f:"/_next/static/chunks/1376-94u851qa.js"
+10:"/_next/static/chunks/0sjshpa68moll.js"
+11:"/_next/static/chunks/33cjcsyi6lzkq.js"
+12:"/_next/static/chunks/2xf2rybx9ghs2.js"
+13:"/_next/static/chunks/1_6wev6cju92l.js"
+14:"/_next/static/chunks/2-8929zp2d58v.js"
+15:"/_next/static/chunks/1rdvori2xxj20.js"
+16:I[26830,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],""]
+17:"BlockPreviewFrame"
+18:I[20558,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],"$17"]
+22:"ViewportBoundary"
+23:I[16242,["$4"],"$22"]
+24:"MetadataBoundary"
+25:I[16242,["$4"],"$24"]
+26:"$Sreact.suspense"
+27:I[94959,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+19:Tb73,"use client";
+
+import {
+  LayoutDashboard,
+  PencilRuler,
+  Sparkles,
+  TrendingUp,
+  Wind,
+  Zap,
+} from "lucide-react";
+import { Card, Text } from "@hummingbirdui/react";
+import { cn } from "@hummingbirdui/react/utils";
+
+const features = [
+  {
+    icon: Wind,
+    title: "Effortless User Flow",
+    description:
+      "Guide users step by step with a structure that feels natural and predictable.",
+    className: "bg-primary-lighter text-primary",
+  },
+  {
+    icon: Sparkles,
+    title: "Meaningful Feedback",
+    description:
+      "Every interaction responds clearly, helping users stay confident and in control.",
+    className: "bg-warning-lighter text-warning",
+  },
+  {
+    icon: PencilRuler,
+    title: "Flexible Architecture",
+    description:
+      "Adapt your UI easily as new features and requirements evolve.",
+    className: "bg-danger-lighter text-danger",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Consistent Layouts",
+    description:
+      "Maintain clarity and structure across every screen and component.",
+    className: "bg-secondary-lighter text-secondary",
+  },
+  {
+    icon: Zap,
+    title: "Fast Interactions",
+    description:
+      "Reduce delays and keep workflows smooth across all touchpoints.",
+    className: "bg-info-lighter text-info",
+  },
+  {
+    icon: TrendingUp,
+    title: "Built to Scale",
+    description: "Create a foundation that supports long-term product growth.",
+    className: "bg-success-lighter text-success",
+  },
+];
+
+export default function Feature1() {
+  return (
+    <section className="px-6 py-20 max-w-7xl mx-auto">
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <Text as="h2" size="4xl" className="sm:text-5xl mb-6">
+          Build Experiences That Feel Effortless from Start to Finish
+        </Text>
+        <Text size="lg" className="text-muted">
+          Create applications that feel smooth and natural while helping users
+          stay focused and move forward with clarity at every moment
+        </Text>
+      </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((feature) => (
+          <Card
+            key={feature.title}
+            className="p-6 rounded-2xl border-subtle hover:border-primary-light"
+          >
+            <div
+              className={cn(
+                "flex items-center justify-center size-12 rounded-lg mb-6",
+                feature.className,
+              )}
+            >
+              <feature.icon className="size-6" />
+            </div>
+            <Text as="h3" size="lg" fontWeight="semibold" className="mb-2">
+              {feature.title}
+            </Text>
+            <Text size="base" className="text-muted mb-6">
+              {feature.description}
+            </Text>
+            <a href="#" className="font-semibold no-underline">
+              Learn more →
+            </a>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[["$","div",null,{"className":"px-6 max-w-332 mx-auto my-10","children":[["$","nav",null,{"aria-label":"breadcrumb","data-slot":"breadcrumb","children":["$","ol",null,{"data-slot":"breadcrumb-list","className":"breadcrumb","children":[["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/","children":"Home","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/blocks/","children":"Blocks","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item active","children":["$","span",null,{"role":"link","aria-disabled":"true","aria-current":"page","data-slot":"breadcrumb-page","children":"Feature Sections"}]}]]}]}],["$","h3",null,{"data-slot":"text","className":"mb-4 mt-8","children":"Feature Sections"}],["$","p",null,{"data-slot":"text","className":"text-lg","children":"Explore Tailwind CSS feature section examples to showcase the key features of your product or service. These blocks offer a range of layouts and styles, making it easy to present information clearly and effectively."}],[["$","$L18","feature-1",{"id":"simple-feature-cards","title":"Simple feature cards","src":"/blocks-preview/feature-1/","className":"min-h-230","rawCode":"$19","children":["$L1a"]}],"$L1b","$L1c","$L1d","$L1e"]]}],["$L1f"],"$L20"]}],"p":"$@21","v":null,"s":"$9"}}]]
+a:[["children",{"s":{"n":"category","t":"d","k":"feature-sections","s":[]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"blocks","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(site)","h":131072,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L23",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L25",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$26",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Feature Sections - Blocks - Hummingbird React"}],["$","meta","1",{"name":"description","content":"Explore Tailwind CSS feature section examples to showcase the key features of your product or service. These blocks offer a range of layouts and styles, making it easy to present information clearly and effectively."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0tkfkuwy0yjwj.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","3",{"rel":"icon","href":"/images/favicons/favicon.ico"}],["$","link","4",{"rel":"icon","href":"/images/favicons/favicon.svg","type":"image/svg+xml"}],["$","link","5",{"rel":"icon","href":"/images/favicons/favicon-96x96.png","type":"image/png","sizes":"96x96"}],["$","link","6",{"rel":"apple-touch-icon","href":"/images/favicons/apple-touch-icon.png"}],["$","link","7",{"rel":"manifest","href":"/images/favicons/site.webmanifest"}],["$","$L27","8",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@28","v":null,"s":"$9"}},"a":"$@29","u":"$@2a","b":"4XXIyUC1vICs4BT4G-F75"}
+34:I[16242,["$4"],"OutletBoundary"]
+2b:T4eda,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  LayoutDashboard,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  PencilRuler,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  Sparkles,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  TrendingUp,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  Wind,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  Zap,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">} </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { cn } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react/utils&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> features</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: Wind,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Effortless User Flow&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Guide users step by step with a structure that feels natural and predictable.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-primary-lighter text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: Sparkles,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Meaningful Feedback&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Every interaction responds clearly, helping users stay confident and in control.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-warning-lighter text-warning&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: PencilRuler,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Flexible Architecture&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Adapt your UI easily as new features and requirements evolve.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-danger-lighter text-danger&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: LayoutDashboard,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Consistent Layouts&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Maintain clarity and structure across every screen and component.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-secondary-lighter text-secondary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: Zap,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Fast Interactions&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Reduce delays and keep workflows smooth across all touchpoints.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-info-lighter text-info&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: TrendingUp,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Built to Scale&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Create a foundation that supports long-term product growth.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-success-lighter text-success&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Feature1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 max-w-7xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-center max-w-2xl mx-auto mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-5xl mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Build Experiences That Feel Effortless from Start to Finish</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Create applications that feel smooth and natural while helping users</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          stay focused and move forward with clarity at every moment</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid sm:grid-cols-2 lg:grid-cols-3 gap-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {features.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">feature</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.title}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-6 rounded-2xl border-subtle hover:border-primary-light&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">                &quot;flex items-center justify-center size-12 rounded-lg mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                feature.className,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              )}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">feature.icon</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {feature.title}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {feature.description}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;font-semibold no-underline&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Learn more →</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1a:["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2b"}}]}]
+2c:Tc93,"use client";
+
+import { MonitorCheck, TrendingUp, Zap } from "lucide-react";
+import { Button, Card, Text } from "@hummingbirdui/react";
+import { cn } from "@hummingbirdui/react/utils";
+
+const features = [
+  {
+    icon: MonitorCheck,
+    title: "Intuitive by design",
+    description:
+      "Reduce cognitive load and guide users naturally through every flow.",
+    className: "bg-primary-lighter text-primary",
+  },
+  {
+    icon: Zap,
+    title: "Lightning-fast performance",
+    description:
+      "Built for speed to keep users engaged without friction or delay.",
+    className: "bg-secondary-lighter text-secondary",
+  },
+  {
+    icon: TrendingUp,
+    title: "Built to scale",
+    description: "Grow your product without redesigning your foundation.",
+    className: "bg-success-lighter text-success",
+  },
+];
+
+export default function Feature2() {
+  return (
+    <section className="px-6 py-20 max-w-3xl lg:max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <Text as="h2" size="4xl" className="sm:text-5xl mb-3">
+            Everything you need to build better products
+          </Text>
+          <Text size="lg" className="text-muted max-w-xl mb-10">
+            A thoughtfully crafted system that helps you design faster, ship
+            confidently, and scale without friction.
+          </Text>
+          <div className="space-y-3 mb-10">
+            {features.map((feature) => (
+              <div key={feature.title} className="flex gap-5">
+                <div
+                  className={cn(
+                    "flex items-center justify-center size-12 rounded-xl shrink-0",
+                    feature.className,
+                  )}
+                >
+                  <feature.icon className="size-5" />
+                </div>
+                <div>
+                  <Text as="h3" size="base" fontWeight="semibold">
+                    {feature.title}
+                  </Text>
+                  <Text size="sm" className="text-muted">
+                    {feature.description}
+                  </Text>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex items-center gap-3">
+            <Button asChild>
+              <a href="#">Get started</a>
+            </Button>
+            <Button asChild color={null}>
+              <a href="#">Explore all features</a>
+            </Button>
+          </div>
+        </div>
+        <div className="relative aspect-4/3 max-w-xl">
+          <img
+            className="size-full object-cover rounded-xl"
+            src="https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+          <Card className="absolute bottom-3 left-3 lg:-bottom-6 lg:-left-6 p-4 w-48 border-primary-light rounded-xl">
+            <Text size="sm" fontWeight="semibold" className="mb-2">
+              +32% faster workflows
+            </Text>
+            <span className="text-xs text-muted">
+              Measured after UI improvements
+            </span>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}1b:["$","$L18","feature-2",{"id":"split-feature-layout-with-image","title":"Split feature layout with image","src":"/blocks-preview/feature-2/","className":"min-h-170","rawCode":"$2c","children":"$L2d"}]
+2e:Td0e,"use client";
+
+import { Card, Text } from "@hummingbirdui/react";
+import { cn } from "@hummingbirdui/react/utils";
+
+const features = [
+  {
+    title: "Seamless user experience",
+    description:
+      "Designed to guide users naturally through every step without friction or confusion",
+    image:
+      "https://images.unsplash.com/photo-1728044849280-10a1a75cff83?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "feature_1",
+    titleClassName: "font-semibold",
+    className: "lg:col-span-8 rounded-t-3xl lg:rounded-tr-xl",
+    wide: true,
+  },
+  {
+    title: "Fast performance",
+    description:
+      "Optimized for fast load times and smooth interactions across all devices",
+    image:
+      "https://images.unsplash.com/photo-1625296276703-3fbc924f07b5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "feature_2",
+    titleClassName: "font-semibold",
+    className: "md:col-span-6 lg:col-span-4 lg:rounded-tr-3xl",
+  },
+  {
+    title: "Built for real world projects",
+    description: "Adapt easily as your application grows and evolves over time",
+    image:
+      "https://images.unsplash.com/photo-1535957998253-26ae1ef29506?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "feature_3",
+    titleClassName: "text-xl",
+    className: "md:col-span-6 lg:col-span-4 lg:rounded-bl-3xl",
+  },
+  {
+    title: "Clean interface design",
+    description:
+      "Crafted with a focus on clarity and simplicity to create a distraction free and user friendly experience",
+    image:
+      "https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "feature_4",
+    titleClassName: "font-semibold",
+    className: "lg:col-span-8 rounded-b-3xl lg:rounded-bl-xl",
+    wide: true,
+  },
+];
+
+export default function Feature3() {
+  return (
+    <div className="px-6 py-20 max-w-7xl mx-auto">
+      <div className="max-w-3xl mb-12">
+        <Text as="h1" size="4xl" className="sm:text-5xl mb-6">
+          Design Experiences That Feel Natural from the First Interaction
+        </Text>
+        <Text size="lg" className="text-muted">
+          Create applications that guide users smoothly through every step and
+          help them stay focused with clarity and confidence
+        </Text>
+      </div>
+      <div className="grid gap-6 grid-cols-12">
+        {features.map((feature) => (
+          <Card
+            key={feature.title}
+            className={cn(
+              "col-span-12 p-6 bg-default rounded-xl border-subtle",
+              feature.className,
+            )}
+          >
+            <Text
+              as="h6"
+              className={cn("mb-2 text-default", feature.titleClassName)}
+            >
+              {feature.title}
+            </Text>
+            <Text className={cn("mb-6 text-muted", feature.wide && "max-w-md")}>
+              {feature.description}
+            </Text>
+            <img
+              className="h-80 w-full object-cover rounded-lg"
+              src={feature.image}
+              alt={feature.alt}
+            />
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}1c:["$","$L18","feature-3",{"id":"bento-grid-layout-feature-section","title":"Bento grid layout feature section","src":"/blocks-preview/feature-3/","className":"min-h-340","rawCode":"$2e","children":"$L2f"}]
+30:Td74,"use client";
+
+import { Blocks, Layers, Smartphone } from "lucide-react";
+import { Card, Text } from "@hummingbirdui/react";
+import { cn } from "@hummingbirdui/react/utils";
+
+const features = [
+  {
+    icon: Layers,
+    title: "Clear visual hierarchy",
+    description:
+      "Present information in a way that feels structured and easy to follow, reducing cognitive load.",
+    className: "bg-primary-lighter text-primary",
+  },
+  {
+    icon: Smartphone,
+    title: "Responsive interaction design",
+    description:
+      "Ensure every interaction feels smooth across different devices, from mobile gestures to desktop hovers.",
+    className: "bg-secondary-lighter text-secondary",
+  },
+  {
+    icon: Blocks,
+    title: "Flexible structure for growth",
+    description:
+      "A modular architecture that adapts as your product scales and your user base expands.",
+    className: "bg-success-lighter text-success",
+  },
+];
+
+export default function Feature4() {
+  return (
+    <div className="px-6 py-20 max-w-7xl mx-auto">
+      <div className="max-w-3xl text-center mx-auto mb-16">
+        <Text as="h2" size="4xl" className="sm:text-5xl mb-6">
+          A better way to design &amp; build{" "}
+          <span className="text-primary">digital experiences</span>
+        </Text>
+        <Text size="base" className="text-muted max-w-xl mx-auto">
+          Create applications that feel intuitive and guide users through every
+          step with clarity, purpose, and surgical precision.
+        </Text>
+      </div>
+      <div className="flex flex-col lg:flex-row gap-6">
+        <Card className="flex-1 rounded-2xl p-6 sm:p-8 border-subtle group">
+          <Text as="h3" size="2xl" className="text-default mb-4">
+            Experience that feels natural
+          </Text>
+          <Text size="base" className="mb-6">
+            Every detail is crafted to help users move forward without friction.
+            We focus on the tiny interactions that make a product feel
+            &quot;right.&quot;
+          </Text>
+          <div className="h-80 rounded-xl overflow-hidden">
+            <img
+              className="size-full object-cover transition duration-700 ease-out group-hover:scale-105 group-hover:rotate-1"
+              src="https://images.unsplash.com/photo-1594823274242-19036bf455e9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="User Experience Design"
+            />
+          </div>
+        </Card>
+        <div className="flex-1 flex flex-col gap-4">
+          {features.map((feature) => (
+            <Card
+              key={feature.title}
+              className="p-6 sm:flex-row gap-4 rounded-2xl border-subtle grow"
+            >
+              <div
+                className={cn(
+                  "flex items-center justify-center size-10 rounded-lg shrink-0",
+                  feature.className,
+                )}
+              >
+                <feature.icon className="size-4.5" />
+              </div>
+              <div>
+                <Text
+                  as="h3"
+                  size="lg"
+                  fontWeight="semibold"
+                  className="text-default mb-2"
+                >
+                  {feature.title}
+                </Text>
+                <Text size="base">{feature.description}</Text>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}1d:["$","$L18","feature-4",{"id":"asymmetric-feature-layout","title":"Asymmetric feature layout","src":"/blocks-preview/feature-4/","className":"min-h-235","rawCode":"$30","children":"$L31"}]
+32:Td31,"use client";
+
+import { Card, Text } from "@hummingbirdui/react";
+import { cn } from "@hummingbirdui/react/utils";
+
+const leftFeatures = [
+  {
+    number: "01",
+    title: "Visual Structure",
+    description:
+      "Intentional layouts that prioritize content and guide the eye naturally through the interface.",
+  },
+  {
+    number: "02",
+    title: "Fluid Motion",
+    description:
+      "Interactions designed with physics-based easing to feel responsive and high-end.",
+  },
+];
+
+const rightFeatures = [
+  {
+    number: "03",
+    title: "Flexible Systems",
+    description:
+      "Scalable components that adapt to your brand as it grows from startup to enterprise.",
+  },
+  {
+    number: "04",
+    title: "Deep Focus",
+    description:
+      "Minimalist aesthetics that remove cognitive load, keeping users focused on the task.",
+  },
+];
+
+export default function Feature5() {
+  return (
+    <div className="px-6 py-20 max-w-7xl mx-auto">
+      <div className="max-w-2xl mx-auto text-center mb-16">
+        <Text as="h2" size="4xl" className="md:text-5xl mb-8">
+          Everything you need to ship{" "}
+          <span className="text-primary">world-class</span> products.
+        </Text>
+        <Text size="lg" className="md:text-xl text-muted max-w-xl mx-auto">
+          A cohesive system designed to eliminate friction and elevate the
+          standard of your digital interactions.
+        </Text>
+      </div>
+      <div className="grid lg:grid-cols-12 items-center gap-16">
+        <div className="lg:col-span-3 space-y-16 order-2 lg:order-1">
+          {leftFeatures.map((feature) => (
+            <FeatureItem key={feature.number} {...feature} />
+          ))}
+        </div>
+        <Card className="lg:col-span-6 order-1 lg:order-2 p-3 max-w-xl mx-auto rounded-3xl border-subtle">
+          <div className="aspect-4/3 rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop"
+              className="size-full object-cover scale-105 hover:scale-100 transition-transform ease-in-out duration-700"
+              alt="feature"
+            />
+          </div>
+        </Card>
+        <div className="lg:col-span-3 space-y-16 order-3 lg:text-right">
+          {rightFeatures.map((feature) => (
+            <FeatureItem key={feature.number} {...feature} reverse />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FeatureItem({
+  number,
+  title,
+  description,
+  reverse = false,
+}: {
+  number: string;
+  title: string;
+  description: string;
+  reverse?: boolean;
+}) {
+  return (
+    <div className="group">
+      <div
+        className={cn(
+          "flex items-center gap-4 mb-4",
+          reverse && "lg:flex-row-reverse",
+        )}
+      >
+        <span className="text-4xl font-black text-subtle/50 transition group-hover:text-primary/50">
+          {number}
+        </span>
+        <div
+          className={cn(
+            "h-px flex-1 from-primary/50 to-transparent lg:hidden",
+            reverse ? "bg-linear-to-l" : "bg-linear-to-r",
+          )}
+        />
+      </div>
+      <Text
+        as="h4"
+        size="xl"
+        className="mb-2 group-hover:text-primary transition"
+      >
+        {title}
+      </Text>
+      <Text size="sm" className="sm:text-base text-muted">
+        {description}
+      </Text>
+    </div>
+  );
+}1e:["$","$L18","feature-5",{"id":"feature-layout-with-side-columns-and-central-image","title":"Feature layout with side columns and central image","src":"/blocks-preview/feature-5/","className":"min-h-215","rawCode":"$32","children":"$L33"}]
+1f:["$","script","script-0",{"src":"/_next/static/chunks/1rdvori2xxj20.js","async":true}]
+20:["$","$L34",null,{"children":["$","$26",null,{"name":"Next.MetadataOutlet","children":"$@35"}]}]
+2a:true
+9:300
+36:T5b36,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { MonitorCheck, TrendingUp, Zap } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Button, Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { cn } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react/utils&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> features</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: MonitorCheck,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Intuitive by design&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Reduce cognitive load and guide users naturally through every flow.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-primary-lighter text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: Zap,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Lightning-fast performance&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Built for speed to keep users engaged without friction or delay.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-secondary-lighter text-secondary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: TrendingUp,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Built to scale&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Grow your product without redesigning your foundation.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-success-lighter text-success&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Feature2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 max-w-3xl lg:max-w-7xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid lg:grid-cols-2 gap-20 items-center&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-5xl mb-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Everything you need to build better products</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted max-w-xl mb-10&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            A thoughtfully crafted system that helps you design faster, ship</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            confidently, and scale without friction.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;space-y-3 mb-10&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            {features.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">feature</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.title} </span><span style="color:#6F42C1;--shiki-dark:#B392F0">className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex gap-5&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">                    &quot;flex items-center justify-center size-12 rounded-xl shrink-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    feature.className,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  )}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">feature.icon</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-5&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    {feature.title}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    {feature.description}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> asChild</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Get started&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> asChild</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#005CC5;--shiki-dark:#79B8FF">null</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Explore all features&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;relative aspect-4/3 max-w-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-full object-cover rounded-xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?q=80&amp;w=1170&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute bottom-3 left-3 lg:-bottom-6 lg:-left-6 p-4 w-48 border-primary-light rounded-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              +32% faster workflows</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-xs text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Measured after UI improvements</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>2d:[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$36"}}]}]]
+37:T4d0d,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { cn } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react/utils&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> features</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Seamless user experience&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Designed to guide users naturally through every step without friction or confusion&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1728044849280-10a1a75cff83?q=80&amp;w=1740&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    alt: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;feature_1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    titleClassName: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;font-semibold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg:col-span-8 rounded-t-3xl lg:rounded-tr-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    wide: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Fast performance&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Optimized for fast load times and smooth interactions across all devices&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1625296276703-3fbc924f07b5?q=80&amp;w=1740&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    alt: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;feature_2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    titleClassName: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;font-semibold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:col-span-6 lg:col-span-4 lg:rounded-tr-3xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Built for real world projects&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Adapt easily as your application grows and evolves over time&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1535957998253-26ae1ef29506?q=80&amp;w=872&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    alt: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;feature_3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    titleClassName: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:col-span-6 lg:col-span-4 lg:rounded-bl-3xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Clean interface design&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Crafted with a focus on clarity and simplicity to create a distraction free and user friendly experience&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    image:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?q=80&amp;w=1742&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    alt: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;feature_4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    titleClassName: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;font-semibold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg:col-span-8 rounded-b-3xl lg:rounded-bl-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    wide: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Feature3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 max-w-7xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-3xl mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h1&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-5xl mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Design Experiences That Feel Natural from the First Interaction</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Create applications that guide users smoothly through every step and</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          help them stay focused with clarity and confidence</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid gap-6 grid-cols-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {features.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">feature</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.title}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">              &quot;col-span-12 p-6 bg-default rounded-xl border-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              feature.className,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            )}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h6&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-2 text-default&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, feature.titleClassName)}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {feature.title}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-6 text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, feature.wide </span><span style="color:#D73A49;--shiki-dark:#F97583">&amp;&amp;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;max-w-md&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)}&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              {feature.description}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h-80 w-full object-cover rounded-lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.image}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.alt}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>2f:[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$37"}}]}]]
+38:T5729,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Blocks, Layers, Smartphone } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { cn } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react/utils&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> features</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: Layers,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Clear visual hierarchy&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Present information in a way that feels structured and easy to follow, reducing cognitive load.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-primary-lighter text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: Smartphone,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Responsive interaction design&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Ensure every interaction feels smooth across different devices, from mobile gestures to desktop hovers.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-secondary-lighter text-secondary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    icon: Blocks,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Flexible structure for growth&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;A modular architecture that adapts as your product scales and your user base expands.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    className: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-success-lighter text-success&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Feature4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 max-w-7xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-3xl text-center mx-auto mb-16&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-5xl mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          A better way to design </span><span style="color:#005CC5;--shiki-dark:#79B8FF">&amp;amp;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> build{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;digital experiences&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted max-w-xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Create applications that feel intuitive and guide users through every</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          step with clarity, purpose, and surgical precision.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex flex-col lg:flex-row gap-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex-1 rounded-2xl p-6 sm:p-8 border-subtle group&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;2xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Experience that feels natural</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Every detail is crafted to help users move forward without friction.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            We focus on the tiny interactions that make a product feel</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">            &amp;quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">right.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">&amp;quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h-80 rounded-xl overflow-hidden&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-full object-cover transition duration-700 ease-out group-hover:scale-105 group-hover:rotate-1&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://images.unsplash.com/photo-1594823274242-19036bf455e9?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;User Experience Design&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex-1 flex flex-col gap-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          {features.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">feature</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.title}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-6 sm:flex-row gap-4 rounded-2xl border-subtle grow&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">                  &quot;flex items-center justify-center size-10 rounded-lg shrink-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  feature.className,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                )}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">feature.icon</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-4.5&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                  className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default mb-2&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  {feature.title}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;{feature.description}&lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>31:[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$38"}}]}]]
+39:T664d,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { cn } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react/utils&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> leftFeatures</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    number: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;01&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Visual Structure&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Intentional layouts that prioritize content and guide the eye naturally through the interface.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    number: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;02&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Fluid Motion&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Interactions designed with physics-based easing to feel responsive and high-end.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> rightFeatures</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    number: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;03&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Flexible Systems&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Scalable components that adapt to your brand as it grows from startup to enterprise.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    number: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;04&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    title: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Deep Focus&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    description:</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">      &quot;Minimalist aesthetics that remove cognitive load, keeping users focused on the task.&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Feature5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20 max-w-7xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-2xl mx-auto text-center mb-16&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-5xl mb-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Everything you need to ship{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;world-class&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; products.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-xl text-muted max-w-xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          A cohesive system designed to eliminate friction and elevate the</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          standard of your digital interactions.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid lg:grid-cols-12 items-center gap-16&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg:col-span-3 space-y-16 order-2 lg:order-1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          {leftFeatures.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">feature</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">FeatureItem</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.number} {</span><span style="color:#D73A49;--shiki-dark:#F97583">...</span><span style="color:#24292E;--shiki-dark:#E1E4E8">feature} /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg:col-span-6 order-1 lg:order-2 p-3 max-w-xl mx-auto rounded-3xl border-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;aspect-4/3 rounded-2xl overflow-hidden&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-full object-cover scale-105 hover:scale-100 transition-transform ease-in-out duration-700&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;feature&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg:col-span-3 space-y-16 order-3 lg:text-right&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          {rightFeatures.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">feature</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">FeatureItem</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{feature.number} {</span><span style="color:#D73A49;--shiki-dark:#F97583">...</span><span style="color:#24292E;--shiki-dark:#E1E4E8">feature} </span><span style="color:#6F42C1;--shiki-dark:#B392F0">reverse</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> FeatureItem</span><span style="color:#24292E;--shiki-dark:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  number</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  title</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  description</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  reverse</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> false</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  number</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  title</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  description</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> string</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">  reverse</span><span style="color:#D73A49;--shiki-dark:#F97583">?:</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> boolean</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;group&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">          &quot;flex items-center gap-4 mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          reverse </span><span style="color:#D73A49;--shiki-dark:#F97583">&amp;&amp;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lg:flex-row-reverse&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        )}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-4xl font-black text-subtle/50 transition group-hover:text-primary/50&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          {number}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#6F42C1;--shiki-dark:#B392F0">cn</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">            &quot;h-px flex-1 from-primary/50 to-transparent lg:hidden&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            reverse </span><span style="color:#D73A49;--shiki-dark:#F97583">?</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;bg-linear-to-l&quot;</span><span style="color:#D73A49;--shiki-dark:#F97583"> :</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;bg-linear-to-r&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          )}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h4&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">        className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-2 group-hover:text-primary transition&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {title}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-base text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {description}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>33:[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$39"}}]}]]
+35:null
+9:C
+29:0
+b:"$undefined"
+7:"$undefined"
+28:"$undefined"
+21:"$undefined"

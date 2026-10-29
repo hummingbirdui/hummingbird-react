@@ -1,0 +1,823 @@
+3:"$Sreact.fragment"
+4:"/_next/static/chunks/13_an0f2ztgqb.js"
+5:I[77420,["$4"],"default"]
+6:I[44976,["$4"],"default"]
+d:"/_next/static/chunks/2akx4p4qrqc0p.js"
+e:"/_next/static/chunks/0gigfjnincjf3.js"
+f:"/_next/static/chunks/1376-94u851qa.js"
+10:"/_next/static/chunks/0sjshpa68moll.js"
+11:"/_next/static/chunks/33cjcsyi6lzkq.js"
+12:"/_next/static/chunks/2xf2rybx9ghs2.js"
+13:"/_next/static/chunks/1_6wev6cju92l.js"
+14:"/_next/static/chunks/2-8929zp2d58v.js"
+15:"/_next/static/chunks/1rdvori2xxj20.js"
+16:I[26830,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],""]
+17:"BlockPreviewFrame"
+18:I[20558,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],"$17"]
+22:"ViewportBoundary"
+23:I[16242,["$4"],"$22"]
+24:"MetadataBoundary"
+25:I[16242,["$4"],"$24"]
+26:"$Sreact.suspense"
+27:I[94959,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+19:T72b,"use client";
+
+import { Badge, Button, Card, Text } from "@hummingbirdui/react";
+
+export default function Cta1() {
+  return (
+    <section className="px-6 py-24">
+      <Card className="max-w-4xl mx-auto p-6 md:p-16 items-center text-center border-subtle rounded-3xl">
+        <Badge variant="subtle" color="neutral" className="gap-2 mb-10">
+          <span className="size-1.75 rounded-full bg-success animate-pulse" />
+          <span className="uppercase text-muted">Next Gen Interface</span>
+        </Badge>
+
+        <Text
+          as="h2"
+          size="4xl"
+          fontWeight="extrabold"
+          className="md:text-6xl tracking-tight text-default mb-6"
+        >
+          Your workflow,
+          <br />
+          <span className="dark:text-transparent bg-clip-text bg-linear-to-b from-neutral to-neutral/40 dark:from-white dark:to-white/40">
+            fully autonomous.
+          </span>
+        </Text>
+
+        <Text
+          size="base"
+          className="md:text-lg text-muted leading-relaxed max-w-xl mb-10"
+        >
+          The first orchestration engine that learns from your deployments. Ship
+          globally in seconds — not minutes.
+        </Text>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 w-full">
+          <Button
+            color="neutral"
+            className="sm:btn-lg dark:bg-white dark:text-black w-full sm:w-auto"
+          >
+            Start Building
+          </Button>
+          <Button
+            variant="subtle"
+            color="neutral"
+            className="sm:btn-lg px-6 w-full sm:w-auto"
+          >
+            View Docs
+          </Button>
+        </div>
+
+        <Text size="sm" className="text-muted">
+          No credit card required · Setup in under 2 minutes
+        </Text>
+      </Card>
+    </section>
+  );
+}c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[["$","div",null,{"className":"px-6 max-w-332 mx-auto my-10","children":[["$","nav",null,{"aria-label":"breadcrumb","data-slot":"breadcrumb","children":["$","ol",null,{"data-slot":"breadcrumb-list","className":"breadcrumb","children":[["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/","children":"Home","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/blocks/","children":"Blocks","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item active","children":["$","span",null,{"role":"link","aria-disabled":"true","aria-current":"page","data-slot":"breadcrumb-page","children":"CTA Sections"}]}]]}]}],["$","h3",null,{"data-slot":"text","className":"mb-4 mt-8","children":"CTA Sections"}],["$","p",null,{"data-slot":"text","className":"text-lg","children":"Explore Tailwind CSS call-to-action section examples to encourage users to take the next step. These blocks include a variety of layouts and styles to help you create clear and effective actions across your pages."}],[["$","$L18","cta-1",{"id":"simple-cta-card","title":"Simple cta card","src":"/blocks-preview/cta-1/","className":"min-h-185","rawCode":"$19","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":"$L1a"}]]}],"$L1b","$L1c","$L1d","$L1e"]]}],["$L1f"],"$L20"]}],"p":"$@21","v":null,"s":"$9"}}]]
+a:[["children",{"s":{"n":"category","t":"d","k":"cta-sections","s":[]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"blocks","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(site)","h":131072,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L23",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L25",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$26",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"CTA Sections - Blocks - Hummingbird React"}],["$","meta","1",{"name":"description","content":"Explore Tailwind CSS call-to-action section examples to encourage users to take the next step. These blocks include a variety of layouts and styles to help you create clear and effective actions across your pages."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0tkfkuwy0yjwj.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","3",{"rel":"icon","href":"/images/favicons/favicon.ico"}],["$","link","4",{"rel":"icon","href":"/images/favicons/favicon.svg","type":"image/svg+xml"}],["$","link","5",{"rel":"icon","href":"/images/favicons/favicon-96x96.png","type":"image/png","sizes":"96x96"}],["$","link","6",{"rel":"apple-touch-icon","href":"/images/favicons/apple-touch-icon.png"}],["$","link","7",{"rel":"manifest","href":"/images/favicons/site.webmanifest"}],["$","$L27","8",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@28","v":null,"s":"$9"}},"a":"$@29","u":"$@2a","b":"4XXIyUC1vICs4BT4G-F75"}
+34:I[16242,["$4"],"OutletBoundary"]
+2b:T3175,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Badge, Button, Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Cta1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-24&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-4xl mx-auto p-6 md:p-16 items-center text-center border-subtle rounded-3xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;gap-2 mb-10&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-1.75 rounded-full bg-success animate-pulse&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Next Gen Interface&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;extrabold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-6xl tracking-tight text-default mb-6&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Your workflow,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">br</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;dark:text-transparent bg-clip-text bg-linear-to-b from-neutral to-neutral/40 dark:from-white dark:to-white/40&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            fully autonomous.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-lg text-muted leading-relaxed max-w-xl mb-10&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          The first orchestration engine that learns from your deployments. Ship</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          globally in seconds — not minutes.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 w-full&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:btn-lg dark:bg-white dark:text-black w-full sm:w-auto&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Start Building</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:btn-lg px-6 w-full sm:w-auto&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            View Docs</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          No credit card required · Setup in under 2 minutes</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1a:["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2b"}}]
+2c:Te58,"use client";
+
+import { GalleryVerticalEnd, Sparkles, Zap } from "lucide-react";
+import { Badge, Button, Card, Divider, Text } from "@hummingbirdui/react";
+
+export default function Cta2() {
+  return (
+    <section className="px-6 py-24">
+      <div className="max-w-6xl mx-auto grid items-center lg:grid-cols-2 gap-12 lg:gap-20">
+        {/* left content */}
+        <div className="space-y-8">
+          <Badge variant="subtle" color="neutral" className="gap-2">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full rounded-full bg-primary opacity-75 animate-ping" />
+              <span className="inline-flex size-2 rounded-full bg-primary" />
+            </span>
+            <span className="uppercase text-muted">New: v1.0 is live</span>
+          </Badge>
+
+          <Text
+            as="h2"
+            size="4xl"
+            fontWeight="extrabold"
+            className="md:text-6xl tracking-tight"
+          >
+            Build faster with
+            <br />
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-secondary to-primary font-extrabold">
+              smart logic.
+            </span>
+          </Text>
+
+          <Text className="md:text-lg text-muted max-w-md">
+            Ship production-ready interfaces with composable UI blocks designed
+            for speed, scalability, and real-world workflows.
+          </Text>
+
+          <div className="flex items-center gap-3">
+            <Button asChild className="md:btn-lg font-semibold">
+              <a href="#">Explore Library</a>
+            </Button>
+            <Button
+              asChild
+              variant="subtle"
+              color="neutral"
+              className="md:btn-lg"
+            >
+              <a href="#">View Live Demo</a>
+            </Button>
+          </div>
+
+          <Divider className="border-subtle" />
+
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-2 text-sm font-medium text-muted">
+              <Zap className="size-5 text-primary" fill="currentColor" />
+              Instant setup
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-muted">
+              <GalleryVerticalEnd
+                className="size-5 text-secondary"
+                fill="currentColor"
+              />
+              120+ Blocks
+            </div>
+          </div>
+        </div>
+
+        {/* right content */}
+        <div className="relative aspect-4/3 max-w-140">
+          <div className="size-full rounded-xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              className="size-full object-cover transition duration-700 hover:scale-105"
+            />
+          </div>
+          <Card className="hidden sm:block absolute -top-6 -right-6 border-0 dark:border border-subtle px-4 py-3 text-sm shadow-xl rounded-xl">
+            <Text as="h6" size="sm" className="text-default mb-0">
+              2x Faster
+            </Text>
+            <span className="text-muted text-xs">Development speed</span>
+          </Card>
+          <Badge
+            variant="subtle"
+            color="neutral"
+            size="lg"
+            className="absolute bottom-5 left-5 rounded-lg border-0 py-2.5"
+          >
+            <Sparkles className="size-4 text-[#f9c23c]" fill="currentColor" />
+            New Components Added
+          </Badge>
+        </div>
+      </div>
+    </section>
+  );
+}1b:["$","$L18","cta-2",{"id":"split-cta-section-with-feature-list-and-image","title":"Split cta section with feature list and image","src":"/blocks-preview/cta-2/","className":"min-h-170","rawCode":"$2c","children":"$L2d"}]
+2e:T105e,"use client";
+
+import { ArrowRight, Plus, Users, Zap } from "lucide-react";
+import { Badge, Button, Card, Text } from "@hummingbirdui/react";
+
+export default function Cta3() {
+  return (
+    <section className="px-6 py-24 mx-auto max-w-xl lg:max-w-6xl">
+      <div className="text-center mb-16">
+        <Text as="h2" size="4xl" className="md:text-5xl tracking-tighter mb-4">
+          How do you want to <span className="text-primary">get started?</span>
+        </Text>
+        <Text
+          size="lg"
+          fontWeight="medium"
+          className="text-muted max-w-2xl mx-auto"
+        >
+          Choose the path that fits your workflow—we’ve got you covered with
+          tools for every stage of your project.
+        </Text>
+      </div>
+
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* card 01 */}
+        <Card className="group p-8 bg-default border-subtle rounded-3xl">
+          <div className="size-12 mb-6 flex items-center justify-center rounded-2xl bg-muted text-muted group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+            <Plus className="size-6" />
+          </div>
+          <Text as="h3" size="xl" className="text-default mb-3">
+            Start from scratch
+          </Text>
+          <Text size="sm" fontWeight="medium" className="text-muted mb-6">
+            Build everything your way with full flexibility and our core API
+            suite.
+          </Text>
+          <Button
+            asChild
+            variant="text"
+            color="neutral"
+            className="px-0 self-start bg-transparent text-sm font-bold uppercase tracking-wide group/link"
+          >
+            <a href="#">
+              Get started
+              <ArrowRight className="ms-2 size-4 transition-transform group-hover/link:translate-x-1" />
+            </a>
+          </Button>
+        </Card>
+
+        {/* card 02 */}
+        <Card className="group p-8 bg-primary border-transparent rounded-3xl">
+          <div className="flex items-start justify-between mb-6">
+            <div className="size-12 flex items-center justify-center rounded-2xl bg-white/10 text-white">
+              <Zap className="size-6" />
+            </div>
+            <Badge
+              variant="subtle"
+              className="uppercase text-white/80 border-white/60"
+            >
+              Recommended
+            </Badge>
+          </div>
+          <Text as="h3" size="xl" className="text-white mb-3">
+            Use templates
+          </Text>
+          <Text size="sm" className="text-white/80 mb-6">
+            Jumpstart your project with over 200+ ready-made, high-performance
+            designs.
+          </Text>
+          <Button
+            asChild
+            color={null}
+            className="text-white px-0 self-start bg-transparent text-sm font-bold uppercase tracking-wide group/link"
+          >
+            <a href="#">
+              Browse templates
+              <ArrowRight className="ms-2 size-4 transition-transform group-hover/link:translate-x-1" />
+            </a>
+          </Button>
+        </Card>
+
+        {/* card 03 */}
+        <Card className="group p-8 bg-default border-subtle rounded-3xl">
+          <div className="size-12 mb-6 flex items-center justify-center rounded-2xl bg-muted text-muted group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+            <Users className="size-6" />
+          </div>
+          <Text as="h3" size="xl" className="text-default mb-3">
+            Hire experts
+          </Text>
+          <Text size="sm" fontWeight="medium" className="text-muted mb-6">
+            Collaborate with top-tier professionals to build your custom
+            solution today.
+          </Text>
+          <Button
+            asChild
+            variant="text"
+            color="neutral"
+            className="px-0 self-start bg-transparent text-sm font-bold uppercase tracking-wide group/link"
+          >
+            <a href="#">
+              Find experts
+              <ArrowRight className="ms-2 size-4 transition-transform group-hover/link:translate-x-1" />
+            </a>
+          </Button>
+        </Card>
+      </div>
+    </section>
+  );
+}1c:["$","$L18","cta-3",{"id":"cta-cards-with-multiple-startup-options","title":"Cta cards with multiple startup options","src":"/blocks-preview/cta-3/","className":"min-h-170","rawCode":"$2e","children":"$L2f"}]
+30:Tadb,"use client";
+
+import { Zap } from "lucide-react";
+import { Badge, Button, Card, Divider, Text } from "@hummingbirdui/react";
+
+const stats = [
+  { value: "99.9%", label: "Uptime" },
+  { value: "24/7", label: "Support" },
+  { value: "50M+", label: "Requests" },
+];
+
+export default function Cta4() {
+  return (
+    <div className="px-6 py-20">
+      <Card className="max-w-6xl mx-auto p-8 md:p-14 border-subtle lg:flex-row items-start justify-between gap-12 rounded-2xl">
+        <div className="flex-1">
+          <Badge variant="subtle" color="neutral" className="gap-2 mb-8">
+            <Zap className="size-4" />
+            <span className="uppercase">v1.0 is live</span>
+          </Badge>
+
+          <Text
+            as="h2"
+            size="4xl"
+            fontWeight="black"
+            className="md:text-5xl tracking-tight text-default mb-6"
+          >
+            Build faster. <span className="text-subtle">Deploy sooner.</span>
+            <br />
+            Scale{" "}
+            <span className="underline decoration-neutral/15 dark:decoration-white/15 grayscale decoration-4 underline-offset-4">
+              everywhere.
+            </span>
+          </Text>
+
+          <Text size="lg" className="text-muted max-w-lg leading-relaxed">
+            The modern standard for cloud orchestration. Manage your entire
+            stack from a single, unified command center.
+          </Text>
+        </div>
+
+        <Card className="border-subtle rounded-xl w-full max-w-md p-4 sm:p-8">
+          <Button
+            color="neutral"
+            size="lg"
+            className="dark:bg-white dark:text-black w-full py-3 mb-4"
+          >
+            Get Started — It&apos;s Free
+          </Button>
+          <Button
+            variant="subtle"
+            color="neutral"
+            size="lg"
+            className="w-full py-3"
+          >
+            Talk to Sales
+          </Button>
+
+          <Divider className="border-subtle my-8" />
+
+          <div className="flex justify-between items-center text-center">
+            {stats.map((stat, index) => (
+              <div key={stat.label} className="contents">
+                {index > 0 && (
+                  <Divider orientation="vertical" className="h-8 self-center" />
+                )}
+                <div>
+                  <Text size="2xl" fontWeight="bold" className="text-default">
+                    {stat.value}
+                  </Text>
+                  <Text
+                    size="xs"
+                    fontWeight="medium"
+                    className="uppercase text-muted"
+                  >
+                    {stat.label}
+                  </Text>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </Card>
+    </div>
+  );
+}31:T5587,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Zap } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Badge, Button, Card, Divider, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">const</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> stats</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  { value: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;99.9%&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, label: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Uptime&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  { value: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;24/7&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, label: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Support&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  { value: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;50M+&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, label: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Requests&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Cta4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-6xl mx-auto p-8 md:p-14 border-subtle lg:flex-row items-start justify-between gap-12 rounded-2xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex-1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;gap-2 mb-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Zap</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;v1.0 is live&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;black&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-5xl tracking-tight text-default mb-6&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Build faster. &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Deploy sooner.&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">br</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Scale{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;underline decoration-neutral/15 dark:decoration-white/15 grayscale decoration-4 underline-offset-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              everywhere.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted max-w-lg leading-relaxed&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            The modern standard for cloud orchestration. Manage your entire</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            stack from a single, unified command center.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;border-subtle rounded-xl w-full max-w-md p-4 sm:p-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;dark:bg-white dark:text-black w-full py-3 mb-4&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Get Started — It</span><span style="color:#005CC5;--shiki-dark:#79B8FF">&amp;apos;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">s Free</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;w-full py-3&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Talk to Sales</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Divider</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;border-subtle my-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex justify-between items-center text-center&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            {stats.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">map</span><span style="color:#24292E;--shiki-dark:#E1E4E8">((</span><span style="color:#E36209;--shiki-dark:#FFAB70">stat</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#E36209;--shiki-dark:#FFAB70">index</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) </span><span style="color:#D73A49;--shiki-dark:#F97583">=&gt;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> key</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{stat.label} </span><span style="color:#6F42C1;--shiki-dark:#B392F0">className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;contents&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                {index </span><span style="color:#D73A49;--shiki-dark:#F97583">&gt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#D73A49;--shiki-dark:#F97583"> &amp;&amp;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Divider</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> orientation</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;vertical&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h-8 self-center&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                )}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;2xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    {stat.value}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                    size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xs&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                    fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                    className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase text-muted&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                    {stat.label}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                  &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            ))}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1d:["$","$L18","cta-4",{"id":"feature-cta-panel-with-stats-card","title":"Feature cta panel with stats card","src":"/blocks-preview/cta-4/","className":"min-h-155","rawCode":"$30","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$31"}}]}]]}]
+32:T59d,"use client";
+
+import { Badge, Button, Text } from "@hummingbirdui/react";
+
+export default function Cta5() {
+  return (
+    <section className="p-3">
+      <div className="px-6 py-12 flex flex-col lg:flex-row items-center justify-between gap-8 bg-linear-to-b from-subtle via-primary-lighter to-primary-light/40 max-w-7xl mx-auto rounded-xl">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-2">
+          <Badge variant="subtle" className="uppercase mb-6">
+            Limited Protocol
+          </Badge>
+
+          <Text
+            as="h2"
+            size="4xl"
+            fontWeight="black"
+            className="md:text-5xl tracking-tighter mb-3"
+          >
+            Don’t miss <span className="text-primary italic">the surge.</span>
+          </Text>
+
+          <Text size="base" fontWeight="medium" className="max-w-md">
+            Upgrade within the next 24 hours to secure 40% off all
+            infrastructure plans.
+          </Text>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <Button asChild className="sm:btn-lg sm:w-50 shrink-0">
+            <a href="#">Upgrade now</a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="sm:btn-lg sm:w-50 shrink-0"
+          >
+            <a href="#">See pricing</a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}33:T2b9f,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Badge, Button, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Cta5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-12 flex flex-col lg:flex-row items-center justify-between gap-8 bg-linear-to-b from-subtle via-primary-lighter to-primary-light/40 max-w-7xl mx-auto rounded-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex flex-col items-center lg:items-start text-center lg:text-left space-y-2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Limited Protocol</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;black&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-5xl tracking-tighter mb-3&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Don’t miss &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-primary italic&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;the surge.&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-md&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Upgrade within the next 24 hours to secure 40% off all</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            infrastructure plans.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> asChild</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:btn-lg sm:w-50 shrink-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Upgrade now&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            asChild</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;outline&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:btn-lg sm:w-50 shrink-0&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;See pricing&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1e:["$","$L18","cta-5",{"id":"marketing-promo-cta-banner","title":"Marketing promo cta banner","src":"/blocks-preview/cta-5/","className":"min-h-72","rawCode":"$32","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$33"}}]}]]}]
+1f:["$","script","script-0",{"src":"/_next/static/chunks/1rdvori2xxj20.js","async":true}]
+20:["$","$L34",null,{"children":["$","$26",null,{"name":"Next.MetadataOutlet","children":"$@35"}]}]
+2a:true
+9:300
+36:T64fe,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { GalleryVerticalEnd, Sparkles, Zap } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Badge, Button, Card, Divider, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Cta2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-24&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-6xl mx-auto grid items-center lg:grid-cols-2 gap-12 lg:gap-20&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {</span><span style="color:#6A737D;--shiki-dark:#6A737D">/* left content */</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;space-y-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;gap-2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;relative flex size-2&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute inline-flex size-full rounded-full bg-primary opacity-75 animate-ping&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;inline-flex size-2 rounded-full bg-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;New: v1.0 is live&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;extrabold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-6xl tracking-tight&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Build faster with</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">br</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bg-clip-text text-transparent bg-linear-to-r from-secondary to-primary font-extrabold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              smart logic.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-lg text-muted max-w-md&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Ship production-ready interfaces with composable UI blocks designed</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            for speed, scalability, and real-world workflows.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> asChild</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:btn-lg font-semibold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Explore Library&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              asChild</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:btn-lg&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;View Live Demo&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Divider</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;border-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-2 text-sm font-medium text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Zap</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-5 text-primary&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Instant setup</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-2 text-sm font-medium text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">GalleryVerticalEnd</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-5 text-secondary&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              120+ Blocks</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {</span><span style="color:#6A737D;--shiki-dark:#6A737D">/* right content */</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;relative aspect-4/3 max-w-140&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-full rounded-xl overflow-hidden&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&amp;w=2072&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-full object-cover transition duration-700 hover:scale-105&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;hidden sm:block absolute -top-6 -right-6 border-0 dark:border border-subtle px-4 py-3 text-sm shadow-xl rounded-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h6&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default mb-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              2x Faster</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted text-xs&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Development speed&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute bottom-5 left-5 rounded-lg border-0 py-2.5&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Sparkles</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-4 text-[#f9c23c]&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            New Components Added</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>2d:[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$36"}}]}]]
+37:T7268,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { ArrowRight, Plus, Users, Zap } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Badge, Button, Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Cta3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-24 mx-auto max-w-xl lg:max-w-6xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-center mb-16&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-5xl tracking-tighter mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          How do you want to &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;get started?&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted max-w-2xl mx-auto&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          Choose the path that fits your workflow—we’ve got you covered with</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          tools for every stage of your project.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid lg:grid-cols-3 gap-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {</span><span style="color:#6A737D;--shiki-dark:#6A737D">/* card 01 */</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;group p-8 bg-default border-subtle rounded-3xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-12 mb-6 flex items-center justify-center rounded-2xl bg-muted text-muted group-hover:bg-primary group-hover:text-white transition-colors duration-300&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Plus</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default mb-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Start from scratch</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Build everything your way with full flexibility and our core API</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            suite.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            asChild</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-0 self-start bg-transparent text-sm font-bold uppercase tracking-wide group/link&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Get started</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">ArrowRight</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;ms-2 size-4 transition-transform group-hover/link:translate-x-1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {</span><span style="color:#6A737D;--shiki-dark:#6A737D">/* card 02 */</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;group p-8 bg-primary border-transparent rounded-3xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-start justify-between mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-12 flex items-center justify-center rounded-2xl bg-white/10 text-white&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Zap</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase text-white/80 border-white/60&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Recommended</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-white mb-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Use templates</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-white/80 mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Jumpstart your project with over 200+ ready-made, high-performance</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            designs.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            asChild</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span><span style="color:#005CC5;--shiki-dark:#79B8FF">null</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-white px-0 self-start bg-transparent text-sm font-bold uppercase tracking-wide group/link&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Browse templates</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">ArrowRight</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;ms-2 size-4 transition-transform group-hover/link:translate-x-1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        {</span><span style="color:#6A737D;--shiki-dark:#6A737D">/* card 03 */</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;group p-8 bg-default border-subtle rounded-3xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-12 mb-6 flex items-center justify-center rounded-2xl bg-muted text-muted group-hover:bg-primary group-hover:text-white transition-colors duration-300&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Users</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default mb-3&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Hire experts</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Collaborate with top-tier professionals to build your custom</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            solution today.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            asChild</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;neutral&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-0 self-start bg-transparent text-sm font-bold uppercase tracking-wide group/link&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> href</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;#&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Find experts</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">ArrowRight</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;ms-2 size-4 transition-transform group-hover/link:translate-x-1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Button</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>2f:[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$37"}}]}]]
+35:null
+9:C
+29:0
+b:"$undefined"
+7:"$undefined"
+28:"$undefined"
+21:"$undefined"

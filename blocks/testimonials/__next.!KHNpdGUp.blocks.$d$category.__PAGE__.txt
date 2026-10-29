@@ -1,0 +1,659 @@
+3:"$Sreact.fragment"
+4:"/_next/static/chunks/13_an0f2ztgqb.js"
+5:I[77420,["$4"],"default"]
+6:I[44976,["$4"],"default"]
+d:"/_next/static/chunks/2akx4p4qrqc0p.js"
+e:"/_next/static/chunks/0gigfjnincjf3.js"
+f:"/_next/static/chunks/1376-94u851qa.js"
+10:"/_next/static/chunks/0sjshpa68moll.js"
+11:"/_next/static/chunks/33cjcsyi6lzkq.js"
+12:"/_next/static/chunks/2xf2rybx9ghs2.js"
+13:"/_next/static/chunks/1_6wev6cju92l.js"
+14:"/_next/static/chunks/2-8929zp2d58v.js"
+15:"/_next/static/chunks/1rdvori2xxj20.js"
+16:I[26830,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],""]
+17:"BlockPreviewFrame"
+18:I[20558,["$4","$d","$e","$f","$10","$11","$12","$13","$14","$15"],"$17"]
+22:"ViewportBoundary"
+23:I[16242,["$4"],"$22"]
+24:"MetadataBoundary"
+25:I[16242,["$4"],"$24"]
+26:"$Sreact.suspense"
+27:I[94959,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+19:Ta77,"use client";
+
+import { Star } from "lucide-react";
+import { Card, Text } from "@hummingbirdui/react";
+
+export default function Testimonial1() {
+  return (
+    <section className="px-6 py-20">
+      <Card className="p-6 sm:p-14 border-subtle rounded-3xl max-w-2xl mx-auto">
+        <div className="flex items-center justify-between mb-12">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+            alt="Microsoft Logo"
+            className="h-6"
+          />
+          <div className="flex items-center gap-1">
+            <Star className="size-5 text-warning" fill="currentColor" />
+            <span className="text-sm text-subtle font-black italic uppercase">
+              Review 03/26
+            </span>
+          </div>
+        </div>
+        <Text
+          as="blockquote"
+          size="2xl"
+          fontWeight="medium"
+          className="relative md:text-3xl text-default mb-10"
+        >
+          <span className="absolute -top-6 -left-12 text-8xl text-primary-light/25 select-none">
+            <svg className="size-20" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621c.537-.278 1.24-.375 1.929-.311c1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5a3.87 3.87 0 0 1-2.748-1.179m10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621c.537-.278 1.24-.375 1.929-.311c1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5a3.87 3.87 0 0 1-2.748-1.179"
+              />
+            </svg>
+          </span>
+          The attention to detail is{" "}
+          <span className="underline decoration-primary-light/25 decoration-4 underline-offset-4">
+            staggering
+          </span>
+          . It&apos;s rare to find a tool that balances power with such a clean,
+          effortless user experience.
+        </Text>
+        <div className="flex items-center gap-4">
+          <img
+            className="size-16 border-3 border-white dark:border-subtle rounded-xl shadow-sm"
+            src="https://i.pravatar.cc/150?u=5"
+            alt="Author"
+          />
+          <div>
+            <Text
+              as="h5"
+              size="lg"
+              fontWeight="medium"
+              className="text-default"
+            >
+              Julianne Sterling
+            </Text>
+            <span className="text-sm text-muted">
+              Design Director @Microsoft
+            </span>
+          </div>
+        </div>
+      </Card>
+    </section>
+  );
+}c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[["$","div",null,{"className":"px-6 max-w-332 mx-auto my-10","children":[["$","nav",null,{"aria-label":"breadcrumb","data-slot":"breadcrumb","children":["$","ol",null,{"data-slot":"breadcrumb-list","className":"breadcrumb","children":[["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/","children":"Home","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item","children":["$","$L16",null,{"href":"/blocks/","children":"Blocks","data-slot":"breadcrumb-link","className":"link link-hover","ref":null}]}],["$","li",null,{"data-slot":"breadcrumb-item","className":"breadcrumb-item active","children":["$","span",null,{"role":"link","aria-disabled":"true","aria-current":"page","data-slot":"breadcrumb-page","children":"Testimonials"}]}]]}]}],["$","h3",null,{"data-slot":"text","className":"mb-4 mt-8","children":"Testimonials"}],["$","p",null,{"data-slot":"text","className":"text-lg","children":"Explore a collection of Tailwind CSS testimonial section examples designed to highlight customer feedback and build trust with your audience. These layouts feature a variety of styles and structures, making them easy to integrate into any website or product."}],[["$","$L18","testimonial-1",{"id":"single-card-testimonial-with-brand","title":"Single card testimonial with brand","src":"/blocks-preview/testimonial-1/","className":"min-h-149","rawCode":"$19","children":["$L1a"]}],"$L1b","$L1c","$L1d","$L1e"]]}],["$L1f"],"$L20"]}],"p":"$@21","v":null,"s":"$9"}}]]
+a:[["children",{"s":{"n":"category","t":"d","k":"testimonials","s":[]},"h":65632,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$8","s":"$9"},"c":"$Qc"}]]
+2:[["children",{"s":"blocks","h":131136,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":"(site)","h":131072,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131088,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L23",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L25",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$26",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Testimonials - Blocks - Hummingbird React"}],["$","meta","1",{"name":"description","content":"Explore a collection of Tailwind CSS testimonial section examples designed to highlight customer feedback and build trust with your audience. These layouts feature a variety of styles and structures, making them easy to integrate into any website or product."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0tkfkuwy0yjwj.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","3",{"rel":"icon","href":"/images/favicons/favicon.ico"}],["$","link","4",{"rel":"icon","href":"/images/favicons/favicon.svg","type":"image/svg+xml"}],["$","link","5",{"rel":"icon","href":"/images/favicons/favicon-96x96.png","type":"image/png","sizes":"96x96"}],["$","link","6",{"rel":"apple-touch-icon","href":"/images/favicons/apple-touch-icon.png"}],["$","link","7",{"rel":"manifest","href":"/images/favicons/site.webmanifest"}],["$","$L27","8",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@28","v":null,"s":"$9"}},"a":"$@29","u":"$@2a","b":"4XXIyUC1vICs4BT4G-F75"}
+34:I[16242,["$4"],"OutletBoundary"]
+2b:T40ff,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Star } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Testimonial1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-6 sm:p-14 border-subtle rounded-3xl max-w-2xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center justify-between mb-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Microsoft Logo&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h-6&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-1&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Star</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-5 text-warning&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-sm text-subtle font-black italic uppercase&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Review 03/26</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;blockquote&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;2xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;relative md:text-3xl text-default mb-10&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute -top-6 -left-12 text-8xl text-primary-light/25 select-none&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">svg</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-20&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> viewBox</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;0 0 24 24&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">path</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                d</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621c.537-.278 1.24-.375 1.929-.311c1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5a3.87 3.87 0 0 1-2.748-1.179m10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621c.537-.278 1.24-.375 1.929-.311c1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5a3.87 3.87 0 0 1-2.748-1.179&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">svg</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          The attention to detail is{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;underline decoration-primary-light/25 decoration-4 underline-offset-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            staggering</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          . It</span><span style="color:#005CC5;--shiki-dark:#79B8FF">&amp;apos;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">s rare to find a tool that balances power with such a clean,</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          effortless user experience.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-16 border-3 border-white dark:border-subtle rounded-xl shadow-sm&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://i.pravatar.cc/150?u=5&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Author&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h5&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Julianne Sterling</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-sm text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Design Director @Microsoft</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1a:["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2b"}}]}]
+2c:T5b6,"use client";
+
+import { Card, Text } from "@hummingbirdui/react";
+
+export default function Testimonial2() {
+  return (
+    <section className="px-6 py-20">
+      <Card className="max-w-xl lg:max-w-5xl mx-auto lg:flex-row items-center border-subtle rounded-xl">
+        <div className="aspect-4/3 lg:max-w-105 lg:min-h-130 bg-black">
+          <img
+            src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop"
+            className="size-full object-cover opacity-80 grayscale hover:grayscale-0 transition duration-700"
+            alt="Client"
+          />
+        </div>
+        <div className="flex-1 p-8 lg:p-16">
+          <Text
+            as="blockquote"
+            size="2xl"
+            fontWeight="light"
+            className="sm:text-3xl text-default leading-normal tracking-tight mb-14"
+          >
+            “We didn&apos;t just find a vendor; we found a{" "}
+            <span className="font-medium text-primary">strategic partner</span>.
+            Their ability to scale with our complexity was the deciding factor
+            in our Series C success.”
+          </Text>
+          <Text
+            as="h4"
+            size="lg"
+            fontWeight="medium"
+            className="sm:text-xl text-default"
+          >
+            Adriana Rivera
+          </Text>
+          <span className="text-muted">Chief Risk Officer @PayPal</span>
+        </div>
+      </Card>
+    </section>
+  );
+}2d:T263e,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Testimonial2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-20&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;max-w-xl lg:max-w-5xl mx-auto lg:flex-row items-center border-subtle rounded-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;aspect-4/3 lg:max-w-105 lg:min-h-130 bg-black&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&amp;w=1200&amp;auto=format&amp;fit=crop&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-full object-cover opacity-80 grayscale hover:grayscale-0 transition duration-700&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Client&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex-1 p-8 lg:p-16&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;blockquote&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;2xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;light&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-3xl text-default leading-normal tracking-tight mb-14&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            “We didn</span><span style="color:#005CC5;--shiki-dark:#79B8FF">&amp;apos;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">t just find a vendor; we found a{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;font-medium text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;strategic partner&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Their ability to scale with our complexity was the deciding factor</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            in our Series C success.”</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h4&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-xl text-default&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Adriana Rivera</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Chief Risk Officer @PayPal&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1b:["$","$L18","testimonial-2",{"id":"split-testimonial-card-with-image","title":"Split testimonial card with image","src":"/blocks-preview/testimonial-2/","className":"min-h-173","rawCode":"$2c","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2d"}}]}]]}]
+2e:T877,"use client";
+
+import { Avatar, Text } from "@hummingbirdui/react";
+
+export default function Testimonial3() {
+  return (
+    <section className="px-6 py-24 max-w-7xl mx-auto">
+      <Text as="h2" size="4xl" className="sm:text-5xl max-w-2xl mb-6">
+        How modern teams{" "}
+        <span className="text-subtle">actually ship faster</span> at scale
+      </Text>
+      <Text size="lg" className="text-muted mb-16">
+        Real feedback from people building modern products
+      </Text>
+      <div className="grid lg:grid-cols-2 items-center gap-12">
+        <div className="relative max-w-xl">
+          <img
+            src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+            className="rounded-2xl size-full"
+          />
+          <div className="absolute bottom-6 left-6 bg-white/80 backdrop-blur px-4 py-2 rounded-lg text-sm font-medium text-black">
+            ⭐ 4.9 Average Rating
+          </div>
+        </div>
+        <div>
+          <Text as="h3" size="5xl" className="mb-6 text-primary">
+            “
+          </Text>
+          <Text size="xl" className="mb-6 text-default leading-relaxed">
+            This is by far the best tool we have used in years. The interface is
+            incredibly intuitive and the performance is unmatched. It helped our
+            team move faster and deliver better results without extra
+            complexity.
+          </Text>
+          <div className="mb-8 text-warning text-lg">★ ★ ★ ★ ★</div>
+          <div className="flex items-center gap-4">
+            <Avatar size="lg">
+              <Avatar.Image
+                src="https://i.pravatar.cc/100?img=8"
+                alt="Avatar"
+                className="grayscale"
+              />
+            </Avatar>
+            <div>
+              <Text fontWeight="semibold" className="mb-0">
+                Edison Cooper
+              </Text>
+              <span className="text-muted">CTO at TechFlow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}2f:T3d7b,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Avatar, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Testimonial3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-24 max-w-7xl mx-auto&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h2&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;sm:text-5xl max-w-2xl mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        How modern teams{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;actually ship faster&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt; at scale</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted mb-16&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        Real feedback from people building modern products</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid lg:grid-cols-2 items-center gap-12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;relative max-w-xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&amp;w=1170&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;rounded-2xl size-full&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute bottom-6 left-6 bg-white/80 backdrop-blur px-4 py-2 rounded-lg text-sm font-medium text-black&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            ⭐ 4.9 Average Rating</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;h3&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;5xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-6 text-primary&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            “</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-6 text-default leading-relaxed&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            This is by far the best tool we have used in years. The interface is</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            incredibly intuitive and the performance is unmatched. It helped our</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            team move faster and deliver better results without extra</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            complexity.</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-8 text-warning text-lg&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;★ ★ ★ ★ ★&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Avatar</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Avatar.Image</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://i.pravatar.cc/100?img=8&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Avatar&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grayscale&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Avatar</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-0&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                Edison Cooper</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;CTO at TechFlow&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1c:["$","$L18","testimonial-3",{"id":"split-testimonial-section-with-heading","title":"Split testimonial section with heading","src":"/blocks-preview/testimonial-3/","className":"min-h-200","rawCode":"$2e","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$2f"}}]}]]}]
+30:T956,"use client";
+
+import { Triangle } from "lucide-react";
+import { Avatar, Card, Divider, Text } from "@hummingbirdui/react";
+
+export default function Testimonial4() {
+  return (
+    <section className="px-6 py-24">
+      <Card className="p-6 md:p-10 rounded-3xl max-w-5xl mx-auto border-subtle">
+        <svg
+          className="absolute top-6 right-6 sm:top-10 sm:right-10 opacity-15"
+          width="45"
+          height="36"
+          viewBox="0 0 45 36"
+          fill="currentColor"
+        >
+          <path d="M13.5 0C6.044 0 0 6.044 0 13.5c0 4.256 1.954 8.044 5.011 10.511L1.5 36h9l4.5-13.5V0h-1.5zm27 0C33.044 0 27 6.044 27 13.5c0 4.256 1.954 8.044 5.011 10.511L28.5 36h9l4.5-13.5V0h-1.5z" />
+        </svg>
+        <div className="flex items-center gap-2 mb-10">
+          <div className="size-2 rounded-full bg-success-light" />
+          <span className="text-xs font-bold uppercase tracking-widest text-subtle">
+            Verified Client
+          </span>
+        </div>
+        <Text
+          as="blockquote"
+          size="2xl"
+          fontWeight="medium"
+          className="md:text-3xl text-default leading-snug tracking-tight mb-0"
+        >
+          &quot;The platform didn&apos;t just meet our expectations; it
+          completely redefined how we handle scaling. The{" "}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-secondary to-primary font-semibold">
+            automation capabilities
+          </span>{" "}
+          alone saved us over 20 hours a week.&quot;
+        </Text>
+        <Divider className="border-subtle my-6 lg:my-8" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Avatar size="lg">
+              <Avatar.Image
+                src="https://i.pravatar.cc/100?img=8"
+                alt="Avatar"
+                className="grayscale"
+              />
+            </Avatar>
+            <div>
+              <Text
+                size="base"
+                fontWeight="semibold"
+                className="text-default mb-0"
+              >
+                Marcus Thorne
+              </Text>
+              <span className="text-xs text-subtle">Lead Dev at Stripe</span>
+            </div>
+          </div>
+          <Triangle className="size-6 opacity-15" fill="currentColor" />
+        </div>
+      </Card>
+    </section>
+  );
+}31:T40c0,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Triangle } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;lucide-react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Avatar, Card, Divider, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Testimonial4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-24&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-6 md:p-10 rounded-3xl max-w-5xl mx-auto border-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">svg</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;absolute top-6 right-6 sm:top-10 sm:right-10 opacity-15&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          width</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;45&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          height</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;36&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          viewBox</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;0 0 45 36&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">path</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> d</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;M13.5 0C6.044 0 0 6.044 0 13.5c0 4.256 1.954 8.044 5.011 10.511L1.5 36h9l4.5-13.5V0h-1.5zm27 0C33.044 0 27 6.044 27 13.5c0 4.256 1.954 8.044 5.011 10.511L28.5 36h9l4.5-13.5V0h-1.5z&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">svg</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-2 mb-10&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-2 rounded-full bg-success-light&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-xs font-bold uppercase tracking-widest text-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Verified Client</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;blockquote&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;2xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-3xl text-default leading-snug tracking-tight mb-0&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &gt;</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">          &amp;quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">The platform didn</span><span style="color:#005CC5;--shiki-dark:#79B8FF">&amp;apos;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">t just meet our expectations; it</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          completely redefined how we handle scaling. The{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-transparent bg-clip-text bg-linear-to-r from-secondary to-primary font-semibold&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            automation capabilities</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          alone saved us over 20 hours a week.</span><span style="color:#005CC5;--shiki-dark:#79B8FF">&amp;quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Divider</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;border-subtle my-6 lg:my-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center justify-between&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Avatar</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Avatar.Image</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://i.pravatar.cc/100?img=8&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Avatar&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grayscale&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Avatar</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;base&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">                className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default mb-0&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">                Marcus Thorne</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-xs text-subtle&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;Lead Dev at Stripe&lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Triangle</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-6 opacity-15&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fill</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;currentColor&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1d:["$","$L18","testimonial-4",{"id":"minimal-spotlight-testimonial","title":"Minimal spotlight testimonial","src":"/blocks-preview/testimonial-4/","className":"min-h-143","rawCode":"$30","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$31"}}]}]]}]
+32:Tace,"use client";
+
+import { Badge, Card, Text } from "@hummingbirdui/react";
+
+export default function Testimonial5() {
+  return (
+    <section className="px-6 py-24 max-w-6xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
+      <div className="lg:w-7/12">
+        <Text
+          as="blockquote"
+          size="4xl"
+          className="md:text-5xl/14 italic tracking-tight mb-12"
+        >
+          “Before using this platform, our process was{" "}
+          <span className="underline decoration-warning decoration-4 underline-offset-8">
+            slow and full of friction
+          </span>
+          . Now everything is automated and incredibly reliable.”
+        </Text>
+        <div className="flex items-center gap-6">
+          <img
+            src="https://i.pravatar.cc/100?img=60"
+            alt="Nafis"
+            className="size-20 rounded-2xl rotate-3 object-cover shadow-xl border-4 border-white"
+          />
+          <div>
+            <Text size="xl" fontWeight="bold" className="tracking-tight mb-1.5">
+              Nafis Rahman
+            </Text>
+            <span className="text-muted font-medium italic">
+              Engineering Lead at Vertex
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="w-full lg:w-5/12 space-y-4">
+        <Card className="p-8 border-subtle rounded-4xl">
+          <div className="flex justify-between items-start mb-4">
+            <Text
+              size="6xl"
+              fontWeight="black"
+              className="text-default leading-none"
+            >
+              3x
+            </Text>
+            <Badge variant="subtle" color="success" size="md">
+              ↑ 200%
+            </Badge>
+          </div>
+          <Text fontWeight="medium" className="text-muted uppercase">
+            Faster daily deployments
+          </Text>
+        </Card>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="p-6 rounded-4xl text-white dark:text-neutral bg-neutral dark:bg-white">
+            <Text size="3xl" fontWeight="bold" className="mb-6">
+              -60%
+            </Text>
+            <Text
+              size="xs"
+              fontWeight="semibold"
+              className="uppercase tracking-widest"
+            >
+              Error Rate
+            </Text>
+          </div>
+          <div className="p-6 rounded-4xl text-white dark:text-neutral bg-warning">
+            <Text size="3xl" fontWeight="bold" className="mb-6">
+              99.9%
+            </Text>
+            <Text
+              size="xs"
+              fontWeight="semibold"
+              className="uppercase tracking-widest"
+            >
+              Uptime
+            </Text>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}33:T52f4,<span class="line"><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;use client&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">import</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> { Badge, Card, Text } </span><span style="color:#D73A49;--shiki-dark:#F97583">from</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &quot;@hummingbirdui/react&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">export</span><span style="color:#D73A49;--shiki-dark:#F97583"> default</span><span style="color:#D73A49;--shiki-dark:#F97583"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Testimonial5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;px-6 py-24 max-w-6xl mx-auto flex flex-col lg:flex-row gap-20 items-center&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;lg:w-7/12&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          as</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;blockquote&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;4xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">          className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md:text-5xl/14 italic tracking-tight mb-12&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          “Before using this platform, our process was{</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot; &quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;underline decoration-warning decoration-4 underline-offset-8&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            slow and full of friction</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          . Now everything is automated and incredibly reliable.”</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex items-center gap-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">img</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            src</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;https://i.pravatar.cc/100?img=60&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            alt</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Nafis&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">            className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;size-20 rounded-2xl rotate-3 object-cover shadow-xl border-4 border-white&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          /&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;tracking-tight mb-1.5&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Nafis Rahman</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted font-medium italic&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Engineering Lead at Vertex</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">span</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;w-full lg:w-5/12 space-y-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-8 border-subtle rounded-4xl&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;flex justify-between items-start mb-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;6xl&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;black&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-default leading-none&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              3x</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> variant</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;subtle&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> color</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;success&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;md&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              ↑ 200%</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Badge</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;medium&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;text-muted uppercase&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            Faster daily deployments</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Card</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;grid grid-cols-2 gap-4&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-6 rounded-4xl text-white dark:text-neutral bg-neutral dark:bg-white&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              -60%</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xs&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase tracking-widest&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Error Rate</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;p-6 rounded-4xl text-white dark:text-neutral bg-warning&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;3xl&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;bold&quot;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;mb-6&quot;</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              99.9%</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              size</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;xs&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              fontWeight</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;semibold&quot;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">              className</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;uppercase tracking-widest&quot;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">              Uptime</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            &lt;/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Text</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">          &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">      &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">div</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &lt;/</span><span style="color:#22863A;--shiki-dark:#85E89D">section</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>1e:["$","$L18","testimonial-5",{"id":"testimonial-section-with-stats-cards","title":"Testimonial section with stats cards","src":"/blocks-preview/testimonial-5/","className":"min-h-155","rawCode":"$32","children":[["$","pre","pre-0",{"className":"shiki shiki-themes github-light github-dark","style":{"backgroundColor":"#fff","--shiki-dark-bg":"#24292e","color":"#24292e","--shiki-dark":"#e1e4e8"},"tabIndex":"0","children":["$","code","code-0",{"dangerouslySetInnerHTML":{"__html":"$33"}}]}]]}]
+1f:["$","script","script-0",{"src":"/_next/static/chunks/1rdvori2xxj20.js","async":true}]
+20:["$","$L34",null,{"children":["$","$26",null,{"name":"Next.MetadataOutlet","children":"$@35"}]}]
+2a:true
+9:300
+35:null
+9:C
+29:0
+b:"$undefined"
+7:"$undefined"
+28:"$undefined"
+21:"$undefined"

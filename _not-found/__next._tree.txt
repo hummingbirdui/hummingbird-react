@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/2y6th23lpqng9.css","style"]
-:HL["/_next/static/chunks/1ou33eqlpo_jr.css","style"]
+:HL["/_next/static/chunks/025h-3778ha-1.css","style"]
 :HL["/images/logos/themewagon.svg","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/os.png","image"]
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/mb.png","image"]
@@ -8,4 +8,4 @@
 :HL["https://themewagon.com/wp-content/themes/themewagon/dist/images/gn.png","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":64,"c":"$Q2"}]]
-0:{"b":"ZfnfJKtyGnDMuo1zpjjXO","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"4XXIyUC1vICs4BT4G-F75","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
