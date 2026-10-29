@@ -25,6 +25,8 @@ const navLinks: {
   href: string;
   label: string;
   isActive: (path: string) => boolean;
+  /** Pulsing dot that flags a new section. */
+  dot?: boolean;
 }[] = [
   {
     href: "/docs/getting-started",
@@ -40,6 +42,12 @@ const navLinks: {
     href: "/blocks/",
     label: "Blocks",
     isActive: (p) => p.startsWith("/blocks"),
+  },
+  {
+    href: "/templates/",
+    label: "Templates",
+    isActive: (p) => p.startsWith("/templates"),
+    dot: true,
   },
 ];
 
@@ -60,12 +68,19 @@ function NavLinks({
             asChild
             active={active}
             className={cn(
-              "px-4 py-2 text-base lg:text-sm font-normal rounded-lg hover:bg-hover",
+              "px-4 py-2 text-base lg:text-sm font-normal rounded-lg hover:bg-muted",
               active ? "text-primary" : "text-default",
             )}
           >
             <Link href={link.href} onClick={onNavigate}>
               {link.label}
+              {link.dot && (
+                <Badge
+                  color="warning"
+                  className="size-2.5 p-0 -mt-3 ms-0.5 animate-pulse"
+                  aria-hidden="true"
+                />
+              )}
             </Link>
           </Nav.Link>
         );
