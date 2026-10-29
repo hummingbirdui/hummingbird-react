@@ -25,6 +25,7 @@ export * from './list-group';
 export * from './loader';
 export * from './nav';
 export * from './navbar';
+export * from './navigation-menu';
 export * from './pagination';
 export * from './popover';
 export * from './progress';

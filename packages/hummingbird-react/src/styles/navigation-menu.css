@@ -1,0 +1,165 @@
+/*
+ * Navigation menu: Hummingbird has no navigation-menu classes, so these
+ * compose its nav-link (triggers, top-level links) and dropdown tokens
+ * (panel surface, links inside a panel).
+ */
+@utility navigation-menu {
+  @layer base {
+    --nav-link-padding-x: --spacing(3);
+    --nav-link-padding-y: --spacing(2);
+    --nav-link-font-weight: var(--font-weight-medium);
+    --nav-link-color: var(--text-color-muted);
+    --nav-link-font-size: var(--text-sm);
+    --nav-link-line-height: 1.5;
+    --nav-link-disabled-color: var(--text-color-subtle);
+    --nav-link-active-color: var(--text-color-default);
+    --nav-link-focus-ring-color: var(--color-primary-lighter);
+
+    --navigation-menu-zindex: 1000;
+    --navigation-menu-gap: --spacing(1);
+    --navigation-menu-hover-color: var(--text-color-default);
+    --navigation-menu-spacer: --spacing(1.5);
+    --navigation-menu-bg: var(--background-color-default);
+    --navigation-menu-border-width: var(--border-width);
+    --navigation-menu-border-color: transparent;
+    --navigation-menu-border-radius: var(--radius-lg);
+    --navigation-menu-box-shadow: var(--shadow-xl);
+    --navigation-menu-content-padding: --spacing(2);
+    --navigation-menu-link-padding-x: --spacing(3);
+    --navigation-menu-link-padding-y: --spacing(2);
+    --navigation-menu-link-border-radius: var(--radius-md);
+    --navigation-menu-link-font-size: var(--text-sm);
+    --navigation-menu-link-color: var(--text-color-default);
+    --navigation-menu-link-hover-bg: var(--background-color-subtle);
+    --navigation-menu-link-active-color: var(--color-primary);
+    --navigation-menu-link-active-bg: var(--color-primary-lighter);
+    --navigation-menu-indicator-bg: var(--border-color-default);
+
+    @apply relative flex max-w-max flex-1 items-center justify-center;
+
+    @variant dark {
+      --navigation-menu-border-color: var(--border-color-default);
+    }
+  }
+}
+
+@utility navigation-menu-list {
+  @layer base {
+    @apply m-0 flex flex-1 list-none items-center justify-center gap-(--navigation-menu-gap) p-0;
+  }
+}
+
+@utility navigation-menu-item {
+  @layer base {
+    /*
+     * Only anchor panels to their own item when there is no shared viewport;
+     * a positioned item would zero the trigger offset the indicator relies on.
+     */
+    .navigation-menu[data-viewport='false'] & {
+      @apply relative;
+    }
+  }
+}
+
+/* Pairs with nav-link, which provides padding, font and color. */
+@utility navigation-menu-trigger {
+  @layer base {
+    @apply inline-flex items-center gap-1 select-none;
+
+    &:hover,
+    &[data-state='open'] {
+      @apply text-(--navigation-menu-hover-color);
+    }
+  }
+}
+
+@utility navigation-menu-trigger-icon {
+  @layer base {
+    @apply size-3.5 shrink-0;
+  }
+}
+
+@utility navigation-menu-content {
+  @layer base {
+    @apply start-0 top-0 w-full p-(--navigation-menu-content-padding) md:absolute md:w-auto;
+
+    /* Reboot gives every list bullets and spacing; panels hold link lists. */
+    :where(ul, ol) {
+      @apply m-0 list-none p-0;
+    }
+
+    /* Without a shared viewport each panel draws its own surface. */
+    .navigation-menu[data-viewport='false'] & {
+      @apply top-full z-(--navigation-menu-zindex) mt-(--navigation-menu-spacer) overflow-hidden
+      border-(length:--navigation-menu-border-width) border-(--navigation-menu-border-color)
+      bg-(--navigation-menu-bg) bg-clip-padding shadow-(--navigation-menu-box-shadow)
+      rounded-(--navigation-menu-border-radius);
+    }
+  }
+}
+
+@utility navigation-menu-viewport-wrapper {
+  @layer base {
+    @apply absolute start-0 top-full isolate z-(--navigation-menu-zindex) flex justify-center;
+  }
+}
+
+@utility navigation-menu-viewport {
+  @layer base {
+    @apply relative mt-(--navigation-menu-spacer) h-(--radix-navigation-menu-viewport-height) w-full overflow-hidden
+    border-(length:--navigation-menu-border-width) border-(--navigation-menu-border-color)
+    bg-(--navigation-menu-bg) bg-clip-padding shadow-(--navigation-menu-box-shadow)
+    rounded-(--navigation-menu-border-radius) md:w-(--radix-navigation-menu-viewport-width);
+  }
+}
+
+@utility navigation-menu-link {
+  @layer base {
+    @apply flex flex-col gap-1 px-(--navigation-menu-link-padding-x) py-(--navigation-menu-link-padding-y)
+    text-(length:--navigation-menu-link-font-size) text-(--navigation-menu-link-color) no-underline
+    rounded-(--navigation-menu-link-border-radius) outline-0 transition-colors duration-150;
+
+    &:hover,
+    &:focus-visible {
+      @apply bg-(--navigation-menu-link-hover-bg);
+    }
+
+    &:focus-visible {
+      @apply ring-4 ring-primary-lighter;
+    }
+
+    &[data-active] {
+      @apply text-(--navigation-menu-link-active-color) bg-(--navigation-menu-link-active-bg);
+    }
+
+    /* A link placed directly in the list looks like a trigger. */
+    .navigation-menu-list > .navigation-menu-item > & {
+      @apply flex-row items-center px-(--nav-link-padding-x) py-(--nav-link-padding-y)
+      text-(length:--nav-link-font-size) font-(--nav-link-font-weight) leading-(--nav-link-line-height)
+      text-(--nav-link-color) bg-transparent;
+
+      &:hover {
+        @apply text-(--navigation-menu-hover-color);
+      }
+
+      &:focus-visible {
+        @apply ring-(--nav-link-focus-ring-color);
+      }
+
+      &[data-active] {
+        @apply text-(--nav-link-active-color);
+      }
+    }
+  }
+}
+
+@utility navigation-menu-indicator {
+  @layer base {
+    @apply top-full z-(--navigation-menu-zindex) flex h-2 items-end justify-center overflow-hidden;
+
+    &::after {
+      @apply relative top-[60%] size-2 rotate-45 rounded-tl-xs bg-(--navigation-menu-indicator-bg);
+      content: '';
+    }
+  }
+}

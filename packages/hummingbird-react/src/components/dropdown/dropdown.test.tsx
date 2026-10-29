@@ -435,6 +435,9 @@ describe('Dropdown', () => {
       [Dropdown.Label, 'Dropdown.Label'],
       [Dropdown.Separator, 'Dropdown.Separator'],
       [Dropdown.ItemText, 'Dropdown.ItemText'],
+      [Dropdown.Sub, 'Dropdown.Sub'],
+      [Dropdown.SubTrigger, 'Dropdown.SubTrigger'],
+      [Dropdown.SubContent, 'Dropdown.SubContent'],
     ])('%o has the correct display name', (component, name) => {
       expect((component as { displayName?: string }).displayName).toBe(name);
     });
@@ -475,6 +478,233 @@ describe('Dropdown', () => {
       ) as HTMLElement;
       expect(separator).toHaveAttribute('role', 'separator');
       expect(separator).toHaveAttribute('aria-orientation', 'horizontal');
+    });
+  });
+});
+
+// A menu with one submenu. The root is open so the sub trigger is available
+// synchronously; the submenu starts closed and opens through the trigger.
+function SubExample({
+  triggerProps,
+  contentProps,
+}: {
+  triggerProps?: Partial<React.ComponentProps<typeof Dropdown.SubTrigger>>;
+  contentProps?: Partial<React.ComponentProps<typeof Dropdown.SubContent>>;
+}) {
+  return (
+    <Dropdown defaultOpen>
+      <Dropdown.Trigger>Open</Dropdown.Trigger>
+      <Dropdown.Content>
+        <Dropdown.Item>New file</Dropdown.Item>
+        <Dropdown.Sub>
+          <Dropdown.SubTrigger {...triggerProps}>Share</Dropdown.SubTrigger>
+          <Dropdown.SubContent {...contentProps}>
+            <Dropdown.Item>Email</Dropdown.Item>
+            <Dropdown.Item>Messages</Dropdown.Item>
+          </Dropdown.SubContent>
+        </Dropdown.Sub>
+      </Dropdown.Content>
+    </Dropdown>
+  );
+}
+
+async function openSubmenu(user: ReturnType<typeof setupUser>) {
+  await user.click(screen.getByRole('menuitem', { name: /share/i }));
+  await screen.findByRole('menuitem', { name: /email/i });
+  return document.querySelector('[data-slot="dropdown-menu-sub-content"]');
+}
+
+describe('Dropdown submenu', () => {
+  describe('Rendering', () => {
+    it('renders the sub trigger as a menu item with a submenu popup', () => {
+      render(<SubExample />);
+      const trigger = screen.getByRole('menuitem', { name: /share/i });
+      expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      expect(trigger).toHaveAttribute('data-slot', 'dropdown-menu-sub-trigger');
+    });
+
+    it('keeps the submenu closed by default', () => {
+      render(<SubExample />);
+      expect(screen.queryByRole('menuitem', { name: /email/i })).not.toBeInTheDocument();
+    });
+
+    it('marks the sub trigger expanded while the submenu is open', async () => {
+      const user = setupUser();
+      render(<SubExample />);
+      await openSubmenu(user);
+      expect(screen.getByRole('menuitem', { name: /share/i })).toHaveAttribute(
+        'aria-expanded',
+        'true'
+      );
+    });
+
+    it('portals the sub content to the document body', async () => {
+      const user = setupUser();
+      render(<SubExample />);
+      const subContent = await openSubmenu(user);
+      expect(subContent?.closest('[data-radix-popper-content-wrapper]')?.parentElement).toBe(
+        document.body
+      );
+    });
+
+    it('renders a chevron after the trigger label', () => {
+      render(<SubExample />);
+      const trigger = screen.getByRole('menuitem', { name: /share/i });
+      expect(trigger.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
+    });
+  });
+
+  describe('Structure & classes', () => {
+    it('applies dropdown-item to the sub trigger', () => {
+      render(<SubExample />);
+      expect(screen.getByRole('menuitem', { name: /share/i })).toHaveClass(
+        'dropdown-item',
+        'flex',
+        'justify-between'
+      );
+    });
+
+    it('applies dropdown-menu and show to the sub content', async () => {
+      const user = setupUser();
+      render(<SubExample />);
+      const subContent = await openSubmenu(user);
+      expect(subContent).toHaveClass('dropdown-menu', 'show');
+      expect(subContent).toHaveAttribute('data-state', 'open');
+    });
+
+    it('exposes the open state on the sub trigger', async () => {
+      const user = setupUser();
+      render(<SubExample />);
+      await openSubmenu(user);
+      expect(screen.getByRole('menuitem', { name: /share/i })).toHaveAttribute(
+        'data-state',
+        'open'
+      );
+    });
+
+    it('places the sub content to the right by default', async () => {
+      const user = setupUser();
+      render(<SubExample />);
+      const subContent = await openSubmenu(user);
+      expect(subContent).toHaveAttribute('data-side', 'right');
+    });
+  });
+
+  describe('Interactions', () => {
+    it('opens the submenu when the sub trigger is clicked', async () => {
+      const user = setupUser();
+      render(<SubExample />);
+
+      await user.click(screen.getByRole('menuitem', { name: /share/i }));
+      expect(await screen.findByRole('menuitem', { name: /email/i })).toBeInTheDocument();
+    });
+
+    it('opens with ArrowRight and closes with ArrowLeft', async () => {
+      const user = setupUser();
+      render(<SubExample />);
+
+      const trigger = screen.getByRole('menuitem', { name: /share/i });
+      trigger.focus();
+      await user.keyboard('{ArrowRight}');
+      expect(await screen.findByRole('menuitem', { name: /email/i })).toBeInTheDocument();
+
+      await user.keyboard('{ArrowLeft}');
+      await waitFor(() =>
+        expect(screen.queryByRole('menuitem', { name: /email/i })).not.toBeInTheDocument()
+      );
+    });
+
+    it('fires onOpenChange on Dropdown.Sub', async () => {
+      const user = setupUser();
+      const onOpenChange = vi.fn();
+      render(
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Sub onOpenChange={onOpenChange}>
+              <Dropdown.SubTrigger>Share</Dropdown.SubTrigger>
+              <Dropdown.SubContent>
+                <Dropdown.Item>Email</Dropdown.Item>
+              </Dropdown.SubContent>
+            </Dropdown.Sub>
+          </Dropdown.Content>
+        </Dropdown>
+      );
+
+      await user.click(screen.getByRole('menuitem', { name: /share/i }));
+      expect(onOpenChange).toHaveBeenCalledWith(true);
+    });
+
+    it('marks a disabled sub trigger and does not open it', async () => {
+      const user = setupUser();
+      render(<SubExample triggerProps={{ disabled: true }} />);
+
+      const trigger = screen.getByRole('menuitem', { name: /share/i });
+      expect(trigger).toHaveClass('disabled');
+      expect(trigger).toHaveAttribute('data-disabled');
+
+      await user.click(trigger);
+      expect(screen.queryByRole('menuitem', { name: /email/i })).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Class Merging', () => {
+    it('merges className onto the sub trigger and sub content', async () => {
+      const user = setupUser();
+      render(
+        <SubExample
+          triggerProps={{ className: 'custom-trigger' }}
+          contentProps={{ className: 'custom-content' }}
+        />
+      );
+      await openSubmenu(user);
+      expect(screen.getByRole('menuitem', { name: /share/i })).toHaveClass(
+        'dropdown-item',
+        'custom-trigger'
+      );
+      expect(document.querySelector('[data-slot="dropdown-menu-sub-content"]')).toHaveClass(
+        'dropdown-menu',
+        'custom-content'
+      );
+    });
+  });
+
+  describe('Ref Forwarding', () => {
+    it('forwards refs to the sub trigger and sub content', async () => {
+      const user = setupUser();
+      const triggerRef = React.createRef<HTMLDivElement>();
+      const contentRef = React.createRef<HTMLDivElement>();
+      render(<SubExample triggerProps={{ ref: triggerRef }} contentProps={{ ref: contentRef }} />);
+      await openSubmenu(user);
+      expect(triggerRef.current).toBeInstanceOf(HTMLDivElement);
+      expect(contentRef.current).toBeInstanceOf(HTMLDivElement);
+      expect(contentRef.current).toHaveClass('dropdown-menu');
+    });
+  });
+
+  describe('asChild', () => {
+    it('renders the sub trigger as its child element', () => {
+      render(
+        <Dropdown defaultOpen>
+          <Dropdown.Trigger>Open</Dropdown.Trigger>
+          <Dropdown.Content>
+            <Dropdown.Sub>
+              <Dropdown.SubTrigger asChild>
+                <button type="button" className="own">
+                  Share
+                </button>
+              </Dropdown.SubTrigger>
+              <Dropdown.SubContent>
+                <Dropdown.Item>Email</Dropdown.Item>
+              </Dropdown.SubContent>
+            </Dropdown.Sub>
+          </Dropdown.Content>
+        </Dropdown>
+      );
+      const trigger = screen.getByRole('menuitem', { name: /share/i });
+      expect(trigger.tagName).toBe('BUTTON');
+      expect(trigger).toHaveClass('dropdown-item', 'own');
     });
   });
 });

@@ -8,6 +8,7 @@
 @import './styles/slider.css';
 @import './styles/calendar.css';
 @import './styles/date-picker.css';
+@import './styles/navigation-menu.css';
 
 @source './components';
 @source './layout';

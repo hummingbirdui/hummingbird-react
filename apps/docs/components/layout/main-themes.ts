@@ -12,3 +12,15 @@ export const MAIN_THEMES = [
 ] as const;
 
 export type MainTheme = (typeof MAIN_THEMES)[number]["value"];
+
+/**
+ * Pages that always use the default theme and hide the theme picker: the
+ * landing page, and the blocks pages, whose previews pick a theme each.
+ */
+export const DEFAULT_THEME_PATHS = ["/", "/blocks"];
+
+export function usesDefaultMainTheme(pathname: string) {
+  return DEFAULT_THEME_PATHS.some((path) =>
+    path === "/" ? pathname === "/" : pathname.startsWith(path),
+  );
+}
