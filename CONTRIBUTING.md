@@ -131,10 +131,10 @@ Template rules (enforced by `tests/templates.test.ts`):
 - **Dotfiles use a `_` prefix.** Store `.gitignore` as `_gitignore`; it is renamed on copy, because npm strips `.gitignore` from published packages.
 - **Placeholders.** `package.json` `name` is replaced with the project name, and `{{projectName}}` in `README.md` is filled in.
 - **Shared files stay identical.** `HbReactLogo.tsx`, `HeroIllustration.tsx` and the welcome page's `<main>` block must match across all five templates; only the `ENTRY_FILE` constant differs. Change them everywhere at once.
-- **pnpm needs extra config for some templates.** pnpm 11+ fails installs when a dependency has an install script that isn't reviewed in `allowBuilds`. Gatsby's `pnpm-workspace.yaml` lists its reviewed scripts and sets `nodeLinker: hoisted`, which Gatsby needs. The smoke workflow installs pnpm templates with the latest pnpm to catch new cases.
+- **pnpm needs extra config for some templates.** pnpm 11+ fails installs when a dependency has an install script that isn't reviewed in `allowBuilds`. Gatsby's `pnpm-workspace.yaml` lists its reviewed scripts and sets `nodeLinker: hoisted`, which Gatsby needs.
 - **No linters, web fonts or extra boilerplate.** Templates stay minimal so there is less to keep current.
 
-Unit and integration tests run in CI with the rest of the repo. The **Template smoke test** workflow (`.github/workflows/templates-smoke.yml`) scaffolds, installs and builds every template on PRs that touch the package and weekly; run it manually with `library: workspace` to test templates against an unreleased library build.
+Unit and integration tests run in CI with the rest of the repo. They don't install or build the templates, so after changing a template (or merging a Dependabot template PR), scaffold it as shown above and run its `install` and `build` to check it still works.
 
 ## Working on the documentation
 

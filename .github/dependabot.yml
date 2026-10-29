@@ -11,7 +11,7 @@ updates:
       interval: "weekly"
   # create-hummingbird-react-app templates are standalone projects (not
   # workspaces) with no lockfile, so ranges are raised in package.json
-  # directly. The "Template smoke test" workflow is the gate for these PRs.
+  # directly.
   - package-ecosystem: "npm"
     directories:
       - "/packages/create-hummingbird-react-app/templates/*"
