@@ -128,6 +128,21 @@ export const registry: Record<string, RegistryEntry> = {
   "nav-colors": { file: "nav/nav-colors.tsx" },
   "nav-active": { file: "nav/nav-active.tsx" },
   "nav-disabled": { file: "nav/nav-disabled.tsx" },
+  "navigation-menu-default": {
+    file: "navigation-menu/navigation-menu-default.tsx",
+  },
+  "navigation-menu-descriptions": {
+    file: "navigation-menu/navigation-menu-descriptions.tsx",
+  },
+  "navigation-menu-no-viewport": {
+    file: "navigation-menu/navigation-menu-no-viewport.tsx",
+  },
+  "navigation-menu-active": {
+    file: "navigation-menu/navigation-menu-active.tsx",
+  },
+  "navigation-menu-indicator": {
+    file: "navigation-menu/navigation-menu-indicator.tsx",
+  },
   "navbar-default": { file: "navbar/navbar-default.tsx" },
   "navbar-expand": { file: "navbar/navbar-expand.tsx" },
   "navbar-collapse": { file: "navbar/navbar-collapse.tsx" },
@@ -175,6 +190,7 @@ export const registry: Record<string, RegistryEntry> = {
   "dropdown-placement": { file: "dropdown/dropdown-placement.tsx" },
   "dropdown-disabled": { file: "dropdown/dropdown-disabled.tsx" },
   "dropdown-item-text": { file: "dropdown/dropdown-item-text.tsx" },
+  "dropdown-submenu": { file: "dropdown/dropdown-submenu.tsx" },
   "file-uploader-default": { file: "file-uploader/file-uploader-default.tsx" },
   "file-uploader-thumbnail": {
     file: "file-uploader/file-uploader-thumbnail.tsx",

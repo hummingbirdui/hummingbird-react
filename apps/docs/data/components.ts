@@ -302,6 +302,12 @@ export const navigation: Component[] = [
     imgComponent: Navbar,
   },
   {
+    title: "Navigation Menu",
+    url: "/docs/components/navigation-menu",
+    count: 5,
+    imgComponent: Navbar,
+  },
+  {
     title: "Drawer",
     url: "/docs/components/drawer",
     count: 7,

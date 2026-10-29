@@ -1,0 +1,485 @@
+---
+title: Navigation Menu
+description: A collection of links and panels for navigating a website, with keyboard support and an animated, resizing viewport.
+---
+
+## Default
+
+Each `NavigationMenu.Item` holds either a `NavigationMenu.Trigger` with its `NavigationMenu.Content` panel, or a single `NavigationMenu.Link`. Panels open on hover or click and share one viewport that resizes between them.
+
+<ComponentPreview
+  name="navigation-menu-default"
+  className="flex items-start justify-center min-h-80"
+/>
+
+## With descriptions
+
+A `NavigationMenu.Link` lays out its children in a column, so a title and a short description can sit inside one link.
+
+<ComponentPreview
+  name="navigation-menu-descriptions"
+  className="flex items-start justify-center min-h-80"
+/>
+
+## Without viewport
+
+Setting `viewport={false}` renders each panel below its own item with its own surface instead of inside the shared viewport.
+
+<ComponentPreview
+  name="navigation-menu-no-viewport"
+  className="flex items-start justify-center min-h-64"
+/>
+
+## Active link
+
+The `active` prop marks the link for the current page, both at the top level and inside a panel.
+
+<ComponentPreview
+  name="navigation-menu-active"
+  className="flex items-start justify-center min-h-64"
+/>
+
+## Indicator
+
+`NavigationMenu.Indicator` renders an arrow below the trigger of the open panel.
+
+<ComponentPreview
+  name="navigation-menu-indicator"
+  className="flex items-start justify-center min-h-64"
+/>
+
+## API Reference
+
+Built on the [Radix UI Navigation Menu](https://www.radix-ui.com/primitives/docs/components/navigation-menu) primitive. Each part forwards all props to its Radix counterpart.
+
+### NavigationMenu
+
+Contains all the parts of a navigation menu.
+
+<PropsTable
+  data={[
+    {
+      prop: "defaultValue",
+      type: "string",
+      description:
+        "The value of the menu item that should be active when initially rendered. Used when the value is not controlled.",
+    },
+    {
+      prop: "value",
+      type: "string",
+      description: (
+        <>
+          The controlled value of the menu item to activate. Should be used in
+          conjunction with <code>onValueChange</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onValueChange",
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+    {
+      prop: "delayDuration",
+      type: "number",
+      default: "200",
+      description:
+        "The duration from when the pointer enters the trigger until the panel opens.",
+    },
+    {
+      prop: "skipDelayDuration",
+      type: "number",
+      default: "300",
+      description:
+        "How much time a user has to enter another trigger without incurring a delay again.",
+    },
+    {
+      prop: "dir",
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <>
+          The reading direction of the menu when applicable. If omitted,
+          inherits globally from <code>DirectionProvider</code> or assumes LTR
+          (left-to-right) reading mode.
+        </>
+      ),
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      default: '"horizontal"',
+      description: "The orientation of the menu.",
+    },
+    {
+      prop: "viewport",
+      type: "boolean",
+      default: "true",
+      description: (
+        <>
+          Renders panels inside one shared <code>NavigationMenu.Viewport</code>.
+          When <code>false</code>, each panel renders below its own item.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+    {
+      attribute: "[data-viewport]",
+      values: ['"true"', '"false"'],
+    },
+  ]}
+/>
+
+### NavigationMenu.List
+
+Contains the top level menu items.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### NavigationMenu.Item
+
+A top level menu item, containing a link or a trigger with its content.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "value",
+      type: "string",
+      description: (
+        <>
+          A unique value that associates the item with an active value when the
+          menu is controlled. This prop is managed automatically when
+          uncontrolled.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+
+### NavigationMenu.Trigger
+
+The button that toggles a panel. It renders a trailing chevron that flips while the panel is open.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-disabled]",
+      values: "Present when disabled",
+    },
+  ]}
+/>
+
+### NavigationMenu.Content
+
+The panel associated with a trigger.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onFocusOutside",
+      type: "(event: FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when focus moves outside the bounds of the
+          component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "onInteractOutside",
+      type: "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when an interaction (pointer or focus event)
+          happens outside the bounds of the component. It can be prevented by
+          calling <code>event.preventDefault</code>.
+        </>
+      ),
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-motion]",
+      values: ['"to-start"', '"to-end"', '"from-start"', '"from-end"'],
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### NavigationMenu.Link
+
+A navigational link. Inside a panel it renders as a menu row; placed directly in an item it matches the triggers.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "active",
+      type: "boolean",
+      default: "false",
+      description: "Used to identify the link as the currently active page.",
+    },
+    {
+      prop: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <>
+          Event handler called when the user selects a link (via mouse or
+          keyboard). Calling <code>event.preventDefault</code> in this handler
+          will prevent the navigation menu from closing when selecting that
+          link.
+        </>
+      ),
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-active]",
+      values: "Present when active",
+    },
+  ]}
+/>
+
+### NavigationMenu.Indicator
+
+An optional arrow rendered below the list to highlight the open trigger.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"visible"', '"hidden"'],
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+
+### NavigationMenu.Viewport
+
+The surface that renders the open panel. `NavigationMenu` adds it automatically unless `viewport={false}` is set.
+
+<PropsTable
+  data={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      default: "false",
+      description:
+        "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+    },
+    {
+      prop: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+    {
+      prop: "className",
+      type: "string",
+      description: "Additional classes merged with the generated classes.",
+    },
+  ]}
+/>
+<br />
+<DataAttributesTable
+  data={[
+    {
+      attribute: "[data-state]",
+      values: ['"open"', '"closed"'],
+    },
+    {
+      attribute: "[data-orientation]",
+      values: ['"vertical"', '"horizontal"'],
+    },
+  ]}
+/>
+<br />
+<CssVariablesTable
+  data={[
+    {
+      cssVariable: "--radix-navigation-menu-viewport-width",
+      description:
+        "The width of the viewport when visible/hidden, computed from the active content.",
+    },
+    {
+      cssVariable: "--radix-navigation-menu-viewport-height",
+      description:
+        "The height of the viewport when visible/hidden, computed from the active content.",
+    },
+  ]}
+/>
+
+## Styling
+
+Hummingbird React navigation menu is styled through Hummingbird's utility classes and CSS variables. Triggers and top-level links reuse the `nav-link` class, and panels reuse the dropdown's surface tokens.
+
+- The `navigation-menu`, `navigation-menu-list`, `navigation-menu-item`, `navigation-menu-trigger`, `navigation-menu-content`, `navigation-menu-viewport`, `navigation-menu-link` and `navigation-menu-indicator` classes ship with `@hummingbirdui/react`.
+- The `navigation-menu` class defines the `--nav-link-*` variables for its triggers and the `--navigation-menu-*` variables (surface, spacing and link colors) for its panels.
+- See the [Nav CSS Variables](https://hbui.dev/docs/components/navs-tabs/#css-variables) and [Dropdown CSS Variables](https://hbui.dev/docs/components/dropdown/#css-variables) documentation for the underlying tokens.
