@@ -69,11 +69,14 @@ jobs:
           done
           echo "tag=$(echo "$VERSION" | sed -E 's/^[0-9.]+-([a-z]+).*/\1/')" >> "$GITHUB_OUTPUT"
 
+      # The CLI templates depend on the library, so they are pointed at the
+      # prerelease too: a beta CLI scaffolds projects with the beta library.
       - name: Set package versions (not committed)
         run: |
           for dir in $PACKAGE_DIRS; do
             (cd "$dir" && npm version "${{ inputs.version }}" --no-git-tag-version)
           done
+          node .github/scripts/sync-template-versions.mjs
 
       - run: pnpm turbo run build lint check-types test --filter=@hummingbirdui/react --filter=create-hummingbird-react-app
 
