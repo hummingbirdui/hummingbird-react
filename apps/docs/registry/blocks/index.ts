@@ -55,6 +55,12 @@ export const blockCategories: BlockCategory[] = [
         file: "layouts/layout-4.tsx",
         className: "min-h-225",
       },
+      {
+        name: "layout-5",
+        title: "Horizontal Navigation",
+        file: "layouts/layout-5.tsx",
+        className: "min-h-225",
+      },
     ],
   },
   {
